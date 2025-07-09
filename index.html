@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Faqih Al Rifai - Professional Portfolio</title>
+    <title id="pageTitle">Muhammad Faqih Al Rifai - Professional Portfolio</title>
     <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Web Developer, Business Analyst, and Product Designer">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -252,27 +252,57 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full bg-white shadow-md z-50 navbar-visible">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-xl font-bold text-teal-600">Faqih | Portfolio</span>
+                    <span class="text-xl font-bold text-teal-600" id="navbarName">Faqih | Portfolio</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-700 hover:text-teal-600 transition">About</a>
-                    <a href="#skills" class="text-gray-700 hover:text-teal-600 transition">Skills</a>
-                    <a href="#projects" class="text-gray-700 hover:text-teal-600 transition">Projects</a>
-                    <a href="#workflow" class="text-gray-700 hover:text-teal-600 transition">Workflow</a>
-                    <a href="#experience" class="text-gray-700 hover:text-teal-600 transition">Experience</a>
-                    <a href="#certificates" class="text-gray-700 hover:text-teal-600 transition">Certificates</a>
+                    <a href="#about" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navAbout">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navSkills">Skills</a>
+                    <a href="#projects" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navProjects">Projects</a>
+                    <a href="#workflow" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navWorkflow">Workflow</a>
+                    <a href="#experience" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navExperience">Experience</a>
+                    <a href="#certificates" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navCertificates">Certificates</a>
+                    <!-- Language Toggle -->
+                    <div class="relative inline-block text-left">
+                        <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-teal-500" id="languageMenuButton" aria-expanded="true" aria-haspopup="true">
+                            <span id="currentLangDisplay">EN</span>
+                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="origin-top-right absolute right-0 mt-2 w-24 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="languageMenuButton" tabindex="-1" id="languageMenu">
+                            <div class="py-1" role="none">
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="langEn" data-lang="en">English</a>
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="langId" data-lang="id">Bahasa Indonesia</a>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Dark Mode Toggle -->
                     <button id="darkModeToggle" class="text-gray-700 hover:text-teal-600 focus:outline-none">
                         <i class="fas fa-moon text-xl"></i>
                     </button>
                 </div>
                 <div class="md:hidden flex items-center">
+                    <!-- Language Toggle for Mobile -->
+                    <div class="relative inline-block text-left mr-4">
+                        <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" id="mobileLanguageMenuButton" aria-expanded="true" aria-haspopup="true">
+                            <span id="currentMobileLangDisplay">EN</span>
+                            <svg class="-mr-1 ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="origin-top-right absolute right-0 mt-2 w-24 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobileLanguageMenuButton" tabindex="-1" id="mobileLanguageMenu">
+                            <div class="py-1" role="none">
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="mobileLangEn" data-lang="en">English</a>
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="mobileLangId" data-lang="id">Bahasa Indonesia</a>
+                            </div>
+                        </div>
+                    </div>
                     <button id="mobile-menu-button" class="text-gray-700 hover:text-teal-600">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -288,12 +318,12 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Projects</a>
-                <a href="#workflow" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Workflow</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Experience</a>
-                <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Certificates</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navAbout">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navSkills">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navProjects">Projects</a>
+                <a href="#workflow" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navWorkflow">Workflow</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navExperience">Experience</a>
+                <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navCertificates">Certificates</a>
             </div>
         </div>
     </nav>
@@ -304,15 +334,16 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
-                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden">Web Developer & Business Analyst</h2>
-                    <p class="text-lg text-gray-600 mb-8 initial-hidden">Creating innovative digital solutions with a focus on user experience and business impact.</p>
+                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle">Web Developer & Business Analyst</h2>
+                    <p class="text-lg text-gray-600 mb-8 initial-hidden" id="heroDescription">Creating innovative digital solutions with a focus on user experience and business impact.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden">
-                        <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center">
-                            View Projects
-                            <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full">Design Modern</span>
+                        <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center" data-lang-key="viewProjectsBtn">
+                            <span data-lang-key="viewProjectsBtnText">View Projects</span>
+                            <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full" data-lang-key="designModernTag">Modern Design</span>
                         </a>
-                        <a href="your_cv.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center">
-                            <i class="fas fa-download mr-2"></i> Download CV
+                        <a href="CV Muhammad Faqih Al Rifai.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center" data-lang-key="downloadCvBtn">
+                            <i class="fas fa-download mr-2"></i>
+                            <span data-lang-key="downloadCvBtnText">Download CV</span>
                         </a>
                     </div>
                 </div>
@@ -329,31 +360,35 @@
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">About Me</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">About Me</h2>
             <div class="max-w-3xl mx-auto">
-                <p class="text-lg text-gray-600 mb-8 initial-hidden">
-                    I am a 19-year-old young professional with a high passion for technology and business. Equipped with expertise in web development, product design, and business analysis, I am committed to creating innovative solutions that are not only functional but also have a real impact.
+                <p class="text-lg text-gray-600 mb-8 initial-hidden" data-lang-key="aboutMeP1">
+                    I am a 19-year-old young professional with a high passion for technology and business...
                 </p>
-                <p class="text-lg text-gray-600 mb-8 initial-hidden">
-                    With a strong background in front-end development and practical experience in building and managing businesses, I am ready to contribute to dynamic and results-oriented teams. I am ambitious to develop a career in web development, especially in creating intuitive and functional user experiences, and looking for opportunities to contribute to challenging and innovative projects.
-                </p>
+                
+                <!-- Personal Information Card -->
                 <div class="bg-teal-50 p-6 rounded-lg modern-card mini-card initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Personal Information</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="personalInfoTitle">Personal Information</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p class="font-medium">Location:</p>
+                            <p class="font-medium" data-lang-key="locationLabel">Location:</p>
                             <p class="text-gray-600">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
                         </div>
                         <div>
-                            <p class="font-medium">Contact:</p>
+                            <p class="font-medium" data-lang-key="contactLabel">Contact:</p>
                             <p class="text-gray-600">+62 859-1482-19009 (WhatsApp)</p>
                         </div>
                     </div>
-                </div>
-                <div class="flex justify-center mt-8 initial-hidden">
-                    <a href="your_cv.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-8 py-4 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center text-lg">
-                        <i class="fas fa-download mr-3"></i> Download CV
-                    </a>
+                    
+                    <!-- TOMBOL UNDUH CV BARU DITAMBAHKAN DI SINI -->
+                    <div class="flex justify-center mt-8 initial-hidden">
+                        <a href="https://drive.google.com/uc?export=download&id=1HJyKZvasQWfUBORxxFjlhLq0-_xcOX1r" 
+                        class="bg-teal-600 text-white px-8 py-4 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center text-lg"
+                        target="_blank">
+                            <i class="fas fa-download mr-3"></i>
+                            <span data-lang-key="downloadCvBtn">Download CV</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -362,18 +397,18 @@
     <!-- Skills Section -->
     <section id="skills" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Skills</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="skillsTitle">Skills</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Hard Skills -->
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Hard Skills</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="hardSkillsTitle">Hard Skills</h3>
                     
                     <div class="mb-6">
-                        <h4 class="text-lg font-medium text-gray-800 mb-2">Web Development:</h4>
+                        <h4 class="text-lg font-medium text-gray-800 mb-2" data-lang-key="webDevTitle">Web Development:</h4>
                         <ul class="list-disc pl-5 space-y-3 text-gray-600">
                             <li>
-                                <span class="font-medium">Front-End Development:</span> Proficient in building responsive and interactive user interfaces using HTML, CSS, JavaScript, and Tailwind CSS.
+                                <span class="font-medium" data-lang-key="frontEndDevLabel">Front-End Development:</span> <span data-lang-key="frontEndDevDesc">Proficient in building responsive and interactive user interfaces using HTML, CSS, JavaScript, and Tailwind CSS.</span>
                                 <div class="flex items-center mt-1">
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                                         <div class="bg-teal-600 h-2.5 rounded-full" style="width: 90%;"></div>
@@ -382,31 +417,31 @@
                                 </div>
                             </li>
                             <li>
-                                <span class="font-medium">E-commerce Web Development:</span> Experienced in designing and developing efficient, sales-oriented e-commerce web platforms, including integration with payment systems and product management.
+                                <span class="font-medium" data-lang-key="ecomWebDevLabel">E-commerce Web Development:</span> <span data-lang-key="ecomWebDevDesc">Experienced in designing and developing efficient, sales-oriented e-commerce web platforms, including integration with payment systems and product management.</span>
                                 <div class="flex items-center mt-1">
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                                         <div class="bg-teal-600 h-2.5 rounded-full" style="width: 85%;"></div>
                                     </div>
-                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">85%</span>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">90%</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     
                     <div class="mb-6">
-                        <h4 class="text-lg font-medium text-gray-800 mb-2">Analysis & Business Strategy:</h4>
+                        <h4 class="text-lg font-medium text-gray-800 mb-2" data-lang-key="analysisStrategyTitle">Analysis & Business Strategy:</h4>
                         <ul class="list-disc pl-5 space-y-3 text-gray-600">
                             <li>
-                                <span class="font-medium">Sales Analysis:</span> Able to analyze sales data to identify trends, growth opportunities, and formulate performance improvement strategies.
+                                <span class="font-medium" data-lang-key="salesAnalysisLabel">Sales Analysis:</span> <span data-lang-key="salesAnalysisDesc">Able to analyze sales data to identify trends, growth opportunities, and formulate performance improvement strategies.</span>
                                 <div class="flex items-center mt-1">
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                                         <div class="bg-teal-600 h-2.5 rounded-full" style="width: 80%;"></div>
                                     </div>
-                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">80%</span>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">85%</span>
                                 </div>
                             </li>
                             <li>
-                                <span class="font-medium">Business Development Strategy:</span> Skilled in formulating comprehensive business development strategies to achieve market targets, expand reach, and increase revenue.
+                                <span class="font-medium" data-lang-key="bizDevStrategyLabel">Business Development Strategy:</span> <span data-lang-key="bizDevStrategyDesc">Skilled in formulating comprehensive business development strategies to achieve market targets, expand reach, and increase revenue.</span>
                                 <div class="flex items-center mt-1">
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                                         <div class="bg-teal-600 h-2.5 rounded-full" style="width: 90%;"></div>
@@ -418,15 +453,15 @@
                     </div>
                     
                     <div>
-                        <h4 class="text-lg font-medium text-gray-800 mb-2">Product Design:</h4>
+                        <h4 class="text-lg font-medium text-gray-800 mb-2" data-lang-key="productDesignTitle">Product Design:</h4>
                         <ul class="list-disc pl-5 space-y-3 text-gray-600">
                             <li>
-                                <span class="font-medium">Product Design:</span> Capable of designing user-centered digital products, ensuring intuitive, engaging experiences that meet business needs.
+                                <span class="font-medium" data-lang-key="productDesignLabel">Product Design:</span> <span data-lang-key="productDesignDesc">Capable of designing user-centered digital products, ensuring intuitive, engaging experiences that meet business needs.</span>
                                 <div class="flex items-center mt-1">
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                                         <div class="bg-teal-600 h-2.5 rounded-full" style="width: 88%;"></div>
                                     </div>
-                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">88%</span>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">95%</span>
                                 </div>
                             </li>
                         </ul>
@@ -435,15 +470,15 @@
                 
                 <!-- Soft Skills -->
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Soft Skills</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="softSkillsTitle">Soft Skills</h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Problem Solving</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Teamwork</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Effective Communication</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Adaptability</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Initiative</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Customer-Oriented</span>
-                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Time Management</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="problemSolving">Problem Solving</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="teamwork">Teamwork</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="effectiveComm">Effective Communication</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="adaptability">Adaptability</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="initiative">Initiative</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="customerOriented">Customer-Oriented</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-lang-key="timeManagement">Time Management</span>
                     </div>
                 </div>
             </div>
@@ -453,29 +488,29 @@
     <!-- Projects Section -->
     <section id="projects" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Featured Projects</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="featuredProjectsTitle">Featured Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1: MyDSGN -->
                 <div class="modern-card p-6 bg-white initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
-                    <p class="text-gray-600 mb-4">A design platform showcasing creative work and portfolio management.</p>
+                    <p class="text-gray-600 mb-4" data-lang-key="myDsgnDesc">A design platform showcasing creative work and portfolio management.</p>
                     <div class="mb-4">
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
-                    <p class="text-gray-500 text-sm mb-4">Impact metric: <span class="text-teal-600">Meningkatkan interaksi pengguna sebesar X%.</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 1 days</p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="impactMetric">Impact metric: <span class="text-teal-600" data-lang-key="myDsgnImpact">Increased user interaction by X%.</span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
-                            View Project
+                        <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('MyDSGN')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
-                            View Details
+                        <button onclick="openProjectDetailModal('MyDSGN')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
                 </div>
@@ -483,23 +518,23 @@
                 <!-- Project 2: DashProPanel -->
                 <div class="modern-card p-6 bg-white initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
-                    <p class="text-gray-600 mb-4">A dashboard for professional panel management with data visualization.</p>
+                    <p class="text-gray-600 mb-4" data-lang-key="dashProPanelDesc">A dashboard for professional panel management with data visualization.</p>
                     <div class="mb-4">
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
-                    <p class="text-gray-500 text-sm mb-4">Impact metric: <span class="text-teal-600">Mengoptimalkan alur kerja manajemen data untuk efisiensi Y%.</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 19 days</p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="impactMetric2">Impact metric: <span class="text-teal-600" data-lang-key="dashProPanelImpact">Optimized data management workflow for Y% efficiency.</span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
-                            View Project
+                        <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('DashProPanel')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
-                            View Details
+                        <button onclick="openProjectDetailModal('DashProPanel')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
                 </div>
@@ -507,21 +542,21 @@
                 <!-- Project 3: Evolvemart -->
                 <div class="modern-card p-6 bg-white initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
-                    <p class="text-gray-600 mb-4">An e-commerce platform currently in development phase.</p>
+                    <p class="text-gray-600 mb-4" data-lang-key="evolvemartDesc">An e-commerce platform currently in development phase.</p>
                     <div class="mb-4 flex items-center">
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
-                        <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Dalam Pengembangan Lanjutan</span>
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">In Advanced Development</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 22 days</p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
-                            View Project
+                        <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('Evolvemart')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
-                            View Details
+                        <button onclick="openProjectDetailModal('Evolvemart')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
                 </div>
@@ -529,23 +564,23 @@
                 <!-- Project 4: Dapur Ummi -->
                 <div class="modern-card p-6 bg-white initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
-                    <p class="text-gray-600 mb-4">A culinary website currently under maintenance.</p>
+                    <p class="text-gray-600 mb-4" data-lang-key="dapurUmmiDesc">A culinary website currently under maintenance.</p>
                     <div class="mb-4">
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
-                    <p class="text-gray-500 text-sm mb-4">Status: <span class="text-teal-600">Sedang dalam Perbaikan</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 10 days</p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusMaintenance">Status: <span class="text-teal-600" data-lang-key="statusMaintenanceText">Under Maintenance</span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://dapurummi.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
-                            View Project
+                        <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('Dapur Ummi')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
-                            View Details
+                        <button onclick="openProjectDetailModal('Dapur Ummi')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
                 </div>
@@ -556,31 +591,31 @@
     <!-- My Workflow/Process Section -->
     <section id="workflow" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">My Workflow / Process</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="workflowTitle">My Workflow / Process</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">1. Penemuan & Riset</h3>
-                    <p class="text-gray-600">Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow1Title">1. Discovery & Research</h3>
+                    <p class="text-gray-600" data-lang-key="workflow1Desc">Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">2. Perencanaan & Wireframing</h3>
-                    <p class="text-gray-600">Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow2Title">2. Planning & Wireframing</h3>
+                    <p class="text-gray-600" data-lang-key="workflow2Desc">Developing project structure through wireframes and sitemaps, organizing information architecture, and planning key functionalities for optimal user experience.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">3. Desain UI/UX</h3>
-                    <p class="text-gray-600">Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow3Title">3. UI/UX Design</h3>
+                    <p class="text-gray-600" data-lang-key="workflow3Desc">Creating intuitive and visually appealing user interfaces, focusing on user experience (UX) through mockups, interactive prototypes, and usability testing.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">4. Pengembangan</h3>
-                    <p class="text-gray-600">Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow4Title">4. Development</h3>
+                    <p class="text-gray-600" data-lang-key="workflow4Desc">Implementing designs into functional and clean code, building core features, and ensuring seamless integration between front-end and back-end.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">5. Pengujian & Iterasi</h3>
-                    <p class="text-gray-600">Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow5Title">5. Testing & Iteration</h3>
+                    <p class="text-gray-600" data-lang-key="workflow5Desc">Conducting thorough testing (functional, performance, security) to identify and fix bugs, and iterating based on user feedback and test results for product refinement.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4">6. Peluncuran & Pemeliharaan</h3>
-                    <p class="text-gray-600">Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow6Title">6. Launch & Maintenance</h3>
+                    <p class="text-gray-600" data-lang-key="workflow6Desc">Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.</p>
                 </div>
             </div>
         </div>
@@ -589,31 +624,31 @@
     <!-- Experience Section -->
     <section id="experience" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="experienceTitle">Professional Experience</h2>
             
             <div class="max-w-3xl mx-auto space-y-8">
                 <!-- Experience 1 -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700">Owner, Cookies Business</h3>
-                        <span class="text-gray-500">Self-employed</span>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="cookiesBizTitle">Owner, Cookies Business</h3>
+                        <span class="text-gray-500" data-lang-key="selfEmployed">Self-employed</span>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                        <li>Successfully built and managed a cookies business that gained 437 loyal customers.</li>
-                        <li>Achieved daily revenue of more than Rp500,000.</li>
+                        <li data-lang-key="cookiesBizDesc1">Successfully built and managed a cookies business that gained 437 loyal customers.</li>
+                        <li data-lang-key="cookiesBizDesc2">Achieved daily revenue of more than Rp500,000.</li>
                     </ul>
                 </div>
                 
                 <!-- Experience 2 -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700">Customer Service & Co-Founder, Web Development Venture</h3>
-                        <span class="text-gray-500">Co-founder</span>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="webDevVentureTitle">Customer Service & Co-Founder, Web Development Venture</h3>
+                        <span class="text-gray-500" data-lang-key="coFounder">Co-founder</span>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                        <li>Served as Customer Service and co-founder in a web development venture built with a partner.</li>
-                        <li>Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.</li>
-                        <li>Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.</li>
+                        <li data-lang-key="webDevVentureDesc1">Served as Customer Service and co-founder in a web development venture built with a partner.</li>
+                        <li data-lang-key="webDevVentureDesc2">Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.</li>
+                        <li data-lang-key="webDevVentureDesc3">Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.</li>
                     </ul>
                 </div>
             </div>
@@ -623,7 +658,7 @@
     <!-- Certificates Section -->
     <section id="certificates" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Education & Certifications</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="educationCertTitle">Education & Certifications</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Certificate 1 -->
@@ -631,8 +666,8 @@
                     <div class="h-48 overflow-hidden rounded-md mb-3">
                         <img src="cplesples.jpg" alt="C++ Essentials 1 Certificate" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">C++ Essentials 1</h3>
-                    <p class="text-sm text-gray-600">Cisco Networking Academy & OpenEDG C++ Institute</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title">C++ Essentials 1</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="cert1Org">Cisco Networking Academy & OpenEDG C++ Institute</p>
                 </div>
                 
                 <!-- Certificate 2 -->
@@ -640,8 +675,8 @@
                     <div class="h-48 overflow-hidden rounded-md mb-3">
                         <img src="data formating.jpg" alt="Data Formatting & Cleansing Certificate" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Data Formatting & Cleansing</h3>
-                    <p class="text-sm text-gray-600">MySkill - Microsoft Excel</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title">Data Formatting & Cleansing</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="cert2Org">MySkill - Microsoft Excel</p>
                 </div>
                 
                 <!-- Certificate 3 -->
@@ -649,8 +684,8 @@
                     <div class="h-48 overflow-hidden rounded-md mb-3">
                         <img src="piton.jpg" alt="Python Essentials 1 Certificate" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Python Essentials 1</h3>
-                    <p class="text-sm text-gray-600">Cisco Networking Academy & OpenEDG Python Institute</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title">Python Essentials 1</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="cert3Org">Cisco Networking Academy & OpenEDG Python Institute</p>
                 </div>
                 
                 <!-- Certificate 4 -->
@@ -658,8 +693,8 @@
                     <div class="h-48 overflow-hidden rounded-md mb-3">
                         <img src="atcom.jpg" alt="UI/UX Workshop Certificate" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">UI/UX Skills Workshop</h3>
-                    <p class="text-sm text-gray-600">Android Developer Community</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="cert4Org">Android Developer Community</p>
                 </div>
             </div>
         </div>
@@ -683,7 +718,7 @@
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
-                <p class="text-gray-400 text-sm">&copy; 2024 Muhammad Faqih Al Rifai. All rights reserved.</p>
+                <p class="text-gray-400 text-sm" data-lang-key="footerCopyright">&copy; 2024 Muhammad Faqih Al Rifai. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -707,37 +742,287 @@
 
     <!-- JavaScript -->
     <script>
-        // Data for project details
+        // Language translations
+        const translations = {
+            en: {
+                pageTitle: "Muhammad Faqih Al Rifai - Professional Portfolio",
+                navbarName: "Faqih | Portfolio",
+                navAbout: "About",
+                navSkills: "Skills",
+                navProjects: "Projects",
+                navWorkflow: "Workflow",
+                navExperience: "Experience",
+                navCertificates: "Certificates",
+                heroSubtitle: "Web Developer & Business Analyst",
+                heroDescription: "Creating innovative digital solutions with a focus on user experience and business impact.",
+                viewProjectsBtnText: "View Projects",
+                designModernTag: "Modern Design",
+                downloadCvBtnText: "Download CV",
+                downloadCvBtn2Text: "Download CV",
+                aboutMeTitle: "About Me",
+                aboutMeP1: "I am a 19-year-old young professional with a high passion for technology and business. Equipped with expertise in web development, product design, and business analysis, I am committed to creating innovative solutions that are not only functional but also have a real impact.",
+                aboutMeP2: "With a strong background in front-end development and practical experience in building and managing businesses, I am ready to contribute to dynamic and results-oriented teams. I am ambitious to develop a career in web development, especially in creating intuitive and functional user experiences, and looking for opportunities to contribute to challenging and innovative projects.",
+                personalInfoTitle: "Personal Information",
+                locationLabel: "Location:",
+                contactLabel: "Contact:",
+                skillsTitle: "Skills",
+                hardSkillsTitle: "Hard Skills",
+                webDevTitle: "Web Development:",
+                frontEndDevLabel: "Front-End Development:",
+                frontEndDevDesc: "Proficient in building responsive and interactive user interfaces using HTML, CSS, JavaScript, and Tailwind CSS.",
+                ecomWebDevLabel: "E-commerce Web Development:",
+                ecomWebDevDesc: "Experienced in designing and developing efficient, sales-oriented e-commerce web platforms, including integration with payment systems and product management.",
+                analysisStrategyTitle: "Analysis & Business Strategy:",
+                salesAnalysisLabel: "Sales Analysis:",
+                salesAnalysisDesc: "Able to analyze sales data to identify trends, growth opportunities, and formulate performance improvement strategies.",
+                bizDevStrategyLabel: "Business Development Strategy:",
+                bizDevStrategyDesc: "Skilled in formulating comprehensive business development strategies to achieve market targets, expand reach, and increase revenue.",
+                productDesignTitle: "Product Design:",
+                productDesignLabel: "Product Design:",
+                productDesignDesc: "Capable of designing user-centered digital products, ensuring intuitive, engaging experiences that meet business needs.",
+                softSkillsTitle: "Soft Skills",
+                problemSolving: "Problem Solving",
+                teamwork: "Teamwork",
+                effectiveComm: "Effective Communication",
+                adaptability: "Adaptability",
+                initiative: "Initiative",
+                customerOriented: "Customer-Oriented",
+                timeManagement: "Time Management",
+                featuredProjectsTitle: "Featured Projects",
+                myDsgnDesc: "A design platform showcasing creative work and portfolio management.",
+                completionTime: "Completion Time: 10 days",
+                impactMetric: "Impact metric:",
+                myDsgnImpact: "Increased user interaction by X%.",
+                viewProjectBtnText: "View Project",
+                viewDetailsBtnText: "View Details",
+                dashProPanelDesc: "A dashboard for professional panel management with data visualization.",
+                impactMetric2: "Impact metric:",
+                dashProPanelImpact: "Optimized data management workflow for Y% efficiency.",
+                evolvemartDesc: "An e-commerce platform currently in development phase.",
+                inDevStatus: "In Advanced Development",
+                dapurUmmiDesc: "A culinary website currently under maintenance.",
+                statusMaintenance: "Status:",
+                statusMaintenanceText: "Under Maintenance",
+                workflowTitle: "My Workflow / Process",
+                workflow1Title: "1. Discovery & Research",
+                workflow1Desc: "Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.",
+                workflow2Title: "2. Planning & Wireframing",
+                workflow2Desc: "Developing project structure through wireframes and sitemaps, organizing information architecture, and planning key functionalities for optimal user experience.",
+                workflow3Title: "3. UI/UX Design",
+                workflow3Desc: "Creating intuitive and visually appealing user interfaces, focusing on user experience (UX) through mockups, interactive prototypes, and usability testing.",
+                workflow4Title: "4. Development",
+                workflow4Desc: "Implementing designs into functional and clean code, building core features, and ensuring seamless integration between front-end and back-end.",
+                workflow5Title: "5. Testing & Iteration",
+                workflow5Desc: "Conducting thorough testing (functional, performance, security) to identify and fix bugs, and iterating based on user feedback and test results for product refinement.",
+                workflow6Title: "6. Launch & Maintenance",
+                workflow6Desc: "Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.",
+                experienceTitle: "Professional Experience",
+                cookiesBizTitle: "Owner, Cookies Business",
+                selfEmployed: "Self-employed",
+                cookiesBizDesc1: "Successfully built and managed a cookies business that gained 437 loyal customers.",
+                cookiesBizDesc2: "Achieved daily revenue of more than Rp500,000.",
+                webDevVentureTitle: "Customer Service & Co-Founder, Web Development Venture",
+                coFounder: "Co-founder",
+                webDevVentureDesc1: "Served as Customer Service and co-founder in a web development venture built with a partner.",
+                webDevVentureDesc2: "Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.",
+                webDevVentureDesc3: "Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.",
+                educationCertTitle: "Education & Certifications",
+                cert1Title: "C++ Essentials 1",
+                cert1Org: "Cisco Networking Academy & OpenEDG C++ Institute",
+                cert2Title: "Data Formatting & Cleansing",
+                cert2Org: "MySkill - Microsoft Excel",
+                cert3Title: "Python Essentials 1",
+                cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
+                cert4Title: "UI/UX Skills Workshop",
+                cert4Org: "Android Developer Community",
+                footerCopyright: "© 2024 Muhammad Faqih Al Rifai. All rights reserved.",
+                // Project Detail Modal Content
+                modalLang: "Programming Languages:",
+                modalChallenges: "Challenges Faced:",
+                modalSolution: "Solution:",
+                modalRole: "Role:",
+                modalLearning: "Key Learnings:"
+            },
+            id: {
+                pageTitle: "Muhammad Faqih Al Rifai - Portofolio Profesional",
+                navbarName: "Faqih | Portofolio",
+                navAbout: "Tentang",
+                navSkills: "Keahlian",
+                navProjects: "Proyek",
+                navWorkflow: "Alur Kerja",
+                navExperience: "Pengalaman",
+                navCertificates: "Sertifikasi",
+                heroSubtitle: "Pengembang Web & Analis Bisnis",
+                heroDescription: "Menciptakan solusi digital inovatif dengan fokus pada pengalaman pengguna dan dampak bisnis.",
+                viewProjectsBtnText: "Lihat Proyek",
+                designModernTag: "Desain Modern",
+                downloadCvBtnText: "Unduh CV",
+                downloadCvBtn2Text: "Unduh CV",
+                aboutMeTitle: "Tentang Saya",
+                aboutMeP1: "Saya adalah seorang profesional muda berusia 19 tahun dengan semangat tinggi terhadap teknologi dan bisnis. Berbekal keahlian dalam pengembangan web, desain produk, dan analisis bisnis, saya berkomitmen untuk menciptakan solusi inovatif yang tidak hanya fungsional tetapi juga memberikan dampak nyata.",
+                aboutMeP2: "Dengan latar belakang kuat di pengembangan front-end dan pengalaman praktis dalam membangun serta mengelola bisnis, saya siap berkontribusi pada tim yang dinamis dan berorientasi hasil. Saya ambisius untuk mengembangkan karier di pengembangan web, khususnya dalam menciptakan pengalaman pengguna yang intuitif dan fungsional, serta mencari peluang untuk berkontribusi pada proyek-proyek yang menantang dan inovatif.",
+                personalInfoTitle: "Informasi Pribadi",
+                locationLabel: "Lokasi:",
+                contactLabel: "Kontak:",
+                skillsTitle: "Keahlian",
+                hardSkillsTitle: "Keahlian Teknis",
+                webDevTitle: "Pengembangan Web:",
+                frontEndDevLabel: "Pengembangan Front-End:",
+                frontEndDevDesc: "Mahir dalam membangun antarmuka pengguna yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.",
+                ecomWebDevLabel: "Pengembangan Web E-commerce:",
+                ecomWebDevDesc: "Berpengalaman dalam merancang dan mengembangkan platform web e-commerce yang efisien dan berorientasi penjualan, termasuk integrasi dengan sistem pembayaran dan manajemen produk.",
+                analysisStrategyTitle: "Analisis & Strategi Bisnis:",
+                salesAnalysisLabel: "Analisis Penjualan:",
+                salesAnalysisDesc: "Mampu menganalisis data penjualan untuk mengidentifikasi tren, peluang pertumbuhan, dan merumuskan strategi peningkatan kinerja.",
+                bizDevStrategyLabel: "Strategi Pengembangan Bisnis:",
+                bizDevStrategyDesc: "Terampil dalam merumuskan strategi pengembangan bisnis yang komprehensif untuk mencapai target pasar, memperluas jangkauan, dan meningkatkan pendapatan.",
+                productDesignTitle: "Desain Produk:",
+                productDesignLabel: "Desain Produk:",
+                productDesignDesc: "Mampu merancang produk digital yang berpusat pada pengguna, memastikan pengalaman yang intuitif dan menarik yang memenuhi kebutuhan bisnis.",
+                softSkillsTitle: "Keahlian Non-Teknis",
+                problemSolving: "Penyelesaian Masalah",
+                teamwork: "Kerja Sama Tim",
+                effectiveComm: "Komunikasi Efektif",
+                adaptability: "Adaptabilitas",
+                initiative: "Inisiatif",
+                customerOriented: "Berorientasi Pelanggan",
+                timeManagement: "Manajemen Waktu",
+                featuredProjectsTitle: "Proyek Pilihan",
+                myDsgnDesc: "Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio.",
+                completionTime: "Waktu Pengerjaan: 10 hari",
+                impactMetric: "Metrik Dampak:",
+                myDsgnImpact: "Meningkatkan interaksi pengguna sebesar X%.",
+                viewProjectBtnText: "Lihat Proyek",
+                viewDetailsBtnText: "Lihat Detail",
+                dashProPanelDesc: "Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data.",
+                impactMetric2: "Metrik Dampak:",
+                dashProPanelImpact: "Mengoptimalkan alur kerja manajemen data untuk efisiensi Y%.",
+                evolvemartDesc: "Sebuah platform e-commerce yang sedang dalam tahap pengembangan.",
+                inDevStatus: "Dalam Pengembangan Lanjutan",
+                dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan.",
+                statusMaintenance: "Status:",
+                statusMaintenanceText: "Sedang dalam Perbaikan",
+                workflowTitle: "Alur Kerja / Proses Saya",
+                workflow1Title: "1. Penemuan & Riset",
+                workflow1Desc: "Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",
+                workflow2Title: "2. Perencanaan & Wireframing",
+                workflow2Desc: "Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.",
+                workflow3Title: "3. Desain UI/UX",
+                workflow3Desc: "Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.",
+                workflow4Title: "4. Pengembangan",
+                workflow4Desc: "Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.",
+                workflow5Title: "5. Pengujian & Iterasi",
+                workflow5Desc: "Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.",
+                workflow6Title: "6. Peluncuran & Pemeliharaan",
+                workflow6Desc: "Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.",
+                experienceTitle: "Pengalaman Profesional",
+                cookiesBizTitle: "Pemilik, Bisnis Kue",
+                selfEmployed: "Wiraswasta",
+                cookiesBizDesc1: "Berhasil membangun dan mengelola bisnis kue yang mendapatkan 437 pelanggan setia.",
+                cookiesBizDesc2: "Mencapai pendapatan harian lebih dari Rp500.000.",
+                webDevVentureTitle: "Customer Service & Co-Founder, Usaha Pengembangan Web",
+                coFounder: "Co-founder",
+                webDevVentureDesc1: "Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.",
+                webDevVentureDesc2: "Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan 6 proyek dalam 1 bulan sejak pendirian bisnis.",
+                webDevVentureDesc3: "Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating 4.9 hingga 5 bintang.",
+                educationCertTitle: "Pendidikan & Sertifikasi",
+                cert1Title: "C++ Essentials 1",
+                cert1Org: "Cisco Networking Academy & OpenEDG C++ Institute",
+                cert2Title: "Data Formatting & Cleansing",
+                cert2Org: "MySkill - Microsoft Excel",
+                cert3Title: "Python Essentials 1",
+                cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
+                cert4Title: "UI/UX Skills Workshop",
+                cert4Org: "Android Developer Community",
+                footerCopyright: "© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",
+                // Project Detail Modal Content
+                modalLang: "Bahasa Pemrograman:",
+                modalChallenges: "Tantangan yang Dihadapi:",
+                modalSolution: "Solusi:",
+                modalRole: "Peran:",
+                modalLearning: "Pembelajaran Utama:"
+            }
+        };
+
+        // Data for project details (English version first, then Indonesian in the function)
         const projectDetails = {
             "MyDSGN": {
                 languages: ["HTML", "CSS", "JavaScript"],
-                challenges: "Mengembangkan desain responsif yang kompleks dan memastikan kompatibilitas lintas browser di berbagai perangkat.",
-                solution: "Menerapkan pendekatan mobile-first dengan Flexbox dan CSS Grid untuk layout yang adaptif. Menggunakan JavaScript untuk interaktivitas dinamis dan validasi formulir, serta mengoptimalkan aset gambar untuk performa.",
-                role: "Front-End Developer & UI Designer",
-                learning: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat dan browser, serta teknik optimasi performa web."
+                challenges_en: "Developing complex responsive designs and ensuring cross-browser compatibility across various devices.",
+                solution_en: "Implemented a mobile-first approach with Flexbox and CSS Grid for adaptive layouts. Used JavaScript for dynamic interactivity and form validation, and optimized image assets for performance.",
+                role_en: "Front-End Developer & UI Designer",
+                learning_en: "The importance of thorough design planning, extensive testing on various devices and browsers, and web performance optimization techniques.",
+                challenges_id: "Mengembangkan desain responsif yang kompleks dan memastikan kompatibilitas lintas browser di berbagai perangkat.",
+                solution_id: "Menerapkan pendekatan mobile-first dengan Flexbox dan CSS Grid untuk layout yang adaptif. Menggunakan JavaScript untuk interaktivitas dinamis dan validasi formulir, serta mengoptimalkan aset gambar untuk performa.",
+                role_id: "Pengembang Front-End & Desainer UI",
+                learning_id: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat dan browser, serta teknik optimasi performa web."
             },
             "DashProPanel": {
                 languages: ["HTML", "Tailwind CSS", "JavaScript"],
-                challenges: "Membangun dashboard interaktif dengan visualisasi data yang dinamis menggunakan HTML, Tailwind CSS, dan JavaScript murni. Tantangannya adalah mengelola interaksi kompleks dan memastikan responsivitas tanpa framework JS seperti React.",
-                solution: "Menggunakan struktur HTML semantik, styling responsif dengan Tailwind CSS, dan JavaScript murni untuk manipulasi DOM, penanganan event, serta fetching dan rendering data dari API. Fokus pada modularitas kode JavaScript untuk kemudahan pemeliharaan.",
-                role: "Front-End Developer",
-                learning: "Penguasaan JavaScript DOM manipulation, teknik optimasi performa web tanpa framework, dan penerapan utility-first CSS dengan Tailwind untuk desain yang efisien."
+                challenges_en: "Building an interactive dashboard with dynamic data visualization using pure HTML, Tailwind CSS, and JavaScript. The challenge was managing complex interactions and ensuring responsiveness without JS frameworks like React.",
+                solution_en: "Used semantic HTML structure, responsive styling with Tailwind CSS, and pure JavaScript for DOM manipulation, event handling, and fetching and rendering data from APIs. Focused on JavaScript code modularity for easier maintenance.",
+                role_en: "Front-End Developer",
+                learning_en: "Mastering JavaScript DOM manipulation, web performance optimization techniques without frameworks, and applying utility-first CSS with Tailwind for efficient design.",
+                challenges_id: "Membangun dashboard interaktif dengan visualisasi data dinamis menggunakan HTML, Tailwind CSS, dan JavaScript murni. Tantangannya adalah mengelola interaksi kompleks dan memastikan responsivitas tanpa framework JS seperti React.",
+                solution_id: "Menggunakan struktur HTML semantik, styling responsif dengan Tailwind CSS, dan JavaScript murni untuk manipulasi DOM, penanganan event, serta pengambilan dan rendering data dari API. Fokus pada modularitas kode JavaScript untuk pemeliharaan yang lebih mudah.",
+                role_id: "Pengembang Front-End",
+                learning_id: "Menguasai manipulasi DOM JavaScript, teknik optimasi performa web tanpa framework, dan menerapkan CSS utility-first dengan Tailwind untuk desain yang efisien."
             },
             "Evolvemart": {
-                languages: ["HTML", "CSS", "JavaScript", "Potensial: React.js, Node.js, MongoDB"],
-                challenges: "Membangun fondasi e-commerce yang skalabel dan aman untuk pertumbuhan di masa depan, serta merancang alur pembelian yang intuitif dan konversi tinggi.",
-                solution: "Fokus pada arsitektur modular yang memungkinkan penambahan fitur di masa depan. Mendesain alur pengguna yang mulus dari penjelajahan produk hingga checkout. Saat ini menggunakan placeholder untuk fitur back-end yang akan dikembangkan.",
-                role: "Lead Developer & Product Designer",
-                learning: "Perencanaan jangka panjang dalam pengembangan produk, pentingnya riset pengguna untuk desain UX, dan strategi untuk membangun platform yang siap berkembang."
+                languages: ["HTML", "CSS", "JavaScript", "Potential: React.js, Node.js, MongoDB"],
+                challenges_en: "Building a scalable and secure e-commerce foundation for future growth, and designing an intuitive and high-converting purchase flow.",
+                solution_en: "Focused on a modular architecture that allows for future feature additions. Designed a seamless user flow from product browsing to checkout. Currently using placeholders for backend features that will be developed.",
+                role_en: "Lead Developer & Product Designer",
+                learning_en: "Long-term planning in product development, the importance of user research for UX design, and strategies for building a scalable platform.",
+                challenges_id: "Membangun fondasi e-commerce yang skalabel dan aman untuk pertumbuhan di masa depan, dan merancang alur pembelian yang intuitif dan memiliki konversi tinggi.",
+                solution_id: "Fokus pada arsitektur modular yang memungkinkan penambahan fitur di masa depan. Merancang alur pengguna yang mulus dari penelusuran produk hingga checkout. Saat ini menggunakan placeholder untuk fitur backend yang akan dikembangkan.",
+                role_id: "Pengembang Utama & Desainer Produk",
+                learning_id: "Perencanaan jangka panjang dalam pengembangan produk, pentingnya penelitian pengguna untuk desain UX, dan strategi untuk membangun platform yang skalabel."
             },
             "Dapur Ummi": {
                 languages: ["HTML", "Tailwind CSS", "JavaScript"],
-                challenges: "Mengoptimalkan performa website untuk loading yang sangat cepat di semua perangkat, serta memastikan tampilan yang menarik dan konsisten di berbagai ukuran layar.",
-                solution: "Melakukan refactoring kode CSS secara menyeluruh menggunakan Tailwind CSS untuk efisiensi dan konsistensi. Mengimplementasikan teknik responsive design tingkat lanjut dan mengoptimalkan gambar. Menambahkan fungsionalitas interaktif menggunakan JavaScript murni.",
-                role: "Web Developer",
-                learning: "Pentingnya pemeliharaan rutin, audit performa, dan optimasi berkelanjutan untuk website yang berkelanjutan dan memberikan pengalaman terbaik bagi pengguna."
+                challenges_en: "Optimizing website performance for very fast loading on all devices, and ensuring an attractive and consistent appearance across various screen sizes.",
+                solution_en: "Thoroughly refactored CSS code using Tailwind CSS for efficiency and consistency. Implemented advanced responsive design techniques and optimized images. Added interactive functionalities using pure JavaScript.",
+                role_en: "Web Developer",
+                learning_en: "The importance of routine maintenance, performance audits, and continuous optimization for a sustainable website that provides the best user experience.",
+                challenges_id: "Mengoptimalkan performa website untuk pemuatan yang sangat cepat di semua perangkat, dan memastikan tampilan yang menarik dan konsisten di berbagai ukuran layar.",
+                solution_id: "Melakukan refactoring menyeluruh pada kode CSS menggunakan Tailwind CSS untuk efisiensi dan konsistensi. Menerapkan teknik desain responsif tingkat lanjut dan mengoptimalkan gambar. Menambahkan fungsionalitas interaktif menggunakan JavaScript murni.",
+                role_id: "Pengembang Web",
+                learning_id: "Pentingnya pemeliharaan rutin, audit performa, dan optimasi berkelanjutan untuk website yang berkelanjutan dan memberikan pengalaman pengguna terbaik."
             }
         };
+
+        let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
+
+        // Function to update text content based on current language
+        function updateContent() {
+            document.getElementById('pageTitle').textContent = translations[currentLang].pageTitle;
+            document.getElementById('navbarName').textContent = translations[currentLang].navbarName;
+            document.getElementById('heroSubtitle').textContent = translations[currentLang].heroSubtitle;
+            document.getElementById('heroDescription').textContent = translations[currentLang].heroDescription;
+
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[currentLang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[currentLang][key];
+                    } else {
+                        element.textContent = translations[currentLang][key];
+                    }
+                }
+            });
+
+            // Update current language display in buttons
+            document.getElementById('currentLangDisplay').textContent = currentLang.toUpperCase();
+            document.getElementById('currentMobileLangDisplay').textContent = currentLang.toUpperCase();
+        }
+
+        // Function to set language and update content
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            updateContent();
+        }
 
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -776,26 +1061,32 @@
 
             if (details) {
                 title.textContent = projectName;
+                // Dynamically select language-specific content
+                const challengesKey = `challenges_${currentLang}`;
+                const solutionKey = `solution_${currentLang}`;
+                const roleKey = `role_${currentLang}`;
+                const learningKey = `learning_${currentLang}`;
+
                 content.innerHTML = `
                     <div class="project-detail-section">
-                        <h4>Bahasa Pemrograman:</h4>
+                        <h4>${translations[currentLang].modalLang}</h4>
                         <p>${details.languages.join(', ')}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>Tantangan yang Dihadapi:</h4>
-                        <p>${details.challenges}</p>
+                        <h4>${translations[currentLang].modalChallenges}</h4>
+                        <p>${details[challengesKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>Solusi:</h4>
-                        <p>${details.solution}</p>
+                        <h4>${translations[currentLang].modalSolution}</h4>
+                        <p>${details[solutionKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>Peran:</h4>
-                        <p>${details.role}</p>
+                        <h4>${translations[currentLang].modalRole}</h4>
+                        <p>${details[roleKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>Pembelajaran:</h4>
-                        <p>${details.learning}</p>
+                        <h4>${translations[currentLang].modalLearning}</h4>
+                        <p>${details[learningKey]}</p>
                     </div>
                 `;
                 modal.style.display = "flex";
@@ -933,6 +1224,61 @@
         });
         mobileDarkModeToggle.addEventListener('click', () => {
             setDarkMode(!body.classList.contains('dark-mode'));
+        });
+
+        // Language toggle functionality
+        const languageMenuButton = document.getElementById('languageMenuButton');
+        const languageMenu = document.getElementById('languageMenu');
+        const mobileLanguageMenuButton = document.getElementById('mobileLanguageMenuButton');
+        const mobileLanguageMenu = document.getElementById('mobileLanguageMenu');
+
+        function toggleLanguageMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            menu.classList.toggle('hidden');
+        }
+
+        languageMenuButton.addEventListener('click', () => toggleLanguageMenu('languageMenu'));
+        mobileLanguageMenuButton.addEventListener('click', () => toggleLanguageMenu('mobileLanguageMenu'));
+
+        document.getElementById('langEn').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+            toggleLanguageMenu('languageMenu');
+        });
+        document.getElementById('langId').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('id');
+            toggleLanguageMenu('languageMenu');
+        });
+        document.getElementById('mobileLangEn').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+            toggleLanguageMenu('mobileLanguageMenu');
+        });
+        document.getElementById('mobileLangId').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('id');
+            toggleLanguageMenu('mobileLanguageMenu');
+        });
+
+        // Close language menu if clicked outside
+        window.addEventListener('click', (event) => {
+            if (!languageMenuButton.contains(event.target) && !languageMenu.contains(event.target)) {
+                languageMenu.classList.add('hidden');
+            }
+            if (!mobileLanguageMenuButton.contains(event.target) && !mobileLanguageMenu.contains(event.target)) {
+                mobileLanguageMenu.classList.add('hidden');
+            }
+        });
+
+        // Initialize content on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                updateContent(); // Update with default 'en' if no preference saved
+            }
         });
     </script>
 </body>

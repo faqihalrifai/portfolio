@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Faqih Al Rifai - Professional Portfolio</title>
+    <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Web Developer, Business Analyst, and Product Designer">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scroll animation */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        /* Lightbox styles */
+        .modal {
+            display: none; /* Ensure modal is hidden by default */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center; /* Use flexbox for centering */
+            align-items: center;
+            padding: 1rem; /* Add padding for smaller screens */
+            overflow-y: auto; /* Allow scrolling for modal content if it overflows */
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 0.75rem; /* Rounded corners for modal image */
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modern Card Styles with strong hover effect */
+        .modern-card {
+            background-color: #ffffff; /* Calm card color: white */
+            border-radius: 1rem; /* More rounded */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
+            transition: all 0.3s ease-in-out; /* Smooth transition */
+            overflow: hidden; /* Ensure content does not overflow border-radius */
+            transform: translateY(0); /* Initial state for hover animation */
+        }
+
+        .modern-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+            transform: translateY(-5px); /* Slightly lift on hover */
+        }
+
+        /* Specific card sizes */
+        .mini-card {
+            padding: 1rem; /* Smaller padding */
+        }
+
+        /* Navbar transition for hide/show */
+        .navbar-hidden {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-visible {
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Fade-in animation styles */
+        .initial-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748; /* Darker card background */
+        }
+        /* Ensure all text colors become light in dark mode */
+        .dark-mode .text-gray-800,
+        .dark-mode .text-gray-600,
+        .dark-mode .text-gray-900,
+        .dark-mode .text-gray-700,
+        .dark-mode .text-gray-500,
+        .dark-mode .text-gray-400 { /* Added text-gray-400 for footer icons */
+            color: #e2e8f0 !important; /* Force light color */
+        }
+        /* Specific teal text colors in dark mode */
+        .dark-mode .text-teal-600 {
+            color: #81e6d9 !important; /* Brighter teal */
+        }
+        .dark-mode .text-teal-700 {
+            color: #63b3ed !important; /* Brighter blue-teal */
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #2d3748;
+        }
+        .dark-mode .bg-teal-50 {
+            background-color: #2a4365;
+        }
+        .dark-mode .modern-card {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .dark-mode .modern-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        /* Dark mode specific for skill/project tags */
+        .dark-mode .bg-teal-100 {
+            background-color: #4fd1c5; /* Brighter teal for background */
+            color: #1a202c !important; /* Dark text for contrast */
+        }
+        .dark-mode .bg-yellow-100 {
+            background-color: #f6e05e; /* Brighter yellow for background */
+            color: #2d3748 !important; /* Dark text for contrast */
+        }
+        .dark-mode .border-teal-600 {
+            border-color: #81e6d9;
+        }
+        .dark-mode .hover\:bg-teal-50:hover {
+            background-color: #2a4365;
+        }
+        .dark-mode .bg-gradient-to-r {
+            background-image: linear-gradient(to right, #2d3748, #4a5568);
+        }
+        /* Navbar background in dark mode */
+        .dark-mode #navbar {
+            background-color: #2d3748; /* Darker navbar background */
+        }
+        /* Dark mode button colors */
+        .dark-mode .bg-teal-600 {
+            background-color: #00b894 !important; /* A brighter, distinct teal for buttons */
+            color: #ffffff !important; /* Ensure button text is white */
+        }
+        .dark-mode .hover\:bg-teal-700:hover {
+            background-color: #009472 !important; /* Darker hover for contrast */
+        }
+        /* Project Detail Modal in dark mode */
+        .dark-mode #projectDetailModal .bg-white {
+            background-color: #2d3748;
+        }
+        .dark-mode #projectDetailModal .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        .dark-mode #projectDetailModal .text-gray-700 {
+            color: #a0aec0 !important;
+        }
+        .dark-mode #projectDetailModal .text-teal-700 {
+            color: #63b3ed !important;
+        }
+        .dark-mode #projectDetailModal .close {
+            color: #e2e8f0 !important;
+        }
+        /* Ensure social media icons are bright in dark mode */
+        .dark-mode .fab {
+            color: #e2e8f0 !important; /* Light color for social icons */
+        }
+        .dark-mode .fab:hover {
+            color: #81e6d9 !important; /* Hover effect for social icons */
+        }
+        /* Specific dark mode adjustments for elements within the modal */
+        .dark-mode #projectDetailContent p {
+            color: #e2e8f0 !important;
+        }
+        .dark-mode #projectDetailContent .font-semibold {
+            color: #81e6d9 !important; /* Make labels stand out */
+        }
+        /* Ensure nav links are bright in dark mode */
+        .dark-mode #navbar a {
+            color: #e2e8f0 !important;
+        }
+        .dark-mode #navbar a:hover {
+            color: #81e6d9 !important;
+        }
+        .dark-mode #mobile-menu a {
+            color: #e2e8f0 !important;
+        }
+        .dark-mode #mobile-menu a:hover {
+            background-color: #4a5568 !important; /* Darker hover background for mobile menu */
+            color: #81e6d9 !important;
+        }
+        /* Ensure dark mode toggle icon is bright */
+        .dark-mode #darkModeToggle i,
+        .dark-mode #mobileDarkModeToggle i {
+            color: #e2e8f0 !important;
+        }
+        .dark-mode #mobile-menu-button svg {
+            stroke: #e2e8f0 !important; /* Hamburger icon color */
+        }
+
+        /* Project Detail Modal specific styling for modern look */
+        .project-detail-section {
+            background-color: #f8f8f8; /* Light background for sections */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .dark-mode .project-detail-section {
+            background-color: #3a475a; /* Darker background for sections in dark mode */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .project-detail-section h4 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .dark-mode .project-detail-section h4 {
+            color: #81e6d9; /* Bright teal for section headings */
+        }
+        .project-detail-section p {
+            line-height: 1.6;
+        }
+
+        /* Ensure main section titles are bright in dark mode */
+        .dark-mode section h2 {
+            color: #e2e8f0 !important; /* Force bright color for all h2 section titles */
+        }
+        /* Ensure specific texts in About section are bright */
+        .dark-mode #about .font-medium {
+            color: #e2e8f0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full bg-white shadow-md z-50 navbar-visible">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-teal-600">Faqih | Portfolio</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-teal-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-teal-600 transition">Skills</a>
+                    <a href="#projects" class="text-gray-700 hover:text-teal-600 transition">Projects</a>
+                    <a href="#workflow" class="text-gray-700 hover:text-teal-600 transition">Workflow</a>
+                    <a href="#experience" class="text-gray-700 hover:text-teal-600 transition">Experience</a>
+                    <a href="#certificates" class="text-gray-700 hover:text-teal-600 transition">Certificates</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="text-gray-700 hover:text-teal-600 focus:outline-none">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-teal-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <!-- Dark Mode Toggle for Mobile -->
+                    <button id="mobileDarkModeToggle" class="text-gray-700 hover:text-teal-600 focus:outline-none ml-4">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Projects</a>
+                <a href="#workflow" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Workflow</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Experience</a>
+                <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50">Certificates</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-r from-teal-50 to-sky-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
+                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden">Web Developer & Business Analyst</h2>
+                    <p class="text-lg text-gray-600 mb-8 initial-hidden">Creating innovative digital solutions with a focus on user experience and business impact.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden">
+                        <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center">
+                            View Projects
+                            <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full">Design Modern</span>
+                        </a>
+                        <a href="your_cv.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center initial-hidden">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <!-- Replace with your actual image path -->
+                        <img src="foto formal.jpeg" alt="Muhammad Faqih Al Rifai" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">About Me</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg text-gray-600 mb-8 initial-hidden">
+                    I am a 19-year-old young professional with a high passion for technology and business. Equipped with expertise in web development, product design, and business analysis, I am committed to creating innovative solutions that are not only functional but also have a real impact.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 initial-hidden">
+                    With a strong background in front-end development and practical experience in building and managing businesses, I am ready to contribute to dynamic and results-oriented teams. I am ambitious to develop a career in web development, especially in creating intuitive and functional user experiences, and looking for opportunities to contribute to challenging and innovative projects.
+                </p>
+                <div class="bg-teal-50 p-6 rounded-lg modern-card mini-card initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Personal Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="font-medium">Location:</p>
+                            <p class="text-gray-600">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
+                        </div>
+                        <div>
+                            <p class="font-medium">Contact:</p>
+                            <p class="text-gray-600">+62 859-1482-19009 (WhatsApp)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-8 initial-hidden">
+                    <a href="your_cv.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-8 py-4 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center text-lg">
+                        <i class="fas fa-download mr-3"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Hard Skills -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Hard Skills</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-gray-800 mb-2">Web Development:</h4>
+                        <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                            <li>
+                                <span class="font-medium">Front-End Development:</span> Proficient in building responsive and interactive user interfaces using HTML, CSS, JavaScript, and Tailwind CSS.
+                                <div class="flex items-center mt-1">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">90%</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">E-commerce Web Development:</span> Experienced in designing and developing efficient, sales-oriented e-commerce web platforms, including integration with payment systems and product management.
+                                <div class="flex items-center mt-1">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 85%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">85%</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-gray-800 mb-2">Analysis & Business Strategy:</h4>
+                        <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                            <li>
+                                <span class="font-medium">Sales Analysis:</span> Able to analyze sales data to identify trends, growth opportunities, and formulate performance improvement strategies.
+                                <div class="flex items-center mt-1">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 80%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">80%</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">Business Development Strategy:</span> Skilled in formulating comprehensive business development strategies to achieve market targets, expand reach, and increase revenue.
+                                <div class="flex items-center mt-1">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">90%</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-medium text-gray-800 mb-2">Product Design:</h4>
+                        <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                            <li>
+                                <span class="font-medium">Product Design:</span> Capable of designing user-centered digital products, ensuring intuitive, engaging experiences that meet business needs.
+                                <div class="flex items-center mt-1">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 88%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">88%</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Problem Solving</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Teamwork</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Effective Communication</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Adaptability</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Initiative</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Customer-Oriented</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Time Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1: MyDSGN -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
+                    <p class="text-gray-600 mb-4">A design platform showcasing creative work and portfolio management.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
+                    <p class="text-gray-500 text-sm mb-4">Impact metric: <span class="text-teal-600">Meningkatkan interaksi pengguna sebesar X%.</span></p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
+                            View Project
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button onclick="openProjectDetailModal('MyDSGN')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project 2: DashProPanel -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
+                    <p class="text-gray-600 mb-4">A dashboard for professional panel management with data visualization.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
+                    <p class="text-gray-500 text-sm mb-4">Impact metric: <span class="text-teal-600">Mengoptimalkan alur kerja manajemen data untuk efisiensi Y%.</span></p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
+                            View Project
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button onclick="openProjectDetailModal('DashProPanel')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Evolvemart -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
+                    <p class="text-gray-600 mb-4">An e-commerce platform currently in development phase.</p>
+                    <div class="mb-4 flex items-center">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Dalam Pengembangan Lanjutan</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
+                            View Project
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button onclick="openProjectDetailModal('Evolvemart')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Dapur Ummi -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
+                    <p class="text-gray-600 mb-4">A culinary website currently under maintenance.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2">Waktu pengerjaan: 10 hari</p>
+                    <p class="text-gray-500 text-sm mb-4">Status: <span class="text-teal-600">Sedang dalam Perbaikan</span></p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://dapurummi.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center">
+                            View Project
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button onclick="openProjectDetailModal('Dapur Ummi')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Workflow/Process Section -->
+    <section id="workflow" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">My Workflow / Process</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">1. Penemuan & Riset</h3>
+                    <p class="text-gray-600">Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.</p>
+                </div>
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">2. Perencanaan & Wireframing</h3>
+                    <p class="text-gray-600">Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.</p>
+                </div>
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">3. Desain UI/UX</h3>
+                    <p class="text-gray-600">Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.</p>
+                </div>
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">4. Pengembangan</h3>
+                    <p class="text-gray-600">Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.</p>
+                </div>
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">5. Pengujian & Iterasi</h3>
+                    <p class="text-gray-600">Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.</p>
+                </div>
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4">6. Peluncuran & Pemeliharaan</h3>
+                    <p class="text-gray-600">Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Professional Experience</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Experience 1 -->
+                <div class="modern-card mini-card bg-white initial-hidden">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-teal-700">Owner, Cookies Business</h3>
+                        <span class="text-gray-500">Self-employed</span>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>Successfully built and managed a cookies business that gained 437 loyal customers.</li>
+                        <li>Achieved daily revenue of more than Rp500,000.</li>
+                    </ul>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="modern-card mini-card bg-white initial-hidden">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-teal-700">Customer Service & Co-Founder, Web Development Venture</h3>
+                        <span class="text-gray-500">Co-founder</span>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>Served as Customer Service and co-founder in a web development venture built with a partner.</li>
+                        <li>Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.</li>
+                        <li>Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden">Education & Certifications</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Certificate 1 -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('cplesples.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="cplesples.jpg" alt="C++ Essentials 1 Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">C++ Essentials 1</h3>
+                    <p class="text-sm text-gray-600">Cisco Networking Academy & OpenEDG C++ Institute</p>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('data formating.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="data formating.jpg" alt="Data Formatting & Cleansing Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Data Formatting & Cleansing</h3>
+                    <p class="text-sm text-gray-600">MySkill - Microsoft Excel</p>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('piton.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="piton.jpg" alt="Python Essentials 1 Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Python Essentials 1</h3>
+                    <p class="text-sm text-gray-600">Cisco Networking Academy & OpenEDG Python Institute</p>
+                </div>
+                
+                <!-- Certificate 4 -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('atcom.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="atcom.jpg" alt="UI/UX Workshop Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">UI/UX Skills Workshop</h3>
+                    <p class="text-sm text-gray-600">Android Developer Community</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center justify-center">
+                <div class="flex space-x-6 mb-4">
+                    <a href="https://www.instagram.com/faqihalrf" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
+                        <span class="sr-only">Instagram</span>
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@faqihalrf" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
+                        <span class="sr-only">TikTok</span>
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/62859148219009" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
+                        <span class="sr-only">WhatsApp</span>
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 text-sm">&copy; 2024 Muhammad Faqih Al Rifai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="projectDetailModal" class="modal">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg max-w-2xl w-full relative">
+            <span class="close text-gray-800 dark:text-white" onclick="closeProjectDetailModal()">&times;</span>
+            <h3 id="projectDetailTitle" class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 text-center"></h3>
+            <div id="projectDetailContent" class="text-gray-700 dark:text-gray-300 space-y-4">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Data for project details
+        const projectDetails = {
+            "MyDSGN": {
+                languages: ["HTML", "CSS", "JavaScript"],
+                challenges: "Mengembangkan desain responsif yang kompleks dan memastikan kompatibilitas lintas browser di berbagai perangkat.",
+                solution: "Menerapkan pendekatan mobile-first dengan Flexbox dan CSS Grid untuk layout yang adaptif. Menggunakan JavaScript untuk interaktivitas dinamis dan validasi formulir, serta mengoptimalkan aset gambar untuk performa.",
+                role: "Front-End Developer & UI Designer",
+                learning: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat dan browser, serta teknik optimasi performa web."
+            },
+            "DashProPanel": {
+                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                challenges: "Membangun dashboard interaktif dengan visualisasi data yang dinamis menggunakan HTML, Tailwind CSS, dan JavaScript murni. Tantangannya adalah mengelola interaksi kompleks dan memastikan responsivitas tanpa framework JS seperti React.",
+                solution: "Menggunakan struktur HTML semantik, styling responsif dengan Tailwind CSS, dan JavaScript murni untuk manipulasi DOM, penanganan event, serta fetching dan rendering data dari API. Fokus pada modularitas kode JavaScript untuk kemudahan pemeliharaan.",
+                role: "Front-End Developer",
+                learning: "Penguasaan JavaScript DOM manipulation, teknik optimasi performa web tanpa framework, dan penerapan utility-first CSS dengan Tailwind untuk desain yang efisien."
+            },
+            "Evolvemart": {
+                languages: ["HTML", "CSS", "JavaScript", "Potensial: React.js, Node.js, MongoDB"],
+                challenges: "Membangun fondasi e-commerce yang skalabel dan aman untuk pertumbuhan di masa depan, serta merancang alur pembelian yang intuitif dan konversi tinggi.",
+                solution: "Fokus pada arsitektur modular yang memungkinkan penambahan fitur di masa depan. Mendesain alur pengguna yang mulus dari penjelajahan produk hingga checkout. Saat ini menggunakan placeholder untuk fitur back-end yang akan dikembangkan.",
+                role: "Lead Developer & Product Designer",
+                learning: "Perencanaan jangka panjang dalam pengembangan produk, pentingnya riset pengguna untuk desain UX, dan strategi untuk membangun platform yang siap berkembang."
+            },
+            "Dapur Ummi": {
+                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                challenges: "Mengoptimalkan performa website untuk loading yang sangat cepat di semua perangkat, serta memastikan tampilan yang menarik dan konsisten di berbagai ukuran layar.",
+                solution: "Melakukan refactoring kode CSS secara menyeluruh menggunakan Tailwind CSS untuk efisiensi dan konsistensi. Mengimplementasikan teknik responsive design tingkat lanjut dan mengoptimalkan gambar. Menambahkan fungsionalitas interaktif menggunakan JavaScript murni.",
+                role: "Web Developer",
+                learning: "Pentingnya pemeliharaan rutin, audit performa, dan optimasi berkelanjutan untuk website yang berkelanjutan dan memberikan pengalaman terbaik bagi pengguna."
+            }
+        };
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Certificate modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certificateModal');
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex"; // Change display to flex
+            modalImg.src = imageSrc;
+        }
+        
+        function closeModal() {
+            document.getElementById('certificateModal').style.display = "none";
+        }
+        
+        // Project Detail Modal functionality
+        function openProjectDetailModal(projectName) {
+            const modal = document.getElementById('projectDetailModal');
+            const title = document.getElementById('projectDetailTitle');
+            const content = document.getElementById('projectDetailContent');
+            const details = projectDetails[projectName];
+
+            if (details) {
+                title.textContent = projectName;
+                content.innerHTML = `
+                    <div class="project-detail-section">
+                        <h4>Bahasa Pemrograman:</h4>
+                        <p>${details.languages.join(', ')}</p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h4>Tantangan yang Dihadapi:</h4>
+                        <p>${details.challenges}</p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h4>Solusi:</h4>
+                        <p>${details.solution}</p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h4>Peran:</h4>
+                        <p>${details.role}</p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h4>Pembelajaran:</h4>
+                        <p>${details.learning}</p>
+                    </div>
+                `;
+                modal.style.display = "flex";
+            } else {
+                console.error("Project details not found for:", projectName);
+            }
+        }
+
+        function closeProjectDetailModal() {
+            document.getElementById('projectDetailModal').style.display = "none";
+        }
+        
+        // Close modal when clicking outside the image or content
+        window.onclick = function(event) {
+            const certModal = document.getElementById('certificateModal');
+            const projModal = document.getElementById('projectDetailModal');
+            if (event.target == certModal) {
+                certModal.style.display = "none";
+            }
+            if (event.target == projModal) {
+                projModal.style.display = "none";
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for fixed navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar hide/show on scroll
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down
+                navbar.classList.remove('navbar-visible');
+                navbar.classList.add('navbar-hidden');
+            } else {
+                // Scroll up
+                navbar.classList.remove('navbar-hidden');
+                navbar.classList.add('navbar-visible');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Intersection Observer for fade-in effect
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    entry.target.classList.remove('initial-hidden');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, observerOptions);
+
+        // Select elements to animate
+        const elementsToAnimate = document.querySelectorAll(
+            'h1.initial-hidden, h2.initial-hidden, p.initial-hidden, .modern-card.initial-hidden'
+        );
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Special handling for hero section elements to appear on initial load
+        // This ensures they are visible even if not scrolled
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroElements = document.querySelectorAll(
+                'header h1, header h2, header p, header .flex.space-x-4, header .md\\:w-1\\/2.flex.justify-center'
+            );
+            heroElements.forEach(element => {
+                element.classList.add('fade-in');
+                element.classList.remove('initial-hidden');
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        const body = document.body;
+
+        // Function to set dark mode
+        function setDarkMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                // Update icon to sun
+                darkModeToggle.querySelector('i').classList.remove('fa-moon');
+                darkModeToggle.querySelector('i').classList.add('fa-sun');
+                mobileDarkModeToggle.querySelector('i').classList.remove('fa-moon');
+                mobileDarkModeToggle.querySelector('i').classList.add('fa-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                // Update icon to moon
+                darkModeToggle.querySelector('i').classList.remove('fa-sun');
+                darkModeToggle.querySelector('i').classList.add('fa-moon');
+                mobileDarkModeToggle.querySelector('i').classList.remove('fa-sun');
+                mobileDarkModeToggle.querySelector('i').classList.add('fa-moon');
+            }
+            localStorage.setItem('darkMode', isDark); // Save preference
+        }
+
+        // Check for saved dark mode preference on load
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            setDarkMode(true);
+        } else {
+            setDarkMode(false); // Default to light mode if no preference or 'false'
+        }
+
+        // Event listener for dark mode toggle
+        darkModeToggle.addEventListener('click', () => {
+            setDarkMode(!body.classList.contains('dark-mode'));
+        });
+        mobileDarkModeToggle.addEventListener('click', () => {
+            setDarkMode(!body.classList.contains('dark-mode'));
+        });
+    </script>
+</body>
+</html>

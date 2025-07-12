@@ -331,12 +331,16 @@
     <!-- Hero Section -->
     <header class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-r from-teal-50 to-sky-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+            <div class="flex flex-col items-center justify-center text-center">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 initial-hidden">
+                    <!-- Replace with your actual image path -->
+                    <img src="foto formal.jpeg" alt="Muhammad Faqih Al Rifai" class="w-full h-full object-cover">
+                </div>
+                <div class="md:w-full mb-8 md:mb-0 px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
                     <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle">Web Developer & Business Analyst</h2>
-                    <p class="text-lg text-gray-600 mb-8 initial-hidden" id="heroDescription">Creating innovative digital solutions with a focus on user experience and business impact.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden">
+                    <p class="text-lg text-gray-600 mb-4 initial-hidden" id="heroDescription" data-lang-key="heroDescription"></p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden justify-center">
                         <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center" data-lang-key="viewProjectsBtn">
                             <span data-lang-key="viewProjectsBtnText">View Projects</span>
                             <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full" data-lang-key="designModernTag">Modern Design</span>
@@ -347,29 +351,23 @@
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center initial-hidden">
-                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                        <!-- Replace with your actual image path -->
-                        <img src="foto formal.jpeg" alt="Muhammad Faqih Al Rifai" class="w-full h-full object-cover">
-                    </div>
-                </div>
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="pt-8 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">About Me</h2>
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg text-gray-600 mb-8 initial-hidden" data-lang-key="aboutMeP1">
-                    I am a 19-year-old young professional with a high passion for technology and business...
+                    I am a 19-year-old young professional with a high passion for technology and business. Equipped with expertise in web development, product design, and business analysis, I am committed to creating innovative solutions that are not only functional but also have a real impact.
                 </p>
                 
                 <!-- Personal Information Card -->
                 <div class="bg-teal-50 p-6 rounded-lg modern-card mini-card initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="personalInfoTitle">Personal Information</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
                         <div>
                             <p class="font-medium" data-lang-key="locationLabel">Location:</p>
                             <p class="text-gray-600">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
@@ -379,6 +377,8 @@
                             <p class="text-gray-600">+62 859-1482-19009 (WhatsApp)</p>
                         </div>
                     </div>
+                    <!-- New personal motto/availability line -->
+                    <p class="text-gray-700 mb-6" data-lang-key="personalMotto"></p>
                     
                     <!-- TOMBOL UNDUH CV BARU DITAMBAHKAN DI SINI -->
                     <div class="flex justify-center mt-8 initial-hidden">
@@ -500,8 +500,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 1 days</p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="impactMetric">Impact metric: <span class="text-teal-600" data-lang-key="myDsgnImpact">Increased user interaction by X%.</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="myDsgnTime"> 2 Days</span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="myDsgnStatus" data-lang-key="statusActiveText"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -524,8 +524,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 19 days</p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="impactMetric2">Impact metric: <span class="text-teal-600" data-lang-key="dashProPanelImpact">Optimized data management workflow for Y% efficiency.</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dashProPanelTime">19 Days</span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dashProPanelStatus" data-lang-key="statusActiveText"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -547,7 +547,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
                         <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">In Advanced Development</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 22 days</p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="evolvemartTime">14 Days</span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="evolvemartStatus" data-lang-key="statusMaintenanceText"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -570,8 +571,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 10 days</p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusMaintenance">Status: <span class="text-teal-600" data-lang-key="statusMaintenanceText">Under Maintenance</span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dapurUmmiTime">4 Days</span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dapurUmmiStatus" data-lang-key="statusMaintenanceText"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -580,6 +581,30 @@
                             </svg>
                         </a>
                         <button onclick="openProjectDetailModal('Dapur Ummi')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- New Project: Urpro (urpro.netlify.app) -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
+                    <p class="text-gray-600 mb-4" data-lang-key="yourProDesc">A professional portfolio website showcasing various projects and skills.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="urproTime">2 Days</span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="urproStatus" data-lang-key="statusActiveText"></span></p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button onclick="openProjectDetailModal('Urpro')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
@@ -696,6 +721,15 @@
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert4Org">Android Developer Community</p>
                 </div>
+
+                <!-- New Certificate: CCNA1 -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('ccna1.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="ccna1.jpg" alt="CCNA1 Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title">CCNA: Introduction to Networks</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="cert5Org">Cisco Networking Academy</p>
+                </div>
             </div>
         </div>
     </section>
@@ -731,7 +765,7 @@
 
     <!-- Project Detail Modal -->
     <div id="projectDetailModal" class="modal">
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg max-w-2xl w-full relative">
+        <div class="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-lg max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full relative mx-auto my-auto">
             <span class="close text-gray-800 dark:text-white" onclick="closeProjectDetailModal()">&times;</span>
             <h3 id="projectDetailTitle" class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 text-center"></h3>
             <div id="projectDetailContent" class="text-gray-700 dark:text-gray-300 space-y-4">
@@ -754,13 +788,14 @@
                 navExperience: "Experience",
                 navCertificates: "Certificates",
                 heroSubtitle: "Web Developer & Business Analyst",
-                heroDescription: "Creating innovative digital solutions with a focus on user experience and business impact.",
+                heroDescription: "As a Web Developer and Business Analyst, I am dedicated to translating complex ideas into intuitive digital solutions that drive tangible business growth.",
                 viewProjectsBtnText: "View Projects",
                 designModernTag: "Modern Design",
                 downloadCvBtnText: "Download CV",
                 downloadCvBtn2Text: "Download CV",
                 aboutMeTitle: "About Me",
                 aboutMeP1: "I am a 19-year-old young professional with a high passion for technology and business. Equipped with expertise in web development, product design, and business analysis, I am committed to creating innovative solutions that are not only functional but also have a real impact.",
+                personalMotto: "I am a passionate young professional committed to crafting innovative digital solutions and open to impactful new opportunities.",
                 aboutMeP2: "With a strong background in front-end development and practical experience in building and managing businesses, I am ready to contribute to dynamic and results-oriented teams. I am ambitious to develop a career in web development, especially in creating intuitive and functional user experiences, and looking for opportunities to contribute to challenging and innovative projects.",
                 personalInfoTitle: "Personal Information",
                 locationLabel: "Location:",
@@ -790,19 +825,17 @@
                 timeManagement: "Time Management",
                 featuredProjectsTitle: "Featured Projects",
                 myDsgnDesc: "A design platform showcasing creative work and portfolio management.",
-                completionTime: "Completion Time: 10 days",
-                impactMetric: "Impact metric:",
-                myDsgnImpact: "Increased user interaction by X%.",
+                completionTime: "Completion Time:",
+                statusLabel: "Status:",
+                statusActiveText: "Active",
+                statusMaintenanceText: "Under Maintenance",
                 viewProjectBtnText: "View Project",
                 viewDetailsBtnText: "View Details",
                 dashProPanelDesc: "A dashboard for professional panel management with data visualization.",
-                impactMetric2: "Impact metric:",
-                dashProPanelImpact: "Optimized data management workflow for Y% efficiency.",
                 evolvemartDesc: "An e-commerce platform currently in development phase.",
-                inDevStatus: "In Advanced Development",
+                inDevStatus: "In Advanced Development", // This will no longer be directly used for status, but kept for context if needed elsewhere.
                 dapurUmmiDesc: "A culinary website currently under maintenance.",
-                statusMaintenance: "Status:",
-                statusMaintenanceText: "Under Maintenance",
+                yourProDesc: "A professional portfolio website showcasing various projects and skills.",
                 workflowTitle: "My Workflow / Process",
                 workflow1Title: "1. Discovery & Research",
                 workflow1Desc: "Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.",
@@ -835,13 +868,21 @@
                 cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
                 cert4Title: "UI/UX Skills Workshop",
                 cert4Org: "Android Developer Community",
+                cert5Title: "CCNA: Introduction to Networks",
+                cert5Org: "Cisco Networking Academy",
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. All rights reserved.",
                 // Project Detail Modal Content
                 modalLang: "Programming Languages:",
                 modalChallenges: "Challenges Faced:",
                 modalSolution: "Solution:",
                 modalRole: "Role:",
-                modalLearning: "Key Learnings:"
+                modalLearning: "Key Learnings:",
+                // Specific project times
+                myDsgnTime: "2 days",
+                dashProPanelTime: "19 days",
+                evolvemartTime: "14 days",
+                dapurUmmiTime: "4 days",
+                urproTime: "3 days"
             },
             id: {
                 pageTitle: "Muhammad Faqih Al Rifai - Portofolio Profesional",
@@ -853,13 +894,14 @@
                 navExperience: "Pengalaman",
                 navCertificates: "Sertifikasi",
                 heroSubtitle: "Pengembang Web & Analis Bisnis",
-                heroDescription: "Menciptakan solusi digital inovatif dengan fokus pada pengalaman pengguna dan dampak bisnis.",
+                heroDescription: "Sebagai seorang Pengembang Web dan Analis Bisnis, saya berdedikasi untuk menerjemahkan ide-ide kompleks menjadi solusi digital yang intuitif dan berdampak nyata bagi pertumbuhan bisnis.",
                 viewProjectsBtnText: "Lihat Proyek",
                 designModernTag: "Desain Modern",
                 downloadCvBtnText: "Unduh CV",
                 downloadCvBtn2Text: "Unduh CV",
                 aboutMeTitle: "Tentang Saya",
                 aboutMeP1: "Saya adalah seorang profesional muda berusia 19 tahun dengan semangat tinggi terhadap teknologi dan bisnis. Berbekal keahlian dalam pengembangan web, desain produk, dan analisis bisnis, saya berkomitmen untuk menciptakan solusi inovatif yang tidak hanya fungsional tetapi juga memberikan dampak nyata.",
+                personalMotto: "Saya adalah seorang profesional muda yang bersemangat dalam menciptakan solusi digital inovatif dan terbuka untuk peluang baru yang berdampak.",
                 aboutMeP2: "Dengan latar belakang kuat di pengembangan front-end dan pengalaman praktis dalam membangun serta mengelola bisnis, saya siap berkontribusi pada tim yang dinamis dan berorientasi hasil. Saya ambisius untuk mengembangkan karier di pengembangan web, khususnya dalam menciptakan pengalaman pengguna yang intuitif dan fungsional, serta mencari peluang untuk berkontribusi pada proyek-proyek yang menantang dan inovatif.",
                 personalInfoTitle: "Informasi Pribadi",
                 locationLabel: "Lokasi:",
@@ -889,19 +931,17 @@
                 timeManagement: "Manajemen Waktu",
                 featuredProjectsTitle: "Proyek Pilihan",
                 myDsgnDesc: "Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio.",
-                completionTime: "Waktu Pengerjaan: 10 hari",
-                impactMetric: "Metrik Dampak:",
-                myDsgnImpact: "Meningkatkan interaksi pengguna sebesar X%.",
+                completionTime: "Waktu Pengerjaan:",
+                statusLabel: "Status:",
+                statusActiveText: "Aktif",
+                statusMaintenanceText: "Sedang dalam Perbaikan",
                 viewProjectBtnText: "Lihat Proyek",
                 viewDetailsBtnText: "Lihat Detail",
                 dashProPanelDesc: "Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data.",
-                impactMetric2: "Metrik Dampak:",
-                dashProPanelImpact: "Mengoptimalkan alur kerja manajemen data untuk efisiensi Y%.",
                 evolvemartDesc: "Sebuah platform e-commerce yang sedang dalam tahap pengembangan.",
-                inDevStatus: "Dalam Pengembangan Lanjutan",
+                inDevStatus: "Dalam Pengembangan Lanjutan", // Ini tidak akan digunakan langsung untuk status, tapi dipertahankan untuk konteks jika diperlukan di tempat lain.
                 dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan.",
-                statusMaintenance: "Status:",
-                statusMaintenanceText: "Sedang dalam Perbaikan",
+                yourProDesc: "Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian.",
                 workflowTitle: "Alur Kerja / Proses Saya",
                 workflow1Title: "1. Penemuan & Riset",
                 workflow1Desc: "Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",
@@ -934,17 +974,25 @@
                 cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
                 cert4Title: "UI/UX Skills Workshop",
                 cert4Org: "Android Developer Community",
+                cert5Title: "CCNA: Introduction to Networks",
+                cert5Org: "Cisco Networking Academy",
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",
                 // Project Detail Modal Content
                 modalLang: "Bahasa Pemrograman:",
                 modalChallenges: "Tantangan yang Dihadapi:",
                 modalSolution: "Solusi:",
                 modalRole: "Peran:",
-                modalLearning: "Pembelajaran Utama:"
+                modalLearning: "Pembelajaran Utama:",
+                // Specific project times
+                myDsgnTime: "2 hari",
+                dashProPanelTime: "19 hari",
+                evolvemartTime: "14 hari",
+                dapurUmmiTime: "4 hari",
+                urproTime: "3 hari"
             }
         };
 
-        // Data for project details (English version first, then Indonesian in the function)
+        // Data for project details
         const projectDetails = {
             "MyDSGN": {
                 languages: ["HTML", "CSS", "JavaScript"],
@@ -989,8 +1037,20 @@
                 solution_id: "Melakukan refactoring menyeluruh pada kode CSS menggunakan Tailwind CSS untuk efisiensi dan konsistensi. Menerapkan teknik desain responsif tingkat lanjut dan mengoptimalkan gambar. Menambahkan fungsionalitas interaktif menggunakan JavaScript murni.",
                 role_id: "Pengembang Web",
                 learning_id: "Pentingnya pemeliharaan rutin, audit performa, dan optimasi berkelanjutan untuk website yang berkelanjutan dan memberikan pengalaman pengguna terbaik."
+            },
+            "Urpro": {
+                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                challenges_en: "Creating a comprehensive and visually appealing portfolio that effectively showcases a diverse range of projects and skills.",
+                solution_en: "Designed a clean, modern layout using Tailwind CSS, ensuring responsiveness across all devices. Implemented interactive elements and clear navigation to enhance user experience. Focused on concise yet informative project descriptions.",
+                role_en: "Web Developer & UI Designer",
+                learning_en: "The art of self-presentation in a professional context, the importance of clear and concise communication, and continuous refinement of design and development skills.",
+                challenges_id: "Menciptakan portofolio yang komprehensif dan menarik secara visual yang secara efektif menampilkan beragam proyek dan keahlian.",
+                solution_id: "Merancang tata letak yang bersih dan modern menggunakan Tailwind CSS, memastikan responsivitas di semua perangkat. Mengimplementasikan elemen interaktif dan navigasi yang jelas untuk meningkatkan pengalaman pengguna. Berfokus pada deskripsi proyek yang ringkas namun informatif.",
+                role_id: "Pengembang Web & Desainer UI",
+                learning_id: "Seni presentasi diri dalam konteks profesional, pentingnya komunikasi yang jelas dan ringkas, dan penyempurnaan berkelanjutan dari keterampilan desain dan pengembangan."
             }
         };
+
 
         let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
 
@@ -1001,16 +1061,48 @@
             document.getElementById('heroSubtitle').textContent = translations[currentLang].heroSubtitle;
             document.getElementById('heroDescription').textContent = translations[currentLang].heroDescription;
 
+            // Update specific project completion times and statuses
+            // Added IDs to the span elements in HTML to correctly target them
+            document.getElementById('myDsgnTime').textContent = translations[currentLang].myDsgnTime;
+            document.getElementById('dashProPanelTime').textContent = translations[currentLang].dashProPanelTime;
+            document.getElementById('evolvemartTime').textContent = translations[currentLang].evolvemartTime;
+            document.getElementById('dapurUmmiTime').textContent = translations[currentLang].dapurUmmiTime;
+            document.getElementById('urproTime').textContent = translations[currentLang].urproTime;
+
+            // Update status text separately as they have different data-lang-key values
+            document.getElementById('myDsgnStatus').textContent = translations[currentLang].statusActiveText;
+            document.getElementById('dashProPanelStatus').textContent = translations[currentLang].statusActiveText;
+            document.getElementById('evolvemartStatus').textContent = translations[currentLang].statusMaintenanceText;
+            document.getElementById('dapurUmmiStatus').textContent = translations[currentLang].statusMaintenanceText;
+            document.getElementById('urproStatus').textContent = translations[currentLang].statusActiveText;
+
+
+            // Update all elements with data-lang-key attributes
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
+                // Skip updating elements that are handled by specific IDs above
+                if (['myDsgnTime', 'dashProPanelTime', 'evolvemartTime', 'dapurUmmiTime', 'urproTime', 'myDsgnStatus', 'dashProPanelStatus', 'evolvemartStatus', 'dapurUmmiStatus', 'urproStatus'].includes(element.id)) {
+                    return;
+                }
+
                 if (translations[currentLang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    // Special handling for elements that should not have their innerHTML overwritten by textContent
+                    if (element.id === 'heroDescription' || element.id === 'personalMotto') {
+                        element.textContent = translations[currentLang][key];
+                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.value = translations[currentLang][key];
                     } else {
-                        element.textContent = translations[currentLang][key];
+                        // For other elements, check if it's a direct text node or contains other elements
+                        // If it contains a span for dynamic content, only update the span
+                        if (element.querySelector('span[data-lang-key]')) {
+                            // Do nothing, the span's content will be updated separately
+                        } else {
+                            element.textContent = translations[currentLang][key];
+                        }
                     }
                 }
             });
+
 
             // Update current language display in buttons
             document.getElementById('currentLangDisplay').textContent = currentLang.toUpperCase();
@@ -1069,24 +1161,24 @@
 
                 content.innerHTML = `
                     <div class="project-detail-section">
-                        <h4>${translations[currentLang].modalLang}</h4>
-                        <p>${details.languages.join(', ')}</p>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalLang}</h4>
+                        <p class="text-gray-700 dark:text-gray-300">${details.languages.join(', ')}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>${translations[currentLang].modalChallenges}</h4>
-                        <p>${details[challengesKey]}</p>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalChallenges}</h4>
+                        <p class="text-gray-700 dark:text-gray-300">${details[challengesKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>${translations[currentLang].modalSolution}</h4>
-                        <p>${details[solutionKey]}</p>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalSolution}</h4>
+                        <p class="text-gray-700 dark:text-gray-300">${details[solutionKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>${translations[currentLang].modalRole}</h4>
-                        <p>${details[roleKey]}</p>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalRole}</h4>
+                        <p class="text-gray-700 dark:text-gray-300">${details[roleKey]}</p>
                     </div>
                     <div class="project-detail-section">
-                        <h4>${translations[currentLang].modalLearning}</h4>
-                        <p>${details[learningKey]}</p>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalLearning}</h4>
+                        <p class="text-gray-700 dark:text-gray-300">${details[learningKey]}</p>
                     </div>
                 `;
                 modal.style.display = "flex";
@@ -1117,13 +1209,15 @@
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for fixed navbar height
-                        behavior: 'smooth'
-                    });
+                // Ensure targetId is not just "#" or empty before querying
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId); 
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjust for fixed navbar height
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
@@ -1177,7 +1271,7 @@
         // This ensures they are visible even if not scrolled
         document.addEventListener('DOMContentLoaded', () => {
             const heroElements = document.querySelectorAll(
-                'header h1, header h2, header p, header .flex.space-x-4, header .md\\:w-1\\/2.flex.justify-center'
+                'header h1, header h2, header p, header .flex.space-x-4, header .w-64.h-64.md\\:w-80.md\\:h-80.rounded-full.overflow-hidden.border-4.border-white.shadow-xl.mb-8'
             );
             heroElements.forEach(element => {
                 element.classList.add('fade-in');

@@ -258,7 +258,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-xl font-bold text-teal-600" id="navbarName">Faqih | Portfolio</span>
+                    <span class="text-xl font-bold text-teal-600" id="navbarName" data-lang-key="navbarName">Faqih | Portfolio</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navAbout">About</a>
@@ -338,7 +338,7 @@
                 </div>
                 <div class="md:w-full mb-8 md:mb-0 px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
-                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle">Web Developer & Business Analyst</h2>
+                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle" data-lang-key="heroSubtitle">Web Developer & Business Analyst</h2>
                     <p class="text-lg text-gray-600 mb-4 initial-hidden" id="heroDescription" data-lang-key="heroDescription"></p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden justify-center">
                         <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center" data-lang-key="viewProjectsBtn">
@@ -370,15 +370,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
                         <div>
                             <p class="font-medium" data-lang-key="locationLabel">Location:</p>
-                            <p class="text-gray-600">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
+                            <p class="text-gray-600" id="locationText">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
                         </div>
                         <div>
                             <p class="font-medium" data-lang-key="contactLabel">Contact:</p>
-                            <p class="text-gray-600">+62 859-1482-19009 (WhatsApp)</p>
+                            <p class="text-gray-600" id="contactText">+62 859-1482-19009 (WhatsApp)</p>
                         </div>
                     </div>
                     <!-- New personal motto/availability line -->
-                    <p class="text-gray-700 mb-6" data-lang-key="personalMotto"></p>
+                    <p class="text-gray-700 mb-6" id="personalMotto" data-lang-key="personalMotto"></p>
                     
                     <!-- TOMBOL UNDUH CV BARU DITAMBAHKAN DI SINI -->
                     <div class="flex justify-center mt-8 initial-hidden">
@@ -386,7 +386,7 @@
                         class="bg-teal-600 text-white px-8 py-4 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center text-lg"
                         target="_blank">
                             <i class="fas fa-download mr-3"></i>
-                            <span data-lang-key="downloadCvBtn">Download CV</span>
+                            <span data-lang-key="downloadCvBtn2Text">Download CV</span>
                         </a>
                     </div>
                 </div>
@@ -500,8 +500,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="myDsgnTime"> 2 Days</span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="myDsgnStatus" data-lang-key="statusActiveText"></span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="myDsgnTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="myDsgnStatus"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -509,7 +509,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('MyDSGN')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="MyDSGN" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
@@ -524,8 +524,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dashProPanelTime">19 Days</span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dashProPanelStatus" data-lang-key="statusActiveText"></span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dashProPanelTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dashProPanelStatus"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -533,7 +533,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('DashProPanel')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="DashProPanel" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
@@ -547,8 +547,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
                         <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">In Advanced Development</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="evolvemartTime">14 Days</span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="evolvemartStatus" data-lang-key="statusMaintenanceText"></span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="evolvemartTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="evolvemartStatus"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -556,7 +556,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('Evolvemart')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Evolvemart" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
@@ -571,8 +571,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dapurUmmiTime">4 Days</span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dapurUmmiStatus" data-lang-key="statusMaintenanceText"></span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dapurUmmiTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dapurUmmiStatus"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -580,13 +580,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('Dapur Ummi')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dapur Ummi" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- New Project: Urpro (urpro.netlify.app) -->
+                <!-- Project 5: Urpro (urpro.netlify.app) -->
                 <div class="modern-card p-6 bg-white initial-hidden">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
                     <p class="text-gray-600 mb-4" data-lang-key="yourProDesc">A professional portfolio website showcasing various projects and skills.</p>
@@ -595,8 +595,8 @@
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
                         <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="urproTime">2 Days</span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="urproStatus" data-lang-key="statusActiveText"></span></p>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="urproTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="urproStatus"></span></p>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                         <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                             <span data-lang-key="viewProjectBtnText">View Project</span>
@@ -604,7 +604,31 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </a>
-                        <button onclick="openProjectDetailModal('Urpro')" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm" data-lang-key="viewDetailsBtn">
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Urpro" data-lang-key="viewDetailsBtn">
+                            <span data-lang-key="viewDetailsBtnText">View Details</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- New Project: Dcorps -->
+                <div class="modern-card p-6 bg-white initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Dcorps</h3>
+                    <p class="text-gray-600 mb-4" data-lang-key="dcorpsDesc">A creative portfolio website showcasing a diverse range of works and capabilities.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: <span id="dcorpsTime"></span></p>
+                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dcorpsStatus"></span></p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://dcorps.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <span data-lang-key="viewProjectBtnText">View Project</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dcorps" data-lang-key="viewDetailsBtn">
                             <span data-lang-key="viewDetailsBtnText">View Details</span>
                         </button>
                     </div>
@@ -799,7 +823,9 @@
                 aboutMeP2: "With a strong background in front-end development and practical experience in building and managing businesses, I am ready to contribute to dynamic and results-oriented teams. I am ambitious to develop a career in web development, especially in creating intuitive and functional user experiences, and looking for opportunities to contribute to challenging and innovative projects.",
                 personalInfoTitle: "Personal Information",
                 locationLabel: "Location:",
+                locationText: "Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",
                 contactLabel: "Contact:",
+                contactText: "+62 859-1482-19009 (WhatsApp)",
                 skillsTitle: "Skills",
                 hardSkillsTitle: "Hard Skills",
                 webDevTitle: "Web Development:",
@@ -836,6 +862,7 @@
                 inDevStatus: "In Advanced Development", // This will no longer be directly used for status, but kept for context if needed elsewhere.
                 dapurUmmiDesc: "A culinary website currently under maintenance.",
                 yourProDesc: "A professional portfolio website showcasing various projects and skills.",
+                dcorpsDesc: "A creative portfolio website showcasing a diverse range of works and capabilities.",
                 workflowTitle: "My Workflow / Process",
                 workflow1Title: "1. Discovery & Research",
                 workflow1Desc: "Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.",
@@ -878,11 +905,12 @@
                 modalRole: "Role:",
                 modalLearning: "Key Learnings:",
                 // Specific project times
-                myDsgnTime: "2 days",
-                dashProPanelTime: "19 days",
-                evolvemartTime: "14 days",
-                dapurUmmiTime: "4 days",
-                urproTime: "3 days"
+                myDsgnTime: "2 Days",
+                dashProPanelTime: "19 Days",
+                evolvemartTime: "14 Days",
+                dapurUmmiTime: "4 Days",
+                urproTime: "2 Days", // Corrected based on original HTML
+                dcorpsTime: "7 Days"
             },
             id: {
                 pageTitle: "Muhammad Faqih Al Rifai - Portofolio Profesional",
@@ -905,7 +933,9 @@
                 aboutMeP2: "Dengan latar belakang kuat di pengembangan front-end dan pengalaman praktis dalam membangun serta mengelola bisnis, saya siap berkontribusi pada tim yang dinamis dan berorientasi hasil. Saya ambisius untuk mengembangkan karier di pengembangan web, khususnya dalam menciptakan pengalaman pengguna yang intuitif dan fungsional, serta mencari peluang untuk berkontribusi pada proyek-proyek yang menantang dan inovatif.",
                 personalInfoTitle: "Informasi Pribadi",
                 locationLabel: "Lokasi:",
+                locationText: "Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",
                 contactLabel: "Kontak:",
+                contactText: "+62 859-1482-19009 (WhatsApp)",
                 skillsTitle: "Keahlian",
                 hardSkillsTitle: "Keahlian Teknis",
                 webDevTitle: "Pengembangan Web:",
@@ -942,6 +972,7 @@
                 inDevStatus: "Dalam Pengembangan Lanjutan", // Ini tidak akan digunakan langsung untuk status, tapi dipertahankan untuk konteks jika diperlukan di tempat lain.
                 dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan.",
                 yourProDesc: "Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian.",
+                dcorpsDesc: "Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan.",
                 workflowTitle: "Alur Kerja / Proses Saya",
                 workflow1Title: "1. Penemuan & Riset",
                 workflow1Desc: "Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",
@@ -984,15 +1015,83 @@
                 modalRole: "Peran:",
                 modalLearning: "Pembelajaran Utama:",
                 // Specific project times
-                myDsgnTime: "2 hari",
-                dashProPanelTime: "19 hari",
-                evolvemartTime: "14 hari",
-                dapurUmmiTime: "4 hari",
-                urproTime: "3 hari"
+                myDsgnTime: "2 Hari",
+                dashProPanelTime: "19 Hari",
+                evolvemartTime: "14 Hari",
+                dapurUmmiTime: "4 Hari",
+                urproTime: "2 Hari", // Corrected based on original HTML
+                dcorpsTime: "7 Hari"
             }
         };
 
-        // Data for project details
+
+        let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
+
+        // Function to update text content based on current language
+        function updateContent() {
+            const pageTitleElement = document.getElementById('pageTitle');
+            if (pageTitleElement) {
+                pageTitleElement.textContent = translations[currentLang].pageTitle;
+            }
+            
+            // Update all elements with data-lang-key attributes
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[currentLang][key]) {
+                    // Special handling for elements that should not have their innerHTML overwritten by textContent
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[currentLang][key];
+                    } else {
+                        element.textContent = translations[currentLang][key];
+                    }
+                }
+            });
+
+            // Update specific elements by ID that are not covered by data-lang-key (e.g., location, contact)
+            const locationTextElement = document.getElementById('locationText');
+            if (locationTextElement) {
+                locationTextElement.textContent = translations[currentLang].locationText;
+            }
+            const contactTextElement = document.getElementById('contactText');
+            if (contactTextElement) {
+                contactTextElement.textContent = translations[currentLang].contactText;
+            }
+
+            // Update specific project completion times and statuses
+            const myDsgnTimeElement = document.getElementById('myDsgnTime');
+            if (myDsgnTimeElement) { myDsgnTimeElement.textContent = translations[currentLang].myDsgnTime; }
+            const dashProPanelTimeElement = document.getElementById('dashProPanelTime');
+            if (dashProPanelTimeElement) { dashProPanelTimeElement.textContent = translations[currentLang].dashProPanelTime; }
+            const evolvemartTimeElement = document.getElementById('evolvemartTime');
+            if (evolvemartTimeElement) { evolvemartTimeElement.textContent = translations[currentLang].evolvemartTime; }
+            const dapurUmmiTimeElement = document.getElementById('dapurUmmiTime');
+            if (dapurUmmiTimeElement) { dapurUmmiTimeElement.textContent = translations[currentLang].dapurUmmiTime; }
+            const urproTimeElement = document.getElementById('urproTime');
+            if (urproTimeElement) { urproTimeElement.textContent = translations[currentLang].urproTime; }
+            const dcorpsTimeElement = document.getElementById('dcorpsTime');
+            if (dcorpsTimeElement) { dcorpsTimeElement.textContent = translations[currentLang].dcorpsTime; }
+
+            const myDsgnStatusElement = document.getElementById('myDsgnStatus');
+            if (myDsgnStatusElement) { myDsgnStatusElement.textContent = translations[currentLang].statusActiveText; }
+            const dashProPanelStatusElement = document.getElementById('dashProPanelStatus');
+            if (dashProPanelStatusElement) { dashProPanelStatusElement.textContent = translations[currentLang].statusActiveText; }
+            const evolvemartStatusElement = document.getElementById('evolvemartStatus');
+            if (evolvemartStatusElement) { evolvemartStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
+            const dapurUmmiStatusElement = document.getElementById('dapurUmmiStatus');
+            if (dapurUmmiStatusElement) { dapurUmmiStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
+            const urproStatusElement = document.getElementById('urproStatus');
+            if (urproStatusElement) { urproStatusElement.textContent = translations[currentLang].statusActiveText; }
+            const dcorpsStatusElement = document.getElementById('dcorpsStatus');
+            if (dcorpsStatusElement) { dcorpsStatusElement.textContent = translations[currentLang].statusActiveText; }
+
+            // Update current language display in buttons
+            const currentLangDisplayElement = document.getElementById('currentLangDisplay');
+            if (currentLangDisplayElement) { currentLangDisplayElement.textContent = currentLang.toUpperCase(); }
+            const currentMobileLangDisplayElement = document.getElementById('currentMobileLangDisplay');
+            if (currentMobileLangDisplayElement) { currentMobileLangDisplayElement.textContent = currentLang.toUpperCase(); }
+        }
+
+        // Data for project details (moved here to ensure it's defined before event listeners are attached)
         const projectDetails = {
             "MyDSGN": {
                 languages: ["HTML", "CSS", "JavaScript"],
@@ -1048,66 +1147,20 @@
                 solution_id: "Merancang tata letak yang bersih dan modern menggunakan Tailwind CSS, memastikan responsivitas di semua perangkat. Mengimplementasikan elemen interaktif dan navigasi yang jelas untuk meningkatkan pengalaman pengguna. Berfokus pada deskripsi proyek yang ringkas namun informatif.",
                 role_id: "Pengembang Web & Desainer UI",
                 learning_id: "Seni presentasi diri dalam konteks profesional, pentingnya komunikasi yang jelas dan ringkas, dan penyempurnaan berkelanjutan dari keterampilan desain dan pengembangan."
+            },
+            "Dcorps": {
+                languages: ["HTML", "CSS", "JavaScript"],
+                challenges_en: "Building a visually appealing and functional website for a new project, ensuring a smooth user experience and clear presentation of content.",
+                solution_en: "Developed a responsive design using modern CSS techniques and integrated interactive elements with JavaScript. Prioritized clean code and intuitive navigation.",
+                role_en: "Web Developer",
+                learning_en: "The importance of clear project scope definition and efficient content structuring for optimal user engagement.",
+                challenges_id: "Membangun situs web yang menarik secara visual dan fungsional untuk proyek baru, memastikan pengalaman pengguna yang lancar dan presentasi konten yang jelas.",
+                solution_id: "Mengembangkan desain responsif menggunakan teknik CSS modern dan mengintegrasikan elemen interaktif dengan JavaScript. Memprioritaskan kode yang bersih dan navigasi yang intuitif.",
+                role_id: "Pengembang Web",
+                learning_id: "Pentingnya definisi ruang lingkup proyek yang jelas dan penataan konten yang efisien untuk keterlibatan pengguna yang optimal."
             }
         };
 
-
-        let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
-
-        // Function to update text content based on current language
-        function updateContent() {
-            document.getElementById('pageTitle').textContent = translations[currentLang].pageTitle;
-            document.getElementById('navbarName').textContent = translations[currentLang].navbarName;
-            document.getElementById('heroSubtitle').textContent = translations[currentLang].heroSubtitle;
-            document.getElementById('heroDescription').textContent = translations[currentLang].heroDescription;
-
-            // Update specific project completion times and statuses
-            // Added IDs to the span elements in HTML to correctly target them
-            document.getElementById('myDsgnTime').textContent = translations[currentLang].myDsgnTime;
-            document.getElementById('dashProPanelTime').textContent = translations[currentLang].dashProPanelTime;
-            document.getElementById('evolvemartTime').textContent = translations[currentLang].evolvemartTime;
-            document.getElementById('dapurUmmiTime').textContent = translations[currentLang].dapurUmmiTime;
-            document.getElementById('urproTime').textContent = translations[currentLang].urproTime;
-
-            // Update status text separately as they have different data-lang-key values
-            document.getElementById('myDsgnStatus').textContent = translations[currentLang].statusActiveText;
-            document.getElementById('dashProPanelStatus').textContent = translations[currentLang].statusActiveText;
-            document.getElementById('evolvemartStatus').textContent = translations[currentLang].statusMaintenanceText;
-            document.getElementById('dapurUmmiStatus').textContent = translations[currentLang].statusMaintenanceText;
-            document.getElementById('urproStatus').textContent = translations[currentLang].statusActiveText;
-
-
-            // Update all elements with data-lang-key attributes
-            document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                // Skip updating elements that are handled by specific IDs above
-                if (['myDsgnTime', 'dashProPanelTime', 'evolvemartTime', 'dapurUmmiTime', 'urproTime', 'myDsgnStatus', 'dashProPanelStatus', 'evolvemartStatus', 'dapurUmmiStatus', 'urproStatus'].includes(element.id)) {
-                    return;
-                }
-
-                if (translations[currentLang][key]) {
-                    // Special handling for elements that should not have their innerHTML overwritten by textContent
-                    if (element.id === 'heroDescription' || element.id === 'personalMotto') {
-                        element.textContent = translations[currentLang][key];
-                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = translations[currentLang][key];
-                    } else {
-                        // For other elements, check if it's a direct text node or contains other elements
-                        // If it contains a span for dynamic content, only update the span
-                        if (element.querySelector('span[data-lang-key]')) {
-                            // Do nothing, the span's content will be updated separately
-                        } else {
-                            element.textContent = translations[currentLang][key];
-                        }
-                    }
-                }
-            });
-
-
-            // Update current language display in buttons
-            document.getElementById('currentLangDisplay').textContent = currentLang.toUpperCase();
-            document.getElementById('currentMobileLangDisplay').textContent = currentLang.toUpperCase();
-        }
 
         // Function to set language and update content
         function setLanguage(lang) {
@@ -1120,15 +1173,19 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuButton && mobileMenu) { // Added null check
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
         
         // Close mobile menu when clicking on a link
         const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                if (mobileMenu) { // Added null check
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
         
@@ -1136,12 +1193,17 @@
         function openModal(imageSrc) {
             const modal = document.getElementById('certificateModal');
             const modalImg = document.getElementById("modalImage");
-            modal.style.display = "flex"; // Change display to flex
-            modalImg.src = imageSrc;
+            if (modal && modalImg) { // Added null check
+                modal.style.display = "flex"; // Change display to flex
+                modalImg.src = imageSrc;
+            }
         }
         
         function closeModal() {
-            document.getElementById('certificateModal').style.display = "none";
+            const modal = document.getElementById('certificateModal');
+            if (modal) { // Added null check
+                modal.style.display = "none";
+            }
         }
         
         // Project Detail Modal functionality
@@ -1151,7 +1213,7 @@
             const content = document.getElementById('projectDetailContent');
             const details = projectDetails[projectName];
 
-            if (details) {
+            if (details && modal && title && content) { // Added null checks for modal elements
                 title.textContent = projectName;
                 // Dynamically select language-specific content
                 const challengesKey = `challenges_${currentLang}`;
@@ -1188,17 +1250,20 @@
         }
 
         function closeProjectDetailModal() {
-            document.getElementById('projectDetailModal').style.display = "none";
+            const modal = document.getElementById('projectDetailModal');
+            if (modal) { // Added null check
+                modal.style.display = "none";
+            }
         }
         
         // Close modal when clicking outside the image or content
         window.onclick = function(event) {
             const certModal = document.getElementById('certificateModal');
             const projModal = document.getElementById('projectDetailModal');
-            if (event.target == certModal) {
+            if (certModal && event.target == certModal) { // Added null check
                 certModal.style.display = "none";
             }
-            if (event.target == projModal) {
+            if (projModal && event.target == projModal) { // Added null check
                 projModal.style.display = "none";
             }
         }
@@ -1227,18 +1292,20 @@
         const navbar = document.getElementById('navbar');
 
         window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (navbar) { // Added null check
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                // Scroll down
-                navbar.classList.remove('navbar-visible');
-                navbar.classList.add('navbar-hidden');
-            } else {
-                // Scroll up
-                navbar.classList.remove('navbar-hidden');
-                navbar.classList.add('navbar-visible');
+                if (scrollTop > lastScrollTop) {
+                    // Scroll down
+                    navbar.classList.remove('navbar-visible');
+                    navbar.classList.add('navbar-hidden');
+                } else {
+                    // Scroll up
+                    navbar.classList.remove('navbar-hidden');
+                    navbar.classList.add('navbar-visible');
+                }
+                lastScrollTop = scrollTop;
             }
-            lastScrollTop = scrollTop;
         });
 
         // Intersection Observer for fade-in effect
@@ -1277,6 +1344,18 @@
                 element.classList.add('fade-in');
                 element.classList.remove('initial-hidden');
             });
+
+            // Attach event listeners for project detail buttons after DOM is loaded
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    // Use closest to get the button element itself, in case the click is on the span inside
+                    const clickedButton = event.target.closest('.view-details-btn');
+                    if (clickedButton) {
+                        const projectName = clickedButton.dataset.projectName;
+                        openProjectDetailModal(projectName);
+                    }
+                });
+            });
         });
 
         // Dark Mode Toggle
@@ -1286,22 +1365,20 @@
 
         // Function to set dark mode
         function setDarkMode(isDark) {
-            if (isDark) {
-                body.classList.add('dark-mode');
-                // Update icon to sun
-                darkModeToggle.querySelector('i').classList.remove('fa-moon');
-                darkModeToggle.querySelector('i').classList.add('fa-sun');
-                mobileDarkModeToggle.querySelector('i').classList.remove('fa-moon');
-                mobileDarkModeToggle.querySelector('i').classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark-mode');
-                // Update icon to moon
-                darkModeToggle.querySelector('i').classList.remove('fa-sun');
-                darkModeToggle.querySelector('i').classList.add('fa-moon');
-                mobileDarkModeToggle.querySelector('i').classList.remove('fa-sun');
-                mobileDarkModeToggle.querySelector('i').classList.add('fa-moon');
+            if (body) { // Added null check
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    // Update icon to sun
+                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-moon'); darkModeToggle.querySelector('i').classList.add('fa-sun'); }
+                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-moon'); mobileDarkModeToggle.querySelector('i').classList.add('fa-sun'); }
+                } else {
+                    body.classList.remove('dark-mode');
+                    // Update icon to moon
+                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-sun'); darkModeToggle.querySelector('i').classList.add('fa-moon'); }
+                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-sun'); mobileDarkModeToggle.querySelector('i').classList.add('fa-moon'); }
+                }
+                localStorage.setItem('darkMode', isDark); // Save preference
             }
-            localStorage.setItem('darkMode', isDark); // Save preference
         }
 
         // Check for saved dark mode preference on load
@@ -1313,12 +1390,16 @@
         }
 
         // Event listener for dark mode toggle
-        darkModeToggle.addEventListener('click', () => {
-            setDarkMode(!body.classList.contains('dark-mode'));
-        });
-        mobileDarkModeToggle.addEventListener('click', () => {
-            setDarkMode(!body.classList.contains('dark-mode'));
-        });
+        if (darkModeToggle) { // Added null check
+            darkModeToggle.addEventListener('click', () => {
+                setDarkMode(!body.classList.contains('dark-mode'));
+            });
+        }
+        if (mobileDarkModeToggle) { // Added null check
+            mobileDarkModeToggle.addEventListener('click', () => {
+                setDarkMode(!body.classList.contains('dark-mode'));
+            });
+        }
 
         // Language toggle functionality
         const languageMenuButton = document.getElementById('languageMenuButton');
@@ -1328,39 +1409,58 @@
 
         function toggleLanguageMenu(menuId) {
             const menu = document.getElementById(menuId);
-            menu.classList.toggle('hidden');
+            if (menu) { // Added null check
+                menu.classList.toggle('hidden');
+            }
+        }
+        
+        if (languageMenuButton) { // Added null check
+            languageMenuButton.addEventListener('click', () => toggleLanguageMenu('languageMenu'));
+        }
+        if (mobileLanguageMenuButton) { // Added null check
+            mobileLanguageMenuButton.addEventListener('click', () => toggleLanguageMenu('mobileLanguageMenu'));
         }
 
-        languageMenuButton.addEventListener('click', () => toggleLanguageMenu('languageMenu'));
-        mobileLanguageMenuButton.addEventListener('click', () => toggleLanguageMenu('mobileLanguageMenu'));
+        const langEn = document.getElementById('langEn');
+        if (langEn) { // Added null check
+            langEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+                toggleLanguageMenu('languageMenu');
+            });
+        }
+        const langId = document.getElementById('langId');
+        if (langId) { // Added null check
+            langId.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('id');
+                toggleLanguageMenu('languageMenu');
+            });
+        }
+        const mobileLangEn = document.getElementById('mobileLangEn');
+        if (mobileLangEn) { // Added null check
+            mobileLangEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+                toggleLanguageMenu('mobileLanguageMenu');
+            });
+        }
+        const mobileLangId = document.getElementById('mobileLangId');
+        if (mobileLangId) { // Added null check
+            mobileLangId.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('id');
+                toggleLanguageMenu('mobileLanguageMenu');
+            });
+        }
 
-        document.getElementById('langEn').addEventListener('click', (e) => {
-            e.preventDefault();
-            setLanguage('en');
-            toggleLanguageMenu('languageMenu');
-        });
-        document.getElementById('langId').addEventListener('click', (e) => {
-            e.preventDefault();
-            setLanguage('id');
-            toggleLanguageMenu('languageMenu');
-        });
-        document.getElementById('mobileLangEn').addEventListener('click', (e) => {
-            e.preventDefault();
-            setLanguage('en');
-            toggleLanguageMenu('mobileLanguageMenu');
-        });
-        document.getElementById('mobileLangId').addEventListener('click', (e) => {
-            e.preventDefault();
-            setLanguage('id');
-            toggleLanguageMenu('mobileLanguageMenu');
-        });
 
         // Close language menu if clicked outside
         window.addEventListener('click', (event) => {
-            if (!languageMenuButton.contains(event.target) && !languageMenu.contains(event.target)) {
+            if (languageMenuButton && languageMenu && !languageMenuButton.contains(event.target) && !languageMenu.contains(event.target)) {
                 languageMenu.classList.add('hidden');
             }
-            if (!mobileLanguageMenuButton.contains(event.target) && !mobileLanguageMenu.contains(event.target)) {
+            if (mobileLanguageMenuButton && mobileLanguageMenu && !mobileLanguageMenuButton.contains(event.target) && !mobileLanguageMenu.contains(event.target)) {
                 mobileLanguageMenu.classList.add('hidden');
             }
         });

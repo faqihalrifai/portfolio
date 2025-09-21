@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Muhammad Faqih Al Rifai - Professional Portfolio</title>
-    <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Web Developer, Business Analyst, and Product Designer">
+    <title id="pageTitle">Muhammad Faqih Al Rifai - Portofolio Web Modern & Desain UI/UX</title>
+    <meta name="description" content="Muhammad Faqih Al Rifai, seorang web developer, desainer UI/UX, dan analis bisnis yang handal. Lihat portofolio profesionalnya untuk proyek-proyek inovatif, keahlian teknis, dan pengalaman bisnis yang terdepan.">
+    <meta name="keywords" content="Muhammad Faqih Al Rifai, Portofolio, Web Developer, Desainer UI/UX, Business Analyst, Front-End Developer, Tailwind CSS, JavaScript, Portfolio Web, Desain Produk, Analis Bisnis, E-commerce, Situs Web, Portofolio Profesional, Lulusan STMIK IKMI, Cirebon">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -16,6 +17,7 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth; /* Smooth scroll animation */
             overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: #F8FAFC; /* Light gray background */
         }
         /* Lightbox styles */
         .modal {
@@ -59,23 +61,23 @@
         /* Modern Card Styles with strong hover effect */
         .modern-card {
             background-color: #ffffff; /* Calm card color: white */
-            border-radius: 1rem; /* More rounded */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
-            transition: all 0.3s ease-in-out; /* Smooth transition */
+            border-radius: 1.5rem; /* More rounded */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            transition: all 0.4s ease-in-out; /* Smooth transition */
             overflow: hidden; /* Ensure content does not overflow border-radius */
             transform: translateY(0); /* Initial state for hover animation */
         }
 
         .modern-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
-            transform: translateY(-5px); /* Slightly lift on hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+            transform: translateY(-8px); /* Slightly lift on hover */
         }
 
         /* Specific card sizes */
         .mini-card {
-            padding: 1rem; /* Smaller padding */
+            padding: 1.5rem; /* Smaller padding */
         }
-
+        
         /* Navbar transition for hide/show */
         .navbar-hidden {
             transform: translateY(-100%);
@@ -101,11 +103,11 @@
 
         /* Dark mode styles */
         .dark-mode {
-            background-color: #1a202c; /* Dark background */
-            color: #e2e8f0; /* Light text */
+            background-color: #0F172A; /* Dark background */
+            color: #E2E8F0; /* Light text */
         }
         .dark-mode .bg-white {
-            background-color: #2d3748; /* Darker card background */
+            background-color: #1E293B; /* Darker card background */
         }
         /* Ensure all text colors become light in dark mode */
         .dark-mode .text-gray-800,
@@ -114,52 +116,52 @@
         .dark-mode .text-gray-700,
         .dark-mode .text-gray-500,
         .dark-mode .text-gray-400 { /* Added text-gray-400 for footer icons */
-            color: #e2e8f0 !important; /* Force light color */
+            color: #E2E8F0 !important; /* Force light color */
         }
         /* Specific teal text colors in dark mode */
         .dark-mode .text-teal-600 {
-            color: #81e6d9 !important; /* Brighter teal */
+            color: #81E6D9 !important; /* Brighter teal */
         }
         .dark-mode .text-teal-700 {
-            color: #63b3ed !important; /* Brighter blue-teal */
+            color: #63B3ED !important; /* Brighter blue-teal */
         }
         .dark-mode .bg-gray-50 {
-            background-color: #2d3748;
+            background-color: #1E293B;
         }
         .dark-mode .bg-teal-50 {
-            background-color: #2a4365;
+            background-color: #2A4365;
         }
         .dark-mode .modern-card {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         .dark-mode .modern-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
         /* Dark mode specific for skill/project tags */
         .dark-mode .bg-teal-100 {
-            background-color: #4fd1c5; /* Brighter teal for background */
-            color: #1a202c !important; /* Dark text for contrast */
+            background-color: #4FD1C5; /* Brighter teal for background */
+            color: #1A202C !important; /* Dark text for contrast */
         }
         .dark-mode .bg-yellow-100 {
-            background-color: #f6e05e; /* Brighter yellow for background */
-            color: #2d3748 !important; /* Dark text for contrast */
+            background-color: #F6E05E; /* Brighter yellow for background */
+            color: #2D3748 !important; /* Dark text for contrast */
         }
         .dark-mode .border-teal-600 {
-            border-color: #81e6d9;
+            border-color: #81E6D9;
         }
         .dark-mode .hover\:bg-teal-50:hover {
-            background-color: #2a4365;
+            background-color: #2A4365;
         }
         .dark-mode .bg-gradient-to-r {
-            background-image: linear-gradient(to right, #2d3748, #4a5568);
+            background-image: linear-gradient(to right, #1E293B, #4A5568);
         }
         /* Navbar background in dark mode */
         .dark-mode #navbar {
-            background-color: #2d3748; /* Darker navbar background */
+            background-color: #1E293B; /* Darker navbar background */
         }
         /* Dark mode button colors */
         .dark-mode .bg-teal-600 {
-            background-color: #00b894 !important; /* A brighter, distinct teal for buttons */
+            background-color: #00B894 !important; /* A brighter, distinct teal for buttons */
             color: #ffffff !important; /* Ensure button text is white */
         }
         .dark-mode .hover\:bg-teal-700:hover {
@@ -167,67 +169,67 @@
         }
         /* Project Detail Modal in dark mode */
         .dark-mode #projectDetailModal .bg-white {
-            background-color: #2d3748;
+            background-color: #1E293B;
         }
         .dark-mode #projectDetailModal .text-gray-800 {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         .dark-mode #projectDetailModal .text-gray-700 {
-            color: #a0aec0 !important;
+            color: #A0AEC0 !important;
         }
         .dark-mode #projectDetailModal .text-teal-700 {
-            color: #63b3ed !important;
+            color: #63B3ED !important;
         }
         .dark-mode #projectDetailModal .close {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         /* Ensure social media icons are bright in dark mode */
         .dark-mode .fab {
-            color: #e2e8f0 !important; /* Light color for social icons */
+            color: #E2E8F0 !important; /* Light color for social icons */
         }
         .dark-mode .fab:hover {
-            color: #81e6d9 !important; /* Hover effect for social icons */
+            color: #81E6D9 !important; /* Hover effect for social icons */
         }
         /* Specific dark mode adjustments for elements within the modal */
         .dark-mode #projectDetailContent p {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         .dark-mode #projectDetailContent .font-semibold {
-            color: #81e6d9 !important; /* Make labels stand out */
+            color: #81E6D9 !important; /* Make labels stand out */
         }
         /* Ensure nav links are bright in dark mode */
         .dark-mode #navbar a {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         .dark-mode #navbar a:hover {
-            color: #81e6d9 !important;
+            color: #81E6D9 !important;
         }
         .dark-mode #mobile-menu a {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         .dark-mode #mobile-menu a:hover {
-            background-color: #4a5568 !important; /* Darker hover background for mobile menu */
-            color: #81e6d9 !important;
+            background-color: #4A5568 !important; /* Darker hover background for mobile menu */
+            color: #81E6D9 !important;
         }
         /* Ensure dark mode toggle icon is bright */
         .dark-mode #darkModeToggle i,
         .dark-mode #mobileDarkModeToggle i {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
         }
         .dark-mode #mobile-menu-button svg {
-            stroke: #e2e8f0 !important; /* Hamburger icon color */
+            stroke: #E2E8F0 !important; /* Hamburger icon color */
         }
 
         /* Project Detail Modal specific styling for modern look */
         .project-detail-section {
-            background-color: #f8f8f8; /* Light background for sections */
+            background-color: #F8FAFC; /* Light background for sections */
             padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 1rem;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
         .dark-mode .project-detail-section {
-            background-color: #3a475a; /* Darker background for sections in dark mode */
+            background-color: #3A475A; /* Darker background for sections in dark mode */
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
         }
         .project-detail-section h4 {
@@ -236,7 +238,7 @@
             margin-bottom: 0.5rem;
         }
         .dark-mode .project-detail-section h4 {
-            color: #81e6d9; /* Bright teal for section headings */
+            color: #81E6D9; /* Bright teal for section headings */
         }
         .project-detail-section p {
             line-height: 1.6;
@@ -244,11 +246,31 @@
 
         /* Ensure main section titles are bright in dark mode */
         .dark-mode section h2 {
-            color: #e2e8f0 !important; /* Force bright color for all h2 section titles */
+            color: #E2E8F0 !important; /* Force bright color for all h2 section titles */
         }
         /* Ensure specific texts in About section are bright */
         .dark-mode #about .font-medium {
-            color: #e2e8f0 !important;
+            color: #E2E8F0 !important;
+        }
+
+        /* Animate Counter Style */
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #F0F9FF;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .dark-mode .counter-container {
+            background-color: #1E293B;
+        }
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #06B6D4; /* Blue color for the counter */
         }
     </style>
 </head>
@@ -258,19 +280,19 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-xl font-bold text-teal-600" id="navbarName" data-lang-key="navbarName">Faqih | Portfolio</span>
+                    <span class="text-xl font-bold text-teal-600" id="navbarName" data-lang-key="navbarName">Faqih | Portofolio</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navAbout">About</a>
-                    <a href="#skills" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navSkills">Skills</a>
-                    <a href="#projects" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navProjects">Projects</a>
-                    <a href="#workflow" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navWorkflow">Workflow</a>
-                    <a href="#experience" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navExperience">Experience</a>
-                    <a href="#certificates" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navCertificates">Certificates</a>
+                    <a href="#about" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navAbout">Tentang</a>
+                    <a href="#skills" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navSkills">Keahlian</a>
+                    <a href="#projects" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navProjects">Proyek</a>
+                    <a href="#workflow" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navWorkflow">Alur Kerja</a>
+                    <a href="#experience" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navExperience">Pengalaman</a>
+                    <a href="#certificates" class="text-gray-700 hover:text-teal-600 transition" data-lang-key="navCertificates">Sertifikasi</a>
                     <!-- Language Toggle -->
                     <div class="relative inline-block text-left">
                         <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-teal-500" id="languageMenuButton" aria-expanded="true" aria-haspopup="true">
-                            <span id="currentLangDisplay">EN</span>
+                            <span id="currentLangDisplay">ID</span>
                             <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
@@ -291,7 +313,7 @@
                     <!-- Language Toggle for Mobile -->
                     <div class="relative inline-block text-left mr-4">
                         <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" id="mobileLanguageMenuButton" aria-expanded="true" aria-haspopup="true">
-                            <span id="currentMobileLangDisplay">EN</span>
+                            <span id="currentMobileLangDisplay">ID</span>
                             <svg class="-mr-1 ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
@@ -318,12 +340,12 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navAbout">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navSkills">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navProjects">Projects</a>
-                <a href="#workflow" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navWorkflow">Workflow</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navExperience">Experience</a>
-                <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navCertificates">Certificates</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navAbout">Tentang</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navSkills">Keahlian</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navProjects">Proyek</a>
+                <a href="#workflow" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navWorkflow">Alur Kerja</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navExperience">Pengalaman</a>
+                <a href="#certificates" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50" data-lang-key="navCertificates">Sertifikasi</a>
             </div>
         </div>
     </nav>
@@ -334,20 +356,20 @@
             <div class="flex flex-col items-center justify-center text-center">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 initial-hidden">
                     <!-- Replace with your actual image path -->
-                    <img src="propfil.jpg" alt="Muhammad Faqih Al Rifai" class="w-full h-full object-cover">
+                    <img src="propfil.jpg" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
                 </div>
                 <div class="md:w-full mb-8 md:mb-0 px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
-                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle" data-lang-key="heroSubtitle">Web Developer & Business Analyst</h2>
-                    <p class="text-lg text-gray-600 mb-4 initial-hidden" id="heroDescription" data-lang-key="heroDescription">A multi-disciplinary professional at the intersection of technology, design, and business strategy. I build and optimize digital products that are not only visually compelling and user-friendly but also drive measurable business growth.</p>
+                    <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle" data-lang-key="heroSubtitle">Desainer Produk (UI/UX) & Strategis Bisnis</h2>
+                    
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden justify-center">
                         <a href="#projects" class="border border-teal-600 text-teal-600 px-6 py-3 rounded-md hover:bg-teal-50 transition font-medium modern-card flex items-center justify-center" data-lang-key="viewProjectsBtn">
-                            <span data-lang-key="viewProjectsBtnText">View Projects</span>
-                            <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full" data-lang-key="designModernTag">Modern Design</span>
+                            <span data-lang-key="viewProjectsBtnText">Lihat Proyek</span>
+                            <span class="ml-2 bg-teal-600 text-white text-xs px-2 py-1 rounded-full" data-lang-key="designModernTag">Desain Modern</span>
                         </a>
                         <a href="CV_Muhammad_Faqih_Al_Rifai.pdf" download="Muhammad_Faqih_Al_Rifai_CV.pdf" class="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center" data-lang-key="downloadCvBtn">
                             <i class="fas fa-download mr-2"></i>
-                            <span data-lang-key="downloadCvBtnText">Download CV</span>
+                            <span data-lang-key="downloadCvBtnText">Unduh CV</span>
                         </a>
                     </div>
                 </div>
@@ -358,32 +380,50 @@
     <!-- About Section -->
     <section id="about" class="pt-8 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">About Me</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">Tentang Saya</h2>
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg text-gray-600 mb-8 initial-hidden" data-lang-key="aboutMeP1">
-                    A passionate and results-driven professional at the intersection of technology, design, and business. With a strong foundation in web development, product design, and business analysis, I specialize in building solutions that are not just functional, but also strategically aligned to achieve business objectives. I am always seeking new opportunities to create real impact and solve complex problems with innovative digital products.
+                    Sebagai seorang profesional yang bersemangat dan berorientasi pada hasil, saya berada di persimpangan teknologi, desain, dan strategi bisnis. Dengan fondasi yang kuat dalam pengembangan web, desain produk (UI/UX), dan analisis bisnis, saya berfokus pada pembangunan solusi yang tidak hanya fungsional, tetapi juga selaras secara strategis untuk mencapai tujuan bisnis. Saya secara proaktif mencari peluang baru untuk menciptakan dampak nyata dan memecahkan masalah kompleks dengan produk digital yang inovatif.
                 </p>
                 
                 <!-- Personal Information Card -->
                 <div class="bg-teal-50 p-6 rounded-lg modern-card mini-card initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="personalInfoTitle">Personal Information</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="personalInfoTitle">Informasi Pribadi & Kontak</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p class="font-medium" data-lang-key="locationLabel">Location:</p>
-                            <p class="text-gray-600" id="locationText">Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1</p>
+                            <p class="font-medium" data-lang-key="locationLabel">Lokasi:</p>
+                            <p class="text-gray-600" id="locationText">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
                         </div>
                         <div>
-                            <p class="font-medium" data-lang-key="contactLabel">Contact:</p>
+                            <p class="font-medium" data-lang-key="contactLabel">Kontak:</p>
                             <p class="text-gray-600" id="contactText">+62 859-1482-19009 (WhatsApp)</p>
                         </div>
                     </div>
                     <!-- Education Information -->
                     <div class="mt-4">
-                        <p class="font-medium" data-lang-key="educationLabel">Education:</p>
+                        <p class="font-medium" data-lang-key="educationLabel">Pendidikan:</p>
                         <ul class="list-disc pl-5 space-y-1 text-gray-600">
-                            <li><p data-lang-key="education1">STMIK IKMI Kota Cirebon - Informatics Engineering (Semester 3)</p></li>
+                            <li><p data-lang-key="education1">STMIK IKMI Kota Cirebon - Teknik Informatika (Semester 3)</p></li>
                             <li><p data-lang-key="education2">SMAN 5 Kota Cirebon</p></li>
                         </ul>
+                    </div>
+                    <!-- Social Media Links -->
+                    <div class="mt-6">
+                        <p class="font-medium mb-2">Media Sosial:</p>
+                        <div class="flex space-x-4">
+                             <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/faqihalrf" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                            </a>
+                            <!-- TikTok -->
+                            <a href="https://www.tiktok.com/@faqihalrf" target="_blank" aria-label="TikTok">
+                                <i class="fab fa-tiktok text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                            </a>
+                        </div>
                     </div>
                     
                     <!-- TOMBOL UNDUH CV BARU DITAMBAHKAN DI SINI -->
@@ -392,7 +432,7 @@
                         class="bg-teal-600 text-white px-8 py-4 rounded-md hover:bg-teal-700 transition font-medium modern-card flex items-center justify-center text-lg"
                         target="_blank">
                             <i class="fas fa-download mr-3"></i>
-                            <span data-lang-key="downloadCvBtn2Text">Download CV</span>
+                            <span data-lang-key="downloadCvBtn2Text">Unduh CV</span>
                         </a>
                     </div>
                 </div>
@@ -403,62 +443,62 @@
     <!-- Skills Section -->
     <section id="skills" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="skillsTitle">Skills</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="skillsTitle">Keahlian Utama</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Technical Expertise -->
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="techExpertiseTitle">Technical Expertise</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="techExpertiseTitle">Keahlian Teknis</h3>
                     <ul class="list-disc pl-5 space-y-3 text-gray-600">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="frontEndDevLabel">Front-End Development:</span>
-                            <span data-lang-key="frontEndDevDesc">Mastery in crafting responsive, high-performance web interfaces with clean, modern code.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="frontEndDevLabel">Pengembangan Front-End:</span>
+                            <span data-lang-key="frontEndDevDesc">Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern, menjamin pengalaman pengguna yang lancar dan cepat.</span>
                             <p class="text-sm text-gray-500 mt-1">Tech Stack: HTML, CSS, JavaScript, Tailwind CSS.</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="uiUxDesignLabel">UI/UX & Product Design:</span>
-                            <span data-lang-key="uiUxDesignDesc">Expertise in creating intuitive and engaging digital products from concept to user-ready solutions. I am an expert in Figma for wireframing, prototyping, and visual design.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="uiUxDesignLabel">Desain UI/UX & Produk:</span>
+                            <span data-lang-key="uiUxDesignDesc">Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk wireframing, prototyping, dan desain visual.</span>
                             <p class="text-sm text-gray-500 mt-1">Tools: Figma (Wireframing & Prototyping).</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="digitalContentLabel">Digital Content & Branding:</span>
-                            <span data-lang-key="digitalContentDesc">Skilled in developing cohesive visual identities and compelling content for digital platforms.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="digitalContentLabel">Konten Digital & Branding:</span>
+                            <span data-lang-key="digitalContentDesc">Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.</span>
                         </li>
                     </ul>
                 </div>
                 
                 <!-- Business Acumen -->
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="bizAcumenTitle">Business Acumen</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="bizAcumenTitle">Kecakapan Bisnis</h3>
                     <ul class="list-disc pl-5 space-y-3 text-gray-600">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="strategicAnalysisLabel">Strategic Analysis:</span>
-                            <span data-lang-key="strategicAnalysisDesc">Ability to translate complex data and market trends into actionable business strategies that drive growth.</span>
-                            <p class="text-sm text-gray-500 mt-1">Focus: Business Development, Sales & Data Analysis, E-commerce Operations.</p>
+                            <span class="font-semibold text-gray-800" data-lang-key="strategicAnalysisLabel">Analisis Strategis:</span>
+                            <span data-lang-key="strategicAnalysisDesc">Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.</span>
+                            <p class="text-sm text-gray-500 mt-1">Fokus: Business Development, Sales & Data Analysis, E-commerce Operations.</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="digitalMarketingLabel">Digital Marketing & Sales:</span>
-                            <span data-lang-key="digitalMarketingDesc">Hands-on experience in generating revenue and building brand visibility through targeted digital campaigns.</span>
-                            <p class="text-sm text-gray-500 mt-1">Focus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.</p>
+                            <span class="font-semibold text-gray-800" data-lang-key="digitalMarketingLabel">Pemasaran Digital & Penjualan:</span>
+                            <span data-lang-key="digitalMarketingDesc">Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.</span>
+                            <p class="text-sm text-gray-500 mt-1">Fokus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.</p>
                         </li>
                     </ul>
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4 mt-8" data-lang-key="profQualitiesTitle">Professional Qualities</h3>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4 mt-8" data-lang-key="profQualitiesTitle">Kualitas Profesional</h3>
                     <ul class="list-disc pl-5 space-y-3 text-gray-600">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="teamBuildingLabel">Team Building:</span>
-                            <span data-lang-key="teamBuildingDesc">I have a proven ability to collaborate effectively and foster a positive, productive team environment, ensuring shared goals are met with collective effort.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="teamBuildingLabel">Membangun Tim:</span>
+                            <span data-lang-key="teamBuildingDesc">Saya memiliki kemampuan teruji untuk berkolaborasi secara efektif dan membina lingkungan tim yang positif dan produktif, memastikan tujuan bersama tercapai dengan upaya kolektif.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="problemSolvingLabel">Strategic Problem-Solving:</span>
-                            <span data-lang-key="problemSolvingDesc">I approach complex challenges by breaking them down into manageable parts to find effective and innovative solutions.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="problemSolvingLabel">Penyelesaian Masalah Strategis:</span>
+                            <span data-lang-key="problemSolvingDesc">Saya mendekati tantangan kompleks dengan memecahnya menjadi bagian-bagian yang mudah dikelola untuk menemukan solusi yang efektif dan inovatif.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="adaptabilityLabel">Adaptability & Initiative:</span>
-                            <span data-lang-key="adaptabilityDesc">I proactively seek out new technologies and skills, and I am quick to adapt to dynamic project requirements and market shifts.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="adaptabilityLabel">Adaptabilitas & Inisiatif:</span>
+                            <span data-lang-key="adaptabilityDesc">Saya secara proaktif mencari teknologi dan keterampilan baru, serta cepat beradaptasi dengan persyaratan proyek yang dinamis dan perubahan pasar.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="effectiveCommLabel">Effective Communication:</span>
-                            <span data-lang-key="effectiveCommDesc">I excel at articulating ideas and collaborating seamlessly with both technical and non-technical stakeholders to ensure project alignment and success.</span>
+                            <span class="font-semibold text-gray-800" data-lang-key="effectiveCommLabel">Komunikasi Efektif:</span>
+                            <span data-lang-key="effectiveCommDesc">Saya unggul dalam mengartikulasikan ide dan berkolaborasi secara mulus dengan pemangku kepentingan teknis maupun non-teknis untuk memastikan keselarasan dan keberhasilan proyek.</span>
                         </li>
                     </ul>
                 </div>
@@ -469,165 +509,213 @@
     <!-- Projects Section -->
     <section id="projects" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="featuredProjectsTitle">Featured Projects</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="featuredProjectsTitle">Proyek Pilihan: Inovasi dalam Pengembangan & Desain</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1: Fiplle -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Fiplle</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="fiplleDesc">An e-commerce mobile app design with a clean, modern interface and a unique card-style balance feature.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Fiplle</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="fiplleDesc">Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: - <span class="text-teal-600" id="fiplleStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Fiplle" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="fiplleStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Fiplle" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- New Project: Nasi Goreng App -->
+                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                             <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2: MyDSGN -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="myDsgnDesc">A design platform showcasing creative work and portfolio management.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="myDsgnDesc">Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 15 Day <span id="myDsgnTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Done <span class="text-teal-600" id="myDsgnStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="MyDSGN" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="myDsgnTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="myDsgnStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="MyDSGN" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Project 3: DashProPanel -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="dashProPanelDesc">A dashboard for professional panel management with data visualization.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="dashProPanelDesc">Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 24 Day <span id="dashProPanelTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Done <span class="text-teal-600" id="dashProPanelStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="DashProPanel" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dashProPanelTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dashProPanelStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="DashProPanel" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Project 4: Evolvemart -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="evolvemartDesc">An e-commerce platform currently in development phase.</p>
-                    <div class="mb-4 flex items-center">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
-                        <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">In Advanced Development</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="evolvemartDesc">Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.</p>
+                        <div class="mb-4 flex items-center">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">Dalam Pengembangan Lanjutan</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 19 Day <span id="evolvemartTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Repair <span class="text-teal-600" id="evolvemartStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Evolvemart" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="evolvemartTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="evolvemartStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Evolvemart" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Project 5: Dapur Ummi -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="dapurUmmiDesc">A culinary website currently under maintenance.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="dapurUmmiDesc">Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 6 Day <span id="dapurUmmiTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Done <span class="text-teal-600" id="dapurUmmiStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dapur Ummi" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dapurUmmiTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dapurUmmiStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dapur Ummi" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- New Project: Urpro -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="yourProDesc">A professional portfolio website showcasing various projects and skills.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="yourProDesc">Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 8 Day <span id="urproTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Done <span class="text-teal-600" id="urproStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Urpro" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="urproTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="urproStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Urpro" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- New Project: Dcorps -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-2">Dcorps</h3>
-                    <p class="text-gray-600 mb-4" data-lang-key="dcorpsDesc">A creative portfolio website showcasing a diverse range of works and capabilities.</p>
-                    <div class="mb-4">
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Dcorps</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="dcorpsDesc">Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                        </div>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Completion Time: 14 Day <span id="dcorpsTime"></span></p>
-                    <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: Done <span class="text-teal-600" id="dcorpsStatus"></span></p>
-                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                        <a href="https://dcorps.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
-                            <span data-lang-key="viewProjectBtnText">View Project</span>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                        <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dcorps" data-lang-key="viewDetailsBtn">
-                            <span data-lang-key="viewDetailsBtnText">View Details</span>
-                        </button>
+                    <div class="mt-4">
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dcorpsTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dcorpsStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <a href="https://dcorps.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                                <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dcorps" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -637,32 +725,32 @@
     <!-- My Workflow/Process Section -->
     <section id="workflow" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="workflowTitle">My Workflow / Process</h2>
-            <p class="text-lg text-gray-600 mb-8 initial-hidden text-center" data-lang-key="workflowIntro">My workflow is a blend of technical and strategic processes, ensuring every project is not just a digital product, but a business solution.</p>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="workflowTitle">Alur Kerja / Proses Saya</h2>
+            <p class="text-lg text-gray-600 mb-8 initial-hidden text-center" data-lang-key="workflowIntro">Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow1Title">1. Discovery & Research</h3>
-                    <p class="text-gray-600" data-lang-key="workflow1Desc">Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow1Title">1. Penemuan & Riset</h3>
+                    <p class="text-gray-600" data-lang-key="workflow1Desc">Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow2Title">2. Planning & Wireframing</h3>
-                    <p class="text-gray-600" data-lang-key="workflow2Desc">Developing project structure through wireframes and sitemaps, organizing information architecture, and planning key functionalities for optimal user experience.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow2Title">2. Perencanaan & Wireframing</h3>
+                    <p class="text-gray-600" data-lang-key="workflow2Desc">Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow3Title">3. UI/UX Design</h3>
-                    <p class="text-gray-600" data-lang-key="workflow3Desc">Creating intuitive and visually appealing user interfaces, focusing on user experience (UX) through mockups, interactive prototypes, and usability testing.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow3Title">3. Desain UI/UX</h3>
+                    <p class="text-gray-600" data-lang-key="workflow3Desc">Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow4Title">4. Development</h3>
-                    <p class="text-gray-600" data-lang-key="workflow4Desc">Implementing designs into functional and clean code, building core features, and ensuring seamless integration between front-end and back-end.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow4Title">4. Pengembangan</h3>
+                    <p class="text-gray-600" data-lang-key="workflow4Desc">Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow5Title">5. Testing & Iteration</h3>
-                    <p class="text-600" data-lang-key="workflow5Desc">Conducting thorough testing (functional, performance, security) to identify and fix bugs, and iterating based on user feedback and test results for product refinement.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow5Title">5. Pengujian & Iterasi</h3>
+                    <p class="text-600" data-lang-key="workflow5Desc">Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.</p>
                 </div>
                 <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow6Title">6. Launch & Maintenance</h3>
-                    <p class="text-gray-600" data-lang-key="workflow6Desc">Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.</p>
+                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow6Title">6. Peluncuran & Pemeliharaan</h3>
+                    <p class="text-gray-600" data-lang-key="workflow6Desc">Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.</p>
                 </div>
             </div>
         </div>
@@ -671,30 +759,42 @@
     <!-- Experience Section -->
     <section id="experience" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="experienceTitle">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="experienceTitle">Pengalaman Profesional</h2>
             
             <div class="max-w-3xl mx-auto space-y-8">
+                <!-- New Experience 5: SEO Writing Internship -->
+                <div class="modern-card mini-card bg-white initial-hidden">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="seoInternshipTitle">Internship SEO Writing</h3>
+                        <span class="text-gray-500">Garap Media</span>
+                    </div>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li data-lang-key="seoInternshipDesc1">Mengelola dan mengoptimalkan konten blog untuk meningkatkan peringkat di mesin pencari.</li>
+                        <li data-lang-key="seoInternshipDesc2">Melakukan riset kata kunci mendalam dan menganalisis tren pasar untuk mengembangkan strategi konten yang efektif.</li>
+                        <li data-lang-key="seoInternshipDesc3">Meningkatkan visibilitas online dan menarik audiens organik dengan artikel yang informatif dan terstruktur dengan baik.</li>
+                    </ul>
+                </div>
                 <!-- New Experience 1: Affiliate Marketing -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="affiliateMarketingTitle">Affiliate Marketing</h3>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="affiliateMarketingTitle">Pemasaran Afiliasi</h3>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                        <li data-lang-key="affiliateMarketingDesc1">Membangun dan mengelola strategi affiliate marketing di platform Shopee.</li>
+                        <li data-lang-key="affiliateMarketingDesc1">Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee.</li>
                         <li data-lang-key="affiliateMarketingDesc2">Berfokus pada kurasi produk pilihan, termasuk pakaian pria/wanita dan buku pengembangan diri, untuk menarik audiens spesifik.</li>
                         <li data-lang-key="affiliateMarketingDesc3">Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.</li>
-                        <li data-lang-key="affiliateMarketingDesc4">Mencapai 5 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.</li>
+                        <li data-lang-key="affiliateMarketingDesc4">Mencapai 57 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.</li>
                     </ul>
                 </div>
                 <!-- New Experience 2: Dropshipper -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="dropshipperTitle">Dropshipper & E-commerce Entrepreneur</h3>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="dropshipperTitle">Dropshipper & Pengusaha E-commerce</h3>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
                         <li data-lang-key="dropshipperDesc1">Berhasil membangun bisnis dropshipping di platform Shopify dengan modal minim.</li>
                         <li data-lang-key="dropshipperDesc2">Mengelola rantai pasok internasional, memasarkan produk pakaian dari Tiongkok ke pasar Amerika Serikat.</li>
-                        <li data-lang-key="dropshipperDesc3">Mencapai 137 penjualan dalam 2 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.</li>
+                        <li data-lang-key="dropshipperDesc3">Mencapai 137 penjualan dalam 1 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.</li>
                         <li data-lang-key="dropshipperDesc4">Melakukan transisi ke platform lokal (Shopee & TikTok Shop) untuk fokus pada pengembangan merek pribadi.</li>
                         <li data-lang-key="dropshipperDesc5">Mendapatkan 14.000+ impresi produk di TikTok Shop, menunjukkan kemampuan awal dalam membangun visibilitas merek.</li>
                     </ul>
@@ -702,25 +802,25 @@
                 <!-- Experience 3: Cookies Business -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="cookiesBizTitle">Owner, Cookies Business</h3>
-                        <span class="text-gray-500" data-lang-key="selfEmployed">Self-employed</span>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="cookiesBizTitle">Pemilik, Bisnis Kue</h3>
+                        <span class="text-gray-500" data-lang-key="selfEmployed">Wiraswasta</span>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                        <li data-lang-key="cookiesBizDesc1">Successfully built and managed a cookies business that gained 437 loyal customers.</li>
-                        <li data-lang-key="cookiesBizDesc2">Achieved daily revenue of more than Rp500,000.</li>
+                        <li data-lang-key="cookiesBizDesc1">Berhasil membangun dan mengelola bisnis kue yang mendapatkan 437 pelanggan setia.</li>
+                        <li data-lang-key="cookiesBizDesc2">Mencapai pendapatan harian lebih dari Rp500,000.</li>
                     </ul>
                 </div>
                 
                 <!-- Experience 4: Web Dev Venture -->
                 <div class="modern-card mini-card bg-white initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="webDevVentureTitle">Customer Service & Co-Founder, Web Development Venture</h3>
+                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="webDevVentureTitle">Customer Service & Co-Founder, Usaha Pengembangan Web</h3>
                         <span class="text-gray-500" data-lang-key="coFounder">Co-founder</span>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-600">
-                        <li data-lang-key="webDevVentureDesc1">Served as Customer Service and co-founder in a web development venture built with a partner.</li>
-                        <li data-lang-key="webDevVentureDesc2">Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.</li>
-                        <li data-lang-key="webDevVentureDesc3">Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.</li>
+                        <li data-lang-key="webDevVentureDesc1">Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.</li>
+                        <li data-lang-key="webDevVentureDesc2">Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan 6 proyek dalam 1 bulan sejak pendirian bisnis.</li>
+                        <li data-lang-key="webDevVentureDesc3">Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating 4.9 hingga 5 bintang.</li>
                     </ul>
                 </div>
             </div>
@@ -730,13 +830,20 @@
     <!-- Certificates Section -->
     <section id="certificates" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="educationCertTitle">Education & Certifications</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="educationCertTitle">Pendidikan & Sertifikasi</h2>
             
+            <div class="modern-card p-6 bg-white my-8 flex flex-col items-center text-center">
+                <p class="text-xl font-semibold text-gray-700 mb-2">Total Sertifikasi:</p>
+                <div class="counter-container">
+                    <span id="certificateCounter" class="counter-number">0</span>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Certificate 1 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('cplesples.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="cplesples.jpg" alt="C++ Essentials 1 Certificate" class="w-full h-full object-cover">
+                        <img src="cplesples.jpg" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title">C++ Essentials 1</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert1Org">Cisco Networking Academy & OpenEDG C++ Institute</p>
@@ -745,7 +852,7 @@
                 <!-- Certificate 2 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('data formating.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="data formating.jpg" alt="Data Formatting & Cleansing Certificate" class="w-full h-full object-cover">
+                        <img src="data formating.jpg" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title">Data Formatting & Cleansing</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert2Org">MySkill - Microsoft Excel</p>
@@ -754,7 +861,7 @@
                 <!-- Certificate 3 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('piton.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="piton.jpg" alt="Python Essentials 1 Certificate" class="w-full h-full object-cover">
+                        <img src="piton.jpg" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title">Python Essentials 1</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert3Org">Cisco Networking Academy & OpenEDG Python Institute</p>
@@ -763,7 +870,7 @@
                 <!-- Certificate 4 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('atcom.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="atcom.jpg" alt="UI/UX Workshop Certificate" class="w-full h-full object-cover">
+                        <img src="atcom.jpg" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert4Org">Android Developer Community</p>
@@ -772,38 +879,75 @@
                 <!-- New Certificate: CCNA1 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('ccna1.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="ccna1.jpg" alt="CCNA1 Certificate" class="w-full h-full object-cover">
+                        <img src="ccna1.jpg" alt="Sertifikat CCNA1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title">CCNA: Introduction to Networks</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert5Org">Cisco Networking Academy</p>
                 </div>
                 
-                <!-- New Certificate: MySkill UI/UX Short Class -->
+                <!-- New Certificate: MySkill Brand Identity -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('brand.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="brand.jpg" alt="MySkill Brand Identity Certificate" class="w-full h-full object-cover">
+                        <img src="brand.jpg" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand">Brand Identity Design</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand">Desain Identitas Merek</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                 </div>
 
                 <!-- New Certificate: MySkill Web Frontend -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('frontend.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="frontend.jpg" alt="MySkill Web Frontend Certificate" class="w-full h-full object-cover">
+                        <img src="frontend.jpg" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE">Website Development: Front End</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE">Pengembangan Website: Front End</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                 </div>
                 
                 <!-- New Certificate: MySkill Content Writing -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('seo.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="seo.jpg" alt="MySkill Content Writing Certificate" class="w-full h-full object-cover">
+                        <img src="seo.jpg" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent">SEO & Content Writing</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent">SEO & Penulisan Konten</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                 </div>
+                
+                <!-- New Certificate 1: bd.jpg -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('bd.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="bd.jpg" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certBDTitle">Introduction to Business Development</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="certBDOrg">MySkill Short Class</p>
+                </div>
+                
+                <!-- New Certificate 2: intro.jpg -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('intro.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="intro.jpg" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certIntroTitle">Introduction to Cybersecurity</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="certIntroOrg">Cisco Networking Academy</p>
+                </div>
+                
+                <!-- New Certificate 3: junior.jpg -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('junior.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="junior.jpg" alt="Sertifikat Junior Cybersecurity Analyst Career Path" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certJuniorTitle">Junior Cybersecurity Analyst Career Path</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="certJuniorOrg">Cisco Networking Academy</p>
+                </div>
+                
+                <!-- New Certificate 4: threat.jpg -->
+                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('threat.jpg')">
+                    <div class="h-48 overflow-hidden rounded-md mb-3">
+                        <img src="threat.jpg" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certThreatTitle">Cyber Threat Management</h3>
+                    <p class="text-sm text-gray-600" data-lang-key="certThreatOrg">Cisco Networking Academy</p>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -813,6 +957,11 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center justify-center">
                 <div class="flex space-x-6 mb-4">
+                     <!-- LinkedIn -->
+                     <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
+                        <span class="sr-only">LinkedIn</span>
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                     <a href="https://www.instagram.com/faqihalrf" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
                         <span class="sr-only">Instagram</span>
                         <i class="fab fa-instagram"></i>
@@ -826,7 +975,7 @@
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
-                <p class="text-gray-400 text-sm" data-lang-key="footerCopyright">&copy; 2024 Muhammad Faqih Al Rifai. All rights reserved.</p>
+                <p class="text-gray-400 text-sm" data-lang-key="footerCopyright">&copy; 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
@@ -834,7 +983,7 @@
     <!-- Certificate Modal -->
     <div id="certificateModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+        <img class="modal-content" id="modalImage" alt="Sertifikat">
     </div>
 
     <!-- Project Detail Modal -->
@@ -853,7 +1002,7 @@
         // Language translations
         const translations = {
             en: {
-                pageTitle: "Muhammad Faqih Al Rifai - Professional Portfolio",
+                pageTitle: "Muhammad Faqih Al Rifai - Modern Web & UI/UX Portfolio",
                 navbarName: "Faqih | Portfolio",
                 navAbout: "About",
                 navSkills: "Skills",
@@ -861,15 +1010,14 @@
                 navWorkflow: "Workflow",
                 navExperience: "Experience",
                 navCertificates: "Certificates",
-                heroSubtitle: "Web Developer & Business Analyst",
-                heroDescription: "A multi-disciplinary professional at the intersection of technology, design, and business strategy. I build and optimize digital products that are not only visually compelling and user-friendly but also drive measurable business growth.",
+                heroSubtitle: "Product Designer (UI/UX) & Business Strategist",
                 viewProjectsBtnText: "View Projects",
                 designModernTag: "Modern Design",
                 downloadCvBtnText: "Download CV",
                 downloadCvBtn2Text: "Download CV",
                 aboutMeTitle: "About Me",
-                aboutMeP1: "A passionate and results-driven professional at the intersection of technology, design, and business. With a strong foundation in web development, product design, and business analysis, I specialize in building solutions that are not just functional, but also strategically aligned to achieve business objectives. I am always seeking new opportunities to create real impact and solve complex problems with innovative digital products.",
-                personalInfoTitle: "Personal Information",
+                aboutMeP1: "A passionate and results-driven professional at the intersection of technology, design, and business. With a strong foundation in web development, product design (UI/UX), and business analysis, I specialize in building solutions that are not just functional, but also strategically aligned to achieve business objectives. I am always seeking new opportunities to create real impact and solve complex problems with innovative digital products.",
+                personalInfoTitle: "Personal Information & Contact",
                 locationLabel: "Location:",
                 locationText: "Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",
                 contactLabel: "Contact:",
@@ -877,19 +1025,19 @@
                 educationLabel: "Education:",
                 education1: "STMIK IKMI Cirebon - Informatics Engineering (Semester 3)",
                 education2: "SMAN 5 Cirebon",
-                skillsTitle: "Skills",
+                skillsTitle: "Core Skills",
                 techExpertiseTitle: "Technical Expertise",
                 frontEndDevLabel: "Front-End Development:",
-                frontEndDevDesc: "Mastery in crafting responsive, high-performance web interfaces with clean, modern code.",
+                frontEndDevDesc: "Mastery in crafting responsive, high-performance web interfaces with clean, modern code, ensuring a smooth and fast user experience.",
                 uiUxDesignLabel: "UI/UX & Product Design:",
                 uiUxDesignDesc: "Expertise in creating intuitive and engaging digital products from concept to user-ready solutions. I am an expert in Figma for wireframing, prototyping, and visual design.",
                 digitalContentLabel: "Digital Content & Branding:",
-                digitalContentDesc: "Skilled in developing cohesive visual identities and compelling content for digital platforms.",
+                digitalContentDesc: "Skilled in developing cohesive visual identities and compelling content for digital platforms, with a focus on SEO strategy and audience engagement.",
                 bizAcumenTitle: "Business Acumen",
                 strategicAnalysisLabel: "Strategic Analysis:",
                 strategicAnalysisDesc: "Ability to translate complex data and market trends into actionable business strategies that drive growth.",
                 digitalMarketingLabel: "Digital Marketing & Sales:",
-                digitalMarketingDesc: "Hands-on experience in generating revenue and building brand visibility through targeted digital campaigns.",
+                digitalMarketingDesc: "Hands-on experience in generating revenue and building brand visibility through targeted and measurable digital campaigns.",
                 profQualitiesTitle: "Professional Qualities",
                 teamBuildingLabel: "Team Building:",
                 teamBuildingDesc: "I have a proven ability to collaborate effectively and foster a positive, productive team environment, ensuring shared goals are met with collective effort.",
@@ -899,14 +1047,15 @@
                 adaptabilityDesc: "I proactively seek out new technologies and skills, and I am quick to adapt to dynamic project requirements and market shifts.",
                 effectiveCommLabel: "Effective Communication:",
                 effectiveCommDesc: "I excel at articulating ideas and collaborating seamlessly with both technical and non-technical stakeholders to ensure project alignment and success.",
-                featuredProjectsTitle: "Featured Projects",
-                fiplleDesc: "An e-commerce mobile app design with a clean, modern interface and a unique card-style balance feature.",
-                myDsgnDesc: "A design platform showcasing creative work and portfolio management.",
-                dashProPanelDesc: "A dashboard for professional panel management with data visualization.",
-                evolvemartDesc: "An e-commerce platform currently in development phase.",
-                dapurUmmiDesc: "A culinary website currently under maintenance.",
-                yourProDesc: "A professional portfolio website showcasing various projects and skills.",
-                dcorpsDesc: "A creative portfolio website showcasing a diverse range of works and capabilities.",
+                featuredProjectsTitle: "Featured Projects: Innovation in Development & Design",
+                fiplleDesc: "An e-commerce mobile app design with a clean, modern interface and a unique card-style balance feature, built with a focus on an intuitive and engaging user experience.",
+                nasigorengDesc: "A UI/UX design project for a Nasi Goreng ordering app. The app is designed to provide a simple, fast, and easy menu personalization user experience.",
+                myDsgnDesc: "A design platform showcasing creative work and portfolio management. Built with pure HTML, CSS, and JavaScript for optimal performance.",
+                dashProPanelDesc: "A dashboard for professional panel management with data visualization, developed with Tailwind CSS for a fast and modular design.",
+                evolvemartDesc: "An e-commerce platform currently in development, designed for scalability and a seamless user journey.",
+                dapurUmmiDesc: "A culinary website currently under maintenance, featuring recipes and engaging food content. Utilizes Tailwind CSS for a clean design.",
+                yourProDesc: "A professional portfolio website showcasing various projects and skills, built with a focus on a modern aesthetic and intuitive user experience.",
+                dcorpsDesc: "A creative portfolio website showcasing a diverse range of works and capabilities, designed for a dynamic and memorable visual experience.",
                 workflowTitle: "My Workflow / Process",
                 workflowIntro: "My workflow is a blend of technical and strategic processes, ensuring every project is not just a digital product, but a business solution.",
                 workflow1Title: "1. Discovery & Research",
@@ -922,15 +1071,19 @@
                 workflow6Title: "6. Launch & Maintenance",
                 workflow6Desc: "Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.",
                 experienceTitle: "Professional Experience",
+                seoInternshipTitle: "SEO Writing Internship",
+                seoInternshipDesc1: "Managed and optimized blog content to improve search engine rankings.",
+                seoInternshipDesc2: "Conducted in-depth keyword research and analyzed market trends to develop effective content strategies.",
+                seoInternshipDesc3: "Increased online visibility and attracted organic audience with informative and well-structured articles.",
                 affiliateMarketingTitle: "Affiliate Marketing",
                 affiliateMarketingDesc1: "Built and managed an affiliate marketing strategy on the Shopee platform.",
                 affiliateMarketingDesc2: "Focused on curating a selection of products, including men's/women's apparel and self-help books, to appeal to a specific audience.",
                 affiliateMarketingDesc3: "Utilized social media (Instagram) as the primary channel to drive traffic and conversions.",
-                affiliateMarketingDesc4: "Achieved 5 product sales in the first month, demonstrating initial ability in generating sales through affiliate marketing.",
+                affiliateMarketingDesc4: "Achieved 57 sales in the first month, demonstrating initial ability in generating sales through affiliate marketing.",
                 dropshipperTitle: "Dropshipper & E-commerce Entrepreneur",
                 dropshipperDesc1: "Successfully built a dropshipping business on the Shopify platform with minimal capital.",
                 dropshipperDesc2: "Managed an international supply chain, marketing apparel products from China to the US market.",
-                dropshipperDesc3: "Achieved 137 sales in the first 2 months, demonstrating effective marketing and sales strategy.",
+                dropshipperDesc3: "Achieved 137 sales in the first 1 months, demonstrating effective marketing and sales strategy.",
                 dropshipperDesc4: "Transitioned to local platforms (Shopee & TikTok Shop) to focus on personal brand development.",
                 dropshipperDesc5: "Gained 14,000+ product impressions on TikTok Shop, showing early ability in building brand visibility.",
                 cookiesBizTitle: "Owner, Cookies Business",
@@ -957,6 +1110,14 @@
                 certMySkillFE: "Website Development: Front End",
                 certMySkillContent: "SEO & Content Writing",
                 certMySkillOrg: "MySkill Short Class",
+                certBDTitle: "Introduction to Business Development",
+                certBDOrg: "MySkill Short Class",
+                certIntroTitle: "Introduction to Cybersecurity",
+                certIntroOrg: "Cisco Networking Academy",
+                certJuniorTitle: "Junior Cybersecurity Analyst Career Path",
+                certJuniorOrg: "Cisco Networking Academy",
+                certThreatTitle: "Cyber Threat Management",
+                certThreatOrg: "Cisco Networking Academy",
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. All rights reserved.",
                 // Project Detail Modal Content
                 modalTools: "Tools & Techniques:",
@@ -971,11 +1132,13 @@
                 dapurUmmiTime: "4 Days",
                 urproTime: "2 Days",
                 dcorpsTime: "7 Days",
+                nasigorengTime: "10 Days",
                 statusActiveText: "Active",
-                statusMaintenanceText: "Under Maintenance"
+                statusMaintenanceText: "Under Maintenance",
+                statusProjectText: "Completed Project"
             },
             id: {
-                pageTitle: "Muhammad Faqih Al Rifai - Portofolio Profesional",
+                pageTitle: "Muhammad Faqih Al Rifai - Portofolio Web Modern & Desain UI/UX",
                 navbarName: "Faqih | Portofolio",
                 navAbout: "Tentang",
                 navSkills: "Keahlian",
@@ -983,15 +1146,14 @@
                 navWorkflow: "Alur Kerja",
                 navExperience: "Pengalaman",
                 navCertificates: "Sertifikasi",
-                heroSubtitle: "Pengembang Web & Analis Bisnis",
-                heroDescription: "Sebagai seorang profesional multi-disiplin di persimpangan teknologi, desain, dan strategi bisnis, saya membangun dan mengoptimalkan produk digital yang tidak hanya menarik secara visual dan mudah digunakan, tetapi juga mendorong pertumbuhan bisnis yang terukur.",
+                heroSubtitle: "Desainer Produk (UI/UX) & Strategis Bisnis",
                 viewProjectsBtnText: "Lihat Proyek",
                 designModernTag: "Desain Modern",
                 downloadCvBtnText: "Unduh CV",
                 downloadCvBtn2Text: "Unduh CV",
                 aboutMeTitle: "Tentang Saya",
-                aboutMeP1: "Seorang profesional yang bersemangat dan berorientasi pada hasil di persimpangan teknologi dan bisnis. Dengan fondasi yang kuat dalam pengembangan web, desain produk, dan analisis bisnis, saya berspesialisasi dalam membangun solusi yang tidak hanya fungsional, tetapi juga selaras secara strategis untuk mencapai tujuan bisnis. Saya selalu mencari peluang baru untuk menciptakan dampak nyata dan memecahkan masalah kompleks dengan produk digital yang inovatif.",
-                personalInfoTitle: "Informasi Pribadi",
+                aboutMeP1: "Sebagai seorang profesional yang bersemangat dan berorientasi pada hasil, saya berada di persimpangan teknologi, desain, dan strategi bisnis. Dengan fondasi yang kuat dalam pengembangan web, desain produk (UI/UX), dan analisis bisnis, saya berfokus pada pembangunan solusi yang tidak hanya fungsional, tetapi juga selaras secara strategis untuk mencapai tujuan bisnis. Saya secara proaktif mencari peluang baru untuk menciptakan dampak nyata dan memecahkan masalah kompleks dengan produk digital yang inovatif.",
+                personalInfoTitle: "Informasi Pribadi & Kontak",
                 locationLabel: "Lokasi:",
                 locationText: "Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",
                 contactLabel: "Kontak:",
@@ -999,19 +1161,19 @@
                 educationLabel: "Pendidikan:",
                 education1: "STMIK IKMI Kota Cirebon - Teknik Informatika (Semester 3)",
                 education2: "SMAN 5 Kota Cirebon",
-                skillsTitle: "Keahlian",
+                skillsTitle: "Keahlian Utama",
                 techExpertiseTitle: "Keahlian Teknis",
                 frontEndDevLabel: "Pengembangan Front-End:",
-                frontEndDevDesc: "Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern.",
+                frontEndDevDesc: "Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern, menjamin pengalaman pengguna yang lancar dan cepat.",
                 uiUxDesignLabel: "Desain UI/UX & Produk:",
-                uiUxDesignDesc: "Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk *wireframing*, *prototyping*, dan desain visual.",
+                uiUxDesignDesc: "Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk wireframing, prototyping, dan desain visual.",
                 digitalContentLabel: "Konten Digital & Branding:",
-                digitalContentDesc: "Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital.",
+                digitalContentDesc: "Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.",
                 bizAcumenTitle: "Kecakapan Bisnis",
                 strategicAnalysisLabel: "Analisis Strategis:",
                 strategicAnalysisDesc: "Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.",
                 digitalMarketingLabel: "Pemasaran Digital & Penjualan:",
-                digitalMarketingDesc: "Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah.",
+                digitalMarketingDesc: "Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.",
                 profQualitiesTitle: "Kualitas Profesional",
                 teamBuildingLabel: "Membangun Tim:",
                 teamBuildingDesc: "Saya memiliki kemampuan teruji untuk berkolaborasi secara efektif dan membina lingkungan tim yang positif dan produktif, memastikan tujuan bersama tercapai dengan upaya kolektif.",
@@ -1021,14 +1183,15 @@
                 adaptabilityDesc: "Saya secara proaktif mencari teknologi dan keterampilan baru, serta cepat beradaptasi dengan persyaratan proyek yang dinamis dan perubahan pasar.",
                 effectiveCommLabel: "Komunikasi Efektif:",
                 effectiveCommDesc: "Saya unggul dalam mengartikulasikan ide dan berkolaborasi secara mulus dengan pemangku kepentingan teknis maupun non-teknis untuk memastikan keselarasan dan keberhasilan proyek.",
-                featuredProjectsTitle: "Proyek Pilihan",
-                fiplleDesc: "Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening.",
-                myDsgnDesc: "Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio.",
-                dashProPanelDesc: "Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data.",
-                evolvemartDesc: "Sebuah platform e-commerce yang sedang dalam tahap pengembangan.",
-                dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan.",
-                yourProDesc: "Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian.",
-                dcorpsDesc: "Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan.",
+                featuredProjectsTitle: "Proyek Pilihan: Inovasi dalam Pengembangan & Desain",
+                fiplleDesc: "Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.",
+                nasigorengDesc: "Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.",
+                myDsgnDesc: "Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.",
+                dashProPanelDesc: "Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.",
+                evolvemartDesc: "Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.",
+                dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.",
+                yourProDesc: "Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.",
+                dcorpsDesc: "Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.",
                 workflowTitle: "Alur Kerja / Proses Saya",
                 workflowIntro: "Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.",
                 workflow1Title: "1. Penemuan & Riset",
@@ -1044,15 +1207,19 @@
                 workflow6Title: "6. Peluncuran & Pemeliharaan",
                 workflow6Desc: "Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.",
                 experienceTitle: "Pengalaman Profesional",
+                seoInternshipTitle: "Internship SEO Writing",
+                seoInternshipDesc1: "Mengelola dan mengoptimalkan konten blog untuk meningkatkan peringkat di mesin pencari.",
+                seoInternshipDesc2: "Melakukan riset kata kunci mendalam dan menganalisis tren pasar untuk mengembangkan strategi konten yang efektif.",
+                seoInternshipDesc3: "Meningkatkan visibilitas online dan menarik audiens organik dengan artikel yang informatif dan terstruktur dengan baik.",
                 affiliateMarketingTitle: "Pemasaran Afiliasi",
                 affiliateMarketingDesc1: "Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee.",
                 affiliateMarketingDesc2: "Berfokus pada kurasi produk pilihan, termasuk pakaian pria/wanita dan buku pengembangan diri, untuk menarik audiens spesifik.",
                 affiliateMarketingDesc3: "Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.",
-                affiliateMarketingDesc4: "Mencapai 5 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.",
+                affiliateMarketingDesc4: "Mencapai 57 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.",
                 dropshipperTitle: "Dropshipper & Pengusaha E-commerce",
                 dropshipperDesc1: "Berhasil membangun bisnis dropshipping di platform Shopify dengan modal minim.",
                 dropshipperDesc2: "Mengelola rantai pasok internasional, memasarkan produk pakaian dari Tiongkok ke pasar Amerika Serikat.",
-                dropshipperDesc3: "Mencapai 137 penjualan dalam 2 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.",
+                dropshipperDesc3: "Mencapai 137 penjualan dalam 1 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.",
                 dropshipperDesc4: "Melakukan transisi ke platform lokal (Shopee & TikTok Shop) untuk fokus pada pengembangan merek pribadi.",
                 dropshipperDesc5: "Mendapatkan 14.000+ impresi produk di TikTok Shop, menunjukkan kemampuan awal dalam membangun visibilitas merek.",
                 cookiesBizTitle: "Pemilik, Bisnis Kue",
@@ -1079,6 +1246,14 @@
                 certMySkillFE: "Pengembangan Website: Front End",
                 certMySkillContent: "SEO & Penulisan Konten",
                 certMySkillOrg: "MySkill Short Class",
+                certBDTitle: "Pengantar Pengembangan Bisnis",
+                certBDOrg: "MySkill Short Class",
+                certIntroTitle: "Pengantar Keamanan Siber",
+                certIntroOrg: "Cisco Networking Academy",
+                certJuniorTitle: "Jalur Karir Analis Keamanan Siber Junior",
+                certJuniorOrg: "Cisco Networking Academy",
+                certThreatTitle: "Manajemen Ancaman Siber",
+                certThreatOrg: "Cisco Networking Academy",
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",
                 // Project Detail Modal Content
                 modalTools: "Alat & Teknik:",
@@ -1093,8 +1268,10 @@
                 dapurUmmiTime: "4 Hari",
                 urproTime: "2 Hari",
                 dcorpsTime: "7 Hari",
+                nasigorengTime: "10 Hari",
                 statusActiveText: "Aktif",
-                statusMaintenanceText: "Dalam Pemeliharaan"
+                statusMaintenanceText: "Dalam Pemeliharaan",
+                statusProjectText: "Proyek Selesai"
             }
         };
 
@@ -1110,6 +1287,17 @@
                 solution_id: "Saya melakukan analisis kompetitor yang komprehensif dan wawancara pengguna untuk mengidentifikasi masalah dan peluang yang belum dimanfaatkan. Desain ini dibangun dengan filosofi 'kurang itu lebih', menggunakan antarmuka yang bersih dan navigasi yang intuitif. Fitur saldo bergaya kartu adalah hasil langsung dari umpan balik pengguna, yang bertujuan untuk memberikan ringkasan status keuangan mereka dalam aplikasi secara cepat dan mudah dilihat.",
                 role_id: "Desainer UI/UX & Desainer Produk",
                 learning_id: "Saya belajar untuk berpikir secara strategis tentang desain, memperlakukannya bukan hanya sebagai latihan visual tetapi sebagai alat yang ampuh untuk memecahkan masalah bisnis. Saya mendapatkan pengalaman langsung dalam menerjemahkan ide mentah menjadi prototipe interaktif berfidelitas tinggi, menunjukkan pentingnya setiap tahapan proses desain, dari wireframing hingga pengujian pengguna."
+            },
+            "Nasi Goreng App": {
+                languages: ["Figma (UI/UX Design)", "User Flow", "Wireframing", "Prototyping"],
+                challenges_en: "The primary challenge was to design a food ordering app with a focus on simplicity and speed, while also providing robust options for menu customization without cluttering the user interface.",
+                solution_en: "I developed a user-friendly interface with clear, single-tap options for common choices and an intuitive system for advanced customizations. The design focuses on a clean layout and a straightforward ordering process to minimize friction and improve user satisfaction.",
+                role_en: "UI/UX Designer",
+                learning_en: "This project provided practical experience in applying core UI/UX principles to solve a real-world problem. I learned to balance aesthetic appeal with functional design, focusing on creating a seamless and enjoyable user journey from start to finish.",
+                challenges_id: "Tantangan utamanya adalah merancang aplikasi pemesanan makanan dengan fokus pada kesederhanaan dan kecepatan, sambil tetap menyediakan opsi kustomisasi menu yang kuat tanpa membebani antarmuka pengguna.",
+                solution_id: "Saya mengembangkan antarmuka yang ramah pengguna dengan opsi sekali ketuk yang jelas untuk pilihan umum dan sistem intuitif untuk kustomisasi lanjutan. Desainnya berfokus pada tata letak yang bersih dan proses pemesanan yang lugas untuk meminimalkan hambatan dan meningkatkan kepuasan pengguna.",
+                role_id: "Desainer UI/UX",
+                learning_id: "Proyek ini memberikan pengalaman praktis dalam menerapkan prinsip-prinsip inti UI/UX untuk memecahkan masalah nyata. Saya belajar menyeimbangkan daya tarik estetika dengan desain fungsional, berfokus pada menciptakan perjalanan pengguna yang mulus dan menyenangkan dari awal hingga akhir."
             },
             "MyDSGN": {
                 languages: ["HTML", "CSS", "JavaScript"],
@@ -1175,7 +1363,7 @@
                 challenges_id: "Membangun portofolio kreatif yang menakjubkan secara visual dan unik yang melampaui template standar. Tantangan utamanya adalah mengimplementasikan elemen kustom, interaktif, dan estetika yang khas yang benar-benar mencerminkan identitas merek kreatif.",
                 solution_id: "Mengembangkan situs ini dengan fokus pada animasi yang lancar dan responsif serta palet warna yang dikurasi dengan cermat. Saya menggunakan CSS untuk efek visual yang kompleks dan JavaScript untuk pengguliran dinamis seperti paralaks dan status hover interaktif, membuat situs terasa hidup dan menarik.",
                 role_id: "Pengembang Web",
-                learning_id: "Proyek ini mengajarkan saya pentingnya mendorong batasan kreatif dalam pengembangan web. Saya mendapatkan pengalaman luas dalam menggunakan CSS dan JavaScript murni untuk menciptakan efek visual kustom dan pengalaman pengguna yang berkinerja tinggi dan mudah diingat, membuktikan bahwa desain web adalah bentuk seni."
+                learning_id: "Proyek ini mengajarkan saya pentingnya mendorong batasan kreatif dalam pengembangan web. Saya mendapatkan pengalaman luas dalam menggunakan CSS dan JavaScript murni untuk menciptakan efek visual kustom dan pengalaman pengguna yang berkinerja tinggi dan mudah diingat, membuktikan bahwa web desain adalah bentuk seni."
             }
         };
 
@@ -1222,6 +1410,8 @@
             if (urproTimeElement) { urproTimeElement.textContent = translations[currentLang].urproTime; }
             const dcorpsTimeElement = document.getElementById('dcorpsTime');
             if (dcorpsTimeElement) { dcorpsTimeElement.textContent = translations[currentLang].dcorpsTime; }
+            const nasigorengStatusElement = document.getElementById('nasigorengStatus');
+            if (nasigorengStatusElement) { nasigorengStatusElement.textContent = translations[currentLang].statusProjectText; }
 
             const fiplleStatusElement = document.getElementById('fiplleStatus');
             if (fiplleStatusElement) { fiplleStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
@@ -1237,6 +1427,26 @@
             if (urproStatusElement) { urproStatusElement.textContent = translations[currentLang].statusActiveText; }
             const dcorpsStatusElement = document.getElementById('dcorpsStatus');
             if (dcorpsStatusElement) { dcorpsStatusElement.textContent = translations[currentLang].statusActiveText; }
+            
+            // Update certificate titles and organizations based on the current language
+            const certElements = [
+                { id: 'certBDTitle', key: 'certBDTitle' },
+                { id: 'certBDOrg', key: 'certBDOrg' },
+                { id: 'certIntroTitle', key: 'certIntroTitle' },
+                { id: 'certIntroOrg', key: 'certIntroOrg' },
+                { id: 'certJuniorTitle', key: 'certJuniorTitle' },
+                { id: 'certJuniorOrg', key: 'certJuniorOrg' },
+                { id: 'certThreatTitle', key: 'certThreatTitle' },
+                { id: 'certThreatOrg', key: 'certThreatOrg' },
+            ];
+            
+            certElements.forEach(item => {
+                const element = document.getElementById(item.id);
+                if (element && translations[currentLang][item.key]) {
+                    element.textContent = translations[currentLang][item.key];
+                }
+            });
+
 
             // Update current language display in buttons
             const currentLangDisplayElement = document.getElementById('currentLangDisplay');
@@ -1245,7 +1455,7 @@
             if (currentMobileLangDisplayElement) { currentMobileLangDisplayElement.textContent = currentLang.toUpperCase(); }
         }
 
-        let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
+        let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
         
         // Function to set language and update content
         function setLanguage(lang) {
@@ -1306,7 +1516,7 @@
                 const roleKey = `role_${currentLang}`;
                 const learningKey = `learning_${currentLang}`;
                 // Select the correct label for "Tools & Techniques"
-                const modalLangLabel = projectName === "Fiplle" ? translations[currentLang].modalTools : translations[currentLang].modalLang;
+                const modalLangLabel = projectName === "Fiplle" || projectName === "Nasi Goreng App" ? translations[currentLang].modalTools : translations[currentLang].modalLang;
 
 
                 content.innerHTML = `
@@ -1553,16 +1763,49 @@
             }
         });
 
+        // Animating Counter for Certificates
+        function animateCounter(targetElement, start, end, duration) {
+            let current = start;
+            const range = end - start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+
+            const timer = setInterval(() => {
+                current += increment;
+                targetElement.textContent = current;
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        const certificateCounterElement = document.getElementById('certificateCounter');
+        const totalCertificates = 12; // Update this number based on your total certificates
+        let hasCounted = false;
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasCounted) {
+                    animateCounter(certificateCounterElement, 0, totalCertificates, 2000);
+                    hasCounted = true;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the counter is visible
+
+        if (certificateCounterElement) {
+            counterObserver.observe(certificateCounterElement);
+        }
+
         // Initialize content on load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('lang');
             if (savedLang) {
                 setLanguage(savedLang);
             } else {
-                updateContent(); // Update with default 'en' if no preference saved
+                updateContent(); // Update with default 'id'
             }
         });
     </script>
 </body>
 </html>
-

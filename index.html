@@ -473,7 +473,7 @@
                     <ul class="list-disc pl-5 space-y-3 text-gray-600">
                         <li>
                             <span class="font-semibold text-gray-800" data-lang-key="strategicAnalysisLabel">Analisis Strategis:</span>
-                            <span data-lang-key="strategicAnalysisDesc">Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.</span>
+                            <span data-lang-key="strategicAnalysisDesc">Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjutkan dan mendorong pertumbuhan.</span>
                             <p class="text-sm text-gray-500 mt-1">Fokus: Business Development, Sales & Data Analysis, E-commerce Operations.</p>
                         </li>
                         <li>
@@ -532,25 +532,25 @@
                     </div>
                 </div>
                 
-                 <!-- New Project: Nasi Goreng App -->
-                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
-                        <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                    <!-- New Project: Nasi Goreng App -->
+                    <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
+                            <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                                <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
+                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                                <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
+                                    <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                             <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
-                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Project 2: MyDSGN -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
@@ -1171,7 +1171,7 @@
                 digitalContentDesc: "Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.",
                 bizAcumenTitle: "Kecakapan Bisnis",
                 strategicAnalysisLabel: "Analisis Strategis:",
-                strategicAnalysisDesc: "Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.",
+                strategicAnalysisDesc: "Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjutkan dan mendorong pertumbuhan.",
                 digitalMarketingLabel: "Pemasaran Digital & Penjualan:",
                 digitalMarketingDesc: "Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.",
                 profQualitiesTitle: "Kualitas Profesional",
@@ -1515,29 +1515,31 @@
                 const solutionKey = `solution_${currentLang}`;
                 const roleKey = `role_${currentLang}`;
                 const learningKey = `learning_${currentLang}`;
-                // Select the correct label for "Tools & Techniques"
-                const modalLangLabel = projectName === "Fiplle" || projectName === "Nasi Goreng App" ? translations[currentLang].modalTools : translations[currentLang].modalLang;
-
+                const modalToolsLabel = translations[currentLang].modalTools;
+                const modalChallengesLabel = translations[currentLang].modalChallenges;
+                const modalSolutionLabel = translations[currentLang].modalSolution;
+                const modalRoleLabel = translations[currentLang].modalRole;
+                const modalLearningLabel = translations[currentLang].modalLearning;
 
                 content.innerHTML = `
-                    <div class="project-detail-section">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${modalLangLabel}</h4>
+                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalToolsLabel}</h4>
                         <p class="text-gray-700 dark:text-gray-300">${details.languages.join(', ')}</p>
                     </div>
-                    <div class="project-detail-section">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalChallenges}</h4>
+                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalChallengesLabel}</h4>
                         <p class="text-gray-700 dark:text-gray-300">${details[challengesKey]}</p>
                     </div>
-                    <div class="project-detail-section">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalSolution}</h4>
+                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalSolutionLabel}</h4>
                         <p class="text-gray-700 dark:text-gray-300">${details[solutionKey]}</p>
                     </div>
-                    <div class="project-detail-section">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalRole}</h4>
+                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalRoleLabel}</h4>
                         <p class="text-gray-700 dark:text-gray-300">${details[roleKey]}</p>
                     </div>
-                    <div class="project-detail-section">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-teal-400 mb-2">${translations[currentLang].modalLearning}</h4>
+                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalLearningLabel}</h4>
                         <p class="text-gray-700 dark:text-gray-300">${details[learningKey]}</p>
                     </div>
                 `;

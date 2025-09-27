@@ -356,7 +356,7 @@
             <div class="flex flex-col items-center justify-center text-center">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 initial-hidden">
                     <!-- Replace with your actual image path -->
-                    <img src="propfil.jpg" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
+                    <img src="propfil.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x320/00b894/ffffff?text=Faqih+Al+Rifai'" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
                 </div>
                 <div class="md:w-full mb-8 md:mb-0 px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
@@ -382,8 +382,9 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">Tentang Saya</h2>
             <div class="max-w-3xl mx-auto">
+                <!-- UPDATED ABOUT ME TEXT -->
                 <p class="text-lg text-gray-600 mb-8 initial-hidden" data-lang-key="aboutMeP1">
-                    Sebagai seorang profesional yang bersemangat dan berorientasi pada hasil, saya berada di persimpangan teknologi, desain, dan strategi bisnis. Dengan fondasi yang kuat dalam pengembangan web, desain produk (UI/UX), dan analisis bisnis, saya berfokus pada pembangunan solusi yang tidak hanya fungsional, tetapi juga selaras secara strategis untuk mencapai tujuan bisnis. Saya secara proaktif mencari peluang baru untuk menciptakan dampak nyata dan memecahkan masalah kompleks dengan produk digital yang inovatif.
+                    Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang **inovatif, fungsional, dan berkinerja tinggi** untuk mendorong pertumbuhan dan memecahkan masalah kompleks.
                 </p>
                 
                 <!-- Personal Information Card -->
@@ -411,7 +412,7 @@
                     <div class="mt-6">
                         <p class="font-medium mb-2">Media Sosial:</p>
                         <div class="flex space-x-4">
-                             <!-- LinkedIn -->
+                            <!-- LinkedIn -->
                             <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
                             </a>
@@ -512,7 +513,7 @@
             <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="featuredProjectsTitle">Proyek Pilihan: Inovasi dalam Pengembangan & Desain</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1: Fiplle -->
+                <!-- Project 1: Fiplle (UI/UX) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">Fiplle</h3>
@@ -532,27 +533,29 @@
                     </div>
                 </div>
                 
-                    <!-- New Project: Nasi Goreng App -->
-                    <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
-                            <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
-                            <div class="mb-4">
-                                <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
-                                <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
-                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                                <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
-                                    <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
-                                </button>
-                            </div>
+                <!-- Project: Nasi Goreng App (UI/UX) -->
+                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
                         </div>
                     </div>
+                    <div class="mt-4">
+                         <!-- Added completion time for consistency -->
+                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="nasigorengTime"></span></p>
+                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
+                                <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Project 2: MyDSGN -->
+                <!-- Project 2: MyDSGN (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
@@ -580,7 +583,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 3: DashProPanel -->
+                <!-- Project 3: DashProPanel (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
@@ -608,7 +611,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 4: Evolvemart -->
+                <!-- Project 4: Evolvemart (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
@@ -635,7 +638,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 5: Dapur Ummi -->
+                <!-- Project 5: Dapur Ummi (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
@@ -663,7 +666,7 @@
                     </div>
                 </div>
 
-                <!-- New Project: Urpro -->
+                <!-- New Project: Urpro (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
@@ -691,7 +694,7 @@
                     </div>
                 </div>
 
-                <!-- New Project: Dcorps -->
+                <!-- New Project: Dcorps (Web Dev) -->
                 <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">Dcorps</h3>
@@ -843,7 +846,7 @@
                 <!-- Certificate 1 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('cplesples.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="cplesples.jpg" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover">
+                        <img src="cplesples.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=C+++Essentials+1'" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title">C++ Essentials 1</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert1Org">Cisco Networking Academy & OpenEDG C++ Institute</p>
@@ -852,7 +855,7 @@
                 <!-- Certificate 2 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('data formating.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="data formating.jpg" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover">
+                        <img src="data formating.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Data+Formatting'" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title">Data Formatting & Cleansing</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert2Org">MySkill - Microsoft Excel</p>
@@ -861,7 +864,7 @@
                 <!-- Certificate 3 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('piton.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="piton.jpg" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover">
+                        <img src="piton.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Python+Essentials+1'" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title">Python Essentials 1</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert3Org">Cisco Networking Academy & OpenEDG Python Institute</p>
@@ -870,7 +873,7 @@
                 <!-- Certificate 4 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('atcom.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="atcom.jpg" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover">
+                        <img src="atcom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX+Workshop'" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert4Org">Android Developer Community</p>
@@ -879,7 +882,7 @@
                 <!-- New Certificate: CCNA1 -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('ccna1.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="ccna1.jpg" alt="Sertifikat CCNA1" class="w-full h-full object-cover">
+                        <img src="ccna1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=CCNA+Intro'" alt="Sertifikat CCNA1" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title">CCNA: Introduction to Networks</h3>
                     <p class="text-sm text-gray-600" data-lang-key="cert5Org">Cisco Networking Academy</p>
@@ -888,7 +891,7 @@
                 <!-- New Certificate: MySkill Brand Identity -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('brand.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="brand.jpg" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover">
+                        <img src="brand.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Brand+Identity'" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand">Desain Identitas Merek</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
@@ -897,7 +900,7 @@
                 <!-- New Certificate: MySkill Web Frontend -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('frontend.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="frontend.jpg" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover">
+                        <img src="frontend.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Web+Frontend'" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE">Pengembangan Website: Front End</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
@@ -906,7 +909,7 @@
                 <!-- New Certificate: MySkill Content Writing -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('seo.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="seo.jpg" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover">
+                        <img src="seo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=SEO+Content'" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent">SEO & Penulisan Konten</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
@@ -915,7 +918,7 @@
                 <!-- New Certificate 1: bd.jpg -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('bd.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="bd.jpg" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover">
+                        <img src="bd.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Business+Dev'" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certBDTitle">Introduction to Business Development</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certBDOrg">MySkill Short Class</p>
@@ -924,7 +927,7 @@
                 <!-- New Certificate 2: intro.jpg -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('intro.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="intro.jpg" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover">
+                        <img src="intro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cybersecurity+Intro'" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certIntroTitle">Introduction to Cybersecurity</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certIntroOrg">Cisco Networking Academy</p>
@@ -933,7 +936,7 @@
                 <!-- New Certificate 3: junior.jpg -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('junior.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="junior.jpg" alt="Sertifikat Junior Cybersecurity Analyst Career Path" class="w-full h-full object-cover">
+                        <img src="junior.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Junior+Cyber+Analyst'" alt="Sertifikat Junior Cybersecurity Analyst Career Path" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certJuniorTitle">Junior Cybersecurity Analyst Career Path</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certJuniorOrg">Cisco Networking Academy</p>
@@ -942,7 +945,7 @@
                 <!-- New Certificate 4: threat.jpg -->
                 <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('threat.jpg')">
                     <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="threat.jpg" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover">
+                        <img src="threat.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Threat+Management'" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certThreatTitle">Cyber Threat Management</h3>
                     <p class="text-sm text-gray-600" data-lang-key="certThreatOrg">Cisco Networking Academy</p>
@@ -957,8 +960,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center justify-center">
                 <div class="flex space-x-6 mb-4">
-                     <!-- LinkedIn -->
-                     <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="text-gray-400 hover:text-teal-600 text-2xl transform hover:scale-110 transition-transform duration-200">
                         <span class="sr-only">LinkedIn</span>
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -1016,7 +1019,9 @@
                 downloadCvBtnText: "Download CV",
                 downloadCvBtn2Text: "Download CV",
                 aboutMeTitle: "About Me",
-                aboutMeP1: "A passionate and results-driven professional at the intersection of technology, design, and business. With a strong foundation in web development, product design (UI/UX), and business analysis, I specialize in building solutions that are not just functional, but also strategically aligned to achieve business objectives. I am always seeking new opportunities to create real impact and solve complex problems with innovative digital products.",
+                // UPDATED PROFESSIONAL TEXT (ENGLISH)
+                aboutMeP1: "I am a results-driven **Product Designer (UI/UX)** and **Front-End Developer**, with strategic expertise in **Business Analysis** and **E-commerce**. I bridge the gap between technical design and business objectives, focusing on creating digital solutions that are **innovative, functional, and high-performing** to drive growth and solve complex problems.",
+                // END UPDATED TEXT
                 personalInfoTitle: "Personal Information & Contact",
                 locationLabel: "Location:",
                 locationText: "Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",
@@ -1152,7 +1157,9 @@
                 downloadCvBtnText: "Unduh CV",
                 downloadCvBtn2Text: "Unduh CV",
                 aboutMeTitle: "Tentang Saya",
-                aboutMeP1: "Sebagai seorang profesional yang bersemangat dan berorientasi pada hasil, saya berada di persimpangan teknologi, desain, dan strategi bisnis. Dengan fondasi yang kuat dalam pengembangan web, desain produk (UI/UX), dan analisis bisnis, saya berfokus pada pembangunan solusi yang tidak hanya fungsional, tetapi juga selaras secara strategis untuk mencapai tujuan bisnis. Saya secara proaktif mencari peluang baru untuk menciptakan dampak nyata dan memecahkan masalah kompleks dengan produk digital yang inovatif.",
+                // UPDATED PROFESSIONAL TEXT (INDONESIAN)
+                aboutMeP1: "Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang **inovatif, fungsional, dan berkinerja tinggi** untuk mendorong pertumbuhan dan memecahkan masalah kompleks.",
+                // END UPDATED TEXT
                 personalInfoTitle: "Informasi Pribadi & Kontak",
                 locationLabel: "Lokasi:",
                 locationText: "Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",
@@ -1300,29 +1307,29 @@
                 learning_id: "Proyek ini memberikan pengalaman praktis dalam menerapkan prinsip-prinsip inti UI/UX untuk memecahkan masalah nyata. Saya belajar menyeimbangkan daya tarik estetika dengan desain fungsional, berfokus pada menciptakan perjalanan pengguna yang mulus dan menyenangkan dari awal hingga akhir."
             },
             "MyDSGN": {
-                languages: ["HTML", "CSS", "JavaScript"],
+                languages: ["HTML", "CSS", "JavaScript", "Responsive Design"],
                 challenges_en: "Developing a fluid, responsive layout that presents complex visual content beautifully across all devices without compromising performance. The challenge was creating a dynamic user interface with custom animations and transitions using only vanilla technologies.",
                 solution_en: "I meticulously crafted a mobile-first responsive design, leveraging Flexbox and CSS Grid for a robust layout. JavaScript was used to create a lightweight, custom-built gallery system and a dynamic navigation bar that adapts to user scrolling, all while ensuring minimal load times.",
                 role_en: "Front-End Developer & UI Designer",
                 learning_en: "This project taught me the power and flexibility of pure HTML, CSS, and JavaScript. I mastered advanced CSS techniques for animation and responsiveness, and learned how to structure complex JavaScript code to maintain high performance and readability in a production environment.",
-                challenges_id: "Mengembangkan desain responsif yang kompleks dan memastikan kompatibilitas lintas browser di berbagai perangkat.",
-                solution_id: "Menerapkan pendekatan mobile-first dengan Flexbox dan CSS Grid untuk layout yang adaptif. Menggunakan JavaScript untuk interaktivitas dinamis dan validasi formulir, serta mengoptimalkan aset gambar untuk performa.",
+                challenges_id: "Mengembangkan desain responsif yang kompleks dan memastikan kompatibilitas lintas browser di berbagai perangkat, sambil menciptakan antarmuka dinamis hanya dengan teknologi vanilla.",
+                solution_id: "Menerapkan pendekatan mobile-first dengan Flexbox dan CSS Grid untuk layout yang adaptif. Menggunakan JavaScript murni untuk galeri kustom dan bilah navigasi dinamis, serta mengoptimalkan aset gambar untuk performa yang cepat.",
                 role_id: "Pengembang Front-End & Desainer UI",
-                learning_id: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat dan browser, serta teknik optimasi performa web."
+                learning_id: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat, dan teknik optimasi performa web menggunakan vanilla JS/CSS."
             },
             "DashProPanel": {
-                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                languages: ["HTML", "Tailwind CSS", "Vanilla JavaScript", "Data Visualization"],
                 challenges_en: "The primary challenge was building a feature-rich and interactive dashboard interface without relying on a heavy JavaScript framework. This required a deep understanding of DOM manipulation and efficient state management to ensure a smooth, reactive user experience.",
                 solution_en: "I architected a modular JavaScript solution where each component, such as the data charts and interactive tables, operated independently but communicated through a centralized data layer. This approach, combined with Tailwind CSS's utility-first classes, allowed for rapid development and maintainability.",
                 role_en: "Front-End Developer",
                 learning_en: "This project was a masterclass in building scalable, component-based UIs without the overhead of a framework. I honed my skills in vanilla JavaScript for complex state management and learned to leverage Tailwind CSS to its full potential for building custom, data-driven interfaces.",
-                challenges_id: "Tantangan utamanya adalah membangun antarmuka dashboard yang kaya fitur dan interaktif tanpa bergantung pada framework JavaScript yang berat. Ini membutuhkan pemahaman mendalam tentang manipulasi DOM dan manajemen state yang efisien untuk memastikan pengalaman pengguna yang lancar dan reaktif.",
-                solution_id: "Menggunakan pendekatan JavaScript modular untuk manipulasi DOM, penanganan event, serta pengambilan dan rendering data dari API. Memprioritaskan CSS utility-first dengan Tailwind untuk desain dan pemeliharaan yang efisien.",
+                challenges_id: "Tantangan utamanya adalah membangun antarmuka dashboard yang kaya fitur dan interaktif tanpa bergantung pada framework JavaScript yang berat. Ini membutuhkan pemahaman mendalam tentang manipulasi DOM dan manajemen state yang efisien.",
+                solution_id: "Menggunakan pendekatan JavaScript modular untuk manipulasi DOM, penanganan event, serta pengambilan dan rendering data. Memprioritaskan CSS utility-first dengan Tailwind untuk desain dan pemeliharaan yang efisien.",
                 role_id: "Pengembang Front-End",
                 learning_id: "Menguasai manipulasi DOM JavaScript, teknik optimasi performa web tanpa framework, dan menerapkan CSS utility-first dengan Tailwind untuk desain yang efisien."
             },
             "Evolvemart": {
-                languages: ["HTML", "CSS", "JavaScript", "Potential: React.js, Node.js, MongoDB"],
+                languages: ["HTML", "CSS", "JavaScript", "E-commerce Architecture Planning"],
                 challenges_en: "Designing an e-commerce platform that can handle high traffic and complex transactions while maintaining a seamless and intuitive user journey. The main challenge is planning for future scalability and integrating a secure, efficient backend system.",
                 solution_en: "I focused on creating a robust, component-based front-end architecture that can be easily connected to a modern backend stack (e.g., MERN stack) in the future. The design prioritizes a simplified checkout process and a clean product discovery experience, which were identified as key to maximizing conversions.",
                 role_en: "Lead Developer & Product Designer",
@@ -1333,7 +1340,7 @@
                 learning_id: "Proyek ini mengasah keterampilan perencanaan strategis saya, mengajarkan saya cara merancang produk dengan mempertimbangkan pertumbuhan di masa depan. Saya mendapatkan apresiasi yang lebih dalam akan pentingnya riset pengalaman pengguna dalam e-commerce, dan belajar bagaimana membangun front-end yang tidak hanya menarik secara visual tetapi juga sangat fungsional dan siap untuk pengembangan yang skalabel."
             },
             "Dapur Ummi": {
-                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                languages: ["HTML", "Tailwind CSS", "JavaScript", "SEO Optimization"],
                 challenges_en: "The primary challenge was to rebuild and optimize a culinary website that was slow and difficult to navigate. The goal was to improve site performance and user experience significantly by modernizing the code and design.",
                 solution_en: "I performed a complete code refactoring, migrating from a bloated CSS codebase to a lean, utility-first approach with Tailwind CSS. I also implemented advanced image compression and lazy loading to drastically reduce page load times, and added clear, logical navigation paths to improve usability.",
                 role_en: "Web Developer",
@@ -1344,7 +1351,7 @@
                 learning_id: "Proyek ini memperkuat pentingnya optimasi performa dan kebersihan kode. Ini mengajarkan saya bagaimana proses refactoring yang strategis dapat memberikan kehidupan baru pada situs web yang sudah usang, mengubahnya dari pengalaman pengguna yang membuat frustrasi menjadi platform yang cepat dan menyenangkan."
             },
             "Urpro": {
-                languages: ["HTML", "Tailwind CSS", "JavaScript"],
+                languages: ["HTML", "Tailwind CSS", "JavaScript", "Visual Branding"],
                 challenges_en: "Creating a portfolio website that not only showcases technical skills but also tells a compelling personal and professional story. The challenge was to balance a modern, aesthetic design with clear, concise content that effectively communicates my value to potential clients and employers.",
                 solution_en: "I designed a clean, minimalist layout with a strong focus on typography and intentional use of whitespace, using Tailwind CSS for rapid and consistent styling. Custom JavaScript animations were added to create subtle, engaging user interactions, guiding visitors through my work and professional journey seamlessly.",
                 role_en: "Web Developer & UI Designer",
@@ -1355,7 +1362,7 @@
                 learning_id: "Seni presentasi diri dalam konteks profesional, pentingnya komunikasi yang jelas dan ringkas, dan penyempurnaan berkelanjutan dari keterampilan desain dan pengembangan."
             },
             "Dcorps": {
-                languages: ["HTML", "CSS", "JavaScript"],
+                languages: ["HTML", "CSS", "Vanilla JavaScript", "Creative Animation"],
                 challenges_en: "Building a visually stunning and unique creative portfolio that goes beyond a standard template. The key challenge was to implement custom, interactive elements and a distinct aesthetic that truly reflects a creative brand identity.",
                 solution_en: "I developed the site with a focus on fluid, responsive animations and a carefully curated color palette. I used CSS for complex visual effects and JavaScript for dynamic, parallax-like scrolling and interactive hover states, making the site feel alive and engaging.",
                 role_en: "Web Developer",
@@ -1381,7 +1388,11 @@
                     // Special handling for elements that should not have their innerHTML overwritten by textContent
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.value = translations[currentLang][key];
-                    } else {
+                    } else if (key === 'aboutMeP1') {
+                        // Special handling for the revised aboutMeP1 to allow HTML formatting (like **bold**)
+                        element.innerHTML = translations[currentLang][key].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    }
+                    else {
                         element.textContent = translations[currentLang][key];
                     }
                 }
@@ -1410,11 +1421,17 @@
             if (urproTimeElement) { urproTimeElement.textContent = translations[currentLang].urproTime; }
             const dcorpsTimeElement = document.getElementById('dcorpsTime');
             if (dcorpsTimeElement) { dcorpsTimeElement.textContent = translations[currentLang].dcorpsTime; }
+            
+            // Added Nasi Goreng Time
+            const nasigorengTimeElement = document.getElementById('nasigorengTime');
+            if (nasigorengTimeElement) { nasigorengTimeElement.textContent = translations[currentLang].nasigorengTime; }
+
+            // Update statuses
             const nasigorengStatusElement = document.getElementById('nasigorengStatus');
             if (nasigorengStatusElement) { nasigorengStatusElement.textContent = translations[currentLang].statusProjectText; }
 
             const fiplleStatusElement = document.getElementById('fiplleStatus');
-            if (fiplleStatusElement) { fiplleStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
+            if (fiplleStatusElement) { fiplleStatusElement.textContent = translations[currentLang].statusProjectText; } // Changed to Completed Project/Proyek Selesai
             const myDsgnStatusElement = document.getElementById('myDsgnStatus');
             if (myDsgnStatusElement) { myDsgnStatusElement.textContent = translations[currentLang].statusActiveText; }
             const dashProPanelStatusElement = document.getElementById('dashProPanelStatus');
@@ -1462,6 +1479,15 @@
             currentLang = lang;
             localStorage.setItem('lang', lang);
             updateContent();
+            // Reopen modal if open to refresh language
+            const modal = document.getElementById('projectDetailModal');
+            if (modal.style.display === "flex") {
+                 // Check if the title is available to re-inject content
+                 const title = document.getElementById('projectDetailTitle');
+                 if (title && title.textContent) {
+                     openProjectDetailModal(title.textContent);
+                 }
+            }
         }
         
         // Mobile menu toggle
@@ -1638,7 +1664,7 @@
         // This ensures they are visible even if not scrolled
         document.addEventListener('DOMContentLoaded', () => {
             const heroElements = document.querySelectorAll(
-                'header h1, header h2, header p, header .flex.space-x-4, header .w-64.h-64.md\\:w-80.md\\:h-80.rounded-full.overflow-hidden.border-4.border-white.shadow-xl.mb-8'
+                'header h1, header h2, header p, header .flex.space-x-4, header .w-64.h-64.md\\:w-80.md\\:h-80.rounded-full.overflow-hidden.border-4.border-white.shadow-xl.mb-8, header .flex-col.sm\\:flex-row.space-y-4.sm\\:space-y-0.sm\\:space-x-4.initial-hidden'
             );
             heroElements.forEach(element => {
                 element.classList.add('fade-in');
@@ -1782,7 +1808,7 @@
         }
 
         const certificateCounterElement = document.getElementById('certificateCounter');
-        const totalCertificates = 12; // Update this number based on your total certificates
+        const totalCertificates = 12; // Total number of certificates
         let hasCounted = false;
 
         const counterObserver = new IntersectionObserver((entries, observer) => {

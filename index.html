@@ -9,7 +9,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -19,9 +19,9 @@
             overflow-x: hidden; /* Prevent horizontal scroll */
             background-color: #F8FAFC; /* Light gray background */
         }
-        /* Lightbox styles */
-        .modal {
-            display: none; /* Ensure modal is hidden by default */
+        /* Lightbox styles for certificate image quick view */
+        .image-modal {
+            display: none;
             position: fixed;
             z-index: 100;
             left: 0;
@@ -29,17 +29,17 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.9);
-            justify-content: center; /* Use flexbox for centering */
+            justify-content: center;
             align-items: center;
-            padding: 1rem; /* Add padding for smaller screens */
-            overflow-y: auto; /* Allow scrolling for modal content if it overflows */
+            padding: 1rem;
+            overflow-y: auto;
         }
         .modal-content {
             margin: auto;
             display: block;
             max-width: 90%;
             max-height: 90%;
-            border-radius: 0.75rem; /* Rounded corners for modal image */
+            border-radius: 0.75rem;
         }
         .close {
             position: absolute;
@@ -115,9 +115,15 @@
         .dark-mode .text-gray-900,
         .dark-mode .text-gray-700,
         .dark-mode .text-gray-500,
-        .dark-mode .text-gray-400 { /* Added text-gray-400 for footer icons */
+        .dark-mode .text-gray-400 {
             color: #E2E8F0 !important; /* Force light color */
         }
+        /* Specific dark mode adjustments for elements within the modal */
+        .dark-mode #itemDetailContent p,
+        .dark-mode #itemDetailContent ul li { /* Added ul li for lists in modal */
+            color: #E2E8F0 !important;
+        }
+        
         /* Specific teal text colors in dark mode */
         .dark-mode .text-teal-600 {
             color: #81E6D9 !important; /* Brighter teal */
@@ -139,138 +145,60 @@
         }
         /* Dark mode specific for skill/project tags */
         .dark-mode .bg-teal-100 {
-            background-color: #4FD1C5; /* Brighter teal for background */
-            color: #1A202C !important; /* Dark text for contrast */
+            background-color: #4FD1C5;
+            color: #1A202C !important;
         }
         .dark-mode .bg-yellow-100 {
-            background-color: #F6E05E; /* Brighter yellow for background */
-            color: #2D3748 !important; /* Dark text for contrast */
+            background-color: #F6E05E;
+            color: #2D3748 !important;
         }
-        .dark-mode .border-teal-600 {
-            border-color: #81E6D9;
+        
+        /* Animate Counter Style - Modern Look */
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #06B6D4;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+            transition: color 0.3s;
         }
-        .dark-mode .hover\:bg-teal-50:hover {
-            background-color: #2A4365;
-        }
-        .dark-mode .bg-gradient-to-r {
-            background-image: linear-gradient(to right, #1E293B, #4A5568);
-        }
-        /* Navbar background in dark mode */
-        .dark-mode #navbar {
-            background-color: #1E293B; /* Darker navbar background */
-        }
-        /* Dark mode button colors */
-        .dark-mode .bg-teal-600 {
-            background-color: #00B894 !important; /* A brighter, distinct teal for buttons */
-            color: #ffffff !important; /* Ensure button text is white */
-        }
-        .dark-mode .hover\:bg-teal-700:hover {
-            background-color: #009472 !important; /* Darker hover for contrast */
-        }
-        /* Project Detail Modal in dark mode */
-        .dark-mode #projectDetailModal .bg-white {
-            background-color: #1E293B;
-        }
-        .dark-mode #projectDetailModal .text-gray-800 {
-            color: #E2E8F0 !important;
-        }
-        .dark-mode #projectDetailModal .text-gray-700 {
-            color: #A0AEC0 !important;
-        }
-        .dark-mode #projectDetailModal .text-teal-700 {
-            color: #63B3ED !important;
-        }
-        .dark-mode #projectDetailModal .close {
-            color: #E2E8F0 !important;
-        }
-        /* Ensure social media icons are bright in dark mode */
-        .dark-mode .fab {
-            color: #E2E8F0 !important; /* Light color for social icons */
-        }
-        .dark-mode .fab:hover {
-            color: #81E6D9 !important; /* Hover effect for social icons */
-        }
-        /* Specific dark mode adjustments for elements within the modal */
-        .dark-mode #projectDetailContent p {
-            color: #E2E8F0 !important;
-        }
-        .dark-mode #projectDetailContent .font-semibold {
-            color: #81E6D9 !important; /* Make labels stand out */
-        }
-        /* Ensure nav links are bright in dark mode */
-        .dark-mode #navbar a {
-            color: #E2E8F0 !important;
-        }
-        .dark-mode #navbar a:hover {
-            color: #81E6D9 !important;
-        }
-        .dark-mode #mobile-menu a {
-            color: #E2E8F0 !important;
-        }
-        .dark-mode #mobile-menu a:hover {
-            background-color: #4A5568 !important; /* Darker hover background for mobile menu */
-            color: #81E6D9 !important;
-        }
-        /* Ensure dark mode toggle icon is bright */
-        .dark-mode #darkModeToggle i,
-        .dark-mode #mobileDarkModeToggle i {
-            color: #E2E8F0 !important;
-        }
-        .dark-mode #mobile-menu-button svg {
-            stroke: #E2E8F0 !important; /* Hamburger icon color */
+        .dark-mode .counter-number {
+            color: #4FD1C5;
+            text-shadow: 0 0 10px rgba(79, 209, 197, 0.3);
         }
 
-        /* Project Detail Modal specific styling for modern look */
-        .project-detail-section {
-            background-color: #F8FAFC; /* Light background for sections */
+        /* Fix for divide lines using utility classes in HTML */
+        #statsContainer > div {
+            padding: 1.5rem;
+        }
+        
+        /* Item Detail Modal Specific Styles (Used for Projects and Certificates) */
+        #itemDetailModal {
+            display: none;
+            position: fixed;
+            z-index: 101; /* Higher z-index than image modal */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        .project-detail-card {
+            /* Styling for detail boxes inside the modal */
+            background-color: #F8FAFC;
             padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 1rem;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
-        .dark-mode .project-detail-section {
-            background-color: #3A475A; /* Darker background for sections in dark mode */
+        .dark-mode .project-detail-card {
+            background-color: #2D3748; /* Darker background for sections in dark mode */
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-        }
-        .project-detail-section h4 {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        .dark-mode .project-detail-section h4 {
-            color: #81E6D9; /* Bright teal for section headings */
-        }
-        .project-detail-section p {
-            line-height: 1.6;
-        }
-
-        /* Ensure main section titles are bright in dark mode */
-        .dark-mode section h2 {
-            color: #E2E8F0 !important; /* Force bright color for all h2 section titles */
-        }
-        /* Ensure specific texts in About section are bright */
-        .dark-mode #about .font-medium {
-            color: #E2E8F0 !important;
-        }
-
-        /* Animate Counter Style */
-        .counter-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #F0F9FF;
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-top: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .dark-mode .counter-container {
-            background-color: #1E293B;
-        }
-        .counter-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #06B6D4; /* Blue color for the counter */
         }
     </style>
 </head>
@@ -351,7 +279,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-r from-teal-50 to-sky-50">
+    <header class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-r from-teal-50 to-sky-50 dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center justify-center text-center">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 initial-hidden">
@@ -359,7 +287,7 @@
                     <img src="propfil.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x320/00b894/ffffff?text=Faqih+Al+Rifai'" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
                 </div>
                 <div class="md:w-full mb-8 md:mb-0 px-4">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
                     <h2 class="text-xl md:text-2xl text-teal-600 font-semibold mb-6 initial-hidden" id="heroSubtitle" data-lang-key="heroSubtitle">Desainer Produk (UI/UX) & Strategis Bisnis</h2>
                     
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 initial-hidden justify-center">
@@ -377,52 +305,80 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="pt-8 bg-white">
+    <!-- Summary Stats Section (New Animated Counter) -->
+    <section id="summary-stats" class="py-12 bg-white dark:bg-gray-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="aboutMeTitle">Tentang Saya</h2>
+            <h2 class="sr-only" data-lang-key="statsTitle">Professional Summary Statistics</h2>
+            <!-- Fixed border issue: Using divide-x/y utilities for clean lines in light/dark mode -->
+            <div class="grid grid-cols-1 divide-y divide-gray-200 dark:divide-gray-700 sm:grid-cols-3 sm:divide-y-0 sm:divide-x modern-card p-2 bg-gray-50 dark:bg-gray-800 shadow-xl initial-hidden" id="statsContainer">
+                
+                <!-- Stat 1: Projects -->
+                <div class="text-center p-4">
+                    <div class="counter-number" id="projectsCounter">0</div>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300" data-lang-key="totalProjectsLabel">Total Proyek</p>
+                </div>
+
+                <!-- Stat 2: Experience -->
+                <div class="text-center p-4">
+                    <div class="counter-number" id="experienceCounter">0</div>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300" data-lang-key="totalExperienceLabel">Total Pengalaman</p>
+                </div>
+
+                <!-- Stat 3: Certificates -->
+                <div class="text-center p-4">
+                    <div class="counter-number" id="certificateCounter">0</div>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300" data-lang-key="totalCertificatesLabel">Total Sertifikasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="pt-8 bg-white dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="aboutMeTitle">Tentang Saya</h2>
             <div class="max-w-3xl mx-auto">
                 <!-- UPDATED ABOUT ME TEXT -->
-                <p class="text-lg text-gray-600 mb-8 initial-hidden" data-lang-key="aboutMeP1">
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 initial-hidden" data-lang-key="aboutMeP1">
                     Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang **inovatif, fungsional, dan berkinerja tinggi** untuk mendorong pertumbuhan dan memecahkan masalah kompleks.
                 </p>
                 
                 <!-- Personal Information Card -->
-                <div class="bg-teal-50 p-6 rounded-lg modern-card mini-card initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="personalInfoTitle">Informasi Pribadi & Kontak</h3>
+                <div class="bg-teal-50 dark:bg-gray-800 p-6 rounded-lg modern-card mini-card initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="personalInfoTitle">Informasi Pribadi & Kontak</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p class="font-medium" data-lang-key="locationLabel">Lokasi:</p>
-                            <p class="text-gray-600" id="locationText">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
+                            <p class="font-medium dark:text-white" data-lang-key="locationLabel">Lokasi:</p>
+                            <p class="text-gray-600 dark:text-gray-400" id="locationText">Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1</p>
                         </div>
                         <div>
-                            <p class="font-medium" data-lang-key="contactLabel">Kontak:</p>
-                            <p class="text-gray-600" id="contactText">+62 859-1482-19009 (WhatsApp)</p>
+                            <p class="font-medium dark:text-white" data-lang-key="contactLabel">Kontak:</p>
+                            <p class="text-gray-600 dark:text-gray-400" id="contactText">+62 859-1482-19009 (WhatsApp)</p>
                         </div>
                     </div>
                     <!-- Education Information -->
                     <div class="mt-4">
-                        <p class="font-medium" data-lang-key="educationLabel">Pendidikan:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <p class="font-medium dark:text-white" data-lang-key="educationLabel">Pendidikan:</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
                             <li><p data-lang-key="education1">STMIK IKMI Kota Cirebon - Teknik Informatika (Semester 3)</p></li>
                             <li><p data-lang-key="education2">SMAN 5 Kota Cirebon</p></li>
                         </ul>
                     </div>
                     <!-- Social Media Links -->
                     <div class="mt-6">
-                        <p class="font-medium mb-2">Media Sosial:</p>
+                        <p class="font-medium dark:text-white mb-2">Media Sosial:</p>
                         <div class="flex space-x-4">
                             <!-- LinkedIn -->
                             <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                                <i class="fab fa-linkedin text-2xl text-gray-600 hover:text-teal-600 transition-colors dark:text-gray-400 dark:hover:text-teal-400"></i>
                             </a>
                             <!-- Instagram -->
                             <a href="https://www.instagram.com/faqihalrf" target="_blank" aria-label="Instagram">
-                                <i class="fab fa-instagram text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                                <i class="fab fa-instagram text-2xl text-gray-600 hover:text-teal-600 transition-colors dark:text-gray-400 dark:hover:text-teal-400"></i>
                             </a>
                             <!-- TikTok -->
                             <a href="https://www.tiktok.com/@faqihalrf" target="_blank" aria-label="TikTok">
-                                <i class="fab fa-tiktok text-2xl text-gray-600 hover:text-teal-600 transition-colors"></i>
+                                <i class="fab fa-tiktok text-2xl text-gray-600 hover:text-teal-600 transition-colors dark:text-gray-400 dark:hover:text-teal-400"></i>
                             </a>
                         </div>
                     </div>
@@ -442,63 +398,63 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-50">
+    <section id="skills" class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="skillsTitle">Keahlian Utama</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="skillsTitle">Keahlian Utama</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Technical Expertise -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="techExpertiseTitle">Keahlian Teknis</h3>
-                    <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="techExpertiseTitle">Keahlian Teknis</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-600 dark:text-gray-300">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="frontEndDevLabel">Pengembangan Front-End:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="frontEndDevLabel">Pengembangan Front-End:</span>
                             <span data-lang-key="frontEndDevDesc">Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern, menjamin pengalaman pengguna yang lancar dan cepat.</span>
-                            <p class="text-sm text-gray-500 mt-1">Tech Stack: HTML, CSS, JavaScript, Tailwind CSS.</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Tech Stack: HTML, CSS, JavaScript, Tailwind CSS.</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="uiUxDesignLabel">Desain UI/UX & Produk:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="uiUxDesignLabel">Desain UI/UX & Produk:</span>
                             <span data-lang-key="uiUxDesignDesc">Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk wireframing, prototyping, dan desain visual.</span>
-                            <p class="text-sm text-gray-500 mt-1">Tools: Figma (Wireframing & Prototyping).</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Tools: Figma (Wireframing & Prototyping).</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="digitalContentLabel">Konten Digital & Branding:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="digitalContentLabel">Konten Digital & Branding:</span>
                             <span data-lang-key="digitalContentDesc">Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.</span>
                         </li>
                     </ul>
                 </div>
                 
                 <!-- Business Acumen -->
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="bizAcumenTitle">Kecakapan Bisnis</h3>
-                    <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="bizAcumenTitle">Kecakapan Bisnis</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-600 dark:text-gray-300">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="strategicAnalysisLabel">Analisis Strategis:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="strategicAnalysisLabel">Analisis Strategis:</span>
                             <span data-lang-key="strategicAnalysisDesc">Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.</span>
-                            <p class="text-sm text-gray-500 mt-1">Fokus: Business Development, Sales & Data Analysis, E-commerce Operations.</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fokus: Business Development, Sales & Data Analysis, E-commerce Operations.</p>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="digitalMarketingLabel">Pemasaran Digital & Penjualan:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="digitalMarketingLabel">Pemasaran Digital & Penjualan:</span>
                             <span data-lang-key="digitalMarketingDesc">Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.</span>
-                            <p class="text-sm text-gray-500 mt-1">Fokus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fokus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.</p>
                         </li>
                     </ul>
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4 mt-8" data-lang-key="profQualitiesTitle">Kualitas Profesional</h3>
-                    <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4 mt-8" data-lang-key="profQualitiesTitle">Kualitas Profesional</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-600 dark:text-gray-300">
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="teamBuildingLabel">Membangun Tim:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="teamBuildingLabel">Membangun Tim:</span>
                             <span data-lang-key="teamBuildingDesc">Saya memiliki kemampuan teruji untuk berkolaborasi secara efektif dan membina lingkungan tim yang positif dan produktif, memastikan tujuan bersama tercapai dengan upaya kolektif.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="problemSolvingLabel">Penyelesaian Masalah Strategis:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="problemSolvingLabel">Penyelesaian Masalah Strategis:</span>
                             <span data-lang-key="problemSolvingDesc">Saya mendekati tantangan kompleks dengan memecahnya menjadi bagian-bagian yang mudah dikelola untuk menemukan solusi yang efektif dan inovatif.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="adaptabilityLabel">Adaptabilitas & Inisiatif:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="adaptabilityLabel">Adaptabilitas & Inisiatif:</span>
                             <span data-lang-key="adaptabilityDesc">Saya secara proaktif mencari teknologi dan keterampilan baru, serta cepat beradaptasi dengan persyaratan proyek yang dinamis dan perubahan pasar.</span>
                         </li>
                         <li>
-                            <span class="font-semibold text-gray-800" data-lang-key="effectiveCommLabel">Komunikasi Efektif:</span>
+                            <span class="font-semibold text-gray-800 dark:text-white" data-lang-key="effectiveCommLabel">Komunikasi Efektif:</span>
                             <span data-lang-key="effectiveCommDesc">Saya unggul dalam mengartikulasikan ide dan berkolaborasi secara mulus dengan pemangku kepentingan teknis maupun non-teknis untuk memastikan keselarasan dan keberhasilan proyek.</span>
                         </li>
                     </ul>
@@ -508,25 +464,25 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
+    <section id="projects" class="py-16 bg-white dark:bg-gray-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="featuredProjectsTitle">Proyek Pilihan: Inovasi dalam Pengembangan & Desain</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="featuredProjectsTitle">Proyek Pilihan: Inovasi dalam Pengembangan & Desain</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1: Fiplle (UI/UX) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Fiplle</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="fiplleDesc">Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Fiplle</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="fiplleDesc">Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="fiplleStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="fiplleStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Fiplle" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Fiplle" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -534,21 +490,21 @@
                 </div>
                 
                 <!-- Project: Nasi Goreng App (UI/UX) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Nasi Goreng App</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Nasi Goreng App</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="nasigorengDesc">Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">UI/UX Design</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Mobile App</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                         <!-- Added completion time for consistency -->
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="nasigorengTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="nasigorengStatus"></span></p>
+                           <!-- Added completion time for consistency -->
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="nasigorengTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="nasigorengStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Nasi Goreng App" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -556,27 +512,27 @@
                 </div>
 
                 <!-- Project 2: MyDSGN (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">MyDSGN</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="myDsgnDesc">Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">MyDSGN</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="myDsgnDesc">Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="myDsgnTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="myDsgnStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="myDsgnTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="myDsgnStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://mydsign.netlify.app/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="MyDSGN" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="MyDSGN" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -584,27 +540,27 @@
                 </div>
                 
                 <!-- Project 3: DashProPanel (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">DashProPanel</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="dashProPanelDesc">Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">DashProPanel</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="dashProPanelDesc">Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dashProPanelTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dashProPanelStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dashProPanelTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="dashProPanelStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://dashpropanel.netlify.app/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="DashProPanel" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="DashProPanel" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -612,26 +568,26 @@
                 </div>
                 
                 <!-- Project 4: Evolvemart (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Evolvemart</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="evolvemartDesc">Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Evolvemart</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="evolvemartDesc">Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.</p>
                         <div class="mb-4 flex items-center">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
-                            <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">Dalam Pengembangan Lanjutan</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">E-commerce</span>
+                            <span class="inline-block bg-yellow-100 dark:bg-yellow-500 dark:text-gray-900 text-yellow-800 px-2 py-1 rounded text-xs font-medium" data-lang-key="inDevStatus">Dalam Pengembangan Lanjutan</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="evolvemartTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="evolvemartStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="evolvemartTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="evolvemartStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://faqihalrifai.github.io/Evolvemart/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Evolvemart" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Evolvemart" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -639,27 +595,27 @@
                 </div>
                 
                 <!-- Project 5: Dapur Ummi (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Dapur Ummi</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="dapurUmmiDesc">Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Dapur Ummi</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="dapurUmmiDesc">Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dapurUmmiTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dapurUmmiStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dapurUmmiTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="dapurUmmiStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://faqihalrifai.github.io/dapurummi/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dapur Ummi" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Dapur Ummi" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -667,27 +623,27 @@
                 </div>
 
                 <!-- New Project: Urpro (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Urpro</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="yourProDesc">Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Urpro</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="yourProDesc">Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">Tailwind CSS</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="urproTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="urproStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="urproTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="urproStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://urpro.netlify.app/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Urpro" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Urpro" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -695,27 +651,27 @@
                 </div>
 
                 <!-- New Project: Dcorps (Web Dev) -->
-                <div class="modern-card p-6 bg-white initial-hidden flex flex-col justify-between">
+                <div class="modern-card p-6 bg-white dark:bg-gray-800 initial-hidden flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">Dcorps</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="dcorpsDesc">Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.</p>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-2">Dcorps</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-key="dcorpsDesc">Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.</p>
                         <div class="mb-4">
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
-                            <span class="inline-block bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">HTML</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium mr-2">CSS</span>
+                            <span class="inline-block bg-teal-100 dark:bg-teal-700 dark:text-white text-teal-800 px-2 py-1 rounded text-xs font-medium">JavaScript</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-500 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dcorpsTime"></span></p>
-                        <p class="text-gray-500 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600" id="dcorpsStatus"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2" data-lang-key="completionTime">Waktu Pengerjaan: <span id="dcorpsTime"></span></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4" data-lang-key="statusLabel">Status: <span class="text-teal-600 dark:text-teal-400" id="dcorpsStatus"></span></p>
                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                            <a href="https://dcorps.netlify.app/" target="_blank" class="text-teal-600 hover:text-teal-800 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
+                            <a href="https://dcorps.netlify.app/" target="_blank" class="text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium inline-flex items-center" data-lang-key="viewProjectBtn">
                                 <span data-lang-key="viewProjectBtnText">Lihat Proyek</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-project-name="Dcorps" data-lang-key="viewDetailsBtn">
+                            <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="project" data-item-name="Dcorps" data-lang-key="viewDetailsBtn">
                                 <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
                             </button>
                         </div>
@@ -726,63 +682,63 @@
     </section>
 
     <!-- My Workflow/Process Section -->
-    <section id="workflow" class="py-16 bg-gray-50">
+    <section id="workflow" class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="workflowTitle">Alur Kerja / Proses Saya</h2>
-            <p class="text-lg text-gray-600 mb-8 initial-hidden text-center" data-lang-key="workflowIntro">Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.</p>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="workflowTitle">Alur Kerja / Proses Saya</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 initial-hidden text-center" data-lang-key="workflowIntro">Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow1Title">1. Penemuan & Riset</h3>
-                    <p class="text-gray-600" data-lang-key="workflow1Desc">Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow1Title">1. Penemuan & Riset</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow1Desc">Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.</p>
                 </div>
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow2Title">2. Perencanaan & Wireframing</h3>
-                    <p class="text-gray-600" data-lang-key="workflow2Desc">Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow2Title">2. Perencanaan & Wireframing</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow2Desc">Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.</p>
                 </div>
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow3Title">3. Desain UI/UX</h3>
-                    <p class="text-gray-600" data-lang-key="workflow3Desc">Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow3Title">3. Desain UI/UX</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow3Desc">Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.</p>
                 </div>
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow4Title">4. Pengembangan</h3>
-                    <p class="text-gray-600" data-lang-key="workflow4Desc">Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow4Title">4. Pengembangan</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow4Desc">Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.</p>
                 </div>
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow5Title">5. Pengujian & Iterasi</h3>
-                    <p class="text-600" data-lang-key="workflow5Desc">Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow5Title">5. Pengujian & Iterasi</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow5Desc">Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.</p>
                 </div>
-                <div class="modern-card p-6 bg-white initial-hidden">
-                    <h3 class="text-xl font-semibold text-teal-700 mb-4" data-lang-key="workflow6Title">6. Peluncuran & Pemeliharaan</h3>
-                    <p class="text-gray-600" data-lang-key="workflow6Desc">Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.</p>
+                <div class="modern-card p-6 bg-white dark:bg-gray-900 initial-hidden">
+                    <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400 mb-4" data-lang-key="workflow6Title">6. Peluncuran & Pemeliharaan</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-lang-key="workflow6Desc">Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white">
+    <section id="experience" class="py-16 bg-white dark:bg-gray-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="experienceTitle">Pengalaman Profesional</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="experienceTitle">Pengalaman Profesional</h2>
             
             <div class="max-w-3xl mx-auto space-y-8">
                 <!-- New Experience 5: SEO Writing Internship -->
-                <div class="modern-card mini-card bg-white initial-hidden">
+                <div class="modern-card mini-card bg-white dark:bg-gray-800 initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="seoInternshipTitle">Internship SEO Writing</h3>
-                        <span class="text-gray-500">Garap Media</span>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400" data-lang-key="seoInternshipTitle">Internship SEO Writing</h3>
+                        <span class="text-gray-500 dark:text-gray-400">Garap Media</span>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                         <li data-lang-key="seoInternshipDesc1">Mengelola dan mengoptimalkan konten blog untuk meningkatkan peringkat di mesin pencari.</li>
                         <li data-lang-key="seoInternshipDesc2">Melakukan riset kata kunci mendalam dan menganalisis tren pasar untuk mengembangkan strategi konten yang efektif.</li>
                         <li data-lang-key="seoInternshipDesc3">Meningkatkan visibilitas online dan menarik audiens organik dengan artikel yang informatif dan terstruktur dengan baik.</li>
                     </ul>
                 </div>
                 <!-- New Experience 1: Affiliate Marketing -->
-                <div class="modern-card mini-card bg-white initial-hidden">
+                <div class="modern-card mini-card bg-white dark:bg-gray-800 initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="affiliateMarketingTitle">Pemasaran Afiliasi</h3>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400" data-lang-key="affiliateMarketingTitle">Pemasaran Afiliasi</h3>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                         <li data-lang-key="affiliateMarketingDesc1">Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee.</li>
                         <li data-lang-key="affiliateMarketingDesc2">Berfokus pada kurasi produk pilihan, termasuk pakaian pria/wanita dan buku pengembangan diri, untuk menarik audiens spesifik.</li>
                         <li data-lang-key="affiliateMarketingDesc3">Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.</li>
@@ -790,11 +746,11 @@
                     </ul>
                 </div>
                 <!-- New Experience 2: Dropshipper -->
-                <div class="modern-card mini-card bg-white initial-hidden">
+                <div class="modern-card mini-card bg-white dark:bg-gray-800 initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="dropshipperTitle">Dropshipper & Pengusaha E-commerce</h3>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400" data-lang-key="dropshipperTitle">Dropshipper & Pengusaha E-commerce</h3>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                         <li data-lang-key="dropshipperDesc1">Berhasil membangun bisnis dropshipping di platform Shopify dengan modal minim.</li>
                         <li data-lang-key="dropshipperDesc2">Mengelola rantai pasok internasional, memasarkan produk pakaian dari Tiongkok ke pasar Amerika Serikat.</li>
                         <li data-lang-key="dropshipperDesc3">Mencapai 137 penjualan dalam 1 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.</li>
@@ -803,24 +759,24 @@
                     </ul>
                 </div>
                 <!-- Experience 3: Cookies Business -->
-                <div class="modern-card mini-card bg-white initial-hidden">
+                <div class="modern-card mini-card bg-white dark:bg-gray-800 initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="cookiesBizTitle">Pemilik, Bisnis Kue</h3>
-                        <span class="text-gray-500" data-lang-key="selfEmployed">Wiraswasta</span>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400" data-lang-key="cookiesBizTitle">Pemilik, Bisnis Kue</h3>
+                        <span class="text-gray-500 dark:text-gray-400" data-lang-key="selfEmployed">Wiraswasta</span>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                         <li data-lang-key="cookiesBizDesc1">Berhasil membangun dan mengelola bisnis kue yang mendapatkan 437 pelanggan setia.</li>
                         <li data-lang-key="cookiesBizDesc2">Mencapai pendapatan harian lebih dari Rp500,000.</li>
                     </ul>
                 </div>
                 
                 <!-- Experience 4: Web Dev Venture -->
-                <div class="modern-card mini-card bg-white initial-hidden">
+                <div class="modern-card mini-card bg-white dark:bg-gray-800 initial-hidden">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-teal-700" data-lang-key="webDevVentureTitle">Customer Service & Co-Founder, Usaha Pengembangan Web</h3>
-                        <span class="text-gray-500" data-lang-key="coFounder">Co-founder</span>
+                        <h3 class="text-xl font-semibold text-teal-700 dark:text-teal-400" data-lang-key="webDevVentureTitle">Customer Service & Co-Founder, Usaha Pengembangan Web</h3>
+                        <span class="text-gray-500 dark:text-gray-400" data-lang-key="coFounder">Co-founder</span>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                         <li data-lang-key="webDevVentureDesc1">Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.</li>
                         <li data-lang-key="webDevVentureDesc2">Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan 6 proyek dalam 1 bulan sejak pendirian bisnis.</li>
                         <li data-lang-key="webDevVentureDesc3">Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating 4.9 hingga 5 bintang.</li>
@@ -831,142 +787,205 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-16 bg-gray-50">
+    <section id="certificates" class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden" data-lang-key="educationCertTitle">Pendidikan & Sertifikasi</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900 dark:text-white" data-lang-key="educationCertTitle">Pendidikan & Sertifikasi</h2>
             
-            <div class="modern-card p-6 bg-white my-8 flex flex-col items-center text-center">
-                <p class="text-xl font-semibold text-gray-700 mb-2">Total Sertifikasi:</p>
-                <div class="counter-container">
-                    <span id="certificateCounter" class="counter-number">0</span>
-                </div>
-            </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Certificate 1: C++ Essentials 1 -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('cplesples.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="cplesples.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=C+++Essentials+1'" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('cplesples.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="cplesples.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=C+++Essentials+1'" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="cert1Title">C++ Essentials 1</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="cert1Org">Cisco Networking Academy & OpenEDG C++ Institute</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title">C++ Essentials 1</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="cert1Org">Cisco Networking Academy & OpenEDG C++ Institute</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="cplesples" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 2: Data Formatting & Cleansing -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('data formating.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="data formating.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Data+Formatting'" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('data formating.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="data formating.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Data+Formatting'" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="cert2Title">Data Formatting & Cleansing</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="cert2Org">MySkill - Microsoft Excel</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title">Data Formatting & Cleansing</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="cert2Org">MySkill - Microsoft Excel</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="data formating" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 3: Python Essentials 1 -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('piton.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="piton.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Python+Essentials+1'" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('piton.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="piton.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Python+Essentials+1'" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="cert3Title">Python Essentials 1</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="cert3Org">Cisco Networking Academy & OpenEDG Python Institute</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title">Python Essentials 1</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="cert3Org">Cisco Networking Academy & OpenEDG Python Institute</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="piton" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 4: UI/UX Skills Workshop -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('atcom.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="atcom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX+Workshop'" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('atcom.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="atcom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX+Workshop'" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="cert4Org">Android Developer Community</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title">UI/UX Skills Workshop</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="cert4Org">Android Developer Community</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="atcom" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
 
                 <!-- Certificate 5: CCNA: Introduction to Networks -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('ccna1.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="ccna1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=CCNA+Intro'" alt="Sertifikat CCNA1" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('ccna1.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="ccna1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=CCNA+Intro'" alt="Sertifikat CCNA1" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="cert5Title">CCNA: Introduction to Networks</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="cert5Org">Cisco Networking Academy</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title">CCNA: Introduction to Networks</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="cert5Org">Cisco Networking Academy</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="ccna1" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 6: MySkill Brand Identity -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('brand.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="brand.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Brand+Identity'" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('brand.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="brand.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Brand+Identity'" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certMySkillBrand">Desain Identitas Merek</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand">Desain Identitas Merek</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="brand" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
 
                 <!-- Certificate 7: MySkill Web Frontend -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('frontend.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="frontend.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Web+Frontend'" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('frontend.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="frontend.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Web+Frontend'" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certMySkillFE">Pengembangan Website: Front End</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE">Pengembangan Website: Front End</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="frontend" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 8: MySkill Content Writing -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('seo.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="seo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=SEO+Content'" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('seo.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="seo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=SEO+Content'" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certMySkillContent">SEO & Penulisan Konten</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certMySkillOrg">MySkill Short Class</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent">SEO & Penulisan Konten</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certMySkillOrg">MySkill Short Class</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="seo" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 9: Introduction to Business Development -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('bd.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="bd.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Business+Dev'" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('bd.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="bd.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Business+Dev'" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certBDTitle">Introduction to Business Development</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certBDOrg">MySkill Short Class</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certBDTitle">Introduction to Business Development</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certBDOrg">MySkill Short Class</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="bd" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 10: Introduction to Cybersecurity -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('intro.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="intro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cybersecurity+Intro'" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('intro.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="intro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cybersecurity+Intro'" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certIntroTitle">Introduction to Cybersecurity</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certIntroOrg">Cisco Networking Academy</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certIntroTitle">Introduction to Cybersecurity</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certIntroOrg">Cisco Networking Academy</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="intro" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 11: Junior Cybersecurity Analyst Career Path -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('junior.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="junior.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Junior+Cyber+Analyst'" alt="Sertifikat Junior Cybersecurity Analyst Career Path" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('junior.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="junior.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Junior+Cyber+Analyst'" alt="Sertifikat Junior Cybersecurity Analyst Career Path" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certJuniorTitle">Junior Cybersecurity Analyst Career Path</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certJuniorOrg">Cisco Networking Academy</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certJuniorTitle">Junior Cybersecurity Analyst Career Path</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certJuniorOrg">Cisco Networking Academy</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="junior" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
                 <!-- Certificate 12: Cyber Threat Management -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('threat.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="threat.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Threat+Management'" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('threat.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="threat.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Threat+Management'" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certThreatTitle">Cyber Threat Management</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certThreatOrg">Cisco Networking Academy</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certThreatTitle">Cyber Threat Management</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certThreatOrg">Cisco Networking Academy</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="threat" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
 
-                <!-- NEW Certificate 13: dibimbing.jpg (UI/UX Design Bootcamp) -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('dibimbing.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="dibimbing.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX+Design'" alt="Sertifikat UI/UX Design Bootcamp" class="w-full h-full object-cover">
+                <!-- NEW Certificate 13: dibimbing.id (UI/UX Design Bootcamp) -->
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('dibimbing.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="dibimbing.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX+Design'" alt="Sertifikat UI/UX Design Bootcamp" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certDibimbingTitle">Bootcamp Desain UI/UX</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certDibimbingOrg">Dibimbing.id</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certDibimbingTitle">Bootcamp Desain UI/UX</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certDibimbingOrg">Dibimbing.id</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="dibimbing" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
 
                 <!-- NEW Certificate 14: pmi.jpg (Introduction to Product Management) -->
-                <div class="modern-card p-4 cursor-pointer bg-white initial-hidden" onclick="openModal('pmi.jpg')">
-                    <div class="h-48 overflow-hidden rounded-md mb-3">
-                        <img src="pmi.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Product+Mgmt'" alt="Sertifikat Introduction to Product Management" class="w-full h-full object-cover">
+                <div class="modern-card p-4 bg-white dark:bg-gray-900 initial-hidden flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openImageModal('pmi.jpg')">
+                        <div class="h-48 overflow-hidden rounded-md mb-3">
+                            <img src="pmi.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Product+Mgmt'" alt="Sertifikat Introduction to Product Management" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1" data-lang-key="certPMITitle">Pengantar Manajemen Produk</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-lang-key="certPMIOrg">MySkill Short Class</p>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certPMITitle">Pengantar Manajemen Produk</h3>
-                    <p class="text-sm text-gray-600" data-lang-key="certPMIOrg">MySkill Short Class</p>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="pmi" data-lang-key="viewDetailsBtn">
+                        <span data-lang-key="viewDetailsBtnText">Lihat Detail</span>
+                    </button>
                 </div>
                 
             </div>
@@ -1001,18 +1020,19 @@
         </div>
     </footer>
 
-    <!-- Certificate Modal -->
-    <div id="certificateModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <!-- Certificate Image Modal (Lightbox) -->
+    <div id="certificateModal" class="image-modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
         <img class="modal-content" id="modalImage" alt="Sertifikat">
     </div>
 
-    <!-- Project Detail Modal -->
-    <div id="projectDetailModal" class="modal">
+    <!-- Project/Certificate Detail Modal (Text Explanation) -->
+    <div id="itemDetailModal" class="modal">
         <div class="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-lg max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full relative mx-auto my-auto">
-            <span class="close text-gray-800 dark:text-white" onclick="closeProjectDetailModal()">&times;</span>
-            <h3 id="projectDetailTitle" class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 text-center"></h3>
-            <div id="projectDetailContent" class="text-gray-700 dark:text-gray-300 space-y-4">
+            <!-- Ensure close button is positioned relative to the modal content and styled for dark/light mode -->
+            <span class="absolute top-4 right-6 text-gray-800 dark:text-white text-3xl font-bold cursor-pointer" onclick="closeDetailModal()">&times;</span>
+            <h3 id="itemDetailTitle" class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 text-center pt-2"></h3>
+            <div id="itemDetailContent" class="text-gray-700 dark:text-gray-300 space-y-4">
                 <!-- Content will be injected here by JavaScript -->
             </div>
         </div>
@@ -1020,7 +1040,8 @@
 
     <!-- JavaScript -->
     <script>
-        // Language translations
+        // Data Translation and Details (Defined at top for scope access)
+
         const translations = {
             en: {
                 pageTitle: "Muhammad Faqih Al Rifai - Modern Web & UI/UX Portfolio",
@@ -1032,14 +1053,16 @@
                 navExperience: "Experience",
                 navCertificates: "Certificates",
                 heroSubtitle: "Product Designer (UI/UX) & Business Strategist",
-                viewProjectsBtnText: "View Projects",
+                viewProjectsBtnText: "View Details",
                 designModernTag: "Modern Design",
                 downloadCvBtnText: "Download CV",
                 downloadCvBtn2Text: "Download CV",
                 aboutMeTitle: "About Me",
-                // UPDATED PROFESSIONAL TEXT (ENGLISH)
+                statsTitle: "Professional Summary Statistics",
+                totalProjectsLabel: "Total Projects",
+                totalExperienceLabel: "Total Experience",
+                totalCertificatesLabel: "Total Certifications",
                 aboutMeP1: "I am a results-driven **Product Designer (UI/UX)** and **Front-End Developer**, with strategic expertise in **Business Analysis** and **E-commerce**. I bridge the gap between technical design and business objectives, focusing on creating digital solutions that are **innovative, functional, and high-performing** to drive growth and solve complex problems.",
-                // END UPDATED TEXT
                 personalInfoTitle: "Personal Information & Contact",
                 locationLabel: "Location:",
                 locationText: "Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",
@@ -1141,20 +1164,18 @@
                 certJuniorOrg: "Cisco Networking Academy",
                 certThreatTitle: "Cyber Threat Management",
                 certThreatOrg: "Cisco Networking Academy",
-                // NEW CERTIFICATIONS
                 certDibimbingTitle: "UI/UX Design Bootcamp",
                 certDibimbingOrg: "Dibimbing.id",
                 certPMITitle: "Introduction to Product Management",
                 certPMIOrg: "MySkill Short Class",
-                // END NEW CERTIFICATIONS
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. All rights reserved.",
-                // Project Detail Modal Content
                 modalTools: "Tools & Techniques:",
                 modalChallenges: "Challenges Faced:",
                 modalSolution: "Solution:",
                 modalRole: "Role:",
                 modalLearning: "Key Learnings:",
-                // Specific project times
+                certOverviewTitle: "Certificate Overview",
+                certTaskTitle: "Main Task/Context",
                 myDsgnTime: "2 Days",
                 dashProPanelTime: "19 Days",
                 evolvemartTime: "14 Days",
@@ -1176,14 +1197,16 @@
                 navExperience: "Pengalaman",
                 navCertificates: "Sertifikasi",
                 heroSubtitle: "Desainer Produk (UI/UX) & Strategis Bisnis",
-                viewProjectsBtnText: "Lihat Proyek",
+                viewProjectsBtnText: "Lihat Detail",
                 designModernTag: "Desain Modern",
                 downloadCvBtnText: "Unduh CV",
                 downloadCvBtn2Text: "Unduh CV",
                 aboutMeTitle: "Tentang Saya",
-                // UPDATED PROFESSIONAL TEXT (INDONESIAN)
+                statsTitle: "Statistik Ringkasan Profesional",
+                totalProjectsLabel: "Total Proyek",
+                totalExperienceLabel: "Total Pengalaman",
+                totalCertificatesLabel: "Total Sertifikasi",
                 aboutMeP1: "Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang **inovatif, fungsional, dan berkinerja tinggi** untuk mendorong pertumbuhan dan memecahkan masalah kompleks.",
-                // END UPDATED TEXT
                 personalInfoTitle: "Informasi Pribadi & Kontak",
                 locationLabel: "Lokasi:",
                 locationText: "Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",
@@ -1228,7 +1251,7 @@
                 workflow1Title: "1. Penemuan & Riset",
                 workflow1Desc: "Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",
                 workflow2Title: "2. Perencanaan & Wireframing",
-                workflow2Desc: "Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.",
+                workflow2Desc: "Mengembangkan struktur proyek melalui wireframe dan sitemaps, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.",
                 workflow3Title: "3. Desain UI/UX",
                 workflow3Desc: "Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.",
                 workflow4Title: "4. Pengembangan",
@@ -1285,20 +1308,18 @@
                 certJuniorOrg: "Cisco Networking Academy",
                 certThreatTitle: "Manajemen Ancaman Siber",
                 certThreatOrg: "Cisco Networking Academy",
-                // NEW CERTIFICATIONS
                 certDibimbingTitle: "Bootcamp Desain UI/UX",
                 certDibimbingOrg: "Dibimbing.id",
                 certPMITitle: "Pengantar Manajemen Produk",
                 certPMIOrg: "MySkill Short Class",
-                // END NEW CERTIFICATIONS
                 footerCopyright: "© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",
-                // Project Detail Modal Content
                 modalTools: "Alat & Teknik:",
                 modalChallenges: "Tantangan yang Dihadapi:",
                 modalSolution: "Solusi:",
                 modalRole: "Peran:",
                 modalLearning: "Pembelajaran Utama:",
-                // Specific project times
+                certOverviewTitle: "Ringkasan Sertifikasi",
+                certTaskTitle: "Tugas Utama/Konteks",
                 myDsgnTime: "2 Hari",
                 dashProPanelTime: "19 Hari",
                 evolvemartTime: "14 Hari",
@@ -1312,10 +1333,10 @@
             }
         };
 
-        // Data for project details (updated)
+        // Data for Project Details
         const projectDetails = {
             "Fiplle": {
-                languages: ["Figma (UI/UX & Prototyping)", "User Research"],
+                type: 'project', languages: ["Figma (UI/UX & Prototyping)", "User Research"],
                 challenges_en: "Creating a mobile app design that stands out in a crowded e-commerce market by offering a fresh, user-centric experience. The main challenge was to innovate beyond conventional layouts and introduce unique features, such as the card-style balance display, that enhance user engagement and trust.",
                 solution_en: "I conducted a comprehensive competitor analysis and user interviews to identify pain points and untapped opportunities. The design was built with a 'less is more' philosophy, using a clean interface and intuitive navigation. The card-style balance feature was a direct result of user feedback, aiming to provide a quick, glanceable summary of their financial status within the app.",
                 role_en: "UI/UX Designer & Product Designer",
@@ -1326,7 +1347,7 @@
                 learning_id: "Saya belajar untuk berpikir secara strategis tentang desain, memperlakukannya bukan hanya sebagai latihan visual tetapi sebagai alat yang ampuh untuk memecahkan masalah bisnis. Saya mendapatkan pengalaman langsung dalam menerjemahkan ide mentah menjadi prototipe interaktif berfidelitas tinggi, menunjukkan pentingnya setiap tahapan proses desain, dari wireframing hingga pengujian pengguna."
             },
             "Nasi Goreng App": {
-                languages: ["Figma (UI/UX Design)", "User Flow", "Wireframing", "Prototyping"],
+                type: 'project', languages: ["Figma (UI/UX Design)", "User Flow", "Wireframing", "Prototyping"],
                 challenges_en: "The primary challenge was to design a food ordering app with a focus on simplicity and speed, while also providing robust options for menu customization without cluttering the user interface.",
                 solution_en: "I developed a user-friendly interface with clear, single-tap options for common choices and an intuitive system for advanced customizations. The design focuses on a clean layout and a straightforward ordering process to minimize friction and improve user satisfaction.",
                 role_en: "UI/UX Designer",
@@ -1337,7 +1358,7 @@
                 learning_id: "Proyek ini memberikan pengalaman praktis dalam menerapkan prinsip-prinsip inti UI/UX untuk memecahkan masalah nyata. Saya belajar menyeimbangkan daya tarik estetika dengan desain fungsional, berfokus pada menciptakan perjalanan pengguna yang mulus dan menyenangkan dari awal hingga akhir."
             },
             "MyDSGN": {
-                languages: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+                type: 'project', languages: ["HTML", "CSS", "JavaScript", "Responsive Design"],
                 challenges_en: "Developing a fluid, responsive layout that presents complex visual content beautifully across all devices without compromising performance. The challenge was creating a dynamic user interface with custom animations and transitions using only vanilla technologies.",
                 solution_en: "I meticulously crafted a mobile-first responsive design, leveraging Flexbox and CSS Grid for a robust layout. JavaScript was used to create a lightweight, custom-built gallery system and a dynamic navigation bar that adapts to user scrolling, all while ensuring minimal load times.",
                 role_en: "Front-End Developer & UI Designer",
@@ -1348,7 +1369,7 @@
                 learning_id: "Pentingnya perencanaan desain yang matang, pengujian ekstensif pada berbagai perangkat, dan teknik optimasi performa web menggunakan vanilla JS/CSS."
             },
             "DashProPanel": {
-                languages: ["HTML", "Tailwind CSS", "Vanilla JavaScript", "Data Visualization"],
+                type: 'project', languages: ["HTML", "Tailwind CSS", "Vanilla JavaScript", "Data Visualization"],
                 challenges_en: "The primary challenge was building a feature-rich and interactive dashboard interface without relying on a heavy JavaScript framework. This required a deep understanding of DOM manipulation and efficient state management to ensure a smooth, reactive user experience.",
                 solution_en: "I architected a modular JavaScript solution where each component, such as the data charts and interactive tables, operated independently but communicated through a centralized data layer. This approach, combined with Tailwind CSS's utility-first classes, allowed for rapid development and maintainability.",
                 role_en: "Front-End Developer",
@@ -1359,7 +1380,7 @@
                 learning_id: "Menguasai manipulasi DOM JavaScript, teknik optimasi performa web tanpa framework, dan menerapkan CSS utility-first dengan Tailwind untuk desain yang efisien."
             },
             "Evolvemart": {
-                languages: ["HTML", "CSS", "JavaScript", "E-commerce Architecture Planning"],
+                type: 'project', languages: ["HTML", "CSS", "JavaScript", "E-commerce Architecture Planning"],
                 challenges_en: "Designing an e-commerce platform that can handle high traffic and complex transactions while maintaining a seamless and intuitive user journey. The main challenge is planning for future scalability and integrating a secure, efficient backend system.",
                 solution_en: "I focused on creating a robust, component-based front-end architecture that can be easily connected to a modern backend stack (e.g., MERN stack) in the future. The design prioritizes a simplified checkout process and a clean product discovery experience, which were identified as key to maximizing conversions.",
                 role_en: "Lead Developer & Product Designer",
@@ -1370,7 +1391,7 @@
                 learning_id: "Proyek ini mengasah keterampilan perencanaan strategis saya, mengajarkan saya cara merancang produk dengan mempertimbangkan pertumbuhan di masa depan. Saya mendapatkan apresiasi yang lebih dalam akan pentingnya riset pengalaman pengguna dalam e-commerce, dan belajar bagaimana membangun front-end yang tidak hanya menarik secara visual tetapi juga sangat fungsional dan siap untuk pengembangan yang skalabel."
             },
             "Dapur Ummi": {
-                languages: ["HTML", "Tailwind CSS", "JavaScript", "SEO Optimization"],
+                type: 'project', languages: ["HTML", "Tailwind CSS", "JavaScript", "SEO Optimization"],
                 challenges_en: "The primary challenge was to rebuild and optimize a culinary website that was slow and difficult to navigate. The goal was to improve site performance and user experience significantly by modernizing the code and design.",
                 solution_en: "I performed a complete code refactoring, migrating from a bloated CSS codebase to a lean, utility-first approach with Tailwind CSS. I also implemented advanced image compression and lazy loading to drastically reduce page load times, and added clear, logical navigation paths to improve usability.",
                 role_en: "Web Developer",
@@ -1381,7 +1402,7 @@
                 learning_id: "Proyek ini memperkuat pentingnya optimasi performa dan kebersihan kode. Ini mengajarkan saya bagaimana proses refactoring yang strategis dapat memberikan kehidupan baru pada situs web yang sudah usang, mengubahnya dari pengalaman pengguna yang membuat frustrasi menjadi platform yang cepat dan menyenangkan."
             },
             "Urpro": {
-                languages: ["HTML", "Tailwind CSS", "JavaScript", "Visual Branding"],
+                type: 'project', languages: ["HTML", "Tailwind CSS", "JavaScript", "Visual Branding"],
                 challenges_en: "Creating a portfolio website that not only showcases technical skills but also tells a compelling personal and professional story. The challenge was to balance a modern, aesthetic design with clear, concise content that effectively communicates my value to potential clients and employers.",
                 solution_en: "I designed a clean, minimalist layout with a strong focus on typography and intentional use of whitespace, using Tailwind CSS for rapid and consistent styling. Custom JavaScript animations were added to create subtle, engaging user interactions, guiding visitors through my work and professional journey seamlessly.",
                 role_en: "Web Developer & UI Designer",
@@ -1392,7 +1413,7 @@
                 learning_id: "Seni presentasi diri dalam konteks profesional, pentingnya komunikasi yang jelas dan ringkas, dan penyempurnaan berkelanjutan dari keterampilan desain dan pengembangan."
             },
             "Dcorps": {
-                languages: ["HTML", "CSS", "Vanilla JavaScript", "Creative Animation"],
+                type: 'project', languages: ["HTML", "CSS", "Vanilla JavaScript", "Creative Animation"],
                 challenges_en: "Building a visually stunning and unique creative portfolio that goes beyond a standard template. The key challenge was to implement custom, interactive elements and a distinct aesthetic that truly reflects a creative brand identity.",
                 solution_en: "I developed the site with a focus on fluid, responsive animations and a carefully curated color palette. I used CSS for complex visual effects and JavaScript for dynamic, parallax-like scrolling and interactive hover states, making the site feel alive and engaging.",
                 role_en: "Web Developer",
@@ -1404,6 +1425,155 @@
             }
         };
 
+        // Data for Certificate Details (New Data Structure)
+        const certificateDetails = {
+            "dibimbing": {
+                type: 'cert', 
+                title_id: "Bootcamp Desain UI/UX (Dibimbing.id)",
+                desc_id: "Pelatihan intensif UI/UX Design selama **5 hari (40 jam)** yang berfokus pada metodologi Design Thinking, riset pengguna, wireframing, dan prototyping fungsional. Sertifikasi ini ditekankan pada penerapan praktik terbaik dalam desain berbasis data.",
+                challenges_id: "Tugas akhir bootcamp mengharuskan perancangan ulang aplikasi pemesanan 'Nasi Goreng' dari nol, fokus pada penyederhanaan alur (user flow) dan personalisasi menu yang efektif. Proyek ini kemudian menjadi 'Nasi Goreng App' di bagian Proyek.",
+                tools: ["Figma", "Design Thinking", "User Research", "Prototyping"],
+                org_id: "Dibimbing.id",
+                learning_id: "Menguasai seluruh siklus desain produk, dari penemuan masalah hingga pengujian prototipe interaktif. Pemahaman mendalam tentang korelasi antara desain yang baik dan tujuan bisnis yang jelas.",
+                duration_id: "5 Hari (40 Jam)"
+            },
+            "pmi": {
+                type: 'cert', 
+                title_id: "Pengantar Manajemen Produk",
+                desc_id: "Kursus kilat yang mencakup dasar-dasar Product Management (PM), termasuk penentuan visi produk, identifikasi pasar, dan pemetaan *roadmap* produk. Materi berfokus pada menjembatani kebutuhan teknis dan strategi bisnis.",
+                challenges_id: "Memahami prioritas fitur berdasarkan matriks RICE dan Kano untuk memastikan waktu pengembangan (development time) dialokasikan secara maksimal untuk fitur bernilai tinggi.",
+                tools: ["Prioritization Frameworks (RICE)", "Market Analysis", "Product Roadmap"],
+                org_id: "MySkill Short Class",
+                learning_id: "Kemampuan untuk berpikir dari sudut pandang manajer produk, memastikan setiap proyek teknis memiliki landasan strategis yang kuat dan target pasar yang jelas.",
+                duration_id: "Short Class"
+            },
+            "cplesples": {
+                type: 'cert', 
+                title_id: "C++ Essentials 1",
+                desc_id: "Sertifikasi fundamental yang diperoleh melalui program akademik wajib di **STMIK IKMI Kota Cirebon**. Materi mencakup dasar-dasar pemrograman C++, seperti variabel, tipe data, kontrol aliran, dan konsep pemrograman terstruktur.",
+                challenges_id: "Berfokus pada penyelesaian masalah algoritmik dasar dan memastikan pemahaman yang kuat tentang sintaksis C++ sebagai fondasi untuk bahasa pemrograman yang lebih kompleks.",
+                tools: ["C++", "Algoritma Dasar", "Structured Programming"],
+                org_id: "Cisco Networking Academy & OpenEDG C++ Institute",
+                learning_id: "Mengembangkan kemampuan berpikir logis dan fondasi pemrograman yang kuat, penting untuk efisiensi koding dalam pengembangan *front-end*.",
+                duration_id: "Program Kampus"
+            },
+            "piton": {
+                type: 'cert', 
+                title_id: "Python Essentials 1",
+                desc_id: "Sertifikasi yang diperoleh melalui program akademik wajib di **STMIK IKMI Kota Cirebon**. Kursus ini memperkenalkan pemrograman Python, yang sangat berguna untuk tugas analisis data, skrip otomatisasi, dan pengembangan web sisi server.",
+                challenges_id: "Mengaplikasikan konsep dasar Object-Oriented Programming (OOP) dan manipulasi struktur data Python untuk masalah sederhana.",
+                tools: ["Python", "Basic OOP", "Data Handling"],
+                org_id: "Cisco Networking Academy & OpenEDG Python Institute",
+                learning_id: "Mempelajari bahasa yang sangat serbaguna untuk kebutuhan data mining dan pengembangan back-end ringan di masa depan.",
+                duration_id: "Program Kampus"
+            },
+            "atcom": {
+                type: 'cert', 
+                title_id: "UI/UX Skills Workshop (ADCOM)",
+                desc_id: "Workshop intensif selama **satu hari penuh** yang diselenggarakan oleh Android Developer Community (ADCOM) di aula kampus. Tujuannya adalah memberikan pemahaman mendalam tentang praktik industri terbaru.",
+                challenges_id: "Tantangan utamanya adalah praktik langsung menggunakan **Figma** untuk membuat *high-fidelity mockup* sebuah aplikasi di bawah batas waktu yang ketat, menguji kecepatan dan ketepatan desain.",
+                tools: ["Figma (Praktik Langsung)", "UI/UX Best Practices", "High-Fidelity Mockups"],
+                org_id: "Android Developer Community",
+                learning_id: "Meningkatkan kecepatan kerja dengan Figma dan mengintegrasikan prinsip-prinsip desain terbaru ke dalam alur kerja pribadi.",
+                duration_id: "1 Hari Workshop"
+            },
+            "ccna1": {
+                type: 'cert', 
+                title_id: "CCNA: Introduction to Networks",
+                desc_id: "Sertifikasi jaringan tingkat pengantar yang diperoleh dari Cisco Academy melalui program kampus. Materi mencakup arsitektur jaringan, protokol komunikasi, dan dasar-dasar perangkat keras.",
+                challenges_id: "Memahami bagaimana perangkat jaringan berkomunikasi dan mengamankan transmisi data, yang merupakan konteks penting untuk pengembangan aplikasi web yang andal.",
+                tools: ["Network Protocols (TCP/IP)", "OSI Model", "Cisco Hardware Basics"],
+                org_id: "Cisco Networking Academy",
+                learning_id: "Pemahaman fundamental tentang infrastruktur digital yang mendukung semua aplikasi dan situs web.",
+                duration_id: "Program Kampus"
+            },
+            "brand": {
+                type: 'cert', 
+                title_id: "Desain Identitas Merek",
+                desc_id: "Short class yang berfokus pada pengembangan identitas merek (Brand Identity) yang kuat dan kohesif. Mencakup elemen visual, tone of voice, dan strategi pembangunan merek yang membedakan di pasar.",
+                challenges_id: "Menerjemahkan nilai-nilai bisnis menjadi elemen desain visual yang menarik dan berkesan.",
+                tools: ["Visual Branding", "Target Audience Analysis", "Brand Guidelines"],
+                org_id: "MySkill Short Class",
+                learning_id: "Keterampilan penting untuk pekerjaan UI/UX dan pemasaran digital, memastikan produk memiliki wajah yang konsisten dan profesional.",
+                duration_id: "Short Class"
+            },
+            "frontend": {
+                type: 'cert', 
+                title_id: "Pengembangan Website: Front End",
+                desc_id: "Short class intensif yang fokus pada Front-End Development, mencakup HTML5, CSS3, dan JavaScript modern. Tujuan utama adalah membuat antarmuka web yang responsif dan dioptimalkan untuk kinerja.",
+                challenges_id: "Menguasai teknik responsive design dan memastikan kompatibilitas browser penuh.",
+                tools: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+                org_id: "MySkill Short Class",
+                learning_id: "Menguatkan dasar-dasar coding dan praktik terbaik (best practices) dalam membangun antarmuka pengguna yang cepat dan mudah dipelihara.",
+                duration_id: "Short Class"
+            },
+            "seo": {
+                type: 'cert', 
+                title_id: "SEO & Penulisan Konten",
+                desc_id: "Sertifikasi yang berfokus pada Search Engine Optimization (SEO) dan strategi penulisan konten yang menarik. Meliputi riset kata kunci, optimasi on-page, dan analisis performa konten.",
+                challenges_id: "Mengintegrasikan strategi SEO ke dalam proses pengembangan web dan desain UI/UX untuk meningkatkan visibilitas produk digital secara organik.",
+                tools: ["SEO Keywords", "On-Page Optimization", "Content Marketing Strategy"],
+                org_id: "MySkill Short Class",
+                learning_id: "Memahami sisi bisnis digital yang sangat penting: bagaimana membuat produk ditemukan dan menarik trafik berkualitas.",
+                duration_id: "Short Class"
+            },
+            "bd": {
+                type: 'cert', 
+                title_id: "Pengantar Pengembangan Bisnis",
+                desc_id: "Kursus pengantar Business Development (BD) yang mengajarkan cara mengidentifikasi peluang pasar baru, membangun kemitraan strategis, dan merencanakan pertumbuhan jangka panjang. Ini membantu menjembatani teknologi dan profitabilitas.",
+                challenges_id: "Mengembangkan kerangka kerja bisnis untuk ide produk digital, mengubah konsep teknis menjadi model pendapatan yang layak.",
+                tools: ["Business Strategy", "Market Opportunity Analysis", "Partnership Building"],
+                org_id: "MySkill Short Class",
+                learning_id: "Mengembangkan pemikiran strategis yang diperlukan untuk memastikan bahwa keahlian teknis digunakan untuk mencapai tujuan bisnis yang lebih besar.",
+                duration_id: "Short Class"
+            },
+            "intro": {
+                type: 'cert', 
+                title_id: "Pengantar Keamanan Siber",
+                desc_id: "Sertifikasi pengantar yang menjelaskan pentingnya keamanan siber dalam dunia digital. Mencakup ancaman umum, mekanisme pertahanan, dan praktik terbaik untuk melindungi data dan sistem.",
+                challenges_id: "Mengidentifikasi celah keamanan pada aplikasi web tingkat dasar (misalnya XSS, SQL Injection) dan memahami cara menghindarinya saat coding.",
+                tools: ["Threat Identification", "Network Security", "Data Protection Principles"],
+                org_id: "Cisco Networking Academy",
+                learning_id: "Kesadaran akan keamanan adalah kunci dalam pengembangan web modern; sertifikasi ini memastikan saya membangun solusi yang aman sejak awal.",
+                duration_id: "Program Kampus"
+            },
+            "junior": {
+                type: 'cert', 
+                title_id: "Jalur Karir Analis Keamanan Siber Junior",
+                desc_id: "Jalur pembelajaran komprehensif yang melatih keterampilan analitis untuk mendeteksi dan merespons ancaman siber. Materi meliputi monitoring, analisis log, dan penggunaan alat keamanan.",
+                challenges_id: "Menganalisis skenario serangan siber dan menentukan langkah-langkah mitigasi yang tepat.",
+                tools: ["Security Monitoring", "Incident Response", "Threat Analysis"],
+                org_id: "Cisco Networking Academy",
+                learning_id: "Keterampilan mendalam dalam menganalisis risiko dan insiden keamanan, meningkatkan kredibilitas dalam proyek yang memerlukan keandalan data tinggi.",
+                duration_id: "Program Kampus"
+            },
+            "threat": {
+                type: 'cert', 
+                title_id: "Manajemen Ancaman Siber",
+                desc_id: "Materi lanjutan dari jalur karir keamanan siber, berfokus pada manajemen ancaman secara proaktif. Ini melibatkan implementasi kebijakan keamanan dan penggunaan teknologi deteksi canggih.",
+                challenges_id: "Mendesain arsitektur keamanan untuk lingkungan jaringan yang kompleks dan dinamis.",
+                tools: ["Proactive Security", "Security Policies", "Vulnerability Assessment"],
+                org_id: "Cisco Networking Academy",
+                learning_id: "Kemampuan untuk merencanakan dan menerapkan pertahanan siber yang berlapis (defense-in-depth) pada produk digital.",
+                duration_id: "Program Kampus"
+            },
+            "data formating": {
+                type: 'cert', 
+                title_id: "Data Formatting & Cleansing",
+                desc_id: "Short class yang berfokus pada penggunaan Microsoft Excel untuk membersihkan (cleansing), memformat, dan menganalisis data mentah. Ini adalah keterampilan penting untuk analisis bisnis dan pelaporan kinerja.",
+                challenges_id: "Mengubah set data yang kacau menjadi format yang rapi dan siap untuk dianalisis, meningkatkan akurasi wawasan bisnis.",
+                tools: ["Microsoft Excel", "Data Cleansing", "Data Formatting", "Data Analysis"],
+                org_id: "MySkill - Microsoft Excel",
+                learning_id: "Keahlian dalam menganalisis data mentah untuk mengambil keputusan bisnis yang terinformasi.",
+                duration_id: "Short Class"
+            },
+        };
+
+        // All item details combined for easier lookup
+        const itemDetails = { ...projectDetails, ...certificateDetails };
+
+        let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
+        
         // Function to set language and update content
         function updateContent() {
             const pageTitleElement = document.getElementById('pageTitle');
@@ -1414,12 +1584,11 @@
             // Update all elements with data-lang-key attributes
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
-                if (translations[currentLang][key]) {
-                    // Special handling for elements that should not have their innerHTML overwritten by textContent
+                // Ensure key exists in current language translation
+                if (translations[currentLang] && translations[currentLang][key]) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.value = translations[currentLang][key];
                     } else if (key === 'aboutMeP1') {
-                        // Special handling for the revised aboutMeP1 to allow HTML formatting (like **bold**)
                         element.innerHTML = translations[currentLang][key].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                     }
                     else {
@@ -1430,50 +1599,35 @@
 
             // Update specific elements by ID that are not covered by data-lang-key (e.g., location, contact)
             const locationTextElement = document.getElementById('locationText');
-            if (locationTextElement) {
-                locationTextElement.textContent = translations[currentLang].locationText;
-            }
+            if (locationTextElement) { locationTextElement.textContent = translations[currentLang].locationText; }
             const contactTextElement = document.getElementById('contactText');
-            if (contactTextElement) {
-                contactTextElement.textContent = translations[currentLang].contactText;
-            }
+            if (contactTextElement) { contactTextElement.textContent = translations[currentLang].contactText; }
 
             // Update specific project completion times and statuses
-            const myDsgnTimeElement = document.getElementById('myDsgnTime');
-            if (myDsgnTimeElement) { myDsgnTimeElement.textContent = translations[currentLang].myDsgnTime; }
-            const dashProPanelTimeElement = document.getElementById('dashProPanelTime');
-            if (dashProPanelTimeElement) { dashProPanelTimeElement.textContent = translations[currentLang].dashProPanelTime; }
-            const evolvemartTimeElement = document.getElementById('evolvemartTime');
-            if (evolvemartTimeElement) { evolvemartTimeElement.textContent = translations[currentLang].evolvemartTime; }
-            const dapurUmmiTimeElement = document.getElementById('dapurUmmiTime');
-            if (dapurUmmiTimeElement) { dapurUmmiTimeElement.textContent = translations[currentLang].dapurUmmiTime; }
-            const urproTimeElement = document.getElementById('urproTime');
-            if (urproTimeElement) { urproTimeElement.textContent = translations[currentLang].urproTime; }
-            const dcorpsTimeElement = document.getElementById('dcorpsTime');
-            if (dcorpsTimeElement) { dcorpsTimeElement.textContent = translations[currentLang].dcorpsTime; }
-            
-            // Added Nasi Goreng Time
-            const nasigorengTimeElement = document.getElementById('nasigorengTime');
-            if (nasigorengTimeElement) { nasigorengTimeElement.textContent = translations[currentLang].nasigorengTime; }
+            const projectTimeIds = ['myDsgnTime', 'dashProPanelTime', 'evolvemartTime', 'dapurUmmiTime', 'urproTime', 'dcorpsTime', 'nasigorengTime'];
+            projectTimeIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element && translations[currentLang][id]) {
+                    element.textContent = translations[currentLang][id];
+                }
+            });
 
-            // Update statuses
-            const nasigorengStatusElement = document.getElementById('nasigorengStatus');
-            if (nasigorengStatusElement) { nasigorengStatusElement.textContent = translations[currentLang].statusProjectText; }
-
-            const fiplleStatusElement = document.getElementById('fiplleStatus');
-            if (fiplleStatusElement) { fiplleStatusElement.textContent = translations[currentLang].statusProjectText; } // Changed to Completed Project/Proyek Selesai
-            const myDsgnStatusElement = document.getElementById('myDsgnStatus');
-            if (myDsgnStatusElement) { myDsgnStatusElement.textContent = translations[currentLang].statusActiveText; }
-            const dashProPanelStatusElement = document.getElementById('dashProPanelStatus');
-            if (dashProPanelStatusElement) { dashProPanelStatusElement.textContent = translations[currentLang].statusActiveText; }
-            const evolvemartStatusElement = document.getElementById('evolvemartStatus');
-            if (evolvemartStatusElement) { evolvemartStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
-            const dapurUmmiStatusElement = document.getElementById('dapurUmmiStatus');
-            if (dapurUmmiStatusElement) { dapurUmmiStatusElement.textContent = translations[currentLang].statusMaintenanceText; }
-            const urproStatusElement = document.getElementById('urproStatus');
-            if (urproStatusElement) { urproStatusElement.textContent = translations[currentLang].statusActiveText; }
-            const dcorpsStatusElement = document.getElementById('dcorpsStatus');
-            if (dcorpsStatusElement) { dcorpsStatusElement.textContent = translations[currentLang].statusActiveText; }
+            const statusMap = {
+                'nasigorengStatus': 'statusProjectText',
+                'fiplleStatus': 'statusProjectText',
+                'myDsgnStatus': 'statusActiveText',
+                'dashProPanelStatus': 'statusActiveText',
+                'evolvemartStatus': 'statusMaintenanceText',
+                'dapurUmmiStatus': 'statusMaintenanceText',
+                'urproStatus': 'statusActiveText',
+                'dcorpsStatus': 'statusActiveText'
+            };
+            Object.keys(statusMap).forEach(id => {
+                const element = document.getElementById(id);
+                if (element && translations[currentLang] && translations[currentLang][statusMap[id]]) {
+                    element.textContent = translations[currentLang][statusMap[id]];
+                }
+            });
             
             // Update current language display in buttons
             const currentLangDisplayElement = document.getElementById('currentLangDisplay');
@@ -1482,135 +1636,173 @@
             if (currentMobileLangDisplayElement) { currentMobileLangDisplayElement.textContent = currentLang.toUpperCase(); }
         }
 
-        let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
-        
         // Function to set language and update content
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('lang', lang);
             updateContent();
-            // Reopen modal if open to refresh language
-            const modal = document.getElementById('projectDetailModal');
+            // Close and reopen detail modal if open to refresh language
+            const modal = document.getElementById('itemDetailModal');
             if (modal.style.display === "flex") {
-                // Check if the title is available to re-inject content
-                const title = document.getElementById('projectDetailTitle');
-                if (title && title.textContent) {
-                    openProjectDetailModal(title.textContent);
-                }
+                // To safely reopen/refresh content, we need to know what was open.
+                // Since we don't store that state globally, we force close and rely on the user to reopen,
+                // or ideally, we pass the item name to refresh the modal if it's visible.
+                // For now, let's just ensure it closes to prevent visual bugs.
+                closeDetailModal();
             }
         }
         
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) { // Added null check
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-        
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu) { // Added null check
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-        
-        // Certificate modal functionality
-        function openModal(imageSrc) {
+        // Modal functions (renamed for clarity)
+        function openImageModal(imageSrc) {
             const modal = document.getElementById('certificateModal');
             const modalImg = document.getElementById("modalImage");
-            if (modal && modalImg) { // Added null check
-                modal.style.display = "flex"; // Change display to flex
+            if (modal && modalImg) {
+                modal.style.display = "flex";
                 modalImg.src = imageSrc;
             }
         }
         
-        function closeModal() {
+        function closeImageModal() {
             const modal = document.getElementById('certificateModal');
-            if (modal) { // Added null check
+            if (modal) {
                 modal.style.display = "none";
             }
         }
         
-        // Project Detail Modal functionality
-        function openProjectDetailModal(projectName) {
-            const modal = document.getElementById('projectDetailModal');
-            const title = document.getElementById('projectDetailTitle');
-            const content = document.getElementById('projectDetailContent');
-            const details = projectDetails[projectName];
+        // Project/Certificate Detail Modal functionality
+        function openDetailModal(itemType, itemName) {
+            const modal = document.getElementById('itemDetailModal');
+            const title = document.getElementById('itemDetailTitle');
+            const content = document.getElementById('itemDetailContent');
+            const details = itemDetails[itemName];
 
-            if (details && modal && title && content) { // Added null checks for modal elements
-                title.textContent = projectName;
-                // Dynamically select language-specific content
-                const challengesKey = `challenges_${currentLang}`;
-                const solutionKey = `solution_${currentLang}`;
-                const roleKey = `role_${currentLang}`;
-                const learningKey = `learning_${currentLang}`;
+            if (details && modal && title && content) {
+                // Determine title: Use translation key for certificate, otherwise use item name
+                const titleKeyMap = {
+                    'cplesples': 'cert1Title', 'data formating': 'cert2Title', 'piton': 'cert3Title', 
+                    'atcom': 'cert4Title', 'ccna1': 'cert5Title', 'brand': 'certMySkillBrand',
+                    'frontend': 'certMySkillFE', 'seo': 'certMySkillContent', 'bd': 'certBDTitle',
+                    'intro': 'certIntroTitle', 'junior': 'certJuniorTitle', 'threat': 'certThreatTitle',
+                    'dibimbing': 'certDibimbingTitle', 'pmi': 'certPMITitle'
+                };
+                
+                let actualTitle;
+                if (itemType === 'cert') {
+                    const titleKey = titleKeyMap[itemName];
+                    actualTitle = translations[currentLang][titleKey] || itemName;
+                } else {
+                    actualTitle = itemName; // Project name is the title
+                }
+                
+                title.textContent = actualTitle;
+                content.innerHTML = ''; // Clear previous content
+
+                // Generic Labels
                 const modalToolsLabel = translations[currentLang].modalTools;
-                const modalChallengesLabel = translations[currentLang].modalChallenges;
-                const modalSolutionLabel = translations[currentLang].modalSolution;
-                const modalRoleLabel = translations[currentLang].modalRole;
+                const modalRoleLabel = translations[currentLang].modalRole || 'Peran';
                 const modalLearningLabel = translations[currentLang].modalLearning;
 
-                content.innerHTML = `
-                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
-                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalToolsLabel}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">${details.languages.join(', ')}</p>
-                    </div>
-                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
-                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalChallengesLabel}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">${details[challengesKey]}</p>
-                    </div>
-                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
-                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalSolutionLabel}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">${details[solutionKey]}</p>
-                    </div>
-                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
-                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalRoleLabel}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">${details[roleKey]}</p>
-                    </div>
-                    <div class="project-detail-card bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg shadow-sm">
-                        <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalLearningLabel}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">${details[learningKey]}</p>
-                    </div>
-                `;
+                if (itemType === 'project') {
+                    // --- PROJECT CONTENT ---
+                    const challengesKey = `challenges_${currentLang}`;
+                    const solutionKey = `solution_${currentLang}`;
+                    const roleKey = `role_${currentLang}`;
+                    const learningKey = `learning_${currentLang}`;
+                    const modalChallengesLabel = translations[currentLang].modalChallenges;
+                    const modalSolutionLabel = translations[currentLang].modalSolution;
+
+                    content.innerHTML = `
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalToolsLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${details.languages.join(', ')}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalChallengesLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${details[challengesKey]}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalSolutionLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${details[solutionKey]}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalRoleLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${details[roleKey]}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalLearningLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${details[learningKey]}</p>
+                        </div>
+                    `;
+
+                } else if (itemType === 'cert') {
+                    // --- CERTIFICATE CONTENT ---
+                    const descKey = `desc_${currentLang}`;
+                    const challengesKey = `challenges_${currentLang}`;
+                    const learningKey = `learning_${currentLang}`;
+                    
+                    const durationText = details.duration_id || "Tidak Diketahui";
+                    
+                    // FIX: Ensure desc is defined before calling replace()
+                    const descriptionText = details[descKey] || (currentLang === 'id' ? 'Deskripsi tidak tersedia.' : 'Description not available.');
+                    const challengesText = details[challengesKey] || (currentLang === 'id' ? 'Tugas utama tidak tercantum.' : 'Main tasks not listed.');
+                    const learningText = details[learningKey] || (currentLang === 'id' ? 'Pembelajaran utama tidak tercantum.' : 'Key learnings not listed.');
+
+
+                    content.innerHTML = `
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">Detail Kursus</h4>
+                            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                                <li><strong>Institusi:</strong> ${details.org_id}</li>
+                                <li><strong>Durasi:</strong> ${durationText}</li>
+                                <li><strong>Fokus Materi:</strong> ${details.tools.join(', ')}</li>
+                            </ul>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${translations[currentLang].certOverviewTitle}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${descriptionText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${translations[currentLang].certTaskTitle}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${challengesText}</p>
+                        </div>
+                        <div class="project-detail-card dark:bg-gray-700">
+                            <h4 class="text-lg font-semibold text-teal-700 dark:text-teal-400 mb-2">${modalLearningLabel}</h4>
+                            <p class="text-gray-700 dark:text-gray-300">${learningText}</p>
+                        </div>
+                    `;
+                }
                 modal.style.display = "flex";
             } else {
-                console.error("Project details not found for:", projectName);
+                console.error("Item details not found for:", itemName);
             }
         }
 
-        function closeProjectDetailModal() {
-            const modal = document.getElementById('projectDetailModal');
-            if (modal) { // Added null check
+        function closeDetailModal() {
+            const modal = document.getElementById('itemDetailModal');
+            if (modal) {
                 modal.style.display = "none";
             }
         }
         
-        // Close modal when clicking outside the image or content
+        // Close modals when clicking outside
         window.onclick = function(event) {
             const certModal = document.getElementById('certificateModal');
-            const projModal = document.getElementById('projectDetailModal');
-            if (certModal && event.target == certModal) { // Added null check
+            const detailModal = document.getElementById('itemDetailModal');
+
+            if (certModal && event.target == certModal) {
                 certModal.style.display = "none";
             }
-            if (projModal && event.target == projModal) { // Added null check
-                projModal.style.display = "none";
+            if (detailModal && event.target == detailModal) {
+                detailModal.style.display = "none";
             }
         }
         
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links (kept for good UX)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                // Ensure targetId is not just "#" or empty before querying
                 if (targetId && targetId !== '#') {
                     const targetElement = document.querySelector(targetId); 
                     if (targetElement) {
@@ -1623,20 +1815,23 @@
             });
         });
 
-        // Navbar hide/show on scroll
+        // Navbar hide/show on scroll (kept)
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
 
         window.addEventListener('scroll', () => {
-            if (navbar) { // Added null check
+            if (navbar) {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
                 if (scrollTop > lastScrollTop) {
-                    // Scroll down
                     navbar.classList.remove('navbar-visible');
                     navbar.classList.add('navbar-hidden');
+                    // Hide mobile menu if scrolling down
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 } else {
-                    // Scroll up
                     navbar.classList.remove('navbar-hidden');
                     navbar.classList.add('navbar-visible');
                 }
@@ -1644,11 +1839,11 @@
             }
         });
 
-        // Intersection Observer for fade-in effect
+        // Intersection Observer for fade-in effect (kept)
         const observerOptions = {
-            root: null, // relative to the viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the item is visible
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -1656,23 +1851,22 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
                     entry.target.classList.remove('initial-hidden');
-                    observer.unobserve(entry.target); // Stop observing once it's visible
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Select elements to animate
         const elementsToAnimate = document.querySelectorAll(
-            'h1.initial-hidden, h2.initial-hidden, p.initial-hidden, .modern-card.initial-hidden, section h2.initial-hidden'
+            'h1.initial-hidden, h2.initial-hidden, p.initial-hidden, .modern-card.initial-hidden, section h2.initial-hidden, #statsContainer.initial-hidden'
         );
 
         elementsToAnimate.forEach(element => {
             observer.observe(element);
         });
 
-        // Special handling for hero section elements to appear on initial load
-        // This ensures they are visible even if not scrolled
+        // Event listener for project/certificate detail buttons
         document.addEventListener('DOMContentLoaded', () => {
+            // Apply fade-in to hero elements immediately
             const heroElements = document.querySelectorAll(
                 'header h1, header h2, header p, header .flex.space-x-4, header .w-64.h-64.md\\:w-80.md\\:h-80.rounded-full.overflow-hidden.border-4.border-white.shadow-xl.mb-8, header .flex-col.sm\\:flex-row.space-y-4.sm\\:space-y-0.sm\\:space-x-4.initial-hidden'
             );
@@ -1680,128 +1874,25 @@
                 element.classList.add('fade-in');
                 element.classList.remove('initial-hidden');
             });
-
-            // Attach event listeners for project detail buttons after DOM is loaded
+            
+            // Re-attach event listeners for project/certificate detail buttons using generic handler
             document.querySelectorAll('.view-details-btn').forEach(button => {
                 button.addEventListener('click', (event) => {
-                    // Use closest to get the button element itself, in case the click is on the span inside
                     const clickedButton = event.target.closest('.view-details-btn');
                     if (clickedButton) {
-                        const projectName = clickedButton.dataset.projectName;
-                        openProjectDetailModal(projectName);
+                        const itemType = clickedButton.dataset.itemType;
+                        const itemName = clickedButton.dataset.itemName;
+                        openDetailModal(itemType, itemName);
                     }
                 });
             });
         });
 
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
-        const body = document.body;
+        // -----------------------------------------------------
+        // ANIMATED COUNTER LOGIC (FIXED)
+        // -----------------------------------------------------
 
-        // Function to set dark mode
-        function setDarkMode(isDark) {
-            if (body) { // Added null check
-                if (isDark) {
-                    body.classList.add('dark-mode');
-                    // Update icon to sun
-                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-moon'); darkModeToggle.querySelector('i').classList.add('fa-sun'); }
-                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-moon'); mobileDarkModeToggle.querySelector('i').classList.add('fa-sun'); }
-                } else {
-                    body.classList.remove('dark-mode');
-                    // Update icon to moon
-                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-sun'); darkModeToggle.querySelector('i').classList.add('fa-moon'); }
-                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-sun'); mobileDarkModeToggle.querySelector('i').classList.add('fa-moon'); }
-                }
-                localStorage.setItem('darkMode', isDark); // Save preference
-            }
-        }
-
-        // Check for saved dark mode preference on load
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode === 'true') {
-            setDarkMode(true);
-        } else {
-            setDarkMode(false); // Default to light mode if no preference or 'false'
-        }
-
-        // Event listener for dark mode toggle
-        if (darkModeToggle) { // Added null check
-            darkModeToggle.addEventListener('click', () => {
-                setDarkMode(!body.classList.contains('dark-mode'));
-            });
-        }
-        if (mobileDarkModeToggle) { // Added null check
-            mobileDarkModeToggle.addEventListener('click', () => {
-                setDarkMode(!body.classList.contains('dark-mode'));
-            });
-        }
-
-        // Language toggle functionality
-        const languageMenuButton = document.getElementById('languageMenuButton');
-        const languageMenu = document.getElementById('languageMenu');
-        const mobileLanguageMenuButton = document.getElementById('mobileLanguageMenuButton');
-        const mobileLanguageMenu = document.getElementById('mobileLanguageMenu');
-
-        function toggleLanguageMenu(menuId) {
-            const menu = document.getElementById(menuId);
-            if (menu) { // Added null check
-                menu.classList.toggle('hidden');
-            }
-        }
-        
-        if (languageMenuButton) { // Added null check
-            languageMenuButton.addEventListener('click', () => toggleLanguageMenu('languageMenu'));
-        }
-        if (mobileLanguageMenuButton) { // Added null check
-            mobileLanguageMenuButton.addEventListener('click', () => toggleLanguageMenu('mobileLanguageMenu'));
-        }
-
-        const langEn = document.getElementById('langEn');
-        if (langEn) { // Added null check
-            langEn.addEventListener('click', (e) => {
-                e.preventDefault();
-                setLanguage('en');
-                toggleLanguageMenu('languageMenu');
-            });
-        }
-        const langId = document.getElementById('langId');
-        if (langId) { // Added null check
-            langId.addEventListener('click', (e) => {
-                e.preventDefault();
-                setLanguage('id');
-                toggleLanguageMenu('languageMenu');
-            });
-        }
-        const mobileLangEn = document.getElementById('mobileLangEn');
-        if (mobileLangEn) { // Added null check
-            mobileLangEn.addEventListener('click', (e) => {
-                e.preventDefault();
-                setLanguage('en');
-                toggleLanguageMenu('mobileLanguageMenu');
-            });
-        }
-        const mobileLangId = document.getElementById('mobileLangId');
-        if (mobileLangId) { // Added null check
-            mobileLangId.addEventListener('click', (e) => {
-                e.preventDefault();
-                setLanguage('id');
-                toggleLanguageMenu('mobileLanguageMenu');
-            });
-        }
-
-
-        // Close language menu if clicked outside
-        window.addEventListener('click', (event) => {
-            if (languageMenuButton && languageMenu && !languageMenuButton.contains(event.target) && !languageMenu.contains(event.target)) {
-                languageMenu.classList.add('hidden');
-            }
-            if (mobileLanguageMenuButton && mobileLanguageMenu && !mobileLanguageMenuButton.contains(event.target) && !mobileLanguageMenu.contains(event.target)) {
-                mobileLanguageMenu.classList.add('hidden');
-            }
-        });
-
-        // Animating Counter for Certificates
+        // Animating Counter function
         function animateCounter(targetElement, start, end, duration) {
             let current = start;
             const range = end - start;
@@ -1814,34 +1905,121 @@
                 if (current === end) {
                     clearInterval(timer);
                 }
-            }, stepTime);
+            }, stepTime > 0 ? stepTime : 1);
         }
+        
+        // Define all counter targets
+        const totalProjects = 8;
+        const totalExperience = 5;
+        const totalCertificates = 14;
 
-        const certificateCounterElement = document.getElementById('certificateCounter');
-        const totalCertificates = 14; // UPDATED COUNT: 12 + 2 new certificates
-        let hasCounted = false;
+        const counterTargets = [
+            { id: 'projectsCounter', target: totalProjects, duration: 1500 },
+            { id: 'experienceCounter', target: totalExperience, duration: 1800 },
+            { id: 'certificateCounter', target: totalCertificates, duration: 2000 }
+        ];
+        let hasCountedStats = false;
+        const statsSection = document.getElementById('summary-stats');
 
-        const counterObserver = new IntersectionObserver((entries, observer) => {
+        const statsObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !hasCounted) {
-                    animateCounter(certificateCounterElement, 0, totalCertificates, 2000);
-                    hasCounted = true;
+                if (entry.isIntersecting && !hasCountedStats) {
+                    hasCountedStats = true;
+                    // Trigger animation for each counter
+                    counterTargets.forEach(data => {
+                        const element = document.getElementById(data.id);
+                        if (element) {
+                            animateCounter(element, 0, data.target, data.duration);
+                        }
+                    });
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 }); // Trigger when 50% of the counter is visible
+        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
-        if (certificateCounterElement) {
-            counterObserver.observe(certificateCounterElement);
+        if (statsSection) {
+            statsObserver.observe(statsSection);
         }
 
+        // Dark Mode Toggle Logic (kept)
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        const body = document.body;
+
+        function setDarkMode(isDark) {
+            if (body) {
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-moon'); darkModeToggle.querySelector('i').classList.add('fa-sun'); }
+                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-moon'); mobileDarkModeToggle.querySelector('i').classList.add('fa-sun'); }
+                } else {
+                    body.classList.remove('dark-mode');
+                    if (darkModeToggle) { darkModeToggle.querySelector('i').classList.remove('fa-sun'); darkModeToggle.querySelector('i').classList.add('fa-moon'); }
+                    if (mobileDarkModeToggle) { mobileDarkModeToggle.querySelector('i').classList.remove('fa-sun'); mobileDarkModeToggle.querySelector('i').classList.add('fa-moon'); }
+                }
+                localStorage.setItem('darkMode', isDark);
+            }
+        }
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') { setDarkMode(true); } else { setDarkMode(false); }
+        if (darkModeToggle) { darkModeToggle.addEventListener('click', () => { setDarkMode(!body.classList.contains('dark-mode')); }); }
+        if (mobileDarkModeToggle) { mobileDarkModeToggle.addEventListener('click', () => { setDarkMode(!body.classList.contains('dark-mode')); }); }
+
+        // Language toggle functionality (kept)
+        const languageMenuButton = document.getElementById('languageMenuButton');
+        const languageMenu = document.getElementById('languageMenu');
+        const mobileLanguageMenuButton = document.getElementById('mobileLanguageMenuButton');
+        const mobileLanguageMenu = document.getElementById('mobileLanguageMenu');
+
+        function toggleLanguageMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu) { menu.classList.toggle('hidden'); }
+        }
+        
+        if (languageMenuButton) { languageMenuButton.addEventListener('click', () => toggleLanguageMenu('languageMenu')); }
+        
+        // FIX: Mobile menu toggle handler
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        if (mobileLanguageMenuButton) { mobileLanguageMenuButton.addEventListener('click', () => toggleLanguageMenu('mobileLanguageMenu')); }
+
+        document.querySelectorAll('#languageMenu a, #mobileLanguageMenu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage(link.dataset.lang);
+                if(languageMenu) { languageMenu.classList.add('hidden'); }
+                if(mobileLanguageMenu) { mobileLanguageMenu.classList.add('hidden'); }
+            });
+        });
+        
+        window.addEventListener('click', (event) => {
+            // Check for Desktop Lang Menu
+            if (languageMenuButton && languageMenu && !languageMenuButton.contains(event.target) && !languageMenu.contains(event.target)) { languageMenu.classList.add('hidden'); }
+            // Check for Mobile Lang Menu
+            if (mobileLanguageMenuButton && mobileLanguageMenu && !mobileLanguageMenuButton.contains(event.target) && !mobileLanguageMenu.contains(event.target)) { mobileLanguageMenu.classList.add('hidden'); }
+            // Check for Mobile Hamburger Menu (only close if clicked outside, but not the button)
+            if (mobileMenu && !mobileMenuButton.contains(event.target) && mobileMenu.contains(event.target)) {
+                 // Close mobile menu if clicked on a link inside, or anywhere outside the button/menu area
+                 if (event.target.tagName === 'A' && event.target.closest('#mobile-menu')) {
+                     mobileMenu.classList.add('hidden');
+                 }
+            }
+        });
+        
         // Initialize content on load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('lang');
             if (savedLang) {
                 setLanguage(savedLang);
             } else {
-                updateContent(); // Update with default 'id'
+                updateContent();
             }
         });
     </script>

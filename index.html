@@ -7,207 +7,25 @@
     <meta name="description" content="Muhammad Faqih Al Rifai, seorang web developer, desainer UI/UX, dan analis bisnis yang handal. Lihat portofolio profesionalnya untuk proyek-proyek inovatif, keahlian teknis, dan pengalaman bisnis yang terdepan.">
     <meta name="keywords" content="Muhammad Faqih Al Rifai, Portofolio, Web Developer, Desainer UI/UX, Business Analyst, Front-End Developer, Tailwind CSS, JavaScript, Portfolio Web, Desain Produk, Analis Bisnis, E-commerce, Situs Web, Portofolio Profesional, Lulusan STMIK IKMI, Cirebon">
     
+    <!-- Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Inter (Optimized) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome (Optimized) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     
     <style>
-        /* General Body Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            background-color: #F8FAFC; /* Light theme background */
-            color: #1A202C; /* Default DARK text for light theme */
-        }
-
-        /* Lightbox styles */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 0.75rem;
-        }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Modern Card Styles */
-        .modern-card {
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease-in-out;
-            overflow: hidden;
-            transform: translateY(0);
-        }
-        .modern-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            transform: translateY(-8px);
-        }
-        .mini-card {
-            padding: 1.5rem;
-        }
-
-        /* Navbar Transitions */
-        .navbar-hidden {
-            transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .navbar-visible {
-            transform: translateY(0);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Fade-in Animation */
-        .initial-hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- DARK MODE STYLES --- */
-        .dark-mode {
-            background-color: #0F172A; /* Dark background */
-            color: #E2E8F0; /* Default LIGHT text for dark mode */
-        }
-
-        /* Override backgrounds */
-        .dark-mode .bg-white { background-color: #1E293B !important; }
-        .dark-mode .bg-gray-50 { background-color: #1E293B !important; }
-        .dark-mode .bg-teal-50 { background-color: #2A4365 !important; }
-        .dark-mode .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
-        .dark-mode .bg-gradient-to-r.from-teal-50.to-sky-50 {
-            --tw-gradient-from: #1A202C !important;
-            --tw-gradient-to: #2D3748 !important;
-            background-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
-        }
-
-        /* General text overrides for dark mode */
-        .dark-mode .text-gray-800,
-        .dark-mode .text-gray-700,
-        .dark-mode .text-gray-600,
-        .dark-mode .text-gray-500,
-        .dark-mode .text-gray-400,
-        .dark-mode .text-gray-900 {
-            color: #E2E8F0 !important;
-        }
-
-        /* Specific overrides for accent colors and links */
-        .dark-mode a.text-gray-700 { color: #cbd5e0 !important; }
-        .dark-mode a.text-gray-700:hover { color: #81E6D9 !important; }
-        .dark-mode .text-teal-600 { color: #81E6D9 !important; }
-        .dark-mode .text-teal-700 { color: #63B3ED !important; }
-        .dark-mode #experience a.text-teal-600:hover {
-            color: #a7f3d0 !important;
-        }
-
-
-        /* Modal Content Text */
-        .dark-mode #itemDetailContent p,
-        .dark-mode #itemDetailContent ul li,
-        .dark-mode #itemDetailContent h4,
-        .dark-mode #itemDetailContent strong,
-        .dark-mode #itemDetailModal .text-gray-700,
-        .dark-mode #itemDetailModal .text-gray-600 {
-            color: #E2E8F0 !important;
-        }
-
-        /* Card and Shadow overrides */
-        .dark-mode .modern-card {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        .dark-mode .modern-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Tag overrides */
-        .dark-mode .bg-teal-100 {
-            background-color: #4FD1C5;
-            color: #1A202C !important;
-        }
-        .dark-mode .text-teal-800 {
-            color: #1A202C !important;
-        }
-        .dark-mode .bg-yellow-100 {
-            background-color: #F6E05E;
-            color: #2D3748 !important;
-        }
-        .dark-mode .text-yellow-800 {
-            color: #2D3748 !important;
-        }
-
-        /* --- END OF DARK MODE STYLES --- */
-
-        /* Animated Counter */
-        .counter-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #06B6D4;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
-            transition: color 0.3s;
-        }
-        .dark-mode .counter-number {
-            color: #4FD1C5;
-            text-shadow: 0 0 10px rgba(79, 209, 197, 0.3);
-        }
-
-        #statsContainer > div {
-            padding: 1.5rem;
-        }
-
-        /* Item Detail Modal */
-        .project-detail-card {
-            background-color: #F8FAFC;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .dark-mode .project-detail-card {
-            background-color: #2D3748;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-        }
+        /* CSS inlined for performance */
+        body{font-family:'Inter',sans-serif;scroll-behavior:smooth;overflow-x:hidden;background-color:#F8FAFC;color:#1A202C}.image-modal{display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.9);justify-content:center;align-items:center;padding:1rem;overflow-y:auto}.modal-content{margin:auto;display:block;max-width:90%;max-height:90%;border-radius:.75rem}.close{position:absolute;top:15px;right:35px;color:#fff;font-size:40px;font-weight:700;cursor:pointer;transition:.3s}.close:focus,.close:hover{color:#bbb;text-decoration:none;cursor:pointer}.modern-card{background-color:#fff;border-radius:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:all .4s ease-in-out;overflow:hidden;transform:translateY(0)}.modern-card:hover{box-shadow:0 15px 40px rgba(0,0,0,.15);transform:translateY(-8px)}.mini-card{padding:1.5rem}.navbar-hidden{transform:translateY(-100%);transition:transform .3s ease-in-out}.navbar-visible{transform:translateY(0);transition:transform .3s ease-in-out}.initial-hidden{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in{opacity:1;transform:translateY(0)}.dark-mode{background-color:#0F172A;color:#E2E8F0}.dark-mode .bg-white{background-color:#1E293B!important}.dark-mode .bg-gray-50{background-color:#1E293B!important}.dark-mode .bg-teal-50{background-color:#2A4365!important}.dark-mode .shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.4),0 2px 4px -1px rgba(0,0,0,.2)}.dark-mode .bg-gradient-to-r.from-teal-50.to-sky-50{--tw-gradient-from:#1A202C!important;--tw-gradient-to:#2D3748!important;background-image:linear-gradient(to right,var(--tw-gradient-from),var(--tw-gradient-to))}.dark-mode .text-gray-400,.dark-mode .text-gray-500,.dark-mode .text-gray-600,.dark-mode .text-gray-700,.dark-mode .text-gray-800,.dark-mode .text-gray-900{color:#E2E8F0!important}.dark-mode a.text-gray-700{color:#cbd5e0!important}.dark-mode a.text-gray-700:hover{color:#81E6D9!important}.dark-mode .text-teal-600{color:#81E6D9!important}.dark-mode .text-teal-700{color:#63B3ED!important}.dark-mode #experience a.text-teal-600:hover{color:#a7f3d0!important}.dark-mode #itemDetailContent h4,.dark-mode #itemDetailContent p,.dark-mode #itemDetailContent strong,.dark-mode #itemDetailContent ul li,.dark-mode #itemDetailModal .text-gray-600,.dark-mode #itemDetailModal .text-gray-700{color:#E2E8F0!important}.dark-mode .modern-card{box-shadow:0 10px 30px rgba(0,0,0,.3)}.dark-mode .modern-card:hover{box-shadow:0 15px 40px rgba(0,0,0,.5)}.dark-mode .bg-teal-100{background-color:#4FD1C5;color:#1A202C!important}.dark-mode .text-teal-800{color:#1A202C!important}.dark-mode .bg-yellow-100{background-color:#F6E05E;color:#2D3748!important}.dark-mode .text-yellow-800{color:#2D3748!important}.counter-number{font-size:3rem;font-weight:800;color:#06B6D4;line-height:1;margin-bottom:.5rem;text-shadow:0 0 10px rgba(6,182,212,.2);transition:color .3s}.dark-mode .counter-number{color:#4FD1C5;text-shadow:0 0 10px rgba(79,209,197,.3)}#statsContainer>div{padding:1.5rem}.project-detail-card{background-color:#F8FAFC;padding:1rem;border-radius:.5rem;margin-bottom:1rem;box-shadow:inset 0 1px 3px rgba(0,0,0,.05)}.dark-mode .project-detail-card{background-color:#2D3748;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}
     </style>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Navigation -->
@@ -272,7 +90,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center justify-center text-center">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl mb-8 initial-hidden">
-                    <img src="propfil.jpg" onerror="this.onerror=null;this.src='https://placehold.co/320x320/06B6D4/ffffff?text=Faqih'" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
+                    <img src="propfil.jpg" loading="lazy" decoding="async" width="320" height="320" onerror="this.onerror=null;this.src='https://placehold.co/320x320/06B6D4/ffffff?text=Faqih'" alt="Muhammad Faqih Al Rifai - Desainer UI/UX dan Web Developer" class="w-full h-full object-cover">
                 </div>
                 <div class="md:w-full mb-8 md:mb-0 px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 initial-hidden">Muhammad Faqih Al Rifai</h1>
@@ -430,21 +248,21 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12 initial-hidden text-gray-900" data-lang-key="educationCertTitle"></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('cplesples.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="cplesples.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=C++'" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert1Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="cplesples"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('data formating.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="data formating.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Data'" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert2Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="data formating"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('piton.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="piton.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Python'" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert3Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="piton"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('atcom.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="atcom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX'" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert4Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="atcom"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('ccna1.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="ccna1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=CCNA'" alt="Sertifikat CCNA1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert5Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="ccna1"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('brand.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="brand.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Brand'" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="brand"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('frontend.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="frontend.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Frontend'" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="frontend"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('seo.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="seo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=SEO'" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="seo"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('bd.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="bd.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=BizDev'" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certBDTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certBDOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="bd"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('intro.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="intro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cybersecurity'" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certIntroTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certIntroOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="intro"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('junior.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="junior.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cyber+Analyst'" alt="Sertifikat Junior Cybersecurity Analyst" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certJuniorTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certJuniorOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="junior"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('threat.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="threat.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Threat+Mgmt'" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certThreatTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certThreatOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="threat"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('dibimbing.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="dibimbing.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX'" alt="Sertifikat UI/UX Design Bootcamp" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certDibimbingTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certDibimbingOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="dibimbing"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('pmi.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="pmi.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Product+Mgmt'" alt="Sertifikat Introduction to Product Management" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certPMITitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certPMIOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="pmi"><span data-lang-key="viewDetailsBtnText"></span></button></div>
-                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('dicod.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img src="dicod.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/06B6D4/ffffff?text=AI+Dasar'" alt="Sertifikat Belajar Dasar AI" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certDicodingAITitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certDicodingAIOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="dicodingai"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('cplesples.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="cplesples.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=C++'" alt="Sertifikat C++ Essentials 1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert1Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert1Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="cplesples"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('data formating.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="data formating.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Data'" alt="Sertifikat Data Formatting & Cleansing" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert2Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert2Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="data formating"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('piton.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="piton.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Python'" alt="Sertifikat Python Essentials 1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert3Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert3Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="piton"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('atcom.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="atcom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX'" alt="Sertifikat UI/UX Workshop" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert4Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert4Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="atcom"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('ccna1.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="ccna1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=CCNA'" alt="Sertifikat CCNA1" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="cert5Title"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="cert5Org"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="ccna1"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('brand.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="brand.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Brand'" alt="Sertifikat MySkill Brand Identity" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillBrand"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="brand"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('frontend.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="frontend.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Frontend'" alt="Sertifikat MySkill Web Frontend" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillFE"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="frontend"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('seo.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="seo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=SEO'" alt="Sertifikat MySkill Content Writing" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certMySkillContent"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certMySkillOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="seo"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('bd.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="bd.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=BizDev'" alt="Sertifikat Introduction to Business Development" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certBDTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certBDOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="bd"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('intro.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="intro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cybersecurity'" alt="Sertifikat Introduction to Cybersecurity" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certIntroTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certIntroOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="intro"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('junior.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="junior.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Cyber+Analyst'" alt="Sertifikat Junior Cybersecurity Analyst" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certJuniorTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certJuniorOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="junior"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('threat.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="threat.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Threat+Mgmt'" alt="Sertifikat Cyber Threat Management" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certThreatTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certThreatOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="threat"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('dibimbing.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="dibimbing.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=UI/UX'" alt="Sertifikat UI/UX Design Bootcamp" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certDibimbingTitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certDibimbingOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="dibimbing"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('pmi.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="pmi.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/00b894/ffffff?text=Product+Mgmt'" alt="Sertifikat Introduction to Product Management" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certPMITitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certPMIOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="pmi"><span data-lang-key="viewDetailsBtnText"></span></button></div>
+                <div class="modern-card p-4 bg-white initial-hidden flex flex-col justify-between"><div class="cursor-pointer" onclick="openImageModal('dicod.jpg')"><div class="h-48 overflow-hidden rounded-md mb-3"><img loading="lazy" decoding="async" width="400" height="400" src="dicod.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/06B6D4/ffffff?text=AI+Dasar'" alt="Sertifikat Belajar Dasar AI" class="w-full h-full object-cover"></div><h3 class="text-lg font-semibold text-gray-800 mb-1" data-lang-key="certDicodingAITitle"></h3><p class="text-sm text-gray-600 mb-4" data-lang-key="certDicodingAIOrg"></p></div><button class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition font-medium text-sm view-details-btn" data-item-type="cert" data-item-name="dicodingai"><span data-lang-key="viewDetailsBtnText"></span></button></div>
             </div>
         </div>
     </section>
@@ -474,335 +292,7 @@
     
     <script>
         // --- DATA TRANSLATION AND DETAILS ---
-
-        const translations = {
-            en: {
-                pageTitle: "Muhammad Faqih Al Rifai - Modern Web & UI/UX Portfolio",
-                navbarName: "Faqih | Portfolio",
-                navAbout: "About",
-                navSkills: "Skills",
-                navProjects: "Projects",
-                navWorkflow: "Workflow",
-                navExperience: "Experience",
-                navCertificates: "Certificates",
-                heroSubtitle: "Product Designer (UI/UX) & Business Strategist",
-                viewProjectsBtnText: "View Projects",
-                designModernTag: "Modern Design",
-                downloadCvBtnText: "Download CV",
-                downloadCvBtn2Text: "Download CV",
-                aboutMeTitle: "About Me",
-                statsTitle: "Professional Summary Statistics",
-                totalProjectsLabel: "Total Projects",
-                totalExperienceLabel: "Total Experience",
-                totalCertificatesLabel: "Total Certifications",
-                aboutMeP1: "I am a results-driven **Product Designer (UI/UX)** and **Front-End Developer**, with strategic expertise in **Business Analysis** and **E-commerce**. I bridge the gap between technical design and business objectives, focusing on creating digital solutions that are innovative, functional, and high-performing to drive growth and solve complex problems.",
-                personalInfoTitle: "Personal Information & Contact",
-                locationLabel: "Location:",
-                locationText: "Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",
-                contactLabel: "Contact:",
-                contactText: "+62 859-1482-19009 (WhatsApp)",
-                educationLabel: "Education:",
-                education1: "STMIK IKMI Cirebon - Informatics Engineering (Semester 3)",
-                education2: "SMAN 5 Cirebon",
-                socialMediaLabel: "Social Media:",
-                skillsTitle: "Core Skills",
-                techExpertiseTitle: "Technical Expertise",
-                frontEndDevLabel: "Front-End Development:",
-                frontEndDevDesc: "Mastery in crafting responsive, high-performance web interfaces with clean, modern code, ensuring a smooth and fast user experience.",
-                uiUxDesignLabel: "UI/UX & Product Design:",
-                uiUxDesignDesc: "Expertise in creating intuitive and engaging digital products from concept to user-ready solutions. I am an expert in Figma for wireframing, prototyping, and visual design.",
-                digitalContentLabel: "Digital Content & Branding:",
-                digitalContentDesc: "Skilled in developing cohesive visual identities and compelling content for digital platforms, with a focus on SEO strategy and audience engagement.",
-                bizAcumenTitle: "Business Acumen",
-                strategicAnalysisLabel: "Strategic Analysis:",
-                strategicAnalysisDesc: "Ability to translate complex data and market trends into actionable business strategies that drive growth.",
-                strategicAnalysisFocus: "Focus: Business Development, Sales & Data Analysis, E-commerce Operations.",
-                digitalMarketingLabel: "Digital Marketing & Sales:",
-                digitalMarketingDesc: "Hands-on experience in generating revenue and building brand visibility through targeted and measurable digital campaigns.",
-                digitalMarketingFocus: "Focus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.",
-                profQualitiesTitle: "Professional Qualities",
-                teamBuildingLabel: "Team Building:",
-                teamBuildingDesc: "I have a proven ability to collaborate effectively and foster a positive, productive team environment, ensuring shared goals are met with collective effort.",
-                problemSolvingLabel: "Strategic Problem-Solving:",
-                problemSolvingDesc: "I approach complex challenges by breaking them down into manageable parts to find effective and innovative solutions.",
-                adaptabilityLabel: "Adaptability & Initiative:",
-                adaptabilityDesc: "I proactively seek out new technologies and skills, and I am quick to adapt to dynamic project requirements and market shifts.",
-                effectiveCommLabel: "Effective Communication:",
-                effectiveCommDesc: "I excel at articulating ideas and collaborating seamlessly with both technical and non-technical stakeholders to ensure project alignment and success.",
-                featuredProjectsTitle: "Featured Projects: Innovation in Development & Design",
-                fiplleDesc: "An e-commerce mobile app design with a clean, modern interface and a unique card-style balance feature, built with a focus on an intuitive and engaging user experience.",
-                nasigorengDesc: "A UI/UX design project for a Fried Rice ordering app. The app is designed to provide a simple, fast, and easy menu personalization user experience.",
-                myDsgnDesc: "A design platform showcasing creative work and portfolio management. Built with pure HTML, CSS, and JavaScript for optimal performance.",
-                dashProPanelDesc: "A dashboard for professional panel management with data visualization, developed with Tailwind CSS for a fast and modular design.",
-                evolvemartDesc: "An e-commerce platform currently in development, designed for scalability and a seamless user journey.",
-                dapurUmmiDesc: "A culinary website currently under maintenance, featuring recipes and engaging food content. Utilizes Tailwind CSS for a clean design.",
-                urproDesc: "A professional portfolio website showcasing various projects and skills, built with a focus on a modern aesthetic and intuitive user experience.",
-                dcorpsDesc: "A creative portfolio website showcasing a diverse range of works and capabilities, designed for a dynamic and memorable visual experience.",
-                workflowTitle: "My Workflow / Process",
-                workflowIntro: "My workflow is a blend of technical and strategic processes, ensuring every project is not just a digital product, but a business solution.",
-                workflow1Title: "1. Discovery & Research",
-                workflow1Desc: "Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.",
-                workflow2Title: "2. Planning & Wireframing",
-                workflow2Desc: "Developing project structure through wireframes and sitemaps, organizing information architecture, and planning key functionalities for optimal user experience.",
-                workflow3Title: "3. UI/UX Design",
-                workflow3Desc: "Creating intuitive and visually appealing user interfaces, focusing on user experience (UX) through mockups, interactive prototypes, and usability testing.",
-                workflow4Title: "4. Development",
-                workflow4Desc: "Implementing designs into functional and clean code, building core features, and ensuring seamless integration between front-end and back-end.",
-                workflow5Title: "5. Testing & Iteration",
-                workflow5Desc: "Conducting thorough testing (functional, performance, security) to identify and fix bugs, and iterating based on user feedback and test results for product refinement.",
-                workflow6Title: "6. Launch & Maintenance",
-                workflow6Desc: "Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.",
-                experienceTitle: "Professional Experience",
-                seoInternshipTitle: "SEO Writing Internship",
-                seoInternshipCompany: "Garap Media",
-                seoInternshipDesc1: "Managed and optimized blog content to improve search engine rankings during a 2-week internship program ending in November.",
-                seoInternshipDesc2: "Conducted keyword research and analyzed trends for content strategy.",
-                seoInternshipArticlesTitle: "Published Article:",
-                seoArticle1: "Tech Stock Investing for Beginners",
-                seoArticle2: "Exploring the Latest AI Trends in 2025",
-                seoArticle3: "Full Review of Oppo Reno 12 Series 5G Specs",
-                seoArticle4: "Xiaomi 15: Leaked Specs and Release Schedule",
-                affiliateMarketingTitle: "Affiliate Marketing",
-                affiliateMarketingDesc1: "Built and managed an affiliate marketing strategy on the Shopee platform.",
-                affiliateMarketingDesc2: "Focused on curating a selection of products, including men's/women's apparel and self-help books, to appeal to a specific audience.",
-                affiliateMarketingDesc3: "Utilized social media (Instagram) as the primary channel to drive traffic and conversions.",
-                affiliateMarketingDesc4: "Achieved 57 sales in the first month, demonstrating initial ability in generating sales through affiliate marketing.",
-                dropshipperTitle: "Dropshipper & E-commerce Entrepreneur",
-                dropshipperDesc1: "Successfully built a dropshipping business on the Shopify platform with minimal capital.",
-                dropshipperDesc2: "Managed an international supply chain, marketing apparel products from China to the US market.",
-                dropshipperDesc3: "Achieved 137 sales in the first month, demonstrating effective marketing and sales strategy.",
-                dropshipperDesc4: "Transitioned to local platforms (Shopee & TikTok Shop) to focus on personal brand development.",
-                dropshipperDesc5: "Gained 14,000+ product impressions on TikTok Shop, showing early ability in building brand visibility.",
-                cookiesBizTitle: "Owner, Cookies Business",
-                selfEmployed: "Self-employed",
-                cookiesBizDesc1: "Successfully built and managed a cookies business that gained 437 loyal customers.",
-                cookiesBizDesc2: "Achieved daily revenue of more than IDR 500,000.",
-                webDevVentureTitle: "Customer Service & Co-Founder, Web Development Venture",
-                coFounder: "Co-founder",
-                webDevVentureDesc1: "Served as Customer Service and co-founder in a web development venture built with a partner.",
-                webDevVentureDesc2: "Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.",
-                webDevVentureDesc3: "Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.",
-                educationCertTitle: "Education & Certifications",
-                cert1Title: "C++ Essentials 1",
-                cert1Org: "Cisco Networking Academy & OpenEDG C++ Institute",
-                cert2Title: "Data Formatting & Cleansing",
-                cert2Org: "MySkill - Microsoft Excel",
-                cert3Title: "Python Essentials 1",
-                cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
-                cert4Title: "UI/UX Skills Workshop",
-                cert4Org: "Android Developer Community",
-                cert5Title: "CCNA: Introduction to Networks",
-                cert5Org: "Cisco Networking Academy",
-                certMySkillBrand: "Brand Identity Design",
-                certMySkillFE: "Website Development: Front End",
-                certMySkillContent: "SEO & Content Writing",
-                certMySkillOrg: "MySkill Short Class",
-                certBDTitle: "Introduction to Business Development",
-                certBDOrg: "MySkill Short Class",
-                certIntroTitle: "Introduction to Cybersecurity",
-                certIntroOrg: "Cisco Networking Academy",
-                certJuniorTitle: "Junior Cybersecurity Analyst Career Path",
-                certJuniorOrg: "Cisco Networking Academy",
-                certThreatTitle: "Cyber Threat Management",
-                certThreatOrg: "Cisco Networking Academy",
-                certDibimbingTitle: "UI/UX Design Bootcamp",
-                certDibimbingOrg: "Dibimbing.id",
-                certPMITitle: "Introduction to Product Management",
-                certPMIOrg: "MySkill Short Class",
-                certDicodingAITitle: "Learn Basic AI",
-                certDicodingAIOrg: "Dicoding Indonesia",
-                footerCopyright: "© 2024 Muhammad Faqih Al Rifai. All rights reserved.",
-                modalTools: "Tools & Techniques:",
-                modalChallenges: "Challenges Faced:",
-                modalSolution: "Solution:",
-                modalRole: "Role:",
-                modalLearning: "Key Learnings:",
-                certOverviewTitle: "Certificate Overview",
-                certTaskTitle: "Main Task/Context",
-                modalCourseDetailsTitle: "Course Details",
-                modalInstitutionLabel: "Institution",
-                modalDurationLabel: "Duration",
-                modalFocusLabel: "Key Topics",
-                myDsgnTime: "2 Days",
-                dashProPanelTime: "19 Days",
-                evolvemartTime: "14 Days",
-                dapurUmmiTime: "4 Days",
-                urproTime: "2 Days",
-                dcorpsTime: "7 Days",
-                nasigorengTime: "10 Days",
-                statusActiveText: "Active",
-                statusMaintenanceText: "Under Maintenance",
-                statusProjectText: "Completed Project",
-                viewDetailsBtnText: "View Details",
-                viewProjectBtnText: "View Project",
-                completionTime: "Completion Time",
-                statusLabel: "Status",
-                inDevStatus: "In Advanced Development"
-            },
-            id: {
-                pageTitle: "Muhammad Faqih Al Rifai - Portofolio Web Modern & Desain UI/UX",
-                navbarName: "Faqih | Portofolio",
-                navAbout: "Tentang",
-                navSkills: "Keahlian",
-                navProjects: "Proyek",
-                navWorkflow: "Alur Kerja",
-                navExperience: "Pengalaman",
-                navCertificates: "Sertifikasi",
-                heroSubtitle: "Desainer Produk (UI/UX) & Strategis Bisnis",
-                viewProjectsBtnText: "Lihat Proyek",
-                designModernTag: "Desain Modern",
-                downloadCvBtnText: "Unduh CV",
-                downloadCvBtn2Text: "Unduh CV",
-                aboutMeTitle: "Tentang Saya",
-                statsTitle: "Statistik Ringkasan Profesional",
-                totalProjectsLabel: "Total Proyek",
-                totalExperienceLabel: "Total Pengalaman",
-                totalCertificatesLabel: "Total Sertifikasi",
-                aboutMeP1: "Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang inovatif, fungsional, dan berkinerja tinggi untuk mendorong pertumbuhan dan memecahkan masalah kompleks.",
-                personalInfoTitle: "Informasi Pribadi & Kontak",
-                locationLabel: "Lokasi:",
-                locationText: "Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",
-                contactLabel: "Kontak:",
-                contactText: "+62 859-1482-19009 (WhatsApp)",
-                educationLabel: "Pendidikan:",
-                education1: "STMIK IKMI Kota Cirebon - Teknik Informatika (Semester 3)",
-                education2: "SMAN 5 Kota Cirebon",
-                socialMediaLabel: "Media Sosial:",
-                skillsTitle: "Keahlian Utama",
-                techExpertiseTitle: "Keahlian Teknis",
-                frontEndDevLabel: "Pengembangan Front-End:",
-                frontEndDevDesc: "Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern, menjamin pengalaman pengguna yang lancar dan cepat.",
-                uiUxDesignLabel: "Desain UI/UX & Produk:",
-                uiUxDesignDesc: "Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk wireframing, prototyping, dan desain visual.",
-                digitalContentLabel: "Konten Digital & Branding:",
-                digitalContentDesc: "Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.",
-                bizAcumenTitle: "Kecakapan Bisnis",
-                strategicAnalysisLabel: "Analisis Strategis:",
-                strategicAnalysisDesc: "Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.",
-                strategicAnalysisFocus: "Fokus: Pengembangan Bisnis, Analisis Penjualan & Data, Operasi E-commerce.",
-                digitalMarketingLabel: "Pemasaran Digital & Penjualan:",
-                digitalMarketingDesc: "Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.",
-                digitalMarketingFocus: "Fokus: Pemasaran Afiliasi, Manajemen Marketplace, SEO, Pemasaran Konten.",
-                profQualitiesTitle: "Kualitas Profesional",
-                teamBuildingLabel: "Membangun Tim:",
-                teamBuildingDesc: "Saya memiliki kemampuan teruji untuk berkolaborasi secara efektif dan membina lingkungan tim yang positif dan produktif, memastikan tujuan bersama tercapai dengan upaya kolektif.",
-                problemSolvingLabel: "Penyelesaian Masalah Strategis:",
-                problemSolvingDesc: "Saya mendekati tantangan kompleks dengan memecahnya menjadi bagian-bagian yang mudah dikelola untuk menemukan solusi yang efektif dan inovatif.",
-                adaptabilityLabel: "Adaptabilitas & Inisiatif:",
-                adaptabilityDesc: "Saya secara proaktif mencari teknologi dan keterampilan baru, serta cepat beradaptasi dengan persyaratan proyek yang dinamis dan perubahan pasar.",
-                effectiveCommLabel: "Komunikasi Efektif:",
-                effectiveCommDesc: "Saya unggul dalam mengartikulasikan ide dan berkolaborasi secara mulus dengan pemangku kepentingan teknis maupun non-teknis untuk memastikan keselarasan dan keberhasilan proyek.",
-                featuredProjectsTitle: "Proyek Pilihan: Inovasi dalam Pengembangan & Desain",
-                fiplleDesc: "Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.",
-                nasigorengDesc: "Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.",
-                myDsgnDesc: "Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.",
-                dashProPanelDesc: "Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.",
-                evolvemartDesc: "Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.",
-                dapurUmmiDesc: "Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.",
-                urproDesc: "Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.",
-                dcorpsDesc: "Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.",
-                workflowTitle: "Alur Kerja / Proses Saya",
-                workflowIntro: "Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.",
-                workflow1Title: "1. Penemuan & Riset",
-                workflow1Desc: "Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",
-                workflow2Title: "2. Perencanaan & Wireframing",
-                workflow2Desc: "Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.",
-                workflow3Title: "3. Desain UI/UX",
-                workflow3Desc: "Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.",
-                workflow4Title: "4. Pengembangan",
-                workflow4Desc: "Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.",
-                workflow5Title: "5. Pengujian & Iterasi",
-                workflow5Desc: "Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.",
-                workflow6Title: "6. Peluncuran & Pemeliharaan",
-                workflow6Desc: "Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.",
-                experienceTitle: "Pengalaman Profesional",
-                seoInternshipTitle: "Internship SEO Writing",
-                seoInternshipCompany: "Garap Media",
-                seoInternshipDesc1: "Mengelola dan mengoptimalkan konten blog untuk meningkatkan peringkat di mesin pencari selama program magang 2 minggu yang berakhir pada November.",
-                seoInternshipDesc2: "Melakukan riset kata kunci dan menganalisis tren untuk strategi konten.",
-                seoInternshipArticlesTitle: "Artikel yang telah Diterbitkan:",
-                seoArticle1: "Investasi Saham Teknologi Untuk Pemula",
-                seoArticle2: "Melihat Tren AI Terkini di Tahun 2025",
-                seoArticle3: "Ulasan Lengkap Spesifikasi Oppo Reno 12 Series 5G",
-                seoArticle4: "Bocoran Spesifikasi dan Jadwal Rilis Xiaomi 15",
-                affiliateMarketingTitle: "Pemasaran Afiliasi",
-                affiliateMarketingDesc1: "Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee.",
-                affiliateMarketingDesc2: "Berfokus pada kurasi produk pilihan, termasuk pakaian pria/wanita dan buku pengembangan diri, untuk menarik audiens spesifik.",
-                affiliateMarketingDesc3: "Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.",
-                affiliateMarketingDesc4: "Mencapai 57 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.",
-                dropshipperTitle: "Dropshipper & Pengusaha E-commerce",
-                dropshipperDesc1: "Berhasil membangun bisnis dropshipping di platform Shopify dengan modal minim.",
-                dropshipperDesc2: "Mengelola rantai pasok internasional, memasarkan produk pakaian dari Tiongkok ke pasar Amerika Serikat.",
-                dropshipperDesc3: "Mencapai 137 penjualan dalam 1 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.",
-                dropshipperDesc4: "Melakukan transisi ke platform lokal (Shopee & TikTok Shop) untuk fokus pada pengembangan merek pribadi.",
-                dropshipperDesc5: "Mendapatkan 14.000+ impresi produk di TikTok Shop, menunjukkan kemampuan awal dalam membangun visibilitas merek.",
-                cookiesBizTitle: "Pemilik, Bisnis Kue",
-                selfEmployed: "Wiraswasta",
-                cookiesBizDesc1: "Berhasil membangun dan mengelola bisnis kue yang mendapatkan 437 pelanggan setia.",
-                cookiesBizDesc2: "Mencapai pendapatan harian lebih dari Rp500,000.",
-                webDevVentureTitle: "Customer Service & Co-Founder, Usaha Pengembangan Web",
-                coFounder: "Co-founder",
-                webDevVentureDesc1: "Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.",
-                webDevVentureDesc2: "Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan 6 proyek dalam 1 bulan sejak pendirian bisnis.",
-                webDevVentureDesc3: "Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating 4.9 hingga 5 bintang.",
-                educationCertTitle: "Pendidikan & Sertifikasi",
-                cert1Title: "C++ Essentials 1",
-                cert1Org: "Cisco Networking Academy & OpenEDG C++ Institute",
-                cert2Title: "Pemformatan & Pembersihan Data",
-                cert2Org: "MySkill - Microsoft Excel",
-                cert3Title: "Python Essentials 1",
-                cert3Org: "Cisco Networking Academy & OpenEDG Python Institute",
-                cert4Title: "Workshop Keterampilan UI/UX",
-                cert4Org: "Android Developer Community",
-                cert5Title: "CCNA: Pengantar Jaringan",
-                cert5Org: "Cisco Networking Academy",
-                certMySkillBrand: "Desain Identitas Merek",
-                certMySkillFE: "Pengembangan Website: Front End",
-                certMySkillContent: "SEO & Penulisan Konten",
-                certMySkillOrg: "MySkill Short Class",
-                certBDTitle: "Pengantar Pengembangan Bisnis",
-                certBDOrg: "MySkill Short Class",
-                certIntroTitle: "Pengantar Keamanan Siber",
-                certIntroOrg: "Cisco Networking Academy",
-                certJuniorTitle: "Jalur Karir Analis Keamanan Siber Junior",
-                certJuniorOrg: "Cisco Networking Academy",
-                certThreatTitle: "Manajemen Ancaman Siber",
-                certThreatOrg: "Cisco Networking Academy",
-                certDibimbingTitle: "Bootcamp Desain UI/UX",
-                certDibimbingOrg: "Dibimbing.id",
-                certPMITitle: "Pengantar Manajemen Produk",
-                certPMIOrg: "MySkill Short Class",
-                certDicodingAITitle: "Belajar Dasar AI",
-                certDicodingAIOrg: "Dicoding Indonesia",
-                footerCopyright: "© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",
-                modalTools: "Alat & Teknik:",
-                modalChallenges: "Tantangan yang Dihadapi:",
-                modalSolution: "Solusi:",
-                modalRole: "Peran:",
-                modalLearning: "Pembelajaran Utama:",
-                certOverviewTitle: "Ringkasan Sertifikasi",
-                certTaskTitle: "Tugas Utama/Konteks",
-                modalCourseDetailsTitle: "Detail Kursus",
-                modalInstitutionLabel: "Institusi",
-                modalDurationLabel: "Durasi",
-                modalFocusLabel: "Fokus Materi",
-                myDsgnTime: "2 Hari",
-                dashProPanelTime: "19 Hari",
-                evolvemartTime: "14 Hari",
-                dapurUmmiTime: "4 Hari",
-                urproTime: "2 Hari",
-                dcorpsTime: "7 Hari",
-                nasigorengTime: "10 Hari",
-                statusActiveText: "Aktif",
-                statusMaintenanceText: "Dalam Pemeliharaan",
-                statusProjectText: "Proyek Selesai",
-                viewDetailsBtnText: "Lihat Detail",
-                viewProjectBtnText: "Lihat Proyek",
-                completionTime: "Waktu Pengerjaan",
-                statusLabel: "Status",
-                inDevStatus: "Pengembangan Lanjutan"
-            }
-        };
+        const translations={en:{pageTitle:"Muhammad Faqih Al Rifai - Modern Web & UI/UX Portfolio",navbarName:"Faqih | Portfolio",navAbout:"About",navSkills:"Skills",navProjects:"Projects",navWorkflow:"Workflow",navExperience:"Experience",navCertificates:"Certificates",heroSubtitle:"Product Designer (UI/UX) & Business Strategist",viewProjectsBtnText:"View Projects",designModernTag:"Modern Design",downloadCvBtnText:"Download CV",downloadCvBtn2Text:"Download CV",aboutMeTitle:"About Me",statsTitle:"Professional Summary Statistics",totalProjectsLabel:"Total Projects",totalExperienceLabel:"Total Experience",totalCertificatesLabel:"Total Certifications",aboutMeP1:"I am a results-driven **Product Designer (UI/UX)** and **Front-End Developer**, with strategic expertise in **Business Analysis** and **E-commerce**. I bridge the gap between technical design and business objectives, focusing on creating digital solutions that are **innovative, functional, and high-performing** to drive growth and solve complex problems.",personalInfoTitle:"Personal Information & Contact",locationLabel:"Location:",locationText:"Indonesia, West Java, Cirebon Regency, Mundu District, Suci Village, Griya Taman SCI Housing Block C3 No. 1",contactLabel:"Contact:",contactText:"+62 859-1482-19009 (WhatsApp)",educationLabel:"Education:",education1:"STMIK IKMI Cirebon - Informatics Engineering (Semester 3)",education2:"SMAN 5 Cirebon",socialMediaLabel:"Social Media:",skillsTitle:"Core Skills",techExpertiseTitle:"Technical Expertise",frontEndDevLabel:"Front-End Development:",frontEndDevDesc:"Mastery in crafting responsive, high-performance web interfaces with clean, modern code, ensuring a smooth and fast user experience.",uiUxDesignLabel:"UI/UX & Product Design:",uiUxDesignDesc:"Expertise in creating intuitive and engaging digital products from concept to user-ready solutions. I am an expert in Figma for wireframing, prototyping, and visual design.",digitalContentLabel:"Digital Content & Branding:",digitalContentDesc:"Skilled in developing cohesive visual identities and compelling content for digital platforms, with a focus on SEO strategy and audience engagement.",bizAcumenTitle:"Business Acumen",strategicAnalysisLabel:"Strategic Analysis:",strategicAnalysisDesc:"Ability to translate complex data and market trends into actionable business strategies that drive growth.",strategicAnalysisFocus:"Focus: Business Development, Sales & Data Analysis, E-commerce Operations.",digitalMarketingLabel:"Digital Marketing & Sales:",digitalMarketingDesc:"Hands-on experience in generating revenue and building brand visibility through targeted and measurable digital campaigns.",digitalMarketingFocus:"Focus: Affiliate Marketing, Marketplace Management, SEO, Content Marketing.",profQualitiesTitle:"Professional Qualities",teamBuildingLabel:"Team Building:",teamBuildingDesc:"I have a proven ability to collaborate effectively and foster a positive, productive team environment, ensuring shared goals are met with collective effort.",problemSolvingLabel:"Strategic Problem-Solving:",problemSolvingDesc:"I approach complex challenges by breaking them down into manageable parts to find effective and innovative solutions.",adaptabilityLabel:"Adaptability & Initiative:",adaptabilityDesc:"I proactively seek out new technologies and skills, and I am quick to adapt to dynamic project requirements and market shifts.",effectiveCommLabel:"Effective Communication:",effectiveCommDesc:"I excel at articulating ideas and collaborating seamlessly with both technical and non-technical stakeholders to ensure project alignment and success.",featuredProjectsTitle:"Featured Projects: Innovation in Development & Design",fiplleDesc:"An e-commerce mobile app design with a clean, modern interface and a unique card-style balance feature, built with a focus on an intuitive and engaging user experience.",nasigorengDesc:"A UI/UX design project for a Fried Rice ordering app. The app is designed to provide a simple, fast, and easy menu personalization user experience.",myDsgnDesc:"A design platform showcasing creative work and portfolio management. Built with pure HTML, CSS, and JavaScript for optimal performance.",dashProPanelDesc:"A dashboard for professional panel management with data visualization, developed with Tailwind CSS for a fast and modular design.",evolvemartDesc:"An e-commerce platform currently in development, designed for scalability and a seamless user journey.",dapurUmmiDesc:"A culinary website currently under maintenance, featuring recipes and engaging food content. Utilizes Tailwind CSS for a clean design.",urproDesc:"A professional portfolio website showcasing various projects and skills, built with a focus on a modern aesthetic and intuitive user experience.",dcorpsDesc:"A creative portfolio website showcasing a diverse range of works and capabilities, designed for a dynamic and memorable visual experience.",workflowTitle:"My Workflow / Process",workflowIntro:"My workflow is a blend of technical and strategic processes, ensuring every project is not just a digital product, but a business solution.",workflow1Title:"1. Discovery & Research",workflow1Desc:"Analyzing client needs, conducting in-depth market research, and identifying core problems to formulate clear and measurable project goals.",workflow2Title:"2. Planning & Wireframing",workflow2Desc:"Developing project structure through wireframes and sitemaps, organizing information architecture, and planning key functionalities for optimal user experience.",workflow3Title:"3. UI/UX Design",workflow3Desc:"Creating intuitive and visually appealing user interfaces, focusing on user experience (UX) through mockups, interactive prototypes, and usability testing.",workflow4Title:"4. Development",workflow4Desc:"Implementing designs into functional and clean code, building core features, and ensuring seamless integration between front-end and back-end.",workflow5Title:"5. Testing & Iteration",workflow5Desc:"Conducting thorough testing (functional, performance, security) to identify and fix bugs, and iterating based on user feedback and test results for product refinement.",workflow6Title:"6. Launch & Maintenance",workflow6Desc:"Preparing and launching the product to the production environment, and providing ongoing support, updates, and performance monitoring to ensure long-term stability and relevance.",experienceTitle:"Professional Experience",seoInternshipTitle:"SEO Writing Internship",seoInternshipCompany:"Garap Media",seoInternshipDesc1:"Managed and optimized blog content to improve search engine rankings during a 2-week internship program ending in November.",seoInternshipDesc2:"Conducted keyword research and analyzed trends for content strategy.",seoInternshipArticlesTitle:"Published Articles:",seoArticle1:"Tech Stock Investing for Beginners",seoArticle2:"Exploring the Latest AI Trends in 2025",seoArticle3:"Full Review of Oppo Reno 12 Series 5G Specs",seoArticle4:"Xiaomi 15: Leaked Specs and Release Schedule",affiliateMarketingTitle:"Affiliate Marketing",affiliateMarketingDesc1:"Built and managed an affiliate marketing strategy on the Shopee platform.",affiliateMarketingDesc2:"Focused on curating a selection of products, including men's/women's apparel and self-help books, to appeal to a specific audience.",affiliateMarketingDesc3:"Utilized social media (Instagram) as the primary channel to drive traffic and conversions.",affiliateMarketingDesc4:"Achieved 57 sales in the first month, demonstrating initial ability in generating sales through affiliate marketing.",dropshipperTitle:"Dropshipper & E-commerce Entrepreneur",dropshipperDesc1:"Successfully built a dropshipping business on the Shopify platform with minimal capital.",dropshipperDesc2:"Managed an international supply chain, marketing apparel products from China to the US market.",dropshipperDesc3:"Achieved 137 sales in the first month, demonstrating effective marketing and sales strategy.",dropshipperDesc4:"Transitioned to local platforms (Shopee & TikTok Shop) to focus on personal brand development.",dropshipperDesc5:"Gained 14,000+ product impressions on TikTok Shop, showing early ability in building brand visibility.",cookiesBizTitle:"Owner, Cookies Business",selfEmployed:"Self-employed",cookiesBizDesc1:"Successfully built and managed a cookies business that gained 437 loyal customers.",cookiesBizDesc2:"Achieved daily revenue of more than IDR 500,000.",webDevVentureTitle:"Customer Service & Co-Founder, Web Development Venture",coFounder:"Co-founder",webDevVentureDesc1:"Served as Customer Service and co-founder in a web development venture built with a partner.",webDevVentureDesc2:"Responsible for building good relationships with clients, identifying their needs, and managing expectations, which directly contributed to acquiring 6 projects within 1 month of the business establishment.",webDevVentureDesc3:"Maintained high customer satisfaction with an average rating of 4.9 to 5 stars.",educationCertTitle:"Education & Certifications",cert1Title:"C++ Essentials 1",cert1Org:"Cisco Networking Academy & OpenEDG C++ Institute",cert2Title:"Data Formatting & Cleansing",cert2Org:"MySkill - Microsoft Excel",cert3Title:"Python Essentials 1",cert3Org:"Cisco Networking Academy & OpenEDG Python Institute",cert4Title:"UI/UX Skills Workshop",cert4Org:"Android Developer Community",cert5Title:"CCNA: Introduction to Networks",cert5Org:"Cisco Networking Academy",certMySkillBrand:"Brand Identity Design",certMySkillFE:"Website Development: Front End",certMySkillContent:"SEO & Content Writing",certMySkillOrg:"MySkill Short Class",certBDTitle:"Introduction to Business Development",certBDOrg:"MySkill Short Class",certIntroTitle:"Introduction to Cybersecurity",certIntroOrg:"Cisco Networking Academy",certJuniorTitle:"Junior Cybersecurity Analyst Career Path",certJuniorOrg:"Cisco Networking Academy",certThreatTitle:"Cyber Threat Management",certThreatOrg:"Cisco Networking Academy",certDibimbingTitle:"UI/UX Design Bootcamp",certDibimbingOrg:"Dibimbing.id",certPMITitle:"Introduction to Product Management",certPMIOrg:"MySkill Short Class",certDicodingAITitle:"Learn Basic AI",certDicodingAIOrg:"Dicoding Indonesia",footerCopyright:"© 2024 Muhammad Faqih Al Rifai. All rights reserved.",modalTools:"Tools & Techniques:",modalChallenges:"Challenges Faced:",modalSolution:"Solution:",modalRole:"Role:",modalLearning:"Key Learnings:",certOverviewTitle:"Certificate Overview",certTaskTitle:"Main Task/Context",modalCourseDetailsTitle:"Course Details",modalInstitutionLabel:"Institution",modalDurationLabel:"Duration",modalFocusLabel:"Key Topics",myDsgnTime:"2 Days",dashProPanelTime:"19 Days",evolvemartTime:"14 Days",dapurUmmiTime:"4 Days",urproTime:"2 Days",dcorpsTime:"7 Days",nasigorengTime:"10 Days",statusActiveText:"Active",statusMaintenanceText:"Under Maintenance",statusProjectText:"Completed Project",viewDetailsBtnText:"View Details",viewProjectBtnText:"View Project",completionTime:"Completion Time",statusLabel:"Status",inDevStatus:"In Advanced Development"},id:{pageTitle:"Muhammad Faqih Al Rifai - Portofolio Web Modern & Desain UI/UX",navbarName:"Faqih | Portofolio",navAbout:"Tentang",navSkills:"Keahlian",navProjects:"Proyek",navWorkflow:"Alur Kerja",navExperience:"Pengalaman",navCertificates:"Sertifikasi",heroSubtitle:"Desainer Produk (UI/UX) & Strategis Bisnis",viewProjectsBtnText:"Lihat Proyek",designModernTag:"Desain Modern",downloadCvBtnText:"Unduh CV",downloadCvBtn2Text:"Unduh CV",aboutMeTitle:"Tentang Saya",statsTitle:"Statistik Ringkasan Profesional",totalProjectsLabel:"Total Proyek",totalExperienceLabel:"Total Pengalaman",totalCertificatesLabel:"Total Sertifikasi",aboutMeP1:"Saya adalah seorang **Desainer Produk (UI/UX)** dan **Pengembang Front-End** yang berorientasi pada hasil, dengan keahlian strategis dalam **Analisis Bisnis** dan **E-commerce**. Saya menjembatani kesenjangan antara desain teknis dan tujuan bisnis, fokus pada penciptaan solusi digital yang **inovatif, fungsional, dan berkinerja tinggi** untuk mendorong pertumbuhan dan memecahkan masalah kompleks.",personalInfoTitle:"Informasi Pribadi & Kontak",locationLabel:"Lokasi:",locationText:"Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman SCI Blok C3 No. 1",contactLabel:"Kontak:",contactText:"+62 859-1482-19009 (WhatsApp)",educationLabel:"Pendidikan:",education1:"STMIK IKMI Kota Cirebon - Teknik Informatika (Semester 3)",education2:"SMAN 5 Kota Cirebon",socialMediaLabel:"Media Sosial:",skillsTitle:"Keahlian Utama",techExpertiseTitle:"Keahlian Teknis",frontEndDevLabel:"Pengembangan Front-End:",frontEndDevDesc:"Mahir dalam merancang antarmuka web yang responsif dan berkinerja tinggi dengan kode yang bersih dan modern, menjamin pengalaman pengguna yang lancar dan cepat.",uiUxDesignLabel:"Desain UI/UX & Produk:",uiUxDesignDesc:"Berpengalaman dalam menciptakan produk digital yang intuitif dan menarik, dari konsep hingga solusi yang siap digunakan pengguna. Saya ahli dalam penggunaan Figma untuk wireframing, prototyping, dan desain visual.",digitalContentLabel:"Konten Digital & Branding:",digitalContentDesc:"Terampil dalam mengembangkan identitas visual yang kohesif dan konten yang menarik untuk platform digital, dengan fokus pada strategi SEO dan keterlibatan audiens.",bizAcumenTitle:"Kecakapan Bisnis",strategicAnalysisLabel:"Analisis Strategis:",strategicAnalysisDesc:"Kemampuan untuk menerjemahkan data kompleks dan tren pasar menjadi strategi bisnis yang dapat ditindaklanjuti dan mendorong pertumbuhan.",strategicAnalysisFocus:"Fokus: Pengembangan Bisnis, Analisis Penjualan & Data, Operasi E-commerce.",digitalMarketingLabel:"Pemasaran Digital & Penjualan:",digitalMarketingDesc:"Pengalaman langsung dalam menghasilkan pendapatan dan membangun visibilitas merek melalui kampanye digital yang terarah dan terukur.",digitalMarketingFocus:"Fokus: Pemasaran Afiliasi, Manajemen Marketplace, SEO, Pemasaran Konten.",profQualitiesTitle:"Kualitas Profesional",teamBuildingLabel:"Membangun Tim:",teamBuildingDesc:"Saya memiliki kemampuan teruji untuk berkolaborasi secara efektif dan membina lingkungan tim yang positif dan produktif, memastikan tujuan bersama tercapai dengan upaya kolektif.",problemSolvingLabel:"Penyelesaian Masalah Strategis:",problemSolvingDesc:"Saya mendekati tantangan kompleks dengan memecahnya menjadi bagian-bagian yang mudah dikelola untuk menemukan solusi yang efektif dan inovatif.",adaptabilityLabel:"Adaptabilitas & Inisiatif:",adaptabilityDesc:"Saya secara proaktif mencari teknologi dan keterampilan baru, serta cepat beradaptasi dengan persyaratan proyek yang dinamis dan perubahan pasar.",effectiveCommLabel:"Komunikasi Efektif:",effectiveCommDesc:"Saya unggul dalam mengartikulasikan ide dan berkolaborasi secara mulus dengan pemangku kepentingan teknis maupun non-teknis untuk memastikan keselarasan dan keberhasilan proyek.",featuredProjectsTitle:"Proyek Pilihan: Inovasi dalam Pengembangan & Desain",fiplleDesc:"Sebuah desain aplikasi seluler e-commerce dengan antarmuka yang bersih, modern, dan fitur saldo unik bergaya kartu rekening. Dibuat dengan fokus pada pengalaman pengguna yang intuitif dan menarik.",nasigorengDesc:"Sebuah proyek desain UI/UX untuk aplikasi pemesanan Nasi Goreng. Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang sederhana, cepat, dan personalisasi menu yang mudah.",myDsgnDesc:"Sebuah platform desain yang menampilkan karya kreatif dan manajemen portofolio. Dibangun dengan kode HTML, CSS, dan JavaScript murni untuk performa yang optimal.",dashProPanelDesc:"Sebuah dashboard untuk manajemen panel profesional dengan visualisasi data, dikembangkan dengan Tailwind CSS untuk desain yang cepat dan modular.",evolvemartDesc:"Sebuah platform e-commerce yang sedang dalam tahap pengembangan, dirancang untuk skalabilitas dan pengalaman pengguna yang mulus.",dapurUmmiDesc:"Situs web kuliner yang sedang dalam pemeliharaan, menampilkan resep dan konten makanan yang menarik. Menggunakan Tailwind CSS untuk desain yang bersih.",urproDesc:"Situs web portofolio profesional yang menampilkan berbagai proyek dan keahlian, dibangun dengan fokus pada estetika modern dan pengalaman pengguna yang intuitif.",dcorpsDesc:"Situs web portofolio kreatif yang memamerkan beragam karya dan kemampuan, dirancang untuk pengalaman visual yang dinamis dan berkesan.",workflowTitle:"Alur Kerja / Proses Saya",workflowIntro:"Alur kerja saya adalah perpaduan proses teknis dan strategis, memastikan setiap proyek tidak hanya menjadi produk digital, tetapi juga solusi bisnis.",workflow1Title:"1. Penemuan & Riset",workflow1Desc:"Menganalisis kebutuhan klien, melakukan riset pasar mendalam, dan mengidentifikasi masalah inti untuk merumuskan tujuan proyek yang jelas dan terukur.",workflow2Title:"2. Perencanaan & Wireframing",workflow2Desc:"Mengembangkan struktur proyek melalui wireframe dan sitemap, menyusun arsitektur informasi, serta merencanakan fungsionalitas utama untuk pengalaman pengguna yang optimal.",workflow3Title:"3. Desain UI/UX",workflow3Desc:"Menciptakan antarmuka pengguna yang intuitif dan menarik secara visual, dengan fokus pada user experience (UX) melalui pembuatan mockup, prototipe interaktif, dan pengujian kegunaan.",workflow4Title:"4. Pengembangan",workflow4Desc:"Mengimplementasikan desain menjadi kode yang fungsional dan bersih, membangun fitur-fitur inti, serta memastikan integrasi yang mulus antara front-end dan back-end.",workflow5Title:"5. Pengujian & Iterasi",workflow5Desc:"Melakukan pengujian menyeluruh (fungsional, performa, keamanan) untuk mengidentifikasi dan memperbaiki bug, serta mengiterasi berdasarkan umpan balik pengguna dan hasil pengujian untuk penyempurnaan produk.",workflow6Title:"6. Peluncuran & Pemeliharaan",workflow6Desc:"Mempersiapkan dan meluncurkan produk ke lingkungan produksi, serta menyediakan dukungan berkelanjutan, pembaruan, dan pemantauan performa untuk memastikan stabilitas dan relevansi jangka panjang.",experienceTitle:"Pengalaman Profesional",seoInternshipTitle:"Internship SEO Writing",seoInternshipCompany:"Garap Media",seoInternshipDesc1:"Mengelola dan mengoptimalkan konten blog untuk meningkatkan peringkat di mesin pencari selama program magang 2 minggu yang berakhir pada November.",seoInternshipDesc2:"Melakukan riset kata kunci dan menganalisis tren untuk strategi konten.",seoInternshipArticlesTitle:"Artikel yang Telah Diterbitkan:",seoArticle1:"Investasi Saham Teknologi Untuk Pemula",seoArticle2:"Melihat Tren AI Terkini di Tahun 2025",seoArticle3:"Ulasan Lengkap Spesifikasi Oppo Reno 12 Series 5G",seoArticle4:"Bocoran Spesifikasi dan Jadwal Rilis Xiaomi 15",affiliateMarketingTitle:"Pemasaran Afiliasi",affiliateMarketingDesc1:"Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee.",affiliateMarketingDesc2:"Berfokus pada kurasi produk pilihan, termasuk pakaian pria/wanita dan buku pengembangan diri, untuk menarik audiens spesifik.",affiliateMarketingDesc3:"Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.",affiliateMarketingDesc4:"Mencapai 57 penjualan di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.",dropshipperTitle:"Dropshipper & Pengusaha E-commerce",dropshipperDesc1:"Berhasil membangun bisnis dropshipping di platform Shopify dengan modal minim.",dropshipperDesc2:"Mengelola rantai pasok internasional, memasarkan produk pakaian dari Tiongkok ke pasar Amerika Serikat.",dropshipperDesc3:"Mencapai 137 penjualan dalam 1 bulan pertama, menunjukkan efektivitas strategi pemasaran dan penjualan.",dropshipperDesc4:"Melakukan transisi ke platform lokal (Shopee & TikTok Shop) untuk fokus pada pengembangan merek pribadi.",dropshipperDesc5:"Mendapatkan 14.000+ impresi produk di TikTok Shop, menunjukkan kemampuan awal dalam membangun visibilitas merek.",cookiesBizTitle:"Pemilik, Bisnis Kue",selfEmployed:"Wiraswasta",cookiesBizDesc1:"Berhasil membangun dan mengelola bisnis kue yang mendapatkan 437 pelanggan setia.",cookiesBizDesc2:"Mencapai pendapatan harian lebih dari Rp500,000.",webDevVentureTitle:"Customer Service & Co-Founder, Usaha Pengembangan Web",coFounder:"Co-founder",webDevVentureDesc1:"Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.",webDevVentureDesc2:"Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan 6 proyek dalam 1 bulan sejak pendirian bisnis.",webDevVentureDesc3:"Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating 4.9 hingga 5 bintang.",educationCertTitle:"Pendidikan & Sertifikasi",cert1Title:"C++ Essentials 1",cert1Org:"Cisco Networking Academy & OpenEDG C++ Institute",cert2Title:"Pemformatan & Pembersihan Data",cert2Org:"MySkill - Microsoft Excel",cert3Title:"Python Essentials 1",cert3Org:"Cisco Networking Academy & OpenEDG Python Institute",cert4Title:"Workshop Keterampilan UI/UX",cert4Org:"Android Developer Community",cert5Title:"CCNA: Pengantar Jaringan",cert5Org:"Cisco Networking Academy",certMySkillBrand:"Desain Identitas Merek",certMySkillFE:"Pengembangan Website: Front End",certMySkillContent:"SEO & Penulisan Konten",certMySkillOrg:"MySkill Short Class",certBDTitle:"Pengantar Pengembangan Bisnis",certBDOrg:"MySkill Short Class",certIntroTitle:"Pengantar Keamanan Siber",certIntroOrg:"Cisco Networking Academy",certJuniorTitle:"Jalur Karir Analis Keamanan Siber Junior",certJuniorOrg:"Cisco Networking Academy",certThreatTitle:"Manajemen Ancaman Siber",certThreatOrg:"Cisco Networking Academy",certDibimbingTitle:"Bootcamp Desain UI/UX",certDibimbingOrg:"Dibimbing.id",certPMITitle:"Pengantar Manajemen Produk",certPMIOrg:"MySkill Short Class",certDicodingAITitle:"Belajar Dasar AI",certDicodingAIOrg:"Dicoding Indonesia",footerCopyright:"© 2024 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.",modalTools:"Alat & Teknik:",modalChallenges:"Tantangan yang Dihadapi:",modalSolution:"Solusi:",modalRole:"Peran:",modalLearning:"Pembelajaran Utama:",certOverviewTitle:"Ringkasan Sertifikasi",certTaskTitle:"Tugas Utama/Konteks",modalCourseDetailsTitle:"Detail Kursus",modalInstitutionLabel:"Institusi",modalDurationLabel:"Durasi",modalFocusLabel:"Fokus Materi",myDsgnTime:"2 Hari",dashProPanelTime:"19 Hari",evolvemartTime:"14 Hari",dapurUmmiTime:"4 Hari",urproTime:"2 Hari",dcorpsTime:"7 Hari",nasigorengTime:"10 Hari",statusActiveText:"Aktif",statusMaintenanceText:"Dalam Pemeliharaan",statusProjectText:"Proyek Selesai",viewDetailsBtnText:"Lihat Detail",viewProjectBtnText:"Lihat Proyek",completionTime:"Waktu Pengerjaan",statusLabel:"Status",inDevStatus:"Pengembangan Lanjutan"}};
 
         const projectDetails = {
             "Fiplle": { type: 'project', languages: ["Figma (UI/UX & Prototyping)", "User Research"], challenges_en: "Creating a mobile app design that stands out in a crowded e-commerce market by offering a fresh, user-centric experience. The main challenge was to innovate beyond conventional layouts and introduce unique features, such as the card-style balance display, that enhance user engagement and trust.", solution_en: "I conducted a comprehensive competitor analysis and user interviews to identify pain points and untapped opportunities. The design was built with a 'less is more' philosophy, using a clean interface and intuitive navigation. The card-style balance feature was a direct result of user feedback, aiming to provide a quick, glanceable summary of their financial status within the app.", role_en: "UI/UX Designer & Product Designer", learning_en: "I learned to think strategically about design, treating it not just as a visual exercise but as a powerful tool for solving business problems. I gained hands-on experience in translating raw ideas into a high-fidelity, interactive prototype, demonstrating the importance of every stage of the design process, from wireframing to user testing.", challenges_id: "Menciptakan desain aplikasi seluler yang menonjol di pasar e-commerce yang padat dengan menawarkan pengalaman yang segar dan berpusat pada pengguna. Tantangan utamanya adalah berinovasi melampaui tata letak konvensional dan memperkenalkan fitur unik, seperti tampilan saldo bergaya kartu, yang meningkatkan keterlibatan dan kepercayaan pengguna.", solution_id: "Saya melakukan analisis kompetitor yang komprehensif dan wawancara pengguna untuk mengidentifikasi masalah dan peluang yang belum dimanfaatkan. Desain ini dibangun dengan filosofi 'kurang itu lebih', menggunakan antarmuka yang bersih dan navigasi yang intuitif. Fitur saldo bergaya kartu adalah hasil langsung dari umpan balik pengguna, yang bertujuan untuk memberikan ringkasan status keuangan mereka dalam aplikasi secara cepat dan mudah dilihat.", role_id: "Desainer UI/UX & Desainer Produk", learning_id: "Saya belajar untuk berpikir secara strategis tentang desain, memperlakukannya bukan hanya sebagai latihan visual tetapi sebagai alat yang ampuh untuk memecahkan masalah bisnis. Saya mendapatkan pengalaman langsung dalam menerjemahkan ide mentah menjadi prototipe interaktif berfidelitas tinggi, menunjukkan pentingnya setiap tahapan proses desain, dari wireframing hingga pengujian pengguna." },

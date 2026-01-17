@@ -7,23 +7,25 @@
     <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Digital Marketing Specialist, SEO Strategist & Growth Hacker.">
     <meta name="theme-color" content="#4f46e5">
 
-    <!-- SECURITY HEADERS & OPTIMIZATION -->
+    <!-- SECURITY HEADERS -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <!-- CSP: Strict policy allowing necessary CDNs (Fonts, Icons, Tailwind) and local assets -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
 
-    <!-- PERFORMANCE: Preload Critical Assets -->
+    <!-- PERFORMANCE: Preload Critical Assets (LCP Optimization) -->
+    <!-- Preload Hero Image -->
     <link rel="preload" as="image" href="myphot.jpeg" fetchpriority="high">
+    <!-- Preload Verified Badge (Blue Icon) -->
+    <link rel="preload" as="image" href="image_aa5686.png"> 
+    
+    <!-- Preload Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonts -->
+    <!-- Critical CSS: Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <!-- Non-Critical CSS: Icons (Deferred) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Tailwind CSS -->
@@ -83,13 +85,13 @@
 
         /* Glass Navbar */
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
         .dark .glass {
-            background: rgba(2, 6, 23, 0.85);
-            border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+            background: rgba(2, 6, 23, 0.9);
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
         }
 
         /* Timeline Connector */
@@ -191,6 +193,10 @@
             .mobile-mini-grid .col-span-2 {
                 grid-column: span 2;
             }
+            /* Clean Mobile Menu */
+            #mobileMenu {
+                box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            }
         }
     </style>
 </head>
@@ -199,10 +205,11 @@
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-lg font-bold tracking-tight hover:text-accent transition-colors flex items-center gap-2" aria-label="Homepage">
+            <!-- Brand + Verified Badge -->
+            <a href="#" class="text-lg font-bold tracking-tight hover:text-accent transition-colors flex items-center gap-2 group" aria-label="Homepage">
                 Muhammad Faqih Al Rifai
-                <!-- Verified Badge -->
-                <i class="fas fa-check-circle text-blue-500 text-sm" title="Verified Account"></i>
+                <!-- Verified Badge Icon -->
+                <img src="image_aa5686.png" alt="Verified" class="w-5 h-5 object-contain" title="Verified Professional">
             </a>
             
             <div class="hidden md:flex items-center gap-1 bg-white dark:bg-slate-900/50 p-1 rounded-full border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
@@ -235,13 +242,13 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-lightBg dark:bg-darkBg border-b border-slate-100 dark:border-slate-800 hidden flex-col py-4 shadow-lg transition-all duration-300">
-            <a href="#about" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navAbout">About</a>
-            <a href="#competence" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navSkills">Skills</a>
-            <a href="#experience" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navExperience">Experience</a>
-            <a href="#gallery" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navGallery">Gallery</a>
-            <a href="#certificates" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navCertificates">Certificates</a>
+        <!-- Mobile Menu (Cleaned Up) -->
+        <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-white dark:bg-darkBg border-b border-slate-100 dark:border-slate-800 hidden flex-col py-2 shadow-lg transition-all duration-300 z-40">
+            <a href="#about" class="px-6 py-3 text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navAbout">About</a>
+            <a href="#competence" class="px-6 py-3 text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navSkills">Skills</a>
+            <a href="#experience" class="px-6 py-3 text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navExperience">Experience</a>
+            <a href="#gallery" class="px-6 py-3 text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navGallery">Gallery</a>
+            <a href="#certificates" class="px-6 py-3 text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navCertificates">Certificates</a>
         </div>
     </nav>
 
@@ -255,9 +262,13 @@
                     <span data-i18n="heroBadge">Available for Work</span>
                 </div>
                 
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
-                    <span data-i18n="heroTitle1">Dominating Digital</span> <br>
-                    <span class="text-accent dark:text-indigo-400" data-i18n="heroTitle2">Market & Growth.</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 flex flex-col">
+                    <span data-i18n="heroTitle1">Dominating Digital</span> 
+                    <div class="flex items-center gap-3 mt-1">
+                        <span class="text-accent dark:text-indigo-400" data-i18n="heroTitle2">Market & Growth.</span>
+                         <!-- Hero Badge (Optional Extra Emphasis) -->
+                        <img src="image_aa5686.png" alt="Verified" class="w-8 h-8 md:w-10 md:h-10 object-contain animate-bounce" style="animation-duration: 3s;" title="Verified Professional">
+                    </div>
                 </h1>
                 
                 <p class="text-base md:text-lg text-lightSub dark:text-darkSub leading-relaxed mb-8 max-w-lg" data-i18n="heroDesc">
@@ -287,7 +298,6 @@
                     <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-900 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow-strong transition-shadow duration-500">
                         <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-[4/5] relative group">
                             <img src="myphot.jpeg" alt="Muhammad Faqih" width="400" height="500" fetchpriority="high" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                            <!-- Overlay name REMOVED as requested -->
                         </div>
                     </div>
                     <!-- Badges -->
@@ -452,10 +462,10 @@
     <!-- MOTIVATIONAL QUOTE SECTION -->
     <section class="py-16 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-6 text-center reveal">
-             <div class="text-2xl md:text-3xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
-                 <span class="absolute -top-4 -left-4 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
+             <div class="text-xl md:text-2xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
+                 <span class="absolute -top-6 -left-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
                  <span data-i18n="quoteText">One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.</span>
-                 <span class="absolute -bottom-4 -right-4 text-4xl text-accent opacity-20"><i class="fas fa-quote-right"></i></span>
+                 <span class="absolute -bottom-6 -right-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-right"></i></span>
              </div>
         </div>
     </section>
@@ -473,7 +483,7 @@
                 
                 <!-- Main Item (uno.jpeg) -->
                 <div class="col-span-2 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" onclick="openLightbox('uno.jpeg', 'image')">
-                    <img src="uno.jpeg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <img src="uno.jpeg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="800" height="800">
                     <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
                          <span class="text-xs font-bold text-white uppercase tracking-wider bg-black/40 px-2 py-1 rounded-md w-fit mb-1 backdrop-blur-sm">Highlight</span>
                          <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
@@ -482,7 +492,7 @@
 
                 <!-- Side Item 1 (two.jpg) -->
                 <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 100ms;" onclick="openLightbox('two.jpg', 'image')">
-                    <img src="two.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <img src="two.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
                      <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
                          <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem2">Execution</h3>
                     </div>
@@ -490,7 +500,7 @@
 
                 <!-- Side Item 2 (three.jpeg) -->
                 <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 150ms;" onclick="openLightbox('three.jpeg', 'image')">
-                    <img src="three.jpeg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <img src="three.jpeg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
                     <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
                          <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem3">Analytics</h3>
                     </div>
@@ -500,7 +510,7 @@
             <!-- Video Row -->
             <div class="mt-4 grid grid-cols-1 reveal" style="transition-delay: 200ms;">
                 <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-clean hover:shadow-glow-strong h-64 md:h-80" onclick="openLightbox('four.mp4', 'video')">
-                    <video src="four.mp4" class="w-full h-full object-cover" muted loop playsinline autoplay></video>
+                    <video src="four.mp4" class="w-full h-full object-cover" muted loop playsinline autoplay width="800" height="400"></video>
                     <div class="gallery-overlay absolute inset-0 flex flex-col justify-center items-center">
                         <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform">
                             <i class="fas fa-play text-2xl ml-1"></i>
@@ -624,29 +634,36 @@
                 quoteText: "One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
-                modalPrivacyTitle: "Privacy Policy", modalPrivacyBody: `
-                    <h4 class="text-lg font-bold mb-2">1. Introduction</h4>
-                    <p class="mb-4">Welcome to the portfolio of Muhammad Faqih Al Rifai. Your privacy is critically important to us. This policy outlines how we handle any information you might share while visiting this site.</p>
-                    <h4 class="text-lg font-bold mb-2">2. Information Collection</h4>
-                    <p class="mb-4">We do not collect personal data (PII) automatically. Information is only collected when you voluntarily contact us via provided email links or WhatsApp buttons. This may include your name, email address, or phone number.</p>
-                    <h4 class="text-lg font-bold mb-2">3. Use of Information</h4>
-                    <p class="mb-4">Any information provided is used strictly for professional communication regarding potential projects, collaborations, or employment opportunities. We do not sell, rent, or trade your information to third parties.</p>
-                    <h4 class="text-lg font-bold mb-2">4. Cookies & Analytics</h4>
-                    <p class="mb-4">This site may use standard, anonymous analytics cookies (e.g., Google Analytics) to understand website traffic and performance. These cookies do not identify you personally.</p>
-                    <h4 class="text-lg font-bold mb-2">5. Your Rights</h4>
-                    <p class="mb-4">You have the right to request the deletion of any communication history we may have stored. Please contact us directly for such requests.</p>
+                modalPrivacyTitle: "Privacy Policy", 
+                modalPrivacyBody: `
+                    <h4 class="text-lg font-bold mb-3 text-accent">1. Introduction</h4>
+                    <p class="mb-4">We are committed to protecting your privacy. This policy details our data handling practices for visitors of Muhammad Faqih Al Rifai's professional portfolio.</p>
+                    
+                    <h4 class="text-lg font-bold mb-3 text-accent">2. Information We Collect</h4>
+                    <ul class="list-disc ml-4 space-y-2 mb-4">
+                        <li><strong>Voluntary Information:</strong> We only collect personal information (name, email, phone) if you voluntarily contact us via email links or social media buttons.</li>
+                        <li><strong>Usage Data:</strong> We may use anonymous analytics tools to track website performance, page views, and user navigation patterns. This data does not identify you personally.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">3. How We Use Information</h4>
+                    <p class="mb-4">Any data collected is used solely for professional communication, project inquiries, and improving website user experience. We strictly do not sell, trade, or rent personal identification information to others.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">4. Data Security</h4>
+                    <p class="mb-4">We implement standard security measures to maintain the safety of your personal information. However, please be aware that no method of transmission over the Internet is 100% secure.</p>
                 `,
-                modalTermsTitle: "Terms of Service", modalTermsBody: `
-                    <h4 class="text-lg font-bold mb-2">1. Acceptance of Terms</h4>
-                    <p class="mb-4">By accessing this website, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the website.</p>
-                    <h4 class="text-lg font-bold mb-2">2. Intellectual Property</h4>
-                    <p class="mb-4">The content, design, layout, graphics, and code on this website are the intellectual property of Muhammad Faqih Al Rifai unless otherwise stated. Unauthorized reproduction, distribution, or modification is strictly prohibited.</p>
-                    <h4 class="text-lg font-bold mb-2">3. Disclaimer</h4>
-                    <p class="mb-4">The materials on this website are provided on an 'as is' basis. While we strive for accuracy, we make no warranties, expressed or implied, regarding the completeness or accuracy of the information.</p>
-                    <h4 class="text-lg font-bold mb-2">4. External Links</h4>
-                    <p class="mb-4">This website contains links to third-party websites (LinkedIn, Instagram, etc.). We are not responsible for the content or practices of these external sites.</p>
-                    <h4 class="text-lg font-bold mb-2">5. Governing Law</h4>
-                    <p class="mb-4">These terms are governed by the laws of Indonesia.</p>
+                modalTermsTitle: "Terms of Service", 
+                modalTermsBody: `
+                    <h4 class="text-lg font-bold mb-3 text-accent">1. Acceptance</h4>
+                    <p class="mb-4">By accessing this portfolio website, you agree to comply with these Terms of Service and all applicable laws and regulations.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">2. Intellectual Property</h4>
+                    <p class="mb-4">All content, including but not limited to text, graphics, logos, images, and code, is the property of Muhammad Faqih Al Rifai unless otherwise noted. Unauthorized use, reproduction, or distribution is prohibited.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">3. Portfolio Content</h4>
+                    <p class="mb-4">The project case studies and results presented are for demonstration purposes. They reflect actual work but may be generalized to protect sensitive client data.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">4. Limitation of Liability</h4>
+                    <p class="mb-4">Muhammad Faqih Al Rifai shall not be held liable for any damages arising from the use or inability to use the materials on this website.</p>
                 `
             },
             id: {
@@ -680,28 +697,33 @@
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
                 modalPrivacyTitle: "Kebijakan Privasi", modalPrivacyBody: `
-                    <h4 class="text-lg font-bold mb-2">1. Pendahuluan</h4>
-                    <p class="mb-4">Selamat datang di portofolio Muhammad Faqih Al Rifai. Privasi Anda sangat penting bagi kami. Kebijakan ini menjelaskan bagaimana kami menangani informasi yang mungkin Anda bagikan saat mengunjungi situs ini.</p>
-                    <h4 class="text-lg font-bold mb-2">2. Pengumpulan Informasi</h4>
-                    <p class="mb-4">Kami tidak mengumpulkan data pribadi (PII) secara otomatis. Informasi hanya dikumpulkan jika Anda secara sukarela menghubungi kami melalui tautan email atau WhatsApp yang tersedia.</p>
-                    <h4 class="text-lg font-bold mb-2">3. Penggunaan Informasi</h4>
-                    <p class="mb-4">Informasi yang Anda berikan hanya akan digunakan untuk keperluan komunikasi profesional terkait proyek, kolaborasi, atau peluang kerja. Kami tidak menjual atau membagikan data Anda kepada pihak ketiga.</p>
-                    <h4 class="text-lg font-bold mb-2">4. Cookie & Analitik</h4>
-                    <p class="mb-4">Situs ini mungkin menggunakan cookie analitik dasar (seperti Google Analytics) untuk memahami trafik dan kinerja situs secara anonim.</p>
-                    <h4 class="text-lg font-bold mb-2">5. Hak Anda</h4>
-                    <p class="mb-4">Anda berhak meminta penghapusan riwayat komunikasi apa pun yang mungkin kami simpan. Silakan hubungi kami secara langsung untuk permintaan tersebut.</p>
+                    <h4 class="text-lg font-bold mb-3 text-accent">1. Pendahuluan</h4>
+                    <p class="mb-4">Kami berkomitmen untuk melindungi privasi Anda. Kebijakan ini menjelaskan praktik penanganan data kami bagi pengunjung portofolio profesional Muhammad Faqih Al Rifai.</p>
+                    
+                    <h4 class="text-lg font-bold mb-3 text-accent">2. Informasi yang Kami Kumpulkan</h4>
+                    <ul class="list-disc ml-4 space-y-2 mb-4">
+                        <li><strong>Informasi Sukarela:</strong> Kami hanya mengumpulkan informasi pribadi (nama, email, telepon) jika Anda secara sukarela menghubungi kami melalui tautan email atau tombol media sosial.</li>
+                        <li><strong>Data Penggunaan:</strong> Kami dapat menggunakan alat analitik anonim untuk melacak kinerja situs web, tampilan halaman, dan pola navigasi pengguna. Data ini tidak mengidentifikasi Anda secara pribadi.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">3. Penggunaan Informasi</h4>
+                    <p class="mb-4">Setiap data yang dikumpulkan hanya digunakan untuk komunikasi profesional, pertanyaan proyek, dan meningkatkan pengalaman pengguna situs web. Kami sangat tidak menjual, menyewakan, atau memperdagangkan informasi identitas pribadi Anda kepada pihak lain.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">4. Keamanan Data</h4>
+                    <p class="mb-4">Kami menerapkan langkah-langkah keamanan standar untuk menjaga keamanan informasi pribadi Anda.</p>
                 `,
                 modalTermsTitle: "Syarat dan Ketentuan", modalTermsBody: `
-                    <h4 class="text-lg font-bold mb-2">1. Penerimaan Syarat</h4>
-                    <p class="mb-4">Dengan mengakses situs web ini, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini.</p>
-                    <h4 class="text-lg font-bold mb-2">2. Hak Kekayaan Intelektual</h4>
-                    <p class="mb-4">Konten, desain, grafis, dan kode pada situs ini adalah kekayaan intelektual Muhammad Faqih Al Rifai, kecuali dinyatakan lain. Dilarang mereproduksi, mendistribusikan, atau memodifikasi tanpa izin tertulis.</p>
-                    <h4 class="text-lg font-bold mb-2">3. Penafian (Disclaimer)</h4>
-                    <p class="mb-4">Materi di situs ini disediakan "sebagaimana adanya". Meskipun kami berupaya menyajikan informasi yang akurat, konten di situs ini disediakan untuk tujuan informasi umum dan portofolio.</p>
-                    <h4 class="text-lg font-bold mb-2">4. Tautan Eksternal</h4>
-                    <p class="mb-4">Situs ini berisi tautan ke situs pihak ketiga (seperti LinkedIn, Instagram). Kami tidak bertanggung jawab atas konten atau kebijakan privasi situs-situs tersebut.</p>
-                    <h4 class="text-lg font-bold mb-2">5. Hukum yang Berlaku</h4>
-                    <p class="mb-4">Syarat dan ketentuan ini diatur oleh hukum yang berlaku di Indonesia.</p>
+                    <h4 class="text-lg font-bold mb-3 text-accent">1. Penerimaan</h4>
+                    <p class="mb-4">Dengan mengakses situs web portofolio ini, Anda setuju untuk mematuhi Syarat dan Ketentuan ini serta semua hukum dan peraturan yang berlaku.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">2. Kekayaan Intelektual</h4>
+                    <p class="mb-4">Semua konten, termasuk namun tidak terbatas pada teks, grafik, logo, gambar, dan kode, adalah milik Muhammad Faqih Al Rifai kecuali dinyatakan lain. Penggunaan, reproduksi, atau distribusi yang tidak sah dilarang.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">3. Konten Portofolio</h4>
+                    <p class="mb-4">Studi kasus proyek dan hasil yang disajikan adalah untuk tujuan demonstrasi. Mereka mencerminkan pekerjaan nyata tetapi mungkin digeneralisasi untuk melindungi data klien yang sensitif.</p>
+
+                    <h4 class="text-lg font-bold mb-3 text-accent">4. Batasan Tanggung Jawab</h4>
+                    <p class="mb-4">Muhammad Faqih Al Rifai tidak bertanggung jawab atas segala kerusakan yang timbul dari penggunaan atau ketidakmampuan untuk menggunakan materi di situs web ini.</p>
                 `
             }
         };

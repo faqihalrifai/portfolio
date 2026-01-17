@@ -7,13 +7,24 @@
     <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Digital Marketing Specialist, SEO Strategist & Growth Hacker.">
     <meta name="theme-color" content="#4f46e5">
 
-    <!-- Fonts: Plus Jakarta Sans -->
+    <!-- SECURITY HEADERS & OPTIMIZATION -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- CSP: Strict policy allowing necessary CDNs (Fonts, Icons, Tailwind) and local assets -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+
+    <!-- PERFORMANCE: Preload Critical Assets -->
+    <link rel="preload" as="image" href="myphot.jpeg" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,6 +77,7 @@
     <style>
         body {
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -139,6 +151,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
         }
         .reveal.active {
             opacity: 1;
@@ -156,6 +169,29 @@
         .dark .hover-lift:hover {
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
         }
+
+        /* Gallery Overlay & Zoom */
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .group:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Mobile Mini Grid for Gallery */
+        @media (max-width: 768px) {
+            .gallery-overlay { opacity: 1; }
+            .mobile-mini-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            .mobile-mini-grid .col-span-2 {
+                grid-column: span 2;
+            }
+        }
     </style>
 </head>
 <body class="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-accent selection:text-white">
@@ -163,25 +199,28 @@
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-lg font-bold tracking-tight hover:text-accent transition-colors">
+            <a href="#" class="text-lg font-bold tracking-tight hover:text-accent transition-colors flex items-center gap-2" aria-label="Homepage">
                 Muhammad Faqih Al Rifai
+                <!-- Verified Badge -->
+                <i class="fas fa-check-circle text-blue-500 text-sm" title="Verified Account"></i>
             </a>
             
             <div class="hidden md:flex items-center gap-1 bg-white dark:bg-slate-900/50 p-1 rounded-full border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
-                <a href="#about" class="px-5 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navAbout">About</a>
-                <a href="#competence" class="px-5 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navSkills">Skills</a>
-                <a href="#experience" class="px-5 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navExperience">Experience</a>
-                <a href="#certificates" class="px-5 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navCertificates">Certificates</a>
+                <a href="#about" class="px-4 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navAbout">About</a>
+                <a href="#competence" class="px-4 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navSkills">Skills</a>
+                <a href="#experience" class="px-4 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navExperience">Experience</a>
+                <a href="#gallery" class="px-4 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navGallery">Gallery</a>
+                <a href="#certificates" class="px-4 py-2 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-800 dark:hover:text-white transition-all" data-i18n="navCertificates">Certificates</a>
             </div>
 
             <div class="flex items-center gap-3">
                 <!-- Language Toggle -->
-                <button id="langToggle" class="px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-accent hover:text-accent transition-all flex items-center gap-2">
+                <button id="langToggle" class="px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-accent hover:text-accent transition-all flex items-center gap-2" aria-label="Switch Language">
                     <span id="currentLangLabel">EN</span>
                     <i class="fas fa-globe"></i>
                 </button>
 
-                <button id="themeToggle" class="w-9 h-9 rounded-full flex items-center justify-center text-lightSub hover:bg-white hover:text-accent dark:text-darkSub dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
+                <button id="themeToggle" class="w-9 h-9 rounded-full flex items-center justify-center text-lightSub hover:bg-white hover:text-accent dark:text-darkSub dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Theme">
                     <i class="fas fa-moon text-sm dark:hidden"></i>
                     <i class="fas fa-sun text-sm hidden dark:block text-yellow-400"></i>
                 </button>
@@ -190,7 +229,7 @@
                     Contact Me
                 </a>
 
-                <button id="menuBtn" class="md:hidden text-xl p-2 text-lightText dark:text-white">
+                <button id="menuBtn" class="md:hidden text-xl p-2 text-lightText dark:text-white" aria-label="Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -201,15 +240,15 @@
             <a href="#about" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navAbout">About</a>
             <a href="#competence" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navSkills">Skills</a>
             <a href="#experience" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navExperience">Experience</a>
+            <a href="#gallery" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navGallery">Gallery</a>
             <a href="#certificates" class="px-6 py-4 text-sm font-medium border-l-4 border-transparent hover:border-accent hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" data-i18n="navCertificates">Certificates</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-gradient-to-b from-white to-lightBg dark:from-slate-950 dark:to-darkBg">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
-            
-            <!-- Left Column: Text & CTA -->
+    <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-gradient-to-b from-white to-lightBg dark:from-slate-950 dark:to-darkBg">
+         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
+            <!-- Left Column -->
             <div class="order-2 lg:order-1 animate-slide-up">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-accent dark:text-indigo-400 text-[10px] font-bold uppercase tracking-wider mb-6 hover:border-accent transition-colors cursor-default">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -229,217 +268,79 @@
                     <a href="#experience" class="btn-modern px-8 py-3.5 bg-accent text-white rounded-full hover:bg-accentHover hover:shadow-glow-strong hover:-translate-y-1 transition-all duration-300" data-i18n="btnPortfolio">
                         View Portfolio
                     </a>
-                    
-                    <!-- Socials -->
                     <div class="flex gap-2 ml-2">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" title="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
+                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                
                 <!-- Stats -->
                 <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex gap-10">
-                    <div>
-                        <div class="text-3xl font-extrabold counter" data-target="42">0</div>
-                        <div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statArticles">Articles</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-extrabold counter" data-target="45">0</div>
-                        <div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statCerts">Certifications</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-extrabold counter" data-target="1">0</div>
-                        <div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statRank">Google Ranking</div>
-                    </div>
+                    <div><div class="text-3xl font-extrabold counter" data-target="42">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statArticles">Articles</div></div>
+                    <div><div class="text-3xl font-extrabold counter" data-target="45">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statCerts">Certifications</div></div>
+                    <div><div class="text-3xl font-extrabold counter" data-target="1">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statRank">Google Ranking</div></div>
                 </div>
             </div>
-
-            <!-- Right Column: Photo Frame -->
+            <!-- Right Column -->
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
                 <div class="relative z-10 w-full max-w-sm">
-                    <!-- Photo Container -->
                     <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-900 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow-strong transition-shadow duration-500">
                         <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-[4/5] relative group">
-                            <!-- Clean Photo with Name Only -->
-                            <img src="myphot.jpeg" alt="Muhammad Faqih" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent pt-20">
-                            </div>
+                            <img src="myphot.jpeg" alt="Muhammad Faqih" width="400" height="500" fetchpriority="high" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <!-- Overlay name REMOVED as requested -->
                         </div>
                     </div>
-                    
-                    <!-- Floating Badge 1 -->
+                    <!-- Badges -->
                     <div class="absolute top-10 -left-6 lg:-left-10 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.4s;">
                         <div class="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-accent"><i class="fas fa-search-dollar"></i></div>
-                        <div>
-                            <p class="text-[10px] text-lightSub dark:text-darkSub font-medium">SEO Result</p>
-                            <p class="text-xs font-bold">#1 Rank</p>
-                        </div>
+                        <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">SEO Result</p><p class="text-xs font-bold">#1 Rank</p></div>
                     </div>
-
-                    <!-- Floating Badge 2 -->
                     <div class="absolute bottom-12 -right-4 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.6s;">
                         <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500"><i class="fas fa-chart-line"></i></div>
-                        <div>
-                            <p class="text-[10px] text-lightSub dark:text-darkSub font-medium">Growth</p>
-                            <p class="text-xs font-bold">Sales Oriented</p>
-                        </div>
+                        <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">Growth</p><p class="text-xs font-bold">Sales Oriented</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMPETENCE: MASTER BENTO CARD (Bilingual) -->
+    <!-- COMPETENCE: MASTER BENTO CARD -->
     <section id="competence" class="py-24 bg-white dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800">
-        <div class="max-w-5xl mx-auto px-6">
+         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl font-bold mb-3" data-i18n="compTitle">Core Competencies</h2>
                 <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="compDesc">Holistic strategy combining data analysis, creative content, and technical execution.</p>
             </div>
-
-            <!-- The Bento Card -->
             <div class="bento-card rounded-[2.5rem] shadow-clean border border-slate-100 dark:border-slate-800 p-8 md:p-12 relative overflow-hidden reveal hover:shadow-glow transition-shadow duration-500">
-                <!-- Decorative Glow -->
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
-                    
-                    <!-- 1. Strategic Marketing -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent">
-                                <i class="fas fa-chess-queen"></i>
-                            </div>
-                            <h3 class="text-lg font-bold" data-i18n="compStratTitle">Strategic Marketing</h3>
-                        </div>
+                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent"><i class="fas fa-chess-queen"></i></div><h3 class="text-lg font-bold" data-i18n="compStratTitle">Strategic Marketing</h3></div>
                         <ul class="space-y-4">
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compSeoTitle">SEO Mastery</h4>
-                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO, Deep Keyword Research.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compAdsTitle">Paid Advertising (SEM)</h4>
-                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compAdsDesc">Google Ads, Meta Ads (FB/IG), and TikTok Ads Optimization.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compContentTitle">Content Strategy</h4>
-                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compContentDesc">Copywriting, Storytelling, Structured Editorial Planning.</p>
-                                </div>
-                            </li>
+                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compSeoTitle">SEO Mastery</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO, Deep Keyword Research.</p></div></li>
+                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compAdsTitle">Paid Advertising (SEM)</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compAdsDesc">Google Ads, Meta Ads (FB/IG), and TikTok Ads Optimization.</p></div></li>
+                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compContentTitle">Content Strategy</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compContentDesc">Copywriting, Storytelling, Structured Editorial Planning.</p></div></li>
                         </ul>
                     </div>
-
-                    <!-- 2. Tech & Tools -->
                     <div class="space-y-6 lg:border-x lg:border-slate-100 lg:dark:border-slate-800 lg:px-8">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600">
-                                <i class="fas fa-code-branch"></i>
-                            </div>
-                            <h3 class="text-lg font-bold" data-i18n="compTechTitle">Tools & Tech</h3>
-                        </div>
+                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600"><i class="fas fa-code-branch"></i></div><h3 class="text-lg font-bold" data-i18n="compTechTitle">Tools & Tech</h3></div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Google Analytics 4</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Search Console</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Ahrefs / Semrush</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Looker Studio</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">HubSpot CRM</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">WordPress</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Shopify</span>
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Figma UI/UX</span>
+                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Google Analytics 4</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Search Console</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Ahrefs / Semrush</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Looker Studio</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">HubSpot CRM</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">WordPress</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Shopify</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Figma UI/UX</span>
                         </div>
                     </div>
-
-                    <!-- 3. Professional Skills -->
                     <div class="space-y-6">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50">
-                            <div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h3 class="text-lg font-bold" data-i18n="compProfTitle">Professional Skills</h3>
-                        </div>
+                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase"></i></div><h3 class="text-lg font-bold" data-i18n="compProfTitle">Professional Skills</h3></div>
                         <div class="space-y-5">
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span>
-                                    <span class="text-xs font-bold text-accent">95%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[95%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span>
-                                    <span class="text-xs font-bold text-accent">95%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[95%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Strategic Communication</span>
-                                    <span class="text-xs font-bold text-accent">95%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[95%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillAdapt">Adaptability</span>
-                                    <span class="text-xs font-bold text-accent">95%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[95%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillTeam">Teamwork</span>
-                                    <span class="text-xs font-bold text-accent">95%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[95%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillLead">Leadership</span>
-                                    <span class="text-xs font-bold text-accent">90%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[90%] rounded-full"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1.5">
-                                    <span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span>
-                                    <span class="text-xs font-bold text-accent">90%</span>
-                                </div>
-                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent w-[90%] rounded-full"></div>
-                                </div>
-                            </div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Strategic Communication</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillAdapt">Adaptability</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillTeam">Teamwork</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillLead">Leadership</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
+                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -454,127 +355,161 @@
             </div>
             
             <div class="timeline-line relative space-y-10">
-                
-                <!-- Job 1: Freelance Business Development Associate -->
+                <!-- Job 1 -->
                 <div class="relative pl-12 md:pl-0 group reveal">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-accent rounded-full z-10 shadow-glow transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Freelance Business Development Associate</h3>
                                 <p class="text-sm font-semibold text-accent mb-4">PT Madani Abadi Nusantara</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob1">Jan 2026 - Present</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Job 2: Content Writer (Internship) -->
+                <!-- Job 2 -->
                 <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 100ms;">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Content Writer (Internship)</h3>
                                 <p class="text-sm font-semibold text-emerald-600 mb-4">Garap Media Nusantara</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Job 3: Marketplace Administrator -->
+                <!-- Job 3 -->
                 <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 200ms;">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-orange-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Marketplace Administrator</h3>
                                 <p class="text-sm font-semibold text-orange-500 mb-4">Shopify (Entrepreneur) & Shopee</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Job 4: Affiliate Marketing -->
+                <!-- Job 4 -->
                 <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 300ms;">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-pink-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob4">Affiliate Marketing</h3>
                                 <p class="text-sm font-semibold text-pink-600 mb-4">Shopee</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob4">May 2025 - Jul 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Job 5: Cake Business -->
+                <!-- Job 5 -->
                 <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 400ms;">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-yellow-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob5">Owner, Cake Business</h3>
                                 <p class="text-sm font-semibold text-yellow-600 mb-4" data-i18n="subJob5">Entrepreneur</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Job 6: Co-Founder -->
+                <!-- Job 6 -->
                 <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 500ms;">
                     <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-teal-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                     <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2">
-                            <span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span>
-                        </div>
+                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
                         <div class="md:col-span-9">
                             <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
                                 <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Customer Service & Co-Founder</h3>
                                 <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="subJob6">Web Development Venture</p>
                                 <span class="md:hidden inline-block text-[10px] font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob6">May 2023 - Dec 2023</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6">
-                                    <!-- JS will populate this -->
-                                </div>
+                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- MOTIVATIONAL QUOTE SECTION -->
+    <section class="py-16 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+             <div class="text-2xl md:text-3xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
+                 <span class="absolute -top-4 -left-4 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
+                 <span data-i18n="quoteText">One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.</span>
+                 <span class="absolute -bottom-4 -right-4 text-4xl text-accent opacity-20"><i class="fas fa-quote-right"></i></span>
+             </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Project Gallery (Lightbox Enabled - Grid Mini Mobile) -->
+    <section id="gallery" class="py-24 bg-lightBg dark:bg-darkBg relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-3" data-i18n="galleryTitle">Project Gallery</h2>
+                <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="galleryDesc">Visual evidence of results and strategies.</p>
+            </div>
+
+            <!-- Gallery Grid (Mobile Mini, Desktop Expanded) -->
+            <div class="mobile-mini-grid md:grid md:grid-cols-3 md:gap-4 md:h-[500px]">
+                
+                <!-- Main Item (uno.jpeg) -->
+                <div class="col-span-2 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" onclick="openLightbox('uno.jpeg', 'image')">
+                    <img src="uno.jpeg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                         <span class="text-xs font-bold text-white uppercase tracking-wider bg-black/40 px-2 py-1 rounded-md w-fit mb-1 backdrop-blur-sm">Highlight</span>
+                         <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
+                    </div>
+                </div>
+
+                <!-- Side Item 1 (two.jpg) -->
+                <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 100ms;" onclick="openLightbox('two.jpg', 'image')">
+                    <img src="two.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                         <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem2">Execution</h3>
+                    </div>
+                </div>
+
+                <!-- Side Item 2 (three.jpeg) -->
+                <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 150ms;" onclick="openLightbox('three.jpeg', 'image')">
+                    <img src="three.jpeg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                         <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem3">Analytics</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Row -->
+            <div class="mt-4 grid grid-cols-1 reveal" style="transition-delay: 200ms;">
+                <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-clean hover:shadow-glow-strong h-64 md:h-80" onclick="openLightbox('four.mp4', 'video')">
+                    <video src="four.mp4" class="w-full h-full object-cover" muted loop playsinline autoplay></video>
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-center items-center">
+                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-play text-2xl ml-1"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryVideo">Project Showreel</h3>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -590,7 +525,7 @@
             </div>
             
             <div class="mt-12 text-center">
-                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-bold text-lightSub dark:text-darkSub hover:text-accent hover:border-accent transition-all shadow-clean hover:shadow-glow group hover-lift">
+                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-bold text-lightSub dark:text-darkSub hover:text-accent hover:border-accent transition-all shadow-clean hover:shadow-glow group hover-lift">
                     <span data-i18n="btnAllCerts">View 45 Certificates on LinkedIn</span>
                     <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </a>
@@ -611,18 +546,16 @@
                         <i class="far fa-envelope"></i> faqihalrf@gmail.com
                     </a>
                 </div>
-                
                 <div>
                     <h4 class="text-xs font-bold uppercase tracking-widest text-lightSub dark:text-darkSub mb-6" data-i18n="footerSocials">Socials</h4>
                     <div class="flex gap-6 text-xl text-lightSub dark:text-darkSub">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-accent transition-colors hover:scale-110" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-500 transition-colors hover:scale-110" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" class="hover:text-black dark:hover:text-white transition-colors hover:scale-110" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/62859148219009" target="_blank" class="hover:text-green-500 transition-colors hover:scale-110" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-accent transition-colors hover:scale-110" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-500 transition-colors hover:scale-110" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" class="hover:text-black dark:hover:text-white transition-colors hover:scale-110" aria-label="TikTok" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/62859148219009" target="_blank" class="hover:text-green-500 transition-colors hover:scale-110" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
-            
             <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-lightSub dark:text-darkSub">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">All Rights Reserved.</span></p>
                 <div class="flex gap-6">
@@ -633,7 +566,7 @@
         </div>
     </footer>
 
-    <!-- Universal Modal -->
+    <!-- Universal Info Modal -->
     <div id="infoModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 invisible" aria-hidden="true">
         <div class="modal-content bg-white dark:bg-darkBg w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] border border-slate-100 dark:border-slate-800">
             <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 bg-white dark:bg-darkBg z-10">
@@ -648,12 +581,21 @@
         </div>
     </div>
 
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors">&times;</button>
+        <div class="max-w-7xl max-h-[90vh] p-4 flex items-center justify-center">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden">
+            <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay></video>
+        </div>
+    </div>
+
     <!-- Script -->
     <script>
         // --- TRANSLATIONS (EN/ID) ---
         const translations = {
             en: {
-                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Certificates", btnContact: "Contact Me",
+                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Certificates", navGallery: "Gallery", btnContact: "Contact Me",
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
                 heroDesc: "Digital Marketing Specialist focused on <strong>SEO</strong>, <strong>Content Strategy</strong>, and <strong>E-commerce Growth</strong> for tangible and measurable business results.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Google Ranking",
@@ -667,7 +609,7 @@
                 dateJob1: "Jan 2026 - Present",
                 descJob1: `<p>Managing full B2B sales cycles for professional services including Accounting and Tax Consulting. Focused on long-term relationship building and market penetration.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Increased customer retention by <strong>50%</strong> through strategic client relationship management (CRM).</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Conducted in-depth market research to optimize marketing performance and service offering strategies.</span></li></ul>`,
                 dateJob2: "Sep 2025 - Dec 2025",
-                descJob2: `<p>During the 3-month internship, I authored and published 29 high-quality articles focused on Business and Technology with current SEO standards.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Secured <strong>#1 Ranking on Google Search</strong> through data-driven content strategies.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Articles successfully featured on <strong>Google Discover</strong>, demonstrating strong ability to drive organic growth.</span></li></ul><div class="mt-4"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md">View Published Articles <i class="fas fa-external-link-alt"></i></a></div>`,
+                descJob2: `<p>During the 3-month internship, I authored and published 29 high-quality articles focused on Business and Technology with current SEO standards.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Secured <strong>#1 Ranking on Google Search</strong> through data-driven content strategies.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Articles successfully featured on <strong>Google Discover</strong>, demonstrating strong ability to drive organic growth.</span></li></ul><div class="mt-4"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md">View Published Articles <i class="fas fa-external-link-alt"></i></a></div>`,
                 dateJob3: "Jul 2025 - Sep 2025",
                 descJob3: `<p>Founded and managed a profitable global dropshipping business on Shopify, overseeing supply chains from China to the US.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Achieved <strong>137 sales</strong> in the first month of operations.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Generated over <strong>14,000 product impressions</strong> on TikTok Shop through strategic marketplace optimization and brand building.</span></li></ul>`,
                 dateJob4: "May 2025 - Jul 2025", titleJob4: "Affiliate Marketing",
@@ -677,13 +619,38 @@
                 dateJob6: "May 2023 - Dec 2023", subJob6: "Web Development Venture",
                 descJob6: `<p>Served as Customer Service and Co-founder in a web development venture built with partners.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Responsible for building client relationships, identifying needs, and managing expectations, directly contributing to acquiring <strong>6 projects</strong> within 1 month.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Maintained high customer satisfaction with an average rating of <strong>4.9 to 5 stars</strong>.</span></li></ul>`,
                 certTitle: "Professional Certifications", btnAllCerts: "View 45 Certificates on LinkedIn",
+                galleryTitle: "Project Gallery", galleryDesc: "Visual evidence of results and strategies.",
+                galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Project Showreel",
+                quoteText: "One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
-                modalPrivacyTitle: "Privacy Policy", modalPrivacyBody: `<p><strong>Your Privacy Matters.</strong></p><p>This portfolio website ("Site") is operated by Muhammad Faqih Al Rifai. We respect your privacy and are committed to protecting any personal data you might share.</p><ul class="list-disc ml-4 space-y-2"><li><strong>Data Collection:</strong> We do not automatically collect personally identifiable information (PII) when you visit this site. Data is only collected if you voluntarily contact us via email or WhatsApp links.</li><li><strong>Information Usage:</strong> Information you provide will only be used for professional communication purposes and will not be sold, rented, or shared with third parties.</li><li><strong>Analytics:</strong> This site may use basic analytics tools (like Google Analytics) to monitor visitor traffic anonymously to improve site performance.</li></ul>`,
-                modalTermsTitle: "Terms of Service", modalTermsBody: `<p><strong>Welcome to the Professional Portfolio of Muhammad Faqih Al Rifai.</strong></p><ul class="list-disc ml-4 space-y-2"><li><strong>Copyright:</strong> All content, designs, graphics, and code on this site are the property of Muhammad Faqih Al Rifai, unless stated otherwise. Copying or redistributing without written permission is prohibited.</li><li><strong>Information Accuracy:</strong> While we strive to present accurate information, content on this site is provided for general information and portfolio purposes.</li><li><strong>External Links:</strong> This site contains links to third-party sites (like LinkedIn, Instagram). We are not responsible for the content or privacy policies of those sites.</li></ul>`
+                modalPrivacyTitle: "Privacy Policy", modalPrivacyBody: `
+                    <h4 class="text-lg font-bold mb-2">1. Introduction</h4>
+                    <p class="mb-4">Welcome to the portfolio of Muhammad Faqih Al Rifai. Your privacy is critically important to us. This policy outlines how we handle any information you might share while visiting this site.</p>
+                    <h4 class="text-lg font-bold mb-2">2. Information Collection</h4>
+                    <p class="mb-4">We do not collect personal data (PII) automatically. Information is only collected when you voluntarily contact us via provided email links or WhatsApp buttons. This may include your name, email address, or phone number.</p>
+                    <h4 class="text-lg font-bold mb-2">3. Use of Information</h4>
+                    <p class="mb-4">Any information provided is used strictly for professional communication regarding potential projects, collaborations, or employment opportunities. We do not sell, rent, or trade your information to third parties.</p>
+                    <h4 class="text-lg font-bold mb-2">4. Cookies & Analytics</h4>
+                    <p class="mb-4">This site may use standard, anonymous analytics cookies (e.g., Google Analytics) to understand website traffic and performance. These cookies do not identify you personally.</p>
+                    <h4 class="text-lg font-bold mb-2">5. Your Rights</h4>
+                    <p class="mb-4">You have the right to request the deletion of any communication history we may have stored. Please contact us directly for such requests.</p>
+                `,
+                modalTermsTitle: "Terms of Service", modalTermsBody: `
+                    <h4 class="text-lg font-bold mb-2">1. Acceptance of Terms</h4>
+                    <p class="mb-4">By accessing this website, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the website.</p>
+                    <h4 class="text-lg font-bold mb-2">2. Intellectual Property</h4>
+                    <p class="mb-4">The content, design, layout, graphics, and code on this website are the intellectual property of Muhammad Faqih Al Rifai unless otherwise stated. Unauthorized reproduction, distribution, or modification is strictly prohibited.</p>
+                    <h4 class="text-lg font-bold mb-2">3. Disclaimer</h4>
+                    <p class="mb-4">The materials on this website are provided on an 'as is' basis. While we strive for accuracy, we make no warranties, expressed or implied, regarding the completeness or accuracy of the information.</p>
+                    <h4 class="text-lg font-bold mb-2">4. External Links</h4>
+                    <p class="mb-4">This website contains links to third-party websites (LinkedIn, Instagram, etc.). We are not responsible for the content or practices of these external sites.</p>
+                    <h4 class="text-lg font-bold mb-2">5. Governing Law</h4>
+                    <p class="mb-4">These terms are governed by the laws of Indonesia.</p>
+                `
             },
             id: {
-                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", btnContact: "Hubungi Saya",
+                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", navGallery: "Galeri", btnContact: "Hubungi Saya",
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
                 heroDesc: "Spesialis Pemasaran Digital yang berfokus pada <strong>SEO</strong>, <strong>Strategi Konten</strong>, dan <strong>Pertumbuhan E-commerce</strong> untuk hasil bisnis yang nyata dan terukur.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking Google",
@@ -697,7 +664,7 @@
                 dateJob1: "Jan 2026 - Sekarang",
                 descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak. Berfokus pada pembangunan hubungan jangka panjang dan penetrasi pasar.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien strategis (CRM).</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran dan strategi penawaran layanan.</span></li></ul>`,
                 dateJob2: "Sep 2025 - Des 2025",
-                descJob2: `<p>Selama 3 bulan magang, saya menulis dan menerbitkan 29 artikel berkualitas tinggi yang berfokus pada Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Mengamankan <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Artikel berhasil masuk fitur <strong>Google Discover</strong>, mendemonstrasikan kemampuan mendorong pertumbuhan organik yang kuat.</span></li></ul><div class="mt-4"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md">Lihat Semua Artikel <i class="fas fa-external-link-alt"></i></a></div>`,
+                descJob2: `<p>Selama 3 bulan magang, saya menulis dan menerbitkan 29 artikel berkualitas tinggi yang berfokus pada Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Mengamankan <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-500 mt-1 text-xs"></i><span>Artikel berhasil masuk fitur <strong>Google Discover</strong>, mendemonstrasikan kemampuan mendorong pertumbuhan organik yang kuat.</span></li></ul><div class="mt-4"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md">Lihat Semua Artikel <i class="fas fa-external-link-alt"></i></a></div>`,
                 dateJob3: "Jul 2025 - Sep 2025",
                 descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global yang menguntungkan di Shopify, mengawasi rantai pasok dari China ke AS.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop melalui optimasi marketplace strategis dan *brand building*.</span></li></ul>`,
                 dateJob4: "Mei 2025 - Jul 2025", titleJob4: "Pemasaran Afiliasi",
@@ -707,10 +674,35 @@
                 dateJob6: "Mei 2023 - Des 2023", subJob6: "Usaha Pengembangan Web",
                 descJob6: `<p>Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan <strong>6 proyek</strong> dalam 1 bulan sejak pendirian bisnis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating <strong>4.9 hingga 5 bintang</strong>.</span></li></ul>`,
                 certTitle: "Sertifikasi Profesional", btnAllCerts: "Lihat 45 Sertifikat di LinkedIn",
+                galleryTitle: "Galeri Proyek", galleryDesc: "Visualisasi hasil kerja dan pencapaian nyata.",
+                galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
+                quoteText: "Satu kesempatan sudah cukup bagiku untuk menang. Namun jika aku harus jatuh di percobaan pertama, aku akan bangkit dan memastikan dua sisanya berakhir dengan kemenangan.",
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
-                modalPrivacyTitle: "Kebijakan Privasi", modalPrivacyBody: `<p><strong>Privasi Anda Penting Bagi Kami.</strong></p><p>Situs web portofolio ini ("Situs") dioperasikan oleh Muhammad Faqih Al Rifai. Kami menghormati privasi Anda dan berkomitmen untuk melindungi data pribadi yang mungkin Anda bagikan.</p><ul class="list-disc ml-4 space-y-2"><li><strong>Pengumpulan Data:</strong> Kami tidak secara otomatis mengumpulkan data identitas pribadi (PII) saat Anda mengunjungi situs ini. Data hanya dikumpulkan jika Anda secara sukarela menghubungi kami melalui email atau tautan WhatsApp.</li><li><strong>Penggunaan Informasi:</strong> Informasi yang Anda berikan hanya akan digunakan untuk keperluan komunikasi profesional dan tidak akan dijual, disewakan, atau dibagikan kepada pihak ketiga.</li><li><strong>Analitik:</strong> Situs ini mungkin menggunakan alat analitik dasar (seperti Google Analytics) untuk memantau trafik pengunjung secara anonim guna meningkatkan kinerja situs.</li></ul>`,
-                modalTermsTitle: "Syarat dan Ketentuan", modalTermsBody: `<p><strong>Selamat datang di Portofolio Profesional Muhammad Faqih Al Rifai.</strong></p><ul class="list-disc ml-4 space-y-2"><li><strong>Hak Cipta:</strong> Seluruh konten, desain, grafis, dan kode pada situs ini adalah hak milik Muhammad Faqih Al Rifai, kecuali dinyatakan lain. Dilarang menyalin atau mendistribusikan ulang tanpa izin tertulis.</li><li><strong>Akurasi Informasi:</strong> Meskipun kami berupaya menyajikan informasi yang akurat, konten di situs ini disediakan untuk tujuan informasi umum dan portofolio.</li><li><strong>Tautan Eksternal:</strong> Situs ini berisi tautan ke situs pihak ketiga (seperti LinkedIn, Instagram). Kami tidak bertanggung jawab atas konten atau kebijakan privasi situs-situs tersebut.</li></ul>`
+                modalPrivacyTitle: "Kebijakan Privasi", modalPrivacyBody: `
+                    <h4 class="text-lg font-bold mb-2">1. Pendahuluan</h4>
+                    <p class="mb-4">Selamat datang di portofolio Muhammad Faqih Al Rifai. Privasi Anda sangat penting bagi kami. Kebijakan ini menjelaskan bagaimana kami menangani informasi yang mungkin Anda bagikan saat mengunjungi situs ini.</p>
+                    <h4 class="text-lg font-bold mb-2">2. Pengumpulan Informasi</h4>
+                    <p class="mb-4">Kami tidak mengumpulkan data pribadi (PII) secara otomatis. Informasi hanya dikumpulkan jika Anda secara sukarela menghubungi kami melalui tautan email atau WhatsApp yang tersedia.</p>
+                    <h4 class="text-lg font-bold mb-2">3. Penggunaan Informasi</h4>
+                    <p class="mb-4">Informasi yang Anda berikan hanya akan digunakan untuk keperluan komunikasi profesional terkait proyek, kolaborasi, atau peluang kerja. Kami tidak menjual atau membagikan data Anda kepada pihak ketiga.</p>
+                    <h4 class="text-lg font-bold mb-2">4. Cookie & Analitik</h4>
+                    <p class="mb-4">Situs ini mungkin menggunakan cookie analitik dasar (seperti Google Analytics) untuk memahami trafik dan kinerja situs secara anonim.</p>
+                    <h4 class="text-lg font-bold mb-2">5. Hak Anda</h4>
+                    <p class="mb-4">Anda berhak meminta penghapusan riwayat komunikasi apa pun yang mungkin kami simpan. Silakan hubungi kami secara langsung untuk permintaan tersebut.</p>
+                `,
+                modalTermsTitle: "Syarat dan Ketentuan", modalTermsBody: `
+                    <h4 class="text-lg font-bold mb-2">1. Penerimaan Syarat</h4>
+                    <p class="mb-4">Dengan mengakses situs web ini, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini.</p>
+                    <h4 class="text-lg font-bold mb-2">2. Hak Kekayaan Intelektual</h4>
+                    <p class="mb-4">Konten, desain, grafis, dan kode pada situs ini adalah kekayaan intelektual Muhammad Faqih Al Rifai, kecuali dinyatakan lain. Dilarang mereproduksi, mendistribusikan, atau memodifikasi tanpa izin tertulis.</p>
+                    <h4 class="text-lg font-bold mb-2">3. Penafian (Disclaimer)</h4>
+                    <p class="mb-4">Materi di situs ini disediakan "sebagaimana adanya". Meskipun kami berupaya menyajikan informasi yang akurat, konten di situs ini disediakan untuk tujuan informasi umum dan portofolio.</p>
+                    <h4 class="text-lg font-bold mb-2">4. Tautan Eksternal</h4>
+                    <p class="mb-4">Situs ini berisi tautan ke situs pihak ketiga (seperti LinkedIn, Instagram). Kami tidak bertanggung jawab atas konten atau kebijakan privasi situs-situs tersebut.</p>
+                    <h4 class="text-lg font-bold mb-2">5. Hukum yang Berlaku</h4>
+                    <p class="mb-4">Syarat dan ketentuan ini diatur oleh hukum yang berlaku di Indonesia.</p>
+                `
             }
         };
 
@@ -775,7 +767,7 @@
         function renderCerts() {
             const container = document.getElementById('certGrid');
             container.innerHTML = certsData.map(c => `
-                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:shadow-clean hover:border-accent hover-lift transition-all group" aria-label="${c.title}">
+                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:shadow-clean hover:border-accent hover-lift transition-all group" aria-label="${c.title}">
                     <div class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lg ${c.color}">
                         <i class="${c.icon}"></i>
                     </div>
@@ -811,6 +803,37 @@
                 mobileMenu.classList.remove('flex');
             });
         });
+
+        // --- LIGHTBOX LOGIC ---
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxVideo = document.getElementById('lightboxVideo');
+
+        function openLightbox(src, type) {
+            lightbox.classList.remove('invisible', 'opacity-0');
+            lightbox.classList.add('active');
+            
+            if (type === 'image') {
+                lightboxImg.src = src;
+                lightboxImg.classList.remove('hidden');
+                lightboxVideo.classList.add('hidden');
+                lightboxVideo.pause();
+            } else {
+                lightboxVideo.src = src;
+                lightboxVideo.classList.remove('hidden');
+                lightboxImg.classList.add('hidden');
+                lightboxVideo.play();
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightbox.classList.add('invisible', 'opacity-0');
+                lightboxVideo.pause();
+                lightboxVideo.src = "";
+            }, 300);
+        }
 
         // --- MODAL LOGIC ---
         const modal = document.getElementById('infoModal');

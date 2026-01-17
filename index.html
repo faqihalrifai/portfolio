@@ -16,11 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Critical CSS: Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Critical CSS: Fonts (Reduced weights for performance) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <!-- Non-Critical CSS: Icons (Deferred) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -54,8 +55,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'scroll': 'scroll 20s linear infinite',
+                        'scroll': 'scroll 25s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -188,6 +188,7 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.4);
             white-space: nowrap;
+            will-change: transform; /* Performance Optimization */
         }
         .dark .value-glass-mini {
             background: rgba(15, 23, 42, 0.5);
@@ -232,28 +233,28 @@
             <div class="flex items-center gap-3">
                 <!-- Desktop Tools (Lang/Theme) -->
                 <div class="hidden md:flex items-center gap-2">
-                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-accent hover:text-accent transition-all flex items-center gap-2">
+                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-accent hover:text-accent transition-all flex items-center gap-2" aria-label="Switch Language">
                         <span class="current-lang-label">EN</span>
                         <i class="fas fa-globe"></i>
                     </button>
 
-                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center text-lightSub hover:bg-white hover:text-accent dark:text-darkSub dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
+                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center text-lightSub hover:bg-white hover:text-accent dark:text-darkSub dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Theme">
                         <i class="fas fa-moon text-sm dark:hidden"></i>
                         <i class="fas fa-sun text-sm hidden dark:block text-yellow-400"></i>
                     </button>
                 </div>
 
-                <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-accent text-white text-xs font-bold rounded-full hover:bg-accentHover hover:shadow-glow transition-all duration-300 transform hover:-translate-y-0.5" data-i18n="btnContact">
+                <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-accent text-white text-xs font-bold rounded-full hover:bg-accentHover hover:shadow-glow transition-all duration-300 transform hover:-translate-y-0.5" data-i18n="btnContact" aria-label="Contact Me">
                     Contact Me
                 </a>
 
-                <button id="menuBtn" class="md:hidden text-xl p-2 text-lightText dark:text-white hover:text-accent transition-colors" aria-label="Menu">
+                <button id="menuBtn" class="md:hidden text-xl p-2 text-lightText dark:text-white hover:text-accent transition-colors" aria-label="Open Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Improved) -->
+        <!-- Mobile Menu -->
         <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-white/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 hidden flex-col shadow-2xl transition-all duration-300 z-40 transform origin-top">
             <div class="flex flex-col p-4 space-y-2">
                 <a href="#about" class="px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navAbout">About</a>
@@ -261,12 +262,12 @@
                 <a href="#experience" class="px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navExperience">Experience</a>
                 <a href="#gallery" class="px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navGallery">Gallery</a>
                 
-                <!-- Mobile Only Tools (Moved here) -->
+                <!-- Mobile Only Tools -->
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
-                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
+                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold" aria-label="Switch Language">
                         <i class="fas fa-globe"></i> <span class="current-lang-label">EN</span>
                     </button>
-                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
+                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold" aria-label="Toggle Theme">
                         <i class="fas fa-moon dark:hidden"></i>
                         <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                         <span class="dark:hidden">Dark</span>
@@ -277,402 +278,402 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-gradient-to-b from-white to-lightBg dark:from-slate-950 dark:to-darkBg">
-         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
-            <!-- Left Column -->
-            <div class="order-2 lg:order-1 animate-slide-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-accent dark:text-indigo-400 text-[10px] font-bold uppercase tracking-wider mb-6 hover:border-accent transition-colors cursor-default">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                    <span data-i18n="heroBadge">Available for Work</span>
+    <!-- Main Content Wrapper for Accessibility -->
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-gradient-to-b from-white to-lightBg dark:from-slate-950 dark:to-darkBg">
+             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
+                <!-- Left Column -->
+                <div class="order-2 lg:order-1 animate-slide-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-accent dark:text-indigo-400 text-[10px] font-bold uppercase tracking-wider mb-6 hover:border-accent transition-colors cursor-default">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        <span data-i18n="heroBadge">Available for Work</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                        <span data-i18n="heroTitle1">Dominating Digital</span> <br>
+                        <span class="text-accent dark:text-indigo-400" data-i18n="heroTitle2">Market & Growth.</span>
+                    </h1>
+                    
+                    <p class="text-base md:text-lg text-lightSub dark:text-darkSub leading-relaxed mb-8 max-w-lg" data-i18n="heroDesc">
+                        Digital Marketing Specialist focused on <strong>SEO</strong>, <strong>Content Strategy</strong>, and <strong>E-commerce Growth</strong> for tangible and measurable business results.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="#experience" class="btn-modern px-8 py-3.5 bg-accent text-white rounded-full hover:bg-accentHover hover:shadow-glow-strong hover:-translate-y-1 transition-all duration-300" data-i18n="btnPortfolio" aria-label="View Portfolio">
+                            View Portfolio
+                        </a>
+                        <div class="flex gap-2 ml-2">
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm" aria-label="TikTok Profile"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <!-- Stats Grid -->
+                    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                        <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="42">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statArticles">Articles</div></div>
+                        <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="45">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statCerts">Certifications</div></div>
+                        <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="1">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statRank">Google Ranking</div></div>
+                        <div><div class="text-2xl md:text-3xl font-extrabold counter text-accent" data-target="73">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statClients">Clients Project</div></div>
+                    </div>
+                </div>
+                <!-- Right Column -->
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="relative z-10 w-full max-w-sm">
+                        <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-900 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow-strong transition-shadow duration-500">
+                            <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-[4/5] relative group">
+                                <img src="myphot.jpeg" alt="Muhammad Faqih" width="400" height="500" fetchpriority="high" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            </div>
+                        </div>
+                        <!-- Badges -->
+                        <div class="absolute top-10 -left-4 lg:-left-10 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.4s;">
+                            <div class="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-accent"><i class="fas fa-search-dollar"></i></div>
+                            <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">SEO Result</p><p class="text-xs font-bold">#1 Rank</p></div>
+                        </div>
+                        <div class="absolute bottom-12 -right-4 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.6s;">
+                            <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500"><i class="fas fa-chart-line"></i></div>
+                            <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">Growth</p><p class="text-xs font-bold">Sales Oriented</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST & VALUES (Infinite Marquee) -->
+        <section class="py-8 bg-white/50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative">
+                <div class="flex overflow-hidden group">
+                    <div class="flex gap-6 animate-scroll whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
+                        <!-- Set 1 -->
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-hand-holding-heart text-blue-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-user-tie text-purple-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-shield-alt text-emerald-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSecurity">Security</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valService">Best Service</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-bolt text-red-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSpeed">Speed</span>
+                        </div>
+
+                        <!-- Set 2 (Duplicate for Seamless Loop) -->
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-hand-holding-heart text-blue-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-user-tie text-purple-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-shield-alt text-emerald-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSecurity">Security</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valService">Best Service</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-bolt text-red-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSpeed">Speed</span>
+                        </div>
+                        
+                        <!-- Set 3 (Buffer) -->
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-hand-holding-heart text-blue-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
+                            <i class="fas fa-user-tie text-purple-500"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCE -->
+        <section id="competence" class="py-24 bg-white dark:bg-slate-900/50">
+             <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl font-bold mb-3" data-i18n="compTitle">Core Competencies</h2>
+                    <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="compDesc">Holistic strategy combining data analysis, creative content, and technical execution.</p>
+                </div>
+                <div class="bento-card rounded-[2.5rem] shadow-clean border border-slate-100 dark:border-slate-800 p-8 md:p-12 relative overflow-hidden reveal hover:shadow-glow transition-shadow duration-500">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent"><i class="fas fa-chess-queen"></i></div><h3 class="text-lg font-bold" data-i18n="compStratTitle">Strategic Marketing</h3></div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compSeoTitle">SEO Mastery</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO, Deep Keyword Research.</p></div></li>
+                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compAdsTitle">Paid Advertising (SEM)</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compAdsDesc">Google Ads, Meta Ads (FB/IG), and TikTok Ads Optimization.</p></div></li>
+                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compContentTitle">Content Strategy</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compContentDesc">Copywriting, Storytelling, Structured Editorial Planning.</p></div></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-6 lg:border-x lg:border-slate-100 lg:dark:border-slate-800 lg:px-8">
+                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600"><i class="fas fa-code-branch"></i></div><h3 class="text-lg font-bold" data-i18n="compTechTitle">Tools & Tech</h3></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Google Analytics 4</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Search Console</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Ahrefs / Semrush</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Looker Studio</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">HubSpot CRM</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">WordPress</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Shopify</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Figma UI/UX</span>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase"></i></div><h3 class="text-lg font-bold" data-i18n="compProfTitle">Professional Skills</h3></div>
+                            <div class="space-y-5">
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Strategic Communication</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillAdapt">Adaptability</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillTeam">Teamwork</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillLead">Leadership</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
+                                <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION (UPDATED: Single Mini Card) -->
+        <section id="education" class="py-12 bg-lightBg dark:bg-darkBg relative">
+            <div class="max-w-2xl mx-auto px-6">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-soft border border-slate-100 dark:border-slate-800 reveal hover-lift">
+                    <h2 class="text-xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-graduation-cap text-accent"></i> 
+                        <span data-i18n="eduTitle">Education</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- University -->
+                        <div class="flex gap-4 items-start">
+                            <div class="min-w-[4px] h-full bg-slate-200 dark:bg-slate-700 rounded-full mt-1.5 relative">
+                                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full ring-4 ring-white dark:ring-slate-900 shadow-glow"></div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                                    <h3 class="text-sm font-bold text-lightText dark:text-white">STMIK IKMI Cirebon</h3>
+                                    <span class="text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-indigo-800">Current - Semester 4</span>
+                                </div>
+                                <p class="text-xs text-lightSub dark:text-darkSub font-semibold">Informatics Engineering (Teknik Informatika)</p>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 italic">Focusing on Software Development and Digital Systems.</p>
+                            </div>
+                        </div>
+
+                        <!-- High School -->
+                        <div class="flex gap-4 items-start">
+                            <div class="min-w-[4px] h-full bg-slate-200 dark:bg-slate-700 rounded-full mt-1.5 relative">
+                                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-emerald-500 rounded-full ring-4 ring-white dark:ring-slate-900"></div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                                    <h3 class="text-sm font-bold text-lightText dark:text-white">SMAN 5 Cirebon</h3>
+                                    <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800">Class of 2024</span>
+                                </div>
+                                <p class="text-xs text-lightSub dark:text-darkSub font-semibold">Natural Sciences (IPA)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold mb-4" data-i18n="expTitle">Career Journey</h2>
+                    <p class="text-lightSub dark:text-darkSub" data-i18n="expDesc">Professional track record in driving business growth through digital strategies.</p>
                 </div>
                 
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
-                    <span data-i18n="heroTitle1">Dominating Digital</span> <br>
-                    <span class="text-accent dark:text-indigo-400" data-i18n="heroTitle2">Market & Growth.</span>
-                </h1>
-                
-                <p class="text-base md:text-lg text-lightSub dark:text-darkSub leading-relaxed mb-8 max-w-lg" data-i18n="heroDesc">
-                    Digital Marketing Specialist focused on <strong>SEO</strong>, <strong>Content Strategy</strong>, and <strong>E-commerce Growth</strong> for tangible and measurable business results.
-                </p>
+                <div class="timeline-line relative space-y-10">
+                    <!-- Job 1 -->
+                    <div class="relative pl-12 md:pl-0 group reveal">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-accent rounded-full z-10 shadow-glow transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Freelance Business Development Associate</h3>
+                                    <p class="text-sm font-semibold text-accent mb-4">PT Madani Abadi Nusantara</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob1">Jan 2026 - Present</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job 2 -->
+                    <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 100ms;">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Content Writer (Internship)</h3>
+                                    <p class="text-sm font-semibold text-emerald-600 mb-4">Garap Media Nusantara</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job 3 -->
+                    <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 200ms;">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-orange-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Marketplace Administrator</h3>
+                                    <p class="text-sm font-semibold text-orange-500 mb-4">Shopify (Entrepreneur) & Shopee</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job 4 -->
+                    <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 300ms;">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-pink-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob4">Affiliate Marketing</h3>
+                                    <p class="text-sm font-semibold text-pink-600 mb-4">Shopee</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob4">May 2025 - Jul 2025</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job 5 -->
+                    <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 400ms;">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-yellow-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob5">Owner, Cake Business</h3>
+                                    <p class="text-sm font-semibold text-yellow-600 mb-4" data-i18n="subJob5">Entrepreneur</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job 6 -->
+                    <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 500ms;">
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-teal-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
+                            <div class="md:col-span-9">
+                                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
+                                    <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Customer Service & Co-Founder</h3>
+                                    <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="subJob6">Web Development Venture</p>
+                                    <span class="md:hidden inline-block text-[10px] font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob6">May 2023 - Dec 2023</span>
+                                    <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="flex flex-wrap gap-4 items-center">
-                    <a href="#experience" class="btn-modern px-8 py-3.5 bg-accent text-white rounded-full hover:bg-accentHover hover:shadow-glow-strong hover:-translate-y-1 transition-all duration-300" data-i18n="btnPortfolio">
-                        View Portfolio
+        <!-- MOTIVATIONAL QUOTE SECTION -->
+        <section class="py-16 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+            <div class="max-w-4xl mx-auto px-6 text-center reveal">
+                 <div class="text-xl md:text-2xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
+                     <span class="absolute -top-6 -left-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
+                     <span data-i18n="quoteText">One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.</span>
+                     <span class="absolute -bottom-6 -right-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-right"></i></span>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Project Gallery -->
+        <section id="gallery" class="py-24 bg-lightBg dark:bg-darkBg relative">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl font-bold mb-3" data-i18n="galleryTitle">Project Gallery</h2>
+                    <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="galleryDesc">Visual evidence of results and strategies.</p>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="mobile-mini-grid md:grid md:grid-cols-3 md:gap-4 md:h-[500px]">
+                    
+                    <!-- Main Item (uno.jpeg) -->
+                    <div class="col-span-2 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" onclick="openLightbox('uno.jpeg', 'image')">
+                        <img src="uno.jpeg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="800" height="800">
+                        <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                             <span class="text-xs font-bold text-white uppercase tracking-wider bg-black/40 px-2 py-1 rounded-md w-fit mb-1 backdrop-blur-sm">Highlight</span>
+                             <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
+                        </div>
+                    </div>
+
+                    <!-- Side Item 1 (two.jpg) -->
+                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 100ms;" onclick="openLightbox('two.jpg', 'image')">
+                        <img src="two.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
+                         <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                             <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem2">Execution</h3>
+                        </div>
+                    </div>
+
+                    <!-- Side Item 2 (three.jpeg) -->
+                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 150ms;" onclick="openLightbox('three.jpeg', 'image')">
+                        <img src="three.jpeg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
+                        <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                             <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem3">Analytics</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Row -->
+                <div class="mt-4 grid grid-cols-1 reveal" style="transition-delay: 200ms;">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-clean hover:shadow-glow-strong h-64 md:h-80" onclick="openLightbox('four.mp4', 'video')">
+                        <video src="four.mp4" class="w-full h-full object-cover" muted loop playsinline width="800" height="400" poster="uno.jpeg"></video>
+                        <div class="gallery-overlay absolute inset-0 flex flex-col justify-center items-center">
+                            <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play text-2xl ml-1"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryVideo">Project Showreel</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certificates" class="py-24 bg-white dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <h2 class="text-2xl font-bold" data-i18n="certTitle">Professional Certifications</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="certGrid">
+                    <!-- JS Injected -->
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-bold text-lightSub dark:text-darkSub hover:text-accent hover:border-accent transition-all shadow-clean hover:shadow-glow group hover-lift" aria-label="View Certificates on LinkedIn">
+                        <span data-i18n="btnAllCerts">View 45 Certificates on LinkedIn</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <div class="flex gap-2 ml-2">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110 dark:text-darkSub dark:hover:text-white bg-white dark:bg-slate-900 shadow-sm"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <!-- Stats Grid (Responsive 2x2 on mobile, 4 cols on desktop) -->
-                <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                    <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="42">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statArticles">Articles</div></div>
-                    <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="45">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statCerts">Certifications</div></div>
-                    <div><div class="text-2xl md:text-3xl font-extrabold counter" data-target="1">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statRank">Google Ranking</div></div>
-                    <div><div class="text-2xl md:text-3xl font-extrabold counter text-accent" data-target="73">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statClients">Clients Project</div></div>
                 </div>
             </div>
-            <!-- Right Column -->
-            <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
-                <div class="relative z-10 w-full max-w-sm">
-                    <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-900 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow-strong transition-shadow duration-500">
-                        <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-[4/5] relative group">
-                            <img src="myphot.jpeg" alt="Muhammad Faqih" width="400" height="500" fetchpriority="high" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        </div>
-                    </div>
-                    <!-- Badges -->
-                    <div class="absolute top-10 -left-4 lg:-left-10 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.4s;">
-                        <div class="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-accent"><i class="fas fa-search-dollar"></i></div>
-                        <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">SEO Result</p><p class="text-xs font-bold">#1 Rank</p></div>
-                    </div>
-                    <div class="absolute bottom-12 -right-4 bg-white dark:bg-slate-900 p-3 rounded-xl shadow-clean border border-slate-100 dark:border-slate-800 flex items-center gap-3 animate-slide-up hover-lift" style="animation-delay: 0.6s;">
-                        <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500"><i class="fas fa-chart-line"></i></div>
-                        <div><p class="text-[10px] text-lightSub dark:text-darkSub font-medium">Growth</p><p class="text-xs font-bold">Sales Oriented</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: TRUST & VALUES (Infinite Marquee) -->
-    <section class="py-8 bg-white/50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative">
-            <div class="flex overflow-hidden group">
-                <div class="flex gap-6 animate-scroll whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
-                    <!-- Set 1 -->
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-hand-holding-heart text-blue-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-user-tie text-purple-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-shield-alt text-emerald-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSecurity">Security</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-star text-yellow-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valService">Best Service</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-bolt text-red-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSpeed">Speed</span>
-                    </div>
-
-                    <!-- Set 2 (Duplicate for Seamless Loop) -->
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-hand-holding-heart text-blue-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-user-tie text-purple-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-shield-alt text-emerald-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSecurity">Security</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-star text-yellow-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valService">Best Service</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-bolt text-red-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSpeed">Speed</span>
-                    </div>
-
-                    <!-- Set 3 (Extra Buffer) -->
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-hand-holding-heart text-blue-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valIntegrity">Integrity</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-user-tie text-purple-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valProfessional">Professionalism</span>
-                    </div>
-                    <div class="flex items-center gap-2 px-5 py-2 rounded-full value-glass-mini hover:border-accent transition-colors">
-                        <i class="fas fa-shield-alt text-emerald-500"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider" data-i18n="valSecurity">Security</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPETENCE: MASTER BENTO CARD -->
-    <section id="competence" class="py-24 bg-white dark:bg-slate-900/50">
-         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl font-bold mb-3" data-i18n="compTitle">Core Competencies</h2>
-                <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="compDesc">Holistic strategy combining data analysis, creative content, and technical execution.</p>
-            </div>
-            <div class="bento-card rounded-[2.5rem] shadow-clean border border-slate-100 dark:border-slate-800 p-8 md:p-12 relative overflow-hidden reveal hover:shadow-glow transition-shadow duration-500">
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent"><i class="fas fa-chess-queen"></i></div><h3 class="text-lg font-bold" data-i18n="compStratTitle">Strategic Marketing</h3></div>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compSeoTitle">SEO Mastery</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO, Deep Keyword Research.</p></div></li>
-                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compAdsTitle">Paid Advertising (SEM)</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compAdsDesc">Google Ads, Meta Ads (FB/IG), and TikTok Ads Optimization.</p></div></li>
-                            <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors" data-i18n="compContentTitle">Content Strategy</h4><p class="text-xs text-lightSub dark:text-darkSub leading-relaxed mt-1" data-i18n="compContentDesc">Copywriting, Storytelling, Structured Editorial Planning.</p></div></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-6 lg:border-x lg:border-slate-100 lg:dark:border-slate-800 lg:px-8">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600"><i class="fas fa-code-branch"></i></div><h3 class="text-lg font-bold" data-i18n="compTechTitle">Tools & Tech</h3></div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Google Analytics 4</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Search Console</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Ahrefs / Semrush</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Looker Studio</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">HubSpot CRM</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">WordPress</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Shopify</span><span class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-lift">Figma UI/UX</span>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-800/50"><div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase"></i></div><h3 class="text-lg font-bold" data-i18n="compProfTitle">Professional Skills</h3></div>
-                        <div class="space-y-5">
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Strategic Communication</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillAdapt">Adaptability</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillTeam">Teamwork</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[95%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillLead">Leadership</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
-                            <div><div class="flex justify-between mb-1.5"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-accent w-[90%] rounded-full"></div></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: EDUCATION (Timeline Style) -->
-    <section id="education" class="py-16 bg-lightBg dark:bg-darkBg relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl font-bold mb-3" data-i18n="eduTitle">Education</h2>
-                <p class="text-lightSub dark:text-darkSub text-sm" data-i18n="eduDesc">Academic background and continuous learning.</p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <!-- University -->
-                <div class="flex-1 bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-clean border border-slate-100 dark:border-slate-800 hover-lift reveal group">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center text-xl">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-accent bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded">Current - Semester 4</span>
-                            <h3 class="text-lg font-bold mt-1">STMIK IKMI Cirebon</h3>
-                        </div>
-                    </div>
-                    <p class="text-sm text-lightSub dark:text-darkSub font-medium mb-1">Informatics Engineering (Teknik Informatika)</p>
-                    <p class="text-xs text-lightSub dark:text-darkSub opacity-80">Focusing on Software Development and Digital Systems.</p>
-                </div>
-
-                <!-- High School -->
-                <div class="flex-1 bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-clean border border-slate-100 dark:border-slate-800 hover-lift reveal group" style="transition-delay: 100ms;">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">Class of 2024</span>
-                            <h3 class="text-lg font-bold mt-1">SMAN 5 Cirebon</h3>
-                        </div>
-                    </div>
-                    <p class="text-sm text-lightSub dark:text-darkSub font-medium mb-1">Natural Sciences (IPA)</p>
-                    <p class="text-xs text-lightSub dark:text-darkSub opacity-80">Graduated with strong foundation in analytical thinking.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section (Bilingual & Expanded) -->
-    <section id="experience" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl font-bold mb-4" data-i18n="expTitle">Career Journey</h2>
-                <p class="text-lightSub dark:text-darkSub" data-i18n="expDesc">Professional track record in driving business growth through digital strategies.</p>
-            </div>
-            
-            <div class="timeline-line relative space-y-10">
-                <!-- Job 1 -->
-                <div class="relative pl-12 md:pl-0 group reveal">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-accent rounded-full z-10 shadow-glow transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Freelance Business Development Associate</h3>
-                                <p class="text-sm font-semibold text-accent mb-4">PT Madani Abadi Nusantara</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob1">Jan 2026 - Present</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 2 -->
-                <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 100ms;">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Content Writer (Internship)</h3>
-                                <p class="text-sm font-semibold text-emerald-600 mb-4">Garap Media Nusantara</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 3 -->
-                <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 200ms;">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-orange-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Marketplace Administrator</h3>
-                                <p class="text-sm font-semibold text-orange-500 mb-4">Shopify (Entrepreneur) & Shopee</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 4 -->
-                <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 300ms;">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-pink-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob4">Affiliate Marketing</h3>
-                                <p class="text-sm font-semibold text-pink-600 mb-4">Shopee</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob4">May 2025 - Jul 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 5 -->
-                <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 400ms;">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-yellow-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob5">Owner, Cake Business</h3>
-                                <p class="text-sm font-semibold text-yellow-600 mb-4" data-i18n="subJob5">Entrepreneur</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 6 -->
-                <div class="relative pl-12 md:pl-0 group reveal" style="transition-delay: 500ms;">
-                    <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-teal-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                    <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
-                        <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
-                        <div class="md:col-span-9">
-                            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-clean hover:shadow-hover-strong hover:-translate-y-1 transition-all duration-500 border border-slate-100 dark:border-slate-800 relative hover-lift">
-                                <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Customer Service & Co-Founder</h3>
-                                <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="subJob6">Web Development Venture</p>
-                                <span class="md:hidden inline-block text-[10px] font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob6">May 2023 - Dec 2023</span>
-                                <div class="text-sm text-lightSub dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MOTIVATIONAL QUOTE SECTION -->
-    <section class="py-16 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 text-center reveal">
-             <div class="text-xl md:text-2xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
-                 <span class="absolute -top-6 -left-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
-                 <span data-i18n="quoteText">One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.</span>
-                 <span class="absolute -bottom-6 -right-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-right"></i></span>
-             </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: Project Gallery (Lightbox Enabled - Grid Mini Mobile) -->
-    <section id="gallery" class="py-24 bg-lightBg dark:bg-darkBg relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl font-bold mb-3" data-i18n="galleryTitle">Project Gallery</h2>
-                <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="galleryDesc">Visual evidence of results and strategies.</p>
-            </div>
-
-            <!-- Gallery Grid (Mobile Mini, Desktop Expanded) -->
-            <div class="mobile-mini-grid md:grid md:grid-cols-3 md:gap-4 md:h-[500px]">
-                
-                <!-- Main Item (uno.jpeg) -->
-                <div class="col-span-2 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" onclick="openLightbox('uno.jpeg', 'image')">
-                    <img src="uno.jpeg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="800" height="800">
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
-                         <span class="text-xs font-bold text-white uppercase tracking-wider bg-black/40 px-2 py-1 rounded-md w-fit mb-1 backdrop-blur-sm">Highlight</span>
-                         <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
-                    </div>
-                </div>
-
-                <!-- Side Item 1 (two.jpg) -->
-                <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 100ms;" onclick="openLightbox('two.jpg', 'image')">
-                    <img src="two.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
-                     <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
-                         <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem2">Execution</h3>
-                    </div>
-                </div>
-
-                <!-- Side Item 2 (three.jpeg) -->
-                <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-clean hover:shadow-glow-strong" style="transition-delay: 150ms;" onclick="openLightbox('three.jpeg', 'image')">
-                    <img src="three.jpeg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="400">
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
-                         <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem3">Analytics</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Video Row -->
-            <div class="mt-4 grid grid-cols-1 reveal" style="transition-delay: 200ms;">
-                <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-clean hover:shadow-glow-strong h-64 md:h-80" onclick="openLightbox('four.mp4', 'video')">
-                    <video src="four.mp4" class="w-full h-full object-cover" muted loop playsinline autoplay width="800" height="400"></video>
-                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-center items-center">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-play text-2xl ml-1"></i>
-                        </div>
-                        <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryVideo">Project Showreel</h3>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certificates" class="py-24 bg-white dark:bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <h2 class="text-2xl font-bold" data-i18n="certTitle">Professional Certifications</h2>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="certGrid">
-                <!-- JS Injected -->
-            </div>
-            
-            <div class="mt-12 text-center">
-                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-bold text-lightSub dark:text-darkSub hover:text-accent hover:border-accent transition-all shadow-clean hover:shadow-glow group hover-lift">
-                    <span data-i18n="btnAllCerts">View 45 Certificates on LinkedIn</span>
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer id="contact" class="bg-lightBg dark:bg-darkBg pt-20 pb-10 px-6 border-t border-slate-200 dark:border-slate-800">
@@ -683,7 +684,7 @@
                     <p class="text-sm text-lightSub dark:text-darkSub mb-8 leading-relaxed" data-i18n="footerDesc">
                         Looking for impactful digital strategies? Let's discuss how I can help grow your business.
                     </p>
-                    <a href="mailto:faqihalrf@gmail.com" class="btn-modern px-6 py-3 bg-lightText dark:bg-white text-white dark:text-darkBg rounded-full hover:bg-accent dark:hover:bg-slate-200 text-sm hover:shadow-glow transition-all">
+                    <a href="mailto:faqihalrf@gmail.com" class="btn-modern px-6 py-3 bg-lightText dark:bg-white text-white dark:text-darkBg rounded-full hover:bg-accent dark:hover:bg-slate-200 text-sm hover:shadow-glow transition-all" aria-label="Email Me">
                         <i class="far fa-envelope"></i> faqihalrf@gmail.com
                     </a>
                 </div>
@@ -724,9 +725,9 @@
 
     <!-- Lightbox Modal -->
     <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors">&times;</button>
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors" aria-label="Close Lightbox">&times;</button>
         <div class="max-w-7xl max-h-[90vh] p-4 flex items-center justify-center">
-            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" alt="Project Detail">
             <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay></video>
         </div>
     </div>

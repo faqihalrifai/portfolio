@@ -11,22 +11,22 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- PERFORMANCE: Critical Preloads -->
+    <!-- PERFORMANCE: Critical Assets -->
     <link rel="preload" as="image" href="myphot.jpeg" fetchpriority="high">
     
-    <!-- Fonts: Preconnect & Swap for Speed -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Icons: Load CSS Asynchronously (Non-Blocking) -->
+    <!-- Icons (Non-Blocking) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config for "Soft Feel" -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -37,13 +37,13 @@
                     },
                     colors: {
                         lightBg: '#f8fafc',       
-                        darkBg: '#0f172a',        /* Slate 900 - Better than pure black */
+                        darkBg: '#0f172a',        
                         lightText: '#0f172a',     
                         lightSub: '#475569',      
-                        darkText: '#f1f5f9',      /* Slate 100 - High contrast text */
-                        darkSub: '#cbd5e1',       /* Slate 300 - Readable secondary text */
-                        darkCard: '#1e293b',      /* Slate 800 - Consistent card bg */
-                        darkBorder: '#334155',    /* Slate 700 - Visible borders */
+                        darkText: '#f8fafc',      
+                        darkSub: '#cbd5e1',       
+                        darkCard: '#1e293b',      
+                        darkBorder: '#334155',    
                         accent: '#4f46e5',        
                         accentHover: '#4338ca',   
                     },
@@ -54,8 +54,8 @@
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'slide-up': 'slideUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards', /* Soft Quintic Ease */
-                        'scroll': 'scroll 40s linear infinite', /* Slower for smoother feel */
+                        'slide-up': 'slideUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards',
+                        'scroll': 'scroll 40s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -67,7 +67,7 @@
                             '100%': { opacity: 1, transform: 'translateY(0)' },
                         },
                         scroll: {
-                            '0%': { transform: 'translate3d(0, 0, 0)' }, /* Hardware Accelerated */
+                            '0%': { transform: 'translate3d(0, 0, 0)' }, 
                             '100%': { transform: 'translate3d(-50%, 0, 0)' },
                         }
                     }
@@ -77,31 +77,46 @@
     </script>
 
     <style>
+        /* CRITICAL CSS: Paiting the screen before Tailwind loads */
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            opacity: 1 !important; /* Prevent FOUC */
+        }
+        /* Dark mode default fallback */
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #0f172a; color: #f8fafc; }
+        }
+        .dark body { background-color: #0f172a; color: #f8fafc; }
+
         /* Base Optimizations */
         html {
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
-            scroll-padding-top: 6rem; /* Ensure anchor links don't hide behind navbar */
+            scroll-padding-top: 6rem;
         }
         
-        body {
-            -webkit-font-smoothing: antialiased; /* Crisper text on Mac */
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Layout Stability */
         img { max-width: 100%; height: auto; }
         
-        /* Glassmorphism - Optimized */
+        /* Defer Rendering for Performance */
+        .defer-render {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 800px; 
+        }
+
+        /* Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
         .dark .glass {
-            background: rgba(15, 23, 42, 0.85); /* Slate 900 alpha */
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* Slate 700 alpha */
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
         }
 
         /* Timeline Line */
@@ -117,17 +132,19 @@
         }
         .dark .timeline-line::before { background: #334155; }
 
-        /* Custom Scrollbar - Cleaner */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; border: 2px solid transparent; background-clip: content-box; }
         .dark ::-webkit-scrollbar-thumb { background: #475569; border: 2px solid transparent; background-clip: content-box; }
         
-        /* --- ULTRA SOFT HOVER EFFECT (The "Magic" Sauce) --- */
+        /* Optimized Hover (GPU Accelerated & Smooth) */
         .hover-soft {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Quintic Ease-Out - Very smooth */
-            will-change: transform, box-shadow;
-            transform: translateZ(0); /* Hardware acceleration hint */
+            transition-property: transform, box-shadow, background-color, border-color, color;
+            transition-duration: 0.4s;
+            transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+            transform: translateZ(0);
         }
         .hover-soft:hover {
             transform: translateY(-4px) scale(1.01);
@@ -138,19 +155,19 @@
         }
         .hover-soft:active {
             transform: scale(0.98);
-            transition-duration: 0.1s; /* Snappy response on click */
+            transition-duration: 0.1s;
         }
 
-        /* Bento Cards - Consistent Dark Mode */
+        /* Bento Cards */
         .bento-card {
             background: linear-gradient(145deg, #ffffff, #f8fafc);
         }
         .dark .bento-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a); /* Lighter dark gradient */
+            background: linear-gradient(145deg, #1e293b, #0f172a);
             border: 1px solid #334155;
         }
 
-        /* Reveal Animation - Smoother */
+        /* Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -170,7 +187,7 @@
         }
         .group:hover .gallery-overlay { opacity: 1; }
 
-        /* Scroll Widget - Floating & Smooth */
+        /* Scroll Widget */
         .scroll-widget {
             transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             opacity: 0;
@@ -183,7 +200,7 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Mobile Adjustments */
+        /* Mobile Optimization */
         @media (max-width: 768px) {
             .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0) 70%); }
             .mobile-mini-grid {
@@ -195,12 +212,11 @@
             .animate-float { animation: none; } 
         }
 
-        /* Modal - Soft Pop */
+        /* Modal */
         .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
         .modal-content { transform: scale(0.96); opacity: 0; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
         .modal.active .modal-content { transform: scale(1); opacity: 1; }
         
-        /* Modal Typography */
         .modal-body-content h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
         .modal-body-content p { margin-bottom: 1rem; line-height: 1.6; }
         .modal-body-content ul { margin-bottom: 1rem; }
@@ -213,7 +229,7 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
             <!-- Brand -->
             <a href="#" class="font-bold tracking-tight hover:text-accent transition-colors flex items-center gap-2 group min-w-0" aria-label="Homepage">
-                <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap overflow-visible">Muhammad Faqih Al Rifai</span>
+                <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap overflow-visible dark:text-white">Muhammad Faqih Al Rifai</span>
                 <div class="relative flex items-center justify-center shrink-0">
                     <i class="fas fa-check-circle text-blue-500 text-base md:text-lg group-hover:scale-110 transition-transform bg-white dark:bg-darkBg rounded-full"></i>
                 </div>
@@ -231,11 +247,11 @@
             <!-- Tools & Toggle -->
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="hidden md:flex items-center gap-2">
-                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-lightText dark:text-darkText hover:border-accent hover:text-accent transition-all flex items-center gap-2 hover-soft">
+                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-lightText dark:text-darkText hover:border-accent hover:text-accent transition-all flex items-center gap-2 hover-soft" aria-label="Switch Language">
                         <span class="current-lang-label">EN</span>
                         <i class="fas fa-globe"></i>
                     </button>
-                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-accent dark:hover:text-yellow-400 transition-all hover-soft">
+                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-accent dark:hover:text-yellow-400 transition-all hover-soft" aria-label="Toggle Theme">
                         <i class="fas fa-moon text-sm dark:hidden"></i>
                         <i class="fas fa-sun text-sm hidden dark:block text-yellow-400"></i>
                     </button>
@@ -257,8 +273,8 @@
                 <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navExperience">Experience</a>
                 <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navGallery">Gallery</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
-                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white"><i class="fas fa-globe"></i> <span class="current-lang-label">EN</span></button>
-                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-yellow-400"></i></button>
+                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white" aria-label="Switch Language"><i class="fas fa-globe"></i> <span class="current-lang-label">EN</span></button>
+                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white" aria-label="Toggle Theme"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-yellow-400"></i></button>
                 </div>
             </div>
         </div>
@@ -281,11 +297,11 @@
                         Digital Marketing Specialist focused on <strong>SEO</strong>, <strong>Content Strategy</strong>, and <strong>E-commerce Growth</strong>.
                     </p>
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="#experience" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white rounded-full hover:bg-accentHover hover:shadow-glow hover-soft font-bold text-sm active:scale-95 transition-all" data-i18n="btnPortfolio">View Portfolio</a>
+                        <a href="#experience" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white rounded-full hover:bg-accentHover hover:shadow-glow hover-soft font-bold text-sm active:scale-95 transition-all" data-i18n="btnPortfolio" aria-label="View Portfolio">View Portfolio</a>
                         <div class="flex gap-2 ml-2">
-                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-11 h-11 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lightSub hover:text-white hover:bg-black hover:border-black dark:hover:border-white hover-soft bg-white dark:bg-slate-800 dark:text-slate-300 shadow-sm" aria-label="TikTok Profile"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                     <!-- Stats -->
@@ -296,12 +312,12 @@
                         <div><div class="text-2xl md:text-3xl font-extrabold counter text-accent" data-target="73">0</div><div class="text-[10px] text-lightSub dark:text-darkSub uppercase font-bold tracking-wider mt-1" data-i18n="statClients">Clients Project</div></div>
                     </div>
                 </div>
-                <!-- Image (LCP PRIORITY) -->
+                <!-- Image (LCP PRIORITY - Eager Load) -->
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="relative z-10 w-full max-w-sm lg:max-w-md">
                         <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-800 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow transition-shadow duration-500">
                             <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-900 aspect-[4/5] relative group">
-                                <img src="myphot.jpeg" width="400" height="500" alt="Muhammad Faqih" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" fetchpriority="high">
+                                <img src="myphot.jpeg" width="400" height="500" sizes="(max-width: 768px) 100vw, 50vw" alt="Muhammad Faqih Al Rifai - Digital Marketing Specialist" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" fetchpriority="high" decoding="sync">
                             </div>
                         </div>
                         <div class="absolute top-8 -left-2 lg:-left-8 bg-white dark:bg-slate-800 p-3 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-3 animate-slide-up hover-soft" style="animation-delay: 0.4s;">
@@ -317,8 +333,8 @@
             </div>
         </section>
 
-        <!-- Infinite Marquee -->
-        <section class="py-10 bg-white/50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 overflow-hidden">
+        <!-- Infinite Marquee (Defer Render) -->
+        <section class="py-10 bg-white/50 dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 overflow-hidden defer-render">
             <div class="flex overflow-hidden group select-none">
                 <div class="flex gap-6 animate-scroll whitespace-nowrap group-hover:[animation-play-state:paused] w-max px-6">
                     <div class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200 dark:border-slate-700 hover:border-accent transition-colors"><i class="fas fa-hand-holding-heart text-blue-500"></i><span class="text-xs font-bold uppercase tracking-wider dark:text-slate-200" data-i18n="valIntegrity">Integrity</span></div>
@@ -336,8 +352,8 @@
             </div>
         </section>
 
-        <!-- COMPETENCE -->
-        <section id="competence" class="py-24 bg-white dark:bg-darkBg relative">
+        <!-- COMPETENCE (Defer Render) -->
+        <section id="competence" class="py-24 bg-white dark:bg-darkBg relative defer-render">
              <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl font-bold mb-3 dark:text-white" data-i18n="compTitle">Core Competencies</h2>
@@ -397,8 +413,8 @@
             </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section id="education" class="py-12 bg-lightBg dark:bg-darkBg relative">
+        <!-- EDUCATION (Defer Render) -->
+        <section id="education" class="py-12 bg-lightBg dark:bg-darkBg relative defer-render">
             <div class="max-w-2xl mx-auto px-6">
                 <div class="bg-white dark:bg-darkCard rounded-2xl p-6 shadow-soft border border-slate-100 dark:border-darkBorder reveal hover-soft">
                     <h2 class="text-xl font-bold mb-6 text-center flex items-center justify-center gap-2 dark:text-white">
@@ -435,8 +451,8 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden">
+        <!-- Experience Section (Defer Render) -->
+        <section id="experience" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden defer-render">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold mb-4 dark:text-white" data-i18n="expTitle">Career Journey</h2>
@@ -537,8 +553,8 @@
             </div>
         </section>
 
-        <!-- QUOTE -->
-        <section class="py-16 bg-white dark:bg-darkBg border-y border-slate-100 dark:border-darkBorder">
+        <!-- QUOTE (Defer Render) -->
+        <section class="py-16 bg-white dark:bg-darkBg border-y border-slate-100 dark:border-darkBorder defer-render">
             <div class="max-w-4xl mx-auto px-6 text-center reveal">
                  <div class="text-xl md:text-2xl font-bold text-lightText dark:text-white italic leading-relaxed relative">
                      <span class="absolute -top-6 -left-6 text-4xl text-accent opacity-20"><i class="fas fa-quote-left"></i></span>
@@ -548,8 +564,8 @@
             </div>
         </section>
 
-        <!-- Project Gallery -->
-        <section id="gallery" class="py-24 bg-lightBg dark:bg-darkBg relative">
+        <!-- Project Gallery (Defer Render & Lazy Load) -->
+        <section id="gallery" class="py-24 bg-lightBg dark:bg-darkBg relative defer-render">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl font-bold mb-3 dark:text-white" data-i18n="galleryTitle">Project Gallery</h2>
@@ -558,20 +574,20 @@
                 <!-- Gallery Grid Optimized -->
                 <div class="mobile-mini-grid md:grid md:grid-cols-3 md:gap-4 md:h-[500px]">
                     <div class="col-span-2 md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal hover-soft" onclick="openLightbox('uno.jpeg', 'image')">
-                        <img src="uno.jpeg" width="800" height="800" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                        <img src="uno.jpeg" width="800" height="800" sizes="(max-width: 768px) 100vw, 50vw" alt="Strategic Overview Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
                         <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
                              <span class="text-xs font-bold text-white uppercase tracking-wider bg-black/40 px-2 py-1 rounded-md w-fit mb-1 backdrop-blur-sm">Highlight</span>
                              <h3 class="text-white font-bold text-lg leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
                         </div>
                     </div>
                     <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal hover-soft" style="transition-delay: 100ms;" onclick="openLightbox('two.jpg', 'image')">
-                        <img src="two.jpg" width="400" height="400" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                        <img src="two.jpg" width="400" height="400" sizes="(max-width: 768px) 50vw, 25vw" alt="Execution Phase Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
                          <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
                              <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem2">Execution</h3>
                         </div>
                     </div>
                     <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal hover-soft" style="transition-delay: 150ms;" onclick="openLightbox('three.jpeg', 'image')">
-                        <img src="three.jpeg" width="400" height="400" alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                        <img src="three.jpeg" width="400" height="400" sizes="(max-width: 768px) 50vw, 25vw" alt="Analytics Report Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
                         <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
                              <h3 class="text-white font-bold text-sm leading-tight" data-i18n="galleryItem3">Analytics</h3>
                         </div>
@@ -590,8 +606,8 @@
             </div>
         </section>
 
-        <!-- Certifications -->
-        <section id="certificates" class="py-24 bg-white dark:bg-slate-900/50">
+        <!-- Certifications (Defer Render) -->
+        <section id="certificates" class="py-24 bg-white dark:bg-slate-900/50 defer-render">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                     <h2 class="text-2xl font-bold dark:text-white" data-i18n="certTitle">Professional Certifications</h2>
@@ -610,7 +626,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-lightBg dark:bg-darkBg pt-20 pb-10 px-6 border-t border-slate-200 dark:border-darkBorder">
+    <footer id="contact" class="bg-lightBg dark:bg-darkBg pt-20 pb-10 px-6 border-t border-slate-200 dark:border-darkBorder defer-render">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
                 <div class="max-w-md">
@@ -618,12 +634,12 @@
                     <p class="text-sm text-lightSub dark:text-darkSub mb-8 leading-relaxed" data-i18n="footerDesc">
                         Looking for impactful digital strategies? Let's discuss how I can help grow your business.
                     </p>
-                    <a href="mailto:faqihalrf@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-lightText dark:bg-white text-white dark:text-darkBg rounded-full hover:bg-accent dark:hover:bg-slate-200 text-sm hover:shadow-glow hover-soft font-bold">
+                    <a href="mailto:faqihalrf@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-lightText dark:bg-white text-white dark:text-darkBg rounded-full hover:bg-accent dark:hover:bg-slate-200 text-sm hover:shadow-glow hover-soft font-bold" aria-label="Send Email to faqihalrf@gmail.com">
                         <i class="far fa-envelope mr-2"></i> faqihalrf@gmail.com
                     </a>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-lightSub dark:text-darkSub mb-6" data-i18n="footerSocials">Socials</h4>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-lightSub dark:text-darkSub mb-6" data-i18n="footerSocials">Socials</h3>
                     <div class="flex gap-6 text-xl text-lightSub dark:text-darkSub">
                         <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-accent transition-colors hover:scale-110" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                         <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-500 transition-colors hover:scale-110" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -635,8 +651,8 @@
             <div class="pt-8 border-t border-slate-200 dark:border-darkBorder flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-lightSub dark:text-darkSub">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">All Rights Reserved.</span></p>
                 <div class="flex gap-6">
-                    <button onclick="openModal('privacy')" class="hover:text-accent transition-colors" data-i18n="footerPrivacy">Privacy Policy</button>
-                    <button onclick="openModal('terms')" class="hover:text-accent transition-colors" data-i18n="footerTerms">Terms of Service</button>
+                    <button onclick="openModal('privacy')" class="hover:text-accent transition-colors" data-i18n="footerPrivacy" aria-label="Privacy Policy">Privacy Policy</button>
+                    <button onclick="openModal('terms')" class="hover:text-accent transition-colors" data-i18n="footerTerms" aria-label="Terms of Service">Terms of Service</button>
                 </div>
             </div>
         </div>
@@ -644,10 +660,10 @@
 
     <!-- Smart Scroll Widget -->
     <div class="scroll-widget fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110" aria-label="Scroll Top">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110" aria-label="Scroll to Top">
             <i class="fas fa-arrow-up"></i>
         </button>
-        <button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110" aria-label="Scroll Bottom">
+        <button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110" aria-label="Scroll to Bottom">
             <i class="fas fa-arrow-down"></i>
         </button>
     </div>
@@ -657,7 +673,7 @@
         <div class="modal-content bg-white dark:bg-darkCard w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] border border-slate-100 dark:border-darkBorder">
             <div class="p-6 border-b border-slate-100 dark:border-darkBorder flex justify-between items-center sticky top-0 bg-white dark:bg-darkCard z-10">
                 <h3 id="modalTitle" class="text-lg font-bold dark:text-white"></h3>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-lightSub dark:text-white hover:text-accent transition-colors" aria-label="Close">
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-lightSub dark:text-white hover:text-accent transition-colors" aria-label="Close Modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -735,8 +751,6 @@
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
                 valIntegrity: "Integrity", valProfessional: "Professionalism", valSecurity: "Security", valService: "Best Service", valSpeed: "Speed",
-                
-                // UPDATED PRIVACY POLICY (EN)
                 modalPrivacyTitle: "Privacy Policy", 
                 modalPrivacyBody: `
                     <div class="space-y-6">
@@ -767,8 +781,6 @@
                         </section>
                     </div>
                 `,
-                
-                // UPDATED TERMS OF SERVICE (EN)
                 modalTermsTitle: "Terms of Service", 
                 modalTermsBody: `
                     <div class="space-y-6">
@@ -829,7 +841,7 @@
                     </div>
                 `,
                 dateJob3: "Jul 2025 - Sep 2025",
-                descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global yang menguntungkan di Shopify, mengawasi rantai pasok dari China ke AS.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop melalui optimasi marketplace strategis dan brand building.</span></li></ul>`,
+                descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global yang menguntungkan di Shopify, mengawasi rantai pasok dari China ke AS.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop melalui optimasi marketplace strategis dan *brand building*.</span></li></ul>`,
                 dateJob4: "Mei 2025 - Jul 2025", titleJob4: "Pemasaran Afiliasi",
                 descJob4: `<p>Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee, berfokus pada kurasi produk pilihan untuk menarik audiens spesifik.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 mt-1 text-xs"></i><span>Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 mt-1 text-xs"></i><span>Mencapai <strong>57 penjualan</strong> di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.</span></li></ul>`,
                 dateJob5: "Jan 2024 - Apr 2025", titleJob5: "Pemilik, Bisnis Kue", subJob5: "Wiraswasta",
@@ -910,8 +922,10 @@
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
             }
-            animateCounters();
+            // Use Passive event listener for scroll to improve performance
+            window.addEventListener('scroll', triggerReveal, { passive: true });
             triggerReveal();
+            animateCounters();
         });
 
         function setLanguage(lang) {
@@ -940,7 +954,7 @@
         function renderCerts() {
             const container = document.getElementById('certGrid');
             container.innerHTML = certsData.map(c => `
-                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder flex items-center gap-4 hover:shadow-soft hover-soft transition-all group" aria-label="${c.title}">
+                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder flex items-center gap-4 hover:shadow-soft hover-soft transition-all group" aria-label="${c.title} by ${c.issuer}">
                     <div class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lg ${c.color}"><i class="${c.icon}"></i></div>
                     <div><h4 class="font-bold text-xs leading-snug group-hover:text-accent transition-colors dark:text-white">${c.title}</h4><p class="text-[10px] text-lightSub dark:text-darkSub uppercase tracking-wide">${c.issuer}</p></div>
                 </a>
@@ -1005,7 +1019,8 @@
             const scrollWidget = document.querySelector('.scroll-widget');
             if (window.scrollY > 300) { scrollWidget.classList.add('visible'); } else { scrollWidget.classList.remove('visible'); }
         }
-        window.addEventListener('scroll', triggerReveal);
+        
+        // No duplicate event listener here, handled in DOMContentLoaded
 
         function animateCounters() {
             const counters = document.querySelectorAll('.counter');

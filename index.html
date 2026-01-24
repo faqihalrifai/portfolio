@@ -7,6 +7,16 @@
     <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Digital Marketing Specialist, SEO Strategist & Growth Hacker.">
     <meta name="theme-color" content="#4f46e5">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZEFRB74DXL');
+    </script>
+
     <!-- SECURITY HEADERS -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -42,12 +52,12 @@
                         darkBg: '#0f172a',        
                         lightText: '#0f172a',      
                         lightSub: '#475569',       
-                        darkText: '#f8fafc',       
+                        darkText: '#f8fafc',        
                         darkSub: '#cbd5e1',        
-                        darkCard: '#1e293b',       
-                        darkBorder: '#334155',     
+                        darkCard: '#1e293b',        
+                        darkBorder: '#334155',      
                         accent: '#4f46e5',        
-                        accentHover: '#4338ca',    
+                        accentHover: '#4338ca',     
                     },
                     boxShadow: {
                         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
@@ -59,6 +69,7 @@
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
                         'scroll': 'scroll 40s linear infinite',
                         'width-grow': 'widthGrow 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -148,6 +159,39 @@
         .bento-card { background: linear-gradient(145deg, #ffffff, #f8fafc); }
         .dark .bento-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
 
+        /* Premium Service Card Specifics */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+        }
+        .dark .premium-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Service Accordion Styles */
+        .service-accordion-item {
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.3s ease;
+        }
+        .dark .service-accordion-item {
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .service-accordion-item:last-child { border-bottom: none; }
+        
+        .service-trigger[aria-expanded="true"] .chevron {
+            transform: rotate(180deg);
+        }
+        .service-trigger[aria-expanded="true"] {
+            color: #4f46e5;
+        }
+        .dark .service-trigger[aria-expanded="true"] {
+            color: #818cf8;
+        }
+
         .reveal {
             opacity: 0; transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -206,7 +250,7 @@
                 <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-700 dark:hover:text-white transition-all" data-i18n="navSkills">Skills</a>
                 <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-700 dark:hover:text-white transition-all" data-i18n="navExperience">Experience</a>
                 <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-700 dark:hover:text-white transition-all" data-i18n="navGallery">Gallery</a>
-                <a href="#certificates" class="nav-link px-4 py-1.5 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-700 dark:hover:text-white transition-all" data-i18n="navCertificates">Certificates</a>
+                <a href="#services" class="nav-link px-4 py-1.5 text-xs font-semibold rounded-full text-lightSub hover:bg-slate-50 hover:text-accent dark:text-darkSub dark:hover:bg-slate-700 dark:hover:text-white transition-all" data-i18n="navServices">Services</a>
             </div>
 
             <!-- Tools & Toggle -->
@@ -237,6 +281,7 @@
                 <a href="#competence" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navSkills">Skills</a>
                 <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navExperience">Experience</a>
                 <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navGallery">Gallery</a>
+                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-medium text-lightSub dark:text-darkSub hover:text-accent hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" data-i18n="navServices">Services</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
                     <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white" aria-label="Switch Language"><i class="fas fa-globe"></i> <span class="current-lang-label">EN</span></button>
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold active:scale-95 transition-transform dark:text-white" aria-label="Toggle Theme"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-yellow-400"></i></button>
@@ -360,7 +405,8 @@
                                 <div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase"></i></div>
                                 <h3 class="text-lg font-bold dark:text-white" data-i18n="compProfTitle">Professional Skills</h3>
                             </div>
-                            <div class="grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-5 skills-container">
+                            <!-- FIXED MOBILE LAYOUT: Changed grid-cols-2 to grid-cols-1 for mobile -->
+                            <div class="grid grid-cols-1 md:grid-cols-1 gap-4 md:gap-5 skills-container">
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Communication</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
@@ -368,7 +414,6 @@
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Analytical Thinking</span><span class="text-xs font-bold text-accent">92%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 92%"></div></div></div>
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Adaptability</span><span class="text-xs font-bold text-accent">94%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 94%"></div></div></div>
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Negotiation</span><span class="text-xs font-bold text-accent">88%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 88%"></div></div></div>
-                                <!-- NEW 8th SKILL -->
                                 <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span><span class="text-xs font-bold text-accent">93%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 93%"></div></div></div>
                             </div>
                         </div>
@@ -415,7 +460,7 @@
             </div>
         </section>
 
-        <!-- Experience Section (Compact Boxy Cards) -->
+        <!-- Experience Section (Fixed Desktop Layout) -->
         <section id="experience" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden defer-render">
             <div class="max-w-5xl mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 reveal">
@@ -429,7 +474,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-semibold text-accent mb-4">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob1">Jan 2026 - Present</span>
@@ -444,7 +490,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Content Writer (Internship)</h3>
                                     <p class="text-sm font-semibold text-emerald-600 mb-4">Garap Media Nusantara</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
@@ -459,7 +506,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Marketplace Administrator</h3>
                                     <p class="text-sm font-semibold text-orange-500 mb-4">Shopify (Entrepreneur) & Shopee</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
@@ -474,7 +522,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-semibold text-pink-600 mb-4">Shopee</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob4">May 2025 - Jul 2025</span>
@@ -489,7 +538,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob5">Owner, Cake Business</h3>
                                     <p class="text-sm font-semibold text-yellow-600 mb-4" data-i18n="subJob5">Entrepreneur</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
@@ -504,7 +554,8 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:mx-0">
+                                <!-- Changed max-w-md to md:max-w-full -->
+                                <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="subJob6">Web Development Venture</p>
                                     <span class="md:hidden inline-block text-[10px] font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded mb-4" data-i18n="dateJob6">May 2023 - Dec 2023</span>
@@ -595,6 +646,130 @@
                 </div>
             </div>
         </section>
+
+        <!-- NEW EXCLUSIVE SERVICES SECTION (REMASTERED) -->
+        <section id="services" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden">
+             <!-- Abstract Background Blobs -->
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+             <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
+                <!-- Luxury Glass Card -->
+                <div class="premium-card rounded-[2rem] p-8 md:p-12">
+                     
+                     <div class="text-center mb-12">
+                        <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3 block">Premium Selection</span>
+                        <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4" data-i18n="serviceTitle">Exclusive Services</h2>
+                        <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+                     </div>
+
+                     <!-- Minimalist Accordion List -->
+                     <div class="flex flex-col">
+                        
+                        <!-- Service 1: Website -->
+                        <div class="service-accordion-item group" id="service-web">
+                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('web-details')" aria-expanded="false">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servWebTitle">Website Creation</h3>
+                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Landing Pages, Company Profile, Portfolio.</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
+                            </button>
+                            <div id="web-details" class="hidden pb-6 pl-2 animate-slide-up">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Website:</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <select id="opt-web" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
+                                        <option value="Landing Page">Landing Page (Promosi)</option>
+                                        <option value="Company Profile">Company Profile (Bisnis)</option>
+                                        <option value="Portfolio Personal">Portfolio Personal</option>
+                                        <option value="Toko Online Simple">Toko Online Simple</option>
+                                    </select>
+                                    <button onclick="orderService('Pembuatan Website', 'opt-web')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
+                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: Academic Tasks -->
+                        <div class="service-accordion-item group" id="service-acad">
+                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('acad-details')" aria-expanded="false">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servAcadTitle">Academic Assistance</h3>
+                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Skripsi, Jurnal, Tugas Kuliah.</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
+                            </button>
+                            <div id="acad-details" class="hidden pb-6 pl-2 animate-slide-up">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Tugas:</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <select id="opt-acad" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
+                                        <option value="Bimbingan Skripsi">Bimbingan Skripsi</option>
+                                        <option value="Review Jurnal">Review Jurnal</option>
+                                        <option value="Makalah/Paper">Makalah/Paper</option>
+                                        <option value="Presentasi PPT">Presentasi PPT Profesional</option>
+                                    </select>
+                                    <button onclick="orderService('Bantuan Akademik', 'opt-acad')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
+                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: Content Writing -->
+                        <div class="service-accordion-item group" id="service-content">
+                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('content-details')" aria-expanded="false">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servContentTitle">Content Writing</h3>
+                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Artikel SEO, Berita, Deskripsi Produk.</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
+                            </button>
+                            <div id="content-details" class="hidden pb-6 pl-2 animate-slide-up">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Konten:</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <select id="opt-content" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
+                                        <option value="Artikel SEO">Artikel SEO (Blog/Website)</option>
+                                        <option value="Copywriting Iklan">Copywriting Iklan (FB/IG Ads)</option>
+                                        <option value="Deskripsi Produk">Deskripsi Produk (E-commerce)</option>
+                                        <option value="Press Release">Press Release / Berita</option>
+                                    </select>
+                                    <button onclick="orderService('Penulisan Konten', 'opt-content')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
+                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: Digital Ads -->
+                        <div class="service-accordion-item group" id="service-ads">
+                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('ads-details')" aria-expanded="false">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servSeoTitle">SEO & Digital Ads</h3>
+                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Google Ads, Meta Ads, Audit SEO.</p>
+                                </div>
+                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
+                            </button>
+                            <div id="ads-details" class="hidden pb-6 pl-2 animate-slide-up">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Layanan Iklan:</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <select id="opt-ads" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
+                                        <option value="Google Ads Setup">Setup Google Ads</option>
+                                        <option value="Meta Ads Management">Meta Ads Management (FB/IG)</option>
+                                        <option value="Audit SEO Website">Audit SEO Website</option>
+                                        <option value="Riset Keyword">Riset Keyword Mendalam</option>
+                                    </select>
+                                    <button onclick="orderService('SEO & Digital Ads', 'opt-ads')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
+                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                     </div>
+                </div>
+             </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -669,9 +844,43 @@
         const badgeClass = "px-3 py-1.5 bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-soft select-none";
         document.querySelectorAll('.badge-skill').forEach(el => el.className = badgeClass);
 
+        // Service Functionality
+        function toggleService(detailsId) {
+            const details = document.getElementById(detailsId);
+            const trigger = details.previousElementSibling;
+            
+            // Close all other details
+            document.querySelectorAll('[id$="-details"]').forEach(el => {
+                if(el.id !== detailsId) {
+                    el.classList.add('hidden');
+                    el.previousElementSibling.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            const isHidden = details.classList.contains('hidden');
+            if (isHidden) {
+                details.classList.remove('hidden');
+                trigger.setAttribute('aria-expanded', 'true');
+            } else {
+                details.classList.add('hidden');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        function orderService(serviceName, selectId) {
+            const select = document.getElementById(selectId);
+            const subService = select.value;
+            const phone = "62859148219009";
+            
+            // Format message for WhatsApp
+            const text = `Halo, saya tertarik dengan layanan *${serviceName}*.%0A%0APilihan Spesifik: *${subService}*%0A%0AMohon informasi lebih lanjut mengenai harga dan proses pengerjaannya. Terima kasih.`;
+            
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
         const translations = {
             en: {
-                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Certificates", navGallery: "Gallery", btnContact: "Contact Me",
+                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Certificates", navGallery: "Gallery", navServices: "Services", btnContact: "Contact Me",
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
                 heroDesc: "Digital Marketing Specialist focused on <strong>SEO</strong>, <strong>Content Strategy</strong>, and <strong>E-commerce Growth</strong> for tangible and measurable business results.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Google Ranking", statClients: "Personal Clients",
@@ -715,7 +924,7 @@
                 dateJob5: "Jan 2024 - Apr 2025", titleJob5: "Owner, Cake Business", subJob5: "Entrepreneur",
                 descJob5: `<p>Successfully built and managed a cake business from scratch, focusing on product quality and customer satisfaction.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 mt-1 text-xs"></i><span>Gained <strong>437 loyal customers</strong> through word-of-mouth and social media strategies.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 mt-1 text-xs"></i><span>Achieved consistent daily revenue of over <strong>Rp500,000</strong>.</span></li></ul>`,
                 dateJob6: "May 2023 - Dec 2023", subJob6: "Web Development Venture",
-                descJob6: `<p>Served as Customer Service and Co-founder in a web development venture built with partners.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Responsible for building client relationships, identifying needs, and managing expectations, directly contributing to acquiring <strong>6 projects</strong> within 1 month.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Maintained high customer satisfaction with an average rating of <strong>4.9 to 5 stars</strong>.</span></li></ul>`,
+                descJob6: `<p>Served as Customer Service and Co-founder in a web development venture built with partners.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan <strong>6 proyek</strong> dalam 1 bulan sejak pendirian bisnis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 mt-1 text-xs"></i><span>Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating <strong>4.9 hingga 5 bintang</strong>.</span></li></ul>`,
                 certTitle: "Professional Certifications", btnAllCerts: "View 45+ Certificates on LinkedIn",
                 galleryTitle: "Project Gallery", galleryDesc: "Visual evidence of results and strategies.",
                 galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Project Showreel",
@@ -723,6 +932,14 @@
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
                 valIntegrity: "Integrity", valProfessional: "Professionalism", valSecurity: "Security", valService: "Best Service", valSpeed: "Speed",
+                
+                // New Services (EN)
+                serviceTitle: "Exclusive Services",
+                servWebTitle: "Website Creation", 
+                servAcadTitle: "Academic Assistance", 
+                servContentTitle: "Content Writing", 
+                servSeoTitle: "SEO & Digital Ads", 
+
                 modalPrivacyTitle: "Privacy Policy", 
                 modalPrivacyBody: `
                     <div class="space-y-6">
@@ -777,7 +994,7 @@
                 `
             },
             id: {
-                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", navGallery: "Galeri", btnContact: "Hubungi Saya",
+                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", navGallery: "Galeri", navServices: "Layanan", btnContact: "Hubungi Saya",
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
                 heroDesc: "Spesialis Pemasaran Digital yang berfokus pada <strong>SEO</strong>, <strong>Strategi Konten</strong>, dan <strong>Pertumbuhan E-commerce</strong> untuk hasil bisnis yang nyata dan terukur.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking Google", statClients: "Klien Personal",
@@ -827,6 +1044,14 @@
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
                 valIntegrity: "Integritas", valProfessional: "Profesionalisme", valSecurity: "Keamanan", valService: "Pelayanan Terbaik", valSpeed: "Kecepatan",
+                
+                // New Services (ID)
+                serviceTitle: "Layanan Eksklusif", 
+                servWebTitle: "Pembuatan Website", 
+                servAcadTitle: "Tugas Akademik", 
+                servContentTitle: "Penulisan Konten", 
+                servSeoTitle: "SEO & Iklan Digital", 
+
                 modalPrivacyTitle: "Kebijakan Privasi", modalPrivacyBody: `
                     <div class="space-y-6">
                         <p class="text-sm text-lightSub dark:text-darkSub">Terakhir Diperbarui: Januari 2026</p>

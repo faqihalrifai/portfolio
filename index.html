@@ -7,19 +7,8 @@
     <meta name="description" content="Portfolio of Muhammad Faqih Al Rifai - Digital Marketing Specialist, SEO Strategist & Growth Hacker.">
     <meta name="theme-color" content="#4f46e5">
     
-    <!-- 1. GOOGLE ADSENSE VERIFICATION -->
+    <!-- VERIFICATION META (Tetap di Head agar terbaca Crawler) -->
     <meta name="google-adsense-account" content="ca-pub-2062441269413992">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
-    
-    <!-- 2. GOOGLE ANALYTICS (GTAG.JS) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-ZEFRB74DXL');
-    </script>
 
     <!-- SECURITY HEADERS -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -28,7 +17,7 @@
     <!-- PERFORMANCE: Critical Assets -->
     <link rel="preload" as="image" href="myphot.jpeg" fetchpriority="high">
     
-    <!-- Fonts -->
+    <!-- Fonts (Optimized with display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1260,6 +1249,44 @@
             }, { threshold: 0.5 });
             counters.forEach(c => observer.observe(c));
         }
+        
+        // --- LAZY LOAD THIRD-PARTY SCRIPTS (FOR GREEN SCORE) ---
+        // Delays loading heavy scripts (AdSense, Analytics) until user interacts
+        // This significantly improves initial PageSpeed score (LCP/TBT)
+        
+        let scriptsLoaded = false;
+        function loadThirdPartyScripts() {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+
+            console.log('Lazy loading third-party scripts...');
+
+            // 1. Google AdSense (Lazy)
+            const adSenseScript = document.createElement('script');
+            adSenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992";
+            adSenseScript.async = true;
+            adSenseScript.crossOrigin = "anonymous";
+            document.head.appendChild(adSenseScript);
+
+            // 2. Google Analytics (Lazy)
+            const gtagScript = document.createElement('script');
+            gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL";
+            gtagScript.async = true;
+            document.head.appendChild(gtagScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZEFRB74DXL');
+        }
+
+        // Trigger on interaction or delay
+        const events = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
+        events.forEach(event => window.addEventListener(event, loadThirdPartyScripts, { once: true }));
+        
+        // Fallback: Load after 4 seconds if no interaction
+        setTimeout(loadThirdPartyScripts, 4000);
+
     </script>
 </body>
 </html>

@@ -1,13 +1,32 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- 1. SEO META TAGS -->
-    <title>Muhammad Faqih Al Rifai | SEO Specialist & Digital Marketer</title>
-    <meta name="description" content="Portfolio Muhammad Faqih Al Rifai - SEO Specialist & Digital Marketer. Berpengalaman meningkatkan trafik organik & ranking #1 Google melalui strategi konten berbasis data.">
+    <!-- 1. SEO META TAGS (OPTIMIZED) -->
+    <title>Muhammad Faqih Al Rifai | SEO Specialist & Digital Marketer No.1</title>
+    <meta name="description" content="Muhammad Faqih Al Rifai adalah SEO Specialist & Digital Marketer terpercaya. Ahli strategi konten, optimasi ranking Google #1, dan pertumbuhan bisnis digital.">
+    <meta name="keywords" content="Muhammad Faqih Al Rifai, Faqih Al Rifai, SEO Specialist Indonesia, Digital Marketer, Jasa SEO, Content Writer Terpercaya, Konsultan Digital Marketing">
+    <meta name="author" content="Muhammad Faqih Al Rifai">
     <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://faqihalrf.netlify.app/">
 
-    <!-- 2. SCHEMA MARKUP (JSON-LD) - AGAR DIKENALI GOOGLE SEBAGAI 'PERSON' -->
+    <!-- 2. VERIFIKASI GOOGLE -->
+    <meta name="google-adsense-account" content="ca-pub-2062441269413992">
+    
+    <!-- 3. GOOGLE ANALYTICS & ADSENSE -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZEFRB74DXL');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
+
+    <!-- 4. SCHEMA MARKUP (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -28,30 +47,26 @@
     }
     </script>
 
-    <!-- 3. FAVICON & MANIFEST -->
+    <!-- 5. FAVICON & MANIFEST -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" href="favicon.ico">
     
-    <!-- 4. GOOGLE ADSENSE VERIFICATION -->
-    <meta name="google-adsense-account" content="ca-pub-2062441269413992">
-
-    <!-- 5. SECURITY & PERFORMANCE -->
+    <!-- 6. SECURITY & PERFORMANCE -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="preload" as="image" href="myphot.jpeg" fetchpriority="high">
     
-    <!-- 6. FONTS & ICONS -->
+    <!-- 7. FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- 7. CSS FRAMEWORK -->
+    <!-- 8. CSS FRAMEWORK -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Tailwind Config -->
@@ -67,8 +82,8 @@
                     colors: {
                         lightBg: '#f8fafc',        
                         darkBg: '#0f172a',        
-                        lightText: '#0f172a',      
-                        lightSub: '#475569',       
+                        lightText: '#0f172a',       
+                        lightSub: '#475569',        
                         darkText: '#f8fafc',        
                         darkSub: '#cbd5e1',        
                         darkCard: '#1e293b',        
@@ -177,36 +192,25 @@
         .dark .bento-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
 
         /* Premium Service Card Specifics */
-        .premium-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+        .service-card-modern {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .dark .premium-card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        .dark .service-card-modern {
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+        .service-card-modern.expanded {
+            border-color: #4f46e5;
+            box-shadow: 0 10px 40px -10px rgba(79, 70, 229, 0.15);
         }
         
-        /* Service Accordion Styles */
-        .service-accordion-item {
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        .service-header { cursor: pointer; }
+        .service-header .icon-wrapper {
             transition: all 0.3s ease;
         }
-        .dark .service-accordion-item {
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
-        }
-        .service-accordion-item:last-child { border-bottom: none; }
-        
-        .service-trigger[aria-expanded="true"] .chevron {
-            transform: rotate(180deg);
-        }
-        .service-trigger[aria-expanded="true"] {
-            color: #4f46e5;
-        }
-        .dark .service-trigger[aria-expanded="true"] {
-            color: #818cf8;
+        .service-card-modern.expanded .icon-wrapper {
+            background-color: #4f46e5;
+            color: white;
         }
 
         .reveal {
@@ -226,11 +230,6 @@
             opacity: 0; pointer-events: none; transform: translateY(10px);
         }
         .scroll-widget.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
-
-        /* Skill Bar */
-        .skill-group:hover .skill-fill { filter: drop-shadow(0 0 4px rgba(79, 70, 229, 0.6)); }
-        .skill-fill { width: 0; transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .skill-fill.animate { width: var(--target-width); }
 
         @media (max-width: 768px) {
             .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0) 60%); }
@@ -344,7 +343,7 @@
                     <div class="relative z-10 w-full max-w-sm lg:max-w-md">
                         <div class="relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-800 shadow-2xl p-3 border border-slate-100 dark:border-slate-800 animate-float hover:shadow-glow transition-shadow duration-500">
                             <div class="rounded-[1.5rem] overflow-hidden bg-slate-200 dark:bg-slate-900 aspect-[4/5] relative group">
-                                <img src="myphot.jpeg" width="400" height="500" sizes="(max-width: 768px) 100vw, 50vw" alt="Muhammad Faqih Al Rifai - Digital Marketing Specialist" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" fetchpriority="high" decoding="sync">
+                                <img src="myphot.jpeg" width="400" height="500" sizes="(max-width: 768px) 100vw, 50vw" alt="Muhammad Faqih Al Rifai - SEO Specialist & Digital Marketer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" fetchpriority="high" decoding="sync">
                             </div>
                         </div>
                         <div class="absolute top-8 -left-2 lg:-left-8 bg-white dark:bg-slate-800 p-3 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-3 animate-slide-up hover-soft" style="animation-delay: 0.4s;">
@@ -379,97 +378,81 @@
             </div>
         </section>
 
-        <!-- COMPETENCE (Updated Tools & Grid) -->
-        <section id="competence" class="py-24 bg-white dark:bg-darkBg relative defer-render">
-             <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="text-3xl font-bold mb-3 dark:text-white" data-i18n="compTitle">Core Competencies</h2>
-                    <p class="text-lightSub dark:text-darkSub text-sm max-w-xl mx-auto" data-i18n="compDesc">Holistic strategy combining data analysis, creative content, and technical execution.</p>
+        <!-- COMPETENCE (Updated: Optimized for Mobile Scrolling) -->
+        <section id="competence" class="py-16 md:py-24 bg-white dark:bg-darkBg relative defer-render">
+             <div class="max-w-6xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-8 md:mb-12 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2 md:mb-3 dark:text-white" data-i18n="compTitle">Core Competencies</h2>
+                    <p class="text-lightSub dark:text-darkSub text-xs md:text-sm max-w-xl mx-auto" data-i18n="compDesc">Holistic strategy combining data analysis, creative content, and technical execution.</p>
                 </div>
                 
-                <div class="bento-card rounded-[2.5rem] shadow-soft p-8 md:p-12 relative overflow-hidden reveal hover-soft">
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
-                        <!-- Strategy -->
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-700/50">
-                                <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent"><i class="fas fa-chess-queen"></i></div>
-                                <h3 class="text-lg font-bold dark:text-white" data-i18n="compStratTitle">Strategic Marketing</h3>
+                <div class="bento-card rounded-[1.5rem] md:rounded-[2rem] shadow-soft p-4 md:p-8 relative overflow-hidden reveal hover-soft">
+                    <!-- Hide blobs on mobile to reduce noise/scroll lag -->
+                    <div class="hidden md:block absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="hidden md:block absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <!-- Unified Grid Container -->
+                    <div class="relative z-10 grid md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-700/50">
+                        <!-- Strategy Column -->
+                        <div class="md:pr-4 pb-4 md:pb-0">
+                            <div class="flex items-center gap-2 mb-3 md:mb-4 pb-1 md:pb-2">
+                                <div class="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent"><i class="fas fa-chess-queen text-xs md:text-sm"></i></div>
+                                <h3 class="text-sm md:text-base font-bold dark:text-white" data-i18n="compStratTitle">Strategic Marketing</h3>
                             </div>
-                            <ul class="space-y-4">
-                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compSeoTitle">SEO Mastery</h4><p class="text-xs text-lightSub dark:text-darkSub mt-1 leading-snug" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO.</p></div></li>
-                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compAdsTitle">Paid Advertising</h4><p class="text-xs text-lightSub dark:text-darkSub mt-1 leading-snug" data-i18n="compAdsDesc">Google, Meta, TikTok Ads.</p></div></li>
-                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compContentTitle">Content Strategy</h4><p class="text-xs text-lightSub dark:text-darkSub mt-1 leading-snug" data-i18n="compContentDesc">Copywriting & Editorial Planning.</p></div></li>
-                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors dark:text-slate-200">Viral Marketing</h4><p class="text-xs text-lightSub dark:text-darkSub mt-1 leading-snug">Trend analysis & Short-form video.</p></div></li>
-                                <li class="flex items-start gap-3 group"><i class="fas fa-check-circle text-accent mt-1 text-xs group-hover:scale-110 transition-transform"></i><div><h4 class="text-sm font-bold group-hover:text-accent transition-colors dark:text-slate-200">Growth Hacking</h4><p class="text-xs text-lightSub dark:text-darkSub mt-1 leading-snug">Rapid experimentation & Funnel optimization.</p></div></li>
+                            <!-- 2 Col Grid on Mobile for Density -->
+                            <ul class="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
+                                <li class="flex items-start gap-2 group"><i class="fas fa-check-circle text-accent mt-0.5 md:mt-1 text-[10px] group-hover:scale-110 transition-transform"></i><div><h4 class="text-[11px] md:text-xs font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compSeoTitle">SEO Mastery</h4><p class="hidden md:block text-[10px] text-lightSub dark:text-darkSub leading-snug" data-i18n="compSeoDesc">On-page, Off-page, Technical SEO.</p></div></li>
+                                <li class="flex items-start gap-2 group"><i class="fas fa-check-circle text-accent mt-0.5 md:mt-1 text-[10px] group-hover:scale-110 transition-transform"></i><div><h4 class="text-[11px] md:text-xs font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compAdsTitle">Paid Advertising</h4><p class="hidden md:block text-[10px] text-lightSub dark:text-darkSub leading-snug" data-i18n="compAdsDesc">Google, Meta, TikTok Ads.</p></div></li>
+                                <li class="flex items-start gap-2 group"><i class="fas fa-check-circle text-accent mt-0.5 md:mt-1 text-[10px] group-hover:scale-110 transition-transform"></i><div><h4 class="text-[11px] md:text-xs font-bold group-hover:text-accent transition-colors dark:text-slate-200" data-i18n="compContentTitle">Content Strategy</h4><p class="hidden md:block text-[10px] text-lightSub dark:text-darkSub leading-snug" data-i18n="compContentDesc">Copywriting & Editorial Planning.</p></div></li>
+                                <li class="flex items-start gap-2 group"><i class="fas fa-check-circle text-accent mt-0.5 md:mt-1 text-[10px] group-hover:scale-110 transition-transform"></i><div><h4 class="text-[11px] md:text-xs font-bold group-hover:text-accent transition-colors dark:text-slate-200">Viral Marketing</h4><p class="hidden md:block text-[10px] text-lightSub dark:text-darkSub leading-snug">Trend analysis.</p></div></li>
+                                <li class="flex items-start gap-2 group col-span-2 md:col-span-1"><i class="fas fa-check-circle text-accent mt-0.5 md:mt-1 text-[10px] group-hover:scale-110 transition-transform"></i><div><h4 class="text-[11px] md:text-xs font-bold group-hover:text-accent transition-colors dark:text-slate-200">Growth Hacking</h4><p class="hidden md:block text-[10px] text-lightSub dark:text-darkSub leading-snug">Rapid experimentation.</p></div></li>
                             </ul>
                         </div>
-                        <!-- Tech Stack (UPDATED) -->
-                        <div class="space-y-6 lg:border-x lg:border-slate-100 lg:dark:border-slate-700/50 lg:px-8">
-                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-700/50">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600"><i class="fas fa-code-branch"></i></div>
-                                <h3 class="text-lg font-bold dark:text-white" data-i18n="compTechTitle">Tools & Tech</h3>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="badge-skill">WordPress</span><span class="badge-skill">Google Analytics</span><span class="badge-skill">Google Trends</span><span class="badge-skill">Gemini AI Pro</span><span class="badge-skill">ChatGPT</span><span class="badge-skill">Google Tag Manager</span><span class="badge-skill">Meta Ads</span><span class="badge-skill">Google Ads</span>
-                                <span class="badge-skill">Excel</span><span class="badge-skill">Word</span><span class="badge-skill">Figma</span><span class="badge-skill">Shopify</span><span class="badge-skill">Shopee</span><span class="badge-skill">TikTok</span><span class="badge-skill">VSCode</span><span class="badge-skill">Canva Pro</span><span class="badge-skill">CapCut</span><span class="badge-skill">Trello</span><span class="badge-skill">Notion</span><span class="badge-skill">Slack</span><span class="badge-skill">Semrush</span>
-                            </div>
-                        </div>
-                        <!-- Soft Skills -->
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-3 mb-2 pb-4 border-b border-slate-100 dark:border-slate-700/50">
-                                <div class="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase"></i></div>
-                                <h3 class="text-lg font-bold dark:text-white" data-i18n="compProfTitle">Professional Skills</h3>
-                            </div>
-                            <!-- FIXED MOBILE LAYOUT: Changed grid-cols-2 to grid-cols-1 for mobile -->
-                            <div class="grid grid-cols-1 md:grid-cols-1 gap-4 md:gap-5 skills-container">
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillData">Data Storytelling</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillPM">Project Management</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillComm">Communication</span><span class="text-xs font-bold text-accent">95%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillLead">Leadership</span><span class="text-xs font-bold text-accent">90%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 90%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Analytical Thinking</span><span class="text-xs font-bold text-accent">92%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 92%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Adaptability</span><span class="text-xs font-bold text-accent">94%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 94%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub">Negotiation</span><span class="text-xs font-bold text-accent">88%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 88%"></div></div></div>
-                                <div class="skill-group cursor-pointer"><div class="flex justify-between mb-1"><span class="text-xs font-bold text-lightSub dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span><span class="text-xs font-bold text-accent">93%</span></div><div class="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 93%"></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- EDUCATION (Defer Render) -->
-        <section id="education" class="py-12 bg-lightBg dark:bg-darkBg relative defer-render">
-            <div class="max-w-2xl mx-auto px-6">
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 shadow-soft border border-slate-100 dark:border-darkBorder reveal hover-soft">
-                    <h2 class="text-xl font-bold mb-6 text-center flex items-center justify-center gap-2 dark:text-white">
-                        <i class="fas fa-graduation-cap text-accent"></i> 
-                        <span data-i18n="eduTitle">Education</span>
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="min-w-[4px] h-full bg-slate-200 dark:bg-slate-700 rounded-full mt-1.5 relative">
-                                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full ring-4 ring-white dark:ring-slate-800 shadow-glow"></div>
+                        <!-- Tech Stack Column -->
+                        <div class="pt-4 md:pt-0 md:px-4 pb-4 md:pb-0">
+                            <div class="flex items-center gap-2 mb-3 md:mb-4 pb-1 md:pb-2">
+                                <div class="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600"><i class="fas fa-code-branch text-xs md:text-sm"></i></div>
+                                <h3 class="text-sm md:text-base font-bold dark:text-white" data-i18n="compTechTitle">Tools & Tech</h3>
                             </div>
-                            <div class="w-full">
-                                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                                    <h3 class="text-sm font-bold text-lightText dark:text-white">STMIK IKMI Cirebon</h3>
-                                    <span class="text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-indigo-800">Current - Semester 4</span>
-                                </div>
-                                <p class="text-xs text-lightSub dark:text-darkSub font-semibold">Informatics Engineering (Teknik Informatika)</p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-1.5">
+                                <span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">WordPress</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">GA4</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Trends</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Gemini AI</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">ChatGPT</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">GTM</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Meta Ads</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">G-Ads</span>
+                                <span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Excel</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Figma</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Shopify</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Shopee</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">TikTok</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Canva</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">CapCut</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Trello</span><span class="badge-skill text-[9px] md:text-[10px] px-2 py-1 md:px-3 md:py-1.5">Semrush</span>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="min-w-[4px] h-full bg-slate-200 dark:bg-slate-700 rounded-full mt-1.5 relative">
-                                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-emerald-500 rounded-full ring-4 ring-white dark:ring-slate-800"></div>
+
+                        <!-- Professional Skills Column -->
+                        <div class="pt-4 md:pt-0 md:pl-4">
+                            <div class="flex items-center gap-2 mb-3 md:mb-4 pb-1 md:pb-2">
+                                <div class="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500"><i class="fas fa-briefcase text-xs md:text-sm"></i></div>
+                                <h3 class="text-sm md:text-base font-bold dark:text-white" data-i18n="compProfTitle">Professional Skills</h3>
                             </div>
-                            <div class="w-full">
-                                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                                    <h3 class="text-sm font-bold text-lightText dark:text-white">SMAN 5 Cirebon</h3>
-                                    <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800">Class of 2024</span>
+                            <!-- 2 Col Grid on Mobile -->
+                            <div class="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-2.5">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0" data-i18n="skillData">Data Storytelling</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300">Expert</span>
                                 </div>
-                                <p class="text-xs text-lightSub dark:text-darkSub font-semibold">Natural Sciences (IPA)</p>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0" data-i18n="skillPM">Project Management</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300">Expert</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0" data-i18n="skillComm">Communication</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300">Expert</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0" data-i18n="skillProblem">Problem Solving</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300">Advanced</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0" data-i18n="skillLead">Leadership</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300">Advanced</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                    <span class="text-[10px] md:text-[11px] font-bold text-lightText dark:text-slate-200 mb-1 md:mb-0">Negotiation</span>
+                                    <span class="w-fit px-2 py-0.5 rounded text-[8px] md:text-[9px] font-bold uppercase tracking-wide bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300">Specialist</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -491,7 +474,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-accent bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800/50" data-i18n="dateJob1">Jan 2026 - Present</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-semibold text-accent mb-4">PT Madani Abadi Nusantara</p>
@@ -507,7 +489,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-800/50" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Content Writer (Internship)</h3>
                                     <p class="text-sm font-semibold text-emerald-600 mb-4">Garap Media Nusantara</p>
@@ -523,7 +504,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1.5 rounded-full border border-orange-100 dark:border-orange-800/50" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Marketplace Administrator</h3>
                                     <p class="text-sm font-semibold text-orange-500 mb-4">Shopify (Entrepreneur) & Shopee</p>
@@ -539,7 +519,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-full border border-pink-100 dark:border-pink-800/50" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-semibold text-pink-600 mb-4">Shopee</p>
@@ -555,7 +534,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800/50" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white" data-i18n="titleJob5">Owner, Cake Business</h3>
                                     <p class="text-sm font-semibold text-yellow-600 mb-4" data-i18n="subJob5">Entrepreneur</p>
@@ -571,7 +549,6 @@
                         <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 rounded-full border border-teal-100 dark:border-teal-800/50" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
                             <div class="md:col-span-9">
-                                <!-- Changed max-w-md to md:max-w-full -->
                                 <div class="bg-white dark:bg-darkCard p-6 rounded-3xl shadow-soft hover-soft border border-slate-100 dark:border-darkBorder relative w-full max-w-md mx-auto md:max-w-full md:mx-0">
                                     <h3 class="text-lg font-bold mb-1 text-lightText dark:text-white">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="subJob6">Web Development Venture</p>
@@ -585,20 +562,47 @@
             </div>
         </section>
 
-        <!-- QUOTE (Minimalist Small Font) -->
-        <section class="py-20 bg-white dark:bg-darkBg border-y border-slate-100 dark:border-darkBorder defer-render">
-            <div class="max-w-3xl mx-auto px-6 text-center reveal">
-                 <div class="relative py-8 px-6 md:px-12 bg-white dark:bg-slate-900/30 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm backdrop-blur-sm">
-                     <i class="fas fa-quote-left text-2xl text-accent/20 absolute top-4 left-6"></i>
-                     <p class="text-sm md:text-base font-serif italic text-lightText dark:text-slate-300 leading-relaxed mb-4" data-i18n="quoteText">
-                         "One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory."
-                     </p>
-                     <div class="flex items-center justify-center gap-2">
-                        <div class="h-[1px] w-6 bg-accent/20"></div>
-                        <p class="text-[9px] font-bold text-lightSub dark:text-darkSub tracking-widest uppercase">Muhammad Faqih Al Rifai</p>
-                        <div class="h-[1px] w-6 bg-accent/20"></div>
-                     </div>
-                 </div>
+        <!-- EDUCATION (Relocated: Premium Credential Cards) -->
+        <section id="education" class="py-16 bg-white dark:bg-slate-900/30 relative defer-render">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-10 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold dark:text-white mb-2" data-i18n="eduTitle">Academic Credentials</h2>
+                    <p class="text-sm text-lightSub dark:text-darkSub" data-i18n="eduDesc">Foundation of my professional journey.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 reveal">
+                    <!-- Credential 1 -->
+                    <div class="group relative bg-white dark:bg-darkCard rounded-2xl p-1 shadow-sm hover:shadow-glow transition-all duration-300 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
+                        <div class="p-6 pl-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-accent text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <span class="text-[10px] font-bold text-accent bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-800">Current</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-lightText dark:text-white leading-tight mb-1">STMIK IKMI Cirebon</h3>
+                            <p class="text-xs font-semibold text-lightSub dark:text-darkSub uppercase tracking-wide">Informatics Engineering</p>
+                            <p class="text-[10px] text-lightSub dark:text-slate-500 mt-1">Semester 4 - Teknik Informatika</p>
+                        </div>
+                    </div>
+
+                    <!-- Credential 2 -->
+                    <div class="group relative bg-white dark:bg-darkCard rounded-2xl p-1 shadow-sm hover:shadow-glow transition-all duration-300 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
+                        <div class="p-6 pl-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-100 dark:border-emerald-800">Alumni</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-lightText dark:text-white leading-tight mb-1">SMAN 5 Cirebon</h3>
+                            <p class="text-xs font-semibold text-lightSub dark:text-darkSub uppercase tracking-wide">Natural Sciences (IPA)</p>
+                            <p class="text-[10px] text-lightSub dark:text-slate-500 mt-1">Class of 2024</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -664,126 +668,203 @@
             </div>
         </section>
 
-        <!-- NEW EXCLUSIVE SERVICES SECTION (REMASTERED) -->
+        <!-- NEW EXCLUSIVE SERVICES SECTION (MINI CARDS & MODERNIZED) -->
         <section id="services" class="py-24 bg-lightBg dark:bg-darkBg relative overflow-hidden">
              <!-- Abstract Background Blobs -->
              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-             <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
-                <!-- Luxury Glass Card -->
-                <div class="premium-card rounded-[2rem] p-8 md:p-12">
-                     
-                     <div class="text-center mb-12">
-                        <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3 block">Premium Selection</span>
-                        <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4" data-i18n="serviceTitle">Exclusive Services</h2>
-                        <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
-                     </div>
+             <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
+                  
+                  <div class="text-center mb-16">
+                     <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3 block">Premium Selection</span>
+                     <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4" data-i18n="serviceTitle">Exclusive Services</h2>
+                     <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+                  </div>
 
-                     <!-- Minimalist Accordion List -->
-                     <div class="flex flex-col">
+                  <!-- Service Cards Stack (Mini Optimized) -->
+                  <div class="flex flex-col gap-3">
                         
                         <!-- Service 1: Website -->
-                        <div class="service-accordion-item group" id="service-web">
-                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('web-details')" aria-expanded="false">
-                                <div>
-                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servWebTitle">Website Creation</h3>
-                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Landing Pages, Company Profile, Portfolio.</p>
+                        <div class="service-card-modern bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all" id="card-web">
+                            <div class="service-header p-4 md:p-5 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-web')">
+                                <div class="flex items-center gap-4">
+                                    <div class="icon-wrapper w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800 text-accent flex items-center justify-center text-lg shadow-sm">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base md:text-lg font-bold dark:text-white mb-0.5" data-i18n="servWebTitle">Website Creation</h3>
+                                        <p class="text-xs text-lightSub dark:text-darkSub">Landing Pages, Company Profile.</p>
+                                    </div>
                                 </div>
-                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
-                            </button>
-                            <div id="web-details" class="hidden pb-6 pl-2 animate-slide-up">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Website:</label>
-                                <div class="flex flex-col sm:flex-row gap-3">
-                                    <select id="opt-web" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
-                                        <option value="Landing Page">Landing Page (Promosi)</option>
-                                        <option value="Company Profile">Company Profile (Bisnis)</option>
-                                        <option value="Portfolio Personal">Portfolio Personal</option>
-                                        <option value="Toko Online Simple">Toko Online Simple</option>
-                                    </select>
-                                    <button onclick="orderService('Pembuatan Website', 'opt-web')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
-                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
-                                    </button>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lightSub dark:text-darkSub text-xs transition-transform duration-300 chevron">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="service-body hidden px-5 pb-6 border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Pilih Paket</label>
+                                        <select id="opt-web" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                            <option value="Landing Page">Landing Page (Promosi)</option>
+                                            <option value="Company Profile">Company Profile (Bisnis)</option>
+                                            <option value="Portfolio Personal">Portfolio Personal</option>
+                                            <option value="Toko Online Simple">Toko Online Simple</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Nama Anda</label>
+                                        <input type="text" id="name-web" placeholder="Cth: Budi / PT Maju Jaya" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Catatan (Opsional)</label>
+                                        <textarea id="note-web" rows="2" placeholder="Jelaskan kebutuhan spesifik Anda..." class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all resize-none"></textarea>
+                                    </div>
+                                    <div class="md:col-span-2 pt-1">
+                                        <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-3 bg-accent text-white text-xs font-bold rounded-lg hover:bg-accentHover transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                            <span>Konsultasi via WhatsApp</span>
+                                            <i class="fab fa-whatsapp text-sm group-hover:scale-110 transition-transform"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Service 2: Academic Tasks -->
-                        <div class="service-accordion-item group" id="service-acad">
-                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('acad-details')" aria-expanded="false">
-                                <div>
-                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servAcadTitle">Academic Assistance</h3>
-                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Skripsi, Jurnal, Tugas Kuliah.</p>
+                        <div class="service-card-modern bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all" id="card-acad">
+                             <div class="service-header p-4 md:p-5 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-acad')">
+                                <div class="flex items-center gap-4">
+                                    <div class="icon-wrapper w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800 text-accent flex items-center justify-center text-lg shadow-sm">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base md:text-lg font-bold dark:text-white mb-0.5" data-i18n="servAcadTitle">Academic Assistance</h3>
+                                        <p class="text-xs text-lightSub dark:text-darkSub">Skripsi, Jurnal, Tugas Kuliah.</p>
+                                    </div>
                                 </div>
-                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
-                            </button>
-                            <div id="acad-details" class="hidden pb-6 pl-2 animate-slide-up">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Tugas:</label>
-                                <div class="flex flex-col sm:flex-row gap-3">
-                                    <select id="opt-acad" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
-                                        <option value="Bimbingan Skripsi">Bimbingan Skripsi</option>
-                                        <option value="Review Jurnal">Review Jurnal</option>
-                                        <option value="Makalah/Paper">Makalah/Paper</option>
-                                        <option value="Presentasi PPT">Presentasi PPT Profesional</option>
-                                    </select>
-                                    <button onclick="orderService('Bantuan Akademik', 'opt-acad')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
-                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
-                                    </button>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lightSub dark:text-darkSub text-xs transition-transform duration-300 chevron">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="service-body hidden px-5 pb-6 border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Pilih Jenis Tugas</label>
+                                        <select id="opt-acad" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                            <option value="Bimbingan Skripsi">Bimbingan Skripsi</option>
+                                            <option value="Review Jurnal">Review Jurnal</option>
+                                            <option value="Makalah/Paper">Makalah/Paper</option>
+                                            <option value="Presentasi PPT">Presentasi PPT Profesional</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Nama Anda</label>
+                                        <input type="text" id="name-acad" placeholder="Nama Lengkap" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Detail (Deadline, Topik)</label>
+                                        <textarea id="note-acad" rows="2" placeholder="Deadline kapan? Topik tentang apa?" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all resize-none"></textarea>
+                                    </div>
+                                    <div class="md:col-span-2 pt-1">
+                                        <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-3 bg-accent text-white text-xs font-bold rounded-lg hover:bg-accentHover transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                            <span>Konsultasi via WhatsApp</span>
+                                            <i class="fab fa-whatsapp text-sm group-hover:scale-110 transition-transform"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Service 3: Content Writing -->
-                        <div class="service-accordion-item group" id="service-content">
-                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('content-details')" aria-expanded="false">
-                                <div>
-                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servContentTitle">Content Writing</h3>
-                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Artikel SEO, Berita, Deskripsi Produk.</p>
+                         <div class="service-card-modern bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all" id="card-content">
+                             <div class="service-header p-4 md:p-5 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-content')">
+                                <div class="flex items-center gap-4">
+                                    <div class="icon-wrapper w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800 text-accent flex items-center justify-center text-lg shadow-sm">
+                                        <i class="fas fa-pen-nib"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base md:text-lg font-bold dark:text-white mb-0.5" data-i18n="servContentTitle">Content Writing</h3>
+                                        <p class="text-xs text-lightSub dark:text-darkSub">Artikel SEO, Copywriting.</p>
+                                    </div>
                                 </div>
-                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
-                            </button>
-                            <div id="content-details" class="hidden pb-6 pl-2 animate-slide-up">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Jenis Konten:</label>
-                                <div class="flex flex-col sm:flex-row gap-3">
-                                    <select id="opt-content" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
-                                        <option value="Artikel SEO">Artikel SEO (Blog/Website)</option>
-                                        <option value="Copywriting Iklan">Copywriting Iklan (FB/IG Ads)</option>
-                                        <option value="Deskripsi Produk">Deskripsi Produk (E-commerce)</option>
-                                        <option value="Press Release">Press Release / Berita</option>
-                                    </select>
-                                    <button onclick="orderService('Penulisan Konten', 'opt-content')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
-                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
-                                    </button>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lightSub dark:text-darkSub text-xs transition-transform duration-300 chevron">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="service-body hidden px-5 pb-6 border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Pilih Jenis Konten</label>
+                                        <select id="opt-content" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                            <option value="Artikel SEO">Artikel SEO (Blog/Website)</option>
+                                            <option value="Copywriting Iklan">Copywriting Iklan (FB/IG Ads)</option>
+                                            <option value="Deskripsi Produk">Deskripsi Produk (E-commerce)</option>
+                                            <option value="Press Release">Press Release / Berita</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Nama / Brand</label>
+                                        <input type="text" id="name-content" placeholder="Cth: Brand Fashion X" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Brief Singkat / Topik</label>
+                                        <textarea id="note-content" rows="2" placeholder="Topik apa yang ingin ditulis?" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all resize-none"></textarea>
+                                    </div>
+                                    <div class="md:col-span-2 pt-1">
+                                        <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-3 bg-accent text-white text-xs font-bold rounded-lg hover:bg-accentHover transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                            <span>Konsultasi via WhatsApp</span>
+                                            <i class="fab fa-whatsapp text-sm group-hover:scale-110 transition-transform"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Service 4: Digital Ads -->
-                        <div class="service-accordion-item group" id="service-ads">
-                            <button class="service-trigger w-full flex items-center justify-between py-6 text-left group-hover:text-accent transition-colors focus:outline-none" onclick="toggleService('ads-details')" aria-expanded="false">
-                                <div>
-                                    <h3 class="text-xl md:text-2xl font-serif dark:text-white group-hover:text-accent transition-colors" data-i18n="servSeoTitle">SEO & Digital Ads</h3>
-                                    <p class="text-xs text-lightSub dark:text-darkSub mt-1 font-sans">Google Ads, Meta Ads, Audit SEO.</p>
+                        <div class="service-card-modern bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all" id="card-ads">
+                             <div class="service-header p-4 md:p-5 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-ads')">
+                                <div class="flex items-center gap-4">
+                                    <div class="icon-wrapper w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800 text-accent flex items-center justify-center text-lg shadow-sm">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base md:text-lg font-bold dark:text-white mb-0.5" data-i18n="servSeoTitle">SEO & Digital Ads</h3>
+                                        <p class="text-xs text-lightSub dark:text-darkSub">Google Ads, Meta Ads.</p>
+                                    </div>
                                 </div>
-                                <i class="fas fa-chevron-down chevron text-lightSub dark:text-darkSub transition-transform duration-300"></i>
-                            </button>
-                            <div id="ads-details" class="hidden pb-6 pl-2 animate-slide-up">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Pilih Layanan Iklan:</label>
-                                <div class="flex flex-col sm:flex-row gap-3">
-                                    <select id="opt-ads" class="w-full px-4 py-3 rounded-lg bg-lightBg dark:bg-darkBg border border-slate-200 dark:border-darkBorder text-sm text-lightText dark:text-white focus:ring-2 focus:ring-accent focus:outline-none">
-                                        <option value="Google Ads Setup">Setup Google Ads</option>
-                                        <option value="Meta Ads Management">Meta Ads Management (FB/IG)</option>
-                                        <option value="Audit SEO Website">Audit SEO Website</option>
-                                        <option value="Riset Keyword">Riset Keyword Mendalam</option>
-                                    </select>
-                                    <button onclick="orderService('SEO & Digital Ads', 'opt-ads')" class="w-full sm:w-auto px-6 py-3 bg-accent text-white text-sm font-bold rounded-lg hover:bg-accentHover transition-colors whitespace-nowrap shadow-lg shadow-accent/20">
-                                        Lanjutkan ke WhatsApp <i class="fab fa-whatsapp ml-2"></i>
-                                    </button>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-lightSub dark:text-darkSub text-xs transition-transform duration-300 chevron">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="service-body hidden px-5 pb-6 border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Pilih Layanan</label>
+                                        <select id="opt-ads" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                            <option value="Google Ads Setup">Setup Google Ads</option>
+                                            <option value="Meta Ads Management">Meta Ads Management (FB/IG)</option>
+                                            <option value="Audit SEO Website">Audit SEO Website</option>
+                                            <option value="Riset Keyword">Riset Keyword Mendalam</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Nama Bisnis</label>
+                                        <input type="text" id="name-ads" placeholder="www.websiteanda.com" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all">
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-1.5">Target / Tujuan</label>
+                                        <textarea id="note-ads" rows="2" placeholder="Apa goal Anda? (Traffic, Sales, Leads)" class="w-full px-3 py-2.5 rounded-lg bg-lightBg dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:ring-1 focus:ring-accent focus:border-accent focus:outline-none transition-all resize-none"></textarea>
+                                    </div>
+                                    <div class="md:col-span-2 pt-1">
+                                        <button onclick="orderService('SEO & Digital Ads', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-3 bg-accent text-white text-xs font-bold rounded-lg hover:bg-accentHover transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                            <span>Konsultasi via WhatsApp</span>
+                                            <i class="fab fa-whatsapp text-sm group-hover:scale-110 transition-transform"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                     </div>
-                </div>
+                  </div>
              </div>
         </section>
 
@@ -861,36 +942,50 @@
         const badgeClass = "px-3 py-1.5 bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder rounded-lg text-xs font-semibold text-lightSub dark:text-darkSub hover:border-accent transition-colors cursor-default hover-soft select-none";
         document.querySelectorAll('.badge-skill').forEach(el => el.className = badgeClass);
 
-        // Service Functionality
-        function toggleService(detailsId) {
-            const details = document.getElementById(detailsId);
-            const trigger = details.previousElementSibling;
+        // Updated Service Functionality for Modern Cards
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            const body = card.querySelector('.service-body');
+            const icon = card.querySelector('.chevron i');
             
-            // Close all other details
-            document.querySelectorAll('[id$="-details"]').forEach(el => {
-                if(el.id !== detailsId) {
-                    el.classList.add('hidden');
-                    el.previousElementSibling.setAttribute('aria-expanded', 'false');
+            // Close all other cards first
+            document.querySelectorAll('.service-card-modern').forEach(el => {
+                if(el.id !== cardId) {
+                    el.classList.remove('expanded');
+                    el.querySelector('.service-body').classList.add('hidden');
+                    el.querySelector('.chevron i').classList.remove('fa-minus');
+                    el.querySelector('.chevron i').classList.add('fa-plus');
                 }
             });
 
-            const isHidden = details.classList.contains('hidden');
+            const isHidden = body.classList.contains('hidden');
             if (isHidden) {
-                details.classList.remove('hidden');
-                trigger.setAttribute('aria-expanded', 'true');
+                card.classList.add('expanded');
+                body.classList.remove('hidden');
+                body.classList.add('animate-slide-up');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
             } else {
-                details.classList.add('hidden');
-                trigger.setAttribute('aria-expanded', 'false');
+                card.classList.remove('expanded');
+                body.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
             }
         }
 
-        function orderService(serviceName, selectId) {
+        // Updated Professional WhatsApp Order Function
+        function orderService(serviceName, selectId, nameId, noteId) {
             const select = document.getElementById(selectId);
+            const nameInput = document.getElementById(nameId);
+            const noteInput = document.getElementById(noteId);
+            
             const subService = select.value;
+            const clientName = nameInput.value.trim() || "Nama Tidak Disebutkan";
+            const clientNote = noteInput.value.trim() || "-";
             const phone = "62859148219009";
             
-            // Format message for WhatsApp
-            const text = `Halo, saya tertarik dengan layanan *${serviceName}*.%0A%0APilihan Spesifik: *${subService}*%0A%0AMohon informasi lebih lanjut mengenai harga dan proses pengerjaannya. Terima kasih.`;
+            // Professional & Clear Message Format
+            const text = `Halo Mas Faqih, saya *${clientName}*.%0A%0ASaya tertarik dengan layanan:%0A🚀 *${serviceName}*%0A👉 Pilihan Paket: *${subService}*%0A%0ACatatan Tambahan:%0A${clientNote}%0A%0AMohon informasi lebih lanjut mengenai *pricelist* dan ketersediaan slot pengerjaannya.%0ATerima kasih.`;
             
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
@@ -945,7 +1040,6 @@
                 certTitle: "Professional Certifications", btnAllCerts: "View 45+ Certificates on LinkedIn",
                 galleryTitle: "Project Gallery", galleryDesc: "Visual evidence of results and strategies.",
                 galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Project Showreel",
-                quoteText: "One chance is enough for me to win. But if I must fall on the first try, I will rise and ensure the remaining two end in victory.",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
                 valIntegrity: "Integrity", valProfessional: "Professionalism", valSecurity: "Security", valService: "Best Service", valSpeed: "Speed",
@@ -959,54 +1053,72 @@
 
                 modalPrivacyTitle: "Privacy Policy", 
                 modalPrivacyBody: `
-                    <div class="space-y-6">
-                        <p class="text-sm text-lightSub dark:text-darkSub">Last Updated: January 2026</p>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">1. Introduction</h4>
-                            <p>Welcome to Muhammad Faqih Al Rifai's Portfolio. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">2. Information We Collect</h4>
-                            <ul class="list-disc pl-5 space-y-1 marker:text-accent">
-                                <li><strong>Voluntary Data:</strong> Information you provide when contacting us via email or social media (e.g., name, email address).</li>
-                                <li><strong>Usage Data:</strong> We may process data about your use of our website and services ("Usage Data"). This may include your IP address, browser type, and operating system.</li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">3. How We Use Your Data</h4>
-                            <p>We use your data to:</p>
-                            <ul class="list-disc pl-5 space-y-1 marker:text-accent">
-                                <li>Respond to your inquiries and provide professional services.</li>
-                                <li>Analyze website traffic to improve user experience.</li>
-                                <li>Detect and prevent technical issues.</li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">4. Third-Party Links</h4>
-                            <p>This website may include links to third-party websites (e.g., LinkedIn, Instagram). Clicking on those links may allow third parties to collect or share data about you. We do not control these third-party websites.</p>
-                        </section>
+                    <div class="space-y-6 font-sans">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">Effective Date</p>
+                            <p class="text-sm text-lightText dark:text-white">January 2026</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 shrink-0 mt-1"><i class="fas fa-shield-alt text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">1. Data Collection</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">We collect limited personal data (Name, Email) only when you voluntarily contact us. We use Google Analytics to track anonymous usage data to improve our site performance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 shrink-0 mt-1"><i class="fas fa-check-circle text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">2. Usage of Information</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Your data is strictly used to respond to inquiries and provide professional services. We do not sell or trade your personal information to outside parties.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 shrink-0 mt-1"><i class="fas fa-external-link-alt text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">3. Third-Party Links</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Our portfolio contains links to external platforms (LinkedIn, Instagram). We are not responsible for the privacy practices of these external sites.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `,
                 modalTermsTitle: "Terms of Service", 
                 modalTermsBody: `
-                    <div class="space-y-6">
-                        <p class="text-sm text-lightSub dark:text-darkSub">Last Updated: January 2026</p>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">1. Agreement to Terms</h4>
-                            <p>By accessing or using the website of Muhammad Faqih Al Rifai, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">2. Intellectual Property</h4>
-                            <p>The content, organization, graphics, design, and other matters related to the Site are protected under applicable copyrights and other proprietary laws. The copying, redistribution, use, or publication by you of any such matters or any part of the Site is strictly prohibited.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">3. Portfolio Usage</h4>
-                            <p>The case studies and projects displayed are for demonstration of professional capabilities. Some details may be generalized to protect client confidentiality.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">4. Contact</h4>
-                            <p>For any questions regarding these Terms, please contact us at <span class="text-accent font-medium">faqihalrf@gmail.com</span>.</p>
-                        </section>
+                    <div class="space-y-6 font-sans">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">Last Updated</p>
+                            <p class="text-sm text-lightText dark:text-white">January 2026</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 shrink-0 mt-1"><i class="fas fa-handshake text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">1. Acceptance of Terms</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">By accessing this portfolio website, you agree to abide by these terms. All content provided is for informational and professional display purposes.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 shrink-0 mt-1"><i class="fas fa-copyright text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">2. Intellectual Property</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">All case studies, designs, and copy on this site are the intellectual property of Muhammad Faqih Al Rifai unless stated otherwise. Unauthorized reproduction is prohibited.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-50 dark:bg-red-900/30 flex items-center justify-center text-red-600 shrink-0 mt-1"><i class="fas fa-exclamation-circle text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">3. Disclaimer</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Results shown in case studies are specific to those projects. We do not guarantee identical results for every client as market conditions vary.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             },
@@ -1021,7 +1133,7 @@
                 compAdsTitle: "Iklan Berbayar (SEM)", compAdsDesc: "Optimasi Google Ads, Meta Ads (FB/IG), dan TikTok Ads.",
                 compContentTitle: "Strategi Konten", compContentDesc: "Copywriting, Storytelling, Perencanaan Editorial yang terstruktur.",
                 skillData: "Data Storytelling", skillPM: "Manajemen Proyek", skillComm: "Komunikasi Strategis", skillAdapt: "Adaptabilitas", skillTeam: "Kerja Sama Tim", skillLead: "Kepemimpinan", skillProblem: "Pemecahan Masalah",
-                eduTitle: "Pendidikan", eduDesc: "Latar belakang akademik dan pembelajaran berkelanjutan.",
+                eduTitle: "Kredensial Akademik", eduDesc: "Landasan perjalanan profesional saya.",
                 expTitle: "Perjalanan Karir", expDesc: "Rekam jejak profesional dalam mendorong pertumbuhan bisnis melalui strategi digital.",
                 dateJob1: "Jan 2026 - Sekarang",
                 descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak. Berfokus pada pembangunan hubungan jangka panjang dan penetrasi pasar.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien strategis (CRM).</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-accent mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran dan strategi penawaran layanan.</span></li></ul>`,
@@ -1057,7 +1169,6 @@
                 certTitle: "Sertifikasi Profesional", btnAllCerts: "Lihat 45+ Sertifikat di LinkedIn",
                 galleryTitle: "Galeri Proyek", galleryDesc: "Visualisasi hasil kerja dan pencapaian nyata.",
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
-                quoteText: "Satu kesempatan sudah cukup bagiku untuk menang. Namun jika aku harus jatuh di percobaan pertama, aku akan bangkit dan memastikan dua sisanya berakhir dengan kemenangan.",
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
                 valIntegrity: "Integritas", valProfessional: "Profesionalisme", valSecurity: "Keamanan", valService: "Pelayanan Terbaik", valSpeed: "Kecepatan",
@@ -1070,54 +1181,72 @@
                 servSeoTitle: "SEO & Iklan Digital", 
 
                 modalPrivacyTitle: "Kebijakan Privasi", modalPrivacyBody: `
-                    <div class="space-y-6">
-                        <p class="text-sm text-lightSub dark:text-darkSub">Terakhir Diperbarui: Januari 2026</p>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">1. Pendahuluan</h4>
-                            <p>Selamat datang di Portofolio Muhammad Faqih Al Rifai. Kami menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi Anda. Kebijakan ini menjelaskan bagaimana kami mengelola data saat Anda mengunjungi situs kami.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">2. Informasi yang Kami Kumpulkan</h4>
-                            <ul class="list-disc pl-5 space-y-1 marker:text-accent">
-                                <li><strong>Data Sukarela:</strong> Informasi yang Anda berikan saat menghubungi kami melalui email atau media sosial (misalnya: nama, alamat email).</li>
-                                <li><strong>Data Penggunaan:</strong> Kami dapat memproses data tentang penggunaan situs web kami ("Data Penggunaan"). Ini mungkin termasuk alamat IP, jenis browser, dan sistem operasi Anda untuk tujuan analitik.</li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">3. Penggunaan Data</h4>
-                            <p>Kami menggunakan data Anda untuk:</p>
-                            <ul class="list-disc pl-5 space-y-1 marker:text-accent">
-                                <li>Menanggapi pertanyaan Anda dan menyediakan layanan profesional.</li>
-                                <li>Menganalisis lalu lintas situs web untuk meningkatkan pengalaman pengguna.</li>
-                                <li>Mendeteksi dan mencegah masalah teknis.</li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">4. Tautan Pihak Ketiga</h4>
-                            <p>Situs web ini mungkin menyertakan tautan ke situs web pihak ketiga (misalnya: LinkedIn, Instagram). Kami tidak memiliki kendali atas kebijakan privasi situs web tersebut.</p>
-                        </section>
+                    <div class="space-y-6 font-sans">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">Tanggal Efektif</p>
+                            <p class="text-sm text-lightText dark:text-white">Januari 2026</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 shrink-0 mt-1"><i class="fas fa-shield-alt text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">1. Pengumpulan Data</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Kami mengumpulkan data pribadi terbatas (Nama, Email) hanya ketika Anda menghubungi kami secara sukarela. Kami menggunakan Google Analytics untuk data penggunaan anonim.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 shrink-0 mt-1"><i class="fas fa-check-circle text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">2. Penggunaan Informasi</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Data Anda hanya digunakan untuk merespons pertanyaan dan menyediakan layanan profesional. Kami tidak menjual informasi Anda ke pihak luar.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 shrink-0 mt-1"><i class="fas fa-external-link-alt text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">3. Tautan Pihak Ketiga</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Portfolio ini berisi tautan ke platform eksternal (LinkedIn, Instagram). Kami tidak bertanggung jawab atas kebijakan privasi situs eksternal tersebut.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `,
                 modalTermsTitle: "Syarat & Ketentuan",
                 modalTermsBody: `
-                    <div class="space-y-6">
-                        <p class="text-sm text-lightSub dark:text-darkSub">Terakhir Diperbarui: Januari 2026</p>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">1. Persetujuan Syarat</h4>
-                            <p>Dengan mengakses atau menggunakan situs web Muhammad Faqih Al Rifai, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini. Jika Anda tidak setuju dengan bagian mana pun dari syarat ini, Anda tidak diperkenankan mengakses layanan ini.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">2. Kekayaan Intelektual</h4>
-                            <p>Konten, organisasi, grafik, desain, dan hal-hal lain yang terkait dengan Situs dilindungi oleh undang-undang hak cipta dan kepemilikan lainnya yang berlaku. Penyalinan, redistribusi, atau publikasi oleh Anda atas materi tersebut sangat dilarang tanpa izin tertulis.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">3. Penggunaan Portofolio</h4>
-                            <p>Studi kasus dan proyek yang ditampilkan adalah untuk demonstrasi kemampuan profesional. Beberapa detail mungkin digeneralisasi untuk melindungi kerahasiaan klien.</p>
-                        </section>
-                        <section>
-                            <h4 class="text-base font-bold text-lightText dark:text-white mb-2">4. Kontak</h4>
-                            <p>Untuk pertanyaan mengenai Syarat ini, silakan hubungi kami di <span class="text-accent font-medium">faqihalrf@gmail.com</span>.</p>
-                        </section>
+                    <div class="space-y-6 font-sans">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">Terakhir Diperbarui</p>
+                            <p class="text-sm text-lightText dark:text-white">Januari 2026</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 shrink-0 mt-1"><i class="fas fa-handshake text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">1. Penerimaan Syarat</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Dengan mengakses website ini, Anda setuju untuk mematuhi ketentuan ini. Semua konten disediakan untuk tujuan informasi dan tampilan profesional.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 shrink-0 mt-1"><i class="fas fa-copyright text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">2. Kekayaan Intelektual</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Semua studi kasus, desain, dan tulisan di situs ini adalah kekayaan intelektual Muhammad Faqih Al Rifai kecuali dinyatakan lain.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-50 dark:bg-red-900/30 flex items-center justify-center text-red-600 shrink-0 mt-1"><i class="fas fa-exclamation-circle text-xs"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-lightText dark:text-white mb-1">3. Penafian (Disclaimer)</h4>
+                                    <p class="text-xs text-lightSub dark:text-darkSub leading-relaxed">Hasil yang ditampilkan dalam studi kasus bersifat spesifik untuk proyek tersebut. Kami tidak menjamin hasil yang identik untuk setiap klien karena kondisi pasar bervariasi.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             }
@@ -1157,7 +1286,7 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                     if (['DIV', 'P', 'SPAN', 'H1', 'H2', 'H3', 'A'].includes(el.tagName)) { el.innerHTML = translations[lang][key]; } else { el.innerHTML = translations[lang][key]; }
+                      if (['DIV', 'P', 'SPAN', 'H1', 'H2', 'H3', 'A'].includes(el.tagName)) { el.innerHTML = translations[lang][key]; } else { el.innerHTML = translations[lang][key]; }
                 }
             });
         }
@@ -1244,8 +1373,6 @@
                 const elementVisible = 50; 
                 if (elementTop < windowHeight - elementVisible) { 
                     r.classList.add('active'); 
-                    const bars = r.querySelectorAll('.skill-fill');
-                    bars.forEach(bar => bar.classList.add('animate'));
                 }
             });
             const scrollWidget = document.querySelector('.scroll-widget');
@@ -1273,44 +1400,6 @@
             }, { threshold: 0.5 });
             counters.forEach(c => observer.observe(c));
         }
-        
-        // --- LAZY LOAD THIRD-PARTY SCRIPTS (FOR GREEN SCORE) ---
-        // Delays loading heavy scripts (AdSense, Analytics) until user interacts
-        // This significantly improves initial PageSpeed score (LCP/TBT)
-        
-        let scriptsLoaded = false;
-        function loadThirdPartyScripts() {
-            if (scriptsLoaded) return;
-            scriptsLoaded = true;
-
-            console.log('Lazy loading third-party scripts...');
-
-            // 1. Google AdSense (Lazy)
-            const adSenseScript = document.createElement('script');
-            adSenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992";
-            adSenseScript.async = true;
-            adSenseScript.crossOrigin = "anonymous";
-            document.head.appendChild(adSenseScript);
-
-            // 2. Google Analytics (Lazy)
-            const gtagScript = document.createElement('script');
-            gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL";
-            gtagScript.async = true;
-            document.head.appendChild(gtagScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZEFRB74DXL');
-        }
-
-        // Trigger on interaction or delay
-        const events = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
-        events.forEach(event => window.addEventListener(event, loadThirdPartyScripts, { once: true }));
-        
-        // Fallback: Load after 4 seconds if no interaction
-        setTimeout(loadThirdPartyScripts, 4000);
-
     </script>
 </body>
 </html>

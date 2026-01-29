@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KW247L2C');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
@@ -51,6 +59,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     
     <!-- 6. SECURITY & PERFORMANCE -->
@@ -78,22 +87,24 @@
                         serif: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
-                        // Luxury Theme Palette
-                        lightBg: '#f3ecdc',       // Cream/Beige
-                        darkBg: '#1a0b08',        // Very Dark Brown (Luxury Black)
-                        lightText: '#421f16',     // Deep Leather Brown
-                        lightSub: '#6d4c41',      // Lighter Brown
-                        darkText: '#f3ecdc',      // Cream (High contrast on dark)
-                        darkSub: '#d7ccc8',       // Muted Cream (Readable subtext)
-                        darkCard: '#271c19',      // Slightly lighter brown for cards
-                        darkBorder: '#5d4037',    
-                        accent: '#421f16',        // Primary Action Color
-                        accentHover: '#2a120a',   
-                        gold: '#b8860b',          // Gold accent for icons/highlights
+                        // 60-30-10 Rule Implementation
+                        mainWhite: '#ffffff',     // 60% (Background)
+                        cream: '#f3ecdc',         // 30% (Secondary/Cards)
+                        darkBrown: '#421f16',     // 10% (Accent/Text)
+                        
+                        // Refined Text Colors for Readability
+                        lightSub: '#5d4037',      // Darker brown for better contrast on white
+                        
+                        // Dark Mode Palette (Luxury Dark)
+                        darkBg: '#1a0b08',        
+                        darkCard: '#271c19',
+                        darkText: '#f3ecdc',
+                        darkSub: '#d7ccc8',
+                        gold: '#b8860b',
                     },
                     boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(66, 31, 22, 0.08)',
-                        'glow': '0 0 25px rgba(184, 134, 11, 0.2)', // Gold glow
+                        'soft': '0 10px 40px -10px rgba(66, 31, 22, 0.05)',
+                        'glow': '0 0 25px rgba(184, 134, 11, 0.2)', 
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -117,8 +128,8 @@
     <style>
         /* GLOBAL STYLES */
         body {
-            background-color: #f3ecdc;
-            color: #421f16;
+            background-color: #ffffff; 
+            color: #421f16;            
             font-family: 'Plus Jakarta Sans', sans-serif;
             opacity: 1 !important; 
         }
@@ -136,15 +147,15 @@
         img { max-width: 100%; height: auto; }
         .defer-render { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
 
-        /* GLASSMORPHISM LUXURY (Clean & Readable) */
+        /* GLASSMORPHISM */
         .glass {
-            background: rgba(243, 236, 220, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(66, 31, 22, 0.05);
         }
         .dark .glass {
-            background: rgba(26, 11, 8, 0.9);
-            border-bottom: 1px solid rgba(243, 236, 220, 0.08); /* Slightly clearer border in dark */
+            background: rgba(26, 11, 8, 0.95);
+            border-bottom: 1px solid rgba(243, 236, 220, 0.08); 
         }
 
         #navbar-container { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -160,7 +171,7 @@
         /* SCROLLBAR */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #8d6e63; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb { background: #421f16; border-radius: 99px; }
         .dark ::-webkit-scrollbar-thumb { background: #5d4037; }
         
         /* HOVER EFFECTS */
@@ -170,47 +181,53 @@
         }
         .hover-soft:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 35px -5px rgba(66, 31, 22, 0.12);
+            box-shadow: 0 15px 35px -5px rgba(66, 31, 22, 0.1);
         }
         .hover-soft:active { transform: scale(0.98); }
 
-        /* EXCLUSIVE SERVICE CARD (Optimized for Dark Mode Luxury) */
+        /* CARD STYLES */
+        .card-cream {
+            background-color: #f3ecdc;
+            border: 1px solid rgba(66, 31, 22, 0.05);
+            transition: all 0.5s ease;
+        }
+        .dark .card-cream {
+            background-color: #271c19;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
         .service-card-modern {
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: 1px solid rgba(66, 31, 22, 0.08);
-            background: white;
+            background: #f3ecdc;
             position: relative;
             overflow: hidden;
         }
         .dark .service-card-modern {
-            border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle white border */
-            background: #271c19; /* Rich dark brown */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #271c19;
         }
         .service-card-modern:hover {
-            border-color: #b8860b; 
+            border-color: #421f16; 
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px -10px rgba(184, 134, 11, 0.1);
+            box-shadow: 0 15px 30px -10px rgba(66, 31, 22, 0.1);
         }
+        .dark .service-card-modern:hover { border-color: #b8860b; box-shadow: 0 15px 30px -10px rgba(184, 134, 11, 0.1); }
         
         .service-card-modern.expanded {
             border-color: #421f16;
+            background: #ffffff; 
             box-shadow: 0 20px 40px -10px rgba(66, 31, 22, 0.15);
-            background: #fffbf5;
         }
         .dark .service-card-modern.expanded {
-            background: #362420; /* Slightly lighter on expand */
+            background: #362420;
             border-color: #b8860b;
         }
 
-        /* INPUTS IN DARK MODE (Fixing Glare) */
         .dark input, .dark select, .dark textarea {
             background-color: rgba(0, 0, 0, 0.3) !important;
             color: #f3ecdc !important;
             border-color: rgba(243, 236, 220, 0.2) !important;
-        }
-        .dark input:focus, .dark select:focus, .dark textarea:focus {
-            border-color: #b8860b !important;
-            ring-color: #b8860b !important;
         }
 
         /* TESTIMONIALS SLIDER */
@@ -222,8 +239,8 @@
         
         .testimonial-card {
             transition: all 0.4s ease;
+            background: #f3ecdc; 
             border: 1px solid rgba(66, 31, 22, 0.05);
-            background: white;
         }
         .dark .testimonial-card {
             background: #271c19;
@@ -231,23 +248,28 @@
         }
         .testimonial-card:hover {
             transform: translateY(-5px);
+            border-color: #421f16;
+            background: #ffffff; 
+            box-shadow: 0 15px 35px -10px rgba(66, 31, 22, 0.1);
+        }
+        .dark .testimonial-card:hover {
+            background: #362420;
             border-color: #b8860b;
-            box-shadow: 0 15px 40px -10px rgba(66, 31, 22, 0.1);
         }
 
-        /* MODAL TABLE */
         .modal-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 1rem; }
         .modal-table th, .modal-table td { padding: 16px; border-bottom: 1px solid rgba(66, 31, 22, 0.1); text-align: left; vertical-align: top; }
         .dark .modal-table th, .dark .modal-table td { border-bottom-color: rgba(243, 236, 220, 0.1); }
-        .modal-table th { font-weight: 700; color: #421f16; width: 30%; background: rgba(66, 31, 22, 0.03); }
+        .modal-table th { font-weight: 700; color: #421f16; width: 30%; background: #f3ecdc; }
         .dark .modal-table th { color: #f3ecdc; background: rgba(255, 255, 255, 0.05); }
         .modal-table tr:last-child td, .modal-table tr:last-child th { border-bottom: none; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* Gallery Overlay */
         .gallery-overlay {
-            background: linear-gradient(to top, rgba(66, 31, 22, 0.95) 0%, rgba(66, 31, 22, 0) 100%);
+            background: linear-gradient(to top, rgba(66, 31, 22, 0.9) 0%, rgba(66, 31, 22, 0) 100%);
             opacity: 0; transition: opacity 0.3s ease;
         }
         .group:hover .gallery-overlay { opacity: 1; }
@@ -268,71 +290,75 @@
         }
     </style>
 </head>
-<body class="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-accent selection:text-white relative">
+<body class="bg-mainWhite text-darkBrown dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-darkBrown selection:text-cream relative">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW247L2C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm" id="navbar">
         <div id="navbar-container" class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center transition-all duration-300">
-            <a href="#" class="font-bold tracking-tight hover:text-gold transition-colors flex items-center gap-2 group min-w-0" aria-label="Homepage">
+            <a href="#" class="font-bold tracking-tight hover:text-darkBrown dark:hover:text-gold transition-colors flex items-center gap-2 group min-w-0" aria-label="Homepage">
                 <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap overflow-visible font-serif tracking-wide dark:text-darkText">Muhammad Faqih Al Rifai</span>
                 <div class="relative flex items-center justify-center shrink-0">
-                    <i class="fas fa-check-circle text-gold text-base md:text-lg"></i>
+                    <i class="fas fa-check-circle text-darkBrown dark:text-gold text-base md:text-lg"></i>
                 </div>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-1 bg-white/50 dark:bg-black/20 p-1 rounded-full border border-lightText/10 dark:border-white/10 backdrop-blur-sm">
-                <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-accent hover:text-lightBg dark:text-darkSub dark:hover:text-darkBg transition-all">About</a>
-                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-accent hover:text-lightBg dark:text-darkSub dark:hover:text-darkBg transition-all">Experience</a>
-                <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-accent hover:text-lightBg dark:text-darkSub dark:hover:text-darkBg transition-all">Skills</a>
-                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-accent hover:text-lightBg dark:text-darkSub dark:hover:text-darkBg transition-all">Gallery</a>
-                <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-accent hover:text-lightBg dark:text-darkSub dark:hover:text-darkBg transition-all">Services</a>
+            <div class="hidden md:flex items-center gap-1 bg-white/50 dark:bg-black/20 p-1 rounded-full border border-darkBrown/10 dark:border-white/10 backdrop-blur-sm">
+                <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">About</a>
+                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Experience</a>
+                <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Skills</a>
+                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Gallery</a>
+                <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-lightSub hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Services</a>
             </div>
 
             <!-- Tools & Toggle -->
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="hidden md:flex items-center gap-2">
-                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-lightText/20 dark:border-white/10 text-lightText dark:text-darkText hover:border-accent hover:text-accent dark:hover:text-gold transition-all flex items-center gap-2 hover-soft">
+                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-darkBrown/20 dark:border-white/10 text-darkBrown dark:text-darkText hover:bg-darkBrown hover:text-white dark:hover:text-gold transition-all flex items-center gap-2 hover-soft">
                         <span class="current-lang-label">EN</span><i class="fas fa-globe"></i>
                     </button>
-                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-lightText/20 dark:border-white/10 text-lightText dark:text-darkText hover:text-gold transition-all hover-soft">
+                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-darkBrown/20 dark:border-white/10 text-darkBrown dark:text-darkText hover:text-gold transition-all hover-soft">
                         <i class="fas fa-moon text-sm dark:hidden"></i><i class="fas fa-sun text-sm hidden dark:block text-gold"></i>
                     </button>
                 </div>
                 
-                <a href="#contact" class="hidden md:inline-flex px-5 py-2 bg-accent text-white text-xs font-bold rounded-full hover:bg-black transition-all duration-300 transform hover-soft active:scale-95 shadow-md">Contact Me</a>
+                <a href="#contact" class="hidden md:inline-flex px-5 py-2 bg-darkBrown text-white text-xs font-bold rounded-full hover:bg-black transition-all duration-300 transform hover-soft active:scale-95 shadow-md">Contact Me</a>
 
-                <button id="menuBtn" class="md:hidden p-2 text-lightText dark:text-darkText hover:text-accent dark:hover:text-gold transition-colors focus:outline-none">
+                <button id="menuBtn" class="md:hidden p-2 text-darkBrown dark:text-darkText hover:text-gold transition-colors focus:outline-none">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-lightBg/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-lightText/10 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40 transform origin-top">
+        <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-mainWhite/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-darkBrown/10 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40 transform origin-top">
             <div class="flex flex-col p-4 space-y-2">
-                <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-accent hover:text-lightBg dark:text-darkText dark:hover:bg-white/10 transition-colors">About</a>
-                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-accent hover:text-lightBg dark:text-darkText dark:hover:bg-white/10 transition-colors">Experience</a>
-                <a href="#competence" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-accent hover:text-lightBg dark:text-darkText dark:hover:bg-white/10 transition-colors">Skills</a>
-                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-accent hover:text-lightBg dark:text-darkText dark:hover:bg-white/10 transition-colors">Gallery</a>
-                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-accent hover:text-lightBg dark:text-darkText dark:hover:bg-white/10 transition-colors">Services</a>
-                <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-lightText/10 dark:border-white/10">
-                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/50 dark:bg-white/10 dark:text-darkText text-sm font-bold"><i class="fas fa-globe"></i> <span class="current-lang-label">EN</span></button>
-                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/50 dark:bg-white/10 dark:text-darkText text-sm font-bold"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
+                <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:bg-white/10 transition-colors">About</a>
+                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:bg-white/10 transition-colors">Experience</a>
+                <a href="#competence" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:bg-white/10 transition-colors">Skills</a>
+                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:bg-white/10 transition-colors">Gallery</a>
+                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-darkBrown hover:text-white dark:text-darkText dark:hover:bg-white/10 transition-colors">Services</a>
+                <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-darkBrown/10 dark:border-white/10">
+                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cream dark:bg-white/10 dark:text-darkText text-sm font-bold"><i class="fas fa-globe"></i> <span class="current-lang-label">EN</span></button>
+                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cream dark:bg-white/10 dark:text-darkText text-sm font-bold"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
                 </div>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- 1. Hero Section + 2. Impact Stats -->
-        <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden">
-             <!-- Decorative -->
-             <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/20 to-transparent pointer-events-none"></div>
+        <!-- 1. Hero Section -->
+        <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-mainWhite dark:bg-darkBg">
+             <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-cream/50 to-transparent pointer-events-none dark:from-white/5"></div>
 
              <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center z-10">
                 <div class="order-2 lg:order-1 animate-slide-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-white/30 dark:bg-white/5 text-accent dark:text-gold text-[10px] font-bold uppercase tracking-widest mb-6 cursor-default">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-darkBrown/20 bg-cream/50 dark:bg-white/5 text-darkBrown dark:text-gold text-[10px] font-bold uppercase tracking-widest mb-6 cursor-default">
                         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                         <span data-i18n="heroBadge">Available for Work</span>
                     </div>
@@ -346,27 +372,23 @@
                     </p>
                     
                     <div class="flex flex-wrap gap-4 items-center mb-12">
-                        <!-- CTA -->
-                        <a href="#experience" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-lightBg rounded-full hover:bg-black dark:hover:bg-gold dark:hover:text-darkBg hover:shadow-lg transition-all duration-300 font-bold text-xs tracking-wider uppercase group">
+                        <a href="#experience" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-darkBrown text-white rounded-full hover:bg-black dark:hover:bg-gold dark:hover:text-darkBg hover:shadow-lg transition-all duration-300 font-bold text-xs tracking-wider uppercase group">
                             <span data-i18n="btnPortfolio">View Portfolio</span>
                             <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         
-                        <!-- NEW: Dedicated WhatsApp Button (Neutral, Green on Hover) -->
-                        <a href="https://wa.me/62859148219009" target="_blank" class="w-12 h-12 rounded-full border border-accent/20 dark:border-white/20 flex items-center justify-center text-accent dark:text-darkText hover:bg-green-500 hover:text-white dark:hover:text-white hover:border-green-500 transition-all shadow-sm group relative" aria-label="WhatsApp">
+                        <a href="https://wa.me/62859148219009" target="_blank" class="w-12 h-12 rounded-full border border-darkBrown/20 dark:border-white/20 flex items-center justify-center text-darkBrown dark:text-darkText hover:bg-green-500 hover:text-white dark:hover:text-white hover:border-green-500 transition-all shadow-sm group relative" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
                         </a>
 
-                        <!-- Other Socials -->
                         <div class="flex gap-2 items-center">
-                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-12 h-12 rounded-full border border-accent/20 dark:border-white/20 flex items-center justify-center text-accent dark:text-darkText hover:bg-[#0077b5] hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
-                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-12 h-12 rounded-full border border-accent/20 dark:border-white/20 flex items-center justify-center text-accent dark:text-darkText hover:bg-pink-600 hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
-                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-12 h-12 rounded-full border border-accent/20 dark:border-white/20 flex items-center justify-center text-accent dark:text-darkText hover:bg-black hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="TikTok"><i class="fab fa-tiktok text-lg"></i></a>
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-12 h-12 rounded-full border border-darkBrown/20 dark:border-white/20 flex items-center justify-center text-darkBrown dark:text-darkText hover:bg-[#0077b5] hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
+                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-12 h-12 rounded-full border border-darkBrown/20 dark:border-white/20 flex items-center justify-center text-darkBrown dark:text-darkText hover:bg-pink-600 hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-12 h-12 rounded-full border border-darkBrown/20 dark:border-white/20 flex items-center justify-center text-darkBrown dark:text-darkText hover:bg-black hover:text-white hover:border-transparent transition-all shadow-sm" aria-label="TikTok"><i class="fab fa-tiktok text-lg"></i></a>
                         </div>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="pt-8 border-t border-accent/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="pt-8 border-t border-darkBrown/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div><div class="text-3xl font-serif font-medium counter dark:text-darkText" data-target="42">0</div><div class="text-[10px] uppercase tracking-widest font-bold text-lightSub dark:text-darkSub mt-1" data-i18n="statArticles">Articles</div></div>
                         <div><div class="text-3xl font-serif font-medium counter dark:text-darkText" data-target="45">0</div><div class="text-[10px] uppercase tracking-widest font-bold text-lightSub dark:text-darkSub mt-1" data-i18n="statCerts">Certifications</div></div>
                         <div><div class="text-3xl font-serif font-medium counter dark:text-darkText" data-target="1">0</div><div class="text-[10px] uppercase tracking-widest font-bold text-lightSub dark:text-darkSub mt-1" data-i18n="statRank">Google Rank</div></div>
@@ -376,13 +398,12 @@
                 <!-- Image -->
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="relative w-full max-w-sm lg:max-w-md">
-                        <div class="absolute inset-0 bg-accent rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
+                        <div class="absolute inset-0 bg-darkBrown rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float">
                             <img src="myphot.jpeg" width="450" height="550" class="w-full h-full object-cover" alt="Profile" loading="eager">
                         </div>
-                        <!-- Floating Badge 1 -->
-                        <div class="absolute top-10 -left-6 bg-white dark:bg-darkCard p-4 rounded-2xl shadow-xl border border-accent/10 dark:border-white/10 flex items-center gap-4 animate-slide-up hover-soft">
-                            <div class="w-10 h-10 rounded-full bg-lightBg dark:bg-white/10 flex items-center justify-center text-accent dark:text-gold"><i class="fas fa-search"></i></div>
+                        <div class="absolute top-10 -left-6 bg-white dark:bg-darkCard p-4 rounded-2xl shadow-xl border border-darkBrown/10 dark:border-white/10 flex items-center gap-4 animate-slide-up hover-soft">
+                            <div class="w-10 h-10 rounded-full bg-cream dark:bg-white/10 flex items-center justify-center text-darkBrown dark:text-gold"><i class="fas fa-search"></i></div>
                             <div><p class="text-[10px] uppercase font-bold text-lightSub dark:text-darkSub">SEO Result</p><p class="text-sm font-bold dark:text-darkText">#1 Rank</p></div>
                         </div>
                     </div>
@@ -390,8 +411,8 @@
             </div>
         </section>
 
-        <!-- 3. Career Journey (CONTENT RESTORED) -->
-        <section id="experience" class="py-24 relative defer-render">
+        <!-- 3. Career Journey -->
+        <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Timeline</span>
@@ -400,11 +421,11 @@
                 <div class="timeline-line relative space-y-12">
                     <!-- Job 1 -->
                     <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-accent rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-darkBrown rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-accent/10 dark:border-white/10 rounded-full dark:text-darkText" data-i18n="dateJob1">Jan 2026 - Present</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-darkBrown/10 dark:border-white/10 rounded-full dark:text-darkText" data-i18n="dateJob1">Jan 2026 - Present</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob1">Jan 2026 - Present</span>
@@ -417,9 +438,9 @@
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-600 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-emerald-600/10 dark:border-emerald-600/30 rounded-full text-emerald-700 dark:text-emerald-400" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-emerald-600/10 dark:border-emerald-600/30 rounded-full text-emerald-700 dark:text-emerald-400" data-i18n="dateJob2">Sep 2025 - Dec 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Content Writer (Internship)</h3>
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob2">Sep 2025 - Dec 2025</span>
@@ -432,9 +453,9 @@
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-orange-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-orange-500/10 dark:border-orange-500/30 rounded-full text-orange-600 dark:text-orange-400" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-orange-500/10 dark:border-orange-500/30 rounded-full text-orange-600 dark:text-orange-400" data-i18n="dateJob3">Jul 2025 - Sep 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Marketplace Administrator</h3>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
@@ -447,9 +468,9 @@
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-pink-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-pink-500/10 dark:border-pink-500/30 rounded-full text-pink-600 dark:text-pink-400" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-pink-500/10 dark:border-pink-500/30 rounded-full text-pink-600 dark:text-pink-400" data-i18n="dateJob4">May 2025 - Jul 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="titleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob4">May 2025 - Jul 2025</span>
@@ -462,9 +483,9 @@
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-yellow-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-yellow-500/10 dark:border-yellow-500/30 rounded-full text-yellow-600 dark:text-yellow-400" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-yellow-500/10 dark:border-yellow-500/30 rounded-full text-yellow-600 dark:text-yellow-400" data-i18n="dateJob5">Jan 2024 - Apr 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="titleJob5">Owner, Cake Business</h3>
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4" data-i18n="subJob5">Entrepreneur</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
@@ -477,9 +498,9 @@
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-teal-600 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-white dark:bg-darkCard border border-teal-600/10 dark:border-teal-600/30 rounded-full text-teal-600 dark:text-teal-400" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
+                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-cream dark:bg-darkCard border border-teal-600/10 dark:border-teal-600/30 rounded-full text-teal-600 dark:text-teal-400" data-i18n="dateJob6">May 2023 - Dec 2023</span></div>
                             <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft border border-accent/5 dark:border-white/5 relative">
+                                <div class="card-cream dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4" data-i18n="subJob6">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob6">May 2023 - Dec 2023</span>
@@ -493,19 +514,19 @@
         </section>
 
         <!-- 4. Expertise -->
-        <section id="competence" class="py-24 bg-white dark:bg-darkCard/30 relative defer-render">
+        <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render">
              <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Methodology</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="compTitle">Core Competencies</h2>
                 </div>
                 
-                <div class="bg-white dark:bg-darkCard rounded-[2rem] md:rounded-[2.5rem] shadow-soft p-6 md:p-12 mini-card-mobile border border-accent/5 dark:border-white/5 relative overflow-hidden reveal">
-                    <div class="grid md:grid-cols-3 gap-10 divide-y md:divide-y-0 md:divide-x divide-accent/10 dark:divide-white/10">
+                <div class="card-cream dark:bg-darkCard rounded-[2rem] md:rounded-[2.5rem] shadow-soft p-6 md:p-12 mini-card-mobile border border-darkBrown/5 dark:border-white/5 relative overflow-hidden reveal">
+                    <div class="grid md:grid-cols-3 gap-10 divide-y md:divide-y-0 md:divide-x divide-darkBrown/10 dark:divide-white/10">
                         <!-- Strategy -->
                         <div class="md:pr-6">
                             <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-lightBg dark:bg-white/5 flex items-center justify-center text-accent dark:text-gold"><i class="fas fa-chess-queen"></i></div>
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-darkBrown dark:text-gold"><i class="fas fa-chess-queen"></i></div>
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compStratTitle">Strategic Marketing</h3>
                             </div>
                             <ul class="space-y-3">
@@ -521,7 +542,7 @@
                         <!-- Tech -->
                         <div class="pt-6 md:pt-0 md:px-6">
                             <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-lightBg dark:bg-white/5 flex items-center justify-center text-emerald-700 dark:text-emerald-400"><i class="fas fa-code-branch"></i></div>
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-emerald-700 dark:text-emerald-400"><i class="fas fa-code-branch"></i></div>
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compTechTitle">Tools & Tech</h3>
                             </div>
                             <div class="flex flex-wrap gap-2">
@@ -535,39 +556,39 @@
                         <!-- Skills -->
                         <div class="pt-6 md:pt-0 md:pl-6">
                             <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-lightBg dark:bg-white/5 flex items-center justify-center text-orange-600 dark:text-orange-400"><i class="fas fa-briefcase"></i></div>
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-orange-600 dark:text-orange-400"><i class="fas fa-briefcase"></i></div>
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compProfTitle">Soft Skills</h3>
                             </div>
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillData">Data Storytelling</span>
                                     <span class="text-[10px] font-bold text-gold">Expert</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillPM">Project Management</span>
                                     <span class="text-[10px] font-bold text-gold">Expert</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillComm">Communication</span>
                                     <span class="text-[10px] font-bold text-gold">Expert</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillProblem">Problem Solving</span>
                                     <span class="text-[10px] font-bold text-gold">Advanced</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillLead">Leadership</span>
                                     <span class="text-[10px] font-bold text-gold">Advanced</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillNego">Negotiation</span>
                                     <span class="text-[10px] font-bold text-gold">Specialist</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillCrit">Critical Thinking</span>
                                     <span class="text-[10px] font-bold text-gold">Advanced</span>
                                 </div>
-                                <div class="flex justify-between items-center pb-2 border-b border-accent/5 dark:border-white/5">
+                                <div class="flex justify-between items-center pb-2 border-b border-darkBrown/5 dark:border-white/5">
                                     <span class="text-xs font-bold dark:text-darkSub" data-i18n="skillTime">Time Management</span>
                                     <span class="text-[10px] font-bold text-gold">Expert</span>
                                 </div>
@@ -578,58 +599,58 @@
             </div>
         </section>
 
-        <!-- 5. Project Gallery (Updated Grid with 11 Items) -->
-        <section id="gallery" class="py-24 relative defer-render">
+        <!-- 5. Project Gallery (Updated Grid with 11 Items + Mobile Friendly) -->
+        <section id="gallery" class="py-24 relative defer-render bg-mainWhite dark:bg-darkBg">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Portfolio</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="galleryTitle">Project Gallery</h2>
                 </div>
                 
-                <!-- RESPONSIVE GRID -->
-                <div class="gallery-grid-mobile grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[180px]">
+                <!-- RESPONSIVE GRID (Mobile Optimized Gap and Sizing) -->
+                <div class="gallery-grid-mobile grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[180px] grid-flow-dense">
                     <!-- Main Feature (Big) -->
-                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-lg" onclick="openLightbox('uno.jpeg', 'image')">
+                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl cursor-zoom-in reveal shadow-lg" onclick="openLightbox('uno.jpeg', 'image')">
                         <img src="uno.jpeg" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
                         <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
-                             <span class="text-[10px] font-bold text-white uppercase tracking-widest bg-accent/80 px-2 py-1 rounded w-fit mb-2 backdrop-blur-md">Featured</span>
+                             <span class="text-[10px] font-bold text-white uppercase tracking-widest bg-darkBrown/80 px-2 py-1 rounded w-fit mb-2 backdrop-blur-md">Featured</span>
                              <h3 class="text-white font-serif font-medium text-xl md:text-2xl leading-tight" data-i18n="galleryItem1">Strategic Overview</h3>
                         </div>
                     </div>
                     
                     <!-- Standard Photos -->
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-md bg-white" style="transition-delay: 50ms;" onclick="openLightbox('two.jpg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in reveal shadow-md bg-white" style="transition-delay: 50ms;" onclick="openLightbox('two.jpg', 'image')">
                         <img src="two.jpg" width="400" height="400" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer reveal shadow-md bg-white" style="transition-delay: 100ms;" onclick="openLightbox('three.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in reveal shadow-md bg-white" style="transition-delay: 100ms;" onclick="openLightbox('three.jpeg', 'image')">
                         <img src="three.jpeg" width="400" height="400" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
 
                     <!-- Additional Photos -->
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 150ms;" onclick="openLightbox('rank.jpg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 150ms;" onclick="openLightbox('rank.jpg', 'image')">
                         <img src="rank.jpg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 200ms;" onclick="openLightbox('shopify.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 200ms;" onclick="openLightbox('shopify.jpeg', 'image')">
                          <img src="shopify.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 250ms;" onclick="openLightbox('shopfy.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 250ms;" onclick="openLightbox('shopfy.jpeg', 'image')">
                          <img src="shopfy.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 300ms;" onclick="openLightbox('kuebig.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 300ms;" onclick="openLightbox('kuebig.jpeg', 'image')">
                          <img src="kuebig.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 350ms;" onclick="openLightbox('kue.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 350ms;" onclick="openLightbox('kue.jpeg', 'image')">
                          <img src="kue.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 400ms;" onclick="openLightbox('botam.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 400ms;" onclick="openLightbox('botam.jpeg', 'image')">
                          <img src="botam.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
-                    <div class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-md bg-white reveal" style="transition-delay: 450ms;" onclick="openLightbox('bopu.jpeg', 'image')">
+                    <div class="relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-md bg-white reveal" style="transition-delay: 450ms;" onclick="openLightbox('bopu.jpeg', 'image')">
                          <img src="bopu.jpeg" width="300" height="300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" onerror="this.style.display='none'">
                     </div>
 
                     <!-- Video -->
-                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl cursor-pointer shadow-lg reveal" style="transition-delay: 500ms;" onclick="openLightbox('four.mp4', 'video')">
+                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl cursor-zoom-in shadow-lg reveal" style="transition-delay: 500ms;" onclick="openLightbox('four.mp4', 'video')">
                         <video src="four.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" muted loop playsinline poster="uno.jpeg" preload="none"></video>
                         <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex flex-col justify-center items-center">
                             <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform"><i class="fas fa-play text-2xl ml-1"></i></div>
@@ -641,7 +662,7 @@
         </section>
 
         <!-- 6. Exclusive Services -->
-        <section id="services" class="py-24 bg-white dark:bg-darkCard/20 relative overflow-hidden">
+        <section id="services" class="py-24 bg-cream/30 dark:bg-darkCard/20 relative overflow-hidden">
              <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
                   <div class="text-center mb-16">
                       <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-3 block">The Offer</span>
@@ -654,7 +675,7 @@
                         <div class="service-card-modern rounded-2xl" id="card-web">
                             <div class="service-header p-6 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-web')">
                                 <div class="flex items-center gap-5">
-                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-lightBg dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
+                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
                                         <i class="fas fa-laptop-code"></i>
                                     </div>
                                     <div>
@@ -670,7 +691,7 @@
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Package</label>
-                                        <select id="opt-web" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <select id="opt-web" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                             <option value="Landing Page">Landing Page (Promosi)</option>
                                             <option value="Company Profile">Company Profile (Bisnis)</option>
                                             <option value="Portfolio Personal">Portfolio Personal</option>
@@ -679,14 +700,14 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Name</label>
-                                        <input type="text" id="name-web" placeholder="Nama Anda / Bisnis" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <input type="text" id="name-web" placeholder="Nama Anda / Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Notes</label>
-                                        <textarea id="note-web" rows="2" placeholder="Detail kebutuhan..." class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-web" rows="2" placeholder="Detail kebutuhan..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-4 bg-accent text-lightBg text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-4 bg-accent text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
                                             <span>Consult via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -699,7 +720,7 @@
                         <div class="service-card-modern rounded-2xl" id="card-acad">
                              <div class="service-header p-6 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-acad')">
                                 <div class="flex items-center gap-5">
-                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-lightBg dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
+                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
                                         <i class="fas fa-graduation-cap"></i>
                                     </div>
                                     <div>
@@ -715,7 +736,7 @@
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Type</label>
-                                        <select id="opt-acad" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <select id="opt-acad" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                             <option value="Bimbingan Skripsi">Bimbingan Skripsi</option>
                                             <option value="Review Jurnal">Review Jurnal</option>
                                             <option value="Makalah/Paper">Makalah/Paper</option>
@@ -724,14 +745,14 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Name</label>
-                                        <input type="text" id="name-acad" placeholder="Nama Lengkap" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <input type="text" id="name-acad" placeholder="Nama Lengkap" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Details</label>
-                                        <textarea id="note-acad" rows="2" placeholder="Deadline & Topik?" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-acad" rows="2" placeholder="Deadline & Topik?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-4 bg-accent text-lightBg text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-4 bg-accent text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
                                             <span>Consult via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -744,7 +765,7 @@
                          <div class="service-card-modern rounded-2xl" id="card-content">
                              <div class="service-header p-6 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-content')">
                                 <div class="flex items-center gap-5">
-                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-lightBg dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
+                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
                                         <i class="fas fa-pen-nib"></i>
                                     </div>
                                     <div>
@@ -760,7 +781,7 @@
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Content Type</label>
-                                        <select id="opt-content" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <select id="opt-content" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                             <option value="Artikel SEO">Artikel SEO</option>
                                             <option value="Copywriting Iklan">Copywriting Iklan</option>
                                             <option value="Deskripsi Produk">Deskripsi Produk</option>
@@ -769,14 +790,14 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Brand</label>
-                                        <input type="text" id="name-content" placeholder="Nama Brand" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <input type="text" id="name-content" placeholder="Nama Brand" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Brief</label>
-                                        <textarea id="note-content" rows="2" placeholder="Topik/Keyword?" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-content" rows="2" placeholder="Topik/Keyword?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-4 bg-accent text-lightBg text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-4 bg-accent text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
                                             <span>Consult via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -789,7 +810,7 @@
                         <div class="service-card-modern rounded-2xl" id="card-ads">
                              <div class="service-header p-6 flex items-center justify-between cursor-pointer" onclick="toggleCard('card-ads')">
                                 <div class="flex items-center gap-5">
-                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-lightBg dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
+                                    <div class="icon-wrapper w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-accent dark:text-gold flex items-center justify-center text-2xl shadow-inner border border-accent/10 dark:border-white/10">
                                         <i class="fas fa-bullhorn"></i>
                                     </div>
                                     <div>
@@ -805,7 +826,7 @@
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Service</label>
-                                        <select id="opt-ads" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <select id="opt-ads" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                             <option value="Google Ads Setup">Google Ads</option>
                                             <option value="Meta Ads Management">Meta Ads (FB/IG)</option>
                                             <option value="Audit SEO Website">Audit SEO</option>
@@ -814,14 +835,14 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Business</label>
-                                        <input type="text" id="name-ads" placeholder="Nama Bisnis" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
+                                        <input type="text" id="name-ads" placeholder="Nama Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-lightSub dark:text-darkSub mb-2">Goal</label>
-                                        <textarea id="note-ads" rows="2" placeholder="Target (Sales/Leads)?" class="w-full px-4 py-3 rounded-xl bg-lightBg border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-ads" rows="2" placeholder="Target (Sales/Leads)?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-accent text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('SEO & Digital Ads', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-4 bg-accent text-lightBg text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('SEO & Digital Ads', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-4 bg-accent text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
                                             <span>Consult via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -833,16 +854,23 @@
              </div>
         </section>
 
-        <!-- 7. Testimonials (8 Cards - Auto Slider) -->
-        <section class="py-24 relative overflow-hidden bg-lightBg dark:bg-darkBg border-t border-accent/5 dark:border-white/5">
+        <!-- 7. Testimonials (8 Cards - Manual Slider with Buttons) -->
+        <section class="py-24 relative overflow-hidden bg-mainWhite dark:bg-darkBg border-t border-accent/5 dark:border-white/5">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <div class="text-center mb-16">
-                    <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-2 block">Validation</span>
-                    <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white" data-i18n="testiTitle">What Clients Say</h2>
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div class="text-left">
+                        <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-2 block">Validation</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white" data-i18n="testiTitle">What Clients Say</h2>
+                    </div>
+                    <!-- Slider Navigation Buttons -->
+                    <div class="flex gap-2 mt-4 md:mt-0">
+                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-darkBrown/20 flex items-center justify-center hover:bg-darkBrown hover:text-white transition-all"><i class="fas fa-arrow-left"></i></button>
+                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-darkBrown/20 flex items-center justify-center hover:bg-darkBrown hover:text-white transition-all"><i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
                 
                 <div class="relative w-full overflow-hidden">
-                    <div class="flex gap-6 py-4" id="testimonialSlider">
+                    <div class="flex gap-6 py-4 overflow-x-auto" id="testimonialSlider">
                         <!-- Card 1 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-accent/10 font-serif absolute top-6 left-6">“</div>
@@ -921,7 +949,7 @@
         </section>
 
         <!-- 8. Background (Certifications) -->
-        <section id="certificates" class="py-24 bg-white dark:bg-darkCard/30 relative defer-render">
+        <section id="certificates" class="py-24 bg-cream/30 dark:bg-darkCard/30 relative defer-render">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <span class="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-2 block">Credentials</span>
@@ -942,7 +970,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-lightBg dark:bg-darkBg pt-24 pb-10 px-6 border-t border-accent/10 defer-render">
+    <footer id="contact" class="bg-cream dark:bg-darkBg pt-24 pb-10 px-6 border-t border-accent/10 defer-render">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
                 <div class="max-w-md">
@@ -950,7 +978,7 @@
                     <p class="text-sm text-lightSub dark:text-darkSub mb-8 leading-relaxed" data-i18n="footerDesc">
                         Looking for impactful digital strategies? Let's discuss how I can help grow your business.
                     </p>
-                    <a href="mailto:faqihalrf@gmail.com" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-lightBg rounded-full hover:bg-black transition-all shadow-lg text-sm font-bold tracking-wide">
+                    <a href="mailto:faqihalrf@gmail.com" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-full hover:bg-black transition-all shadow-lg text-sm font-bold tracking-wide">
                         <i class="far fa-envelope mr-2"></i> faqihalrf@gmail.com
                     </a>
                 </div>
@@ -976,7 +1004,7 @@
 
     <!-- Smart Scroll Widget -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-accent shadow-lg text-lightBg flex items-center justify-center hover:bg-black transition-all hover:scale-110">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-accent shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110">
             <i class="fas fa-arrow-up"></i>
         </button>
     </div>
@@ -984,7 +1012,7 @@
     <!-- Universal Info Modal (Enhanced) -->
     <div id="infoModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md opacity-0 invisible" aria-hidden="true">
         <div class="modal-content bg-white dark:bg-darkCard w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] border border-accent/10">
-            <div class="p-6 border-b border-accent/10 flex justify-between items-center bg-lightBg dark:bg-darkBg">
+            <div class="p-6 border-b border-accent/10 flex justify-between items-center bg-cream dark:bg-darkBg">
                 <h3 id="modalTitle" class="text-xl font-serif font-bold text-accent dark:text-gold"></h3>
                 <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-white dark:bg-white/10 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all">
                     <i class="fas fa-times"></i>
@@ -1091,7 +1119,7 @@
                 descJob4: `<p>Built and managed affiliate marketing strategies on Shopee, focusing on product curation to attract specific audiences.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Used social media (Instagram) as the main channel to drive traffic and conversions.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Achieved <strong>57 sales</strong> in the first month, showing early ability in generating sales via affiliate marketing.</span></li></ul>`,
                 dateJob5: "Jan 2024 - Apr 2025", titleJob5: "Owner, Cake Business", subJob5: "Entrepreneur",
                 descJob5: `<p>Successfully built and managed a cake business from scratch, focusing on product quality and customer satisfaction.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Gained <strong>437 loyal customers</strong> through word-of-mouth and social media strategies.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Achieved consistent daily revenue of over <strong>Rp500,000</strong>.</span></li></ul>`,
-                dateJob6: "May 2023 - Dec 2023", subJob6: "Web Development Venture",
+                dateJob6: "Mei 2023 - Dec 2023", subJob6: "Web Development Venture",
                 descJob6: `<p>Served as Customer Service and Co-founder in a web development venture built with partners.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 dark:text-teal-400 mt-1 text-xs"></i><span>Responsible for building client relationships, identifying needs, and managing expectations, directly contributing to acquiring <strong>6 projects</strong> within 1 month.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 dark:text-teal-400 mt-1 text-xs"></i><span>Maintained high customer satisfaction with an average rating of <strong>4.9 to 5 stars</strong>.</span></li></ul>`,
                 certTitle: "Professional Certifications", btnAllCerts: "View 45+ Certificates",
                 galleryTitle: "Project Gallery", galleryDesc: "Visual evidence of results and strategies.",
@@ -1145,37 +1173,9 @@
                 compSeoDesc: "Penguasaan SEO (On-page, Teknis)", compAdsDesc: "Iklan Berbayar (Google, Meta, TikTok)", compContentDesc: "Strategi & Perencanaan Konten", compViral: "Pemasaran Viral & Tren", compBrand: "Identitas & Positioning Brand",
                 skillData: "Data Storytelling", skillPM: "Manajemen Proyek", skillNego: "Negosiasi", skillLead: "Kepemimpinan",
                 expTitle: "Perjalanan Karir", expDesc: "Rekam jejak profesional dalam mendorong pertumbuhan bisnis.",
-                dateJob1: "Jan 2026 - Sekarang", 
-                descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak. Berfokus pada pembangunan hubungan jangka panjang dan penetrasi pasar.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-accent dark:text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien strategis (CRM).</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-accent dark:text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran dan strategi penawaran layanan.</span></li></ul>`,
-                dateJob2: "Sep 2025 - Des 2025", 
-                descJob2: `
-                    <p>Selama 3 bulan magang, saya menulis dan menerbitkan 29 artikel berkualitas tinggi yang berfokus pada Bisnis dan Teknologi dengan standar SEO terkini.</p>
-                    <ul class="space-y-2 mt-2 mb-4">
-                        <li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 mt-1 text-xs"></i><span>Mengamankan <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li>
-                        <li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 mt-1 text-xs"></i><span>Artikel berhasil masuk fitur <strong>Google Discover</strong>, mendemonstrasikan kemampuan mendorong pertumbuhan organik yang kuat.</span></li>
-                    </ul>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md w-full sm:w-fit active:scale-95">
-                            Lihat Semua Artikel <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <!-- RECOMMENDATION LETTER CARD (ID) -->
-                        <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.jpg', 'image')">
-                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-slate-200 dark:border-white/10 rounded-xl hover:border-emerald-500 transition-colors">
-                                <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 text-lg"><i class="fas fa-file-contract"></i></div>
-                                <div class="flex-1 min-w-0"><p class="text-xs font-bold text-lightText dark:text-white truncate group-hover:text-emerald-600 transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-lightSub dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div>
-                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 group-hover:text-emerald-500 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-all"><i class="fas fa-eye text-xs"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                dateJob3: "Jul 2025 - Sep 2025", 
-                descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global yang menguntungkan di Shopify, mengawasi rantai pasok dari China ke AS.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 dark:text-orange-400 mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 dark:text-orange-400 mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop melalui optimasi marketplace strategis dan *brand building*.</span></li></ul>`,
-                dateJob4: "Mei 2025 - Jul 2025", titleJob4: "Pemasaran Afiliasi",
-                descJob4: `<p>Membangun dan mengelola strategi pemasaran afiliasi di platform Shopee, berfokus pada kurasi produk pilihan untuk menarik audiens spesifik.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Menggunakan media sosial (Instagram) sebagai saluran utama untuk mendorong trafik dan konversi.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Mencapai <strong>57 penjualan</strong> di bulan pertama, menunjukkan kemampuan awal dalam menghasilkan penjualan melalui pemasaran afiliasi.</span></li></ul>`,
-                dateJob5: "Jan 2024 - Apr 2025", titleJob5: "Pemilik, Bisnis Kue", subJob5: "Wiraswasta",
-                descJob5: `<p>Berhasil membangun dan mengelola bisnis kue dari nol, fokus pada kualitas produk dan kepuasan pelanggan.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Mendapatkan <strong>437 pelanggan setia</strong> melalui strategi pemasaran dari mulut ke mulut dan media sosial.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Mencapai pendapatan harian lebih dari <strong>Rp500,000</strong> secara konsisten.</span></li></ul>`,
-                dateJob6: "Mei 2023 - Des 2023", subJob6: "Usaha Pengembangan Web",
-                descJob6: `<p>Berperan sebagai Customer Service dan co-founder dalam usaha pengembangan web yang dibangun bersama mitra.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 dark:text-teal-400 mt-1 text-xs"></i><span>Bertanggung jawab membangun hubungan baik dengan klien, mengidentifikasi kebutuhan mereka, dan mengelola ekspektasi, yang secara langsung berkontribusi pada perolehan <strong>6 proyek</strong> dalam 1 bulan sejak pendirian bisnis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-teal-500 dark:text-teal-400 mt-1 text-xs"></i><span>Mempertahankan kepuasan pelanggan yang tinggi dengan rata-rata rating <strong>4.9 hingga 5 bintang</strong>.</span></li></ul>`,
+                dateJob1: "Jan 2026 - Sekarang", descJob1: "<p>Mengelola siklus penjualan B2B...</p>",
+                dateJob2: "Sep 2025 - Des 2025", descJob2: "<p>Menulis 29 artikel berkualitas...</p>",
+                dateJob3: "Jul 2025 - Sep 2025", descJob3: "<p>Mendirikan bisnis dropshipping...</p>",
                 certTitle: "Sertifikasi Profesional", btnAllCerts: "Lihat 45+ Sertifikat",
                 galleryTitle: "Galeri Proyek", galleryDesc: "Visualisasi hasil kerja dan pencapaian nyata.",
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",

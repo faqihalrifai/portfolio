@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <!-- =========================================
-         1. GOOGLE TAG MANAGER (PRIORITAS UTAMA - WAJIB PALING ATAS)
+         1. GOOGLE TAG MANAGER (PRIORITAS UTAMA)
          ========================================= -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -90,8 +90,9 @@
                         goldHover: '#a3841f',
                         darkBlack: '#111827',
                         textGray: '#4b5563',
-                        darkBg: '#0f0f0f',        
-                        darkCard: '#1a1a1a',      
+                        // UPDATED DARK MODE COLORS (Lighter/Clearer)
+                        darkBg: '#121212',        
+                        darkCard: '#1e1e1e',      
                         darkText: '#f3f4f6',      
                         darkSub: '#9ca3af',       
                     },
@@ -110,25 +111,25 @@
 
     <style>
         body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .dark body { background-color: #0f0f0f; color: #f3f4f6; }
+        .dark body { background-color: #121212; color: #f3f4f6; }
         html { scroll-behavior: smooth; }
         
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dark .glass { background: rgba(15, 15, 15, 0.95); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dark .glass { background: rgba(18, 18, 18, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
         
         /* CARD STYLES */
         .service-card-modern { transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.05); background: #f8f9fa; overflow: hidden; }
-        .dark .service-card-modern { border: 1px solid rgba(255,255,255,0.05); background: #1a1a1a; }
+        .dark .service-card-modern { border: 1px solid rgba(255,255,255,0.08); background: #1e1e1e; }
         .service-card-modern.expanded { border-color: #c5a028; background: #fff; box-shadow: 0 20px 40px -10px rgba(197,160,40,0.15); }
-        .dark .service-card-modern.expanded { background: #222; }
+        .dark .service-card-modern.expanded { background: #252525; }
 
         /* TESTIMONIALS */
         #testimonialSlider { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
         #testimonialSlider::-webkit-scrollbar { display: none; }
         .testimonial-card { transition: all 0.4s ease; background: #f8f9fa; border: 1px solid rgba(0,0,0,0.03); }
-        .dark .testimonial-card { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.05); }
+        .dark .testimonial-card { background: #1e1e1e; border: 1px solid rgba(255,255,255,0.08); }
         .testimonial-card:hover { transform: translateY(-5px); border-color: #c5a028; background: #fff; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); }
-        .dark .testimonial-card:hover { background: #222; }
+        .dark .testimonial-card:hover { background: #252525; }
 
         /* HERO SLIDER */
         .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); }
@@ -146,10 +147,6 @@
         /* MOBILE TWEAKS */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
-            .mobile-center-text { text-align: center; }
-            .mobile-straight-flex { flex-direction: row !important; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; }
-            .mobile-grid-stats { grid-template-columns: repeat(4, 1fr) !important; gap: 0.5rem !important; }
-            .stat-text-sm { font-size: 0.65rem !important; }
         }
     </style>
 </head>
@@ -211,44 +208,53 @@
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-lightGray/50 dark:bg-white/5 text-darkBlack dark:text-gold text-[10px] font-bold uppercase tracking-widest mb-6 cursor-default">
                         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span><span data-i18n="heroBadge">Available for Work</span>
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.1] mb-6 dark:text-darkText">
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.1] mb-6 dark:text-darkText text-left">
                         <span data-i18n="heroTitle1">Dominating Digital</span> <br><span class="text-gold italic" data-i18n="heroTitle2">Market & Growth.</span>
                     </h1>
-                    <p class="text-sm md:text-base text-textGray dark:text-darkSub leading-relaxed mb-8 max-w-xl text-justify" data-i18n="heroDesc">
+                    
+                    <p class="text-sm md:text-base text-textGray dark:text-darkSub leading-relaxed mb-8 max-w-xl text-left" data-i18n="heroDesc">
                         I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth to deliver tangible and measurable business impact. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon.
                     </p>
                     
-                    <!-- Buttons & Socials (Horizontal on Mobile) -->
-                    <div class="flex flex-col sm:flex-row gap-4 items-center mb-12 w-full sm:w-auto">
-                        <!-- Wrapper for Mobile Horizontal Layout -->
-                        <div class="flex flex-row items-center gap-4 w-full sm:w-auto justify-between sm:justify-start">
-                            <a href="#experience" class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gold text-white rounded-full hover:bg-black dark:hover:bg-white dark:hover:text-darkBg hover:shadow-lg transition-all duration-300 font-bold text-xs tracking-wider uppercase group whitespace-nowrap">
-                                <span data-i18n="btnPortfolio">View Portfolio</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                            <div class="flex gap-3 items-center">
-                                <a href="https://wa.me/62859148219009" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-green-500 hover:text-white transition-all shadow-sm"><i class="fab fa-whatsapp text-lg"></i></a>
-                                <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-[#0077b5] hover:text-white transition-all shadow-sm"><i class="fab fa-linkedin-in text-base"></i></a>
-                                <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-pink-600 hover:text-white transition-all shadow-sm"><i class="fab fa-instagram text-base"></i></a>
-                                <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-black hover:text-white transition-all shadow-sm"><i class="fab fa-tiktok text-base"></i></a>
-                            </div>
+                    <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center mb-12 w-full sm:w-auto">
+                        <a href="#experience" class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gold text-white rounded-full hover:bg-black dark:hover:bg-white dark:hover:text-darkBg hover:shadow-lg transition-all duration-300 font-bold text-xs tracking-wider uppercase group whitespace-nowrap">
+                            <span data-i18n="btnPortfolio">View Portfolio</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <div class="flex gap-3 items-center">
+                            <a href="https://wa.me/62859148219009" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-green-500 hover:text-white transition-all shadow-sm"><i class="fab fa-whatsapp text-lg"></i></a>
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-[#0077b5] hover:text-white transition-all shadow-sm"><i class="fab fa-linkedin-in text-base"></i></a>
+                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-pink-600 hover:text-white transition-all shadow-sm"><i class="fab fa-instagram text-base"></i></a>
+                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-black hover:text-white transition-all shadow-sm"><i class="fab fa-tiktok text-base"></i></a>
                         </div>
                     </div>
 
-                    <!-- Stats (Straight Horizontal on Mobile) -->
-                    <div class="pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-4 gap-2 text-center mobile-grid-stats">
-                        <div class="flex flex-col items-center md:items-start"><div class="text-xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="42">0</div><div class="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1 stat-text-sm">Articles</div></div>
-                        <div class="flex flex-col items-center md:items-start"><div class="text-xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="45">0</div><div class="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1 stat-text-sm">Certifications</div></div>
-                        <div class="flex flex-col items-center md:items-start"><div class="text-xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="1">0</div><div class="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1 stat-text-sm">Ranking</div></div>
-                        <div class="flex flex-col items-center md:items-start"><div class="text-xl md:text-3xl font-serif font-medium counter text-gold" data-target="73">0</div><div class="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1 stat-text-sm">Clients</div></div>
+                    <!-- UPDATED: Centered on mobile (text-center, items-center), Left on Desktop (md:text-left, md:items-start) -->
+                    <div class="pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 text-center md:text-left">
+                        <div class="flex flex-col items-center md:items-start">
+                            <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="42">0</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Articles</div>
+                        </div>
+                        <div class="flex flex-col items-center md:items-start">
+                            <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="45">0</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Certifications</div>
+                        </div>
+                        <div class="flex flex-col items-center md:items-start">
+                            <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="1">0</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Ranking</div>
+                        </div>
+                        <div class="flex flex-col items-center md:items-start">
+                            <div class="text-3xl md:text-3xl font-serif font-medium counter text-gold" data-target="73">0</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Clients</div>
+                        </div>
                     </div>
                 </div>
                 <!-- Image - Clean -->
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
-                    <!-- ADDED mx-auto lg:mx-0 HERE TO CENTER ON MOBILE -->
                     <div class="relative w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
-                        <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float">
-                            <img src="myphot.jpeg" width="450" height="550" class="w-full h-full object-cover" alt="Profile" loading="eager">
+                        <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
+                            <img src="myphot.jpeg" class="w-full h-full object-cover" alt="Profile" loading="eager">
                         </div>
                     </div>
                 </div>
@@ -392,12 +398,25 @@
                                 <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-emerald-700 dark:text-emerald-400"><i class="fas fa-code-branch"></i></div>
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compTechTitle">Tools & Tech</h3>
                             </div>
+                            <!-- UPDATED TOOLS LIST -->
                             <div class="flex flex-wrap gap-2">
-                                <span class="badge-skill">WordPress</span><span class="badge-skill">GA4</span><span class="badge-skill">GTM</span>
-                                <span class="badge-skill">Looker Studio</span><span class="badge-skill">SEMrush</span><span class="badge-skill">Ahrefs</span>
-                                <span class="badge-skill">Shopify</span><span class="badge-skill">Meta Ads Manager</span><span class="badge-skill">ChatGPT & AI</span>
-                                <span class="badge-skill">Excel</span><span class="badge-skill">Figma</span><span class="badge-skill">Canva</span>
-                                <span class="badge-skill">CapCut</span><span class="badge-skill">Trello</span>
+                                <span class="badge-skill">Google Ads</span>
+                                <span class="badge-skill">TikTok Ads</span>
+                                <span class="badge-skill">VS Code</span>
+                                <span class="badge-skill">GitHub</span>
+                                <span class="badge-skill">Gemini AI</span>
+                                <span class="badge-skill">Google Search Console</span>
+                                <span class="badge-skill">Google Analytics 4</span>
+                                <span class="badge-skill">Google Tag Manager</span>
+                                <span class="badge-skill">WordPress</span>
+                                <span class="badge-skill">SEMrush</span>
+                                <span class="badge-skill">Ahrefs</span>
+                                <span class="badge-skill">Shopify</span>
+                                <span class="badge-skill">Meta Ads Manager</span>
+                                <span class="badge-skill">Excel</span>
+                                <span class="badge-skill">Figma</span>
+                                <span class="badge-skill">Canva</span>
+                                <span class="badge-skill">CapCut</span>
                             </div>
                         </div>
                         <!-- Skills -->
@@ -1027,7 +1046,7 @@
                 dateJob1: "Jan 2026 - Sekarang", 
                 descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien (CRM) strategis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran.</span></li></ul>`,
                 dateJob2: "Sep 2025 - Des 2025", 
-                descJob2: `<p>Selama magang 3 bulan, menulis dan menerbitkan 29 artikel berkualitas tinggi tentang Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2 mb-4"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meraih <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel berhasil masuk <strong>Google Discover</strong>, mendatangkan trafik organik signifikan.</span></li></ul><div class="flex flex-col gap-3"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a><div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.jpg', 'image')"><div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Recommendation Letter</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">From Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
+                descJob2: `<p>Selama magang 3 bulan, menulis dan menerbitkan 29 artikel berkualitas tinggi tentang Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2 mb-4"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meraih <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel berhasil masuk <strong>Google Discover</strong>, mendatangkan trafik organik signifikan.</span></li></ul><div class="flex flex-col gap-3"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a><div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.jpg', 'image')"><div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
                 dateJob3: "Jul 2025 - Sep 2025", 
                 descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global di Shopify, mengawasi rantai pasok dari China ke AS.</p>
                 <ul class="space-y-2 mt-2">
@@ -1037,7 +1056,7 @@
                 <div class="mt-4 group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('shopfy.jpeg', 'image')">
                     <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-slate-200 dark:border-white/10 rounded-xl hover:border-orange-500 transition-colors">
                         <div class="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 text-lg"><i class="fas fa-chart-line"></i></div>
-                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-orange-600 transition-colors">Performance Report</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Shopify Analytics</p></div>
+                        <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-orange-600 transition-colors">Laporan Kinerja</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Analitik Shopify</p></div>
                         <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 group-hover:text-orange-500 group-hover:bg-orange-50 dark:group-hover:bg-orange-900/30 transition-all"><i class="fas fa-eye text-xs"></i></div>
                     </div>
                 </div>`,

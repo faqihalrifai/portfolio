@@ -48,7 +48,14 @@
     <meta name="twitter:image" content="https://faqihalrf.netlify.app/myphot.jpeg">
 
     <!-- =========================================
-         3. GOOGLE ANALYTICS (GA4)
+         3. PERFORMANCE PRECONNECT
+         ========================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- =========================================
+         4. GOOGLE ANALYTICS (GA4)
          ========================================= -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
     <script>
@@ -59,17 +66,18 @@
     </script>
 
     <!-- =========================================
-         4. GOOGLE ADSENSE SCRIPT
+         5. GOOGLE ADSENSE SCRIPT
          ========================================= -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
 
-    <!-- FAVICON -->
+    <!-- FAVICON & MOBILE ICONS (UPGRADED) -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="myphot.jpeg"> <!-- Menggunakan foto profil sebagai ikon mobile jika belum ada ikon khusus -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     
     <!-- FONTS & CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -159,41 +167,41 @@
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm" id="navbar">
         <div id="navbar-container" class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center transition-all duration-300">
-            <a href="#" class="font-bold tracking-tight hover:text-gold transition-colors flex items-center gap-2 group min-w-0">
+            <a href="#" class="font-bold tracking-tight hover:text-gold transition-colors flex items-center gap-2 group min-w-0" aria-label="Homepage">
                 <span class="text-[13px] sm:text-base md:text-lg font-serif tracking-wide dark:text-darkText">Muhammad Faqih Al Rifai</span>
                 <div class="relative flex items-center justify-center shrink-0"><i class="fas fa-check-circle text-gold text-base md:text-lg"></i></div>
             </a>
             
             <div class="hidden md:flex items-center gap-1 bg-lightGray/50 dark:bg-black/20 p-1 rounded-full border border-black/5 dark:border-white/10 backdrop-blur-sm">
-                <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">About</a>
-                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Experience</a>
-                <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Skills</a>
-                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Gallery</a>
-                <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Services</a>
+                <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navAbout">About</a>
+                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navExperience">Experience</a>
+                <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navSkills">Skills</a>
+                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navGallery">Gallery</a>
+                <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navServices">Services</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="hidden md:flex items-center gap-2">
-                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:border-gold hover:text-gold transition-all flex items-center gap-2 hover-soft">
+                    <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:border-gold hover:text-gold transition-all flex items-center gap-2 hover-soft" aria-label="Toggle Language">
                         <span class="current-lang-label">EN</span><i class="fas fa-globe"></i>
                     </button>
-                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:text-gold transition-all hover-soft">
+                    <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:text-gold transition-all hover-soft" aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon text-sm dark:hidden"></i><i class="fas fa-sun text-sm hidden dark:block text-gold"></i>
                     </button>
                 </div>
-                <a href="#contact" class="hidden md:inline-flex px-5 py-2 bg-gold text-white text-xs font-bold rounded-full hover:bg-black transition-all shadow-md">Contact Me</a>
-                <button id="menuBtn" class="md:hidden p-2 text-darkBlack dark:text-darkText hover:text-gold transition-colors"><i class="fas fa-bars text-xl"></i></button>
+                <a href="#contact" class="hidden md:inline-flex px-5 py-2 bg-gold text-white text-xs font-bold rounded-full hover:bg-black transition-all shadow-md" data-i18n="btnContact">Contact Me</a>
+                <button id="menuBtn" class="md:hidden p-2 text-darkBlack dark:text-darkText hover:text-gold transition-colors" aria-label="Open Menu"><i class="fas fa-bars text-xl"></i></button>
             </div>
         </div>
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-mainWhite/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40">
             <div class="flex flex-col p-4 space-y-2">
-                <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">About</a>
-                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Experience</a>
-                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Services</a>
+                <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navAbout">About</a>
+                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navExperience">Experience</a>
+                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navServices">Services</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
-                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold"><i class="fas fa-globe"></i> EN</button>
-                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
+                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Language Mobile"><i class="fas fa-globe"></i> EN</button>
+                    <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
                 </div>
             </div>
         </div>
@@ -222,10 +230,10 @@
                             <span data-i18n="btnPortfolio">View Portfolio</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <div class="flex gap-3 items-center">
-                            <a href="https://wa.me/62859148219009" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-green-500 hover:text-white transition-all shadow-sm"><i class="fab fa-whatsapp text-lg"></i></a>
-                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-[#0077b5] hover:text-white transition-all shadow-sm"><i class="fab fa-linkedin-in text-base"></i></a>
-                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-pink-600 hover:text-white transition-all shadow-sm"><i class="fab fa-instagram text-base"></i></a>
-                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-black hover:text-white transition-all shadow-sm"><i class="fab fa-tiktok text-base"></i></a>
+                            <a href="https://wa.me/62859148219009" target="_blank" aria-label="WhatsApp" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-green-500 hover:text-white transition-all shadow-sm"><i class="fab fa-whatsapp text-lg"></i></a>
+                            <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-[#0077b5] hover:text-white transition-all shadow-sm"><i class="fab fa-linkedin-in text-base"></i></a>
+                            <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-pink-600 hover:text-white transition-all shadow-sm"><i class="fab fa-instagram text-base"></i></a>
+                            <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" aria-label="TikTok" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-darkText hover:bg-black hover:text-white transition-all shadow-sm"><i class="fab fa-tiktok text-base"></i></a>
                         </div>
                     </div>
 
@@ -233,19 +241,19 @@
                     <div class="pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 text-center md:text-left">
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="42">0</div>
-                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Articles</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1" data-i18n="statArticles">Articles</div>
                         </div>
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="45">0</div>
-                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Certifications</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1" data-i18n="statCerts">Certifications</div>
                         </div>
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="1">0</div>
-                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Ranking</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1" data-i18n="statRank">Ranking</div>
                         </div>
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-3xl md:text-3xl font-serif font-medium counter text-gold" data-target="73">0</div>
-                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1">Clients</div>
+                            <div class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1" data-i18n="statClients">Clients</div>
                         </div>
                     </div>
                 </div>
@@ -254,7 +262,7 @@
                     <div class="relative w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <img src="myphot.jpeg" class="w-full h-full object-cover" alt="Profile" loading="eager">
+                            <img src="myphot.jpeg" width="400" height="500" class="w-full h-full object-cover" alt="Muhammad Faqih Al Rifai Profile Picture" loading="eager">
                         </div>
                     </div>
                 </div>
@@ -265,7 +273,7 @@
         <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Timeline</span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagTimeline">Timeline</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="expTitle">Career Journey</h2>
                 </div>
                 <div class="timeline-line relative space-y-12">
@@ -308,7 +316,7 @@
                                 <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <div class="flex items-center gap-3 mb-1">
                                         <h3 class="text-xl mini-head-mobile font-bold dark:text-darkText">Marketplace Administrator</h3>
-                                        <img src="shopify.jpeg" class="w-6 h-6 object-contain rounded-md border border-gray-200" alt="Shopify Icon" onerror="this.style.display='none'">
+                                        <img src="shopify.jpeg" class="w-6 h-6 object-contain rounded-md border border-gray-200" alt="Shopify Icon" loading="lazy" onerror="this.style.display='none'">
                                     </div>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
@@ -370,7 +378,7 @@
         <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render">
              <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Methodology</span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagMethod">Methodology</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="compTitle">Core Competencies</h2>
                 </div>
                 
@@ -469,7 +477,7 @@
         <section id="gallery" class="py-24 relative defer-render bg-mainWhite dark:bg-darkBg">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Portfolio</span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagPortfolio">Portfolio</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="galleryTitle">Project Gallery</h2>
                 </div>
                 
@@ -478,8 +486,8 @@
                     <!-- Main Display -->
                     <div class="hero-slider-container mb-6 relative group">
                         <!-- Navigation Buttons -->
-                        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg"><i class="fas fa-chevron-right"></i></button>
+                        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
 
                         <!-- Slide Container (Injected by JS) -->
                         <div id="hero-slides-wrapper" class="w-full h-full relative">
@@ -497,7 +505,7 @@
                     <div class="thumbnail-strip" id="thumbnail-container">
                         <!-- Thumbnails injected by JS -->
                     </div>
-                    <p class="text-center text-xs text-textGray dark:text-darkSub mt-4 italic"><i class="fas fa-info-circle mr-1"></i> Click image to zoom / thumbnails to switch</p>
+                    <p class="text-center text-xs text-textGray dark:text-darkSub mt-4 italic"><i class="fas fa-info-circle mr-1"></i> <span data-i18n="clickZoom">Click image to zoom / thumbnails to switch</span></p>
                 </div>
             </div>
         </section>
@@ -506,7 +514,7 @@
         <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
              <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
                   <div class="text-center mb-16">
-                      <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block">The Offer</span>
+                      <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block" data-i18n="tagOffer">The Offer</span>
                       <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4" data-i18n="serviceTitle">Exclusive Services</h2>
                       <div class="w-20 h-1 bg-gold mx-auto rounded-full"></div>
                   </div>
@@ -700,13 +708,13 @@
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <!-- Centered Header -->
                 <div class="flex flex-col items-center text-center mb-12 mobile-center-text">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Validation</span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagValidation">Validation</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white mb-6" data-i18n="testiTitle">What Clients Say</h2>
                     
                     <!-- Slider Navigation Buttons (Centered) -->
                     <div class="flex gap-4">
-                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group"><i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i></button>
-                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group"><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></button>
+                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group" aria-label="Previous Testimonial"><i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i></button>
+                         <button onclick="document.getElementById('testimonialSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group" aria-label="Next Testimonial"><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></button>
                     </div>
                 </div>
                 
@@ -811,7 +819,7 @@
         <section id="certificates" class="py-24 bg-lightGray/50 dark:bg-darkCard/30 relative defer-render">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Credentials</span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagCreds">Credentials</span>
                     <h2 class="text-3xl font-serif font-medium dark:text-white" data-i18n="certTitle">Professional Certifications</h2>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="certGrid">
@@ -844,10 +852,10 @@
                 <div>
                     <h3 class="text-xs font-bold uppercase tracking-widest text-gold mb-6" data-i18n="footerSocials">Socials</h3>
                     <div class="flex gap-6 text-xl text-textGray">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" class="hover:text-black hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/62859148219009" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-gold hover:scale-110 transition-transform" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-600 hover:scale-110 transition-transform" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" class="hover:text-black hover:scale-110 transition-transform" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/62859148219009" class="hover:text-green-600 hover:scale-110 transition-transform" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -863,7 +871,7 @@
 
     <!-- Smart Scroll Widget -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110" aria-label="Scroll to Top">
             <i class="fas fa-arrow-up"></i>
         </button>
     </div>
@@ -873,7 +881,7 @@
         <div class="modal-content bg-white dark:bg-darkCard w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] border border-black/5 dark:border-white/10">
             <div class="p-6 border-b border-black/5 dark:border-white/10 flex justify-between items-center bg-lightGray dark:bg-darkBg">
                 <h3 id="modalTitle" class="text-xl font-serif font-bold text-darkBlack dark:text-gold"></h3>
-                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-white dark:bg-white/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:text-white transition-all">
+                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-white dark:bg-white/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:text-white transition-all" aria-label="Close Modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -885,9 +893,9 @@
 
     <!-- Lightbox Modal -->
     <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button>
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2" aria-label="Close Lightbox">&times;</button>
         <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative">
-            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()" alt="Project Detail">
             <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video>
         </div>
     </div>
@@ -944,6 +952,7 @@
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
                 heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth to deliver tangible and measurable business impact. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon. The synergy between my understanding of algorithms from my academic background and my digital marketing strategies allows me to implement a more profound, data-driven, and innovative approach to optimization.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Ranking", statClients: "Clients",
+                tagTimeline: "Timeline", tagMethod: "Methodology", tagPortfolio: "Portfolio", tagOffer: "The Offer", tagValidation: "Validation", tagCreds: "Credentials",
                 compTitle: "Core Competencies", compDesc: "Holistic strategy combining data analysis, creative content, and technical execution.",
                 compStratTitle: "Strategic Marketing", compTechTitle: "Tools & Tech", compProfTitle: "Soft Skills",
                 compSeoDesc: "SEO Mastery (On-page, Technical)", compAdsDesc: "Paid Ads (Google, Meta, TikTok)", compContentDesc: "Content Strategy & Planning", compViral: "Viral Marketing & Trends", compBrand: "Brand Identity & Positioning",
@@ -994,6 +1003,7 @@
                 certTitle: "Professional Certifications", btnAllCerts: "View 45+ Certificates",
                 galleryTitle: "Project Gallery", galleryDesc: "Visual evidence of results and strategies.",
                 galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Showreel",
+                clickZoom: "Click image to zoom / thumbnails to switch",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
                 footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
                 serviceTitle: "Exclusive Services", servWebTitle: "Website Creation", servAcadTitle: "Academic Assistance", servContentTitle: "Content Writing", servSeoTitle: "SEO & Digital Ads", 
@@ -1038,6 +1048,7 @@
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
                 heroDesc: "Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon. Sinergi antara pemahaman algoritma dari latar belakang akademis dan strategi pemasaran digital memungkinkan saya menerapkan pendekatan optimasi yang lebih mendalam, berbasis data, dan inovatif.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking", statClients: "Klien",
+                tagTimeline: "Garis Waktu", tagMethod: "Metodologi", tagPortfolio: "Portfolio", tagOffer: "Penawaran", tagValidation: "Validasi", tagCreds: "Kredensial",
                 compTitle: "Kompetensi Utama", compDesc: "Strategi holistik yang menggabungkan analisis data, kreativitas konten, dan eksekusi teknis.",
                 compStratTitle: "Pemasaran Strategis", compTechTitle: "Alat & Teknologi", compProfTitle: "Soft Skills",
                 compSeoDesc: "Penguasaan SEO (On-page, Teknis)", compAdsDesc: "Iklan Berbayar (Google, Meta, TikTok)", compContentDesc: "Strategi & Perencanaan Konten", compViral: "Pemasaran Viral & Tren", compBrand: "Identitas & Positioning Brand",
@@ -1069,15 +1080,16 @@
                 certTitle: "Sertifikasi Profesional", btnAllCerts: "Lihat 45+ Sertifikat",
                 galleryTitle: "Galeri Proyek", galleryDesc: "Visualisasi hasil kerja dan pencapaian nyata.",
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
+                clickZoom: "Klik gambar untuk memperbesar / thumbnail untuk beralih",
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
-                serviceTitle: "Layanan Eksklusif", servWebTitle: "Pembuatan Website", servAcadTitle: "Bantuan Akademik", servContentTitle: "Penulisan Konten", servSeoTitle: "SEO & Iklan Digital", 
+                serviceTitle: "Layanan Eksklusif", servWebTitle: "Pembuatan Website", servAcadTitle: "Bantuan Akademik", servContentTitle: "Penulisan Konten", servSeoTitle: "SEO & Iklan Digital", 
                 testiTitle: "Kata Mereka", testiDesc: "Dipercaya oleh profesional dan pelaku bisnis.",
                 testi1Text: "\"Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data dan efektif.\"",
                 testi2Text: "\"Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.\"",
                 testi3Text: "\"Saya kesulitan dengan tugas akhir saya, tapi bimbingan beliau sangat berharga.\"",
                 
-                modalPrivacyTitle: "Kebijakan Privasi", 
+                modalPrivacyTitle: "Kebijakan Privasi", 
                 modalPrivacyBody: `
                     <div class="space-y-6">
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
@@ -1090,7 +1102,7 @@
                         </table>
                     </div>
                 `,
-                modalTermsTitle: "Syarat & Ketentuan", 
+                modalTermsTitle: "Syarat & Ketentuan", 
                 modalTermsBody: `
                     <div class="space-y-6">
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
@@ -1135,7 +1147,7 @@
             // AUTOMATIC SLIDER LOGIC
             const slider = document.getElementById('testimonialSlider');
             if (slider) {
-                const scrollStep = 320; 
+                const scrollStep = 320; 
                 setInterval(() => {
                     if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) {
                         slider.scrollTo({ left: 0, behavior: 'smooth' });
@@ -1161,7 +1173,7 @@
 
         const certsData = [
             { title: "Google Digital Marketing", issuer: "Google", icon: "fab fa-google" },
-            { title: "Generative AI", issuer: "IBM", icon: "fas fa-brain" }, 
+            { title: "Generative AI", issuer: "IBM", icon: "fas fa-brain" }, 
             { title: "AI for Business", issuer: "Microsoft", icon: "fab fa-microsoft" },
             { title: "Digital Channel Planning", issuer: "DMI", icon: "fas fa-bullseye" },
             { title: "E-commerce Build", issuer: "Google", icon: "fas fa-shopping-cart" },
@@ -1236,9 +1248,9 @@
             reveals.forEach(r => {
                 const windowHeight = window.innerHeight;
                 const elementTop = r.getBoundingClientRect().top;
-                const elementVisible = 50; 
-                if (elementTop < windowHeight - elementVisible) { 
-                    r.classList.add('active'); 
+                const elementVisible = 50; 
+                if (elementTop < windowHeight - elementVisible) { 
+                    r.classList.add('active'); 
                 }
             });
             const scrollWidget = document.querySelector('.scroll-widget');
@@ -1251,7 +1263,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = +entry.target.getAttribute('data-target');
-                        const duration = 2000; 
+                        const duration = 2000; 
                         let start = 0;
                         const step = timestamp => {
                             if (!start) start = timestamp;
@@ -1289,8 +1301,8 @@
             // Build Slides
             slideWrapper.innerHTML = galleryItems.map((item, index) => `
                 <div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}', '${item.type}')">
-                    ${item.type === 'video' 
-                        ? `<video src="${item.src}" muted loop playsinline autoplay class="w-full h-full object-cover"></video>` 
+                    ${item.type === 'video' 
+                        ? `<video src="${item.src}" muted loop playsinline autoplay class="w-full h-full object-cover"></video>` 
                         : `<img src="${item.src}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x450?text=Project+Preview';">`
                     }
                 </div>
@@ -1299,8 +1311,8 @@
             // Build Thumbnails
             thumbContainer.innerHTML = galleryItems.map((item, index) => `
                 <div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})">
-                    ${item.type === 'video' 
-                        ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play"></i></div>` 
+                    ${item.type === 'video' 
+                        ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play"></i></div>` 
                         : `<img src="${item.src}" onerror="this.onerror=null;this.src='https://placehold.co/100x75?text=...';">`
                     }
                 </div>

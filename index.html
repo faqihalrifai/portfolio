@@ -135,14 +135,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
-                        'scroll-left': 'scrollLeft 30s linear infinite',
                     },
-                    keyframes: {
-                        scrollLeft: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        }
-                    }
                 }
             }
         }
@@ -162,9 +155,10 @@
         .service-card-modern.expanded { border-color: #c5a028; background: #fff; box-shadow: 0 20px 40px -10px rgba(197,160,40,0.15); }
         .dark .service-card-modern.expanded { background: #252525; }
 
-        /* TESTIMONIALS */
-        #testimonialSlider { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
-        #testimonialSlider::-webkit-scrollbar { display: none; }
+        /* TESTIMONIALS & INSIGHTS SLIDER */
+        .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+        .h-scroll-container::-webkit-scrollbar { display: none; }
+        
         .testimonial-card { transition: all 0.4s ease; background: #f8f9fa; border: 1px solid rgba(0,0,0,0.03); }
         .dark .testimonial-card { background: #1e1e1e; border: 1px solid rgba(255,255,255,0.08); }
         .testimonial-card:hover { transform: translateY(-5px); border-color: #c5a028; background: #fff; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); }
@@ -182,23 +176,6 @@
 
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        /* NEW: MARQUEE ANIMATION FOR SHOWCASE */
-        .marquee-container {
-            display: flex;
-            width: 100%;
-            overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-        .marquee-content {
-            display: flex;
-            gap: 2rem;
-            animation: scroll-left 40s linear infinite;
-            width: max-content;
-        }
-        .marquee-container:hover .marquee-content {
-            animation-play-state: paused;
-        }
         
         /* MOBILE TWEAKS */
         @media (max-width: 768px) {
@@ -285,7 +262,6 @@
                         </div>
                     </div>
 
-                    <!-- UPDATED: Centered on mobile (text-center, items-center), Left on Desktop (md:text-left, md:items-start) -->
                     <div class="pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 text-center md:text-left">
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-3xl md:text-3xl font-serif font-medium counter dark:text-darkText" data-target="42">0</div>
@@ -310,7 +286,6 @@
                     <div class="relative w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <!-- Changed to webp -->
                             <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover" alt="Muhammad Faqih Al Rifai Profile Picture" loading="eager">
                         </div>
                     </div>
@@ -365,7 +340,6 @@
                                 <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <div class="flex items-center gap-3 mb-1">
                                         <h3 class="text-xl mini-head-mobile font-bold dark:text-darkText">Marketplace Administrator</h3>
-                                        <!-- Changed to webp -->
                                         <img src="shopify.webp" class="w-6 h-6 object-contain rounded-md border border-gray-200" alt="Shopify Icon" loading="lazy" onerror="this.style.display='none'">
                                     </div>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
@@ -456,7 +430,6 @@
                                 <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-emerald-700 dark:text-emerald-400"><i class="fas fa-code-branch"></i></div>
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compTechTitle">Tools & Tech</h3>
                             </div>
-                            <!-- UPDATED TOOLS LIST -->
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-skill">Google Ads</span>
                                 <span class="badge-skill">TikTok Ads</span>
@@ -535,9 +508,9 @@
                 <div class="max-w-4xl mx-auto reveal">
                     <!-- Main Display -->
                     <div class="hero-slider-container mb-6 relative group">
-                        <!-- Navigation Buttons -->
-                        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold transition-colors shadow-lg" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
+                        <!-- Navigation Buttons (UPDATED COLOR: Gold init, Gray hover) -->
+                        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-gold backdrop-blur-md flex items-center justify-center text-white hover:bg-gray-600 transition-colors shadow-lg" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-gold backdrop-blur-md flex items-center justify-center text-white hover:bg-gray-600 transition-colors shadow-lg" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
 
                         <!-- Slide Container (Injected by JS) -->
                         <div id="hero-slides-wrapper" class="w-full h-full relative">
@@ -774,7 +747,7 @@
                 </div>
                 
                 <div class="relative w-full overflow-hidden">
-                    <div class="flex gap-6 py-4 overflow-x-auto" id="testimonialSlider">
+                    <div class="flex gap-6 py-4 overflow-x-auto h-scroll-container" id="testimonialSlider">
                         <!-- Card 1 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-gold/10 font-serif absolute top-6 left-6">“</div>
@@ -870,81 +843,96 @@
             </div>
         </section>
 
-        <!-- REQUEST 2: NEW SECTION FOR LATEST ARTICLES (Marquee Slider) -->
+        <!-- UPDATED REQUEST 2: Latest Insights (Manual Slider + Mini Cards) -->
         <section id="articles" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
                 <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagShowcase">Showcase</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white" data-i18n="insightsTitle">Latest Insights</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white mb-6" data-i18n="insightsTitle">Latest Insights</h2>
+                
+                <!-- Manual Slider Controls -->
+                <div class="flex justify-center gap-4">
+                     <button onclick="document.getElementById('insightsSlider').scrollBy({left: -280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group" aria-label="Previous Insight"><i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i></button>
+                     <button onclick="document.getElementById('insightsSlider').scrollBy({left: 280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group" aria-label="Next Insight"><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></button>
+                </div>
             </div>
             
-            <div class="marquee-container group">
-                <div class="marquee-content">
+            <div class="relative w-full overflow-hidden px-6">
+                <!-- Removed marquee, added horizontal scroll snap slider -->
+                <div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider">
                     <!-- Article 1 -->
-                    <a href="jasa-seo-google.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80" alt="SEO Strategy" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catDigital">Digital Marketing</div>
                         </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catDigital">Digital Marketing</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle1">Mastering SEO in 2026</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc1">Comprehensive guide to dominate search rankings.</p>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle1">Mastering SEO in 2026</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc1">Comprehensive guide to dominate search rankings.</p>
+                            <a href="jasa-seo-google.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+
                     <!-- Article 2 -->
-                    <a href="konsultan-digital-marketing.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1554147090-e1221a04a025?w=500&q=80" alt="Finance Tech" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catBusiness">Business</div>
                         </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catBusiness">Business</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle2">Financial Growth Hacks</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc2">Strategies for scalable business revenue.</p>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle2">Financial Growth Hacks</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc2">Strategies for scalable business revenue.</p>
+                            <a href="konsultan-digital-marketing.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+
                     <!-- Article 3 -->
-                    <a href="digital-marketer-portfolio.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=80" alt="Teamwork" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catLeadership">Leadership</div>
                         </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catLeadership">Leadership</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle3">Building High-Perf Teams</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc3">Key soft skills for modern management.</p>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle3">Building High-Perf Teams</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc3">Key soft skills for modern management.</p>
+                            <a href="digital-marketer-portfolio.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+
                     <!-- Article 4 -->
-                    <a href="digital-marketer-tools.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="Analytics" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catAnalytics">Analytics</div>
                         </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catAnalytics">Analytics</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle4">Data Storytelling 101</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc4">Transforming raw numbers into insights.</p>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle4">Data Storytelling 101</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc4">Transforming raw numbers into insights.</p>
+                            <a href="digital-marketer-tools.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+
                     <!-- Article 5 -->
-                    <a href="jasa-seo-website.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&q=80" alt="E-commerce" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catEcommerce">E-commerce</div>
                         </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catEcommerce">E-commerce</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle5">Shopify Success Roadmap</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc5">From zero to first sale in 30 days.</p>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle5">Shopify Success Roadmap</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc5">From zero to first sale in 30 days.</p>
+                            <a href="jasa-seo-website.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
                         </div>
-                    </a>
-                      <!-- Duplicate for infinite loop illusion -->
-                      <a href="jasa-seo-google.html" class="block w-[300px] shrink-0 rounded-2xl overflow-hidden group/card relative">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80" alt="SEO Strategy" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                        </div>
-                        <div class="p-5 bg-lightGray dark:bg-darkCard border-x border-b border-black/5 dark:border-white/10 rounded-b-2xl">
-                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider" data-i18n="catDigital">Digital Marketing</span>
-                            <h3 class="font-bold text-lg mt-1 mb-2 dark:text-white leading-tight" data-i18n="artTitle1">Mastering SEO in 2026</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub" data-i18n="artDesc1">Comprehensive guide to dominate search rankings.</p>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -996,8 +984,7 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">All Rights Reserved.</span></p>
                 <div class="flex gap-6">
-                    <a href="privacy-terms.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerPrivacy">Privacy Policy</a>
-                    <a href="privacy-terms.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerTerms">Terms of Service</a>
+                    <a href="privacy-terms.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerPrivacy">Privacy Policy & Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -1175,7 +1162,7 @@
                 galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Showreel",
                 clickZoom: "Click image to zoom / thumbnails to switch",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
-                footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service",
+                footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy & Terms of Service", footerTerms: "Terms of Service",
                 serviceTitle: "Exclusive Services", 
                 servWebTitle: "Website Creation", servWebSub: "Premium & High Performance",
                 servAcadTitle: "Academic Assistance", servAcadSub: "Thesis & Research",
@@ -1288,7 +1275,7 @@
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
                 clickZoom: "Klik gambar untuk memperbesar / thumbnail untuk beralih",
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
-                footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi", footerTerms: "Syarat & Ketentuan",
+                footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi & Syarat Ketentuan", footerTerms: "Syarat & Ketentuan",
                 serviceTitle: "Layanan Eksklusif", 
                 servWebTitle: "Pembuatan Website", servWebSub: "Premium & Performa Tinggi",
                 servAcadTitle: "Bantuan Akademik", servAcadSub: "Tesis & Penelitian",

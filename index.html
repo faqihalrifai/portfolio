@@ -27,7 +27,7 @@
     <!-- Google AdSense Meta -->
     <meta name="google-adsense-account" content="ca-pub-2062441269413992">
     
-    <!-- REQUEST 3: SCHEMA MARKUP (JSON-LD) -->
+    <!-- SCHEMA MARKUP (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -95,7 +95,7 @@
          ========================================= -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
 
-    <!-- FAVICON & MOBILE ICONS (UPGRADED) -->
+    <!-- FAVICON & MOBILE ICONS -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="myphot.webp"> 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -124,8 +124,8 @@
                         darkBlack: '#111827',
                         textGray: '#4b5563',
                         darkBg: '#121212',        
-                        darkCard: '#1e1e1e',      
-                        darkText: '#f3f4f6',      
+                        darkCard: '#1e1e1e',       
+                        darkText: '#f3f4f6',       
                         darkSub: '#9ca3af',        
                     },
                     boxShadow: {
@@ -177,6 +177,14 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
+        /* LEGAL MODAL STYLES */
+        .legal-content h3 { font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #c5a028; }
+        .legal-content h4 { font-size: 0.95rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.25rem; }
+        .legal-content p, .legal-content ul { margin-bottom: 1rem; line-height: 1.6; }
+        .legal-content ul { list-style-type: disc; padding-left: 1.2rem; }
+        .legal-section-divider { border-top: 1px dashed rgba(0,0,0,0.1); margin: 2rem 0; }
+        .dark .legal-section-divider { border-top: 1px dashed rgba(255,255,255,0.1); }
+
         /* MOBILE TWEAKS */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
@@ -201,8 +209,10 @@
                 <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navAbout">About</a>
                 <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navExperience">Experience</a>
                 <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navSkills">Skills</a>
-                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navGallery">Gallery</a>
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navServices">Services</a>
+                <!-- Added Showcase Link -->
+                <a href="#articles" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navShowcase">Showcase</a>
+                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navGallery">Gallery</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-3">
@@ -224,6 +234,9 @@
                 <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navAbout">About</a>
                 <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navExperience">Experience</a>
                 <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navServices">Services</a>
+                <!-- Added Showcase Mobile Link -->
+                <a href="#articles" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navShowcase">Showcase</a>
+                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navGallery">Gallery</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
                     <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Language Mobile"><i class="fas fa-globe"></i> EN</button>
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
@@ -731,7 +744,7 @@
              </div>
         </section>
 
-        <!-- 7. Testimonials (10 Cards - Clean Compact - Centered) -->
+        <!-- 7. Testimonials (15 Cards Total - 10 Old + 5 New) -->
         <section class="py-24 relative overflow-hidden bg-mainWhite dark:bg-darkBg border-t border-black/5 dark:border-white/5">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <!-- Centered Header -->
@@ -838,12 +851,58 @@
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Fajar J**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Agency Lead</p></div>
                             </div>
                         </div>
+                        <!-- NEW CARDS START HERE (11-15) -->
+                        <!-- Card 11 -->
+                        <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                            <div class="text-4xl text-stone-900/10 font-serif absolute top-6 left-6">“</div>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Lead quality for our property listings improved drastically with Google Ads."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center text-stone-800 font-bold text-sm">AW</div>
+                                <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Anita W.</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Real Estate Agent</p></div>
+                            </div>
+                        </div>
+                        <!-- Card 12 -->
+                        <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                            <div class="text-4xl text-rose-900/10 font-serif absolute top-6 left-6">“</div>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"TikTok ads setup was flawless. Our fashion brand exploded overnight."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-800 font-bold text-sm">RS</div>
+                                <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Rian S.</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Fashion Brand Owner</p></div>
+                            </div>
+                        </div>
+                        <!-- Card 13 -->
+                        <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                            <div class="text-4xl text-slate-900/10 font-serif absolute top-6 left-6">“</div>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"The company profile website is sleek, professional, and loads instantly."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 font-bold text-sm">PT</div>
+                                <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">PT. Maju</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Corporate Client</p></div>
+                            </div>
+                        </div>
+                        <!-- Card 14 -->
+                        <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                            <div class="text-4xl text-amber-900/10 font-serif absolute top-6 left-6">“</div>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Local SEO helped my cafe appear on Google Maps top search."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-sm">CB</div>
+                                <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Chef Budi</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">F&B Owner</p></div>
+                            </div>
+                        </div>
+                        <!-- Card 15 -->
+                        <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                            <div class="text-4xl text-violet-900/10 font-serif absolute top-6 left-6">“</div>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"User acquisition cost dropped by 30% thanks to his optimization."</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <div class="w-12 h-12 rounded-full bg-violet-100 flex items-center justify-center text-violet-800 font-bold text-sm">ST</div>
+                                <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">StartUp X</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Tech Co.</p></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- UPDATED REQUEST 2: Latest Insights (Manual Slider + Mini Cards) -->
+        <!-- Latest Insights (Manual Slider + Mini Cards) - LINKED TO SHOWCASE NAV -->
         <section id="articles" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
                 <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagShowcase">Showcase</span>
@@ -984,7 +1043,8 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">All Rights Reserved.</span></p>
                 <div class="flex gap-6">
-                    <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerPrivacy">Privacy Policy & Terms of Service</a>
+                    <!-- Updated Legal Button triggers Modal -->
+                    <button onclick="openModal('legal')" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerLegal">Privacy Policy & Terms of Service</button>
                 </div>
             </div>
         </div>
@@ -1007,7 +1067,7 @@
                 </button>
             </div>
             <div class="p-8 overflow-y-auto custom-scrollbar modal-body-content bg-white dark:bg-darkCard">
-                <div id="modalBody" class="prose dark:prose-invert max-w-none text-sm text-textGray dark:text-darkSub space-y-4"></div>
+                <div id="modalBody" class="prose dark:prose-invert max-w-none text-sm text-textGray dark:text-darkSub space-y-4 legal-content"></div>
             </div>
         </div>
     </div>
@@ -1106,7 +1166,7 @@
         // Updated Translations including all new dynamic texts
         const translations = {
             en: {
-                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Credentials", navGallery: "Gallery", navServices: "Services", btnContact: "Contact Me",
+                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navCertificates: "Credentials", navGallery: "Gallery", navServices: "Services", navShowcase: "Showcase", btnContact: "Contact Me",
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
                 heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth to deliver tangible and measurable business impact. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon. The synergy between my understanding of algorithms from my academic background and my digital marketing strategies allows me to implement a more profound, data-driven, and innovative approach to optimization.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Ranking", statClients: "Clients",
@@ -1162,7 +1222,7 @@
                 galleryItem1: "Strategic Overview", galleryItem2: "Execution", galleryItem3: "Analytics", galleryVideo: "Showreel",
                 clickZoom: "Click image to zoom / thumbnails to switch",
                 footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
-                footerSocials: "Socials", footerRights: "All Rights Reserved.", footerPrivacy: "Privacy Policy & Terms of Service", footerTerms: "Terms of Service",
+                footerSocials: "Socials", footerRights: "All Rights Reserved.", footerLegal: "Privacy Policy & Terms of Service", footerTerms: "Terms of Service",
                 serviceTitle: "Exclusive Services", 
                 servWebTitle: "Website Creation", servWebSub: "Premium & High Performance",
                 servAcadTitle: "Academic Assistance", servAcadSub: "Thesis & Research",
@@ -1205,39 +1265,57 @@
                 catTech: "Tech Stack", artTitle4: "Top 10 Digital Marketing Tools 2026", artDesc4: "Efficiency analysis of GA4, Semrush, etc.",
                 catGrowth: "Growth Hacking", artTitle5: "E-commerce SEO Mastery", artDesc5: "Technical guide for Shopify & Marketplace.",
 
-                modalPrivacyTitle: "Privacy Policy", 
-                modalPrivacyBody: `
+                // Legal Modal Content (Combined)
+                modalLegalTitle: "Legal Information", 
+                modalLegalBody: `
                     <div class="space-y-6">
+                        <!-- Privacy Policy Section -->
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
-                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">Effective Date</p>
-                            <p class="text-sm font-bold dark:text-white">January 2026</p>
+                            <h3 class="text-lg font-bold text-gold uppercase tracking-wider mb-2">Privacy Policy</h3>
+                            <p class="text-xs font-bold dark:text-white mb-4">Effective Date: January 2026</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">1. Data Collection</h4>
+                            <p>We collect personal information such as your name and email address only when you voluntarily submit it through our contact forms. We also collect anonymous usage data via Google Analytics (GA4) to improve our website performance.</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">2. Usage of Data</h4>
+                            <p>Your data is used solely for:</p>
+                            <ul>
+                                <li>Responding to your inquiries and service requests.</li>
+                                <li>Delivering professional services as agreed.</li>
+                                <li>Optimizing website user experience.</li>
+                            </ul>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">3. Data Sharing</h4>
+                            <p>We do not sell, trade, or transfer your personal data to outside parties. This does not include trusted third parties who assist us in operating our website (e.g., hosting providers), so long as those parties agree to keep this information confidential.</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">4. Cookies</h4>
+                            <p>This website uses cookies to enhance your browsing experience and gather analytical data. You can choose to disable cookies through your browser settings.</p>
                         </div>
-                        <table class="modal-table">
-                            <tr><th>Data Collected</th><td>Name, Email (only via voluntary contact), Anonymous Usage Data (GA4).</td></tr>
-                            <tr><th>Usage</th><td>Responding to inquiries, Service delivery, Site optimization.</td></tr>
-                            <tr><th>Sharing</th><td>No data sold to third parties.</td></tr>
-                            <tr><th>Cookies</th><td>Used for analytics and site functionality.</td></tr>
-                        </table>
-                    </div>
-                `,
-                modalTermsTitle: "Terms of Service", 
-                modalTermsBody: `
-                    <div class="space-y-6">
+
+                        <div class="legal-section-divider"></div>
+
+                        <!-- Terms of Service Section -->
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
-                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">Last Updated</p>
-                            <p class="text-sm font-bold dark:text-white">January 2026</p>
+                            <h3 class="text-lg font-bold text-gold uppercase tracking-wider mb-2">Terms of Service</h3>
+                            <p class="text-xs font-bold dark:text-white mb-4">Last Updated: January 2026</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">1. Acceptance of Terms</h4>
+                            <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">2. Intellectual Property</h4>
+                            <p>All content on this website, including text, graphics, logos, and portfolio items, is the intellectual property of Muhammad Faqih Al Rifai. Unauthorized use or reproduction is strictly prohibited.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">3. Limitation of Liability</h4>
+                            <p>All services are provided "as is". While we strive for excellence, results for digital marketing services may vary based on market conditions, and we do not guarantee specific outcomes.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">4. External Links</h4>
+                            <p>This website may contain links to third-party websites. We are not responsible for the content or privacy practices of these external sites.</p>
                         </div>
-                        <table class="modal-table">
-                            <tr><th>Acceptance</th><td>By using this site, you agree to these terms.</td></tr>
-                            <tr><th>IP Rights</th><td>All portfolio content is owned by Muhammad Faqih Al Rifai. Unauthorized copying prohibited.</td></tr>
-                            <tr><th>Liability</th><td>Services provided "as is". Results vary by market conditions.</td></tr>
-                            <tr><th>External Links</th><td>Not responsible for content on linked third-party sites.</td></tr>
-                        </table>
                     </div>
                 `
             },
             id: {
-                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", navGallery: "Galeri", navServices: "Layanan", btnContact: "Hubungi Saya",
+                navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navCertificates: "Sertifikasi", navGallery: "Galeri", navServices: "Layanan", navShowcase: "Wawasan", btnContact: "Hubungi Saya",
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
                 heroDesc: "Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon. Sinergi antara pemahaman algoritma dari latar belakang akademis dan strategi pemasaran digital memungkinkan saya menerapkan pendekatan optimasi yang lebih mendalam, berbasis data, dan inovatif.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking", statClients: "Klien",
@@ -1248,7 +1326,7 @@
                 skillData: "Data Storytelling", skillPM: "Manajemen Proyek", skillNego: "Negosiasi", skillLead: "Kepemimpinan",
                 expTitle: "Perjalanan Karir", expDesc: "Rekam jejak profesional dalam mendorong pertumbuhan bisnis.",
                 dateJob1: "Jan 2026 - Sekarang", 
-                descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien (CRM) strategis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran.</span></li></ul>`,
+                descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien (CRM) strategis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran.</span></li></ul>`, 
                 dateJob2: "Sep 2025 - Des 2025", 
                 descJob2: `<p>Selama magang 3 bulan, menulis dan menerbitkan 29 artikel berkualitas tinggi tentang Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2 mb-4"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meraih <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel berhasil masuk <strong>Google Discover</strong>, mendatangkan trafik organik signifikan.</span></li></ul><div class="flex flex-col gap-3"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a><div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')"><div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
                 dateJob3: "Jul 2025 - Sep 2025", 
@@ -1275,7 +1353,7 @@
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
                 clickZoom: "Klik gambar untuk memperbesar / thumbnail untuk beralih",
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
-                footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerPrivacy: "Kebijakan Privasi & Syarat Ketentuan", footerTerms: "Syarat & Ketentuan",
+                footerSocials: "Media Sosial", footerRights: "Hak Cipta Dilindungi.", footerLegal: "Kebijakan Privasi & Syarat Ketentuan", footerTerms: "Syarat & Ketentuan",
                 serviceTitle: "Layanan Eksklusif", 
                 servWebTitle: "Pembuatan Website", servWebSub: "Premium & Performa Tinggi",
                 servAcadTitle: "Bantuan Akademik", servAcadSub: "Tesis & Penelitian",
@@ -1318,30 +1396,52 @@
                 catTech: "Tech Stack", artTitle4: "10 Tools Digital Marketing Wajib 2026", artDesc4: "Analisis efisiensi GA4, Semrush, dll.",
                 catGrowth: "Growth Hacking", artTitle5: "Strategi SEO E-commerce", artDesc5: "Panduan teknis untuk Shopify & Marketplace.",
 
-                modalPrivacyTitle: "Kebijakan Privasi", 
-                modalPrivacyBody: `
+                // Legal Modal Content (Combined)
+                modalLegalTitle: "Informasi Legal",
+                modalLegalBody: `
                     <div class="space-y-6">
+                        <!-- Privacy Policy Section -->
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
-                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">Tanggal Efektif</p>
-                            <p class="text-sm font-bold dark:text-white">Januari 2026</p>
+                            <h3 class="text-lg font-bold text-gold uppercase tracking-wider mb-2">Kebijakan Privasi</h3>
+                            <p class="text-xs font-bold dark:text-white mb-4">Tanggal Efektif: Januari 2026</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">1. Pengumpulan Data</h4>
+                            <p>Kami mengumpulkan informasi pribadi seperti nama dan email hanya jika Anda secara sukarela mengirimkannya melalui formulir kontak. Kami juga mengumpulkan data penggunaan anonim melalui Google Analytics (GA4).</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">2. Penggunaan Data</h4>
+                            <p>Data Anda hanya digunakan untuk:</p>
+                            <ul>
+                                <li>Merespons pertanyaan dan permintaan layanan Anda.</li>
+                                <li>Mengirimkan layanan profesional sesuai kesepakatan.</li>
+                                <li>Mengoptimalkan pengalaman pengguna website.</li>
+                            </ul>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">3. Pembagian Data</h4>
+                            <p>Kami tidak menjual atau mentransfer data pribadi Anda ke pihak luar, kecuali pihak ketiga tepercaya yang membantu operasional website (seperti penyedia hosting), selama mereka setuju menjaga kerahasiaan informasi ini.</p>
+                            
+                            <h4 class="font-bold dark:text-white mt-4">4. Cookies</h4>
+                            <p>Website ini menggunakan cookies untuk meningkatkan pengalaman browsing dan mengumpulkan data analitik. Anda dapat menonaktifkan cookies melalui pengaturan browser.</p>
                         </div>
-                        <table class="modal-table">
-                            <tr><th>Data</th><td>Nama, Email, Data Penggunaan Anonim.</td></tr>
-                            <tr><th>Penggunaan</th><td>Respons pertanyaan, layanan, optimasi.</td></tr>
-                        </table>
-                    </div>
-                `,
-                modalTermsTitle: "Syarat & Ketentuan", 
-                modalTermsBody: `
-                    <div class="space-y-6">
+
+                        <div class="legal-section-divider"></div>
+
+                        <!-- Terms of Service Section -->
                         <div class="bg-lightGray dark:bg-darkCard p-4 rounded-xl border border-black/10 dark:border-white/10">
-                            <p class="text-xs font-bold text-gold uppercase tracking-wider mb-1">Terakhir Diperbarui</p>
-                            <p class="text-sm font-bold dark:text-white">Januari 2026</p>
+                            <h3 class="text-lg font-bold text-gold uppercase tracking-wider mb-2">Syarat & Ketentuan</h3>
+                            <p class="text-xs font-bold dark:text-white mb-4">Terakhir Diperbarui: Januari 2026</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">1. Penerimaan Syarat</h4>
+                            <p>Dengan mengakses dan menggunakan situs ini, Anda menyetujui dan terikat oleh syarat dan ketentuan ini.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">2. Hak Kekayaan Intelektual</h4>
+                            <p>Semua konten di situs ini, termasuk teks, grafis, logo, dan item portofolio, adalah kekayaan intelektual Muhammad Faqih Al Rifai. Penggunaan atau reproduksi tanpa izin dilarang keras.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">3. Batasan Tanggung Jawab</h4>
+                            <p>Semua layanan disediakan "sebagaimana adanya". Meskipun kami berusaha memberikan hasil terbaik, hasil layanan digital marketing dapat bervariasi berdasarkan kondisi pasar, dan kami tidak menjamin hasil spesifik.</p>
+
+                            <h4 class="font-bold dark:text-white mt-4">4. Tautan Eksternal</h4>
+                            <p>Situs ini mungkin berisi tautan ke situs web pihak ketiga. Kami tidak bertanggung jawab atas konten atau praktik privasi situs eksternal tersebut.</p>
                         </div>
-                        <table class="modal-table">
-                            <tr><th>Penerimaan</th><td>Dengan mengakses situs ini, Anda menyetujui syarat ini.</td></tr>
-                            <tr><th>Hak Cipta</th><td>Semua konten adalah milik Muhammad Faqih Al Rifai.</td></tr>
-                        </table>
                     </div>
                 `
             }
@@ -1474,7 +1574,18 @@
             modal.classList.remove('invisible', 'opacity-0');
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
-            const content = type === 'privacy' ? { title: translations[currentLang].modalPrivacyTitle, body: translations[currentLang].modalPrivacyBody } : { title: translations[currentLang].modalTermsTitle, body: translations[currentLang].modalTermsBody };
+            
+            // Logic for combined Legal modal or separate types if needed in future
+            let content;
+            if(type === 'legal') {
+                content = { 
+                    title: translations[currentLang].modalLegalTitle, 
+                    body: translations[currentLang].modalLegalBody 
+                };
+            } else {
+                content = { title: "Info", body: "Content not found." };
+            }
+
             modalTitle.innerText = content.title;
             modalBody.innerHTML = content.body;
         }

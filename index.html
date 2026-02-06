@@ -124,8 +124,8 @@
                         darkBlack: '#111827',
                         textGray: '#4b5563',
                         darkBg: '#121212',        
-                        darkCard: '#1e1e1e',       
-                        darkText: '#f3f4f6',       
+                        darkCard: '#1e1e1e',        
+                        darkText: '#f3f4f6',        
                         darkSub: '#9ca3af',        
                     },
                     boxShadow: {
@@ -916,82 +916,12 @@
             </div>
             
             <div class="relative w-full overflow-hidden px-6">
-                <!-- Removed marquee, added horizontal scroll snap slider -->
+                <!-- Bagian Showcase / Insights -->
                 <div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider">
-                    <!-- Article 1 -->
-                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?w=500&q=80" alt="SEO Strategy" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catMarket">Market Insight</div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle1">Why Google SEO Costs $3+ Per Click?</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc1">Deep dive into SEO vs Ads costs in 2026.</p>
-                            <a href="seo-insight.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
-                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Article 2 -->
-                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&q=80" alt="Consultant vs Agency" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catStrategy">B2B Strategy</div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle2">Consultant vs Agency: Which is Right?</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc2">Strategic guide for allocating marketing budget.</p>
-                            <a href="consultant.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
-                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Article 3 -->
-                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="Portfolio Guide" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catCareer">Career Growth</div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle3">Building a High-Ticket Portfolio</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc3">Guide to agency-standard portfolios.</p>
-                            <a href="portfolio.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
-                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Article 4 -->
-                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="Tech Stack" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catTech">Tech Stack</div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle4">Top 10 Digital Marketing Tools 2026</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc4">Efficiency analysis of GA4, Semrush, etc.</p>
-                            <a href="tools.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
-                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Article 5 -->
-                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=500&q=80" alt="E-commerce SEO" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
-                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md" data-i18n="catGrowth">Growth Hacking</div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2" data-i18n="artTitle5">E-commerce SEO Mastery</h3>
-                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2" data-i18n="artDesc5">Technical guide for Shopify & Marketplace.</p>
-                            <a href="ecommerce.html" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
-                                Read More <i class="fas fa-arrow-right text-[10px]"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <!-- Hapus Article 1, 2, 3, 4, 5 yang ada di sini -->
+                    <p class="text-center w-full py-10 text-textGray dark:text-darkSub italic">
+                        Menghubungkan ke wawasan terbaru...
+                    </p>
                 </div>
             </div>
         </section>
@@ -1447,12 +1377,16 @@
             }
         };
 
-        let currentLang = 'en';
+        // Ganti baris ini:
+        // let currentLang = 'en'; 
+        // Menjadi ini:
+        let currentLang = localStorage.getItem('lang') || 'id';
+
+        // Pastikan fungsi setLanguage dipanggil saat load
         document.addEventListener('DOMContentLoaded', () => {
             renderCerts();
             renderGallery(); // Init Gallery
-            const savedLang = localStorage.getItem('lang') || 'en';
-            setLanguage(savedLang);
+            setLanguage(currentLang);
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
             }
@@ -1472,6 +1406,7 @@
 
             triggerReveal();
             animateCounters();
+            ambilDataWordPress(); // Jalankan fungsi saat web dibuka
             
             // AUTOMATIC SLIDER LOGIC
             const slider = document.getElementById('testimonialSlider');
@@ -1486,6 +1421,61 @@
                 }, 3500);
             }
         });
+
+        // -----------------------------------------------------------
+        // FUNGSI BARU UNTUK WORDPRESS PANTHEON
+        // -----------------------------------------------------------
+        async function ambilDataWordPress() {
+            // 1. Link Jembatan API kamu
+            const linkAPI = 'https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=6';
+            const wadahSlider = document.getElementById('insightsSlider');
+
+            try {
+                const respon = await fetch(linkAPI);
+                const daftarArtikel = await respon.json();
+
+                // 2. Jika tidak ada artikel
+                if (daftarArtikel.length === 0) {
+                    wadahSlider.innerHTML = '<p class="text-center w-full">Belum ada artikel.</p>';
+                    return;
+                }
+
+                // 3. Proses mengubah data menjadi kartu HTML
+                wadahSlider.innerHTML = daftarArtikel.map(artikel => {
+                    // Ambil gambar (jika tidak ada, pakai gambar cadangan)
+                    const foto = artikel._embedded['wp:featuredmedia'] 
+                        ? artikel._embedded['wp:featuredmedia'][0].source_url 
+                        : 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500';
+                    
+                    // Ambil nama kategori
+                    const kategori = artikel._embedded['wp:term'] 
+                        ? artikel._embedded['wp:term'][0][0].name 
+                        : 'Insight';
+
+                    // Ambil deskripsi singkat (Excerpt) dan hapus tag HTML-nya
+                    const ringkasan = artikel.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 80) + '...';
+
+                    return `
+                        <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="${foto}" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110">
+                                <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md">${kategori}</div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2">${artikel.title.rendered}</h3>
+                                <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2">${ringkasan}</p>
+                                <a href="${artikel.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider">
+                                    Baca Selengkapnya <i class="fas fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (error) {
+                console.error("Gagal koneksi ke WP:", error);
+                wadahSlider.innerHTML = '<p class="text-center w-full text-red-500">Gagal memuat artikel.</p>';
+            }
+        }
 
         function setLanguage(lang) {
             currentLang = lang;

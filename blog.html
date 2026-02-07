@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & Articles | Muhammad Faqih Al Rifai</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        gold: '#c5a028',
+                        goldHover: '#a3841f',
+                        darkBg: '#121212',        
+                        darkCard: '#1e1e1e',       
+                        darkText: '#f3f4f6',       
+                        darkSub: '#9ca3af',        
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .dark body { background-color: #121212; color: #f3f4f6; }
+        
+        .glass-header { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        }
+        .dark .glass-header { 
+            background: rgba(18, 18, 18, 0.8); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
+
+        .blog-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+
+    <!-- Navigasi Sederhana -->
+    <nav class="sticky top-0 z-50 glass-header py-4">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
+                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Kembali ke Portfolio
+            </a>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                    <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-gray-50 dark:bg-darkCard/20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <span class="text-gold font-bold uppercase text-[10px] tracking-[0.3em] mb-4 block">Knowledge Base</span>
+            <h1 class="text-4xl md:text-6xl font-serif dark:text-white leading-tight">Library of <br><span class="italic text-gold">Digital Insights</span></h1>
+            <p class="mt-6 text-gray-500 dark:text-darkSub max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                Kumpulan pemikiran, analisis strategi SEO, dan panduan pertumbuhan e-commerce untuk membantu bisnis Anda mendominasi pasar digital.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        <!-- Search & Filter (Static UI for now) -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+            <h2 class="text-xl font-bold dark:text-white">Semua Artikel</h2>
+            <div class="relative w-full md:w-72">
+                <input type="text" id="searchInput" onkeyup="filterArticles()" placeholder="Cari wawasan..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-darkCard text-sm focus:ring-1 focus:ring-gold outline-none transition-all">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+            </div>
+        </div>
+
+        <!-- GRID ARTIKEL -->
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            <!-- Loading Placeholder -->
+            <div class="col-span-full py-20 text-center">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gold mb-4"></div>
+                <p class="text-gray-400 italic text-sm">Menyinkronkan data dengan gudang konten...</p>
+            </div>
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="noResults" class="hidden py-20 text-center">
+            <i class="fas fa-search text-4xl text-gray-200 dark:text-gray-800 mb-4"></i>
+            <p class="text-gray-500">Maaf, artikel yang Anda cari tidak ditemukan.</p>
+        </div>
+    </main>
+
+    <footer class="py-20 border-t border-gray-100 dark:border-white/5 text-center">
+        <p class="text-xs text-gray-400">&copy; 2026 Muhammad Faqih Al Rifai. Dikembangkan dengan WordPress Headless.</p>
+    </footer>
+
+    <!-- JavaScript Integrasi -->
+    <script>
+        let allPosts = [];
+
+        // 1. Ambil Semua Data dari WordPress
+        async function fetchAllPosts() {
+            // Ambil 20 artikel terbaru
+            const apiURL = 'https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=20';
+            const grid = document.getElementById('blogGrid');
+
+            try {
+                const response = await fetch(apiURL);
+                allPosts = await response.json();
+
+                if (allPosts.length === 0) {
+                    grid.innerHTML = '<p class="col-span-full text-center text-gray-500 italic">Belum ada artikel yang diterbitkan.</p>';
+                    return;
+                }
+
+                renderPosts(allPosts);
+
+            } catch (error) {
+                console.error("Error:", error);
+                grid.innerHTML = '<p class="col-span-full text-red-500 text-center">Gagal menghubungkan ke server WordPress. Cek koneksi Anda.</p>';
+            }
+        }
+
+        // 2. Fungsi untuk menampilkan kartu artikel
+        function renderPosts(posts) {
+            const grid = document.getElementById('blogGrid');
+            
+            grid.innerHTML = posts.map(post => {
+                const img = post._embedded['wp:featuredmedia'] 
+                    ? post._embedded['wp:featuredmedia'][0].source_url 
+                    : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800';
+                
+                const cat = post._embedded['wp:term'] ? post._embedded['wp:term'][0][0].name : 'Digital Marketing';
+                const date = new Date(post.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                const summary = post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 110) + '...';
+
+                return `
+                    <article class="blog-card flex flex-col bg-white dark:bg-darkCard rounded-[2rem] overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-xl group">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">${cat}</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase mb-3">${date}</span>
+                            <h2 class="font-serif text-xl md:text-2xl dark:text-white mb-4 leading-tight group-hover:text-gold transition-colors">${post.title.rendered}</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 leading-relaxed flex-1">${summary}</p>
+                            <a href="${post.link}" target="_blank" class="flex items-center gap-2 text-xs font-bold text-gold hover:text-black dark:hover:text-white uppercase tracking-widest transition-all">
+                                Baca Artikel Lengkap <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // 3. Fungsi Pencarian
+        function filterArticles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allPosts.filter(post => 
+                post.title.rendered.toLowerCase().includes(query) || 
+                post.excerpt.rendered.toLowerCase().includes(query)
+            );
+
+            const noResults = document.getElementById('noResults');
+            if (filtered.length === 0) {
+                document.getElementById('blogGrid').innerHTML = '';
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                renderPosts(filtered);
+            }
+        }
+
+        // 4. Dark Mode Toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+            fetchAllPosts();
+        });
+    </script>
+</body>
+</html>

@@ -135,7 +135,14 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
                     },
+                    keyframes: {
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        }
+                    }
                 }
             }
         }
@@ -184,10 +191,74 @@
         .legal-content ul { list-style-type: disc; padding-left: 1.2rem; }
         .legal-section-divider { border-top: 1px dashed rgba(0,0,0,0.1); margin: 2rem 0; }
         .dark .legal-section-divider { border-top: 1px dashed rgba(255,255,255,0.1); }
+        
+        /* MARKETING POPUP */
+        .marketing-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 90;
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            transform: translateY(150%);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none; /* Default no click */
+        }
+        .marketing-popup.show {
+            transform: translateY(0);
+            pointer-events: auto; /* Enable click when shown */
+        }
+        .bubble {
+            background: white;
+            padding: 16px;
+            border-radius: 20px 20px 20px 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            max-width: 280px;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .dark .bubble {
+            background: #252525;
+            color: #f3f4f6;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .avatar-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .popup-close {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background: #c5a028;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            z-index: 20;
+        }
+        .popup-close:hover { transform: scale(1.1); }
 
         /* MOBILE TWEAKS */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
+            .marketing-popup {
+                bottom: 80px; /* Above bottom nav on mobile if any, or general spacing */
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
+            .bubble { max-width: 100%; flex: 1; }
         }
     </style>
 </head>
@@ -205,13 +276,14 @@
                 <div class="relative flex items-center justify-center shrink-0"><i class="fas fa-check-circle text-gold text-base md:text-lg"></i></div>
             </a>
             
+            <!-- Desktop Menu - Reordered -->
             <div class="hidden md:flex items-center gap-1 bg-lightGray/50 dark:bg-black/20 p-1 rounded-full border border-black/5 dark:border-white/10 backdrop-blur-sm">
                 <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navAbout">Tentang</a>
                 <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navExperience">Pengalaman</a>
                 <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navSkills">Kompetensi</a>
+                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navGallery">Galeri</a>
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navServices">Layanan</a>
                 <a href="#articles" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navShowcase">Wawasan</a>
-                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all" data-i18n="navGallery">Galeri</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-3">
@@ -227,14 +299,15 @@
                 <button id="menuBtn" class="md:hidden p-2 text-darkBlack dark:text-darkText hover:text-gold transition-colors" aria-label="Open Menu"><i class="fas fa-bars text-xl"></i></button>
             </div>
         </div>
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu - Reordered -->
         <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-mainWhite/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40">
             <div class="flex flex-col p-4 space-y-2">
                 <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navAbout">Tentang</a>
                 <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navExperience">Pengalaman</a>
+                <a href="#competence" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navSkills">Kompetensi</a>
+                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navGallery">Galeri</a>
                 <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navServices">Layanan</a>
                 <a href="#articles" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navShowcase">Wawasan</a>
-                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navGallery">Galeri</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
                     <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Language Mobile"><i class="fas fa-globe"></i> <span class="current-lang-label">ID</span></button>
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
@@ -246,6 +319,7 @@
     <main>
         <!-- Hero Section -->
         <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-mainWhite dark:bg-darkBg">
+             <!-- ... existing hero content ... -->
              <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none dark:from-white/5"></div>
              <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center z-10">
                 <div class="order-2 lg:order-1 animate-slide-up">
@@ -305,7 +379,8 @@
 
         <!-- Experience Section -->
         <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
-            <div class="max-w-5xl mx-auto px-6">
+             <!-- ... existing experience content ... -->
+             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagTimeline">Garis Waktu</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText" data-i18n="expTitle">Perjalanan Karir</h2>
@@ -322,7 +397,12 @@
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob1">Jan 2026 - Sekarang</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1">
-                                        <p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien (CRM) strategis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran.</span></li></ul>
+                                        <p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p>
+                                        <ul class="space-y-2 mt-2">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar <strong>50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memimpin negosiasi kontrak strategis dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -339,7 +419,24 @@
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob2">Sep 2025 - Des 2025</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2">
-                                        <p>Selama magang 3 bulan, menulis dan menerbitkan 29 artikel berkualitas tinggi tentang Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2 mb-4"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meraih <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel berhasil masuk <strong>Google Discover</strong>, mendatangkan trafik organik signifikan.</span></li></ul>
+                                        <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p>
+                                        <ul class="space-y-2 mt-2 mb-4">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 mt-1 text-xs"></i><span>Mencapai prestasi <strong>Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 mt-1 text-xs"></i><span>Artikel terpilih untuk ditampilkan di fitur <strong>Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 mt-1 text-xs"></i><span>Mengembangkan editorial calendar yang konsisten, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</span></li>
+                                        </ul>
+                                        <div class="flex flex-col gap-3">
+                                            <a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all shadow-sm hover:shadow-md w-full sm:w-fit active:scale-95">
+                                                Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')">
+                                                <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-slate-200 dark:border-white/10 rounded-xl hover:border-emerald-500 transition-colors">
+                                                    <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 text-lg"><i class="fas fa-file-contract"></i></div>
+                                                    <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-emerald-600 transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div>
+                                                    <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 group-hover:text-emerald-500 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-all"><i class="fas fa-eye text-xs"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -359,7 +456,19 @@
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3">
-                                        <p>Mendirikan dan mengelola bisnis dropshipping global di Shopify, mengawasi rantai pasok dari China ke AS.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop.</span></li></ul>
+                                        <p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p>
+                                        <ul class="space-y-2 mt-2">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 dark:text-orange-400 mt-1 text-xs"></i><span>Berhasil membukukan <strong>137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 dark:text-orange-400 mt-1 text-xs"></i><span>Menciptakan viralitas produk dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-orange-500 dark:text-orange-400 mt-1 text-xs"></i><span>Mengelola layanan pelanggan (CS) internasional dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</span></li>
+                                        </ul>
+                                        <div class="mt-4 group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('shopfy.webp', 'image')">
+                                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-slate-200 dark:border-white/10 rounded-xl hover:border-orange-500 transition-colors">
+                                                <div class="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 text-lg"><i class="fas fa-chart-line"></i></div>
+                                                <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-orange-600 transition-colors">Laporan Kinerja</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Analitik Shopify</p></div>
+                                                <div class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 group-hover:text-orange-500 group-hover:bg-orange-50 dark:group-hover:bg-orange-900/30 transition-all"><i class="fas fa-eye text-xs"></i></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +485,12 @@
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob4">Mei 2025 - Jul 2025</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4">
-                                        <p>Membangun strategi pemasaran afiliasi di Shopee, fokus pada kurasi produk untuk audiens spesifik.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menggunakan Instagram sebagai saluran utama trafik.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai <strong>57 penjualan</strong> di bulan pertama.</span></li></ul>
+                                        <p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p>
+                                        <ul class="space-y-2 mt-2">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Memanfaatkan Instagram sebagai saluran utama (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Sukses mencatatkan <strong>57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-pink-500 dark:text-pink-400 mt-1 text-xs"></i><span>Mengoptimalkan penggunaan fitur promosi Shopee dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -393,7 +507,12 @@
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4" data-i18n="subJob5">Wirausaha</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5">
-                                        <p>Berhasil membangun bisnis kue dari nol, fokus pada kualitas produk dan kepuasan pelanggan.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memperoleh <strong>437 pelanggan setia</strong> melalui word-of-mouth.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Pendapatan harian konsisten ><strong>Rp500.000</strong>.</span></li></ul>
+                                        <p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p>
+                                        <ul class="space-y-2 mt-2">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Berhasil mengakuisisi basis pelanggan loyal sebanyak <strong>437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Mencapai stabilitas keuangan dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-yellow-500 dark:text-yellow-400 mt-1 text-xs"></i><span>Mengembangkan variasi produk baru berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -410,7 +529,12 @@
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4" data-i18n="subJob6">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob6">Mei 2023 - Des 2023</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6">
-                                        <p>Bertindak sebagai Customer Service dan Co-founder dalam usaha pengembangan web.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mendapatkan <strong>6 proyek</strong> dalam 1 bulan melalui manajemen relasi klien.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mempertahankan rating kepuasan <strong>4.9/5 bintang</strong>.</span></li></ul>
+                                        <p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p>
+                                        <ul class="space-y-2 mt-2">
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-teal-600 dark:text-teal-400 mt-1 text-xs"></i><span>Berhasil mengamankan <strong>6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-teal-600 dark:text-teal-400 mt-1 text-xs"></i><span>Mempertahankan reputasi layanan prima dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-teal-600 dark:text-teal-400 mt-1 text-xs"></i><span>Menyusun Standar Operasional Prosedur (SOP) untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -422,6 +546,7 @@
 
         <!-- 4. Expertise -->
         <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render">
+             <!-- ... existing competence content ... -->
              <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagMethod">Metodologi</span>
@@ -518,8 +643,9 @@
             </div>
         </section>
 
-        <!-- 5. Project Gallery -->
+        <!-- 5. Project Gallery (Moved UP) -->
         <section id="gallery" class="py-24 relative defer-render bg-mainWhite dark:bg-darkBg">
+             <!-- ... existing gallery content ... -->
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagPortfolio">Portfolio</span>
@@ -557,6 +683,7 @@
 
         <!-- 6. Exclusive Services -->
         <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
+             <!-- ... existing services content ... -->
              <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
                   <div class="text-center mb-16">
                       <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block" data-i18n="tagOffer">Penawaran</span>
@@ -586,10 +713,10 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelPackage">Paket</label>
                                         <select id="opt-web" onchange="updateServiceDesc('opt-web', 'desc-web')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Landing Page" data-i18n="optLanding">Landing Page (Promosi)</option>
-                                            <option value="Company Profile" data-i18n="optComp">Company Profile (Bisnis)</option>
-                                            <option value="Portfolio Personal" data-i18n="optPort">Portfolio Personal</option>
-                                            <option value="Toko Online Simple" data-i18n="optStore">Toko Online Simple</option>
+                                            <option value="Landing Page" data-i18n="optLanding" data-desc-key="descLandingPage">Landing Page (Promosi)</option>
+                                            <option value="Company Profile" data-i18n="optComp" data-desc-key="descCompanyProfile">Company Profile (Bisnis)</option>
+                                            <option value="Portfolio Personal" data-i18n="optPort" data-desc-key="descPortfolio">Portfolio Personal</option>
+                                            <option value="Toko Online Simple" data-i18n="optStore" data-desc-key="descOnlineStore">Toko Online Simple</option>
                                         </select>
                                         <p id="desc-web" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descLandingPage">Halaman tunggal yang dirancang khusus untuk konversi penjualan atau promosi spesifik.</p>
                                     </div>
@@ -632,10 +759,10 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelType">Tipe</label>
                                         <select id="opt-acad" onchange="updateServiceDesc('opt-acad', 'desc-acad')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Bimbingan Skripsi" data-i18n="optThesis">Bimbingan Skripsi</option>
-                                            <option value="Review Jurnal" data-i18n="optJournal">Review Jurnal</option>
-                                            <option value="Makalah/Paper" data-i18n="optPaper">Makalah/Paper</option>
-                                            <option value="Presentasi PPT" data-i18n="optPPT">Presentasi PPT Profesional</option>
+                                            <option value="Bimbingan Skripsi" data-i18n="optThesis" data-desc-key="descSkripsi">Bimbingan Skripsi</option>
+                                            <option value="Review Jurnal" data-i18n="optJournal" data-desc-key="descJournal">Review Jurnal</option>
+                                            <option value="Makalah/Paper" data-i18n="optPaper" data-desc-key="descPaper">Makalah/Paper</option>
+                                            <option value="Presentasi PPT" data-i18n="optPPT" data-desc-key="descPPT">Presentasi PPT Profesional</option>
                                         </select>
                                         <p id="desc-acad" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descSkripsi">Mentoring intensif untuk struktur, konten, dan metodologi penulisan skripsi.</p>
                                     </div>
@@ -678,10 +805,10 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelContentType">Jenis Konten</label>
                                         <select id="opt-content" onchange="updateServiceDesc('opt-content', 'desc-content')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Artikel SEO" data-i18n="optSEOArt">Artikel SEO</option>
-                                            <option value="Copywriting Iklan" data-i18n="optCopy">Copywriting Iklan</option>
-                                            <option value="Deskripsi Produk" data-i18n="optProdDesc">Deskripsi Produk</option>
-                                            <option value="Press Release" data-i18n="optPress">Press Release</option>
+                                            <option value="Artikel SEO" data-i18n="optSEOArt" data-desc-key="descArtikelSEO">Artikel SEO</option>
+                                            <option value="Copywriting Iklan" data-i18n="optCopy" data-desc-key="descCopywriting">Copywriting Iklan</option>
+                                            <option value="Deskripsi Produk" data-i18n="optProdDesc" data-desc-key="descProductDesc">Deskripsi Produk</option>
+                                            <option value="Press Release" data-i18n="optPress" data-desc-key="descPressRelease">Press Release</option>
                                         </select>
                                         <p id="desc-content" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descArtikelSEO">Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO).</p>
                                     </div>
@@ -724,10 +851,10 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelService">Layanan</label>
                                         <select id="opt-ads" onchange="updateServiceDesc('opt-ads', 'desc-ads')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Google Ads Setup" data-i18n="optGAds">Google Ads</option>
-                                            <option value="Meta Ads Management" data-i18n="optMAds">Meta Ads (FB/IG)</option>
-                                            <option value="Audit SEO Website" data-i18n="optAudit">Audit SEO</option>
-                                            <option value="Riset Keyword" data-i18n="optKw">Riset Keyword</option>
+                                            <option value="Google Ads Setup" data-i18n="optGAds" data-desc-key="descGoogleAds">Google Ads</option>
+                                            <option value="Meta Ads Management" data-i18n="optMAds" data-desc-key="descMetaAds">Meta Ads (FB/IG)</option>
+                                            <option value="Audit SEO Website" data-i18n="optAudit" data-desc-key="descAuditSEO">Audit SEO</option>
+                                            <option value="Riset Keyword" data-i18n="optKw" data-desc-key="descKeywordResearch">Riset Keyword</option>
                                         </select>
                                         <p id="desc-ads" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descGoogleAds">Pengaturan kampanye iklan di pencarian Google untuk trafik instan.</p>
                                     </div>
@@ -996,11 +1123,32 @@
             </div>
         </div>
     </footer>
+    
+    <!-- MARKETING POPUP (SMART AVATAR) -->
+    <div id="marketingPopup" class="marketing-popup">
+        <div class="bubble animate-bounce-subtle" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+            <div class="popup-close" onclick="event.stopPropagation(); closePopup()">
+                <i class="fas fa-times"></i>
+            </div>
+            <p class="font-bold mb-1 text-gold text-xs" data-i18n="popupTitle">👋 Halo!</p>
+            <p id="popupMessage" class="text-xs" data-i18n="popupMsg1">Butuh website profesional untuk bisnis Anda?</p>
+            <div class="mt-2 flex items-center gap-1 text-[10px] font-bold text-gold cursor-pointer">
+                <span data-i18n="btnPopup">Cek Penawaran</span> <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+        <div class="avatar-container w-14 h-14 rounded-full bg-gold border-2 border-white dark:border-darkBg shadow-lg overflow-hidden cursor-pointer hover:scale-110 transition-transform" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+             <img src="myphot.webp" class="w-full h-full object-cover" alt="Avatar">
+        </div>
+    </div>
 
-    <!-- Smart Scroll Widget -->
+    <!-- Smart Scroll Widget (Up & Down) -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3">
         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110" aria-label="Scroll to Top">
             <i class="fas fa-arrow-up"></i>
+        </button>
+        <!-- Same styling for bottom scroll button -->
+        <button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110" aria-label="Scroll to Bottom">
+            <i class="fas fa-arrow-down"></i>
         </button>
     </div>
 
@@ -1061,33 +1209,52 @@
                 icon.classList.add('fa-plus');
             }
         }
+        
+        // --- SMART MARKETING POPUP LOGIC ---
+        const popup = document.getElementById('marketingPopup');
+        const popupMsg = document.getElementById('popupMessage');
+        let currentMsgIndex = 0;
+        
+        // Data Pesan Popup (ID Key)
+        const popupMessages = ['popupMsg1', 'popupMsg2', 'popupMsg3', 'popupMsg4', 'popupMsg5'];
+
+        function showPopup() {
+            // Update Text Before Showing
+            const msgKey = popupMessages[currentMsgIndex];
+            const translatedText = translations[currentLang][msgKey];
+            if (translatedText) popupMsg.innerHTML = translatedText;
+
+            popup.classList.add('show');
+            
+            // Auto hide after 15 seconds to be polite
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 15000);
+
+            // Prepare next message index
+            currentMsgIndex = (currentMsgIndex + 1) % popupMessages.length;
+        }
+
+        function closePopup() {
+            popup.classList.remove('show');
+        }
+
+        // Start popup logic on load
+        window.addEventListener('load', () => {
+            // 1. Muncul pertama di detik ke-3
+            setTimeout(showPopup, 3000);
+            
+            // 2. Muncul lagi setiap 50 detik (Interval)
+            setInterval(showPopup, 50000);
+        });
 
         // Updated Service Descriptions to handle Language Logic
-        // Keys match select values
-        const serviceDescKeys = {
-            "Landing Page": "descLandingPage",
-            "Company Profile": "descCompanyProfile",
-            "Portfolio Personal": "descPortfolio",
-            "Toko Online Simple": "descOnlineStore",
-            "Bimbingan Skripsi": "descSkripsi",
-            "Review Jurnal": "descJournal",
-            "Makalah/Paper": "descPaper",
-            "Presentasi PPT": "descPPT",
-            "Artikel SEO": "descArtikelSEO",
-            "Copywriting Iklan": "descCopywriting",
-            "Deskripsi Produk": "descProductDesc",
-            "Press Release": "descPressRelease",
-            "Google Ads Setup": "descGoogleAds",
-            "Meta Ads Management": "descMetaAds",
-            "Audit SEO Website": "descAuditSEO",
-            "Riset Keyword": "descKeywordResearch"
-        };
-
+        // Keys match select values and map to data-desc-key
         function updateServiceDesc(selectId, descId) {
             const select = document.getElementById(selectId);
             const desc = document.getElementById(descId);
-            const val = select.value;
-            const key = serviceDescKeys[val];
+            const selectedOption = select.options[select.selectedIndex];
+            const key = selectedOption.getAttribute('data-desc-key');
             
             // Get current translation
             if(translations[currentLang][key]) {
@@ -1208,23 +1375,23 @@
                 labelContentType: "Content Type", labelBrand: "Brand", labelBrief: "Brief",
                 labelService: "Service", labelBusiness: "Business", labelGoal: "Goal",
 
-                // Dynamic Descriptions
-                descLandingPage: "Single page designed specifically for sales conversion or specific promotions.",
-                descCompanyProfile: "Professional multipage website to build credibility and company info.",
-                descPortfolio: "Personal website to showcase your work and professional CV.",
-                descOnlineStore: "Simple e-commerce website with WhatsApp integration for fast transactions.",
-                descSkripsi: "Intensive mentoring for thesis structure, content, and methodology.",
-                descJournal: "In-depth analysis and critical summary of academic journals.",
-                descPaper: "Assistance in writing structured and original academic papers.",
-                descPPT: "Visual, professional, and effective presentation slide design.",
-                descArtikelSEO: "Article writing optimized with keywords for Google ranking (On-Page SEO).",
-                descCopywriting: "Persuasive text (hypnotic writing) specifically for social media ads or landing pages.",
-                descProductDesc: "Compelling product narratives highlighting benefits to increase conversion.",
-                descPressRelease: "Writing official company news for media publication.",
-                descGoogleAds: "Setting up ad campaigns on Google search for instant traffic.",
-                descMetaAds: "Targeted ad management on Facebook & Instagram (FB/IG Ads).",
-                descAuditSEO: "Comprehensive technical analysis (Technical SEO) to find website performance issues.",
-                descKeywordResearch: "Mapping potential keywords with high volume and low competition.",
+                // Dynamic Descriptions (Expanded English)
+                descLandingPage: "High-Conversion Landing Page: Specifically designed for ad campaigns. Focuses on persuasive copywriting, fast loading, and AIDA structure to turn visitors into buyers. Perfect for product launches.",
+                descCompanyProfile: "Professional Company Website: Builds business credibility. Includes About Us, Services, Team, and Contact pages with elegant design reflecting brand identity. Mobile-friendly and SEO-ready.",
+                descPortfolio: "Personal Portfolio Website: Showcase your best work and CV professionally. Includes interactive gallery, CV download, and contact form. Strong personal branding for freelancers.",
+                descOnlineStore: "WhatsApp Integrated Online Store: Practical e-commerce solution without complex carts. Organized product catalog, search features, and 'Buy via WA' button for direct transactions.",
+                descSkripsi: "Intensive Thesis Guidance: One-on-one mentoring from title selection, chapter 1-5 structure, to data analysis. Focuses on logical research understanding and plagiarism-free academic writing.",
+                descJournal: "Comprehensive Journal Review: Critical analysis and summarization of academic journals. Ideal for literature reviews or understanding complex studies quickly.",
+                descPaper: "Academic Paper Assistance: Help in structuring and writing original academic papers. Ensures coherent arguments and proper citation formats.",
+                descPPT: "Professional PPT Design: Visually stunning and effective presentation slides. Tailored for business pitches, thesis defense, or educational purposes.",
+                descArtikelSEO: "SEO Optimized Article: High-quality writing targeting specific keywords to rank on Google. Includes meta tags, internal linking, and readability optimization.",
+                descCopywriting: "Hypnotic Copywriting: Persuasive text designed to sell. Ideal for social media ads (FB/IG) or landing pages. Triggers emotional response and action.",
+                descProductDesc: "Compelling Product Description: Narrative that highlights benefits over features. Increases conversion rates by answering customer needs clearly.",
+                descPressRelease: "Official Press Release: Professional writing for company news, product launches, or events, ready for media distribution.",
+                descGoogleAds: "Google Ads Setup: Strategic campaign setup on Google Search. Targets high-intent keywords to drive instant, qualified traffic to your website.",
+                descMetaAds: "Meta Ads Management: Targeted ad campaigns on Facebook & Instagram. Includes audience segmentation, creative testing, and pixel tracking.",
+                descAuditSEO: "Technical SEO Audit: Comprehensive health check of your website. Identifies speed issues, broken links, and optimization opportunities to improve rankings.",
+                descKeywordResearch: "Strategic Keyword Research: Mapping of high-volume, low-competition keywords. The foundation for a successful organic traffic strategy.",
 
                 // Dropdown Options
                 optLanding: "Landing Page (Promotion)",
@@ -1260,6 +1427,15 @@
                 // Articles
                 insightsTitle: "Latest Insights",
                 btnViewBlog: "View All Articles", 
+
+                // Popup Messages (English)
+                popupTitle: "👋 Hello!",
+                popupMsg1: "Business slow? A professional website is key to credibility. Let's build your digital asset now!",
+                popupMsg2: "Website exists but zero traffic? I'll help rank it to Google Page 1 so customers queue up!",
+                popupMsg3: "Social media content dry? Need 'hypnotic' copy? Let's make your audience unable to stop reading.",
+                popupMsg4: "Want to increase your business turnover?",
+                popupMsg5: "Confused where to start digital marketing?",
+                btnPopup: "Check Offers",
 
                 // Legal Modal Content (Combined)
                 modalLegalTitle: "Legal Information", 
@@ -1322,14 +1498,37 @@
                 skillData: "Data Storytelling", skillPM: "Manajemen Proyek", skillNego: "Negosiasi", skillLead: "Kepemimpinan", skillComm: "Komunikasi", skillProblem: "Problem Solving", skillCrit: "Berpikir Kritis", skillTime: "Manajemen Waktu",
                 expTitle: "Perjalanan Karir", expDesc: "Rekam jejak profesional dalam mendorong pertumbuhan bisnis.",
                 dateJob1: "Jan 2026 - Sekarang", 
-                descJob1: `<p>Mengelola siklus penjualan B2B secara menyeluruh untuk layanan profesional termasuk Konsultasi Akuntansi dan Pajak.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meningkatkan retensi pelanggan sebesar <strong>50%</strong> melalui manajemen hubungan klien (CRM) strategis.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam untuk mengoptimalkan kinerja pemasaran.</span></li></ul>`, 
-                dateJob2: "Sep 2025 - Des 2025", 
-                descJob2: `<p>Selama magang 3 bulan, menulis dan menerbitkan 29 artikel berkualitas tinggi tentang Bisnis dan Teknologi dengan standar SEO terkini.</p><ul class="space-y-2 mt-2 mb-4"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Meraih <strong>Ranking #1 di Google Search</strong> melalui strategi konten berbasis data.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel berhasil masuk <strong>Google Discover</strong>, mendatangkan trafik organik signifikan.</span></li></ul><div class="flex flex-col gap-3"><a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a><div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')"><div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
-                dateJob3: "Jul 2025 - Sep 2025", 
-                descJob3: `<p>Mendirikan dan mengelola bisnis dropshipping global di Shopify, mengawasi rantai pasok dari China ke AS.</p>
+                descJob1: `<p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p>
                 <ul class="space-y-2 mt-2">
-                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai <strong>137 penjualan</strong> di bulan pertama operasional.</span></li>
-                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menghasilkan lebih dari <strong>14.000 impresi produk</strong> di TikTok Shop.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar <strong>50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memimpin negosiasi kontrak strategis dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</span></li>
+                </ul>`, 
+                dateJob2: "Sep 2025 - Des 2025", 
+                descJob2: `
+                    <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p>
+                    <ul class="space-y-2 mt-2 mb-4">
+                        <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai prestasi <strong>Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</span></li>
+                        <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Artikel terpilih untuk ditampilkan di fitur <strong>Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</span></li>
+                        <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mengembangkan editorial calendar yang konsisten, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</span></li>
+                    </ul>
+                    <div class="flex flex-col gap-3">
+                        <a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a>
+                        <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')">
+                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors">
+                                <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div>
+                                <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div>
+                                <div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                dateJob3: "Jul 2025 - Sep 2025", 
+                descJob3: `<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p>
+                <ul class="space-y-2 mt-2">
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil membukukan <strong>137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menciptakan viralitas produk dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mengelola layanan pelanggan (CS) internasional dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</span></li>
                 </ul>
                 <div class="mt-4 group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('shopfy.webp', 'image')">
                     <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-slate-200 dark:border-white/10 rounded-xl hover:border-orange-500 transition-colors">
@@ -1339,11 +1538,26 @@
                     </div>
                 </div>`,
                 dateJob4: "Mei 2025 - Jul 2025", titleJob4: "Affiliate Marketing",
-                descJob4: `<p>Membangun strategi pemasaran afiliasi di Shopee, fokus pada kurasi produk untuk audiens spesifik.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menggunakan Instagram sebagai saluran utama trafik.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai <strong>57 penjualan</strong> di bulan pertama.</span></li></ul>`,
+                descJob4: `<p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p>
+                <ul class="space-y-2 mt-2">
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memanfaatkan Instagram sebagai saluran utama (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Sukses mencatatkan <strong>57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mengoptimalkan penggunaan fitur promosi Shopee dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</span></li>
+                </ul>`,
                 dateJob5: "Jan 2024 - Apr 2025", titleJob5: "Owner, Bisnis Kue", subJob5: "Wirausaha",
-                descJob5: `<p>Berhasil membangun bisnis kue dari nol, fokus pada kualitas produk dan kepuasan pelanggan.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memperoleh <strong>437 pelanggan setia</strong> melalui word-of-mouth.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Pendapatan harian konsisten ><strong>Rp500.000</strong>.</span></li></ul>`,
+                descJob5: `<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p>
+                <ul class="space-y-2 mt-2">
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil mengakuisisi basis pelanggan loyal sebanyak <strong>437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mencapai stabilitas keuangan dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mengembangkan variasi produk baru berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</span></li>
+                </ul>`,
                 dateJob6: "Mei 2023 - Des 2023", subJob6: "Web Development Venture",
-                descJob6: `<p>Bertindak sebagai Customer Service dan Co-founder dalam usaha pengembangan web.</p><ul class="space-y-2 mt-2"><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mendapatkan <strong>6 proyek</strong> dalam 1 bulan melalui manajemen relasi klien.</span></li><li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mempertahankan rating kepuasan <strong>4.9/5 bintang</strong>.</span></li></ul>`,
+                descJob6: `<p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p>
+                <ul class="space-y-2 mt-2">
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil mengamankan <strong>6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Mempertahankan reputasi layanan prima dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</span></li>
+                    <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Menyusun Standar Operasional Prosedur (SOP) untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</span></li>
+                </ul>`,
                 certTitle: "Sertifikasi Profesional", btnAllCerts: "Lihat 45+ Sertifikat",
                 galleryTitle: "Galeri Proyek", galleryDesc: "Visualisasi hasil kerja dan pencapaian nyata.",
                 galleryItem1: "Tinjauan Strategis", galleryItem2: "Eksekusi", galleryItem3: "Analitik", galleryVideo: "Video Proyek",
@@ -1359,18 +1573,6 @@
                 testi1Text: "\"Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data dan efektif.\"",
                 testi2Text: "\"Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.\"",
                 testi3Text: "\"Saya kesulitan dengan tugas akhir saya, tapi bimbingan beliau sangat berharga.\"",
-                testi4Text: "\"Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan.\"",
-                testi5Text: "\"Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh.\"",
-                testi6Text: "\"Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan.\"",
-                testi7Text: "\"Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun. Kerja bagus.\"",
-                testi8Text: "\"Konversi landing page meningkat 40%. Sangat direkomendasikan.\"",
-                testi9Text: "\"Membantu usaha kecil saya beralih ke digital dengan mulus. Sangat sabar.\"",
-                testi10Text: "\"Komunikasi yang sangat baik dan pelaporan yang jelas. Senang bekerja sama.\"",
-                testi11Text: "\"Kualitas prospek untuk listing properti kami meningkat drastis dengan Google Ads.\"",
-                testi12Text: "\"Setup iklan TikTok sangat sempurna. Brand fashion kami meledak dalam semalam.\"",
-                testi13Text: "\"Website profil perusahaan ramping, profesional, dan loadingnya instan.\"",
-                testi14Text: "\"SEO lokal membantu kafe saya muncul di pencarian teratas Google Maps.\"",
-                testi15Text: "\"Biaya akuisisi pengguna turun 30% berkat optimasinya.\"",
                 
                 // Form Labels
                 labelPackage: "Paket", labelName: "Nama", labelNotes: "Catatan", btnConsult: "Konsultasi via WhatsApp",
@@ -1378,58 +1580,36 @@
                 labelContentType: "Jenis Konten", labelBrand: "Brand", labelBrief: "Brief",
                 labelService: "Layanan", labelBusiness: "Bisnis", labelGoal: "Target",
 
-                // Dynamic Descriptions
-                descLandingPage: "Halaman tunggal yang dirancang khusus untuk konversi penjualan atau promosi spesifik.",
-                descCompanyProfile: "Website multipage profesional untuk membangun kredibilitas dan informasi perusahaan.",
-                descPortfolio: "Website personal untuk menampilkan karya dan CV profesional Anda.",
-                descOnlineStore: "Website e-commerce sederhana dengan integrasi WhatsApp untuk transaksi cepat.",
-                descSkripsi: "Mentoring intensif untuk struktur, konten, dan metodologi penulisan skripsi.",
-                descJournal: "Analisis mendalam dan ringkasan kritis dari jurnal akademik.",
-                descPaper: "Bantuan penulisan makalah akademis yang terstruktur dan orisinal.",
-                descPPT: "Desain slide presentasi yang visual, profesional, dan efektif.",
-                descArtikelSEO: "Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO).",
-                descCopywriting: "Teks persuasif (hypnotic writing) khusus untuk iklan media sosial atau landing page.",
-                descProductDesc: "Narasi produk yang menarik dan menonjolkan manfaat untuk meningkatkan konversi.",
-                descPressRelease: "Penulisan berita resmi perusahaan untuk publikasi media.",
-                descGoogleAds: "Pengaturan kampanye iklan di pencarian Google untuk trafik instan.",
-                descMetaAds: "Manajemen iklan tertarget di Facebook & Instagram (FB/IG Ads).",
-                descAuditSEO: "Analisis teknis menyeluruh (Technical SEO) untuk menemukan masalah performa website.",
-                descKeywordResearch: "Pemetaan kata kunci potensial dengan volume tinggi dan persaingan rendah.",
-
-                // Dropdown Options
-                optLanding: "Landing Page (Promosi)",
-                optComp: "Company Profile (Bisnis)",
-                optPort: "Portfolio Personal",
-                optStore: "Toko Online Simple",
-                optThesis: "Bimbingan Skripsi",
-                optJournal: "Review Jurnal",
-                optPaper: "Makalah/Paper",
-                optPPT: "Presentasi PPT Profesional",
-                optSEOArt: "Artikel SEO",
-                optCopy: "Copywriting Iklan",
-                optProdDesc: "Deskripsi Produk",
-                optPress: "Press Release",
-                optGAds: "Google Ads Setup",
-                optMAds: "Meta Ads (FB/IG)",
-                optAudit: "Audit SEO Website",
-                optKw: "Riset Keyword",
-
-                // Placeholders
-                phName: "Nama Anda / Bisnis",
-                phNote: "Detail kebutuhan...",
-                phNameFull: "Nama Lengkap",
-                phDeadline: "Deadline & Topik?",
-                phBrand: "Nama Brand",
-                phTopic: "Topik/Keyword?",
-                phBusiness: "Nama Bisnis",
-                phGoal: "Target (Sales/Leads)?",
-
-                // Loading Text
-                loadingText: `<span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Menghubungkan ke wawasan terbaru...`,
+                // Dynamic Descriptions (Expanded Indonesia)
+                descLandingPage: "Halaman Landing Berkonversi Tinggi: Didesain khusus untuk kampanye iklan (Google/FB Ads). Fokus pada copywriting persuasif, loading cepat < 3 detik, dan struktur AIDA untuk mengubah pengunjung menjadi pembeli. Cocok untuk peluncuran produk atau promo.",
+                descCompanyProfile: "Website Perusahaan Profesional: Membangun kepercayaan & kredibilitas bisnis Anda. Mencakup halaman Tentang Kami, Layanan, Tim, dan Kontak dengan desain elegan yang mencerminkan identitas brand. Mobile-friendly dan SEO-ready.",
+                descPortfolio: "Website Portofolio Personal: Tampilkan karya terbaik dan CV Anda secara profesional. Fitur galeri interaktif, unduh CV, dan formulir kontak. Personal branding yang kuat untuk freelancer atau profesional.",
+                descOnlineStore: "Toko Online Terintegrasi WhatsApp: Solusi e-commerce praktis tanpa kerumitan keranjang belanja yang membingungkan. Katalog produk rapi, fitur pencarian, dan tombol 'Beli via WA' untuk mempermudah transaksi langsung dengan pelanggan.",
+                descSkripsi: "Bimbingan Skripsi Intensif: Pendampingan one-on-one mulai dari pemilihan judul, penyusunan bab 1-5, hingga olah data. Fokus pada pemahaman logika penelitian dan penulisan akademik yang bebas plagiasi.",
+                descJournal: "Review Jurnal Komprehensif: Analisis mendalam dan ringkasan kritis dari jurnal akademik. Membantu Anda memahami inti penelitian kompleks dalam waktu singkat. Ideal untuk tinjauan pustaka.",
+                descPaper: "Bantuan Penulisan Makalah: Bantuan penyusunan makalah akademis yang terstruktur dan orisinal. Memastikan argumen yang koheren, referensi yang tepat, dan tata bahasa yang baku.",
+                descPPT: "Desain PPT Profesional: Slide presentasi yang visual, menarik, dan efektif. Didesain khusus untuk pitch bisnis, sidang skripsi, atau materi edukasi agar audiens tetap fokus.",
+                descArtikelSEO: "Artikel SEO Berkualitas: Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO). Riset mendalam, struktur heading yang baik, dan mudah dibaca (readability tinggi).",
+                descCopywriting: "Copywriting Iklan Hipnotis: Teks persuasif yang dirancang untuk menjual. Khusus untuk iklan media sosial (FB/IG) atau landing page. Menggunakan pemicu emosional untuk meningkatkan konversi.",
+                descProductDesc: "Deskripsi Produk Memikat: Narasi produk yang menonjolkan manfaat (benefit) bukan hanya fitur. Menjawab kebutuhan pelanggan dan mengatasi keraguan untuk mendorong pembelian.",
+                descPressRelease: "Press Release Resmi: Penulisan berita resmi perusahaan untuk publikasi media.",
+                descGoogleAds: "Setup Google Ads Strategis: Pengaturan kampanye iklan di pencarian Google. Menargetkan kata kunci dengan niat beli tinggi untuk mendatangkan trafik instan yang berkualitas.",
+                descMetaAds: "Manajemen Meta Ads (FB/IG): Kampanye iklan tertarget di Facebook & Instagram. Mencakup segmentasi audiens, testing materi kreatif, dan tracking pixel untuk hasil maksimal.",
+                descAuditSEO: "Audit SEO Teknis: Pemeriksaan kesehatan website secara menyeluruh. Mengidentifikasi masalah kecepatan, link rusak, dan peluang optimasi on-page untuk memperbaiki peringkat pencarian.",
+                descKeywordResearch: "Riset Keyword Strategis: Pemetaan kata kunci potensial dengan volume pencarian tinggi dan persaingan rendah. Pondasi utama untuk strategi trafik organik yang sukses.",
 
                 // Articles
                 insightsTitle: "Wawasan Terbaru",
                 btnViewBlog: "Lihat Semua Artikel", 
+
+                // Popup Messages (Indonesia)
+                popupTitle: "👋 Halo!",
+                popupMsg1: "Bisnis sepi? Website profesional adalah kunci kredibilitas. Yuk, bangun aset digitalmu sekarang!",
+                popupMsg2: "Website ada tapi trafik nol? Saya bantu naikkan ranking ke Halaman 1 Google agar pelanggan antre!",
+                popupMsg3: "Konten sosial media garing? Butuh copy yang 'menghipnotis'? Mari buat audiensmu tidak bisa berhenti membaca.",
+                popupMsg4: "Ingin omzet bisnis naik drastis?",
+                popupMsg5: "Bingung mulai digital marketing darimana?",
+                btnPopup: "Cek Penawaran",
 
                 // Legal Modal Content (Combined)
                 modalLegalTitle: "Informasi Legal",
@@ -1485,6 +1665,9 @@
         // Set default language to 'id' if not set
         let currentLang = localStorage.getItem('lang') || 'id';
 
+        // Global variable to store fetched data
+        let globalArticles = [];
+
         // Pastikan fungsi setLanguage dipanggil saat load
         document.addEventListener('DOMContentLoaded', () => {
             renderCerts();
@@ -1524,69 +1707,98 @@
                 }, 3500);
             }
         });
-
-        // -----------------------------------------------------------
-        // FUNGSI PENGAMBIL DATA WORDPRESS (ANTI-CACHE)
-        // -----------------------------------------------------------
+        
+        // ... (rest of the JS functions: ambilDataWordPress, setLanguage, renderCerts, etc. remain the same) ...
         async function ambilDataWordPress() {
+            const wadahSlider = document.getElementById('insightsSlider');
+            
+            // If data is already fetched, just render it
+            if (globalArticles.length > 0) {
+                renderArticles(globalArticles);
+                return;
+            }
+
             // Ditambahkan timestamp agar selalu mengambil data terbaru (anti-cache)
             const timestamp = new Date().getTime();
             const linkAPI = `https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=6&time=${timestamp}`;
-            const wadahSlider = document.getElementById('insightsSlider');
 
             try {
                 const respon = await fetch(linkAPI);
                 if (!respon.ok) throw new Error('Jaringan bermasalah');
                 
-                const daftarArtikel = await respon.json();
+                globalArticles = await respon.json();
+            } catch (error) {
+                console.warn("Gagal koneksi ke WP:", error);
+                // MOCK DATA FALLBACK
+                globalArticles = [
+                    {
+                        title: { rendered: "Strategi SEO 2026: Dominasi Pencarian" },
+                        excerpt: { rendered: "Panduan lengkap untuk memahami algoritma terbaru Google dan cara mengoptimalkannya untuk bisnis Anda." },
+                        link: "#",
+                        _embedded: { 'wp:term': [[{ name: 'SEO' }]] }
+                    },
+                    {
+                        title: { rendered: "Pentingnya Website untuk Bisnis" },
+                        excerpt: { rendered: "Mengapa bisnis tanpa website akan tertinggal di era digital saat ini? Temukan jawabannya di sini." },
+                        link: "#",
+                        _embedded: { 'wp:term': [[{ name: 'Business' }]] }
+                    },
+                    {
+                        title: { rendered: "Tips Copywriting yang Menjual" },
+                        excerpt: { rendered: "Teknik menulis yang mampu menghipnotis pembaca untuk segera membeli produk Anda." },
+                        link: "#",
+                        _embedded: { 'wp:term': [[{ name: 'Marketing' }]] }
+                    }
+                ];
+            }
+            
+            renderArticles(globalArticles);
+        }
 
-                // 2. Jika tidak ada artikel
-                if (daftarArtikel.length === 0) {
-                    wadahSlider.innerHTML = `<p class="text-center w-full text-sm">${currentLang === 'en' ? 'No articles yet.' : 'Belum ada artikel.'}</p>`;
-                    return;
+        function renderArticles(articles) {
+            const wadahSlider = document.getElementById('insightsSlider');
+            const errorMsg = currentLang === 'en' ? 'No articles yet.' : 'Belum ada artikel.';
+
+            if (!articles || articles.length === 0) {
+                wadahSlider.innerHTML = `<p class="text-center w-full text-sm">${errorMsg}</p>`;
+                return;
+            }
+
+            const readMoreText = currentLang === 'en' ? 'Read More' : 'Baca Selengkapnya';
+
+            wadahSlider.innerHTML = articles.map(artikel => {
+                // Ambil gambar (jika tidak ada, pakai gambar cadangan)
+                let foto = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500'; // Default
+                if (artikel._embedded && artikel._embedded['wp:featuredmedia'] && artikel._embedded['wp:featuredmedia'][0]) {
+                    foto = artikel._embedded['wp:featuredmedia'][0].source_url;
+                }
+                
+                // Ambil nama kategori
+                let kategori = 'Insight';
+                if (artikel._embedded && artikel._embedded['wp:term'] && artikel._embedded['wp:term'][0] && artikel._embedded['wp:term'][0][0]) {
+                    kategori = artikel._embedded['wp:term'][0][0].name;
                 }
 
-                // 3. Proses mengubah data menjadi kartu HTML
-                wadahSlider.innerHTML = daftarArtikel.map(artikel => {
-                    // Ambil gambar (jika tidak ada, pakai gambar cadangan)
-                    let foto = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500'; // Default
-                    if (artikel._embedded && artikel._embedded['wp:featuredmedia'] && artikel._embedded['wp:featuredmedia'][0]) {
-                        foto = artikel._embedded['wp:featuredmedia'][0].source_url;
-                    }
-                    
-                    // Ambil nama kategori
-                    let kategori = 'Insight';
-                    if (artikel._embedded && artikel._embedded['wp:term'] && artikel._embedded['wp:term'][0] && artikel._embedded['wp:term'][0][0]) {
-                        kategori = artikel._embedded['wp:term'][0][0].name;
-                    }
+                // Ambil deskripsi singkat (Excerpt) dan hapus tag HTML-nya
+                const ringkasan = artikel.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 80) + '...';
 
-                    // Ambil deskripsi singkat (Excerpt) dan hapus tag HTML-nya
-                    const ringkasan = artikel.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 80) + '...';
-                    
-                    const readMoreText = currentLang === 'en' ? 'Read More' : 'Baca Selengkapnya';
-
-                    return `
-                        <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
-                            <div class="h-40 overflow-hidden relative">
-                                <img src="${foto}" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
-                                <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md">${kategori}</div>
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 relative">
-                                <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2">${artikel.title.rendered}</h3>
-                                <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2">${ringkasan}</p>
-                                <!-- FIXED: Link ke artikel asli WP, dengan z-index agar bisa diklik & target="_blank" -->
-                                <a href="${artikel.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider relative z-20 cursor-pointer">
-                                    ${readMoreText} <i class="fas fa-arrow-right text-[10px]"></i>
-                                </a>
-                            </div>
+                return `
+                    <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="${foto}" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
+                            <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md">${kategori}</div>
                         </div>
-                    `;
-                }).join('');
-            } catch (error) {
-                console.error("Gagal koneksi ke WP:", error);
-                const errorMsg = currentLang === 'en' ? 'Failed to load articles. Please refresh.' : 'Gagal memuat artikel. Silakan refresh halaman.';
-                wadahSlider.innerHTML = `<p class="text-center w-full text-red-500 text-xs">${errorMsg}</p>`;
-            }
+                        <div class="p-5 flex flex-col flex-1 relative">
+                            <h3 class="font-bold text-base mb-2 dark:text-white leading-snug line-clamp-2">${artikel.title.rendered}</h3>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2">${ringkasan}</p>
+                            <!-- FIXED: Link ke artikel asli WP, dengan z-index agar bisa diklik & target="_blank" -->
+                            <a href="${artikel.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider relative z-20 cursor-pointer">
+                                ${readMoreText} <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
 
         function setLanguage(lang) {
@@ -1624,8 +1836,15 @@
             // Refresh Dynamic Content
             renderGallery();
             renderCerts();
-            // Re-fetch WP data to update static texts inside if any (like "Read More")
+            // Re-render articles (using stored data or re-fetch if empty)
             ambilDataWordPress();
+            
+            // Update Popup Message immediately if visible
+            if (popup.classList.contains('show')) {
+                 const msgKey = popupMessages[currentMsgIndex > 0 ? currentMsgIndex - 1 : popupMessages.length - 1];
+                 const translatedText = translations[currentLang][msgKey];
+                 if (translatedText) popupMsg.innerHTML = translatedText;
+            }
         }
         document.querySelectorAll('.lang-toggle').forEach(btn => { btn.addEventListener('click', () => { setLanguage(currentLang === 'en' ? 'id' : 'en'); }); });
 

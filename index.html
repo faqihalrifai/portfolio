@@ -586,20 +586,20 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelPackage">Paket</label>
                                         <select id="opt-web" onchange="updateServiceDesc('opt-web', 'desc-web')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Landing Page">Landing Page (Promosi)</option>
-                                            <option value="Company Profile">Company Profile (Bisnis)</option>
-                                            <option value="Portfolio Personal">Portfolio Personal</option>
-                                            <option value="Toko Online Simple">Toko Online Simple</option>
+                                            <option value="Landing Page" data-i18n="optLanding">Landing Page (Promosi)</option>
+                                            <option value="Company Profile" data-i18n="optComp">Company Profile (Bisnis)</option>
+                                            <option value="Portfolio Personal" data-i18n="optPort">Portfolio Personal</option>
+                                            <option value="Toko Online Simple" data-i18n="optStore">Toko Online Simple</option>
                                         </select>
                                         <p id="desc-web" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descLandingPage">Halaman tunggal yang dirancang khusus untuk konversi penjualan atau promosi spesifik.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelName">Nama</label>
-                                        <input type="text" id="name-web" placeholder="Nama Anda / Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
+                                        <input type="text" id="name-web" data-i18n-placeholder="phName" placeholder="Nama Anda / Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelNotes">Catatan</label>
-                                        <textarea id="note-web" rows="2" placeholder="Detail kebutuhan..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-web" rows="2" data-i18n-placeholder="phNote" placeholder="Detail kebutuhan..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
                                         <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
@@ -632,20 +632,20 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelType">Tipe</label>
                                         <select id="opt-acad" onchange="updateServiceDesc('opt-acad', 'desc-acad')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Bimbingan Skripsi">Bimbingan Skripsi</option>
-                                            <option value="Review Jurnal">Review Jurnal</option>
-                                            <option value="Makalah/Paper">Makalah/Paper</option>
-                                            <option value="Presentasi PPT">Presentasi PPT Profesional</option>
+                                            <option value="Bimbingan Skripsi" data-i18n="optThesis">Bimbingan Skripsi</option>
+                                            <option value="Review Jurnal" data-i18n="optJournal">Review Jurnal</option>
+                                            <option value="Makalah/Paper" data-i18n="optPaper">Makalah/Paper</option>
+                                            <option value="Presentasi PPT" data-i18n="optPPT">Presentasi PPT Profesional</option>
                                         </select>
                                         <p id="desc-acad" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descSkripsi">Mentoring intensif untuk struktur, konten, dan metodologi penulisan skripsi.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelName">Nama</label>
-                                        <input type="text" id="name-acad" placeholder="Nama Lengkap" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
+                                        <input type="text" id="name-acad" data-i18n-placeholder="phNameFull" placeholder="Nama Lengkap" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelDetails">Detail</label>
-                                        <textarea id="note-acad" rows="2" placeholder="Deadline & Topik?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-acad" rows="2" data-i18n-placeholder="phDeadline" placeholder="Deadline & Topik?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
                                         <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
@@ -678,20 +678,20 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelContentType">Jenis Konten</label>
                                         <select id="opt-content" onchange="updateServiceDesc('opt-content', 'desc-content')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Artikel SEO">Artikel SEO</option>
-                                            <option value="Copywriting Iklan">Copywriting Iklan</option>
-                                            <option value="Deskripsi Produk">Deskripsi Produk</option>
-                                            <option value="Press Release">Press Release</option>
+                                            <option value="Artikel SEO" data-i18n="optSEOArt">Artikel SEO</option>
+                                            <option value="Copywriting Iklan" data-i18n="optCopy">Copywriting Iklan</option>
+                                            <option value="Deskripsi Produk" data-i18n="optProdDesc">Deskripsi Produk</option>
+                                            <option value="Press Release" data-i18n="optPress">Press Release</option>
                                         </select>
                                         <p id="desc-content" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descArtikelSEO">Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO).</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelBrand">Brand</label>
-                                        <input type="text" id="name-content" placeholder="Nama Brand" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
+                                        <input type="text" id="name-content" data-i18n-placeholder="phBrand" placeholder="Nama Brand" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelBrief">Brief</label>
-                                        <textarea id="note-content" rows="2" placeholder="Topik/Keyword?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-content" rows="2" data-i18n-placeholder="phTopic" placeholder="Topik/Keyword?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
                                         <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
@@ -724,20 +724,20 @@
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelService">Layanan</label>
                                         <select id="opt-ads" onchange="updateServiceDesc('opt-ads', 'desc-ads')" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
-                                            <option value="Google Ads Setup">Google Ads</option>
-                                            <option value="Meta Ads Management">Meta Ads (FB/IG)</option>
-                                            <option value="Audit SEO Website">Audit SEO</option>
-                                            <option value="Riset Keyword">Riset Keyword</option>
+                                            <option value="Google Ads Setup" data-i18n="optGAds">Google Ads</option>
+                                            <option value="Meta Ads Management" data-i18n="optMAds">Meta Ads (FB/IG)</option>
+                                            <option value="Audit SEO Website" data-i18n="optAudit">Audit SEO</option>
+                                            <option value="Riset Keyword" data-i18n="optKw">Riset Keyword</option>
                                         </select>
                                         <p id="desc-ads" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descGoogleAds">Pengaturan kampanye iklan di pencarian Google untuk trafik instan.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelBusiness">Bisnis</label>
-                                        <input type="text" id="name-ads" placeholder="Nama Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
+                                        <input type="text" id="name-ads" data-i18n-placeholder="phBusiness" placeholder="Nama Bisnis" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all">
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelGoal">Target</label>
-                                        <textarea id="note-ads" rows="2" placeholder="Target (Sales/Leads)?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
+                                        <textarea id="note-ads" rows="2" data-i18n-placeholder="phGoal" placeholder="Target (Sales/Leads)?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
                                         <button onclick="orderService('SEO & Iklan Digital', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
@@ -799,7 +799,7 @@
                          <!-- Card 4 -->
                          <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-purple-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Highly recommended for digital ads management. ROI increased significantly."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi4Text">"Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 font-bold text-sm">MN</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Maya N**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Online Seller</p></div>
@@ -808,7 +808,7 @@
                         <!-- Card 5 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-blue-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Fast response and high-quality articles. Helped our blog traffic grow."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi5Text">"Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-800 font-bold text-sm">BP</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Budi P**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Blogger</p></div>
@@ -817,7 +817,7 @@
                         <!-- Card 6 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-pink-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Content strategy is brilliant. Our engagement rate doubled in a month."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi6Text">"Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-800 font-bold text-sm">SS</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Sari S**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Influencer</p></div>
@@ -826,7 +826,7 @@
                         <!-- Card 7 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-teal-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Detailed SEO audit revealed issues we missed for years. Great work."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi7Text">"Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun. Kerja bagus."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-800 font-bold text-sm">HK</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Hendra K**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">IT Manager</p></div>
@@ -835,7 +835,7 @@
                         <!-- Card 8 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-indigo-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Landing page conversion increased by 40%. Highly recommended."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi8Text">"Konversi landing page meningkat 40%. Sangat direkomendasikan."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-800 font-bold text-sm">TR</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Tio R**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Startup Founder</p></div>
@@ -844,7 +844,7 @@
                         <!-- Card 9 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-red-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Helped my small business go digital seamlessly. Very patient."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi9Text">"Membantu usaha kecil saya beralih ke digital dengan mulus. Sangat sabar."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-800 font-bold text-sm">WN</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Wina N**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Shop Owner</p></div>
@@ -853,7 +853,7 @@
                         <!-- Card 10 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-cyan-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Excellent communication and clear reporting. A pleasure to work with."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi10Text">"Komunikasi yang sangat baik dan pelaporan yang jelas. Senang bekerja sama."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-800 font-bold text-sm">FJ</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Fajar J**</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Agency Lead</p></div>
@@ -863,7 +863,7 @@
                         <!-- Card 11 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-stone-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Lead quality for our property listings improved drastically with Google Ads."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi11Text">"Kualitas prospek untuk listing properti kami meningkat drastis dengan Google Ads."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center text-stone-800 font-bold text-sm">AW</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Anita W.</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Real Estate Agent</p></div>
@@ -872,7 +872,7 @@
                         <!-- Card 12 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-rose-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"TikTok ads setup was flawless. Our fashion brand exploded overnight."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi12Text">"Setup iklan TikTok sangat sempurna. Brand fashion kami meledak dalam semalam."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-800 font-bold text-sm">RS</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Rian S.</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Fashion Brand Owner</p></div>
@@ -881,7 +881,7 @@
                         <!-- Card 13 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-slate-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"The company profile website is sleek, professional, and loads instantly."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi13Text">"Website profil perusahaan ramping, profesional, dan loadingnya instan."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 font-bold text-sm">PT</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">PT. Maju</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Corporate Client</p></div>
@@ -890,7 +890,7 @@
                         <!-- Card 14 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-amber-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"Local SEO helped my cafe appear on Google Maps top search."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi14Text">"SEO lokal membantu kafe saya muncul di pencarian teratas Google Maps."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-sm">CB</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">Chef Budi</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">F&B Owner</p></div>
@@ -899,7 +899,7 @@
                         <!-- Card 15 -->
                         <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                             <div class="text-4xl text-violet-900/10 font-serif absolute top-6 left-6">“</div>
-                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic">"User acquisition cost dropped by 30% thanks to his optimization."</p>
+                            <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-8 mt-4 relative z-10 italic" data-i18n="testi15Text">"Biaya akuisisi pengguna turun 30% berkat optimasinya."</p>
                             <div class="flex items-center gap-4 mt-auto">
                                 <div class="w-12 h-12 rounded-full bg-violet-100 flex items-center justify-center text-violet-800 font-bold text-sm">ST</div>
                                 <div><h4 class="font-bold text-sm text-darkBlack dark:text-gold">StartUp X</h4><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">Tech Co.</p></div>
@@ -927,7 +927,7 @@
                 <!-- Bagian Showcase / Insights -->
                 <div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider">
                     <!-- Placeholder Loading -->
-                    <p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2">
+                    <p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2" data-i18n="loadingText">
                         <span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span>
                         Menghubungkan ke wawasan terbaru...
                     </p>
@@ -1102,11 +1102,21 @@
             const select = document.getElementById(selectId);
             const nameInput = document.getElementById(nameId);
             const noteInput = document.getElementById(noteId);
-            const subService = select.value;
-            const clientName = nameInput.value.trim() || "Nama Tidak Disebutkan";
+            
+            // Get text displayed in current language
+            const subService = select.options[select.selectedIndex].text;
+            
+            const clientName = nameInput.value.trim() || (currentLang === 'en' ? "Name not specified" : "Nama Tidak Disebutkan");
             const clientNote = noteInput.value.trim() || "-";
             const phone = "62859148219009";
-            const text = `Halo Mas Faqih, saya *${clientName}*.%0A%0ASaya tertarik dengan layanan:%0A🚀 *${serviceName}*%0A👉 Pilihan Paket: *${subService}*%0A%0ACatatan Tambahan:%0A${clientNote}%0A%0AMohon informasi lebih lanjut mengenai *pricelist* dan ketersediaan slot pengerjaannya.%0ATerima kasih.`;
+            
+            let text;
+            if (currentLang === 'en') {
+                text = `Hello Faqih, I am *${clientName}*.%0A%0AI am interested in the service:%0A🚀 *${serviceName}*%0A👉 Package Choice: *${subService}*%0A%0AAdditional Notes:%0A${clientNote}%0A%0APlease provide more information regarding the *pricelist* and slot availability.%0AThank you.`;
+            } else {
+                text = `Halo Mas Faqih, saya *${clientName}*.%0A%0ASaya tertarik dengan layanan:%0A🚀 *${serviceName}*%0A👉 Pilihan Paket: *${subService}*%0A%0ACatatan Tambahan:%0A${clientNote}%0A%0AMohon informasi lebih lanjut mengenai *pricelist* dan ketersediaan slot pengerjaannya.%0ATerima kasih.`;
+            }
+            
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
@@ -1179,10 +1189,22 @@
                 testi1Text: "\"Faqih helped us increase our online sales drastically. The strategy is data-driven and effective.\"",
                 testi2Text: "\"Professional website result. Ranking #1 on Google for our specific keywords.\"",
                 testi3Text: "\"I was struggling with my academic paper, but his guidance was invaluable.\"",
+                testi4Text: "\"Highly recommended for digital ads management. ROI increased significantly.\"",
+                testi5Text: "\"Fast response and high-quality articles. Helped our blog traffic grow.\"",
+                testi6Text: "\"Content strategy is brilliant. Our engagement rate doubled in a month.\"",
+                testi7Text: "\"Detailed SEO audit revealed issues we missed for years. Great work.\"",
+                testi8Text: "\"Landing page conversion increased by 40%. Highly recommended.\"",
+                testi9Text: "\"Helped my small business go digital seamlessly. Very patient.\"",
+                testi10Text: "\"Excellent communication and clear reporting. A pleasure to work with.\"",
+                testi11Text: "\"Lead quality for our property listings improved drastically with Google Ads.\"",
+                testi12Text: "\"TikTok ads setup was flawless. Our fashion brand exploded overnight.\"",
+                testi13Text: "\"The company profile website is sleek, professional, and loads instantly.\"",
+                testi14Text: "\"Local SEO helped my cafe appear on Google Maps top search.\"",
+                testi15Text: "\"User acquisition cost dropped by 30% thanks to his optimization.\"",
                 
                 // Form Labels
                 labelPackage: "Package", labelName: "Name", labelNotes: "Notes", btnConsult: "Consult via WhatsApp",
-                labelType: "Type", labelDetails: "Details", 
+                labelType: "Type", labelDetails: "Detail", 
                 labelContentType: "Content Type", labelBrand: "Brand", labelBrief: "Brief",
                 labelService: "Service", labelBusiness: "Business", labelGoal: "Goal",
 
@@ -1203,6 +1225,37 @@
                 descMetaAds: "Targeted ad management on Facebook & Instagram (FB/IG Ads).",
                 descAuditSEO: "Comprehensive technical analysis (Technical SEO) to find website performance issues.",
                 descKeywordResearch: "Mapping potential keywords with high volume and low competition.",
+
+                // Dropdown Options
+                optLanding: "Landing Page (Promotion)",
+                optComp: "Company Profile (Business)",
+                optPort: "Personal Portfolio",
+                optStore: "Simple Online Store",
+                optThesis: "Thesis Guidance",
+                optJournal: "Journal Review",
+                optPaper: "Paper/Essay",
+                optPPT: "Professional PPT",
+                optSEOArt: "SEO Article",
+                optCopy: "Ad Copywriting",
+                optProdDesc: "Product Description",
+                optPress: "Press Release",
+                optGAds: "Google Ads Setup",
+                optMAds: "Meta Ads (FB/IG)",
+                optAudit: "SEO Audit",
+                optKw: "Keyword Research",
+
+                // Placeholders
+                phName: "Your Name / Business",
+                phNote: "Needs detail...",
+                phNameFull: "Full Name",
+                phDeadline: "Deadline & Topic?",
+                phBrand: "Brand Name",
+                phTopic: "Topic/Keyword?",
+                phBusiness: "Business Name",
+                phGoal: "Target (Sales/Leads)?",
+
+                // Loading Text
+                loadingText: `<span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Connecting to latest insights...`,
 
                 // Articles
                 insightsTitle: "Latest Insights",
@@ -1306,6 +1359,18 @@
                 testi1Text: "\"Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data dan efektif.\"",
                 testi2Text: "\"Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.\"",
                 testi3Text: "\"Saya kesulitan dengan tugas akhir saya, tapi bimbingan beliau sangat berharga.\"",
+                testi4Text: "\"Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan.\"",
+                testi5Text: "\"Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh.\"",
+                testi6Text: "\"Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan.\"",
+                testi7Text: "\"Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun. Kerja bagus.\"",
+                testi8Text: "\"Konversi landing page meningkat 40%. Sangat direkomendasikan.\"",
+                testi9Text: "\"Membantu usaha kecil saya beralih ke digital dengan mulus. Sangat sabar.\"",
+                testi10Text: "\"Komunikasi yang sangat baik dan pelaporan yang jelas. Senang bekerja sama.\"",
+                testi11Text: "\"Kualitas prospek untuk listing properti kami meningkat drastis dengan Google Ads.\"",
+                testi12Text: "\"Setup iklan TikTok sangat sempurna. Brand fashion kami meledak dalam semalam.\"",
+                testi13Text: "\"Website profil perusahaan ramping, profesional, dan loadingnya instan.\"",
+                testi14Text: "\"SEO lokal membantu kafe saya muncul di pencarian teratas Google Maps.\"",
+                testi15Text: "\"Biaya akuisisi pengguna turun 30% berkat optimasinya.\"",
                 
                 // Form Labels
                 labelPackage: "Paket", labelName: "Nama", labelNotes: "Catatan", btnConsult: "Konsultasi via WhatsApp",
@@ -1330,6 +1395,37 @@
                 descMetaAds: "Manajemen iklan tertarget di Facebook & Instagram (FB/IG Ads).",
                 descAuditSEO: "Analisis teknis menyeluruh (Technical SEO) untuk menemukan masalah performa website.",
                 descKeywordResearch: "Pemetaan kata kunci potensial dengan volume tinggi dan persaingan rendah.",
+
+                // Dropdown Options
+                optLanding: "Landing Page (Promosi)",
+                optComp: "Company Profile (Bisnis)",
+                optPort: "Portfolio Personal",
+                optStore: "Toko Online Simple",
+                optThesis: "Bimbingan Skripsi",
+                optJournal: "Review Jurnal",
+                optPaper: "Makalah/Paper",
+                optPPT: "Presentasi PPT Profesional",
+                optSEOArt: "Artikel SEO",
+                optCopy: "Copywriting Iklan",
+                optProdDesc: "Deskripsi Produk",
+                optPress: "Press Release",
+                optGAds: "Google Ads Setup",
+                optMAds: "Meta Ads (FB/IG)",
+                optAudit: "Audit SEO Website",
+                optKw: "Riset Keyword",
+
+                // Placeholders
+                phName: "Nama Anda / Bisnis",
+                phNote: "Detail kebutuhan...",
+                phNameFull: "Nama Lengkap",
+                phDeadline: "Deadline & Topik?",
+                phBrand: "Nama Brand",
+                phTopic: "Topik/Keyword?",
+                phBusiness: "Nama Bisnis",
+                phGoal: "Target (Sales/Leads)?",
+
+                // Loading Text
+                loadingText: `<span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Menghubungkan ke wawasan terbaru...`,
 
                 // Articles
                 insightsTitle: "Wawasan Terbaru",
@@ -1446,7 +1542,7 @@
 
                 // 2. Jika tidak ada artikel
                 if (daftarArtikel.length === 0) {
-                    wadahSlider.innerHTML = '<p class="text-center w-full text-sm">Belum ada artikel.</p>';
+                    wadahSlider.innerHTML = `<p class="text-center w-full text-sm">${currentLang === 'en' ? 'No articles yet.' : 'Belum ada artikel.'}</p>`;
                     return;
                 }
 
@@ -1466,6 +1562,8 @@
 
                     // Ambil deskripsi singkat (Excerpt) dan hapus tag HTML-nya
                     const ringkasan = artikel.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 80) + '...';
+                    
+                    const readMoreText = currentLang === 'en' ? 'Read More' : 'Baca Selengkapnya';
 
                     return `
                         <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
@@ -1478,7 +1576,7 @@
                                 <p class="text-xs text-textGray dark:text-darkSub mb-4 line-clamp-2">${ringkasan}</p>
                                 <!-- FIXED: Link ke artikel asli WP, dengan z-index agar bisa diklik & target="_blank" -->
                                 <a href="${artikel.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white flex items-center gap-1 uppercase tracking-wider relative z-20 cursor-pointer">
-                                    Baca Selengkapnya <i class="fas fa-arrow-right text-[10px]"></i>
+                                    ${readMoreText} <i class="fas fa-arrow-right text-[10px]"></i>
                                 </a>
                             </div>
                         </div>
@@ -1486,7 +1584,8 @@
                 }).join('');
             } catch (error) {
                 console.error("Gagal koneksi ke WP:", error);
-                wadahSlider.innerHTML = '<p class="text-center w-full text-red-500 text-xs">Gagal memuat artikel. Silakan refresh halaman.</p>';
+                const errorMsg = currentLang === 'en' ? 'Failed to load articles. Please refresh.' : 'Gagal memuat artikel. Silakan refresh halaman.';
+                wadahSlider.innerHTML = `<p class="text-center w-full text-red-500 text-xs">${errorMsg}</p>`;
             }
         }
 
@@ -1497,9 +1596,21 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                      if (['DIV', 'P', 'SPAN', 'H1', 'H2', 'H3', 'A', 'BUTTON'].includes(el.tagName)) { el.innerHTML = translations[lang][key]; } else { el.innerHTML = translations[lang][key]; }
+                      if (['DIV', 'P', 'SPAN', 'H1', 'H2', 'H3', 'A', 'BUTTON', 'OPTION'].includes(el.tagName)) { 
+                          el.innerHTML = translations[lang][key]; 
+                      } else { 
+                          el.innerHTML = translations[lang][key]; 
+                      }
                 }
             });
+            // Handle Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+            
             // Update active service description on language change
             ['opt-web', 'opt-acad', 'opt-content', 'opt-ads'].forEach(id => {
                 const select = document.getElementById(id);
@@ -1509,33 +1620,42 @@
                     select.dispatchEvent(event);
                 }
             });
+            
+            // Refresh Dynamic Content
+            renderGallery();
+            renderCerts();
+            // Re-fetch WP data to update static texts inside if any (like "Read More")
+            ambilDataWordPress();
         }
         document.querySelectorAll('.lang-toggle').forEach(btn => { btn.addEventListener('click', () => { setLanguage(currentLang === 'en' ? 'id' : 'en'); }); });
 
+        // Dual Language Data for Certs
         const certsData = [
-            { title: "Google Digital Marketing", issuer: "Google", icon: "fab fa-google" },
-            { title: "Generative AI", issuer: "IBM", icon: "fas fa-brain" }, 
-            { title: "AI for Business", issuer: "Microsoft", icon: "fab fa-microsoft" },
-            { title: "Digital Channel Planning", issuer: "DMI", icon: "fas fa-bullseye" },
-            { title: "E-commerce Build", issuer: "Google", icon: "fas fa-shopping-cart" },
-            { title: "Customer Understanding", issuer: "Unilever", icon: "fas fa-users" },
-            { title: "Google Ads", issuer: "Coursera", icon: "fab fa-google" },
-            { title: "SEO Writing", issuer: "Garap Media", icon: "fas fa-pen-nib" },
+            { title: {en: "Google Digital Marketing", id: "Pemasaran Digital Google"}, issuer: "Google", icon: "fab fa-google" },
+            { title: {en: "Generative AI", id: "Generative AI"}, issuer: "IBM", icon: "fas fa-brain" }, 
+            { title: {en: "AI for Business", id: "AI untuk Bisnis"}, issuer: "Microsoft", icon: "fab fa-microsoft" },
+            { title: {en: "Digital Channel Planning", id: "Perencanaan Kanal Digital"}, issuer: "DMI", icon: "fas fa-bullseye" },
+            { title: {en: "E-commerce Build", id: "Pembangunan E-commerce"}, issuer: "Google", icon: "fas fa-shopping-cart" },
+            { title: {en: "Customer Understanding", id: "Pemahaman Pelanggan"}, issuer: "Unilever", icon: "fas fa-users" },
+            { title: {en: "Google Ads", id: "Google Ads"}, issuer: "Coursera", icon: "fab fa-google" },
+            { title: {en: "SEO Writing", id: "Penulisan SEO"}, issuer: "Garap Media", icon: "fas fa-pen-nib" },
         ];
         function renderCerts() {
             const limitedCerts = certsData.slice(0, 8);
             const container = document.getElementById('certGrid');
-            container.innerHTML = limitedCerts.map(c => `
+            container.innerHTML = limitedCerts.map(c => {
+                const title = c.title[currentLang] || c.title.en; // Fallback to EN if translation missing
+                return `
                 <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" class="group relative p-4 bg-lightGray dark:bg-darkCard border border-black/10 dark:border-white/10 rounded-2xl hover:border-gold hover:bg-white dark:hover:bg-darkBg transition-all duration-300 shadow-sm flex flex-col items-center text-center h-full gap-3">
                     <div class="text-3xl text-gold group-hover:scale-110 transition-transform duration-300">
                         <i class="${c.icon}"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-xs text-darkBlack dark:text-white leading-tight mb-1 group-hover:text-gold transition-colors line-clamp-2">${c.title}</h4>
+                        <h4 class="font-bold text-xs text-darkBlack dark:text-white leading-tight mb-1 group-hover:text-gold transition-colors line-clamp-2">${title}</h4>
                         <p class="text-[9px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub truncate">${c.issuer}</p>
                     </div>
                 </a>
-            `).join('');
+            `}).join('');
         }
 
         document.querySelectorAll('.theme-toggle').forEach(btn => {
@@ -1634,15 +1754,15 @@
         /* --- HERO SLIDER LOGIC --- */
         // UPDATED: All images changed to .webp
         const galleryItems = [
-            { src: 'uno.webp', type: 'image', title: 'Strategic Overview', subtitle: 'Business Analysis' },
-            { src: 'two.webp', type: 'image', title: 'Market Research', subtitle: 'Data Driven' },
-            { src: 'three.webp', type: 'image', title: 'Creative Session', subtitle: 'Brainstorming' },
-            { src: 'four.mp4', type: 'video', title: 'Showreel 2025', subtitle: 'Video Production' },
-            { src: 'rank.webp', type: 'image', title: '#1 Google Rank', subtitle: 'SEO Result' },
-            { src: 'kuebig.webp', type: 'image', title: 'Product Photo', subtitle: 'Food Photography' },
-            { src: 'kue.webp', type: 'image', title: 'Catalog Design', subtitle: 'Branding' },
-            { src: 'botam.webp', type: 'image', title: 'Social Media', subtitle: 'Content' },
-            { src: 'bopu.webp', type: 'image', title: 'Engagement', subtitle: 'Community' }
+            { src: 'uno.webp', type: 'image', title: {en: 'Strategic Overview', id: 'Tinjauan Strategis'}, subtitle: {en: 'Business Analysis', id: 'Analisis Bisnis'} },
+            { src: 'two.webp', type: 'image', title: {en: 'Market Research', id: 'Riset Pasar'}, subtitle: {en: 'Data Driven', id: 'Berbasis Data'} },
+            { src: 'three.webp', type: 'image', title: {en: 'Creative Session', id: 'Sesi Kreatif'}, subtitle: {en: 'Brainstorming', id: 'Brainstorming'} },
+            { src: 'four.mp4', type: 'video', title: {en: 'Showreel 2025', id: 'Showreel 2025'}, subtitle: {en: 'Video Production', id: 'Produksi Video'} },
+            { src: 'rank.webp', type: 'image', title: {en: '#1 Google Rank', id: '#1 Ranking Google'}, subtitle: {en: 'SEO Result', id: 'Hasil SEO'} },
+            { src: 'kuebig.webp', type: 'image', title: {en: 'Product Photo', id: 'Foto Produk'}, subtitle: {en: 'Food Photography', id: 'Fotografi Makanan'} },
+            { src: 'kue.webp', type: 'image', title: {en: 'Catalog Design', id: 'Desain Katalog'}, subtitle: {en: 'Branding', id: 'Branding'} },
+            { src: 'botam.webp', type: 'image', title: {en: 'Social Media', id: 'Media Sosial'}, subtitle: {en: 'Content', id: 'Konten'} },
+            { src: 'bopu.webp', type: 'image', title: {en: 'Engagement', id: 'Interaksi'}, subtitle: {en: 'Community', id: 'Komunitas'} }
         ];
 
         let currentSlide = 0;
@@ -1700,8 +1820,10 @@
         }
 
         function updateText(index) {
-            document.getElementById('hero-title').innerText = galleryItems[index].title;
-            document.getElementById('hero-desc').innerText = galleryItems[index].subtitle;
+            const title = galleryItems[index].title[currentLang] || galleryItems[index].title.en;
+            const subtitle = galleryItems[index].subtitle[currentLang] || galleryItems[index].subtitle.en;
+            document.getElementById('hero-title').innerText = title;
+            document.getElementById('hero-desc').innerText = subtitle;
         }
     </script>
 </body>

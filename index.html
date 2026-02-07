@@ -195,70 +195,104 @@
         /* MARKETING POPUP */
         .marketing-popup {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 90;
+            z-index: 100;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             gap: 12px;
-            transform: translateY(150%);
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none; /* Default no click */
         }
         .marketing-popup.show {
-            transform: translateY(0);
             pointer-events: auto; /* Enable click when shown */
         }
+
         .bubble {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             padding: 16px;
-            border-radius: 20px 20px 20px 4px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            max-width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            max-width: 300px;
+            width: 100%;
             position: relative;
             border: 1px solid rgba(0,0,0,0.05);
             font-size: 0.85rem;
             line-height: 1.4;
+            cursor: pointer;
         }
         .dark .bubble {
-            background: #252525;
+            background: rgba(30, 30, 30, 0.98);
             color: #f3f4f6;
             border: 1px solid rgba(255,255,255,0.1);
         }
-        .avatar-container {
-            position: relative;
-            flex-shrink: 0;
-        }
+
+        /* Close Button (X) */
         .popup-close {
             position: absolute;
-            top: -10px;
-            right: -5px;
-            width: 24px;
-            height: 24px;
-            background: #c5a028;
-            color: white;
+            top: 8px;
+            right: 8px;
+            width: 22px;
+            height: 22px;
+            background: rgba(0,0,0,0.05);
+            color: #4b5563;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 12px;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-            z-index: 20;
+            transition: all 0.2s;
         }
-        .popup-close:hover { transform: scale(1.1); }
+        .dark .popup-close {
+            background: rgba(255,255,255,0.1);
+            color: #f3f4f6;
+        }
+        .popup-close:hover { 
+            background: #c5a028; 
+            color: white;
+            transform: scale(1.1);
+        }
 
-        /* MOBILE TWEAKS */
+        /* MOBILE STYLES for Popup (< 768px) */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
+            
             .marketing-popup {
-                bottom: 80px; /* Above bottom nav on mobile if any, or general spacing */
-                left: 10px;
-                right: 10px;
-                max-width: none;
+                top: 20px;
+                left: 50%;
+                /* Hidden state: moved way up */
+                transform: translate(-50%, -200%);
+                width: 90%;
+                max-width: 320px;
             }
-            .bubble { max-width: 100%; flex: 1; }
+            .marketing-popup.show {
+                /* Show state: centered top */
+                transform: translate(-50%, 0);
+            }
+            .bubble {
+                text-align: center; /* Center text on mobile */
+                border-top: 4px solid #c5a028; /* Accent top border */
+            }
+        }
+
+        /* DESKTOP STYLES for Popup (>= 769px) */
+        @media (min-width: 769px) {
+            .marketing-popup {
+                top: auto;
+                left: 30px;
+                bottom: 30px;
+                right: auto;
+                /* Hidden state: moved down */
+                transform: translateY(150%);
+            }
+            .marketing-popup.show {
+                /* Show state: natural position */
+                transform: translateY(0);
+            }
+            .bubble {
+                border-left: 4px solid #c5a028; /* Accent left border for desktop */
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -1124,7 +1158,7 @@
         </div>
     </footer>
     
-    <!-- MARKETING POPUP (SMART AVATAR) -->
+    <!-- MARKETING POPUP (CARD ONLY, NO AVATAR) -->
     <div id="marketingPopup" class="marketing-popup">
         <div class="bubble animate-bounce-subtle" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
             <div class="popup-close" onclick="event.stopPropagation(); closePopup()">
@@ -1135,9 +1169,6 @@
             <div class="mt-2 flex items-center gap-1 text-[10px] font-bold text-gold cursor-pointer">
                 <span data-i18n="btnPopup">Cek Penawaran</span> <i class="fas fa-arrow-right"></i>
             </div>
-        </div>
-        <div class="avatar-container w-14 h-14 rounded-full bg-gold border-2 border-white dark:border-darkBg shadow-lg overflow-hidden cursor-pointer hover:scale-110 transition-transform" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
-             <img src="myphot.webp" class="w-full h-full object-cover" alt="Avatar">
         </div>
     </div>
 
@@ -1226,10 +1257,10 @@
 
             popup.classList.add('show');
             
-            // Auto hide after 15 seconds to be polite
+            // Auto hide after 10 seconds (as requested to be polite and not obstructive)
             setTimeout(() => {
                 popup.classList.remove('show');
-            }, 15000);
+            }, 10000);
 
             // Prepare next message index
             currentMsgIndex = (currentMsgIndex + 1) % popupMessages.length;
@@ -1242,10 +1273,25 @@
         // Start popup logic on load
         window.addEventListener('load', () => {
             // 1. Muncul pertama di detik ke-3
-            setTimeout(showPopup, 3000);
-            
-            // 2. Muncul lagi setiap 50 detik (Interval)
-            setInterval(showPopup, 50000);
+            setTimeout(() => {
+                showPopup();
+                
+                // 2. Muncul kedua di detik ke-23 (Jeda 20 detik dari pertama)
+                setTimeout(() => {
+                    showPopup();
+                    
+                    // 3. Muncul ketiga di detik ke-38 (Jeda 15 detik)
+                    setTimeout(() => {
+                        showPopup();
+
+                        // 4. Muncul seterusnya setiap 15 detik (Mulai detik ke-53 dst)
+                        setInterval(showPopup, 15000);
+
+                    }, 15000); // 15 detik setelah detik ke-23 = detik ke-38
+
+                }, 20000); // 20 detik setelah detik ke-3 = detik ke-23
+
+            }, 3000); // 3 detik pertama
         });
 
         // Updated Service Descriptions to handle Language Logic
@@ -1515,14 +1561,7 @@
                     <div class="flex flex-col gap-3">
                         <a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a>
                         <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')">
-                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors">
-                                <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div>
-                                <div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div>
-                                <div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                `,
+                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
                 dateJob3: "Jul 2025 - Sep 2025", 
                 descJob3: `<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p>
                 <ul class="space-y-2 mt-2">
@@ -1573,6 +1612,18 @@
                 testi1Text: "\"Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data dan efektif.\"",
                 testi2Text: "\"Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.\"",
                 testi3Text: "\"Saya kesulitan dengan tugas akhir saya, tapi bimbingan beliau sangat berharga.\"",
+                testi4Text: "\"Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan.\"",
+                testi5Text: "\"Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh.\"",
+                testi6Text: "\"Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan.\"",
+                testi7Text: "\"Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun. Kerja bagus.\"",
+                testi8Text: "\"Konversi landing page meningkat 40%. Sangat direkomendasikan.\"",
+                testi9Text: "\"Membantu usaha kecil saya beralih ke digital dengan mulus. Sangat sabar.\"",
+                testi10Text: "\"Komunikasi yang sangat baik dan pelaporan yang jelas. Senang bekerja sama.\"",
+                testi11Text: "\"Kualitas prospek untuk listing properti kami meningkat drastis dengan Google Ads.\"",
+                testi12Text: "\"Setup iklan TikTok sangat sempurna. Brand fashion kami meledak dalam semalam.\"",
+                testi13Text: "\"Website profil perusahaan ramping, profesional, dan loadingnya instan.\"",
+                testi14Text: "\"SEO lokal membantu kafe saya muncul di pencarian teratas Google Maps.\"",
+                testi15Text: "\"Biaya akuisisi pengguna turun 30% berkat optimasinya.\"",
                 
                 // Form Labels
                 labelPackage: "Paket", labelName: "Nama", labelNotes: "Catatan", btnConsult: "Konsultasi via WhatsApp",

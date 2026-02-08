@@ -1560,8 +1560,7 @@
                     </ul>
                     <div class="flex flex-col gap-3">
                         <a href="https://garapmedia.com/author/faqihalrifai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold/10 text-gold text-xs font-bold hover:bg-gold hover:text-white transition-all shadow-sm w-full sm:w-fit">Lihat Artikel Terbit <i class="fas fa-external-link-alt"></i></a>
-                        <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')">
-                            <div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
+                        <div class="group relative w-full max-w-sm cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 active:scale-95" onclick="openLightbox('reqgarmed.webp', 'image')"><div class="flex items-center gap-3 p-3 bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 rounded-xl hover:border-gold transition-colors"><div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-lg"><i class="fas fa-file-contract"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-bold text-darkBlack dark:text-white truncate group-hover:text-gold transition-colors">Surat Rekomendasi</p><p class="text-[10px] text-textGray dark:text-darkSub truncate">Dari Garap Media Nusantara</p></div><div class="w-8 h-8 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray group-hover:text-gold transition-all"><i class="fas fa-eye text-xs"></i></div></div></div></div>`,
                 dateJob3: "Jul 2025 - Sep 2025", 
                 descJob3: `<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p>
                 <ul class="space-y-2 mt-2">
@@ -1648,6 +1647,37 @@
                 descMetaAds: "Manajemen Meta Ads (FB/IG): Kampanye iklan tertarget di Facebook & Instagram. Mencakup segmentasi audiens, testing materi kreatif, dan tracking pixel untuk hasil maksimal.",
                 descAuditSEO: "Audit SEO Teknis: Pemeriksaan kesehatan website secara menyeluruh. Mengidentifikasi masalah kecepatan, link rusak, dan peluang optimasi on-page untuk memperbaiki peringkat pencarian.",
                 descKeywordResearch: "Riset Keyword Strategis: Pemetaan kata kunci potensial dengan volume pencarian tinggi dan persaingan rendah. Pondasi utama untuk strategi trafik organik yang sukses.",
+
+                // Dropdown Options
+                optLanding: "Landing Page (Promosi)",
+                optComp: "Company Profile (Bisnis)",
+                optPort: "Portfolio Personal",
+                optStore: "Toko Online Simple",
+                optThesis: "Bimbingan Skripsi",
+                optJournal: "Review Jurnal",
+                optPaper: "Makalah/Paper",
+                optPPT: "Presentasi PPT Profesional",
+                optSEOArt: "Artikel SEO",
+                optCopy: "Copywriting Iklan",
+                optProdDesc: "Deskripsi Produk",
+                optPress: "Press Release",
+                optGAds: "Google Ads Setup",
+                optMAds: "Meta Ads (FB/IG)",
+                optAudit: "Audit SEO Website",
+                optKw: "Riset Keyword",
+
+                // Placeholders
+                phName: "Nama Anda / Bisnis",
+                phNote: "Detail kebutuhan...",
+                phNameFull: "Nama Lengkap",
+                phDeadline: "Deadline & Topik?",
+                phBrand: "Nama Brand",
+                phTopic: "Topik/Keyword?",
+                phBusiness: "Nama Bisnis",
+                phGoal: "Target (Sales/Leads)?",
+
+                // Loading Text
+                loadingText: `<span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Menghubungkan ke wawasan terbaru...`,
 
                 // Articles
                 insightsTitle: "Wawasan Terbaru",
@@ -1821,7 +1851,9 @@
                 // Ambil gambar (jika tidak ada, pakai gambar cadangan)
                 let foto = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500'; // Default
                 if (artikel._embedded && artikel._embedded['wp:featuredmedia'] && artikel._embedded['wp:featuredmedia'][0]) {
-                    foto = artikel._embedded['wp:featuredmedia'][0].source_url;
+                    const rawUrl = artikel._embedded['wp:featuredmedia'][0].source_url;
+                    // OPTIMIZER: Use Weserv.nl for on-the-fly compression/resizing
+                    foto = `https://wsrv.nl/?url=${encodeURIComponent(rawUrl)}&w=400&h=250&fit=cover&q=75&output=webp`;
                 }
                 
                 // Ambil nama kategori
@@ -1836,7 +1868,7 @@
                 return `
                     <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
                         <div class="h-40 overflow-hidden relative">
-                            <img src="${foto}" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
+                            <img src="${foto}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
                             <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md">${kategori}</div>
                         </div>
                         <div class="p-5 flex flex-col flex-1 relative">

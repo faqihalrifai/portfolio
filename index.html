@@ -1648,37 +1648,6 @@
                 descAuditSEO: "Audit SEO Teknis: Pemeriksaan kesehatan website secara menyeluruh. Mengidentifikasi masalah kecepatan, link rusak, dan peluang optimasi on-page untuk memperbaiki peringkat pencarian.",
                 descKeywordResearch: "Riset Keyword Strategis: Pemetaan kata kunci potensial dengan volume pencarian tinggi dan persaingan rendah. Pondasi utama untuk strategi trafik organik yang sukses.",
 
-                // Dropdown Options
-                optLanding: "Landing Page (Promosi)",
-                optComp: "Company Profile (Bisnis)",
-                optPort: "Portfolio Personal",
-                optStore: "Toko Online Simple",
-                optThesis: "Bimbingan Skripsi",
-                optJournal: "Review Jurnal",
-                optPaper: "Makalah/Paper",
-                optPPT: "Presentasi PPT Profesional",
-                optSEOArt: "Artikel SEO",
-                optCopy: "Copywriting Iklan",
-                optProdDesc: "Deskripsi Produk",
-                optPress: "Press Release",
-                optGAds: "Google Ads Setup",
-                optMAds: "Meta Ads (FB/IG)",
-                optAudit: "Audit SEO Website",
-                optKw: "Riset Keyword",
-
-                // Placeholders
-                phName: "Nama Anda / Bisnis",
-                phNote: "Detail kebutuhan...",
-                phNameFull: "Nama Lengkap",
-                phDeadline: "Deadline & Topik?",
-                phBrand: "Nama Brand",
-                phTopic: "Topik/Keyword?",
-                phBusiness: "Nama Bisnis",
-                phGoal: "Target (Sales/Leads)?",
-
-                // Loading Text
-                loadingText: `<span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Menghubungkan ke wawasan terbaru...`,
-
                 // Articles
                 insightsTitle: "Wawasan Terbaru",
                 btnViewBlog: "Lihat Semua Artikel", 
@@ -1868,7 +1837,7 @@
                 return `
                     <div class="snap-center shrink-0 w-[280px] group/card flex flex-col bg-white dark:bg-darkCard rounded-2xl shadow-sm border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-md transition-all">
                         <div class="h-40 overflow-hidden relative">
-                            <img src="${foto}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
+                            <img src="${foto}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" alt="${artikel.title.rendered}">
                             <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md">${kategori}</div>
                         </div>
                         <div class="p-5 flex flex-col flex-1 relative">

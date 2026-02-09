@@ -32,7 +32,7 @@
                         gold: '#c5a028',
                         goldHover: '#a3841f',
                         darkBg: '#121212',        
-                        darkCard: '#1e1e1e',       
+                        darkCard: '#1e1e1e',        
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
@@ -75,30 +75,46 @@
             box-shadow: 0 20px 40px -10px rgba(197, 160, 40, 0.15);
         }
 
-        /* Nav Notification Popup */
+        /* --- NAV NOTIFICATION POPUP (MODIFIED) --- */
         .nav-toast {
             position: fixed;
-            top: 100px;
-            right: 20px;
             z-index: 100;
-            transform: translateX(150%);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* DESKTOP DEFAULT: Bottom Left */
+            bottom: 30px;
+            left: 30px;
+            right: auto;
+            top: auto;
+            
+            /* Start hidden: Slide out to the left */
+            transform: translateX(-150%);
         }
+
+        /* State ketika muncul di Desktop */
         .nav-toast.show {
             transform: translateX(0);
         }
 
         @media (max-width: 768px) {
             .nav-toast {
-                top: auto;
-                bottom: 20px;
-                right: 20px;
-                left: 20px;
-                width: auto;
-                transform: translateY(150%);
+                /* MOBILE: Top Center */
+                top: 20px;
+                bottom: auto;
+                left: 50%; /* Center anchor */
+                right: auto;
+                
+                width: 90%; /* Agar tidak terlalu lebar/sempit */
+                max-width: 350px;
+
+                /* Start hidden: Slide UP off-screen & keep Centered X */
+                transform: translate(-50%, -200%); 
             }
+
+            /* State ketika muncul di Mobile */
             .nav-toast.show {
-                transform: translateY(0);
+                /* Slide Down ke posisi normal & keep Centered X */
+                transform: translate(-50%, 0); 
             }
         }
 

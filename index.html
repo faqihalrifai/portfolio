@@ -12,6 +12,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Muhammad Faqih Al Rifai adalah SEO Specialist & Digital Marketer terpercaya. Spesialisasi dalam SEO, Strategi Konten, dan Pertumbuhan E-commerce.">
     
     <!-- =========================================
          2. VERIFIKASI GOOGLE & SEO META
@@ -51,7 +52,6 @@
     
     <!-- SEO Standard -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="description" content="Muhammad Faqih Al Rifai adalah SEO Specialist & Digital Marketer terpercaya. Spesialisasi dalam SEO, Strategi Konten, dan Pertumbuhan E-commerce.">
     <meta name="keywords" content="Muhammad Faqih Al Rifai, Faqih Al Rifai, SEO Specialist Indonesia, Digital Marketer, Jasa SEO, Content Writer, Konsultan Digital Marketing">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     <meta name="theme-color" content="#c5a028">
@@ -78,6 +78,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <!-- Koneksi awal ke image proxy agar loading gambar wawasan lebih cepat -->
+    <link rel="preconnect" href="https://wsrv.nl">
+    <link rel="preconnect" href="https://dev-faqihalrf.pantheonsite.io">
 
     <!-- =========================================
          4. GOOGLE ANALYTICS (GA4)
@@ -103,6 +107,7 @@
     <link rel="manifest" href="site.webmanifest">
     
     <!-- FONTS & CSS -->
+    <!-- Display swap wajib untuk pagespeed -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -120,6 +125,8 @@
                         mainWhite: '#ffffff',
                         lightGray: '#f8f9fa',
                         gold: '#c5a028',
+                        // Warna emas yang lebih gelap khusus untuk teks agar kontras tinggi (Aksesibilitas)
+                        darkGold: '#856d1b', 
                         goldHover: '#a3841f',
                         darkBlack: '#111827',
                         textGray: '#4b5563',
@@ -323,7 +330,8 @@
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="hidden md:flex items-center gap-2">
                     <button class="lang-toggle px-3 py-1.5 rounded-full text-xs font-bold border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:border-gold hover:text-gold transition-all flex items-center gap-2 hover-soft" aria-label="Toggle Language">
-                        <span class="current-lang-label">ID</span><i class="fas fa-globe"></i>
+                        <span class="current-lang-flag mr-1"></span>
+                        <span class="current-lang-label">ID</span>
                     </button>
                     <button class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center border border-black/10 dark:border-white/10 text-darkBlack dark:text-darkText hover:text-gold transition-all hover-soft" aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon text-sm dark:hidden"></i><i class="fas fa-sun text-sm hidden dark:block text-gold"></i>
@@ -343,7 +351,10 @@
                 <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navServices">Layanan</a>
                 <a href="#articles" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10" data-i18n="navShowcase">Wawasan</a>
                 <div class="grid grid-cols-2 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
-                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Language Mobile"><i class="fas fa-globe"></i> <span class="current-lang-label">ID</span></button>
+                    <button class="lang-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Language Mobile">
+                        <span class="current-lang-flag mr-1"></span>
+                        <span class="current-lang-label">ID</span>
+                    </button>
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i></button>
                 </div>
             </div>
@@ -404,7 +415,7 @@
                     <div class="relative w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover" alt="Muhammad Faqih Al Rifai Profile Picture" loading="eager">
+                            <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover" alt="Muhammad Faqih Al Rifai Profile Picture" loading="eager" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -433,9 +444,9 @@
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1">
                                         <p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p>
                                         <ul class="space-y-2 mt-2">
-                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar <strong>50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</span></li>
-                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</span></li>
-                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-gold mt-1 text-xs"></i><span>Memimpin negosiasi kontrak strategis dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-darkGold dark:text-gold mt-1 text-xs"></i><span>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar <strong>50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-darkGold dark:text-gold mt-1 text-xs"></i><span>Melakukan riset pasar mendalam dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</span></li>
+                                            <li class="flex gap-3 items-start"><i class="fas fa-check text-darkGold dark:text-gold mt-1 text-xs"></i><span>Memimpin negosiasi kontrak strategis dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -485,7 +496,7 @@
                                 <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <div class="flex items-center gap-3 mb-1">
                                         <h3 class="text-xl mini-head-mobile font-bold dark:text-darkText">Marketplace Administrator</h3>
-                                        <img src="shopify.webp" class="w-6 h-6 object-contain rounded-md border border-gray-200" alt="Shopify Icon" loading="lazy" onerror="this.style.display='none'">
+                                        <img src="shopify.webp" class="w-6 h-6 object-contain rounded-md border border-gray-200" alt="Shopify Icon" loading="lazy" width="24" height="24" onerror="this.style.display='none'">
                                     </div>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
@@ -596,13 +607,13 @@
                                 <h3 class="font-bold text-lg dark:text-darkText" data-i18n="compStratTitle">Pemasaran Strategis</h3>
                             </div>
                             <ul class="space-y-3">
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compSeoDesc">Penguasaan SEO (On-page, Teknis)</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compAdsDesc">Iklan Berbayar (Google, Meta, TikTok)</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compContentDesc">Strategi & Perencanaan Konten</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compViral">Pemasaran Viral & Tren</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compEmail">Email Marketing</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compBrand">Identitas & Positioning Brand</span></li>
-                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-gold mt-1"></i><span data-i18n="compGrowth">Growth Hacking</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compSeoDesc">Penguasaan SEO (On-page, Teknis)</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compAdsDesc">Iklan Berbayar (Google, Meta, TikTok)</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compContentDesc">Strategi & Perencanaan Konten</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compViral">Pemasaran Viral & Tren</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compEmail">Email Marketing</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compBrand">Identitas & Positioning Brand</span></li>
+                                <li class="flex gap-3 text-xs md:text-sm text-textGray dark:text-darkSub"><i class="fas fa-check text-darkGold dark:text-gold mt-1"></i><span data-i18n="compGrowth">Growth Hacking</span></li>
                             </ul>
                         </div>
                         <!-- Tech -->
@@ -752,7 +763,7 @@
                                             <option value="Portfolio Personal" data-i18n="optPort" data-desc-key="descPortfolio">Portfolio Personal</option>
                                             <option value="Toko Online Simple" data-i18n="optStore" data-desc-key="descOnlineStore">Toko Online Simple</option>
                                         </select>
-                                        <p id="desc-web" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descLandingPage">Halaman tunggal yang dirancang khusus untuk konversi penjualan atau promosi spesifik.</p>
+                                        <p id="desc-web" class="mt-2 text-xs text-darkGold dark:text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descLandingPage">Halaman tunggal yang dirancang khusus untuk konversi penjualan atau promosi spesifik.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelName">Nama</label>
@@ -763,7 +774,7 @@
                                         <textarea id="note-web" rows="2" data-i18n-placeholder="phNote" placeholder="Detail kebutuhan..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Pembuatan Website', 'opt-web', 'name-web', 'note-web')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group" aria-label="Order Website Service">
                                             <span data-i18n="btnConsult">Konsultasi via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -798,7 +809,7 @@
                                             <option value="Makalah/Paper" data-i18n="optPaper" data-desc-key="descPaper">Makalah/Paper</option>
                                             <option value="Presentasi PPT" data-i18n="optPPT" data-desc-key="descPPT">Presentasi PPT Profesional</option>
                                         </select>
-                                        <p id="desc-acad" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descSkripsi">Mentoring intensif untuk struktur, konten, dan metodologi penulisan skripsi.</p>
+                                        <p id="desc-acad" class="mt-2 text-xs text-darkGold dark:text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descSkripsi">Mentoring intensif untuk struktur, konten, dan metodologi penulisan skripsi.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelName">Nama</label>
@@ -809,7 +820,7 @@
                                         <textarea id="note-acad" rows="2" data-i18n-placeholder="phDeadline" placeholder="Deadline & Topik?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Bantuan Akademik', 'opt-acad', 'name-acad', 'note-acad')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group" aria-label="Order Academic Service">
                                             <span data-i18n="btnConsult">Konsultasi via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -844,7 +855,7 @@
                                             <option value="Deskripsi Produk" data-i18n="optProdDesc" data-desc-key="descProductDesc">Deskripsi Produk</option>
                                             <option value="Press Release" data-i18n="optPress" data-desc-key="descPressRelease">Press Release</option>
                                         </select>
-                                        <p id="desc-content" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descArtikelSEO">Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO).</p>
+                                        <p id="desc-content" class="mt-2 text-xs text-darkGold dark:text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descArtikelSEO">Penulisan artikel yang dioptimalkan dengan kata kunci untuk ranking Google (On-Page SEO).</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelBrand">Brand</label>
@@ -855,7 +866,7 @@
                                         <textarea id="note-content" rows="2" data-i18n-placeholder="phTopic" placeholder="Topik/Keyword?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('Penulisan Konten', 'opt-content', 'name-content', 'note-content')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group" aria-label="Order Content Service">
                                             <span data-i18n="btnConsult">Konsultasi via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -890,7 +901,7 @@
                                             <option value="Audit SEO Website" data-i18n="optAudit" data-desc-key="descAuditSEO">Audit SEO</option>
                                             <option value="Riset Keyword" data-i18n="optKw" data-desc-key="descKeywordResearch">Riset Keyword</option>
                                         </select>
-                                        <p id="desc-ads" class="mt-2 text-xs text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descGoogleAds">Pengaturan kampanye iklan di pencarian Google untuk trafik instan.</p>
+                                        <p id="desc-ads" class="mt-2 text-xs text-darkGold dark:text-gold font-medium bg-gold/10 p-2 rounded-lg" data-i18n="descGoogleAds">Pengaturan kampanye iklan di pencarian Google untuk trafik instan.</p>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2" data-i18n="labelBusiness">Bisnis</label>
@@ -901,7 +912,7 @@
                                         <textarea id="note-ads" rows="2" data-i18n-placeholder="phGoal" placeholder="Target (Sales/Leads)?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-black/30 border-0 focus:ring-1 focus:ring-gold text-sm font-medium transition-all resize-none"></textarea>
                                     </div>
                                     <div class="md:col-span-2 pt-2">
-                                        <button onclick="orderService('SEO & Iklan Digital', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group">
+                                        <button onclick="orderService('SEO & Iklan Digital', 'opt-ads', 'name-ads', 'note-ads')" class="w-full py-4 bg-gold text-white text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-lg flex items-center justify-center gap-3 group" aria-label="Order Marketing Service">
                                             <span data-i18n="btnConsult">Konsultasi via WhatsApp</span>
                                             <i class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"></i>
                                         </button>
@@ -1149,7 +1160,12 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
-                <p>&copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">Hak Cipta Dilindungi.</span></p>
+                <p>
+                    <span class="mr-2">
+                        <img src="https://flagcdn.com/w20/id.png" class="inline-block w-4 h-auto align-middle opacity-80" alt="Indonesia Flag">
+                    </span>
+                    &copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">Hak Cipta Dilindungi.</span>
+                </p>
                 <div class="flex gap-6">
                     <!-- Updated Legal Button triggers Modal -->
                     <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerLegal">Kebijakan Privasi & Syarat Ketentuan</a>
@@ -1718,6 +1734,10 @@
         // Global variable to store fetched data
         let globalArticles = [];
 
+        // Flag URLs
+        const flagID = "https://flagcdn.com/w20/id.png";
+        const flagEN = "https://flagcdn.com/w20/us.png";
+
         // Pastikan fungsi setLanguage dipanggil saat load
         document.addEventListener('DOMContentLoaded', () => {
             renderCerts();
@@ -1856,7 +1876,17 @@
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('lang', lang);
+            
+            // Update labels
             document.querySelectorAll('.current-lang-label').forEach(el => { el.innerText = lang.toUpperCase(); });
+            
+            // Update flags
+            const flagUrl = lang === 'en' ? flagEN : flagID;
+            document.querySelectorAll('.current-lang-flag').forEach(el => {
+                el.innerHTML = `<img src="${flagUrl}" class="inline-block w-4 h-auto" alt="${lang.toUpperCase()} Flag">`;
+            });
+            
+            // Translation Logic
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {

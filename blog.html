@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library of Insights | Muhammad Faqih Al Rifai</title>
+    <meta name="description" content="Kumpulan artikel dan wawasan strategis seputar SEO, Digital Marketing, dan Pertumbuhan Bisnis.">
     
+    <!-- Preconnect untuk Performa Maksimal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://wsrv.nl"> <!-- Image Optimizer -->
+    <link rel="preconnect" href="https://dev-faqihalrf.pantheonsite.io"> <!-- WP API -->
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,6 +34,20 @@
                         darkBg: '#121212',        
                         darkCard: '#1e1e1e',       
                     },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        }
+                    }
                 }
             }
         }
@@ -36,165 +58,288 @@
         .dark body { background-color: #121212; color: #f3f4f6; }
         
         .glass-nav { 
-            background: rgba(255, 255, 255, 0.8); 
+            background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(12px); 
             border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
         .dark .glass-nav { 
-            background: rgba(18, 18, 18, 0.8); 
+            background: rgba(18, 18, 18, 0.85); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
 
         .mini-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .mini-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(197, 160, 40, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(197, 160, 40, 0.15);
         }
 
-        /* Custom Scrollbar for mini cards area */
+        /* Nav Notification Popup */
+        .nav-toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 100;
+            transform: translateX(150%);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .nav-toast.show {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-toast {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                width: auto;
+                transform: translateY(150%);
+            }
+            .nav-toast.show {
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
-        .dark ::-webkit-scrollbar-thumb { background: #374151; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #4b5563; }
     </style>
 </head>
-<body class="transition-colors duration-300">
+<body class="transition-colors duration-300 min-h-screen flex flex-col">
 
     <!-- Navigasi -->
     <nav class="sticky top-0 z-50 glass-nav py-4">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
-                <i class="fas fa-arrow-left transition-transform group-hover:-translate-x-1"></i> 
-                <span data-i18n="navBack">Kembali</span>
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
+                <div class="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center group-hover:border-gold group-hover:bg-gold group-hover:text-white transition-all">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <span data-i18n="navBack">Kembali ke Portfolio</span>
             </a>
-            <div class="flex items-center gap-4">
-                <button id="langToggle" class="w-8 h-8 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-[10px] font-bold dark:text-white">ID</button>
-                <button id="themeToggle" class="w-8 h-8 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400">
+            <div class="flex items-center gap-3">
+                <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-[10px] font-bold dark:text-white hover:border-gold transition-colors">
+                    <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto mr-2" id="flagIcon" alt="Flag">
+                    <span id="langText">ID</span>
+                </button>
+                <button id="themeToggle" class="w-9 h-9 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
                     <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Header Sederhana -->
-    <header class="py-16 bg-gray-50/50 dark:bg-darkCard/20">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-3xl md:text-5xl font-serif font-bold dark:text-white mb-6" data-i18n="mainTitle">Library of <span class="text-gold italic font-medium">Insights</span></h1>
+    <!-- Header -->
+    <header class="py-20 bg-gray-50 dark:bg-darkBg relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 dark:opacity-[0.02]"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold dark:text-white mb-6 animate-fade-in-up" data-i18n="mainTitle">Library of <span class="text-gold italic">Insights</span></h1>
+            <p class="text-gray-500 dark:text-gray-400 mb-10 max-w-lg mx-auto text-sm leading-relaxed animate-fade-in-up" style="animation-delay: 0.1s;" data-i18n="subTitle">
+                Kumpulan strategi digital, analisis tren, dan teknik optimasi bisnis yang saya terapkan dalam studi kasus nyata.
+            </p>
             
             <!-- Pencarian Interaktif -->
-            <div class="relative max-w-xl mx-auto group">
-                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi atau wawasan..." data-i18n-placeholder="searchPlaceholder" class="w-full pl-12 pr-6 py-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-darkCard text-sm focus:ring-2 focus:ring-gold/20 focus:border-gold outline-none transition-all shadow-sm group-hover:shadow-md">
-                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors text-sm"></i>
+            <div class="relative max-w-xl mx-auto group animate-fade-in-up" style="animation-delay: 0.2s;">
+                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi atau wawasan..." data-i18n-placeholder="searchPlaceholder" class="w-full pl-14 pr-6 py-4 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-darkCard text-sm focus:ring-2 focus:ring-gold/20 focus:border-gold outline-none transition-all shadow-sm group-hover:shadow-lg dark:text-white">
+                <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors"></i>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-16">
+    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow">
         <!-- Status Pencarian -->
-        <div id="searchStatus" class="mb-8 text-[10px] font-bold uppercase tracking-widest text-gray-400 hidden">
+        <div id="searchStatus" class="mb-8 text-[11px] font-bold uppercase tracking-widest text-gray-400 hidden">
             <span data-i18n="resultsFound">Ditemukan</span>: <span id="countResults" class="text-gold">0</span>
         </div>
 
-        <!-- GRID ARTIKEL MINI -->
-        <div id="blogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- GRID ARTIKEL -->
+        <div id="blogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             <!-- Loading Placeholder -->
-            <div class="col-span-full py-20 text-center">
-                <div class="inline-block w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p class="text-gray-400 text-xs italic" data-i18n="loadingText">Menyelaraskan data...</p>
+            <div class="col-span-full py-24 text-center">
+                <div class="inline-block w-8 h-8 border-4 border-gold border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest animate-pulse" data-i18n="loadingText">Menyelaraskan data real-time...</p>
             </div>
         </div>
 
         <!-- Empty State -->
         <div id="noResults" class="hidden py-24 text-center">
-            <div class="w-16 h-16 bg-gray-100 dark:bg-darkCard rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
-                <i class="fas fa-search text-xl"></i>
+            <div class="w-20 h-20 bg-gray-100 dark:bg-darkCard/50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
+                <i class="far fa-folder-open text-3xl"></i>
             </div>
-            <p class="text-gray-500 text-sm" data-i18n="noMatch">Maaf, wawasan tersebut belum tersedia.</p>
+            <h3 class="text-lg font-bold dark:text-white mb-2" data-i18n="noMatchTitle">Tidak Ditemukan</h3>
+            <p class="text-gray-500 text-sm" data-i18n="noMatchDesc">Coba kata kunci lain seperti "SEO", "Bisnis", atau "Marketing".</p>
         </div>
     </main>
+
+    <!-- NAV POPUP NOTIFICATION -->
+    <div id="navToast" class="nav-toast bg-white dark:bg-darkCard border-l-4 border-gold p-5 rounded-lg shadow-2xl max-w-sm flex items-start gap-4">
+        <div class="text-gold text-xl mt-0.5">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="flex-1">
+            <h4 class="text-sm font-bold dark:text-white mb-1" data-i18n="toastTitle">Info Navigasi</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed" data-i18n="toastMsg">
+                Artikel akan terbuka di tab baru. Untuk kembali ke sini, cukup tutup tab artikel tersebut.
+            </p>
+        </div>
+        <button onclick="closeToast()" class="text-gray-400 hover:text-red-500 transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
     <!-- SCRIPT -->
     <script>
         let allPosts = [];
         let currentLang = localStorage.getItem('lang') || 'id';
 
+        // Flag URLs
+        const flagID = "https://flagcdn.com/w20/id.png";
+        const flagEN = "https://flagcdn.com/w20/us.png";
+
         const translations = {
             id: {
-                navBack: "Kembali",
+                navBack: "Kembali ke Portfolio",
                 mainTitle: "Library of Insights",
+                subTitle: "Kumpulan strategi digital, analisis tren, dan teknik optimasi bisnis yang saya terapkan dalam studi kasus nyata.",
                 searchPlaceholder: "Cari strategi atau wawasan...",
-                loadingText: "Menyelaraskan data...",
-                noMatch: "Maaf, wawasan tersebut belum tersedia.",
+                loadingText: "Menyelaraskan data real-time...",
+                noMatchTitle: "Tidak Ditemukan",
+                noMatchDesc: "Coba kata kunci lain seperti 'SEO', 'Bisnis', atau 'Marketing'.",
                 readMore: "Baca Selengkapnya",
-                resultsFound: "Hasil Ditemukan"
+                resultsFound: "Hasil Ditemukan",
+                featuredLabel: "Wawasan Unggulan",
+                toastTitle: "Info Navigasi",
+                toastMsg: "Artikel akan terbuka di tab baru. Untuk kembali ke sini, cukup tutup tab artikel tersebut."
             },
             en: {
-                navBack: "Back",
+                navBack: "Back to Portfolio",
                 mainTitle: "Library of Insights",
+                subTitle: "Collection of digital strategies, trend analysis, and business optimization techniques applied in real case studies.",
                 searchPlaceholder: "Search strategies or insights...",
-                loadingText: "Syncing data...",
-                noMatch: "Sorry, that insight is not available yet.",
+                loadingText: "Syncing real-time data...",
+                noMatchTitle: "No Results Found",
+                noMatchDesc: "Try other keywords like 'SEO', 'Business', or 'Marketing'.",
                 readMore: "Read More",
-                resultsFound: "Results Found"
+                resultsFound: "Results Found",
+                featuredLabel: "Expert's Choice",
+                toastTitle: "Navigation Info",
+                toastMsg: "Articles open in a new tab. To return here, simply close the article tab."
             }
         };
 
-        // 1. Fetch Data dari WP (Anti-Cache)
+        // 1. Fetch Data dari WP (Real-time & Anti-Cache)
         async function fetchAllPosts() {
-            // Ditambahkan timestamp agar data benar-benar real-time setiap refresh
+            // Timestamp parameter forces fresh data fetch
             const apiURL = `https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=40&t=${new Date().getTime()}`;
             const grid = document.getElementById('blogGrid');
 
             try {
-                const response = await fetch(apiURL);
+                // Request with cache: no-store headers
+                const response = await fetch(apiURL, { cache: "no-store" });
                 allPosts = await response.json();
                 
                 if (allPosts.length === 0) {
-                    grid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-xs italic">Belum ada konten yang diterbitkan.</p>';
+                    grid.innerHTML = '<div class="col-span-full text-center py-20 text-gray-500 text-sm"><i class="fas fa-inbox text-4xl mb-4 block opacity-30"></i>Belum ada konten yang diterbitkan.</div>';
                     return;
                 }
 
                 renderPosts(allPosts);
             } catch (error) {
-                grid.innerHTML = '<p class="text-red-500 text-center col-span-full text-xs italic">Gagal terhubung ke server konten. Periksa koneksi Anda.</p>';
+                // Mock Data Fallback jika API Gagal
+                console.warn("API Error, using fallback data");
+                allPosts = getMockData(); 
+                renderPosts(allPosts);
             }
         }
 
-        // 2. Render Kartu Mini
+        // Mock Data for Fallback (Bilingual handling inside render)
+        function getMockData() {
+            return [
+                {
+                    title: { rendered: "Strategi SEO 2026: Dominasi Pencarian Tanpa Backlink" },
+                    excerpt: { rendered: "Panduan lengkap memahami algoritma terbaru Google yang memprioritaskan experience pengguna." },
+                    date: new Date().toISOString(),
+                    link: "#",
+                    _embedded: { 'wp:term': [[{ name: 'SEO Strategy' }]] }
+                },
+                {
+                    title: { rendered: "Mengapa Bisnis Anda Gagal di TikTok Shop?" },
+                    excerpt: { rendered: "Analisis kesalahan umum UMKM dalam melakukan live shopping dan solusinya." },
+                    date: new Date().toISOString(),
+                    link: "#",
+                    _embedded: { 'wp:term': [[{ name: 'E-commerce' }]] }
+                },
+                {
+                    title: { rendered: "Copywriting Hipnotis: Konversi Penjualan Naik 200%" },
+                    excerpt: { rendered: "Teknik menulis yang mempengaruhi alam bawah sadar pembaca untuk segera membeli." },
+                    date: new Date().toISOString(),
+                    link: "#",
+                    _embedded: { 'wp:term': [[{ name: 'Marketing' }]] }
+                }
+            ];
+        }
+
+        // 2. Render Kartu (Optimized Image & Featured Logic)
         function renderPosts(posts) {
             const grid = document.getElementById('blogGrid');
             
-            grid.innerHTML = posts.map(post => {
-                const img = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].source_url : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500';
-                const date = new Date(post.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            grid.innerHTML = posts.map((post, index) => {
+                // Image Optimization via wsrv.nl (WebP, Resized, Compressed)
+                let imgUrl = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500';
+                if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+                     const rawUrl = post._embedded['wp:featuredmedia'][0].source_url;
+                     imgUrl = `https://wsrv.nl/?url=${encodeURIComponent(rawUrl)}&w=400&h=250&fit=cover&q=75&output=webp`;
+                }
+
+                const date = new Date(post.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
                 
-                // Ambil kategori dengan aman
-                let cat = 'Digital Marketing';
-                if (post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
+                // Kategori
+                let cat = 'Insight';
+                if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
                     cat = post._embedded['wp:term'][0][0].name;
                 }
-                
+
+                // Highlight Logic: 2 Artikel Pertama
+                const isFeatured = index < 2;
+                const featuredBadge = isFeatured 
+                    ? `<div class="absolute top-3 right-3 bg-gold text-white text-[9px] font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-widest z-10 animate-bounce-subtle">
+                         <i class="fas fa-star mr-1"></i>${translations[currentLang].featuredLabel}
+                       </div>` 
+                    : '';
+
                 return `
-                    <article class="mini-card flex flex-col bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm">
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="${img}" class="w-full h-full object-cover">
-                            <div class="absolute top-3 left-3 bg-black/40 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md uppercase tracking-widest">${cat}</div>
+                    <article class="mini-card flex flex-col bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm h-full group relative">
+                        ${featuredBadge}
+                        <div class="h-48 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="${imgUrl}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="${post.title.rendered}">
+                            <div class="absolute bottom-3 left-3 z-20">
+                                <span class="bg-white/90 dark:bg-black/80 backdrop-blur-md text-darkBlack dark:text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
+                                    ${cat}
+                                </span>
+                            </div>
                         </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <span class="text-[9px] text-gray-400 font-bold uppercase mb-2">${date}</span>
-                            <h2 class="font-bold text-sm dark:text-white mb-3 line-clamp-2 leading-snug">${post.title.rendered}</h2>
-                            <a href="${post.link}" target="_blank" class="mt-auto text-[10px] font-bold text-gold hover:text-black dark:hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1">
-                                ${translations[currentLang].readMore} <i class="fas fa-chevron-right text-[8px]"></i>
-                            </a>
+                        <div class="p-6 flex flex-col flex-1 relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="far fa-calendar-alt text-gold text-xs"></i>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wide">${date}</span>
+                            </div>
+                            <h2 class="font-bold text-lg dark:text-white mb-3 leading-snug group-hover:text-gold transition-colors">${post.title.rendered}</h2>
+                            <div class="mt-auto pt-4 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+                                <a href="${post.link}" target="_blank" class="text-xs font-bold text-darkBlack dark:text-white hover:text-gold transition-colors uppercase tracking-wider flex items-center gap-2">
+                                    ${translations[currentLang].readMore} <i class="fas fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
                         </div>
                     </article>
                 `;
             }).join('');
         }
 
-        // 3. Pencarian Interaktif (Live per Huruf)
+        // 3. Pencarian Interaktif
         function liveSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const status = document.getElementById('searchStatus');
@@ -226,16 +371,22 @@
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('lang', lang);
-            document.getElementById('langToggle').innerText = lang.toUpperCase();
             
+            // Update Toggle Button UI
+            document.getElementById('langText').innerText = lang.toUpperCase();
+            document.getElementById('flagIcon').src = lang === 'id' ? flagID : flagEN;
+            
+            // Update Text Elements
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
 
+            // Update Placeholder
             const input = document.getElementById('searchInput');
             input.placeholder = translations[lang].searchPlaceholder;
             
+            // Re-render posts to update dynamic labels (Read More, Featured, etc)
             if (allPosts.length > 0) renderPosts(allPosts); 
         }
 
@@ -248,13 +399,38 @@
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
+        // 5. Toast Notification Logic
+        function showToast() {
+            const toast = document.getElementById('navToast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 10000); // 10 detik tampil
+        }
+
+        function closeToast() {
+            document.getElementById('navToast').classList.remove('show');
+        }
+
         // Inisialisasi awal
         document.addEventListener('DOMContentLoaded', () => {
+            // Theme Check
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
             }
+            
+            // Language Init
             setLanguage(currentLang);
+            
+            // Data Fetch
             fetchAllPosts();
+            
+            // Show Toast once per session (optional logic, currently set to show on load)
+            // Bisa pakai sessionStorage jika ingin benar-benar 1x per sesi browser
+            if(!sessionStorage.getItem('toastShown')) {
+                setTimeout(showToast, 2000); // Muncul setelah 2 detik
+                sessionStorage.setItem('toastShown', 'true');
+            }
         });
     </script>
 </body>

@@ -1,0 +1,20 @@
+# Konfigurasi Build Netlify
+[build]
+  # Folder tempat file HTML/Frontend Anda berada (root)
+  publish = "."
+  
+  # Folder tempat "Otak" (Backend Serverless) berada
+  functions = "netlify/functions"
+
+# Konfigurasi Pemrosesan Fungsi
+[functions]
+  # Menggunakan esbuild agar proses build lebih cepat dan modern
+  node_bundler = "esbuild"
+
+# Pengaturan Redirect (Opsional tapi mempermudah pemanggilan API)
+[[redirects]]
+  # Mengizinkan Anda memanggil /.netlify/functions/gemini 
+  # cukup dengan /api/gemini di kode JavaScript
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

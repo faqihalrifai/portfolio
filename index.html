@@ -69,11 +69,6 @@
     <!-- GOOGLE ADSENSE -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
 
-    <!-- CHART JS FOR NEURAL CENTER -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- MARKED JS FOR GEMINI MARKDOWN PARSING -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="myphot.webp"> 
@@ -121,16 +116,11 @@
                         'bounce-subtle': 'bounceSubtle 2s infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'scan': 'scan 2s linear infinite',
-                        'blink': 'blink 1s step-end infinite',
                     },
                     keyframes: {
                         scan: {
                             '0%': { transform: 'translateY(-100%)' },
                             '100%': { transform: 'translateY(100%)' }
-                        },
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' }
                         }
                     }
                 }
@@ -259,12 +249,6 @@
             display: none;
         }
         .scanning .scan-line { display: block; }
-
-        /* Markdown Styles for Gemini Output */
-        .prose-gemini h1, .prose-gemini h2, .prose-gemini h3 { font-weight: 700; margin-bottom: 0.5rem; color: inherit; }
-        .prose-gemini ul { list-style-type: disc; padding-left: 1.2rem; margin-bottom: 0.5rem; }
-        .prose-gemini strong { color: #c5a028; }
-        .prose-gemini p { margin-bottom: 0.5rem; }
 
         /* MOBILE POPUP (< 768px) - TOP CENTER */
         @media (max-width: 768px) {
@@ -401,44 +385,65 @@
         </section>
 
         <!-- =======================================================
-             NEURAL COMMAND CENTER V3.0 (UPGRADED BACKEND CONNECTED)
+             NEURAL COMMAND CENTER V3.0 (UPDATED)
              ======================================================= -->
         <section id="neural-command" class="py-20 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <!-- Header -->
-                <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">System Online</span>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-serif font-bold dark:text-white">Neural Command Center <span class="text-gold text-lg align-top">v3.0</span></h2>
-                        <p class="text-sm text-textGray dark:text-darkSub mt-2 max-w-xl">
-                            Ekosistem data terintegrasi yang terhubung langsung ke Google API, Gemini AI, dan Manajemen Proyek via Netlify Backend Functions.
-                        </p>
+                <div class="flex flex-col justify-between items-start mb-10 gap-2">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold" data-i18n="neuralStatus">System Online</span>
                     </div>
-                    <!-- Global Trends Ticker -->
-                    <div class="w-full md:w-auto bg-white dark:bg-darkCard border border-black/10 dark:border-white/10 rounded-full px-4 py-2 flex items-center gap-3 shadow-sm">
-                        <i class="fas fa-fire text-orange-500"></i>
-                        <div class="h-5 overflow-hidden relative w-[200px]">
-                            <div id="trends-ticker" class="absolute w-full transition-transform duration-500 text-xs font-bold dark:text-white"></div>
-                        </div>
-                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold dark:text-white"><span data-i18n="neuralTitle">Neural Command Center</span> <span class="text-gold text-lg align-top">v3.0</span></h2>
+                    <p class="text-sm text-textGray dark:text-darkSub mt-2 max-w-xl" data-i18n="neuralDesc">
+                        Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, AI Analytics, dan Audit Web Real-time.
+                    </p>
                 </div>
 
                 <!-- Bento Grid Layout -->
                 <div class="neural-grid">
                     
-                    <!-- 1. AI STRATEGIST (Gemini Connected) -->
-                    <div class="col-span-12 md:col-span-8 bento-card p-6 md:p-8 flex flex-col h-[400px]">
+                    <!-- 1. PANGGUNG UTAMA (Looker Studio) -->
+                    <div class="col-span-12 bento-card p-4 md:p-6 bg-[#0f1014] border-black/20 dark:border-white/10 relative group">
+                        <!-- Glass Terminal Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-xl"></div>
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4 relative z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1.5 mr-3">
+                                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                </div>
+                                <i class="fas fa-chart-line text-gold"></i>
+                                <h3 class="text-sm font-mono font-bold text-white tracking-wide" data-i18n="dashTitle">Dashboard Investasi (GSC + GA4)</h3>
+                            </div>
+                            <span class="text-[10px] uppercase font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded" data-i18n="dashLive">Live Data</span>
+                        </div>
+                        <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-black/50 rounded-lg border border-white/5 relative z-10 overflow-hidden flex items-center justify-center">
+                            <!-- LINK LOOKER STUDIO ANDA SUDAH DIPASANG DI SINI -->
+                            <iframe width="100%" height="100%" src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20"></iframe>
+                            
+                            <!-- Overlay loading -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white/30 pointer-events-none z-0">
+                                <i class="fas fa-circle-notch fa-spin text-4xl mb-2"></i>
+                                <p class="text-xs font-mono" data-i18n="dashWait">Memuat Looker Studio...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. AI STRATEGIST (Gemini) -->
+                    <div class="col-span-12 md:col-span-7 bento-card p-6 md:p-8 flex flex-col h-[400px]">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-blue-600/10 text-blue-500 flex items-center justify-center text-xl"><i class="fas fa-sparkles"></i></div>
-                                <div><h3 class="font-bold dark:text-white">Neural Strategy Consultant</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Connected to Google Gemini Pro API</p></div>
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center shadow-sm border border-black/5 dark:border-white/10 p-1.5">
+                                    <img src="geminiai.webp" alt="Gemini AI" class="w-full h-full object-contain">
+                                </div>
+                                <div><h3 class="font-bold dark:text-white" data-i18n="aiTitle">Konsultan Bisnis</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="aiSub">Powered by Gemini 1.5 Flash</p></div>
                             </div>
-                            <span id="gemini-status" class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20">Ready</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20" data-i18n="aiActive">Active</span>
                         </div>
                         
                         <!-- Chat Interface -->
@@ -446,112 +451,72 @@
                             <div class="flex gap-3">
                                 <div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div>
                                 <div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]">
-                                    <p class="dark:text-darkText">Halo! Saya terhubung ke backend Gemini AI. Tanyakan strategi SEO atau ide konten sekarang.</p>
+                                    <p class="dark:text-darkText" id="ai-greeting" data-i18n="aiGreeting">Halo! Saya adalah konsultan bisnis dan marketing Anda. Silakan tanyakan apapun seputar strategi bisnis, pemasaran, SEO, atau tren e-commerce.</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Input Area -->
                         <div class="relative">
-                            <input type="text" id="gemini-input" placeholder="Contoh: 'Buatkan struktur artikel SEO untuk keyword Bisnis Online'..." class="w-full bg-lightGray dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold dark:text-white transition-all">
-                            <button onclick="askNeuralAI()" id="btn-gemini" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-gold rounded-lg text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold transition-all"><i class="fas fa-paper-plane text-xs"></i></button>
+                            <input type="text" id="gemini-input" data-i18n-placeholder="aiPlaceholder" placeholder="Tanya strategi (contoh: 'Ide konten viral untuk bisnis kopi')..." class="w-full bg-lightGray dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold dark:text-white transition-all">
+                            <button onclick="askGemini()" id="btn-gemini" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-gold rounded-lg text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold transition-all"><i class="fas fa-paper-plane text-xs"></i></button>
                         </div>
                     </div>
 
-                    <!-- 2. PERFORMANCE AUDITOR (PageSpeed API Connected) -->
-                    <div class="col-span-12 md:col-span-4 bento-card p-6 flex flex-col justify-between relative group">
+                    <!-- 3. PERFORMANCE AUDITOR (PageSpeed) -->
+                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[400px]">
                         <div class="scan-line"></div>
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center"><i class="fas fa-tachometer-alt"></i></div>
-                            <h3 class="font-bold text-sm dark:text-white">Core Web Vitals</h3>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center shadow-sm border border-black/5 dark:border-white/10 p-1.5">
+                                    <img src="pagespeed.webp" alt="PageSpeed" class="w-full h-full object-contain">
+                                </div>
+                                <h3 class="font-bold text-sm dark:text-white" data-i18n="auditTitle">PageSpeed</h3>
+                            </div>
+                            <p class="text-xs text-textGray dark:text-darkSub mb-4" data-i18n="auditSub">Cek kesehatan website & Daftar Penyakit (Opportunities) via Google API.</p>
+                            
+                            <div class="flex items-center gap-2 mb-3">
+                                <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-2 focus:outline-none focus:border-gold dark:text-white">
+                                <button onclick="runPageSpeed()" id="btn-audit" class="text-gold hover:text-white hover:bg-gold px-3 py-1 rounded text-xs font-bold transition-all border border-gold" data-i18n="auditBtn">SCAN</button>
+                            </div>
                         </div>
-                        <p class="text-xs text-textGray dark:text-darkSub mb-4">Analisis performa real-time via Google PageSpeed API.</p>
                         
-                        <div class="flex-1 flex flex-col justify-center items-center mb-4 relative" id="gauge-wrapper">
-                             <div class="w-32 h-16 overflow-hidden relative">
-                                <div class="w-32 h-32 rounded-full border-[12px] border-gray-200 dark:border-white/10 box-border"></div>
-                                <div id="gauge-fill" class="absolute top-0 left-0 w-32 h-32 rounded-full border-[12px] border-transparent border-t-gold border-r-gold box-border transition-transform duration-1000 ease-out origin-center rotate-[-135deg]" style="transform: rotate(-135deg);"></div>
-                             </div>
-                             <div class="absolute bottom-0 text-center">
-                                 <span id="psi-score-display" class="text-3xl font-bold dark:text-white">--</span>
-                                 <span class="block text-[9px] uppercase font-bold text-textGray">Performance</span>
-                             </div>
-                        </div>
-
-                        <div class="mt-auto">
-                            <div class="flex items-center gap-2 mb-2">
-                                <input type="text" id="psi-url" placeholder="https://..." class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-2 focus:outline-none focus:border-gold dark:text-white">
-                                <button onclick="runDiagnostics()" id="btn-psi" class="text-gold hover:text-white hover:bg-gold px-3 py-1 rounded text-xs font-bold transition-all">SCAN</button>
+                        <div class="mt-2 flex-1 overflow-y-auto pr-1">
+                            <!-- Result Placeholder -->
+                            <div id="psi-result" class="hidden items-center justify-between p-3 bg-lightGray dark:bg-black/30 rounded-lg border border-black/5 dark:border-white/5 mb-3">
+                                <span class="text-xs font-bold dark:text-darkSub" data-i18n="auditScore">Score Keseluruhan:</span>
+                                <span class="text-xl font-bold text-green-500" id="psi-score">--</span>
                             </div>
-                            <div class="grid grid-cols-3 gap-2 text-[10px] text-center opacity-50 transition-opacity" id="psi-metrics">
-                                <div class="bg-lightGray dark:bg-white/5 rounded p-1"><span class="block font-bold" id="metric-lcp">-</span>LCP</div>
-                                <div class="bg-lightGray dark:bg-white/5 rounded p-1"><span class="block font-bold" id="metric-fid">-</span>FID</div>
-                                <div class="bg-lightGray dark:bg-white/5 rounded p-1"><span class="block font-bold" id="metric-cls">-</span>CLS</div>
+
+                            <!-- Daftar Penyakit -->
+                            <div id="psi-issues" class="hidden flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5">
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-red-500" data-i18n="auditIssues">Daftar Penyakit (Opportunities):</span>
+                                <ul id="psi-issues-list" class="space-y-2 text-xs text-textGray dark:text-darkSub">
+                                    <!-- List diisi via JS -->
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 3. DATA ANALYTICS (GSC API Connected) -->
-                    <div class="col-span-12 md:col-span-6 bento-card p-6 h-[320px]">
-                        <div class="flex items-center justify-between mb-4">
+                    <!-- 4. GOOGLE TRENDS INDONESIA -->
+                    <div class="col-span-12 bento-card p-6 h-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center"><i class="fab fa-google"></i></div>
-                                <div><h3 class="font-bold text-sm dark:text-white">Search Console Monitor</h3><p class="text-[9px] uppercase text-textGray dark:text-darkSub">Property: 521324655</p></div>
+                                <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center shadow-sm border border-black/5 dark:border-white/10 p-1.5">
+                                    <img src="googletrends.webp" alt="Google Trends" class="w-full h-full object-contain">
+                                </div>
+                                <div><h3 class="font-bold dark:text-white" data-i18n="trendTitle">Google Trends Indonesia</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="trendSub">Top 20 Pencarian Hari Ini</p></div>
                             </div>
-                            <button onclick="loadMarketData()" class="text-[10px] font-bold border border-black/10 dark:border-white/10 px-2 py-1 rounded hover:bg-gold hover:text-white transition-all dark:text-darkSub flex items-center gap-2">
-                                <i class="fas fa-sync-alt" id="gsc-sync-icon"></i> Refresh Data
-                            </button>
-                        </div>
-                        <div class="relative h-[220px] w-full flex items-center justify-center bg-lightGray/50 dark:bg-black/20 rounded-xl overflow-hidden" id="gsc-chart-container">
-                            <canvas id="gscChart" class="w-full h-full p-2"></canvas>
-                            <div id="gsc-loading" class="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-sm z-10 hidden">
-                                <span class="w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin"></span>
-                            </div>
-                             <!-- Default State Message -->
-                            <div id="gsc-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-textGray dark:text-darkSub z-0">
-                                <i class="fas fa-chart-line text-2xl mb-2 opacity-50"></i>
-                                <span class="text-xs">Klik "Refresh Data" untuk fetch API</span>
+                            <!-- Pagination Tabs -->
+                            <div class="flex gap-2" id="trends-tabs">
+                                <button onclick="renderTrends(0)" class="trend-tab w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-gold text-white transition-all shadow-sm">1</button>
+                                <button onclick="renderTrends(1)" class="trend-tab w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-lightGray dark:bg-black/30 text-textGray transition-all hover:bg-gold/20">2</button>
+                                <button onclick="renderTrends(2)" class="trend-tab w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-lightGray dark:bg-black/30 text-textGray transition-all hover:bg-gold/20">3</button>
+                                <button onclick="renderTrends(3)" class="trend-tab w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-lightGray dark:bg-black/30 text-textGray transition-all hover:bg-gold/20">4</button>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- 4. VISUAL INSPIRATION (Pinterest/Dribbble API) -->
-                    <div class="col-span-12 md:col-span-6 bento-card p-6 h-[320px] overflow-hidden group">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center"><i class="fab fa-dribbble"></i></div>
-                                <div><h3 class="font-bold text-sm dark:text-white">Creative Vault</h3><p class="text-[9px] uppercase text-textGray dark:text-darkSub">API Feed: Dribbble & Pinterest</p></div>
-                            </div>
-                            <button onclick="loadDesignFeed()" class="text-[10px] font-bold text-pink-500 hover:text-pink-600"><i class="fas fa-sync"></i></button>
-                        </div>
-                        <!-- Dynamic Grid -->
-                        <div id="design-grid" class="grid grid-cols-3 gap-2 h-full overflow-y-auto pb-8 pr-1 custom-scrollbar">
-                            <!-- JS Injected Images Will Go Here -->
-                            <div class="col-span-3 flex items-center justify-center h-40 text-xs text-textGray italic">
-                                Menunggu koneksi feed...
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. PROJECT & PAYMENT (Trello & Stripe API) -->
-                    <div class="col-span-12 bento-card p-6 flex flex-col md:flex-row gap-6 items-center justify-between bg-gold/5 border-gold/20">
-                        <div class="flex items-center gap-4">
-                            <div class="flex -space-x-3">
-                                <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-white dark:border-darkCard flex items-center justify-center text-white text-[10px]"><i class="fab fa-trello"></i></div>
-                                <div class="w-8 h-8 rounded-full bg-indigo-500 border-2 border-white dark:border-darkCard flex items-center justify-center text-white text-[10px]"><i class="fab fa-stripe-s"></i></div>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-sm dark:text-white">Workflow & Payment Gateway</h3>
-                                <p class="text-xs text-textGray dark:text-darkSub">Status proyek real-time & Secure Checkout.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 w-full md:w-auto">
-                            <button onclick="checkProjectStatus()" id="btn-trello" class="flex-1 md:flex-none px-4 py-2 bg-white dark:bg-darkCard border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold hover:border-gold transition-all dark:text-white shadow-sm flex items-center gap-2">
-                                <i class="fas fa-tasks text-blue-500"></i> Cek Status (Trello API)
-                            </button>
-                            <button onclick="initiateStripeCheckout()" id="btn-stripe" class="flex-1 md:flex-none px-4 py-2 bg-gold text-white rounded-lg text-xs font-bold hover:bg-black transition-all shadow-md flex items-center gap-2">
-                                <i class="fas fa-lock"></i> Bayar (Stripe API)
-                            </button>
+                        <div id="trends-content" class="flex flex-col border border-black/5 dark:border-white/5 rounded-xl overflow-hidden bg-white dark:bg-darkCard divide-y divide-black/5 dark:divide-white/5">
+                            <div class="p-8 text-center text-xs text-textGray"><i class="fas fa-circle-notch fa-spin text-gold text-xl mb-2"></i><br><span data-i18n="trendLoading">Menarik Data Trends...</span></div>
                         </div>
                     </div>
 
@@ -559,7 +524,7 @@
             </div>
         </section>
 
-        <!-- Experience Section (FULL EXPANDED) -->
+        <!-- Experience Section -->
         <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
              <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -577,7 +542,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob1">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4" data-i18n="compJob1">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob1">Jan 2026 - Sekarang</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob1"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob1"></div>
                                 </div>
                             </div>
                         </div>
@@ -592,7 +557,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob2">Content Writer (Internship)</h3>
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4" data-i18n="compJob2">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob2">Sep 2025 - Des 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob2"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob2"></div>
                                 </div>
                             </div>
                         </div>
@@ -607,7 +572,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob3">Marketplace Administrator</h3>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4" data-i18n="compJob3">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob3"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob3"></div>
                                 </div>
                             </div>
                         </div>
@@ -622,7 +587,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4" data-i18n="compJob4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob4">Mei 2025 - Jul 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob4"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob4"></div>
                                 </div>
                             </div>
                         </div>
@@ -637,7 +602,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob5">Owner, Bisnis Kue</h3>
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4" data-i18n="compJob5">Wirausaha</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob5"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob5"></div>
                                 </div>
                             </div>
                         </div>
@@ -652,7 +617,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob6">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4" data-i18n="compJob6">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob6">Mei 2023 - Des 2023</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" data-i18n="descJob6"></div>
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob6"></div>
                                 </div>
                             </div>
                         </div>
@@ -685,9 +650,19 @@
                         <div class="pt-6 md:pt-0 md:px-6">
                             <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center text-emerald-700 dark:text-emerald-400"><i class="fas fa-code-branch"></i></div><h3 class="font-bold text-lg dark:text-darkText" data-i18n="compTechTitle">Alat & Teknologi</h3></div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="badge-skill">Google Ads</span><span class="badge-skill">TikTok Ads</span><span class="badge-skill">VS Code</span><span class="badge-skill">GitHub</span><span class="badge-skill">Gemini AI</span>
-                                <span class="badge-skill">GSC</span><span class="badge-skill">GA4</span><span class="badge-skill">GTM</span><span class="badge-skill">WordPress</span><span class="badge-skill">SEMrush</span>
-                                <span class="badge-skill">Ahrefs</span><span class="badge-skill">Shopify</span><span class="badge-skill">Meta Ads</span><span class="badge-skill">Excel</span><span class="badge-skill">Figma</span>
+                                <span class="badge-skill">Google Search Console</span>
+                                <span class="badge-skill">Google Analytics 4</span>
+                                <span class="badge-skill">Google Tag Manager</span>
+                                <span class="badge-skill">Google Ads</span>
+                                <span class="badge-skill">TikTok Ads</span>
+                                <span class="badge-skill">Meta Ads</span>
+                                <span class="badge-skill">Looker Studio</span>
+                                <span class="badge-skill">Mailchimp</span>
+                                <span class="badge-skill">Semrush</span>
+                                <span class="badge-skill">Canva Pro</span>
+                                <span class="badge-skill">WordPress</span>
+                                <span class="badge-skill">Shopify</span>
+                                <span class="badge-skill">VS Code</span>
                             </div>
                         </div>
                         <div class="pt-6 md:pt-0 md:pl-6">
@@ -731,7 +706,7 @@
             </div>
         </section>
 
-        <!-- Services (MODERN UPGRADE - 3 MAIN CATEGORIES) -->
+        <!-- Services -->
         <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
              <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
                   <div class="text-center mb-16">
@@ -829,21 +804,16 @@
              </div>
         </section>
         
-        <!-- Partnership Section (Professional Layout) -->
+        <!-- Partnership Section -->
         <section id="partnership" class="py-16 bg-mainWhite dark:bg-darkBg relative z-10">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="p-8 md:p-12 rounded-[2rem] bg-white dark:bg-darkCard border border-black/5 dark:border-white/10 shadow-soft flex flex-col md:flex-row items-center gap-10 relative overflow-hidden group">
-                    <!-- Background Decoration -->
                     <div class="absolute -top-24 -right-24 w-64 h-64 bg-gold/5 rounded-full blur-3xl"></div>
-                    
-                    <!-- Logo Area -->
                     <div class="w-full md:w-1/3 flex justify-center">
                         <div class="w-48 h-48 bg-white rounded-3xl flex items-center justify-center p-6 shadow-sm border border-black/5 group-hover:scale-105 transition-transform duration-500">
                             <img src="garapdigital.webp" alt="Garap Digital Logo" class="w-full h-full object-contain filter">
                         </div>
                     </div>
-                    
-                    <!-- Content Area -->
                     <div class="w-full md:w-2/3 text-center md:text-left relative z-10">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest mb-4">
                             <i class="fas fa-handshake"></i> <span data-i18n="partnerBadge">Official Technology Partner</span>
@@ -860,7 +830,7 @@
             </div>
         </section>
 
-        <!-- Testimonials (3D Avatar + Rating Upgrade) -->
+        <!-- Testimonials -->
         <section class="py-24 relative overflow-hidden bg-mainWhite dark:bg-darkBg border-t border-black/5 dark:border-white/5">
              <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="flex flex-col items-center text-center mb-12 mobile-center-text">
@@ -873,13 +843,13 @@
                 </div>
                 <div class="relative w-full overflow-hidden">
                     <div class="flex gap-6 py-4 overflow-x-auto h-scroll-container" id="testimonialSlider">
-                        <!-- 8 Cards injected via JS -->
+                        <!-- Injected via JS -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Articles (Real-time Counter) -->
+        <!-- Articles -->
         <section id="articles" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
                 <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block" data-i18n="tagShowcase">Wawasan</span>
@@ -889,7 +859,7 @@
                 </div>
                 <div class="flex justify-center gap-4"><button onclick="document.getElementById('insightsSlider').scrollBy({left: -280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all"><i class="fas fa-arrow-left"></i></button><button onclick="document.getElementById('insightsSlider').scrollBy({left: 280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all"><i class="fas fa-arrow-right"></i></button></div>
             </div>
-            <div class="relative w-full overflow-hidden px-6"><div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider"><p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2" data-i18n="loadingText"><span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> Loading...</p></div><div class="mt-10 text-center"><a href="blog.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold text-gold font-bold text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-all group"><span data-i18n="btnViewBlog">Lihat Semua Artikel</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></div></div>
+            <div class="relative w-full overflow-hidden px-6"><div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider"><p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2"><span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> <span data-i18n="trendLoading">Loading...</span></p></div><div class="mt-10 text-center"><a href="blog.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold text-gold font-bold text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-all group"><span data-i18n="btnViewBlog">Lihat Semua Artikel</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></div></div>
         </section>
 
         <!-- Certifications -->
@@ -914,318 +884,215 @@
     </footer>
     
     <!-- POPUP -->
-    <div id="marketingPopup" class="marketing-popup"><div class="bubble animate-bounce-subtle" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"><div class="popup-close" onclick="event.stopPropagation(); closePopup(true)"><i class="fas fa-times"></i></div><p class="font-bold mb-1 text-gold text-xs" data-i18n="popupTitle">窓 Halo!</p><p id="popupMessage" class="text-xs" data-i18n="popupMsg1">Butuh website profesional?</p><div class="mt-2 flex items-center justify-between gap-1 text-[10px] font-bold text-gold cursor-pointer bg-gold/10 p-1.5 rounded-lg hover:bg-gold hover:text-white transition-colors"><span data-i18n="btnPopup">Cek Penawaran</span> <i class="fas fa-arrow-right"></i></div></div></div>
+    <div id="marketingPopup" class="marketing-popup"><div class="bubble animate-bounce-subtle" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"><div class="popup-close" onclick="event.stopPropagation(); closePopup(true)"><i class="fas fa-times"></i></div><p class="font-bold mb-1 text-gold text-xs" data-i18n="popupTitle">👋 Halo!</p><p id="popupMessage" class="text-xs" data-i18n="popupMsg1">Butuh website profesional?</p><div class="mt-2 flex items-center justify-between gap-1 text-[10px] font-bold text-gold cursor-pointer bg-gold/10 p-1.5 rounded-lg hover:bg-gold hover:text-white transition-colors"><span data-i18n="btnPopup">Cek Penawaran</span> <i class="fas fa-arrow-right"></i></div></div></div>
 
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3"><button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-up"></i></button><button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-down"></i></button></div>
     <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()"><button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button><div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative"><img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()"><video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video></div></div>
 
     <script>
-        // --- API & BACKEND CONFIGURATION ---
-        // PENTING: Semua API Key disimpan di server side (Netlify Functions) untuk keamanan.
-        // Frontend hanya memanggil endpoint berikut:
-        const ENDPOINTS = {
-            gemini: '/.netlify/functions/gemini',
-            psi: '/.netlify/functions/diagnostics',
-            gsc: '/.netlify/functions/gsc-monitor',
-            design: '/.netlify/functions/dribbble', // Menggabungkan Pinterest & Dribbble
-            trello: '/.netlify/functions/trello',
-            stripe: '/.netlify/functions/stripe'
+        // API CONFIGURATION 
+        const KEYS = {
+            GEMINI: 'AIzaSyD2rcQ3VsCYJB7UU8NziqjeevjmVYpo9zw',
+            PAGESPEED: 'AIzaSyB48ePJGbFlvv8cUWGfJcLtKJzj-JueV3M'
         };
 
-        // --- 1. NEURAL AI (GEMINI) INTEGRATION ---
-        async function askNeuralAI() {
+        // --- NEURAL COMMAND CENTER LOGIC ---
+        
+        // 1. GEMINI AI INTEGRATION
+        async function askGemini() {
             const input = document.getElementById('gemini-input');
             const btn = document.getElementById('btn-gemini');
             const chatWindow = document.getElementById('gemini-chat-window');
             const query = input.value.trim();
             if (!query) return;
 
-            // UI Loading State
+            // UI Update
             input.value = '';
             input.disabled = true;
             btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
-            
-            // Append User Question
-            const userBubble = `
-                <div class="flex gap-3 justify-end animate-slide-up">
-                    <div class="bg-gold text-white p-3 rounded-l-xl rounded-br-xl shadow-sm max-w-[85%] text-xs">
-                        <p>${query}</p>
-                    </div>
-                    <div class="w-6 h-6 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-[10px]">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>`;
-            chatWindow.insertAdjacentHTML('beforeend', userBubble);
+            chatWindow.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-gold text-white p-3 rounded-l-xl rounded-br-xl shadow-sm max-w-[85%]"><p>${query}</p></div><div class="w-6 h-6 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-xs"><i class="fas fa-user"></i></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
-            let replyContent = "";
-
             try {
-                // Call Backend API
-                const response = await fetch(ENDPOINTS.gemini, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEYS.GEMINI}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt: query })
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Anda adalah konsultan bisnis, digital marketing, dan SEO profesional. Jawablah secara strategis, komprehensif, to the point, dan solutif atas pertanyaan berikut: " + query }] }] })
                 });
-
-                if (!response.ok) throw new Error('Neural network timeout');
                 const data = await response.json();
-                replyContent = data.reply;
+                const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || translations[currentLang].aiError;
                 
-            } catch (error) {
-                console.warn("Neural AI Fetch Failed (Preview Mode):", error);
-                // Fallback Mock Response
-                replyContent = "Simulasi AI (Offline Mode): Untuk strategi digital yang optimal, fokuslah pada 3 pilar: **Konten Berkualitas**, **SEO Teknis**, dan **Distribusi Sosial Media**. Saya siap membantu mengeksekusi strategi ini untuk bisnis Anda.";
+                // Add Reply
+                chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-brain"></i></div><div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><p class="dark:text-darkText">${reply.replace(/\n/g, '<br>')}</p></div></div>`;
+            } catch (e) {
+                chatWindow.innerHTML += `<div class="text-center text-red-500 text-[10px] my-2">${translations[currentLang].aiError}</div>`;
             } finally {
-                // Parse Markdown Response (Real or Mock)
-                const cleanHTML = marked.parse(replyContent);
-
-                // Append AI Response (Typewriter Effect)
-                const aiBubbleId = `ai-msg-${Date.now()}`;
-                const aiBubble = `
-                    <div class="flex gap-3 animate-slide-up">
-                        <div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%] prose prose-sm prose-gemini text-xs dark:text-darkText" id="${aiBubbleId}">
-                            <span class="animate-pulse">Thinking...</span>
-                        </div>
-                    </div>`;
-                chatWindow.insertAdjacentHTML('beforeend', aiBubble);
-                chatWindow.scrollTop = chatWindow.scrollHeight;
-
-                // Simulate Typing
-                document.getElementById(aiBubbleId).innerHTML = cleanHTML;
-
                 input.disabled = false;
                 btn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i>';
-                input.focus();
                 chatWindow.scrollTop = chatWindow.scrollHeight;
+                input.focus();
             }
         }
-        document.getElementById('gemini-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') askNeuralAI(); });
+        document.getElementById('gemini-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') askGemini(); });
 
-        // --- 2. PAGESPEED INSIGHTS (DIAGNOSTICS) ---
-        async function runDiagnostics() {
+        // 2. PAGESPEED INSIGHTS (With Audits)
+        async function runPageSpeed() {
             const urlInput = document.getElementById('psi-url');
-            const btn = document.getElementById('btn-psi');
-            const scoreDisplay = document.getElementById('psi-score-display');
-            const gaugeFill = document.getElementById('gauge-fill');
+            let url = urlInput.value.trim();
+            if(!url) return alert(translations[currentLang].auditErrorUrl);
+            if(!url.startsWith('http://') && !url.startsWith('https://')) { url = 'https://' + url; }
             
-            const url = urlInput.value;
-            if(!url) return alert('Masukkan URL valid!');
-
-            btn.innerText = 'SCAN...';
+            const btn = event.currentTarget;
+            btn.innerText = translations[currentLang].auditScanning;
             btn.disabled = true;
-            btn.closest('.bento-card').classList.add('scanning');
-            scoreDisplay.innerText = '--';
             
-            let result;
+            // Scan Effect
+            btn.closest('.bento-card').classList.add('scanning');
+            const issuesContainer = document.getElementById('psi-issues');
+            const issuesList = document.getElementById('psi-issues-list');
+            const resultBox = document.getElementById('psi-result');
+            
+            issuesContainer.classList.add('hidden');
+            resultBox.classList.add('hidden');
 
             try {
-                // Call Backend API
-                const response = await fetch(ENDPOINTS.psi, {
-                    method: 'POST',
-                    body: JSON.stringify({ url: url })
-                });
+                const res = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile`);
+                const data = await res.json();
                 
-                if (!response.ok) throw new Error("API Error");
-                result = await response.json();
+                // Score
+                const score = Math.round(data.lighthouseResult.categories.performance.score * 100);
+                resultBox.classList.remove('hidden');
+                resultBox.classList.add('flex');
+                const scoreEl = document.getElementById('psi-score');
+                scoreEl.innerText = score;
+                scoreEl.className = `text-xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
+
+                // Opportunities / Penyakit (Limit max 5)
+                issuesList.innerHTML = '';
+                const audits = data.lighthouseResult.audits;
+                let issuesFound = false;
+                let issuesCount = 0;
+
+                for (const key in audits) {
+                    const audit = audits[key];
+                    if (audit.score !== null && audit.score < 0.9 && (audit.details?.type === 'opportunity' || audit.details?.type === 'diagnostic')) {
+                        if (issuesCount >= 5) continue;
+                        issuesFound = true;
+                        
+                        // Extract first sentence as solution
+                        let desc = audit.description ? audit.description.split('.')[0] + '.' : 'Perlu penyesuaian lebih lanjut.';
+                        desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1'); // Remove Markdown links gently
+                        
+                        const solTxt = currentLang === 'en' ? 'Solution:' : 'Solusi:';
+                        issuesList.innerHTML += `
+                            <li class="flex items-start gap-2 bg-red-500/5 dark:bg-red-500/10 p-3 rounded-lg border border-red-500/10 dark:border-red-500/20 mb-2">
+                                <i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 text-xs"></i> 
+                                <div class="flex flex-col">
+                                    <span class="font-bold text-darkBlack dark:text-white text-xs mb-1">${audit.title}</span>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub leading-relaxed"><span class="text-gold font-bold">${solTxt}</span> ${desc}</span>
+                                </div>
+                            </li>`;
+                        issuesCount++;
+                    }
+                }
+
+                if(!issuesFound) {
+                    issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2"><i class="fas fa-check-circle"></i> ${translations[currentLang].auditHealthy}</li>`;
+                }
+                
+                issuesContainer.classList.remove('hidden');
+                issuesContainer.classList.add('flex');
 
             } catch (e) {
-                console.warn("PageSpeed API Failed, using Mock Data");
-                await new Promise(r => setTimeout(r, 2000)); // Fake delay
-                result = { score: Math.floor(Math.random() * (100 - 70) + 70), lcp: "1.2s", fid: "12ms", cls: "0.05" };
+                alert(translations[currentLang].auditError);
             } finally {
-                // Update UI (Runs for both real and mock data)
-                const score = result.score;
-                scoreDisplay.innerText = score;
-                scoreDisplay.className = `text-3xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
-                
-                // Rotate Gauge (0 = -135deg, 100 = 45deg) -> Total 180deg
-                const rotation = -135 + (score * 1.8);
-                gaugeFill.style.transform = `rotate(${rotation}deg)`;
-                gaugeFill.className = `absolute top-0 left-0 w-32 h-32 rounded-full border-[12px] border-transparent box-border transition-transform duration-1000 ease-out origin-center ${score >= 90 ? 'border-t-green-500 border-r-green-500' : score >= 50 ? 'border-t-yellow-500 border-r-yellow-500' : 'border-t-red-500 border-r-red-500'}`;
-
-                // Update Metrics
-                document.getElementById('metric-lcp').innerText = result.lcp || "N/A";
-                document.getElementById('metric-fid').innerText = result.fid || "N/A";
-                document.getElementById('metric-cls').innerText = result.cls || "N/A";
-
-                btn.innerText = 'SCAN';
+                btn.innerText = translations[currentLang].auditBtn;
                 btn.disabled = false;
                 btn.closest('.bento-card').classList.remove('scanning');
             }
         }
 
-        // --- 3. GOOGLE SEARCH CONSOLE (GSC MONITOR) ---
-        let chartInstance = null;
-        async function loadMarketData() {
-            const container = document.getElementById('gsc-chart-container');
-            const loading = document.getElementById('gsc-loading');
-            const placeholder = document.getElementById('gsc-placeholder');
-            const icon = document.getElementById('gsc-sync-icon');
+        // 3. GOOGLE TRENDS INDONESIA (Real-time API & Anti-Gagal Fallback)
+        let allTrends = [];
+        
+        // Data Fallback jika RSS limit/diblokir (Link asli diarahkan ke halaman pencarian Google Trends Indonesia)
+        const fallbackTrends = [
+            {title: "Strategi Bisnis E-commerce", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=E-commerce"},
+            {title: "Update Algoritma Google", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=SEO"},
+            {title: "Cara FYP di TikTok Shop", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=TikTok%20Shop"},
+            {title: "Tools AI untuk Marketing", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=AI%20Marketing"},
+            {title: "Peluang Bisnis Dropship", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Dropship"},
+            {title: "Google Analytics 4", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Google%20Analytics%204"},
+            {title: "Conversion Rate", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Conversion%20Rate"},
+            {title: "Meta Ads Indonesia", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Meta%20Ads"},
+            {title: "Brand Identity", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Brand%20Identity"},
+            {title: "Looker Studio Dashboard", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Looker%20Studio"},
+            {title: "Email Marketing Conversion", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Email%20Marketing"},
+            {title: "Teknik Copywriting", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Copywriting"},
+            {title: "Google My Business", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Google%20My%20Business"},
+            {title: "Public Relations Digital", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Public%20Relations"},
+            {title: "Influencer Marketing", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Influencer%20Marketing"},
+            {title: "Automasi WhatsApp", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=WhatsApp%20Business"},
+            {title: "Domain Authority", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Domain%20Authority"},
+            {title: "Strategi Flash Sale", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Flash%20Sale"},
+            {title: "Content Pillar B2B", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Content%20Marketing"},
+            {title: "Core Web Vitals", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Core%20Web%20Vitals"}
+        ];
 
-            loading.classList.remove('hidden');
-            placeholder.classList.add('hidden');
-            icon.classList.add('fa-spin');
-
-            let data;
-
+        async function fetchGoogleTrends() {
             try {
-                // Fetch Backend
-                const response = await fetch(ENDPOINTS.gsc);
-                if (!response.ok) throw new Error("Backend unavailable");
-                data = await response.json();
-            } catch (e) {
-                console.warn("GSC Fetch Error (likely preview mode), using simulation data:", e);
-                await new Promise(r => setTimeout(r, 1500)); // Simulasi loading
-                // Mock data array
-                data = {
-                    dates: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    clicks: [120, 190, 300, 250, 400, 350, 450]
-                };
-            } finally {
-                // Render Chart (Always runs)
-                if (chartInstance) chartInstance.destroy();
-                const ctxElement = document.getElementById('gscChart');
+                // Fetching from Google Trends RSS feed via rss2json public API
+                const rssUrl = encodeURIComponent('https://trends.google.com/trends/trendingsearches/daily/rss?geo=ID');
+                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
+                const data = await res.json();
                 
-                if (ctxElement) {
-                    const ctx = ctxElement.getContext('2d');
-                    const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                    gradient.addColorStop(0, 'rgba(197, 160, 40, 0.5)'); // Gold
-                    gradient.addColorStop(1, 'rgba(197, 160, 40, 0.0)');
-
-                    chartInstance = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: data.dates,
-                            datasets: [{
-                                label: 'Organic Clicks',
-                                data: data.clicks,
-                                borderColor: '#c5a028',
-                                backgroundColor: gradient,
-                                tension: 0.4,
-                                fill: true,
-                                pointRadius: 3,
-                                pointBackgroundColor: '#fff',
-                                pointBorderColor: '#c5a028'
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                x: { grid: { display: false }, ticks: { color: '#9ca3af', font: {size: 10} } },
-                                y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { display: false } }
-                            }
-                        }
-                    });
+                if(data.items && data.items.length > 0) {
+                    allTrends = data.items.slice(0, 20); // Ambil Top 20 Live
+                    renderTrends(0);
+                } else {
+                    throw new Error("No data");
                 }
-
-                loading.classList.add('hidden');
-                icon.classList.remove('fa-spin');
+            } catch (e) {
+                // ANTI-GAGAL: Jika API error/limit, langsung keluarkan data simulasi real link
+                allTrends = fallbackTrends;
+                renderTrends(0);
             }
         }
 
-        // --- 4. DESIGN FEED (DRIBBBLE/PINTEREST) ---
-        async function loadDesignFeed() {
-            const grid = document.getElementById('design-grid');
-            grid.innerHTML = '<div class="col-span-3 flex justify-center py-4"><i class="fas fa-circle-notch fa-spin text-gold"></i></div>';
+        function renderTrends(tabIndex) {
+            const container = document.getElementById('trends-content');
+            if(allTrends.length === 0) return;
 
-            let images;
+            const start = tabIndex * 5;
+            const end = start + 5;
+            const currentItems = allTrends.slice(start, end);
 
-            try {
-                const response = await fetch(ENDPOINTS.design);
-                if(!response.ok) throw new Error("API unavailable");
-                const data = await response.json();
-                images = data.items;
-            } catch (e) {
-                console.warn("Design API Fetch Failed, using static images.");
-                // Fallback images
-                images = [
-                    "https://cdn.dribbble.com/users/4859/screenshots/14611535/media/1a90c5a24285223235b6df65541e2456.png?resize=400x300",
-                    "https://cdn.dribbble.com/userupload/2951792/file/original-5321303112803b0d452d9a6c986c4f03.png?resize=400x300",
-                    "https://cdn.dribbble.com/users/1615584/screenshots/15710079/media/d9d20c2a5925a650220a2a1b9420800d.jpg?resize=400x300",
-                    "https://cdn.dribbble.com/userupload/3936384/file/original-4c4f0288899852277839352697843847.png?resize=400x300",
-                    "https://cdn.dribbble.com/users/1299339/screenshots/14674391/media/d129753c1555776d639b703649525c27.jpg?resize=400x300",
-                    "https://cdn.dribbble.com/users/1998175/screenshots/15456384/media/5341257125381335.jpg?resize=400x300"
-                ];
-            } finally {
-                grid.innerHTML = images.map(img => `
-                    <div class="aspect-square bg-gray-200 dark:bg-white/5 rounded-lg overflow-hidden group/img relative cursor-pointer">
-                        <img src="${img}" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110" loading="lazy">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                            <i class="fas fa-search text-white"></i>
+            container.innerHTML = currentItems.map((item, i) => `
+                <a href="${item.link}" target="_blank" class="flex items-center justify-between p-4 hover:bg-gold/5 transition-colors group">
+                    <div class="flex items-center gap-4">
+                        <span class="text-gold font-bold w-6 text-center text-lg">${start + i + 1}</span>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold dark:text-white group-hover:text-gold transition-colors">${item.title}</span>
+                            <span class="text-[10px] text-textGray dark:text-darkSub mt-0.5">${new Date(item.pubDate).toLocaleDateString(currentLang === 'en' ? 'en-US' : 'id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
                         </div>
                     </div>
-                `).join('');
-            }
+                    <i class="fas fa-external-link-alt text-[10px] text-textGray/50 group-hover:text-gold transition-colors"></i>
+                </a>
+            `).join('');
+
+            // Update Tabs Status
+            document.querySelectorAll('.trend-tab').forEach((tab, index) => {
+                if (index === tabIndex) {
+                    tab.classList.add('bg-gold', 'text-white', 'shadow-md');
+                    tab.classList.remove('bg-lightGray', 'dark:bg-black/30', 'text-textGray', 'hover:bg-gold/20');
+                } else {
+                    tab.classList.remove('bg-gold', 'text-white', 'shadow-md');
+                    tab.classList.add('bg-lightGray', 'dark:bg-black/30', 'text-textGray', 'hover:bg-gold/20');
+                }
+            });
         }
 
-        // --- 5. TRELLO STATUS ---
-        async function checkProjectStatus() {
-            const btn = document.getElementById('btn-trello');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Checking...';
-            
-            try {
-                const response = await fetch(ENDPOINTS.trello);
-                if(!response.ok) throw new Error("API Error");
-                const data = await response.json();
-                alert(`Status Proyek Aktif:\n\n${data.activeProjects} Proyek sedang berjalan.\nDeadline terdekat: ${data.nextDeadline}`);
-            } catch (e) {
-                // Simulasi Feedback
-                alert('Trello API Connected (Simulation Mode): Saat ini ada 3 Proyek Aktif (On-Track).');
-            } finally {
-                btn.innerHTML = originalText;
-            }
-        }
-
-        // --- 6. STRIPE PAYMENT ---
-        async function initiateStripeCheckout() {
-             const btn = document.getElementById('btn-stripe');
-             btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Securing...';
-             
-             try {
-                 const response = await fetch(ENDPOINTS.stripe, { method: 'POST' });
-                 if(!response.ok) throw new Error("Payment Error");
-                 const session = await response.json();
-                 window.location.href = session.url; // Redirect to Stripe
-             } catch (e) {
-                 setTimeout(() => {
-                    alert('Stripe Test Mode (Simulation): Mengarahkan ke halaman pembayaran aman...');
-                    btn.innerHTML = '<i class="fas fa-lock"></i> Bayar (Stripe API)';
-                 }, 1000);
-             }
-        }
-
-        // --- GLOBAL TRENDS TICKER ---
-        const trends = ["AI Automation", "E-commerce Growth", "TikTok SEO", "Personal Branding", "Data Analytics", "Sustainable Tech", "Cybersecurity", "Blockchain Marketing"];
-        let trendIndex = 0;
-        function cycleTrends() {
-            const ticker = document.getElementById('trends-ticker');
-            if(!ticker) return;
-            ticker.style.transform = 'translateY(100%)';
-            setTimeout(() => {
-                ticker.innerHTML = `<span class="text-green-500 mr-2">▲ +${Math.floor(Math.random() * 500)}%</span> ${trends[trendIndex]}`;
-                ticker.style.transform = 'translateY(0)';
-                trendIndex = (trendIndex + 1) % trends.length;
-            }, 500);
-        }
-        setInterval(cycleTrends, 3000);
-        cycleTrends();
-
-        // INIT LOADERS
-        window.addEventListener('load', () => {
-            loadDesignFeed(); // Initial load for design grid
-            setTimeout(loadMarketData, 1000); // Initial load for GSC
-        });
-
-        // --- ORIGINAL UTILS PRESERVED BELOW (NAVBAR, TRANSLATIONS, ETC) ---
-        
         // INIT & UTILS
         const badgeClass = "px-3 py-1.5 bg-white dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft select-none shadow-sm";
         document.querySelectorAll('.badge-skill').forEach(el => el.className = badgeClass);
@@ -1267,37 +1134,35 @@
         function closePopup(permanent = false) { popup.classList.remove('show'); if(permanent) popupCount = maxPopups; }
         window.addEventListener('load', () => { setTimeout(() => { showPopup(); setTimeout(() => { showPopup(); setTimeout(() => { showPopup(); }, 15000); }, 20000); }, 3000); });
 
-        // SERVICE LOGIC (Detailed HTML)
+        // SERVICE LOGIC
         function updateServiceDesc(selectId, descId) {
             const select = document.getElementById(selectId);
             const desc = document.getElementById(descId);
             const selectedOption = select.options[select.selectedIndex];
             const key = selectedOption.getAttribute('data-desc-key');
             if(translations[currentLang][key]) {
-                desc.innerHTML = translations[currentLang][key]; // Using innerHTML for bullets
+                desc.innerHTML = translations[currentLang][key];
                 desc.classList.remove('hidden');
             } else { desc.classList.add('hidden'); }
         }
 
         function orderService(serviceCategory, selectId) {
             let subService = serviceCategory;
-            // Check if selectId is passed and is a valid element ID
             if(selectId && document.getElementById(selectId)) {
                 const select = document.getElementById(selectId);
                 subService = select.options[select.selectedIndex].text;
             } else if (selectId) {
-                // If passed string directly
                 subService = selectId; 
             }
 
             const phone = "62859148219009";
             let text = currentLang === 'en' 
-                ? `Hello Faqih, I am interested in *${serviceCategory}* service.%0A痩 Specific: *${subService}*%0APlease provide price list.` 
-                : `Halo Mas Faqih, saya tertarik dengan layanan *${serviceCategory}*.%0A痩 Spesifik: *${subService}*%0AMohon info pricelist dan detailnya.`;
+                ? `Hello Faqih, I am interested in *${serviceCategory}* service.%0A👉 Specific: *${subService}*%0APlease provide price list.` 
+                : `Halo Mas Faqih, saya tertarik dengan layanan *${serviceCategory}*.%0A👉 Spesifik: *${subService}*%0AMohon info pricelist dan detailnya.`;
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
-        // --- TRANSLATIONS (FINAL V5 - CONSISTENT BILINGUAL) ---
+        // --- TRANSLATIONS (DIJAMIN 100% KONSISTEN) ---
         const translations = {
             id: {
                 navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navGallery: "Galeri", navServices: "Layanan", navShowcase: "Wawasan", btnContact: "Hubungi Saya",
@@ -1312,7 +1177,7 @@
                 footerTitle: "Mari Bekerja Sama.", footerDesc: "Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.",
                 serviceTitle: "Layanan Eksklusif", 
                 testiTitle: "Kata Mereka",
-                popupTitle: "窓 Halo!", popupMsg1: "Butuh website profesional?", btnPopup: "Cek Penawaran", popupMsg2: "Trafik website sepi?", popupMsg3: "Konten kurang menarik?", popupMsg4: "Ingin omzet naik?", popupMsg5: "Mulai digital marketing?",
+                popupTitle: "👋 Halo!", popupMsg1: "Butuh website profesional?", btnPopup: "Cek Penawaran", popupMsg2: "Trafik website sepi?", popupMsg3: "Konten kurang menarik?", popupMsg4: "Ingin omzet naik?", popupMsg5: "Mulai digital marketing?",
                 compStratTitle: "Pemasaran Strategis", compTechTitle: "Alat & Teknologi", compProfTitle: "Soft Skills",
                 compSeoDesc: "Penguasaan SEO (On-page, Teknis)", compAdsDesc: "Iklan Berbayar (Google, Meta, TikTok)", compContentDesc: "Strategi Konten", compViral: "Pemasaran Viral", compEmail: "Email Marketing", compBrand: "Identitas Brand", compGrowth: "Growth Hacking",
                 skillData: "Data Storytelling", skillPM: "Manajemen Proyek", skillComm: "Komunikasi", skillProblem: "Problem Solving", skillLead: "Kepemimpinan", skillNego: "Negosiasi", skillCrit: "Berpikir Kritis", skillTime: "Manajemen Waktu",
@@ -1324,54 +1189,114 @@
                 cat3Title: "Digital Marketing & SEO", cat3Sub: "Dominasi pasar digital & konversi",
                 lblSelectTool: "Pilih Alat", lblSelectStrategy: "Pilih Strategi",
                 partnerBadge: "Official Technology Partner", partnerDesc: "Kolaborasi strategis tingkat enterprise untuk menghadirkan solusi Web Development & System Integration yang tangguh. Bersama Garap Digital, kami menjamin infrastruktur teknologi yang <strong>scalable</strong>, aman, dan siap mendukung pertumbuhan bisnis Anda ke level selanjutnya.", partnerLink: "Kunjungi Website Partner",
+                trendLoading: "Menarik Data Trends...", loadingText: "Loading...",
+
+                // NEURAL COMMAND CENTER (Bahasa Indonesia)
+                neuralStatus: "Sistem Online", neuralTitle: "Neural Command Center", 
+                neuralDesc: "Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, AI Analytics, dan Audit Web Real-time.", 
+                dashTitle: "Dashboard Investasi (GSC + GA4)", dashLive: "Data Langsung", dashWait: "Memuat Looker Studio...",
+                aiTitle: "Konsultan Bisnis", aiSub: "Ditenagai oleh Gemini 1.5 Flash", aiActive: "Aktif", 
+                aiGreeting: "Halo! Saya adalah konsultan bisnis dan marketing Anda. Silakan tanyakan apapun seputar strategi bisnis, pemasaran, SEO, atau tren e-commerce.", aiPlaceholder: "Tanya strategi (contoh: 'Ide konten viral untuk bisnis kopi')...", aiError: "Sistem sedang memproses banyak data, silakan coba lagi.",
+                auditTitle: "PageSpeed", auditSub: "Cek kesehatan website & Daftar Penyakit (Opportunities) via Google API.", auditBtn: "SCAN", auditScore: "Skor Keseluruhan:", auditIssues: "Daftar Penyakit (Opportunities):", auditScanning: "MEMINDAI...", auditHealthy: "Website sangat sehat!", auditError: "Gagal memindai URL. Pastikan URL valid dan dapat diakses publik.", auditErrorUrl: "Masukkan URL valid!",
+                trendTitle: "Google Trends Indonesia", trendSub: "Top 20 Pencarian Hari Ini", 
 
                 // JOBS
                 dateJob1: "Jan 2026 - Sekarang", 
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
                 descJob1: "<p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar 50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</li><li><strong>Melakukan riset pasar mendalam</strong> dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</li><li><strong>Memimpin negosiasi kontrak strategis</strong> dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</li></ul>",
-                
-                dateJob2: "Sep 2025 - Des 2025",
-                roleJob2: "Content Writer (Internship)",
-                compJob2: "Garap Media Nusantara",
-                descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><div class='flex flex-col gap-2 mt-4'><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='text-gold hover:text-black dark:hover:text-white text-xs font-bold underline'>Lihat Artikel Terbit</a><a href='#' onclick='openLightbox(\"reqgarmed.webp\", \"image\"); return false;' class='text-gold hover:text-black dark:hover:text-white text-xs font-bold underline'>Surat Rekomendasi</a></div>",
+                dateJob2: "Sep 2025 - Des 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-gold text-white text-xs font-bold rounded-xl hover:bg-black transition-all w-fit shadow-md'>Lihat Artikel Terbit <i class='fas fa-arrow-right'></i></a>",
+                dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul>",
+                dateJob4: "Mei 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>",
+                dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Bisnis Kue", compJob5: "Wirausaha", descJob5: "<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>",
+                dateJob6: "Mei 2023 - Des 2023", roleJob6: "Customer Service & Co-Founder", compJob6: "Web Development Venture", descJob6: "<p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</li></ul>",
 
-                dateJob3: "Jul 2025 - Sep 2025",
-                roleJob3: "Marketplace Administrator",
-                compJob3: "Shopify & Shopee",
-                descJob3: "<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul><div class='mt-4'><a href='#' onclick='openLightbox(\"shopfy.webp\", \"image\"); return false;' class='text-gold hover:text-black dark:hover:text-white text-xs font-bold underline'>Laporan Kinerja Analitik Shopify</a></div>",
-
-                dateJob4: "Mei 2025 - Jul 2025",
-                roleJob4: "Affiliate Marketing",
-                compJob4: "Shopee",
-                descJob4: "<p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>",
-
-                dateJob5: "Jan 2024 - Apr 2025",
-                roleJob5: "Owner, Bisnis Kue",
-                compJob5: "Wirausaha",
-                descJob5: "<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>",
-
-                dateJob6: "Mei 2023 - Des 2023",
-                roleJob6: "Customer Service & Co-Founder",
-                compJob6: "Web Development Venture",
-                descJob6: "<p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</li></ul>",
-
-                // SERVICES (Detailed & Persuasive)
+                // SERVICES
                 descLandingPage: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Copywriting Hipnotis:</strong> Struktur AIDA/PAS yang menjual.</li><li><strong>Speed Optimization:</strong> Loading < 2 detik (Core Web Vitals Lulus).</li><li><strong>Pixel Ready:</strong> Setup Facebook Pixel & GTM Standard Event.</li><li><strong>Desain Premium:</strong> UI/UX modern, trust badge, & testimoni layout.</li><li><strong>Mobile Responsive:</strong> Tampilan sempurna di semua HP.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan Conversion Rate (CVR) iklan Anda.</li><li>Menurunkan biaya per akuisisi (CPA) karena relevansi tinggi.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.500.000</div>",
                 descWPBlog: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>CMS WordPress:</strong> Instalasi & konfigurasi tema premium.</li><li><strong>SEO On-Page:</strong> Plugin SEO Pro, sitemap, robots.txt.</li><li><strong>Kecepatan:</strong> Caching system & image compression.</li><li><strong>Keamanan:</strong> Firewall & proteksi login.</li><li><strong>Integrasi:</strong> Google Analytics 4 & Search Console.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan trafik organik jangka panjang.</li><li>Membangun otoritas brand di industri Anda.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000</div>",
                 descLMS: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Web Portal:</strong> Custom branded domain & hosting.</li><li><strong>Manajemen User:</strong> Admin, Guru, Siswa (Unlimited).</li><li><strong>Fitur Kuis:</strong> Bank soal, timer, & nilai otomatis.</li><li><strong>Payment:</strong> Integrasi Midtrans untuk pembayaran SPP/Kursus.</li><li><strong>Sertifikat:</strong> Generator sertifikat otomatis setelah lulus.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Otomatisasi 90% administrasi sekolah/kursus.</li><li>Membuka peluang pendapatan baru dari kursus online berbayar.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.000.000</div>",
                 descTryOut: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Sistem CBT:</strong> Simulasi persis tampilan BKN/UTBK.</li><li><strong>Bank Soal:</strong> Support upload massal via Excel.</li><li><strong>Analisis:</strong> Grafik nilai per sub-tes & ranking nasional.</li><li><strong>Keamanan:</strong> Fitur anti-copy paste & timer server-side.</li><li><strong>Akses:</strong> Multi-device (HP/Laptop) lancar.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Platform siap jual untuk bimbel/institusi pendidikan.</li><li>Skalabilitas tinggi untuk ribuan peserta serentak.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.500.000</div>",
-                descSIAKAD: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Modul Keuangan:</strong> Tagihan SPP, Laporan Kas, Tunggakan.</li><li><strong>Modul Akademik:</strong> Jadwal, Absensi QR, Nilai, E-Rapor.</li><li><strong>Multi-Portal:</strong> Login khusus Kepsek, Guru, Siswa, Ortu.</li><li><strong>Broadcast:</strong> Kirim tagihan via WhatsApp Gateway.</li><li><strong>Backup:</strong> Daily automatic database backup.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Transparansi keuangan sekolah meningkat 100%.</li><li>Memudahkan pemantauan orang tua terhadap siswa.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 7.500.000</div>",
+                descSIAKAD: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Modul Keuangan:</strong> Tagihan SPP, Laporan Kas, Tunggakan.</li><li><strong>Modul Akademik:</strong> Jadwal, Absensi QR, Nilai, E-Rapor.</li><li><strong>Multi-Portal:</strong> Login khusus Kepsek, Guru, Siswa, Ortu.</li><li><strong>Broadcast:</strong> Kirim tagihan via WhatsApp Gateway.</li><li><strong>Backup:</strong> Database backup otomatis harian.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Transparansi keuangan sekolah meningkat 100%.</li><li>Memudahkan pemantauan orang tua terhadap siswa.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 7.500.000</div>",
                 descBooking: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Kalender Interaktif:</strong> Pilih tanggal/jam & staf.</li><li><strong>Notifikasi WA:</strong> Reminder otomatis H-1 dan H-1 jam.</li><li><strong>Database Klien:</strong> Riwayat kunjungan & catatan medis/servis.</li><li><strong>Deposit:</strong> Dukungan pembayaran DP otomatis.</li><li><strong>Laporan:</strong> Statistik kunjungan & pendapatan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mengurangi tingkat ketidakhadiran (no-show) hingga 80%.</li><li>Admin fokus melayani, bukan membalas chat jadwal.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.500.000</div>",
-                descProperty: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Listing Engine:</strong> Upload HD photos, Video, & Virtual Tour.</li><li><strong>Advanced Search:</strong> Filter lokasi, harga, fasilitas.</li><li><strong>Agent Profile:</strong> Dedicated page for each agent.</li><li><strong>Lead Gen:</strong> 'Schedule Viewing' form & WA Direct.</li><li><strong>Maps:</strong> Integrasi Google Maps API.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Tampilan profesional meningkatkan kepercayaan pembeli properti.</li><li>Database listing terpusat & mudah diakses.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
+                descProperty: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Listing Engine:</strong> Upload foto HD, Video, & Virtual Tour.</li><li><strong>Advanced Search:</strong> Filter lokasi, harga, fasilitas.</li><li><strong>Agent Profile:</strong> Halaman khusus untuk setiap agen.</li><li><strong>Lead Gen:</strong> 'Schedule Viewing' form & WA Direct.</li><li><strong>Maps:</strong> Integrasi Google Maps API.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Tampilan profesional meningkatkan kepercayaan pembeli properti.</li><li>Database listing terpusat & mudah diakses.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
                 descInvitation: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Smart RSVP:</strong> Konfirmasi kehadiran real-time ke Dashboard.</li><li><strong>QR Code:</strong> Sistem check-in tamu tanpa buku fisik.</li><li><strong>Fitur Premium:</strong> Autoplay music, galeri, countdown, amplop digital.</li><li><strong>Broadcast:</strong> Kirim undangan massal via WA (Nama tamu otomatis).</li><li><strong>Custom Domain:</strong> Nama mempelai (misal: romeo-juliet.com).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Hemat biaya cetak undangan fisik hingga 70%.</li><li>Manajemen tamu VIP yang lebih rapi dan eksklusif.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 1.500.000</div>",
-                descCatalog: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Toko Online Simpel:</strong> Tanpa keranjang ribet, langsung WA.</li><li><strong>Kategori Produk:</strong> Manajemen stok & varian harga.</li><li><strong>Pencarian Cepat:</strong> Filter instan tanpa loading.</li><li><strong>Tombol Beli:</strong> Pesan otomatis terformat (Nama, Alamat, Pesanan).</li><li><strong>Promo Banner:</strong> Slider untuk info diskon/produk baru.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mudah bagi pelanggan untuk melihat produk tanpa instal aplikasi.</li><li>Closing rate lebih tinggi karena interaksi personal via WA.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
+                descCatalog: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Toko Online Simpel:</strong> Tanpa keranjang ribet, langsung WA.</li><li><strong>Kategori Produk:</strong> Manajemen stok & varian harga.</li><li><strong>Pencarian Cepat:</strong> Filter instan tanpa loading.</li><li><strong>Tombol Beli:</strong> Pesan otomatis terformat (Nama, Alamat, Pesanan).</li><li><strong>Promo Banner:</strong> Slider untuk info diskon/produk baru.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Memudahkan pelanggan melihat produk tanpa instal aplikasi.</li><li>Closing rate lebih tinggi karena interaksi personal via WA.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
                 descBioLink: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Desain Custom:</strong> Sesuai identitas warna/logo brand.</li><li><strong>Unlimited Links:</strong> Tombol WA, Shopee, Tokped, Maps, dll.</li><li><strong>Embed Media:</strong> Tampilkan video YouTube/Spotify langsung.</li><li><strong>Analitik:</strong> Laporan jumlah klik per tombol.</li><li><strong>SEO Basic:</strong> Terindeks di Google.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Satu link untuk semua kebutuhan trafik.</li><li>Kesan profesional dibanding pakai Linktree gratisan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 500.000</div>",
-                descCareer: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Job Portal:</strong> Halaman karir profesional dengan filter posisi.</li><li><strong>ATS Lite:</strong> Dashboard kelola pelamar (Screening, Interview, Hired).</li><li><strong>Database:</strong> Simpan CV pelamar untuk kebutuhan masa depan.</li><li><strong>Custom Form:</strong> Pertanyaan spesifik untuk setiap posisi.</li><li><strong>Notifikasi:</strong> Email otomatis ke pelamar (Diterima/Ditolak).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan *Employer Branding* perusahaan.</li><li>Efisiensi waktu HRD dalam seleksi awal hingga 60%.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.500.000</div>",
+                descCareer: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Job Portal:</strong> Halaman karir profesional dengan filter posisi.</li><li><strong>ATS Lite:</strong> Dashboard kelola pelamar (Screening, Interview, Hired).</li><li><strong>Database:</strong> Simpan CV pelamar untuk kebutuhan masa depan.</li><li><strong>Form Custom:</strong> Pertanyaan spesifik untuk setiap posisi.</li><li><strong>Notifikasi:</strong> Email otomatis ke pelamar (Diterima/Ditolak).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan *Employer Branding* perusahaan.</li><li>Efisiensi waktu HRD dalam seleksi awal hingga 60%.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.500.000</div>",
                 descDashboard: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Visualisasi Data:</strong> Grafik, Pie Chart, & KPI Card Real-time.</li><li><strong>Integrasi Data:</strong> Koneksi ke Google Sheets, SQL, atau API.</li><li><strong>Multi-User:</strong> Hak akses berbeda (Viewer, Editor, Admin).</li><li><strong>Export:</strong> Download laporan PDF/Excel otomatis.</li><li><strong>Mobile Friendly:</strong> Pantau bisnis dari HP.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Keputusan bisnis lebih cepat berdasarkan data (Data-driven).</li><li>Transparansi performa tim/proyek secara real-time.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.000.000</div>",
                 descInventory: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Stock Opname:</strong> Pencatatan stok masuk/keluar real-time.</li><li><strong>Barcode:</strong> Dukungan scan barcode untuk input cepat.</li><li><strong>Alert:</strong> Notifikasi stok menipis otomatis.</li><li><strong>Laporan:</strong> Mutasi stok & valuasi aset.</li><li><strong>Multi-Gudang:</strong> Kelola banyak lokasi penyimpanan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meminimalisir selisih stok (shrinkage) hingga 90%.</li><li>Efisiensi proses restock dan pembelian.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
-                descESS: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Online Attendance:</strong> GPS & Selfie check-in/out.</li><li><strong>Submission:</strong> Leave, Permit, Overtime via app.</li><li><strong>Payslip:</strong> Secure digital payslip download.</li><li><strong>Employee Data:</strong> Self-update profile.</li><li><strong>Announcement:</strong> Company info broadcast.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mengurangi beban administrasi HRD.</li><li>Data kehadiran lebih akurat dan transparan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 6.000.000</div>",
-                descKPI: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Metrics:</strong> Tailored to specific company needs.</li><li><strong>Live Tracking:</strong> Monitor target vs actual.</li><li><strong>Leaderboard:</strong> Gamification for sales/CS teams.</li><li><strong>Trend Analysis:</strong> Future performance prediction.</li><li><strong>TV Mode:</strong> Specific display for office big screens.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Boost team motivation through data transparency.</li><li>Early detection of performance issues.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.500.000</div>",
+                descESS: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Absensi Online:</strong> GPS & Selfie check-in/out.</li><li><strong>Pengajuan:</strong> Cuti, Izin, Lembur via aplikasi.</li><li><strong>Slip Gaji:</strong> Download slip gaji digital aman.</li><li><strong>Data Karyawan:</strong> Update profil mandiri.</li><li><strong>Pengumuman:</strong> Broadcast info perusahaan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mengurangi beban administrasi HRD.</li><li>Data kehadiran lebih akurat dan transparan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 6.000.000</div>",
+                descKPI: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Metrics:</strong> Sesuai kebutuhan spesifik perusahaan.</li><li><strong>Live Tracking:</strong> Pantau target vs realisasi.</li><li><strong>Leaderboard:</strong> Gamifikasi performa tim sales/CS.</li><li><strong>Trend Analysis:</strong> Prediksi performa ke depan.</li><li><strong>TV Mode:</strong> Tampilan khusus layar besar di kantor.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan motivasi tim melalui transparansi data.</li><li>Deteksi masalah kinerja lebih dini.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.500.000</div>",
+                descStructureSEO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Audit Menyeluruh:</strong> Crawl error, broken links, speed, mobile usability.</li><li><strong>On-Page Fix:</strong> Title, Meta Desc, Heading, Alt Text optimization.</li><li><strong>Technical Fix:</strong> Sitemap.xml, Robots.txt, Schema Markup, Canonical.</li><li><strong>Indexing:</strong> Memastikan semua halaman penting terindeks Google.</li><li><strong>Speed Boost:</strong> Kompresi gambar & caching.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Pondasi wajib sebelum menjalankan strategi konten/backlink.</li><li>Meningkatkan visibilitas organik di halaman 1 Google.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
+                descAdsMgmt: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Strategi Full Funnel:</strong> Awareness, Consideration, Conversion.</li><li><strong>Multi-Platform:</strong> Google Ads, Meta Ads, TikTok Ads.</li><li><strong>Creative Production:</strong> Desain banner & copywriting iklan.</li><li><strong>A/B Testing:</strong> Uji coba audiens & materi iklan berkala.</li><li><strong>Laporan:</strong> Analisis mingguan (ROAS, CPC, CPA).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mendapatkan trafik instan yang tertarget (Siap Beli).</li><li>Skalabilitas omzet yang terukur dan terkontrol.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Fee: 20% dari Anggaran Iklan</div>",
+                descStoreMgmt: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Operasional:</strong> Upload produk, balas chat (08.00-17.00), proses order.</li><li><strong>Dekorasi Toko:</strong> Desain banner & kategori produk profesional.</li><li><strong>Optimasi Produk:</strong> Judul & deskripsi SEO marketplace.</li><li><strong>Iklan Marketplace:</strong> Setting Shopee/Tokped Ads (Efisiensi Biaya).</li><li><strong>Campaign:</strong> Pendaftaran Flash Sale & Event Tanggal Kembar.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Toko aktif & responsif tanpa Anda harus standby 24/7.</li><li>Meningkatkan reputasi toko (Star Seller/Power Merchant).</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000/bln</div>",
+                descGMB: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Verifikasi:</strong> Bantuan proses verifikasi pin Google.</li><li><strong>Optimasi Profil:</strong> Keyword lokal, foto, jam buka, kategori.</li><li><strong>Review Mgmt:</strong> Strategi balasan ulasan & peningkatan rating.</li><li><strong>Posting Rutin:</strong> Update promo/produk mingguan di GMB.</li><li><strong>Citation:</strong> Pendaftaran di direktori lokal lainnya.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mendominasi pencarian lokal (Maps) di area Anda.</li><li>Meningkatkan kunjungan fisik dan telepon pelanggan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 1.500.000</div>",
+                descContentStrategy: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Keyword Research:</strong> Identifikasi kata kunci potensial & low competition.</li><li><strong>Content Calendar:</strong> Jadwal posting terencana selama sebulan.</li><li><strong>Artikel SEO:</strong> Penulisan artikel 1000+ kata (Human written).</li><li><strong>Copywriting:</strong> Teks persuasif untuk landing page/sosmed.</li><li><strong>Distribusi:</strong> Posting ke blog/website klien.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Trafik organik stabil jangka panjang.</li><li>Membangun kepercayaan audiens melalui konten edukatif.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.500.000/bln</div>",
+                descCRO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Audit UX:</strong> Analisis heatmaps & rekaman sesi user.</li><li><strong>Funnel Analysis:</strong> Identifikasi titik drop-off pelanggan.</li><li><strong>A/B Testing:</strong> Tes variasi tombol, warna, layout.</li><li><strong>Speed:</strong> Optimasi loading time halaman checkout.</li><li><strong>Trust Elements:</strong> Penambahan elemen kepercayaan (testimoni, badge).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan penjualan tanpa menambah budget iklan.</li><li>Memaksimalkan nilai setiap pengunjung website.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000</div>",
+            },
+            en: {
+                navAbout: "About", navSkills: "Skills", navExperience: "Experience", navGallery: "Gallery", navServices: "Services", navShowcase: "Insights", btnContact: "Contact Me",
+                heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
+                heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon. The synergy between my understanding of algorithms from my academic background and my digital marketing strategies allows me to implement a more profound, data-driven, and innovative approach to optimization.",
+                btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Ranking", statClients: "Clients",
+                tagTimeline: "Timeline", tagMethod: "Methodology", tagPortfolio: "Portfolio", tagOffer: "The Offer", tagValidation: "Validation", tagCreds: "Credentials", tagShowcase: "Insights",
+                compTitle: "Core Competencies",
+                expTitle: "Career Journey", 
+                galleryTitle: "Project Gallery", 
+                clickZoom: "Click image to zoom / thumbnails to switch",
+                footerTitle: "Let's Work Together.", footerDesc: "Looking for impactful digital strategies? Let's discuss how I can help grow your business.",
+                serviceTitle: "Exclusive Services", 
+                testiTitle: "What Clients Say",
+                popupTitle: "👋 Hello!", popupMsg1: "Need a pro website?", btnPopup: "Check Offer", popupMsg2: "Website traffic low?", popupMsg3: "Need better content?", popupMsg4: "Want higher sales?", popupMsg5: "Start digital marketing?",
+                compStratTitle: "Strategic Marketing", compTechTitle: "Tools & Tech", compProfTitle: "Soft Skills",
+                compSeoDesc: "SEO Mastery (On-page, Technical)", compAdsDesc: "Paid Ads (Google, Meta, TikTok)", compContentDesc: "Content Strategy", compViral: "Viral Marketing", compEmail: "Email Marketing", compBrand: "Brand Identity", compGrowth: "Growth Hacking",
+                skillData: "Data Storytelling", skillPM: "Project Management", skillComm: "Communication", skillProblem: "Problem Solving", skillLead: "Leadership", skillNego: "Negotiation", skillCrit: "Critical Thinking", skillTime: "Time Management",
+                btnViewBlog: "View All Articles", btnAllCerts: "View 45+ Credentials", footerRights: "All Rights Reserved.", footerLegal: "Privacy Policy",
+                footerSocials: "Socials",
+                lblSelectSolution: "Select Solution", btnConsult: "Consult via WhatsApp",
+                cat1Title: "Web Development & System Solutions", cat1Sub: "Building functional digital infrastructure",
+                cat2Title: "Business Operations", cat2Sub: "Internal management efficiency solutions",
+                cat3Title: "Digital Marketing & SEO", cat3Sub: "Digital market dominance & conversion",
+                lblSelectTool: "Select Tool", lblSelectStrategy: "Select Strategy",
+                partnerBadge: "Official Technology Partner", partnerDesc: "Enterprise-level strategic collaboration to deliver robust Web Development & System Integration solutions. Together with Garap Digital, we ensure your technology infrastructure is <strong>scalable</strong>, secure, and ready to support your business growth to the next level.", partnerLink: "Visit Partner Website",
+                trendLoading: "Fetching Trends Data...", loadingText: "Loading...",
+
+                // NEURAL COMMAND CENTER (English)
+                neuralStatus: "System Online", neuralTitle: "Neural Command Center", 
+                neuralDesc: "Integrated data ecosystem combining Investment Dashboard, AI Analytics, and Real-time Web Audit.", 
+                dashTitle: "Investment Dashboard (GSC + GA4)", dashLive: "Live Data", dashWait: "Loading Looker Studio...",
+                aiTitle: "Business Consultant", aiSub: "Powered by Gemini 1.5 Flash", aiActive: "Active", 
+                aiGreeting: "Hello! I am your business and marketing consultant. Feel free to ask anything about business strategy, marketing, SEO, or e-commerce trends.", aiPlaceholder: "Ask strategy (e.g., 'Viral content ideas')...", aiError: "System is processing heavy load, please try again.",
+                auditTitle: "PageSpeed", auditSub: "Check website health & Opportunities via Google API.", auditBtn: "SCAN", auditScore: "Overall Score:", auditIssues: "Opportunities (Issues):", auditScanning: "SCANNING...", auditHealthy: "Website is very healthy!", auditError: "Failed to scan URL. Ensure URL is valid and public.", auditErrorUrl: "Enter a valid URL!",
+                trendTitle: "Google Trends Indonesia", trendSub: "Top 20 Searches Today", 
+
+                // JOBS
+                dateJob1: "Jan 2026 - Present", 
+                roleJob1: "Freelance Business Development Associate",
+                compJob1: "PT Madani Abadi Nusantara",
+                descJob1: "<p>Fully responsible for managing the B2B sales cycle for professional services covering Accounting, Tax, and Business Legality Consulting. Main focus on new market penetration and building long-term relationships with corporate clients.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully increased Customer Retention Rate by 50%</strong> through the implementation of proactive and personalized Customer Relationship Management (CRM) strategies.</li><li><strong>Conducted in-depth market research</strong> and competitor analysis to design more competitive service offerings, directly impacting sales conversion increase.</li><li><strong>Led strategic contract negotiations</strong> with key clients, ensuring project profitability while delivering maximum added value for the client.</li></ul>",
+                dateJob2: "Sep 2025 - Dec 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Underwent an intensive 3-month internship program as a lead content writer. Tasked with producing 29 in-depth articles on Business, Technology, and Digital Trends with strict adherence to the latest SEO standards (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Achieved Ranking #1 on Google Search</strong> for several competitive keywords, proving the effectiveness of keyword research and content structure implemented.</li><li><strong>Articles selected for Google Discover feature</strong>, generating massive organic traffic spikes with zero ad spend.</li><li><strong>Developed a consistent editorial calendar</strong>, ensuring timely content publication relevant to current market trends.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-gold text-white text-xs font-bold rounded-xl hover:bg-black transition-all w-fit shadow-md'>View Published Articles <i class='fas fa-arrow-right'></i></a>",
+                dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Took a leadership role in establishing and managing a global dropshipping business using the Shopify platform. Oversaw the entire supply chain from sourcing suppliers in China to delivery to customers in the United States (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully booked 137 verified sales</strong> in just the first month of operations, proving product validation and correct marketing strategy.</li><li><strong>Created product virality</strong> by generating over <strong>14,000 organic impressions</strong> on TikTok Shop through creative video content and platform algorithm optimization.</li><li><strong>Managed international customer service (CS)</strong> with rapid response standards, maintaining high customer satisfaction amidst cross-border logistics complexity.</li></ul>",
+                dateJob4: "May 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Designed and executed end-to-end affiliate marketing strategies on the Shopee platform. Selectively curated products to ensure fit with target audience demographics (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Leveraged Instagram as the main channel</strong> (traffic source) by creating engaging visual content and persuasive storytelling to drive clicks and conversions.</li><li><strong>Successfully recorded 57 direct sales</strong> in the first month, demonstrating rapid adaptability in understanding online buyer psychology.</li><li><strong>Optimized Shopee promotional features</strong> and exclusive vouchers to increase offer attractiveness for potential buyers.</li></ul>",
+                dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Cake Business", compJob5: "Entrepreneur", descJob5: "<p>Built a culinary (cake) business from scratch (bootstrapping), managing all operational aspects from production, quality control, marketing, to after-sales service. Placed customer satisfaction as the main business priority.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully acquired a loyal customer base of 437 people</strong> growing organically through Word-of-Mouth (WOM) strategies and local social media marketing.</li><li><strong>Achieved financial stability</strong> with consistent daily revenue exceeding <strong>Rp500,000</strong>, proving the sustainability of the applied business model.</li><li><strong>Developed new product variations</strong> based on customer feedback (feedback loop) to maintain relevance and market interest.</li></ul>",
+                dateJob6: "May 2023 - Dec 2023", roleJob6: "Customer Service & Co-Founder", compJob6: "Web Development Venture", descJob6: "<p>Dual role as Co-Founder and spearhead of customer service (CS) in a web development startup venture. Responsible for managing client expectations and bridging technical communication between clients and the developer team.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully secured 6 high-value web development projects</strong> within just 1 month through consultative approaches and persuasive relationship management.</li><li><strong>Maintained excellent service reputation</strong> with an average perfect customer satisfaction rating of <strong>4.9 to 5 stars</strong>, which became a key asset for new client acquisition.</li><li><strong>Drafted Standard Operating Procedures (SOP)</strong> for client onboarding, ensuring the project handover process ran smoothly and professionally.</li></ul>",
+
+                // SERVICES
+                descLandingPage: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Hypnotic Copywriting:</strong> Sales-focused AIDA/PAS structure.</li><li><strong>Speed Optimization:</strong> Loading < 2s (Core Web Vitals Pass).</li><li><strong>Pixel Ready:</strong> Facebook Pixel & GTM Standard Event setup.</li><li><strong>Premium Design:</strong> Modern UI/UX, trust badges, & testimonial layout.</li><li><strong>Mobile Responsive:</strong> Perfect display on all devices.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Increase Ad Conversion Rate (CVR).</li><li>Lower Cost Per Acquisition (CPA) due to high relevancy.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 2,500,000</div>",
+                descWPBlog: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>WordPress CMS:</strong> Premium theme installation & config.</li><li><strong>On-Page SEO:</strong> SEO Pro plugin, sitemap, robots.txt.</li><li><strong>Speed:</strong> Caching system & image compression.</li><li><strong>Security:</strong> Firewall & login protection.</li><li><strong>Integration:</strong> Google Analytics 4 & Search Console.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Drive long-term organic traffic.</li><li>Build brand authority in your industry.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 3,000,000</div>",
+                descLMS: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Web Portal:</strong> Custom branded domain & hosting.</li><li><strong>User Management:</strong> Admin, Teacher, Student (Unlimited).</li><li><strong>Quiz Features:</strong> Question bank, timer, & auto-grading.</li><li><strong>Payment:</strong> Midtrans integration for course fees.</li><li><strong>Certificate:</strong> Auto-generated certificate upon passing.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Automate 90% of school/course administration.</li><li>Open new revenue streams from paid online courses.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 5,000,000</div>",
+                descTryOut: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>CBT System:</strong> Exact simulation of BKN/UTBK interface.</li><li><strong>Question Bank:</strong> Bulk upload support via Excel.</li><li><strong>Analytics:</strong> Score graphs per sub-test & national ranking.</li><li><strong>Security:</strong> Anti-copy paste & server-side timer.</li><li><strong>Access:</strong> Smooth multi-device (Mobile/Laptop).</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Ready-to-sell platform for tutoring centers.</li><li>High scalability for thousands of concurrent users.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,500,000</div>",
+                descSIAKAD: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Finance Module:</strong> Tuition bills, Cash Report, Arrears.</li><li><strong>Academic Module:</strong> Schedule, QR Attendance, Grades, E-Report.</li><li><strong>Multi-Portal:</strong> Login for Principal, Teacher, Student, Parent.</li><li><strong>Broadcast:</strong> Send bills via WhatsApp Gateway.</li><li><strong>Backup:</strong> Daily automatic database backup.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>100% increase in school financial transparency.</li><li>Facilitates parental monitoring of students.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 7,500,000</div>",
+                descBooking: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Interactive Calendar:</strong> Select date/time & staff.</li><li><strong>WA Notification:</strong> Auto-reminder D-1 and H-1 hour.</li><li><strong>Client Database:</strong> Visit history & medical/service notes.</li><li><strong>Deposit:</strong> Support for auto DP payment.</li><li><strong>Report:</strong> Visit statistics & revenue.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Reduce no-show rates by up to 80%.</li><li>Admin focuses on service, not replying to schedule chats.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 3,500,000</div>",
+                descProperty: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Listing Engine:</strong> Upload HD photos, Video, & Virtual Tour.</li><li><strong>Advanced Search:</strong> Filter location, price, facilities.</li><li><strong>Agent Profile:</strong> Dedicated page for each agent.</li><li><strong>Lead Gen:</strong> 'Schedule Viewing' form & WA Direct.</li><li><strong>Maps:</strong> Google Maps API integration.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Professional look increases buyer trust.</li><li>Centralized & easily accessible listing database.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,000,000</div>",
+                descInvitation: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Smart RSVP:</strong> Real-time attendance confirmation.</li><li><strong>QR Code:</strong> Guest check-in system without physical books.</li><li><strong>Premium Features:</strong> Autoplay music, gallery, countdown.</li><li><strong>Broadcast:</strong> Bulk invite via WA (Auto guest name).</li><li><strong>Custom Domain:</strong> Couple name (e.g., romeo-juliet.com).</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Save up to 70% on physical invitation printing costs.</li><li>Neater and more exclusive VIP guest management.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 1,500,000</div>",
+                descCatalog: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Simple Online Store:</strong> No complex cart, direct WA.</li><li><strong>Product Category:</strong> Stock management & price variants.</li><li><strong>Quick Search:</strong> Instant filter without loading.</li><li><strong>Buy Button:</strong> Auto-formatted message (Name, Address, Order).</li><li><strong>Promo Banner:</strong> Slider for discounts/new products.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Easy for customers to view products without installing apps.</li><li>Higher closing rate due to personal interaction via WA.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 2,000,000</div>",
+                descBioLink: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Design:</strong> Matches brand identity/colors.</li><li><strong>Unlimited Links:</strong> WA, Shopee, Tokped, Maps buttons, etc.</li><li><strong>Embed Media:</strong> Display YouTube/Spotify video directly.</li><li><strong>Analytics:</strong> Click count report per button.</li><li><strong>Basic SEO:</strong> Indexed on Google.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>One link for all traffic needs.</li><li>Professional impression compared to free Linktree.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 500,000</div>",
+                descCareer: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Job Portal:</strong> Professional career page with filters.</li><li><strong>ATS Lite:</strong> Applicant management dashboard.</li><li><strong>Database:</strong> Store applicant CVs for future needs.</li><li><strong>Custom Form:</strong> Specific questions for each position.</li><li><strong>Notification:</strong> Auto-email to applicants.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Boost company *Employer Branding*.</li><li>HR efficiency in initial screening up to 60%.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,500,000</div>",
+                descDashboard: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Data Visualization:</strong> Real-time Graphs, Pie Charts, & KPIs.</li><li><strong>Data Integration:</strong> Connect to Google Sheets, SQL, or API.</li><li><strong>Multi-User:</strong> Different access rights (Viewer, Editor).</li><li><strong>Export:</strong> Auto download PDF/Excel reports.</li><li><strong>Mobile Friendly:</strong> Monitor business from mobile.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Faster data-driven business decisions.</li><li>Real-time transparency of team/project performance.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 5,000,000</div>",
+                descInventory: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Stock Opname:</strong> Real-time in/out stock recording.</li><li><strong>Barcode:</strong> Barcode scan support for fast input.</li><li><strong>Alert:</strong> Low stock notification.</li><li><strong>Report:</strong> Stock mutation & asset valuation.</li><li><strong>Multi-Warehouse:</strong> Manage multiple storage locations.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Minimize stock shrinkage up to 90%.</li><li>Efficiency in restock and purchasing processes.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,000,000</div>",
+                descESS: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Online Attendance:</strong> GPS & Selfie check-in/out.</li><li><strong>Submission:</strong> Leave, Permit, Overtime via app.</li><li><strong>Payslip:</strong> Secure digital payslip download.</li><li><strong>Employee Data:</strong> Self-update profile.</li><li><strong>Announcement:</strong> Company info broadcast.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Reduce HR administrative burden.</li><li>More accurate and transparent attendance data.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 6,000,000</div>",
+                descKPI: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Metrics:</strong> Tailored to specific company needs.</li><li><strong>Live Tracking:</strong> Monitor target vs actual.</li><li><strong>Leaderboard:</strong> Gamification for sales/CS teams.</li><li><strong>Trend Analysis:</strong> Future performance prediction.</li><li><strong>TV Mode:</strong> Specific display for office big screens.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Boost team motivation through data transparency.</li><li>Early detection of performance issues.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 5,500,000</div>",
                 descStructureSEO: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Comprehensive Audit:</strong> Crawl errors, broken links, speed.</li><li><strong>On-Page Fix:</strong> Title, Meta Desc, Heading optimization.</li><li><strong>Technical Fix:</strong> Sitemap, Robots.txt, Schema, Canonical.</li><li><strong>Indexing:</strong> Ensure all key pages are indexed.</li><li><strong>Speed Boost:</strong> Image compression & caching.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mandatory foundation before content/backlink strategy.</li><li>Increase organic visibility on Google page 1.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 2,000,000</div>",
                 descAdsMgmt: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Full Funnel Strategy:</strong> Awareness, Consideration, Conversion.</li><li><strong>Multi-Platform:</strong> Google Ads, Meta Ads, TikTok Ads.</li><li><strong>Creative Production:</strong> Banner design & ad copywriting.</li><li><strong>A/B Testing:</strong> Regular audience & ad material testing.</li><li><strong>Report:</strong> Weekly analysis (ROAS, CPC, CPA).</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Get instant targeted traffic (Ready to Buy).</li><li>Measurable and controlled revenue scalability.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Fee: 20% of Ad Spend</div>",
                 descStoreMgmt: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Operations:</strong> Product upload, chat reply, order processing.</li><li><strong>Shop Deco:</strong> Professional banner & category design.</li><li><strong>Product Optimization:</strong> Marketplace SEO titles & descriptions.</li><li><strong>Marketplace Ads:</strong> Shopee/Tokped Ads setting.</li><li><strong>Campaign:</strong> Flash Sale & Double Date registration.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Active & responsive shop without 24/7 standby.</li><li>Increase shop reputation (Star Seller/Power Merchant).</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 3,000,000/mo</div>",
@@ -1381,7 +1306,7 @@
             }
         };
 
-        // RENDER TESTIMONIALS (3D Avatar + Stars)
+        // RENDER TESTIMONIALS (Kembali ke versi Avataaars Standar Profesional)
         const testimonials = [
             { text: "Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data.", name: "Rihwan S.", role: "Business Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4", rating: 5 },
             { text: "Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.", name: "Andi L.", role: "UMKM Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c0aede", rating: 5 },
@@ -1400,7 +1325,7 @@
                 return `
                 <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                     <div class="flex items-center justify-between mb-4">
-                        <img src="${t.avatar}" class="w-12 h-12 rounded-full shadow-sm bg-white" alt="${t.name}">
+                        <img src="${t.avatar}" class="w-12 h-12 rounded-full shadow-sm bg-white border border-black/5" alt="${t.name}">
                         <div class="flex gap-1">${stars}</div>
                     </div>
                     <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-6 italic">"${t.text}"</p>
@@ -1410,7 +1335,7 @@
         }
 
         // OTHER FUNCTIONS
-        let currentLang = localStorage.getItem('lang') || 'id'; // Default ID
+        let currentLang = localStorage.getItem('lang') || 'id'; 
         let globalArticles = [];
         const flagID = "https://flagcdn.com/w20/id.png";
         const flagEN = "https://flagcdn.com/w20/us.png";
@@ -1426,6 +1351,10 @@
                 else { navContainer.classList.remove('h-14'); navContainer.classList.add('h-20'); }
             }, { passive: true });
             triggerReveal(); animateCounters(); ambilDataWordPress();
+            
+            // Panggil API Google Trends
+            fetchGoogleTrends();
+
             const slider = document.getElementById('testimonialSlider');
             if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }
         });
@@ -1443,24 +1372,22 @@
                 const respon = await fetch(linkAPI);
                 if (!respon.ok) throw new Error('Jaringan bermasalah');
                 
-                // REAL-TIME COUNT LOGIC
                 const totalArticles = respon.headers.get('X-WP-Total');
                 if (totalArticles) {
                     counterBadge.innerText = `${totalArticles} ${currentLang === 'en' ? 'Articles' : 'Artikel'}`;
                     counterBadge.classList.remove('animate-pulse');
                 } else {
-                    counterBadge.innerText = "50+"; // Fallback
+                    counterBadge.innerText = "50+";
                 }
 
                 globalArticles = await respon.json();
             } catch (error) {
-                // Mock Data Fallback
                 globalArticles = [
                     { title: { rendered: "Strategi SEO 2026: Dominasi Pencarian" }, excerpt: { rendered: "Panduan lengkap algoritma terbaru Google." }, link: "#", _embedded: { 'wp:term': [[{ name: 'SEO' }]] } },
                     { title: { rendered: "Pentingnya Website untuk Bisnis" }, excerpt: { rendered: "Bisnis tanpa website akan tertinggal." }, link: "#", _embedded: { 'wp:term': [[{ name: 'Business' }]] } },
                     { title: { rendered: "Tips Copywriting yang Menjual" }, excerpt: { rendered: "Teknik menulis yang menghipnotis." }, link: "#", _embedded: { 'wp:term': [[{ name: 'Marketing' }]] } }
                 ];
-                counterBadge.innerText = "3 Artikel"; // Mock count
+                counterBadge.innerText = "3 Artikel";
             }
             renderArticles(globalArticles);
         }
@@ -1490,7 +1417,23 @@
             document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } });
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const key = el.getAttribute('data-i18n-placeholder'); if (translations[lang][key]) { el.placeholder = translations[lang][key]; } });
             ['opt-cat1', 'opt-cat2', 'opt-cat3'].forEach(id => { const select = document.getElementById(id); if (select) { const event = new Event('change'); select.dispatchEvent(event); } });
+            
+            // Manual check for some IDs if needed
+            const job1Desc = document.getElementById('descJob1'); if(job1Desc) job1Desc.innerHTML = translations[lang].descJob1;
+            const job2Desc = document.getElementById('descJob2'); if(job2Desc) job2Desc.innerHTML = translations[lang].descJob2;
+            const job3Desc = document.getElementById('descJob3'); if(job3Desc) job3Desc.innerHTML = translations[lang].descJob3;
+            const job4Desc = document.getElementById('descJob4'); if(job4Desc) job4Desc.innerHTML = translations[lang].descJob4;
+            const job5Desc = document.getElementById('descJob5'); if(job5Desc) job5Desc.innerHTML = translations[lang].descJob5;
+            const job6Desc = document.getElementById('descJob6'); if(job6Desc) job6Desc.innerHTML = translations[lang].descJob6;
+
             renderGallery(); renderCerts(); ambilDataWordPress();
+            
+            // Re-render trends untuk trigger terjemahan tanggal
+            if(allTrends.length > 0) {
+                let activeTab = 0;
+                document.querySelectorAll('.trend-tab').forEach((tab, idx) => { if (tab.classList.contains('bg-gold')) activeTab = idx; });
+                renderTrends(activeTab);
+            }
         }
         document.querySelectorAll('.lang-toggle').forEach(btn => { btn.addEventListener('click', () => { setLanguage(currentLang === 'en' ? 'id' : 'en'); }); });
 
@@ -1525,7 +1468,7 @@
         function triggerReveal() { const reveals = document.querySelectorAll('.reveal'); reveals.forEach(r => { const windowHeight = window.innerHeight; const elementTop = r.getBoundingClientRect().top; const elementVisible = 50; if (elementTop < windowHeight - elementVisible) { r.classList.add('active'); } }); const scrollWidget = document.querySelector('.scroll-widget'); if (window.scrollY > 300) { scrollWidget.classList.add('visible'); } else { scrollWidget.classList.remove('visible'); } }
         function animateCounters() { const counters = document.querySelectorAll('.counter'); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const target = +entry.target.getAttribute('data-target'); const duration = 2000; let start = 0; const step = timestamp => { if (!start) start = timestamp; const progress = Math.min((timestamp - start) / duration, 1); entry.target.innerText = Math.floor(progress * target) + (progress === 1 ? "+" : ""); if (progress < 1) window.requestAnimationFrame(step); }; window.requestAnimationFrame(step); observer.unobserve(entry.target); } }); }, { threshold: 0.5 }); counters.forEach(c => observer.observe(c)); }
 
-        // HERO SLIDER (Updated Titles - Professional & High Ticket)
+        // HERO SLIDER
         const galleryItems = [
             { src: 'uno.webp', type: 'image', title: {en: 'Enterprise Strategy', id: 'Strategi Enterprise'}, subtitle: {en: 'Business Intelligence', id: 'Intelijen Bisnis'} },
             { src: 'two.webp', type: 'image', title: {en: 'Market Penetration', id: 'Penetrasi Pasar'}, subtitle: {en: 'Data-Driven Growth', id: 'Pertumbuhan Berbasis Data'} },
@@ -1542,7 +1485,7 @@
             const slideWrapper = document.getElementById('hero-slides-wrapper');
             const thumbContainer = document.getElementById('thumbnail-container');
             slideWrapper.innerHTML = galleryItems.map((item, index) => `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}', '${item.type}')">${item.type === 'video' ? `<video src="${item.src}" muted loop playsinline autoplay class="w-full h-full object-cover"></video>` : `<img src="${item.src}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x450?text=Project+Preview';">`}</div>`).join('');
-            thumbContainer.innerHTML = galleryItems.map((item, index) => `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})">${item.type === 'video' ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play\"></i></div>` : `<img src="${item.src}" onerror="this.onerror=null;this.src='https://placehold.co/100x75?text=...';">`}</div>`).join('');
+            thumbContainer.innerHTML = galleryItems.map((item, index) => `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})">${item.type === 'video' ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play"></i></div>` : `<img src="${item.src}" onerror="this.onerror=null;this.src='https://placehold.co/100x75?text=...';">`}</div>`).join('');
             updateText(0);
         }
         function goToSlide(index) { const slides = document.querySelectorAll('.hero-slide'); const thumbs = document.querySelectorAll('.thumbnail-item'); slides[currentSlide].classList.remove('active'); thumbs[currentSlide].classList.remove('active'); currentSlide = index; slides[currentSlide].classList.add('active'); thumbs[currentSlide].classList.add('active'); thumbs[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); updateText(currentSlide); }

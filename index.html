@@ -115,14 +115,8 @@
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
                         'bounce-subtle': 'bounceSubtle 2s infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'scan': 'scan 2s linear infinite',
                     },
-                    keyframes: {
-                        scan: {
-                            '0%': { transform: 'translateY(-100%)' },
-                            '100%': { transform: 'translateY(100%)' }
-                        }
-                    }
+                    keyframes: {}
                 }
             }
         }
@@ -131,19 +125,27 @@
     <style>
         body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; } 
         .dark body { background-color: #0f1014; color: #f3f4f6; }
+        
+        /* OVERRIDE & SMOOTH SCROLLING ENHANCEMENTS */
         html { scroll-behavior: smooth; }
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        
+        /* Hardware Acceleration for Animations */
+        .reveal { will-change: transform, opacity; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .animate-slide-up { will-change: transform, opacity; }
         
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
         
         /* CARD STYLES */
-        .service-card-modern { transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.05); background: #f8f9fa; overflow: hidden; }
+        .service-card-modern { transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.05); background: #f8f9fa; overflow: hidden; transform: translateZ(0); }
         .dark .service-card-modern { border: 1px solid rgba(255,255,255,0.08); background: #1e1e1e; }
         .service-card-modern.expanded { border-color: #c5a028; background: #fff; box-shadow: 0 20px 40px -10px rgba(197,160,40,0.15); }
         .dark .service-card-modern.expanded { background: #252525; }
 
         /* TESTIMONIALS (Glassmorphism & 3D Avatar) */
-        .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+        .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         .h-scroll-container::-webkit-scrollbar { display: none; }
         
         .testimonial-card { 
@@ -152,6 +154,8 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(0,0,0,0.05);
+            will-change: transform;
+            transform: translateZ(0);
         }
         .dark .testimonial-card { 
             background: rgba(30, 30, 30, 0.6);
@@ -160,17 +164,14 @@
         .testimonial-card:hover { transform: translateY(-5px); border-color: #c5a028; box-shadow: 0 15px 40px -10px rgba(0,0,0,0.1); }
 
         /* HERO SLIDER */
-        .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); }
-        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; }
+        .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); transform: translateZ(0); }
+        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; will-change: opacity; }
         .hero-slide.active { opacity: 1; z-index: 10; }
         .hero-slide img, .hero-slide video { width: 100%; height: 100%; object-fit: cover; }
-        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: none; }
-        .thumbnail-item { width: 80px; height: 60px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; flex-shrink: 0; }
+        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .thumbnail-item { width: 80px; height: 60px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; flex-shrink: 0; will-change: transform, border-color, opacity; transform: translateZ(0); }
         .thumbnail-item.active { opacity: 1; border-color: #c5a028; transform: scale(1.05); }
         .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
         
         /* MARKETING POPUP */
         .marketing-popup {
@@ -179,8 +180,10 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none;
+            will-change: transform;
+            transform: translateZ(0);
         }
         .marketing-popup.show { pointer-events: auto; }
 
@@ -198,11 +201,7 @@
             line-height: 1.4;
             cursor: pointer;
         }
-        .dark .bubble {
-            background: rgba(30, 30, 30, 0.98);
-            color: #f3f4f6;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        .dark .bubble { background: rgba(30, 30, 30, 0.98); color: #f3f4f6; border: 1px solid rgba(255,255,255,0.1); }
 
         .popup-close {
             position: absolute; top: 8px; right: 8px; width: 22px; height: 22px;
@@ -213,11 +212,7 @@
         .popup-close:hover { background: #c5a028; color: white; transform: scale(1.1); }
 
         /* NEURAL COMMAND CENTER STYLES */
-        .neural-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1rem;
-        }
+        .neural-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
         .bento-card {
             background: #ffffff;
             border: 1px solid rgba(0,0,0,0.08);
@@ -225,37 +220,38 @@
             overflow: hidden;
             position: relative;
             transition: all 0.3s ease;
+            transform: translateZ(0); /* Hardware accelerate */
         }
-        .dark .bento-card {
-            background: #18181b; /* darkCard */
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-        .bento-card:hover {
-            border-color: #c5a028;
-            box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1);
-            transform: translateY(-2px);
-        }
+        .dark .bento-card { background: #18181b; border: 1px solid rgba(255,255,255,0.08); }
+        .bento-card:hover { border-color: #c5a028; box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1); transform: translateY(-2px); }
         
-        .scan-line {
+        /* REAL SCANNER ANIMATION */
+        .scanner-laser {
             position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #c5a028, transparent);
-            animation: scan 2s linear infinite;
-            opacity: 0.5;
-            top: 0;
-            left: 0;
-            pointer-events: none;
+            left: 0; top: 0; right: 0;
+            height: 3px;
+            background: #c5a028;
+            box-shadow: 0 0 20px 8px rgba(197, 160, 40, 0.5);
+            z-index: 50;
+            animation: scan-laser 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
             display: none;
+            will-change: transform;
         }
-        .scanning .scan-line { display: block; }
+        .scanning .scanner-laser { display: block; }
+        .bento-card.scanning::after {
+            content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 40; backdrop-filter: blur(1px);
+        }
+        @keyframes scan-laser {
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(350px); opacity: 0; } 
+        }
 
         /* MOBILE POPUP (< 768px) - TOP CENTER */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
-            .marketing-popup {
-                top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto;
-            }
+            .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
             .marketing-popup.show { transform: translate(-50%, 0); }
             .bubble { text-align: center; border-top: 4px solid #c5a028; }
             .neural-grid { display: flex; flex-direction: column; }
@@ -263,9 +259,7 @@
 
         /* DESKTOP POPUP (>= 769px) - BOTTOM LEFT */
         @media (min-width: 769px) {
-            .marketing-popup {
-                top: auto; left: 30px; bottom: 30px; right: auto; transform: translateY(150%);
-            }
+            .marketing-popup { top: auto; left: 30px; bottom: 30px; right: auto; transform: translateY(150%); }
             .marketing-popup.show { transform: translateY(0); }
             .bubble { border-left: 4px solid #c5a028; text-align: left; }
         }
@@ -392,7 +386,7 @@
             
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <!-- Header -->
-                <div class="flex flex-col justify-between items-start mb-10 gap-2">
+                <div class="flex flex-col justify-between items-start mb-10 gap-2 reveal">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold" data-i18n="neuralStatus">System Online</span>
@@ -404,9 +398,9 @@
                 </div>
 
                 <!-- Bento Grid Layout -->
-                <div class="neural-grid">
+                <div class="neural-grid reveal" style="animation-delay: 0.1s;">
                     
-                    <!-- 1. PANGGUNG UTAMA (Looker Studio) -->
+                    <!-- 1. PANGGUNG UTAMA (InsightBox / Looker Studio) -->
                     <div class="col-span-12 bento-card p-4 md:p-6 bg-[#0f1014] border-black/20 dark:border-white/10 relative group">
                         <!-- Glass Terminal Effect -->
                         <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-xl"></div>
@@ -418,13 +412,14 @@
                                     <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
                                 </div>
                                 <i class="fas fa-chart-line text-gold"></i>
-                                <h3 class="text-sm font-mono font-bold text-white tracking-wide" data-i18n="dashTitle">Dashboard Investasi (GSC + GA4)</h3>
+                                <h3 class="text-sm font-mono font-bold text-white tracking-wide" data-i18n="dashTitle">InsightBox</h3>
                             </div>
                             <span class="text-[10px] uppercase font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded" data-i18n="dashLive">Live Data</span>
                         </div>
-                        <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-black/50 rounded-lg border border-white/5 relative z-10 overflow-hidden flex items-center justify-center">
-                            <!-- LINK LOOKER STUDIO ANDA SUDAH DIPASANG DI SINI -->
-                            <iframe width="100%" height="100%" src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20"></iframe>
+                        
+                        <!-- Responsive Height untuk Mencegah Blank Space Mobile -->
+                        <div class="w-full h-[380px] sm:h-[450px] md:h-[550px] lg:h-[650px] bg-black/50 rounded-lg border border-white/5 relative z-10 overflow-hidden flex items-center justify-center">
+                            <iframe width="100%" height="100%" loading="lazy" src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20"></iframe>
                             
                             <!-- Overlay loading -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-white/30 pointer-events-none z-0">
@@ -443,13 +438,13 @@
                                 </div>
                                 <div><h3 class="font-bold dark:text-white" data-i18n="aiTitle">Konsultan Bisnis</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="aiSub">Powered by Gemini 1.5 Flash</p></div>
                             </div>
-                            <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20" data-i18n="aiActive">Active</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20" data-i18n="aiActive">Aktif</span>
                         </div>
                         
                         <!-- Chat Interface -->
                         <div id="gemini-chat-window" class="flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-4 mb-4 overflow-y-auto font-mono text-xs border border-black/5 dark:border-white/5 space-y-3">
                             <div class="flex gap-3">
-                                <div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div>
+                                <div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-brain"></i></div>
                                 <div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]">
                                     <p class="dark:text-darkText" id="ai-greeting" data-i18n="aiGreeting">Halo! Saya adalah konsultan bisnis dan marketing Anda. Silakan tanyakan apapun seputar strategi bisnis, pemasaran, SEO, atau tren e-commerce.</p>
                                 </div>
@@ -465,7 +460,9 @@
 
                     <!-- 3. PERFORMANCE AUDITOR (PageSpeed) -->
                     <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[400px]">
-                        <div class="scan-line"></div>
+                        <!-- ANIMASI SCANNER LASER -->
+                        <div class="scanner-laser"></div>
+                        
                         <div>
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-10 h-10 rounded-xl bg-white dark:bg-white/5 flex items-center justify-center shadow-sm border border-black/5 dark:border-white/10 p-1.5">
@@ -475,21 +472,37 @@
                             </div>
                             <p class="text-xs text-textGray dark:text-darkSub mb-4" data-i18n="auditSub">Cek kesehatan website & Daftar Penyakit (Opportunities) via Google API.</p>
                             
-                            <div class="flex items-center gap-2 mb-3">
+                            <div class="flex items-center gap-2 mb-3 relative z-50">
                                 <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-2 focus:outline-none focus:border-gold dark:text-white">
                                 <button onclick="runPageSpeed()" id="btn-audit" class="text-gold hover:text-white hover:bg-gold px-3 py-1 rounded text-xs font-bold transition-all border border-gold" data-i18n="auditBtn">SCAN</button>
                             </div>
                         </div>
                         
                         <div class="mt-2 flex-1 overflow-y-auto pr-1">
-                            <!-- Result Placeholder -->
-                            <div id="psi-result" class="hidden items-center justify-between p-3 bg-lightGray dark:bg-black/30 rounded-lg border border-black/5 dark:border-white/5 mb-3">
-                                <span class="text-xs font-bold dark:text-darkSub" data-i18n="auditScore">Score Keseluruhan:</span>
-                                <span class="text-xl font-bold text-green-500" id="psi-score">--</span>
+                            <!-- Score Grid (4 Categories) -->
+                            <div id="psi-result" class="hidden flex-col gap-3 mb-3 relative z-50">
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full text-center">
+                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                        <div class="text-lg font-bold" id="psi-perf">--</div>
+                                        <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scorePerf">Performa</div>
+                                    </div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                        <div class="text-lg font-bold" id="psi-seo">--</div>
+                                        <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scoreSeo">SEO</div>
+                                    </div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                        <div class="text-lg font-bold" id="psi-acc">--</div>
+                                        <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scoreAcc">Aksesibilitas</div>
+                                    </div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                        <div class="text-lg font-bold" id="psi-bp">--</div>
+                                        <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scoreBp">Praktik Terbaik</div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Daftar Penyakit -->
-                            <div id="psi-issues" class="hidden flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5">
+                            <div id="psi-issues" class="hidden flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5 mt-2 relative z-50">
                                 <span class="text-[10px] font-bold uppercase tracking-wider text-red-500" data-i18n="auditIssues">Daftar Penyakit (Opportunities):</span>
                                 <ul id="psi-issues-list" class="space-y-2 text-xs text-textGray dark:text-darkSub">
                                     <!-- List diisi via JS -->
@@ -524,7 +537,7 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Section (Responsive Modal for Mobile) -->
         <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
              <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -542,7 +555,11 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob1">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4" data-i18n="compJob1">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob1">Jan 2026 - Sekarang</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob1"></div>
+                                    
+                                    <!-- Desktop Description (Hidden on mobile) -->
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob1"></div>
+                                    <!-- Mobile Detail Button (Hidden on desktop) -->
+                                    <button onclick="openJobModal('job1')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -557,7 +574,9 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob2">Content Writer (Internship)</h3>
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4" data-i18n="compJob2">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob2">Sep 2025 - Des 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob2"></div>
+                                    
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob2"></div>
+                                    <button onclick="openJobModal('job2')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -572,7 +591,9 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob3">Marketplace Administrator</h3>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4" data-i18n="compJob3">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob3"></div>
+                                    
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob3"></div>
+                                    <button onclick="openJobModal('job3')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -587,7 +608,9 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4" data-i18n="compJob4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob4">Mei 2025 - Jul 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob4"></div>
+                                    
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob4"></div>
+                                    <button onclick="openJobModal('job4')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -602,7 +625,9 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob5">Owner, Bisnis Kue</h3>
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4" data-i18n="compJob5">Wirausaha</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob5"></div>
+                                    
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob5"></div>
+                                    <button onclick="openJobModal('job5')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -617,7 +642,9 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob6">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4" data-i18n="compJob6">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob6">Mei 2023 - Des 2023</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed" id="descJob6"></div>
+                                    
+                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob6"></div>
+                                    <button onclick="openJobModal('job6')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -625,6 +652,22 @@
                 </div>
             </div>
         </section>
+
+        <!-- MODAL PENGALAMAN KERJA (KHUSUS MOBILE) -->
+        <div id="jobModal" class="fixed inset-0 z-[120] flex items-end md:items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeJobModal()">
+            <div class="bg-white dark:bg-darkCard w-full md:w-[600px] max-h-[85vh] rounded-t-3xl md:rounded-3xl p-6 md:p-8 overflow-y-auto transform translate-y-full md:translate-y-10 transition-transform duration-300 shadow-2xl border border-black/5 dark:border-white/10" id="jobModalContent" onclick="event.stopPropagation()">
+                <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mb-6 md:hidden"></div>
+                <div class="flex justify-between items-start mb-6 pb-4 border-b border-black/5 dark:border-white/5">
+                    <div class="pr-4">
+                        <h3 class="text-xl font-bold dark:text-white mb-1 leading-tight" id="modalJobRole"></h3>
+                        <p class="text-sm font-bold text-gold uppercase tracking-wider mb-2" id="modalJobComp"></p>
+                        <span class="text-xs font-bold bg-lightGray dark:bg-black/30 px-3 py-1 rounded-full text-textGray dark:text-darkSub" id="modalJobDate"></span>
+                    </div>
+                    <button class="text-gray-400 hover:text-gold bg-gray-100 dark:bg-white/5 w-8 h-8 rounded-full flex items-center justify-center transition-colors shrink-0" onclick="closeJobModal()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="text-sm text-textGray dark:text-darkSub space-y-4 leading-relaxed" id="modalJobDesc"></div>
+            </div>
+        </div>
 
         <!-- Competence -->
         <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render">
@@ -879,7 +922,7 @@
                 <div class="max-w-md"><h2 class="text-3xl font-serif font-medium mb-6 dark:text-white" data-i18n="footerTitle">Mari Bekerja Sama.</h2><p class="text-sm text-textGray dark:text-darkSub mb-8 leading-relaxed" data-i18n="footerDesc">Mencari strategi digital yang berdampak? Mari diskusikan bagaimana saya bisa membantu pertumbuhan bisnis Anda.</p><a href="mailto:faqihalrf@gmail.com" class="inline-flex items-center justify-center px-8 py-4 bg-gold text-white rounded-full hover:bg-black transition-all shadow-lg text-sm font-bold tracking-wide"><i class="far fa-envelope mr-2"></i> faqihalrf@gmail.com</a></div>
                 <div><h3 class="text-xs font-bold uppercase tracking-widest text-gold mb-6" data-i18n="footerSocials">Media Sosial</h3><div class="flex gap-6 text-xl text-textGray"><a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a><a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a><a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" class="hover:text-black hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/62859148219009" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a></div></div>
             </div>
-            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray"><p><span class="mr-2"><img src="https://flagcdn.com/w20/id.png" class="inline-block w-4 h-auto align-middle opacity-80" alt="ID"></span> &copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">Hak Cipta Dilindungi.</span></p><div class="flex gap-6"><a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerLegal">Kebijakan Privasi</a></div></div>
+            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray"><p><span class="mr-2"><img src="https://flagcdn.com/w20/id.png" class="inline-block" width="20" height="15" style="width: 16px; height: auto;" alt="ID"></span> &copy; 2026 Muhammad Faqih Al Rifai. <span data-i18n="footerRights">Hak Cipta Dilindungi.</span></p><div class="flex gap-6"><a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold" data-i18n="footerLegal">Kebijakan Privasi</a></div></div>
         </div>
     </footer>
     
@@ -888,7 +931,7 @@
 
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3"><button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-up"></i></button><button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-down"></i></button></div>
-    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()"><button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button><div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative"><img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()"><video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video></div></div>
+    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()"><button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button><div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative"><img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()" loading="lazy"><video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video></div></div>
 
     <script>
         // API CONFIGURATION 
@@ -957,16 +1000,31 @@
             resultBox.classList.add('hidden');
 
             try {
-                const res = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile`);
+                // Request SEMUA Kategori untuk Skor Penuh
+                const apiURL = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=accessibility&category=best-practices&category=seo`;
+                const res = await fetch(apiURL);
                 const data = await res.json();
                 
-                // Score
-                const score = Math.round(data.lighthouseResult.categories.performance.score * 100);
+                // Parse 4 Scores
+                const perfScore = Math.round((data.lighthouseResult.categories.performance?.score || 0) * 100);
+                const seoScore = Math.round((data.lighthouseResult.categories.seo?.score || 0) * 100);
+                const accScore = Math.round((data.lighthouseResult.categories.accessibility?.score || 0) * 100);
+                const bpScore = Math.round((data.lighthouseResult.categories['best-practices']?.score || 0) * 100);
+
+                // Helper func untuk warna text
+                const setScore = (id, score) => {
+                    const el = document.getElementById(id);
+                    el.innerText = score || '--';
+                    el.className = `text-lg font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
+                };
+
+                setScore('psi-perf', perfScore);
+                setScore('psi-seo', seoScore);
+                setScore('psi-acc', accScore);
+                setScore('psi-bp', bpScore);
+
                 resultBox.classList.remove('hidden');
                 resultBox.classList.add('flex');
-                const scoreEl = document.getElementById('psi-score');
-                scoreEl.innerText = score;
-                scoreEl.className = `text-xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
 
                 // Opportunities / Penyakit (Limit max 5)
                 issuesList.innerHTML = '';
@@ -981,13 +1039,13 @@
                         issuesFound = true;
                         
                         // Extract first sentence as solution
-                        let desc = audit.description ? audit.description.split('.')[0] + '.' : 'Perlu penyesuaian lebih lanjut.';
+                        let desc = audit.description ? audit.description.split('.')[0] + '.' : 'Perlu penyesuaian teknis.';
                         desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1'); // Remove Markdown links gently
                         
                         const solTxt = currentLang === 'en' ? 'Solution:' : 'Solusi:';
                         issuesList.innerHTML += `
                             <li class="flex items-start gap-2 bg-red-500/5 dark:bg-red-500/10 p-3 rounded-lg border border-red-500/10 dark:border-red-500/20 mb-2">
-                                <i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 text-xs"></i> 
+                                <i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 text-xs shrink-0"></i> 
                                 <div class="flex flex-col">
                                     <span class="font-bold text-darkBlack dark:text-white text-xs mb-1">${audit.title}</span>
                                     <span class="text-[10px] text-textGray dark:text-darkSub leading-relaxed"><span class="text-gold font-bold">${solTxt}</span> ${desc}</span>
@@ -998,7 +1056,7 @@
                 }
 
                 if(!issuesFound) {
-                    issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2"><i class="fas fa-check-circle"></i> ${translations[currentLang].auditHealthy}</li>`;
+                    issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2 font-bold p-3 bg-green-500/10 rounded-lg"><i class="fas fa-check-circle"></i> ${translations[currentLang].auditHealthy}</li>`;
                 }
                 
                 issuesContainer.classList.remove('hidden');
@@ -1091,6 +1149,50 @@
                     tab.classList.add('bg-lightGray', 'dark:bg-black/30', 'text-textGray', 'hover:bg-gold/20');
                 }
             });
+        }
+
+        // Setup Intersection Observer for Neural Command Center (Optimasi Kecepatan Pemuatan Awal)
+        document.addEventListener('DOMContentLoaded', () => {
+            const neuralSection = document.getElementById('neural-command');
+            if('IntersectionObserver' in window) {
+                const neuralObserver = new IntersectionObserver((entries) => {
+                    if(entries[0].isIntersecting) {
+                        fetchGoogleTrends();
+                        neuralObserver.disconnect();
+                    }
+                }, { rootMargin: '300px' });
+                if(neuralSection) neuralObserver.observe(neuralSection);
+            } else {
+                fetchGoogleTrends(); // Fallback for old browsers
+            }
+        });
+
+        // EXPERIENCE MODAL LOGIC (Mobile Specific)
+        function openJobModal(jobId) {
+            const modal = document.getElementById('jobModal');
+            const content = document.getElementById('jobModalContent');
+            
+            let roleKey = 'role' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let compKey = 'comp' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let dateKey = 'date' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let descKey = 'desc' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            
+            document.getElementById('modalJobRole').innerText = translations[currentLang][roleKey];
+            document.getElementById('modalJobComp').innerText = translations[currentLang][compKey];
+            document.getElementById('modalJobDate').innerText = translations[currentLang][dateKey];
+            document.getElementById('modalJobDesc').innerHTML = translations[currentLang][descKey];
+            
+            modal.classList.remove('opacity-0', 'invisible');
+            content.classList.remove('translate-y-full', 'md:translate-y-10');
+            content.classList.add('translate-y-0', 'md:translate-y-0');
+        }
+
+        function closeJobModal() {
+            const modal = document.getElementById('jobModal');
+            const content = document.getElementById('jobModalContent');
+            content.classList.remove('translate-y-0', 'md:translate-y-0');
+            content.classList.add('translate-y-full', 'md:translate-y-10');
+            setTimeout(() => { modal.classList.add('opacity-0', 'invisible'); }, 300);
         }
 
         // INIT & UTILS
@@ -1189,12 +1291,13 @@
                 cat3Title: "Digital Marketing & SEO", cat3Sub: "Dominasi pasar digital & konversi",
                 lblSelectTool: "Pilih Alat", lblSelectStrategy: "Pilih Strategi",
                 partnerBadge: "Official Technology Partner", partnerDesc: "Kolaborasi strategis tingkat enterprise untuk menghadirkan solusi Web Development & System Integration yang tangguh. Bersama Garap Digital, kami menjamin infrastruktur teknologi yang <strong>scalable</strong>, aman, dan siap mendukung pertumbuhan bisnis Anda ke level selanjutnya.", partnerLink: "Kunjungi Website Partner",
-                trendLoading: "Menarik Data Trends...", loadingText: "Loading...",
+                trendLoading: "Menarik Data Trends...", loadingText: "Loading...", btnDetails: "Lihat Detail",
+                scorePerf: "Performa", scoreSeo: "SEO", scoreAcc: "Aksesibilitas", scoreBp: "Praktik Terbaik",
 
                 // NEURAL COMMAND CENTER (Bahasa Indonesia)
                 neuralStatus: "Sistem Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, AI Analytics, dan Audit Web Real-time.", 
-                dashTitle: "Dashboard Investasi (GSC + GA4)", dashLive: "Data Langsung", dashWait: "Memuat Looker Studio...",
+                dashTitle: "InsightBox", dashLive: "Data Langsung", dashWait: "Memuat Looker Studio...",
                 aiTitle: "Konsultan Bisnis", aiSub: "Ditenagai oleh Gemini 1.5 Flash", aiActive: "Aktif", 
                 aiGreeting: "Halo! Saya adalah konsultan bisnis dan marketing Anda. Silakan tanyakan apapun seputar strategi bisnis, pemasaran, SEO, atau tren e-commerce.", aiPlaceholder: "Tanya strategi (contoh: 'Ide konten viral untuk bisnis kopi')...", aiError: "Sistem sedang memproses banyak data, silakan coba lagi.",
                 auditTitle: "PageSpeed", auditSub: "Cek kesehatan website & Daftar Penyakit (Opportunities) via Google API.", auditBtn: "SCAN", auditScore: "Skor Keseluruhan:", auditIssues: "Daftar Penyakit (Opportunities):", auditScanning: "MEMINDAI...", auditHealthy: "Website sangat sehat!", auditError: "Gagal memindai URL. Pastikan URL valid dan dapat diakses publik.", auditErrorUrl: "Masukkan URL valid!",
@@ -1205,7 +1308,7 @@
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
                 descJob1: "<p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar 50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</li><li><strong>Melakukan riset pasar mendalam</strong> dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</li><li><strong>Memimpin negosiasi kontrak strategis</strong> dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</li></ul>",
-                dateJob2: "Sep 2025 - Des 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-gold text-white text-xs font-bold rounded-xl hover:bg-black transition-all w-fit shadow-md'>Lihat Artikel Terbit <i class='fas fa-arrow-right'></i></a>",
+                dateJob2: "Sep 2025 - Des 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-gold text-white text-xs font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group w-full md:w-auto'><i class='fas fa-newspaper'></i> Lihat Artikel Terbit <i class='fas fa-arrow-right group-hover:translate-x-1 transition-transform'></i></a>",
                 dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul>",
                 dateJob4: "Mei 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>",
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Bisnis Kue", compJob5: "Wirausaha", descJob5: "<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>",
@@ -1227,12 +1330,12 @@
                 descInventory: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Stock Opname:</strong> Pencatatan stok masuk/keluar real-time.</li><li><strong>Barcode:</strong> Dukungan scan barcode untuk input cepat.</li><li><strong>Alert:</strong> Notifikasi stok menipis otomatis.</li><li><strong>Laporan:</strong> Mutasi stok & valuasi aset.</li><li><strong>Multi-Gudang:</strong> Kelola banyak lokasi penyimpanan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meminimalisir selisih stok (shrinkage) hingga 90%.</li><li>Efisiensi proses restock dan pembelian.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
                 descESS: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Absensi Online:</strong> GPS & Selfie check-in/out.</li><li><strong>Pengajuan:</strong> Cuti, Izin, Lembur via aplikasi.</li><li><strong>Slip Gaji:</strong> Download slip gaji digital aman.</li><li><strong>Data Karyawan:</strong> Update profil mandiri.</li><li><strong>Pengumuman:</strong> Broadcast info perusahaan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mengurangi beban administrasi HRD.</li><li>Data kehadiran lebih akurat dan transparan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 6.000.000</div>",
                 descKPI: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Metrics:</strong> Sesuai kebutuhan spesifik perusahaan.</li><li><strong>Live Tracking:</strong> Pantau target vs realisasi.</li><li><strong>Leaderboard:</strong> Gamifikasi performa tim sales/CS.</li><li><strong>Trend Analysis:</strong> Prediksi performa ke depan.</li><li><strong>TV Mode:</strong> Tampilan khusus layar besar di kantor.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan motivasi tim melalui transparansi data.</li><li>Deteksi masalah kinerja lebih dini.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.500.000</div>",
-                descStructureSEO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Audit Menyeluruh:</strong> Crawl error, broken links, speed, mobile usability.</li><li><strong>On-Page Fix:</strong> Title, Meta Desc, Heading, Alt Text optimization.</li><li><strong>Technical Fix:</strong> Sitemap.xml, Robots.txt, Schema Markup, Canonical.</li><li><strong>Indexing:</strong> Memastikan semua halaman penting terindeks Google.</li><li><strong>Speed Boost:</strong> Kompresi gambar & caching.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Pondasi wajib sebelum menjalankan strategi konten/backlink.</li><li>Meningkatkan visibilitas organik di halaman 1 Google.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
+                descStructureSEO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Audit Menyeluruh:</strong> Crawl error, broken links, speed, mobile usability.</li><li><strong>On-Page Fix:</strong> Title, Meta Desc, Heading optimization.</li><li><strong>Technical Fix:</strong> Sitemap.xml, Robots.txt, Schema Markup, Canonical.</li><li><strong>Indexing:</strong> Memastikan semua halaman penting terindeks Google.</li><li><strong>Speed Boost:</strong> Kompresi gambar & caching.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Pondasi wajib sebelum menjalankan strategi konten/backlink.</li><li>Meningkatkan visibilitas organik di halaman 1 Google.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
                 descAdsMgmt: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Strategi Full Funnel:</strong> Awareness, Consideration, Conversion.</li><li><strong>Multi-Platform:</strong> Google Ads, Meta Ads, TikTok Ads.</li><li><strong>Creative Production:</strong> Desain banner & copywriting iklan.</li><li><strong>A/B Testing:</strong> Uji coba audiens & materi iklan berkala.</li><li><strong>Laporan:</strong> Analisis mingguan (ROAS, CPC, CPA).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mendapatkan trafik instan yang tertarget (Siap Beli).</li><li>Skalabilitas omzet yang terukur dan terkontrol.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Fee: 20% dari Anggaran Iklan</div>",
                 descStoreMgmt: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Operasional:</strong> Upload produk, balas chat (08.00-17.00), proses order.</li><li><strong>Dekorasi Toko:</strong> Desain banner & kategori produk profesional.</li><li><strong>Optimasi Produk:</strong> Judul & deskripsi SEO marketplace.</li><li><strong>Iklan Marketplace:</strong> Setting Shopee/Tokped Ads (Efisiensi Biaya).</li><li><strong>Campaign:</strong> Pendaftaran Flash Sale & Event Tanggal Kembar.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Toko aktif & responsif tanpa Anda harus standby 24/7.</li><li>Meningkatkan reputasi toko (Star Seller/Power Merchant).</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000/bln</div>",
-                descGMB: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Verifikasi:</strong> Bantuan proses verifikasi pin Google.</li><li><strong>Optimasi Profil:</strong> Keyword lokal, foto, jam buka, kategori.</li><li><strong>Review Mgmt:</strong> Strategi balasan ulasan & peningkatan rating.</li><li><strong>Posting Rutin:</strong> Update promo/produk mingguan di GMB.</li><li><strong>Citation:</strong> Pendaftaran di direktori lokal lainnya.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mendominasi pencarian lokal (Maps) di area Anda.</li><li>Meningkatkan kunjungan fisik dan telepon pelanggan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 1.500.000</div>",
+                descGMB: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Verifikasi:</strong> Bantuan proses verifikasi pin Google.</li><li><strong>Optimasi Profil:</strong> Keyword lokal, foto, jam buka, kategori.</li><li><strong>Review Mgmt:</strong> Strategi balasan ulasan & peningkatan rating.</li><li><strong>Posting Rutin:</strong> Update promo/produk mingguan di GMB.</li><li><strong>Citation:</strong> Pendaftaran di direktori lokal lainnya.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mendominasi pencarian lokal (Maps) di area Anda.</li><li>Increase physical visits and customer calls.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 1.500.000</div>",
                 descContentStrategy: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Keyword Research:</strong> Identifikasi kata kunci potensial & low competition.</li><li><strong>Content Calendar:</strong> Jadwal posting terencana selama sebulan.</li><li><strong>Artikel SEO:</strong> Penulisan artikel 1000+ kata (Human written).</li><li><strong>Copywriting:</strong> Teks persuasif untuk landing page/sosmed.</li><li><strong>Distribusi:</strong> Posting ke blog/website klien.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Trafik organik stabil jangka panjang.</li><li>Membangun kepercayaan audiens melalui konten edukatif.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.500.000/bln</div>",
-                descCRO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Audit UX:</strong> Analisis heatmaps & rekaman sesi user.</li><li><strong>Funnel Analysis:</strong> Identifikasi titik drop-off pelanggan.</li><li><strong>A/B Testing:</strong> Tes variasi tombol, warna, layout.</li><li><strong>Speed:</strong> Optimasi loading time halaman checkout.</li><li><strong>Trust Elements:</strong> Penambahan elemen kepercayaan (testimoni, badge).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan penjualan tanpa menambah budget iklan.</li><li>Memaksimalkan nilai setiap pengunjung website.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000</div>",
+                descCRO: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>UX Audit:</strong> Analisis heatmaps & rekaman sesi user.</li><li><strong>Funnel Analysis:</strong> Identifikasi titik drop-off pelanggan.</li><li><strong>A/B Testing:</strong> Tes variasi tombol, warna, layout.</li><li><strong>Speed:</strong> Optimasi loading time halaman checkout.</li><li><strong>Trust Elements:</strong> Penambahan elemen kepercayaan (testimoni, badge).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan penjualan tanpa menambah budget iklan.</li><li>Memaksimalkan nilai setiap pengunjung website.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000</div>",
             },
             en: {
                 navAbout: "About", navSkills: "Skills", navExperience: "Experience", navGallery: "Gallery", navServices: "Services", navShowcase: "Insights", btnContact: "Contact Me",
@@ -1259,12 +1362,13 @@
                 cat3Title: "Digital Marketing & SEO", cat3Sub: "Digital market dominance & conversion",
                 lblSelectTool: "Select Tool", lblSelectStrategy: "Select Strategy",
                 partnerBadge: "Official Technology Partner", partnerDesc: "Enterprise-level strategic collaboration to deliver robust Web Development & System Integration solutions. Together with Garap Digital, we ensure your technology infrastructure is <strong>scalable</strong>, secure, and ready to support your business growth to the next level.", partnerLink: "Visit Partner Website",
-                trendLoading: "Fetching Trends Data...", loadingText: "Loading...",
+                trendLoading: "Fetching Trends Data...", loadingText: "Loading...", btnDetails: "View Details",
+                scorePerf: "Performance", scoreSeo: "SEO", scoreAcc: "Accessibility", scoreBp: "Best Practices",
 
                 // NEURAL COMMAND CENTER (English)
                 neuralStatus: "System Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Integrated data ecosystem combining Investment Dashboard, AI Analytics, and Real-time Web Audit.", 
-                dashTitle: "Investment Dashboard (GSC + GA4)", dashLive: "Live Data", dashWait: "Loading Looker Studio...",
+                dashTitle: "InsightBox", dashLive: "Live Data", dashWait: "Loading Looker Studio...",
                 aiTitle: "Business Consultant", aiSub: "Powered by Gemini 1.5 Flash", aiActive: "Active", 
                 aiGreeting: "Hello! I am your business and marketing consultant. Feel free to ask anything about business strategy, marketing, SEO, or e-commerce trends.", aiPlaceholder: "Ask strategy (e.g., 'Viral content ideas')...", aiError: "System is processing heavy load, please try again.",
                 auditTitle: "PageSpeed", auditSub: "Check website health & Opportunities via Google API.", auditBtn: "SCAN", auditScore: "Overall Score:", auditIssues: "Opportunities (Issues):", auditScanning: "SCANNING...", auditHealthy: "Website is very healthy!", auditError: "Failed to scan URL. Ensure URL is valid and public.", auditErrorUrl: "Enter a valid URL!",
@@ -1275,7 +1379,7 @@
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
                 descJob1: "<p>Fully responsible for managing the B2B sales cycle for professional services covering Accounting, Tax, and Business Legality Consulting. Main focus on new market penetration and building long-term relationships with corporate clients.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully increased Customer Retention Rate by 50%</strong> through the implementation of proactive and personalized Customer Relationship Management (CRM) strategies.</li><li><strong>Conducted in-depth market research</strong> and competitor analysis to design more competitive service offerings, directly impacting sales conversion increase.</li><li><strong>Led strategic contract negotiations</strong> with key clients, ensuring project profitability while delivering maximum added value for the client.</li></ul>",
-                dateJob2: "Sep 2025 - Dec 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Underwent an intensive 3-month internship program as a lead content writer. Tasked with producing 29 in-depth articles on Business, Technology, and Digital Trends with strict adherence to the latest SEO standards (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Achieved Ranking #1 on Google Search</strong> for several competitive keywords, proving the effectiveness of keyword research and content structure implemented.</li><li><strong>Articles selected for Google Discover feature</strong>, generating massive organic traffic spikes with zero ad spend.</li><li><strong>Developed a consistent editorial calendar</strong>, ensuring timely content publication relevant to current market trends.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-gold text-white text-xs font-bold rounded-xl hover:bg-black transition-all w-fit shadow-md'>View Published Articles <i class='fas fa-arrow-right'></i></a>",
+                dateJob2: "Sep 2025 - Dec 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Underwent an intensive 3-month internship program as a lead content writer. Tasked with producing 29 in-depth articles on Business, Technology, and Digital Trends with strict adherence to the latest SEO standards (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Achieved Ranking #1 on Google Search</strong> for several competitive keywords, proving the effectiveness of keyword research and content structure implemented.</li><li><strong>Articles selected for Google Discover feature</strong>, generating massive organic traffic spikes with zero ad spend.</li><li><strong>Developed a consistent editorial calendar</strong>, ensuring timely content publication relevant to current market trends.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-gold text-white text-xs font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group w-full md:w-auto'><i class='fas fa-newspaper'></i> View Published Articles <i class='fas fa-arrow-right group-hover:translate-x-1 transition-transform'></i></a>",
                 dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Took a leadership role in establishing and managing a global dropshipping business using the Shopify platform. Oversaw the entire supply chain from sourcing suppliers in China to delivery to customers in the United States (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully booked 137 verified sales</strong> in just the first month of operations, proving product validation and correct marketing strategy.</li><li><strong>Created product virality</strong> by generating over <strong>14,000 organic impressions</strong> on TikTok Shop through creative video content and platform algorithm optimization.</li><li><strong>Managed international customer service (CS)</strong> with rapid response standards, maintaining high customer satisfaction amidst cross-border logistics complexity.</li></ul>",
                 dateJob4: "May 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Designed and executed end-to-end affiliate marketing strategies on the Shopee platform. Selectively curated products to ensure fit with target audience demographics (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Leveraged Instagram as the main channel</strong> (traffic source) by creating engaging visual content and persuasive storytelling to drive clicks and conversions.</li><li><strong>Successfully recorded 57 direct sales</strong> in the first month, demonstrating rapid adaptability in understanding online buyer psychology.</li><li><strong>Optimized Shopee promotional features</strong> and exclusive vouchers to increase offer attractiveness for potential buyers.</li></ul>",
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Cake Business", compJob5: "Entrepreneur", descJob5: "<p>Built a culinary (cake) business from scratch (bootstrapping), managing all operational aspects from production, quality control, marketing, to after-sales service. Placed customer satisfaction as the main business priority.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully acquired a loyal customer base of 437 people</strong> growing organically through Word-of-Mouth (WOM) strategies and local social media marketing.</li><li><strong>Achieved financial stability</strong> with consistent daily revenue exceeding <strong>Rp500,000</strong>, proving the sustainability of the applied business model.</li><li><strong>Developed new product variations</strong> based on customer feedback (feedback loop) to maintain relevance and market interest.</li></ul>",
@@ -1306,7 +1410,7 @@
             }
         };
 
-        // RENDER TESTIMONIALS (Kembali ke versi Avataaars Standar Profesional)
+        // RENDER TESTIMONIALS (Kembali ke gaya Avataaars Standar)
         const testimonials = [
             { text: "Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data.", name: "Rihwan S.", role: "Business Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4", rating: 5 },
             { text: "Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.", name: "Andi L.", role: "UMKM Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c0aede", rating: 5 },
@@ -1352,9 +1456,6 @@
             }, { passive: true });
             triggerReveal(); animateCounters(); ambilDataWordPress();
             
-            // Panggil API Google Trends
-            fetchGoogleTrends();
-
             const slider = document.getElementById('testimonialSlider');
             if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }
         });
@@ -1413,12 +1514,12 @@
         function setLanguage(lang) {
             currentLang = lang; localStorage.setItem('lang', lang);
             document.querySelectorAll('.current-lang-label').forEach(el => { el.innerText = lang.toUpperCase(); });
-            document.querySelectorAll('.current-lang-flag').forEach(el => { el.innerHTML = `<img src="${lang === 'en' ? flagEN : flagID}" class="inline-block w-4 h-auto" alt="Flag">`; });
+            document.querySelectorAll('.current-lang-flag').forEach(el => { el.innerHTML = `<img src="${lang === 'en' ? flagEN : flagID}" class="inline-block" width="20" height="15" style="width: 16px; height: auto;" alt="Flag">`; });
             document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } });
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const key = el.getAttribute('data-i18n-placeholder'); if (translations[lang][key]) { el.placeholder = translations[lang][key]; } });
             ['opt-cat1', 'opt-cat2', 'opt-cat3'].forEach(id => { const select = document.getElementById(id); if (select) { const event = new Event('change'); select.dispatchEvent(event); } });
             
-            // Manual check for some IDs if needed
+            // Manual injection for Job Desktop Descriptions to ensure consistency
             const job1Desc = document.getElementById('descJob1'); if(job1Desc) job1Desc.innerHTML = translations[lang].descJob1;
             const job2Desc = document.getElementById('descJob2'); if(job2Desc) job2Desc.innerHTML = translations[lang].descJob2;
             const job3Desc = document.getElementById('descJob3'); if(job3Desc) job3Desc.innerHTML = translations[lang].descJob3;
@@ -1484,8 +1585,8 @@
         function renderGallery() {
             const slideWrapper = document.getElementById('hero-slides-wrapper');
             const thumbContainer = document.getElementById('thumbnail-container');
-            slideWrapper.innerHTML = galleryItems.map((item, index) => `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}', '${item.type}')">${item.type === 'video' ? `<video src="${item.src}" muted loop playsinline autoplay class="w-full h-full object-cover"></video>` : `<img src="${item.src}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x450?text=Project+Preview';">`}</div>`).join('');
-            thumbContainer.innerHTML = galleryItems.map((item, index) => `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})">${item.type === 'video' ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play"></i></div>` : `<img src="${item.src}" onerror="this.onerror=null;this.src='https://placehold.co/100x75?text=...';">`}</div>`).join('');
+            slideWrapper.innerHTML = galleryItems.map((item, index) => `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}', '${item.type}')">${item.type === 'video' ? `<video src="${item.src}" muted loop playsinline autoplay class="w-full h-full object-cover"></video>` : `<img src="${item.src}" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/800x450?text=Project+Preview';">`}</div>`).join('');
+            thumbContainer.innerHTML = galleryItems.map((item, index) => `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})">${item.type === 'video' ? `<div class="w-full h-full bg-black flex items-center justify-center text-white"><i class="fas fa-play"></i></div>` : `<img src="${item.src}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/100x75?text=...';">`}</div>`).join('');
             updateText(0);
         }
         function goToSlide(index) { const slides = document.querySelectorAll('.hero-slide'); const thumbs = document.querySelectorAll('.thumbnail-item'); slides[currentSlide].classList.remove('active'); thumbs[currentSlide].classList.remove('active'); currentSlide = index; slides[currentSlide].classList.add('active'); thumbs[currentSlide].classList.add('active'); thumbs[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); updateText(currentSlide); }

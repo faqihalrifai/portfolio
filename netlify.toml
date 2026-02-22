@@ -1,20 +1,31 @@
-# Konfigurasi Build Netlify
 [build]
-  # Folder tempat file HTML/Frontend Anda berada (root)
   publish = "."
-  
-  # Folder tempat "Otak" (Backend Serverless) berada
   functions = "netlify/functions"
 
-# Konfigurasi Pemrosesan Fungsi
 [functions]
-  # Menggunakan esbuild agar proses build lebih cepat dan modern
   node_bundler = "esbuild"
+  # UPGRADE 1: Memaksa Netlify pakai Node.js versi terbaru (LTS) agar tidak error library-nya
+  node_version = "20"
 
-# Pengaturan Redirect (Opsional tapi mempermudah pemanggilan API)
+# UPGRADE 2: Menambahkan Security Headers
+# Ini biar website kamu lebih aman dari serangan hacker
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "upgrade-insecure-requests"
+
+# UPGRADE 3: Redirects yang lebih pintar
 [[redirects]]
-  # Mengizinkan Anda memanggil /.netlify/functions/gemini 
-  # cukup dengan /api/gemini di kode JavaScript
   from = "/api/*"
   to = "/.netlify/functions/:splat"
+  status = 200
+  # Memastikan kalau ada error di function, tetap dianggap sebagai API call
+  force = true 
+
+[[redirects]]
+  # Jika user mengetik URL yang salah, balikkan ke Home (mencegah 404 berantakan)
+  from = "/*"
+  to = "/index.html"
   status = 200

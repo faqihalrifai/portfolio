@@ -1,9 +1,20 @@
 {
   "name": "faqih-portfolio-backend",
   "version": "1.0.0",
+  "description": "Backend for Gemini AI and Google API Integration",
+  "main": "index.js",
   "dependencies": {
     "node-fetch": "^2.6.7",
     "googleapis": "^105.0.0",
     "stripe": "^11.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

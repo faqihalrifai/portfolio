@@ -53,8 +53,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- MENGURANGI PRECONNECT TIDAK PERLU (Sesuai Lighthouse) -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
     <!-- GOOGLE ANALYTICS (GA4) -->
@@ -75,7 +73,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     
-    <!-- FONTS & CSS (font-display: swap untuk PageSpeed) -->
+    <!-- FONTS & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -129,7 +127,7 @@
         html { scroll-behavior: smooth; }
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         
-        /* Hardware Acceleration for Animations (Mencegah Lag saat Scroll) */
+        /* Hardware Acceleration for Animations */
         .reveal { will-change: transform, opacity; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .animate-slide-up { will-change: transform, opacity; }
@@ -199,12 +197,12 @@
         .neural-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
         .bento-card {
             background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem; overflow: hidden;
-            position: relative; transition: all 0.3s ease; transform: translateZ(0); /* Hardware accelerate */
+            position: relative; transition: all 0.3s ease; transform: translateZ(0);
         }
         .dark .bento-card { background: #18181b; border: 1px solid rgba(255,255,255,0.08); }
         .bento-card:hover { border-color: #c5a028; box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1); transform: translateY(-2px); }
         
-        /* REAL SCANNER LASER ANIMATION (UPGRADED) */
+        /* REAL SCANNER LASER ANIMATION */
         .scanner-overlay {
             position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 40;
             display: none; pointer-events: none; overflow: hidden; border-radius: 1.5rem; backdrop-filter: blur(2px);
@@ -223,7 +221,15 @@
             100% { transform: translateY(700%); } 
         }
 
-        /* MOBILE POPUP (< 768px) - TOP CENTER */
+        /* WIDGET SCROLL FIX */
+        .scroll-widget {
+            opacity: 0; pointer-events: none; transition: all 0.3s ease; transform: translateY(20px);
+        }
+        .scroll-widget.visible {
+            opacity: 1; pointer-events: auto; transform: translateY(0);
+        }
+
+        /* MOBILE POPUP (< 768px) */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
             .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
@@ -232,7 +238,7 @@
             .neural-grid { display: flex; flex-direction: column; }
         }
 
-        /* DESKTOP POPUP (>= 769px) - BOTTOM LEFT */
+        /* DESKTOP POPUP (>= 769px) */
         @media (min-width: 769px) {
             .marketing-popup { top: auto; left: 30px; bottom: 30px; right: auto; transform: translateY(150%); }
             .marketing-popup.show { transform: translateY(0); }
@@ -354,7 +360,7 @@
         </section>
 
         <!-- =======================================================
-             NEURAL COMMAND CENTER V3.0 (UPDATED)
+             NEURAL COMMAND CENTER V3.0
              ======================================================= -->
         <section id="neural-command" class="py-20 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
@@ -392,10 +398,8 @@
                             <span class="text-[10px] uppercase font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded" data-i18n="dashLive">Live Data</span>
                         </div>
                         
-                        <!-- REVERTED BACK TO ORIGINAL SIZING -->
                         <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-black/50 rounded-lg border border-white/5 relative z-10 overflow-hidden flex items-center justify-center">
                             <iframe width="100%" height="100%" loading="lazy" title="Dashboard Investasi" src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20"></iframe>
-                            
                             <!-- Overlay loading -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-white/30 pointer-events-none z-0">
                                 <i class="fas fa-circle-notch fa-spin text-4xl mb-2"></i>
@@ -435,7 +439,7 @@
 
                     <!-- 3. PERFORMANCE AUDITOR (PageSpeed) -->
                     <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[400px]">
-                        <!-- ANIMASI SCANNER LASER SUPER REALISTIS -->
+                        <!-- ANIMASI SCANNER LASER -->
                         <div class="scanner-overlay"><div class="scanner-laser"></div></div>
                         
                         <div class="relative z-50">
@@ -512,7 +516,7 @@
             </div>
         </section>
 
-        <!-- Experience Section (Responsive Modal for Mobile) -->
+        <!-- Experience Section -->
         <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
              <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -530,10 +534,7 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob1">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4" data-i18n="compJob1">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob1">Jan 2026 - Sekarang</span>
-                                    
-                                    <!-- Desktop Description (Hidden on mobile) -->
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob1"></div>
-                                    <!-- Mobile Detail Button (Hidden on desktop) -->
                                     <button onclick="openJobModal('job1')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
@@ -549,7 +550,6 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob2">Content Writer (Internship)</h3>
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4" data-i18n="compJob2">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob2">Sep 2025 - Des 2025</span>
-                                    
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob2"></div>
                                     <button onclick="openJobModal('job2')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -566,7 +566,6 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob3">Marketplace Administrator</h3>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4" data-i18n="compJob3">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob3">Jul 2025 - Sep 2025</span>
-                                    
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob3"></div>
                                     <button onclick="openJobModal('job3')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -583,7 +582,6 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob4">Affiliate Marketing</h3>
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4" data-i18n="compJob4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob4">Mei 2025 - Jul 2025</span>
-                                    
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob4"></div>
                                     <button onclick="openJobModal('job4')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -600,7 +598,6 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob5">Owner, Bisnis Kue</h3>
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4" data-i18n="compJob5">Wirausaha</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob5">Jan 2024 - Apr 2025</span>
-                                    
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob5"></div>
                                     <button onclick="openJobModal('job5')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -617,7 +614,6 @@
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText" data-i18n="roleJob6">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4" data-i18n="compJob6">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub" data-i18n="dateJob6">Mei 2023 - Des 2023</span>
-                                    
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob6"></div>
                                     <button onclick="openJobModal('job6')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span data-i18n="btnDetails">Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -906,12 +902,20 @@
 
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3"><button aria-label="Scroll Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-up"></i></button><button aria-label="Scroll Bottom" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-down"></i></button></div>
-    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible" aria-hidden="true" onclick="closeLightbox()"><button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button><div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative"><img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()" loading="lazy"><video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video></div></div>
+    
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible transition-all duration-300" aria-hidden="true" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button>
+        <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()" loading="lazy">
+            <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video>
+        </div>
+    </div>
 
     <script>
         // API CONFIGURATION 
         const KEYS = {
-            GEMINI: 'AIzaSyDYJOUbVicYcJ7OEbZcx8u6447TtX1Qmc8', // Using user provided API Key
+            GEMINI: 'AIzaSyDYJOUbVicYcJ7OEbZcx8u6447TtX1Qmc8',
             PAGESPEED: 'AIzaSyB48ePJGbFlvv8cUWGfJcLtKJzj-JueV3M'
         };
 
@@ -933,7 +937,6 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             try {
-                // UPDATE: Menggunakan model API yang didukung oleh environment ini (gemini-2.5-flash-preview)
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${KEYS.GEMINI}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -941,7 +944,6 @@
                 });
                 const data = await response.json();
                 
-                // PENDETEKSI ERROR
                 if (!response.ok) {
                     console.error("Detail Error API Gemini:", data);
                     throw new Error(data.error?.message || translations[currentLang].aiError);
@@ -949,7 +951,6 @@
 
                 const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || translations[currentLang].aiError;
                 
-                // Add Reply
                 chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-brain"></i></div><div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><p class="dark:text-darkText">${reply.replace(/\n/g, '<br>')}</p></div></div>`;
             } catch (e) {
                 chatWindow.innerHTML += `<div class="text-center text-red-500 text-[10px] my-2 font-bold">${e.message}</div>`;
@@ -983,18 +984,15 @@
             resultBox.classList.add('hidden');
 
             try {
-                // Request SEMUA Kategori untuk Skor Penuh
                 const apiURL = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=accessibility&category=best-practices&category=seo`;
                 const res = await fetch(apiURL);
                 const data = await res.json();
                 
-                // Parse 4 Scores
                 const perfScore = Math.round((data.lighthouseResult.categories.performance?.score || 0) * 100);
                 const seoScore = Math.round((data.lighthouseResult.categories.seo?.score || 0) * 100);
                 const accScore = Math.round((data.lighthouseResult.categories.accessibility?.score || 0) * 100);
                 const bpScore = Math.round((data.lighthouseResult.categories['best-practices']?.score || 0) * 100);
 
-                // Helper func untuk warna text
                 const setScore = (id, score) => {
                     const el = document.getElementById(id);
                     el.innerText = score || '--';
@@ -1009,7 +1007,6 @@
                 resultBox.classList.remove('hidden');
                 resultBox.classList.add('flex');
 
-                // Opportunities / Penyakit (Limit max 5)
                 issuesList.innerHTML = '';
                 const audits = data.lighthouseResult.audits;
                 let issuesFound = false;
@@ -1021,9 +1018,8 @@
                         if (issuesCount >= 5) continue;
                         issuesFound = true;
                         
-                        // Extract first sentence as solution
                         let desc = audit.description ? audit.description.split('.')[0] + '.' : 'Perlu penyesuaian teknis.';
-                        desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1'); // Remove Markdown links gently
+                        desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1');
                         
                         const solTxt = currentLang === 'en' ? 'Solution:' : 'Solusi:';
                         issuesList.innerHTML += `
@@ -1054,10 +1050,8 @@
             }
         }
 
-        // 3. GOOGLE TRENDS INDONESIA (Real-time API & Anti-Gagal Fallback)
+        // 3. GOOGLE TRENDS INDONESIA
         let allTrends = [];
-        
-        // Data Fallback jika RSS limit/diblokir (Link asli diarahkan ke halaman pencarian Google Trends Indonesia)
         const fallbackTrends = [
             {title: "Strategi Bisnis E-commerce", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=E-commerce"},
             {title: "Update Algoritma Google", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=SEO"},
@@ -1083,19 +1077,17 @@
 
         async function fetchGoogleTrends() {
             try {
-                // Fetching from Google Trends RSS feed via rss2json public API
                 const rssUrl = encodeURIComponent('https://trends.google.com/trends/trendingsearches/daily/rss?geo=ID');
                 const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
                 const data = await res.json();
                 
                 if(data.items && data.items.length > 0) {
-                    allTrends = data.items.slice(0, 20); // Ambil Top 20 Live
+                    allTrends = data.items.slice(0, 20);
                     renderTrends(0);
                 } else {
                     throw new Error("No data");
                 }
             } catch (e) {
-                // ANTI-GAGAL: Jika API error/limit, langsung keluarkan data simulasi real link
                 allTrends = fallbackTrends;
                 renderTrends(0);
             }
@@ -1122,7 +1114,6 @@
                 </a>
             `).join('');
 
-            // Update Tabs Status
             document.querySelectorAll('.trend-tab').forEach((tab, index) => {
                 if (index === tabIndex) {
                     tab.classList.add('bg-gold', 'text-white', 'shadow-md');
@@ -1134,53 +1125,8 @@
             });
         }
 
-        // Setup Intersection Observer for Neural Command Center (Optimasi Kecepatan Pemuatan Awal)
-        document.addEventListener('DOMContentLoaded', () => {
-            const neuralSection = document.getElementById('neural-command');
-            if('IntersectionObserver' in window) {
-                const neuralObserver = new IntersectionObserver((entries) => {
-                    if(entries[0].isIntersecting) {
-                        fetchGoogleTrends();
-                        neuralObserver.disconnect();
-                    }
-                }, { rootMargin: '300px' });
-                if(neuralSection) neuralObserver.observe(neuralSection);
-            } else {
-                fetchGoogleTrends(); // Fallback for old browsers
-            }
-        });
-
-        // EXPERIENCE MODAL LOGIC (Mobile Specific)
-        function openJobModal(jobId) {
-            const modal = document.getElementById('jobModal');
-            const content = document.getElementById('jobModalContent');
-            
-            let roleKey = 'role' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
-            let compKey = 'comp' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
-            let dateKey = 'date' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
-            let descKey = 'desc' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
-            
-            document.getElementById('modalJobRole').innerText = translations[currentLang][roleKey];
-            document.getElementById('modalJobComp').innerText = translations[currentLang][compKey];
-            document.getElementById('modalJobDate').innerText = translations[currentLang][dateKey];
-            document.getElementById('modalJobDesc').innerHTML = translations[currentLang][descKey];
-            
-            modal.classList.remove('opacity-0', 'invisible');
-            content.classList.remove('translate-y-full', 'md:translate-y-10');
-            content.classList.add('translate-y-0', 'md:translate-y-0');
-        }
-
-        function closeJobModal() {
-            const modal = document.getElementById('jobModal');
-            const content = document.getElementById('jobModalContent');
-            content.classList.remove('translate-y-0', 'md:translate-y-0');
-            content.classList.add('translate-y-full', 'md:translate-y-10');
-            setTimeout(() => { modal.classList.add('opacity-0', 'invisible'); }, 300);
-        }
-
         // INIT & UTILS
         const badgeClass = "px-3 py-1.5 bg-white dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft select-none shadow-sm";
-        document.querySelectorAll('.badge-skill').forEach(el => el.className = badgeClass);
 
         function toggleCard(cardId) {
             const card = document.getElementById(cardId);
@@ -1209,7 +1155,7 @@
         function showPopup() {
             if (popupCount >= maxPopups) return;
             const msgKey = popupMessages[currentMsgIndex];
-            const translatedText = translations[currentLang][msgKey];
+            const translatedText = translations[currentLang]?.[msgKey];
             if (translatedText) popupMsg.innerHTML = translatedText;
             popup.classList.add('show');
             popupCount++;
@@ -1217,7 +1163,6 @@
             currentMsgIndex = (currentMsgIndex + 1) % popupMessages.length;
         }
         function closePopup(permanent = false) { popup.classList.remove('show'); if(permanent) popupCount = maxPopups; }
-        window.addEventListener('load', () => { setTimeout(() => { showPopup(); setTimeout(() => { showPopup(); setTimeout(() => { showPopup(); }, 15000); }, 20000); }, 3000); });
 
         // SERVICE LOGIC
         function updateServiceDesc(selectId, descId) {
@@ -1225,7 +1170,7 @@
             const desc = document.getElementById(descId);
             const selectedOption = select.options[select.selectedIndex];
             const key = selectedOption.getAttribute('data-desc-key');
-            if(translations[currentLang][key]) {
+            if(translations[currentLang]?.[key]) {
                 desc.innerHTML = translations[currentLang][key];
                 desc.classList.remove('hidden');
             } else { desc.classList.add('hidden'); }
@@ -1247,7 +1192,64 @@
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
-        // --- TRANSLATIONS (DIJAMIN 100% KONSISTEN) ---
+        // EXPERIENCE MODAL LOGIC
+        function openJobModal(jobId) {
+            const modal = document.getElementById('jobModal');
+            const content = document.getElementById('jobModalContent');
+            
+            let roleKey = 'role' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let compKey = 'comp' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let dateKey = 'date' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            let descKey = 'desc' + jobId.charAt(0).toUpperCase() + jobId.slice(1);
+            
+            document.getElementById('modalJobRole').innerText = translations[currentLang][roleKey];
+            document.getElementById('modalJobComp').innerText = translations[currentLang][compKey];
+            document.getElementById('modalJobDate').innerText = translations[currentLang][dateKey];
+            document.getElementById('modalJobDesc').innerHTML = translations[currentLang][descKey];
+            
+            modal.classList.remove('opacity-0', 'invisible');
+            content.classList.remove('translate-y-full', 'md:translate-y-10');
+            content.classList.add('translate-y-0', 'md:translate-y-0');
+        }
+
+        function closeJobModal() {
+            const modal = document.getElementById('jobModal');
+            const content = document.getElementById('jobModalContent');
+            content.classList.remove('translate-y-0', 'md:translate-y-0');
+            content.classList.add('translate-y-full', 'md:translate-y-10');
+            setTimeout(() => { modal.classList.add('opacity-0', 'invisible'); }, 300);
+        }
+
+        // LIGHTBOX LOGIC
+        function openLightbox(src, type) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const video = document.getElementById('lightboxVideo');
+
+            modal.classList.remove('opacity-0', 'invisible');
+
+            if (type === 'video') {
+                img.classList.add('hidden');
+                video.src = src;
+                video.classList.remove('hidden');
+                video.play();
+            } else {
+                video.classList.add('hidden');
+                video.pause();
+                img.src = src;
+                img.classList.remove('hidden');
+            }
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            const video = document.getElementById('lightboxVideo');
+            modal.classList.add('opacity-0', 'invisible');
+            video.pause();
+            video.src = "";
+        }
+
+        // --- TRANSLATIONS ---
         const translations = {
             id: {
                 navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navGallery: "Galeri", navServices: "Layanan", navShowcase: "Wawasan", btnContact: "Hubungi Saya",
@@ -1277,7 +1279,6 @@
                 trendLoading: "Menarik Data Trends...", loadingText: "Loading...", btnDetails: "Lihat Detail",
                 scorePerf: "Performa", scoreSeo: "SEO", scoreAcc: "Aksesibilitas", scoreBp: "Praktik Terbaik",
 
-                // NEURAL COMMAND CENTER (Bahasa Indonesia)
                 neuralStatus: "Sistem Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, AI Analytics, dan Audit Web Real-time.", 
                 dashTitle: "InsightBox", dashLive: "Data Langsung", dashWait: "Memuat Looker Studio...",
@@ -1286,7 +1287,6 @@
                 auditTitle: "PageSpeed", auditSub: "Cek kesehatan website & Daftar Penyakit (Opportunities) via Google API.", auditBtn: "SCAN", auditScore: "Skor Keseluruhan:", auditIssues: "Daftar Penyakit (Opportunities):", auditScanning: "MEMINDAI...", auditHealthy: "Website sangat sehat!", auditError: "Gagal memindai URL. Pastikan URL valid dan dapat diakses publik.", auditErrorUrl: "Masukkan URL valid!",
                 trendTitle: "Google Trends Indonesia", trendSub: "Top 20 Pencarian Hari Ini", 
 
-                // JOBS
                 dateJob1: "Jan 2026 - Sekarang", 
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
@@ -1297,7 +1297,6 @@
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Bisnis Kue", compJob5: "Wirausaha", descJob5: "<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>",
                 dateJob6: "Mei 2023 - Des 2023", roleJob6: "Customer Service & Co-Founder", compJob6: "Web Development Venture", descJob6: "<p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</li></ul>",
 
-                // SERVICES
                 descLandingPage: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Copywriting Hipnotis:</strong> Struktur AIDA/PAS yang menjual.</li><li><strong>Speed Optimization:</strong> Loading < 2 detik (Core Web Vitals Lulus).</li><li><strong>Pixel Ready:</strong> Setup Facebook Pixel & GTM Standard Event.</li><li><strong>Desain Premium:</strong> UI/UX modern, trust badge, & testimoni layout.</li><li><strong>Mobile Responsive:</strong> Tampilan sempurna di semua HP.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan Conversion Rate (CVR) iklan Anda.</li><li>Menurunkan biaya per akuisisi (CPA) karena relevansi tinggi.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.500.000</div>",
                 descWPBlog: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>CMS WordPress:</strong> Instalasi & konfigurasi tema premium.</li><li><strong>SEO On-Page:</strong> Plugin SEO Pro, sitemap, robots.txt.</li><li><strong>Kecepatan:</strong> Caching system & image compression.</li><li><strong>Keamanan:</strong> Firewall & proteksi login.</li><li><strong>Integrasi:</strong> Google Analytics 4 & Search Console.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan trafik organik jangka panjang.</li><li>Membangun otoritas brand di industri Anda.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.000.000</div>",
                 descLMS: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Web Portal:</strong> Custom branded domain & hosting.</li><li><strong>Manajemen User:</strong> Admin, Guru, Siswa (Unlimited).</li><li><strong>Fitur Kuis:</strong> Bank soal, timer, & nilai otomatis.</li><li><strong>Payment:</strong> Integrasi Midtrans untuk pembayaran SPP/Kursus.</li><li><strong>Sertifikat:</strong> Generator sertifikat otomatis setelah lulus.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Otomatisasi 90% administrasi sekolah/kursus.</li><li>Membuka peluang pendapatan baru dari kursus online berbayar.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.000.000</div>",
@@ -1306,8 +1305,6 @@
                 descBooking: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Kalender Interaktif:</strong> Pilih tanggal/jam & staf.</li><li><strong>Notifikasi WA:</strong> Reminder otomatis H-1 dan H-1 jam.</li><li><strong>Database Klien:</strong> Riwayat kunjungan & catatan medis/servis.</li><li><strong>Deposit:</strong> Dukungan pembayaran DP otomatis.</li><li><strong>Laporan:</strong> Statistik kunjungan & pendapatan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Mengurangi tingkat ketidakhadiran (no-show) hingga 80%.</li><li>Admin fokus melayani, bukan membalas chat jadwal.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 3.500.000</div>",
                 descProperty: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Listing Engine:</strong> Upload foto HD, Video, & Virtual Tour.</li><li><strong>Advanced Search:</strong> Filter lokasi, harga, fasilitas.</li><li><strong>Agent Profile:</strong> Halaman khusus untuk setiap agen.</li><li><strong>Lead Gen:</strong> 'Schedule Viewing' form & WA Direct.</li><li><strong>Maps:</strong> Integrasi Google Maps API.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Tampilan profesional meningkatkan kepercayaan pembeli properti.</li><li>Database listing terpusat & mudah diakses.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
                 descInvitation: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Smart RSVP:</strong> Konfirmasi kehadiran real-time ke Dashboard.</li><li><strong>QR Code:</strong> Sistem check-in tamu tanpa buku fisik.</li><li><strong>Fitur Premium:</strong> Autoplay music, galeri, countdown, amplop digital.</li><li><strong>Broadcast:</strong> Kirim undangan massal via WA (Nama tamu otomatis).</li><li><strong>Custom Domain:</strong> Nama mempelai (misal: romeo-juliet.com).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Hemat biaya cetak undangan fisik hingga 70%.</li><li>Manajemen tamu VIP yang lebih rapi dan eksklusif.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 1.500.000</div>",
-                descCatalog: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Toko Online Simpel:</strong> Tanpa keranjang ribet, langsung WA.</li><li><strong>Kategori Produk:</strong> Manajemen stok & varian harga.</li><li><strong>Pencarian Cepat:</strong> Filter instan tanpa loading.</li><li><strong>Tombol Beli:</strong> Pesan otomatis terformat (Nama, Alamat, Pesanan).</li><li><strong>Promo Banner:</strong> Slider untuk info diskon/produk baru.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Memudahkan pelanggan melihat produk tanpa instal aplikasi.</li><li>Closing rate lebih tinggi karena interaksi personal via WA.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 2.000.000</div>",
-                descBioLink: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Desain Custom:</strong> Sesuai identitas warna/logo brand.</li><li><strong>Unlimited Links:</strong> Tombol WA, Shopee, Tokped, Maps, dll.</li><li><strong>Embed Media:</strong> Tampilkan video YouTube/Spotify langsung.</li><li><strong>Analitik:</strong> Laporan jumlah klik per tombol.</li><li><strong>SEO Basic:</strong> Terindeks di Google.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Satu link untuk semua kebutuhan trafik.</li><li>Kesan profesional dibanding pakai Linktree gratisan.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 500.000</div>",
                 descCareer: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Job Portal:</strong> Halaman karir profesional dengan filter posisi.</li><li><strong>ATS Lite:</strong> Dashboard kelola pelamar (Screening, Interview, Hired).</li><li><strong>Database:</strong> Simpan CV pelamar untuk kebutuhan masa depan.</li><li><strong>Form Custom:</strong> Pertanyaan spesifik untuk setiap posisi.</li><li><strong>Notifikasi:</strong> Email otomatis ke pelamar (Diterima/Ditolak).</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meningkatkan *Employer Branding* perusahaan.</li><li>Efisiensi waktu HRD dalam seleksi awal hingga 60%.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.500.000</div>",
                 descDashboard: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Data Visualization:</strong> Real-time Graphs, Pie Charts, & KPIs.</li><li><strong>Data Integration:</strong> Connect to Google Sheets, SQL, atau API.</li><li><strong>Multi-User:</strong> Hak akses berbeda (Viewer, Editor, Admin).</li><li><strong>Export:</strong> Download laporan PDF/Excel otomatis.</li><li><strong>Mobile Friendly:</strong> Pantau bisnis dari HP.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Keputusan bisnis lebih cepat berdasarkan data (Data-driven).</li><li>Transparansi performa tim/proyek secara real-time.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 5.000.000</div>",
                 descInventory: "<p class='font-bold mb-2'>Paket Termasuk:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Stock Opname:</strong> Pencatatan stok masuk/keluar real-time.</li><li><strong>Barcode:</strong> Dukungan scan barcode untuk input cepat.</li><li><strong>Alert:</strong> Notifikasi stok menipis otomatis.</li><li><strong>Laporan:</strong> Mutasi stok & valuasi aset.</li><li><strong>Multi-Gudang:</strong> Kelola banyak lokasi penyimpanan.</li></ul><p class='font-bold mb-2'>Impact Bisnis:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Meminimalisir selisih stok (shrinkage) hingga 90%.</li><li>Efisiensi proses restock dan pembelian.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investasi: Mulai dari Rp 4.000.000</div>",
@@ -1348,7 +1345,6 @@
                 trendLoading: "Fetching Trends Data...", loadingText: "Loading...", btnDetails: "View Details",
                 scorePerf: "Performance", scoreSeo: "SEO", scoreAcc: "Accessibility", scoreBp: "Best Practices",
 
-                // NEURAL COMMAND CENTER (English)
                 neuralStatus: "System Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Integrated data ecosystem combining Investment Dashboard, AI Analytics, and Real-time Web Audit.", 
                 dashTitle: "InsightBox", dashLive: "Live Data", dashWait: "Loading Looker Studio...",
@@ -1357,7 +1353,6 @@
                 auditTitle: "PageSpeed", auditSub: "Check website health & Opportunities via Google API.", auditBtn: "SCAN", auditScore: "Overall Score:", auditIssues: "Opportunities (Issues):", auditScanning: "SCANNING...", auditHealthy: "Website is very healthy!", auditError: "Failed to scan URL. Ensure URL is valid and public.", auditErrorUrl: "Enter a valid URL!",
                 trendTitle: "Google Trends Indonesia", trendSub: "Top 20 Searches Today", 
 
-                // JOBS
                 dateJob1: "Jan 2026 - Present", 
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
@@ -1368,7 +1363,6 @@
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Cake Business", compJob5: "Entrepreneur", descJob5: "<p>Built a culinary (cake) business from scratch (bootstrapping), managing all operational aspects from production, quality control, marketing, to after-sales service. Placed customer satisfaction as the main business priority.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully acquired a loyal customer base of 437 people</strong> growing organically through Word-of-Mouth (WOM) strategies and local social media marketing.</li><li><strong>Achieved financial stability</strong> with consistent daily revenue exceeding <strong>Rp500,000</strong>, proving the sustainability of the applied business model.</li><li><strong>Developed new product variations</strong> based on customer feedback (feedback loop) to maintain relevance and market interest.</li></ul>",
                 dateJob6: "May 2023 - Dec 2023", roleJob6: "Customer Service & Co-Founder", compJob6: "Web Development Venture", descJob6: "<p>Dual role as Co-Founder and spearhead of customer service (CS) in a web development startup venture. Responsible for managing client expectations and bridging technical communication between clients and the developer team.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully secured 6 high-value web development projects</strong> within just 1 month through consultative approaches and persuasive relationship management.</li><li><strong>Maintained excellent service reputation</strong> with an average perfect customer satisfaction rating of <strong>4.9 to 5 stars</strong>, which became a key asset for new client acquisition.</li><li><strong>Drafted Standard Operating Procedures (SOP)</strong> for client onboarding, ensuring the project handover process ran smoothly and professionally.</li></ul>",
 
-                // SERVICES
                 descLandingPage: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Hypnotic Copywriting:</strong> Sales-focused AIDA/PAS structure.</li><li><strong>Speed Optimization:</strong> Loading < 2s (Core Web Vitals Pass).</li><li><strong>Pixel Ready:</strong> Facebook Pixel & GTM Standard Event setup.</li><li><strong>Premium Design:</strong> Modern UI/UX, trust badges, & testimonial layout.</li><li><strong>Mobile Responsive:</strong> Perfect display on all devices.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Increase Ad Conversion Rate (CVR).</li><li>Lower Cost Per Acquisition (CPA) due to high relevancy.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 2,500,000</div>",
                 descWPBlog: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>WordPress CMS:</strong> Premium theme installation & config.</li><li><strong>On-Page SEO:</strong> SEO Pro plugin, sitemap, robots.txt.</li><li><strong>Speed:</strong> Caching system & image compression.</li><li><strong>Security:</strong> Firewall & login protection.</li><li><strong>Integration:</strong> Google Analytics 4 & Search Console.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Drive long-term organic traffic.</li><li>Build brand authority in your industry.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 3,000,000</div>",
                 descLMS: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Web Portal:</strong> Custom branded domain & hosting.</li><li><strong>User Management:</strong> Admin, Teacher, Student (Unlimited).</li><li><strong>Quiz Features:</strong> Question bank, timer, & auto-grading.</li><li><strong>Payment:</strong> Midtrans integration for course fees.</li><li><strong>Certificate:</strong> Auto-generated certificate upon passing.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Automate 90% of school/course administration.</li><li>Open new revenue streams from paid online courses.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 5,000,000</div>",
@@ -1377,8 +1371,6 @@
                 descBooking: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Interactive Calendar:</strong> Select date/time & staff.</li><li><strong>WA Notification:</strong> Auto-reminder D-1 and H-1 hour.</li><li><strong>Client Database:</strong> Visit history & medical/service notes.</li><li><strong>Deposit:</strong> Support for auto DP payment.</li><li><strong>Report:</strong> Visit statistics & revenue.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Reduce no-show rates by up to 80%.</li><li>Admin focuses on service, not replying to schedule chats.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 3,500,000</div>",
                 descProperty: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Listing Engine:</strong> Upload HD photos, Video, & Virtual Tour.</li><li><strong>Advanced Search:</strong> Filter location, price, facilities.</li><li><strong>Agent Profile:</strong> Dedicated page for each agent.</li><li><strong>Lead Gen:</strong> 'Schedule Viewing' form & WA Direct.</li><li><strong>Maps:</strong> Google Maps API integration.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Professional look increases buyer trust.</li><li>Centralized & easily accessible listing database.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,000,000</div>",
                 descInvitation: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Smart RSVP:</strong> Real-time attendance confirmation.</li><li><strong>QR Code:</strong> Guest check-in system without physical books.</li><li><strong>Premium Features:</strong> Autoplay music, gallery, countdown.</li><li><strong>Broadcast:</strong> Bulk invite via WA (Auto guest name).</li><li><strong>Custom Domain:</strong> Couple name (e.g., romeo-juliet.com).</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Save up to 70% on physical invitation printing costs.</li><li>Neater and more exclusive VIP guest management.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 1,500,000</div>",
-                descCatalog: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Simple Online Store:</strong> No complex cart, direct WA.</li><li><strong>Product Category:</strong> Stock management & price variants.</li><li><strong>Quick Search:</strong> Instant filter without loading.</li><li><strong>Buy Button:</strong> Auto-formatted message (Name, Address, Order).</li><li><strong>Promo Banner:</strong> Slider for discounts/new products.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Easy for customers to view products without installing apps.</li><li>Higher closing rate due to personal interaction via WA.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 2,000,000</div>",
-                descBioLink: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Custom Design:</strong> Matches brand identity/colors.</li><li><strong>Unlimited Links:</strong> WA, Shopee, Tokped, Maps buttons, etc.</li><li><strong>Embed Media:</strong> Display YouTube/Spotify video directly.</li><li><strong>Analytics:</strong> Click count report per button.</li><li><strong>Basic SEO:</strong> Indexed on Google.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>One link for all traffic needs.</li><li>Professional impression compared to free Linktree.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 500,000</div>",
                 descCareer: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Job Portal:</strong> Professional career page with filters.</li><li><strong>ATS Lite:</strong> Applicant management dashboard.</li><li><strong>Database:</strong> Store applicant CVs for future needs.</li><li><strong>Custom Form:</strong> Specific questions for each position.</li><li><strong>Notification:</strong> Auto-email to applicants.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Boost company *Employer Branding*.</li><li>HR efficiency in initial screening up to 60%.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,500,000</div>",
                 descDashboard: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Data Visualization:</strong> Real-time Graphs, Pie Charts, & KPIs.</li><li><strong>Data Integration:</strong> Connect to Google Sheets, SQL, or API.</li><li><strong>Multi-User:</strong> Different access rights (Viewer, Editor).</li><li><strong>Export:</strong> Auto download PDF/Excel reports.</li><li><strong>Mobile Friendly:</strong> Monitor business from mobile.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Faster data-driven business decisions.</li><li>Real-time transparency of team/project performance.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 5,000,000</div>",
                 descInventory: "<p class='font-bold mb-2'>Package Includes:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li><strong>Stock Opname:</strong> Real-time in/out stock recording.</li><li><strong>Barcode:</strong> Barcode scan support for fast input.</li><li><strong>Alert:</strong> Low stock notification.</li><li><strong>Report:</strong> Stock mutation & asset valuation.</li><li><strong>Multi-Warehouse:</strong> Manage multiple storage locations.</li></ul><p class='font-bold mb-2'>Business Impact:</p><ul class='space-y-1 mb-3 list-disc pl-4 text-xs'><li>Minimize stock shrinkage up to 90%.</li><li>Efficiency in restock and purchasing processes.</li></ul><div class='font-bold text-gold mt-2 border-t border-black/10 pt-2'>Investment: Starts from IDR 4,000,000</div>",
@@ -1393,7 +1385,7 @@
             }
         };
 
-        // RENDER TESTIMONIALS (Avataaars Style Standar Profesional)
+        // RENDER TESTIMONIALS
         const testimonials = [
             { text: "Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data.", name: "Rihwan S.", role: "Business Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4", rating: 5 },
             { text: "Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.", name: "Andi L.", role: "UMKM Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c0aede", rating: 5 },
@@ -1421,7 +1413,7 @@
             `}).join('');
         }
 
-        // OTHER FUNCTIONS
+        // INIT CORE SYSTEM
         let currentLang = localStorage.getItem('lang') || 'id'; 
         let globalArticles = [];
         const flagID = "https://flagcdn.com/w20/id.png";
@@ -1432,18 +1424,20 @@
             setLanguage(currentLang);
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
             window.addEventListener('scroll', triggerReveal, { passive: true });
+            
             const navContainer = document.getElementById('navbar-container');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) { navContainer.classList.remove('h-20'); navContainer.classList.add('h-14'); document.getElementById('navbar').classList.add('glass'); } 
                 else { navContainer.classList.remove('h-14'); navContainer.classList.add('h-20'); }
             }, { passive: true });
+            
             triggerReveal(); animateCounters(); ambilDataWordPress();
             
             const slider = document.getElementById('testimonialSlider');
             if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }
         });
 
-        // WP Fetch with Real-Time Header Count
+        // Fetch WordPress
         async function ambilDataWordPress() {
             const wadahSlider = document.getElementById('insightsSlider');
             const counterBadge = document.getElementById('article-counter');
@@ -1498,11 +1492,18 @@
             currentLang = lang; localStorage.setItem('lang', lang);
             document.querySelectorAll('.current-lang-label').forEach(el => { el.innerText = lang.toUpperCase(); });
             document.querySelectorAll('.current-lang-flag').forEach(el => { el.innerHTML = `<img src="${lang === 'en' ? flagEN : flagID}" class="inline-block" width="20" height="15" style="width: 16px; height: auto;" alt="Flag">`; });
-            document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const key = el.getAttribute('data-i18n-placeholder'); if (translations[lang][key]) { el.placeholder = translations[lang][key]; } });
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => { 
+                const key = el.getAttribute('data-i18n'); 
+                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } 
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { 
+                const key = el.getAttribute('data-i18n-placeholder'); 
+                if (translations[lang][key]) { el.placeholder = translations[lang][key]; } 
+            });
+            
             ['opt-cat1', 'opt-cat2', 'opt-cat3'].forEach(id => { const select = document.getElementById(id); if (select) { const event = new Event('change'); select.dispatchEvent(event); } });
             
-            // Manual injection for Job Desktop Descriptions to ensure consistency
             const job1Desc = document.getElementById('descJob1'); if(job1Desc) job1Desc.innerHTML = translations[lang].descJob1;
             const job2Desc = document.getElementById('descJob2'); if(job2Desc) job2Desc.innerHTML = translations[lang].descJob2;
             const job3Desc = document.getElementById('descJob3'); if(job3Desc) job3Desc.innerHTML = translations[lang].descJob3;
@@ -1512,7 +1513,6 @@
 
             renderGallery(); renderCerts(); ambilDataWordPress();
             
-            // Re-render trends untuk trigger terjemahan tanggal
             if(allTrends.length > 0) {
                 let activeTab = 0;
                 document.querySelectorAll('.trend-tab').forEach((tab, idx) => { if (tab.classList.contains('bg-gold')) activeTab = idx; });
@@ -1541,6 +1541,7 @@
             }).join('');
         }
 
+        // DOM Manipulations & Event Listeners
         document.querySelectorAll('.theme-toggle').forEach(btn => { btn.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }); });
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1549,8 +1550,43 @@
         document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); } });
         mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }); });
 
-        function triggerReveal() { const reveals = document.querySelectorAll('.reveal'); reveals.forEach(r => { const windowHeight = window.innerHeight; const elementTop = r.getBoundingClientRect().top; const elementVisible = 50; if (elementTop < windowHeight - elementVisible) { r.classList.add('active'); } }); const scrollWidget = document.querySelector('.scroll-widget'); if (window.scrollY > 300) { scrollWidget.classList.add('visible'); } else { scrollWidget.classList.remove('visible'); } }
-        function animateCounters() { const counters = document.querySelectorAll('.counter'); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const target = +entry.target.getAttribute('data-target'); const duration = 2000; let start = 0; const step = timestamp => { if (!start) start = timestamp; const progress = Math.min((timestamp - start) / duration, 1); entry.target.innerText = Math.floor(progress * target) + (progress === 1 ? "+" : ""); if (progress < 1) window.requestAnimationFrame(step); }; window.requestAnimationFrame(step); observer.unobserve(entry.target); } }); }, { threshold: 0.5 }); counters.forEach(c => observer.observe(c)); }
+        function triggerReveal() { 
+            const reveals = document.querySelectorAll('.reveal'); 
+            reveals.forEach(r => { 
+                const windowHeight = window.innerHeight; 
+                const elementTop = r.getBoundingClientRect().top; 
+                const elementVisible = 50; 
+                if (elementTop < windowHeight - elementVisible) { r.classList.add('active'); } 
+            }); 
+            
+            const scrollWidget = document.querySelector('.scroll-widget'); 
+            if (scrollWidget) {
+                if (window.scrollY > 300) { scrollWidget.classList.add('visible'); } 
+                else { scrollWidget.classList.remove('visible'); } 
+            }
+        }
+        
+        function animateCounters() { 
+            const counters = document.querySelectorAll('.counter'); 
+            const observer = new IntersectionObserver((entries) => { 
+                entries.forEach(entry => { 
+                    if (entry.isIntersecting) { 
+                        const target = +entry.target.getAttribute('data-target'); 
+                        const duration = 2000; 
+                        let start = 0; 
+                        const step = timestamp => { 
+                            if (!start) start = timestamp; 
+                            const progress = Math.min((timestamp - start) / duration, 1); 
+                            entry.target.innerText = Math.floor(progress * target) + (progress === 1 ? "+" : ""); 
+                            if (progress < 1) window.requestAnimationFrame(step); 
+                        }; 
+                        window.requestAnimationFrame(step); 
+                        observer.unobserve(entry.target); 
+                    } 
+                }); 
+            }, { threshold: 0.5 }); 
+            counters.forEach(c => observer.observe(c)); 
+        }
 
         // HERO SLIDER
         const galleryItems = [

@@ -152,9 +152,14 @@
         .service-card-modern.expanded { border-color: #c5a028; background: #fff; box-shadow: 0 20px 40px -10px rgba(197,160,40,0.15); }
         .dark .service-card-modern.expanded { background: #252525; }
 
-        /* TESTIMONIALS */
+        /* TESTIMONIALS & SCROLLERS */
         .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         .h-scroll-container::-webkit-scrollbar { display: none; }
+        
+        /* Custom Scrollbar for PageSpeed insights */
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.5); border-radius: 4px; }
         
         .testimonial-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -213,7 +218,6 @@
         .dark .bento-card { background: #18181b; border: 1px solid rgba(255,255,255,0.08); }
         .bento-card:hover { border-color: #c5a028; box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1); transform: translateY(-2px); }
         
-        /* FORCE WHITE BACKGROUND FOR SPECIFIC ICONS IN DARK MODE */
         .icon-force-white { background-color: #ffffff !important; }
 
         /* REAL SCANNER LASER ANIMATION */
@@ -315,7 +319,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="about" class="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden bg-mainWhite dark:bg-darkBg">
+        <section id="about" class="pt-32 pb-16 px-6 flex items-center relative overflow-hidden bg-mainWhite dark:bg-darkBg">
              <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none dark:from-white/5"></div>
              <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center z-10">
                 <div class="order-2 lg:order-1 animate-slide-up">
@@ -374,6 +378,14 @@
         </section>
 
         <!-- =======================================================
+             VIDEO ANIMASI (FULL WIDTH 16:9, SMART PAUSE) 
+             Sesuai instruksi PDF.
+             ======================================================= -->
+        <div class="w-full bg-mainWhite dark:bg-darkBg pointer-events-none relative z-10 shadow-sm border-b border-black/5 dark:border-white/5">
+            <video id="hero-bg-video" src="animasi.mp4" class="w-full h-auto aspect-video object-cover block" autoplay muted playsinline loop disablePictureInPicture></video>
+        </div>
+
+        <!-- =======================================================
              NEURAL COMMAND CENTER V3.0 (UPGRADED)
              ======================================================= -->
         <section id="neural-command" class="py-20 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
@@ -412,10 +424,7 @@
                         </div>
                         
                         <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-black/50 rounded-lg border border-white/5 relative z-10 overflow-hidden flex items-center justify-center" id="looker-container">
-                            <!-- IFRAME LAZY LOAD -->
                             <iframe id="looker-iframe" width="100%" height="100%" data-src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0; opacity: 0; transition: opacity 1s;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20" title="Dashboard Investasi"></iframe>
-                            
-                            <!-- Overlay loading -->
                             <div id="looker-loader" class="absolute inset-0 flex flex-col items-center justify-center text-white/30 pointer-events-none z-0">
                                 <i class="fas fa-circle-notch fa-spin text-4xl mb-2"></i>
                                 <p class="text-xs font-mono" data-i18n="dashWait">Memuat Looker Studio...</p>
@@ -423,96 +432,132 @@
                         </div>
                     </div>
 
-                    <!-- 2. CUSTOM SEO/BIZ BOT (Pengganti Gemini) -->
-                    <div class="col-span-12 md:col-span-7 bento-card p-6 md:p-8 flex flex-col h-[480px]">
+                    <!-- 2. CUSTOM SEO/BIZ BOT (Gemini AI Style) -->
+                    <div class="col-span-12 md:col-span-7 bento-card p-6 md:p-8 flex flex-col h-[550px]">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=SEO&backgroundColor=c5a028" width="40" height="40" alt="Bot Icon" data-i18n-alt="aiAlt" class="w-full h-full object-contain rounded-lg">
+                                    <img src="geminiai.webp" width="40" height="40" alt="Bot Icon" data-i18n-alt="aiAlt" class="w-full h-full object-contain rounded-lg">
                                 </div>
-                                <div><h3 class="font-bold dark:text-white" data-i18n="aiTitle">SEO & Biz Expert Bot</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="aiSub">Asisten Mandiri 24/7</p></div>
+                                <div><h3 class="font-bold dark:text-white" data-i18n="aiTitle">Gemini AI</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="aiSub">Dapatkan panduan cerdas 24/7</p></div>
                             </div>
                             <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20" data-i18n="aiActive">Aktif</span>
                         </div>
                         
                         <!-- Chat Interface -->
-                        <div id="bot-chat-window" class="flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-4 mb-4 overflow-y-auto font-mono text-xs border border-black/5 dark:border-white/5 space-y-3">
+                        <div id="bot-chat-window" class="custom-scroll flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-4 mb-4 overflow-y-auto font-mono text-xs border border-black/5 dark:border-white/5 space-y-3">
                             <div class="flex gap-3">
                                 <div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div>
                                 <div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]">
-                                    <p class="dark:text-darkText" id="bot-greeting" data-i18n="aiGreeting">Halo! Saya adalah Asisten Bisnis & SEO Anda. Ada yang bisa saya bantu terkait strategi website, optimasi iklan, atau konsultasi harga layanan?</p>
+                                    <p class="dark:text-darkText" id="bot-greeting" data-i18n="aiGreeting">Halo! Saya adalah Asisten Bisnis & SEO Anda. Silakan pilih salah satu topik di bawah ini untuk mendapatkan panduan strategis yang komprehensif.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Input Area -->
-                        <div class="relative mt-auto">
-                            <input type="text" id="bot-input" data-i18n-placeholder="aiPlaceholder" placeholder="Tanya tentang SEO, Website, Iklan, atau Harga..." class="w-full bg-lightGray dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold dark:text-white transition-all">
-                            <button onclick="askCustomBot()" id="btn-bot" aria-label="Kirim ke Bot" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-gold rounded-lg text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold transition-all"><i class="fas fa-paper-plane text-xs"></i></button>
+                        <!-- Input Area (Predefined Options) -->
+                        <div class="flex gap-2 flex-wrap mt-auto" id="bot-options-container">
+                            <button onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm" data-i18n="btnPromptSEO">Panduan SEO</button>
+                            <button onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm" data-i18n="btnPromptMarketing">Strategi Marketing</button>
+                            <button onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm" data-i18n="btnPromptBisnis">Pertumbuhan Bisnis</button>
                         </div>
                     </div>
 
                     <!-- 3. PERFORMANCE AUDITOR (Advanced PageSpeed Insight) -->
-                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[480px]">
+                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[550px]">
                         <!-- ANIMASI SCANNER LASER -->
                         <div class="scanner-overlay"><div class="scanner-laser"></div></div>
                         
                         <div class="relative z-50">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                    <img src="pagespeed.webp" width="40" height="40" alt="PageSpeed" data-i18n-alt="auditAlt" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/initials/svg?seed=PS&backgroundColor=c5a028';">
+                                    <img src="pagespeed.webp" width="40" height="40" alt="PageSpeed" data-i18n-alt="auditAlt" class="w-full h-full object-contain">
                                 </div>
-                                <h3 class="font-bold text-sm dark:text-white" data-i18n="auditTitle">Auditor Performa Lanjutan</h3>
+                                <div><h3 class="font-bold text-sm dark:text-white" data-i18n="auditTitle">PageSpeed</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="auditSub">Analisis performa situs Anda</p></div>
                             </div>
-                            <p class="text-[11px] text-textGray dark:text-darkSub mb-4" data-i18n="auditSub">Analisis Core Web Vitals, Ukuran Aset, & Diagnosa Teknis via Google API.</p>
                             
-                            <div class="flex items-center gap-2 mb-3 relative z-50">
+                            <div class="flex items-center gap-2 mb-3 relative z-50 mt-4">
                                 <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-2 focus:outline-none focus:border-gold dark:text-white">
                                 <button onclick="runPageSpeed()" id="btn-audit" class="text-gold hover:text-white hover:bg-gold px-3 py-1.5 rounded text-xs font-bold transition-all border border-gold" data-i18n="auditBtn">SCAN</button>
                             </div>
                         </div>
                         
-                        <div class="mt-1 flex-1 overflow-y-auto pr-1 relative z-50 h-scroll-container">
+                        <div class="mt-1 flex-1 overflow-y-auto pr-2 custom-scroll relative z-50">
                             <!-- Loading Text -->
-                            <div id="psi-loading" class="hidden h-full flex items-center justify-center text-xs text-gold animate-pulse font-bold" data-i18n="auditScanning">MEMINDAI DATA...</div>
+                            <div id="psi-loading" class="hidden h-full flex flex-col items-center justify-center text-xs text-gold font-bold">
+                                <div class="w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin mb-2"></div>
+                                <span data-i18n="auditScanning">MEMINDAI DATA...</span>
+                            </div>
 
                             <!-- Advanced Results -->
                             <div id="psi-result" class="hidden flex-col gap-3 pb-2">
                                 <!-- Skor Utama -->
                                 <div class="grid grid-cols-2 gap-2 text-center">
-                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                        <div class="text-lg font-bold" id="psi-perf">--</div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                        <div class="text-2xl font-bold" id="psi-perf">--</div>
                                         <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scorePerf">Performa Skor</div>
                                     </div>
-                                    <div class="bg-lightGray dark:bg-black/30 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                        <div class="text-lg font-bold" id="psi-seo">--</div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                        <div class="text-2xl font-bold" id="psi-seo">--</div>
                                         <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold" data-i18n="scoreSeo">SEO Skor</div>
                                     </div>
                                 </div>
                                 
-                                <!-- Core Web Vitals & Teknis -->
-                                <div class="grid grid-cols-2 gap-2 text-left">
-                                    <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                                        <div class="text-[9px] font-bold text-textGray dark:text-darkSub">LCP (Waktu Muat)</div>
-                                        <div class="text-xs font-mono font-bold text-darkBlack dark:text-white" id="psi-lcp">--</div>
-                                    </div>
-                                    <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                                        <div class="text-[9px] font-bold text-textGray dark:text-darkSub">CLS (Stabilitas)</div>
-                                        <div class="text-xs font-mono font-bold text-darkBlack dark:text-white" id="psi-cls">--</div>
-                                    </div>
-                                    <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                                        <div class="text-[9px] font-bold text-textGray dark:text-darkSub">TTFB (Respon Server)</div>
-                                        <div class="text-xs font-mono font-bold text-darkBlack dark:text-white" id="psi-ttfb">--</div>
-                                    </div>
-                                    <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5 flex flex-col gap-1">
-                                        <div class="text-[9px] font-bold text-textGray dark:text-darkSub">Ukuran Halaman</div>
-                                        <div class="text-xs font-mono font-bold text-darkBlack dark:text-white" id="psi-size">--</div>
+                                <!-- Core Web Vitals (Standar Utama) -->
+                                <div class="mt-2">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white" data-i18n="lblCWV">Core Web Vitals</span>
+                                    <div class="grid grid-cols-3 gap-2 mt-1">
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">LCP <span title="Waktu muat elemen visual utama">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-lcp">--</div>
+                                        </div>
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">INP <span title="Interaksi input pengguna">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-inp">--</div>
+                                        </div>
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">CLS <span title="Stabilitas pergeseran layout">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-cls">--</div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Rekomendasi / Issues -->
+                                <!-- Metrik Kecepatan Teknis -->
+                                <div class="mt-2">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white" data-i18n="lblTechMetrics">Metrik Teknis (Backend)</span>
+                                    <div class="grid grid-cols-3 gap-2 mt-1">
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">TTFB <span title="Kecepatan respons server">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-ttfb">--</div>
+                                        </div>
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">FCP <span title="Waktu render elemen pertama">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-fcp">--</div>
+                                        </div>
+                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
+                                            <div class="text-[9px] text-textGray dark:text-darkSub">TBT <span title="Total durasi block (macet)">ℹ️</span></div>
+                                            <div class="text-xs font-mono font-bold" id="psi-tbt">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Analisis Aset & Bobot -->
+                                <div class="mt-2 bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white" data-i18n="lblAssets">Analisis Aset Web</span>
+                                        <span class="text-xs font-bold text-gold" id="psi-size">-- MB</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full overflow-hidden flex" id="psi-size-bar">
+                                        <!-- Diisi via JS (contoh: 40% img, 30% js, 20% css, 10% other) -->
+                                        <div class="h-full bg-gray-300 w-full"></div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 text-[9px] mt-2 font-mono text-textGray dark:text-darkSub" id="psi-reqs">
+                                        --
+                                    </div>
+                                </div>
+
+                                <!-- Rekomendasi Pintar (Actionable Insights) -->
                                 <div id="psi-issues" class="flex flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5 mt-1">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500" data-i18n="auditIssues">Peluang Optimasi:</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500" data-i18n="auditIssues">Rekomendasi Pintar:</span>
                                     <ul id="psi-issues-list" class="space-y-2 text-xs text-textGray dark:text-darkSub">
                                         <!-- List diisi via JS -->
                                     </ul>
@@ -529,16 +574,16 @@
                         </div>
                     </div>
 
-                    <!-- 4. GOOGLE TRENDS TURBO (30 Items + Caching) -->
+                    <!-- 4. GOOGLE TRENDS TURBO -->
                     <div class="col-span-12 bento-card p-6 h-auto">
                         <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                    <img src="googletrends.webp" width="40" height="40" alt="Google Trends" data-i18n-alt="trendAlt" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/initials/svg?seed=GT&backgroundColor=c5a028';">
+                                    <img src="googletrends.webp" width="40" height="40" alt="Google Trends" data-i18n-alt="trendAlt" class="w-full h-full object-contain">
                                 </div>
-                                <div><h3 class="font-bold dark:text-white" data-i18n="trendTitle">Google Trends Turbo</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="trendSub">Top 30 Pencarian Real-Time (Cached)</p></div>
+                                <div><h3 class="font-bold dark:text-white" data-i18n="trendTitle">Google Trends</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub" data-i18n="trendSub">Dapatkan topik yang cocok untuk konten</p></div>
                             </div>
-                            <!-- Pagination Tabs (Up to 6 pages for 30 items) -->
+                            <!-- Pagination Tabs -->
                             <div class="flex gap-1.5 flex-wrap" id="trends-tabs">
                                 <!-- Generated by JS -->
                             </div>
@@ -953,8 +998,25 @@
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
-        // API CONFIGURATION (Gemini Removed)
+        // API CONFIGURATION
         const KEYS = { PAGESPEED: 'AIzaSyB48ePJGbFlvv8cUWGfJcLtKJzj-JueV3M' };
+
+        // --- SMART VIDEO PAUSE (Sesuai PDF) ---
+        function initVideoObserver() {
+            const video = document.getElementById('hero-bg-video');
+            if (!video) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Jeda cerdas: Jika video tersisa kurang dari 30% di layar, pause. Jika lebih, play.
+                    if (entry.intersectionRatio >= 0.3) {
+                        video.play().catch(e => console.log('Autoplay prevented by browser', e));
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: [0.3] });
+            observer.observe(video);
+        }
 
         // --- NEURAL COMMAND CENTER LOGIC ---
         
@@ -981,81 +1043,74 @@
             observer.observe(container);
         }
 
-        // 2. CUSTOM SEO/BIZ EXPERT BOT (Offline, Rules-based)
-        function askCustomBot() {
-            const input = document.getElementById('bot-input');
-            const btn = document.getElementById('btn-bot');
+        // 2. GEMINI AI BOT (Pilihan Prompt Terpandu)
+        function sendBotPredefined(topic) {
             const chatWindow = document.getElementById('bot-chat-window');
-            const query = input.value.trim().toLowerCase();
-            if (!query) return;
+            const optionsContainer = document.getElementById('bot-options-container');
+            
+            let queryText = '';
+            let responseText = '';
 
-            // UI Update
-            input.value = '';
-            input.disabled = true;
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
-            chatWindow.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-gold text-white p-3 rounded-l-xl rounded-br-xl shadow-sm max-w-[85%]"><p>${query}</p></div><div class="w-6 h-6 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-xs"><i class="fas fa-user text-gray-600"></i></div></div>`;
+            // Map data untuk bahasa ID / EN
+            if (topic === 'seo') {
+                queryText = currentLang === 'en' ? "Complete SEO Guide" : "Panduan Lengkap SEO";
+                responseText = currentLang === 'en' 
+                    ? "<strong>Complete SEO Guide 2026:</strong><br><br>1. <strong>Core Web Vitals:</strong> Ensure LCP < 2.5s, CLS < 0.1, and INP < 200ms. Google heavily prioritizes User Experience.<br>2. <strong>Search Intent & E-E-A-T:</strong> Create content that directly answers user needs, demonstrating real Experience and Authority.<br>3. <strong>Technical Foundation:</strong> Optimize sitemaps, use schema markup (JSON-LD), and eliminate render-blocking resources.<br>4. <strong>Relevant Backlinks:</strong> Focus on backlink quality from related niches, not quantity."
+                    : "<strong>Panduan Lengkap SEO 2026:</strong><br><br>1. <strong>Core Web Vitals:</strong> Pastikan LCP < 2.5s, CLS < 0.1, dan INP < 200ms. Google sangat memprioritaskan User Experience.<br>2. <strong>Search Intent & E-E-A-T:</strong> Buat konten yang langsung menjawab kebutuhan user dengan pengalaman langsung (Experience) dan otoritas (Authority).<br>3. <strong>Technical Foundation:</strong> Optimalkan struktur sitemap, gunakan schema markup (JSON-LD), dan pastikan tidak ada render-blocking resources.<br>4. <strong>Backlink Relevan:</strong> Fokus pada kualitas backlink dari niche sejenis, bukan kuantitas.";
+            } else if (topic === 'marketing') {
+                queryText = currentLang === 'en' ? "Digital Marketing Strategy" : "Strategi Digital Marketing";
+                responseText = currentLang === 'en'
+                    ? "<strong>Effective Digital Marketing Strategy:</strong><br><br>1. <strong>Full-Funnel Approach:</strong> Don't just focus on conversions. Build Awareness (Top Funnel) via TikTok/Reels, Consideration via blog/email education, and Conversion via Meta/Google Ads.<br>2. <strong>Omnichannel:</strong> Integrate all platforms seamlessly. A user seeing you on Instagram should easily checkout on Web/WhatsApp.<br>3. <strong>A/B Testing:</strong> Always test 2-3 variations of headlines, visuals, and CTAs.<br>4. <strong>Retargeting:</strong> Use Meta Pixel/Google Tags to retarget visitors who haven't purchased yet."
+                    : "<strong>Strategi Digital Marketing Efektif:</strong><br><br>1. <strong>Full-Funnel Approach:</strong> Jangan hanya fokus pada konversi. Bangun Awareness (Top Funnel) via TikTok/Reels, Consideration via edukasi blog/email, dan Conversion via Meta Ads/Google Search.<br>2. <strong>Omnichannel:</strong> Integrasikan semua platform. Pelanggan yang melihat Anda di IG harus bisa mudah checkout di Web atau WhatsApp.<br>3. <strong>A/B Testing:</strong> Selalu uji 2-3 variasi headline, gambar, dan CTA pada iklan Anda.<br>4. <strong>Retargeting:</strong> Gunakan Meta Pixel / Google Tag untuk menargetkan ulang pengunjung yang belum membeli.";
+            } else if (topic === 'bisnis') {
+                queryText = currentLang === 'en' ? "Business Growth Plan" : "Rencana Pertumbuhan Bisnis";
+                responseText = currentLang === 'en'
+                    ? "<strong>Business Growth & Scaling Guide:</strong><br><br>1. <strong>Product-Market Fit:</strong> Ensure your product truly solves a market problem before scaling ad spend.<br>2. <strong>Customer Retention (LTV):</strong> Acquiring new customers is expensive. Build loyalty programs and use email marketing to increase repeat purchases.<br>3. <strong>Operational Automation:</strong> Use CRM/ERP systems (or Custom Dashboards) to track team KPIs in real-time.<br>4. <strong>Profit Margins:</strong> Focus on high-margin products to fund rising Customer Acquisition Costs (CAC)."
+                    : "<strong>Panduan Pertumbuhan Bisnis (Scaling):</strong><br><br>1. <strong>Product-Market Fit:</strong> Pastikan produk Anda benar-benar menyelesaikan masalah pasar sebelum membakar uang untuk iklan.<br>2. <strong>Customer Retention (LTV):</strong> Akuisisi pelanggan baru itu mahal. Buat program loyalitas, email marketing rutin, dan layanan after-sales premium agar pelanggan beli berkali-kali.<br>3. <strong>Automasi Operasional:</strong> Gunakan sistem CRM dan ERP (atau Dashboard Custom) untuk melacak KPI tim secara real-time.<br>4. <strong>Profit Margin:</strong> Fokus pada produk dengan margin tinggi untuk mendanai biaya marketing (CAC) yang terus naik.";
+            }
+
+            // Sembunyikan opsi sementara
+            optionsContainer.style.display = 'none';
+
+            // User Chat
+            chatWindow.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-gold text-white p-3 rounded-l-xl rounded-br-xl shadow-sm max-w-[85%]"><p>${queryText}</p></div><div class="w-6 h-6 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-xs"><i class="fas fa-user text-gray-600"></i></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
-            // Simulate slight delay for natural feel
+            // Loading Indicator
+            const loadingId = 'loading-' + Date.now();
+            chatWindow.innerHTML += `<div id="${loadingId}" class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><div class="flex items-center gap-1 text-gold"><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce"></span><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span></div></div></div>`;
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            // Simulate AI Delay
             setTimeout(() => {
-                let reply = '';
-                
-                // Bot Rules/Dictionary
-                if (query.includes('seo') || query.includes('google') || query.includes('ranking')) {
-                    reply = currentLang === 'en' ? 
-                        "The primary focus for SEO right now is Core Web Vitals (LCP, CLS, INP) and matching Search Intent. Ensure your site loads in under 2.5s and publishes high-quality, authoritative content. Check my 'Digital Marketing & SEO' services below for more." : 
-                        "Fokus utama SEO saat ini adalah Core Web Vitals (terutama kecepatan LCP di bawah 2.5 detik), Search Intent, dan otoritas domain. Pastikan struktur website Anda bersih. Anda bisa cek paket 'Optimasi Struktur SEO Google' di bagian Layanan.";
-                } else if (query.includes('harga') || query.includes('biaya') || query.includes('price') || query.includes('cost')) {
-                    reply = currentLang === 'en' ? 
-                        "My service fees vary depending on project complexity. For instance, Landing Page creation starts from IDR 2,500,000, while SEO Content Strategy starts from IDR 2,500,000/month. Please use the 'Consult via WhatsApp' button in the Services section for a precise quote." : 
-                        "Biaya layanan bervariasi tergantung kompleksitas proyek. Contohnya: Pembuatan Landing Page mulai Rp 2.500.000, dan Strategi Konten SEO mulai Rp 2.500.000/bulan. Detail lengkap ada di bagian 'Layanan Eksklusif', atau klik 'Konsultasi via WhatsApp' untuk diskusi harga spesifik.";
-                } else if (query.includes('iklan') || query.includes('ads') || query.includes('meta') || query.includes('tiktok')) {
-                    reply = currentLang === 'en' ? 
-                        "For paid ads, always start with a clear Funnel (Awareness -> Conversion) and A/B test your creatives. Make sure Tracking Pixels and Conversion APIs are set up correctly before burning budget." : 
-                        "Untuk iklan berbayar, strategi terbaik adalah membangun 'Full Funnel' dan melakukan A/B Testing pada materi kreatif Anda. Jangan pernah menjalankan iklan konversi tanpa memasang Meta Pixel atau GTM dengan benar. Saya bisa membantu mengelola ini (Fee 20% dari budget).";
-                } else if (query.includes('web') || query.includes('bikin') || query.includes('buat') || query.includes('landing')) {
-                    reply = currentLang === 'en' ? 
-                        "A good website isn't just pretty; it must be fast and structured for conversions. I build Landing Pages, LMS, E-commerce, and Custom Dashboards. Let's discuss your requirements!" : 
-                        "Website yang baik tidak hanya cantik, tapi harus ringan (loading cepat) dan terstruktur untuk menghasilkan konversi (sales). Saya menyediakan layanan pembuatan Landing Page, Web Company Profile, LMS, hingga Sistem Booking. Cek bagian 'Web Development' ya.";
-                } else {
-                    reply = currentLang === 'en' ? 
-                        "Great question! As an automated virtual assistant, I'm programmed to handle general queries. For specific strategies tailored to your business, I highly recommend clicking the 'Contact Me' or 'WhatsApp' button to chat directly with Faqih." : 
-                        "Pertanyaan yang sangat menarik! Sebagai asisten pintar, saran terbaik saya adalah Anda mendiskusikan hal ini langsung dengan ahlinya. Silakan klik tombol 'Hubungi Saya' atau ikon WhatsApp agar Mas Faqih bisa memberikan strategi dan solusi yang akurat untuk bisnis Anda.";
-                }
-
-                chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><p class="dark:text-darkText">${reply}</p></div></div>`;
-                
-                input.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i>';
+                document.getElementById(loadingId).remove();
+                chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-4 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[90%] leading-relaxed"><p class="dark:text-darkText">${responseText}</p></div></div>`;
                 chatWindow.scrollTop = chatWindow.scrollHeight;
-                input.focus();
-            }, 800);
+                
+                // Tampilkan opsi kembali
+                optionsContainer.style.display = 'flex';
+            }, 1200);
         }
-        document.getElementById('bot-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') askCustomBot(); });
 
-        // 3. ADVANCED PAGESPEED INSIGHTS (Core Web Vitals & Tech)
+        // 3. ADVANCED PAGESPEED INSIGHTS (Deep Detail)
         async function runPageSpeed() {
             const urlInput = document.getElementById('psi-url');
             let url = urlInput.value.trim();
             if(!url) return alert(translations[currentLang].auditErrorUrl);
             if(!url.startsWith('http://') && !url.startsWith('https://')) { url = 'https://' + url; }
             
-            const btn = event.currentTarget;
+            const btn = document.getElementById('btn-audit');
             btn.innerText = "WAIT..";
             btn.disabled = true;
             
             btn.closest('.bento-card').classList.add('scanning');
-            const issuesContainer = document.getElementById('psi-issues');
-            const issuesList = document.getElementById('psi-issues-list');
             const resultBox = document.getElementById('psi-result');
             const loaderText = document.getElementById('psi-loading');
             
-            issuesContainer.classList.add('hidden');
             resultBox.classList.add('hidden');
             loaderText.classList.remove('hidden');
 
             try {
-                // Fetch basic categories to get overall scores
                 const apiURL = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=seo`;
                 const res = await fetch(apiURL);
                 const data = await res.json();
@@ -1066,58 +1121,86 @@
                 const cats = data.lighthouseResult?.categories || {};
 
                 // Overall Scores
-                const perfScore = Math.round((cats.performance?.score || 0) * 100);
-                const seoScore = Math.round((cats.seo?.score || 0) * 100);
-
                 const setScore = (id, score) => {
                     const el = document.getElementById(id);
                     el.innerText = score || '--';
-                    el.className = `text-lg font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
+                    el.className = `text-2xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
                 };
-                setScore('psi-perf', perfScore);
-                setScore('psi-seo', seoScore);
+                setScore('psi-perf', Math.round((cats.performance?.score || 0) * 100));
+                setScore('psi-seo', Math.round((cats.seo?.score || 0) * 100));
 
-                // Detailed Metrics Extraction
+                // Core Web Vitals
                 const lcp = audits['largest-contentful-paint']?.displayValue || '--';
                 const cls = audits['cumulative-layout-shift']?.displayValue || '--';
-                const ttfb = audits['server-response-time']?.displayValue || '--';
-                // Convert bytes to MB for size if available
-                let sizeStr = '--';
-                if(audits['total-byte-weight'] && audits['total-byte-weight'].numericValue) {
-                    const mb = (audits['total-byte-weight'].numericValue / (1024 * 1024)).toFixed(2);
-                    sizeStr = `${mb} MB`;
-                }
+                const inp = audits['interaction-to-next-paint']?.displayValue || audits['max-potential-fid']?.displayValue || '--';
                 
                 document.getElementById('psi-lcp').innerText = lcp;
                 document.getElementById('psi-cls').innerText = cls;
-                document.getElementById('psi-ttfb').innerText = ttfb;
-                document.getElementById('psi-size').innerText = sizeStr;
+                document.getElementById('psi-inp').innerText = inp;
 
-                // Determine LCP color for GSC Tip
-                let lcpNum = parseFloat(lcp);
-                let gscColor = 'text-green-500';
-                if(isNaN(lcpNum)) lcpNum = 0;
-                if(lcpNum > 2.5 && lcpNum <= 4.0) gscColor = 'text-yellow-500';
-                if(lcpNum > 4.0) gscColor = 'text-red-500';
+                // Technical Metrics
+                document.getElementById('psi-ttfb').innerText = audits['server-response-time']?.displayValue || '--';
+                document.getElementById('psi-fcp').innerText = audits['first-contentful-paint']?.displayValue || '--';
+                document.getElementById('psi-tbt').innerText = audits['total-blocking-time']?.displayValue || '--';
+
+                // Size & Resources Breakdown
+                let totalMB = 0;
+                let sizes = { img: 0, script: 0, stylesheet: 0, font: 0, other: 0 };
                 
-                document.getElementById('psi-lcp').className = `text-xs font-mono font-bold ${gscColor}`;
+                if (audits['resource-summary'] && audits['resource-summary'].details && audits['resource-summary'].details.items) {
+                    const reqs = audits['resource-summary'].details.items;
+                    reqs.forEach(req => {
+                        const type = req.resourceType;
+                        const sizeKB = req.transferSize / 1024;
+                        if(type === 'image') sizes.img += sizeKB;
+                        else if(type === 'script') sizes.script += sizeKB;
+                        else if(type === 'stylesheet') sizes.stylesheet += sizeKB;
+                        else if(type === 'font') sizes.font += sizeKB;
+                        else if(type === 'total') totalMB = req.transferSize / (1024 * 1024);
+                        else sizes.other += sizeKB;
+                    });
+                }
+                
+                document.getElementById('psi-size').innerText = totalMB > 0 ? totalMB.toFixed(2) + ' MB' : '-- MB';
+                
+                // Progress Bar Sizes
+                const totalKB = totalMB * 1024;
+                if(totalKB > 0) {
+                    const pImg = (sizes.img / totalKB) * 100;
+                    const pJs = (sizes.script / totalKB) * 100;
+                    const pCss = (sizes.stylesheet / totalKB) * 100;
+                    const pRest = 100 - (pImg + pJs + pCss);
+                    
+                    document.getElementById('psi-size-bar').innerHTML = `
+                        <div class="h-full bg-blue-500" style="width: ${pImg}%" title="Images"></div>
+                        <div class="h-full bg-yellow-500" style="width: ${pJs}%" title="JS"></div>
+                        <div class="h-full bg-pink-500" style="width: ${pCss}%" title="CSS"></div>
+                        <div class="h-full bg-gray-400" style="width: ${pRest}%" title="Other"></div>
+                    `;
+                    
+                    document.getElementById('psi-reqs').innerHTML = `
+                        <div class="flex items-center gap-1"><div class="w-2 h-2 bg-blue-500 rounded-full"></div> IMG: ${(sizes.img/1024).toFixed(2)}MB</div>
+                        <div class="flex items-center gap-1"><div class="w-2 h-2 bg-yellow-500 rounded-full"></div> JS: ${(sizes.script/1024).toFixed(2)}MB</div>
+                        <div class="flex items-center gap-1"><div class="w-2 h-2 bg-pink-500 rounded-full"></div> CSS: ${(sizes.stylesheet/1024).toFixed(2)}MB</div>
+                    `;
+                }
 
-                resultBox.classList.remove('hidden');
-                resultBox.classList.add('flex');
-
-                // Extract Opportunities
+                // Actionable Insights Filter
+                const issuesList = document.getElementById('psi-issues-list');
                 issuesList.innerHTML = '';
                 let issuesFound = false;
                 let issuesCount = 0;
 
-                for (const key in audits) {
+                const specificAudits = ['uses-webp-images', 'unused-javascript', 'unused-css-rules', 'uses-long-cache-ttl', 'render-blocking-resources'];
+                
+                for (const key of specificAudits) {
                     const audit = audits[key];
-                    if (audit.score !== null && audit.score < 0.9 && (audit.details?.type === 'opportunity' || audit.details?.type === 'diagnostic')) {
-                        if (issuesCount >= 4) continue; // max 4
+                    if (audit && audit.score !== null && audit.score < 0.9) {
+                        if (issuesCount >= 6) break;
                         issuesFound = true;
                         
                         let desc = audit.description ? audit.description.split('.')[0] + '.' : 'Perlu penyesuaian teknis.';
-                        desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1'); // remove markdown links
+                        desc = desc.replace(/\[(.*?)\]\(.*?\)/g, '$1'); 
                         
                         const solTxt = currentLang === 'en' ? 'Detail:' : 'Detail:';
                         issuesList.innerHTML += `
@@ -1135,17 +1218,34 @@
                 if(!issuesFound) {
                     issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2 font-bold p-3 bg-green-500/10 rounded-lg text-xs"><i class="fas fa-check-circle"></i> ${translations[currentLang].auditHealthy}</li>`;
                 }
-                
-                issuesContainer.classList.remove('hidden');
-                issuesContainer.classList.add('flex');
 
-                // Update GSC Text based on LCP
+                // GSC Insight Tip based on LCP
                 const gscSimText = document.getElementById('gsc-sim-text');
+                let lcpNum = parseFloat(lcp);
+                if(isNaN(lcpNum)) lcpNum = 0;
+                
                 if(lcpNum <= 2.5 && lcpNum > 0) {
                     gscSimText.innerHTML = currentLang === 'en' ? "Excellent LCP (< 2.5s). Your site meets Google's Core Web Vitals standard, maximizing organic ranking potential." : "LCP Sangat Baik (< 2.5s). Website Anda lolos standar Core Web Vitals Google, memaksimalkan potensi ranking SEO.";
                 } else if(lcpNum > 2.5) {
                     gscSimText.innerHTML = currentLang === 'en' ? `Fixing LCP from ${lcp} down to < 2.5s can historically boost Google search impressions by 10-15%.` : `Perbaikan skor LCP dari ${lcp} menjadi di bawah 2.5s secara historis dapat meningkatkan impresi pencarian Google sebesar 10-15%.`;
                 }
+
+                // Colorize LCP, INP, CLS based on standards
+                const colorMetric = (elId, val, good, poor) => {
+                    const el = document.getElementById(elId);
+                    if(val === '--' || isNaN(parseFloat(val))) return;
+                    let v = parseFloat(val);
+                    if(v <= good) el.classList.add('text-green-500');
+                    else if(v > poor) el.classList.add('text-red-500');
+                    else el.classList.add('text-yellow-500');
+                }
+                colorMetric('psi-lcp', lcp, 2.5, 4.0);
+                colorMetric('psi-cls', cls, 0.1, 0.25);
+                // INP is typically in ms. If it's formatted "150 ms", we parse it.
+                colorMetric('psi-inp', inp, 200, 500); 
+
+                resultBox.classList.remove('hidden');
+                resultBox.classList.add('flex');
 
             } catch (e) {
                 loaderText.classList.add('hidden');
@@ -1163,7 +1263,6 @@
         const CACHE_TIME_KEY = 'trendsDataTime_v3';
         const CACHE_EXPIRY = 60 * 60 * 1000; // 1 hour
 
-        // Fallback robust
         const fallbackTrends = [
             {title: "Strategi Bisnis E-commerce", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=E-commerce"},
             {title: "Update Algoritma Google", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=SEO"},
@@ -1172,43 +1271,20 @@
             {title: "Peluang Bisnis Dropship", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Dropship"},
             {title: "Google Analytics 4", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Google%20Analytics%204"},
             {title: "Conversion Rate", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Conversion%20Rate"},
-            {title: "Meta Ads Indonesia", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Meta%20Ads"},
-            {title: "Brand Identity", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Brand%20Identity"},
-            {title: "Looker Studio Dashboard", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Looker%20Studio"},
-            {title: "Email Marketing Conversion", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Email%20Marketing"},
-            {title: "Teknik Copywriting", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Copywriting"},
-            {title: "Google My Business", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Google%20My%20Business"},
-            {title: "Public Relations Digital", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Public%20Relations"},
-            {title: "Influencer Marketing", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Influencer%20Marketing"},
-            {title: "Automasi WhatsApp", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=WhatsApp%20Business"},
-            {title: "Domain Authority", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Domain%20Authority"},
-            {title: "Strategi Flash Sale", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Flash%20Sale"},
-            {title: "Content Pillar B2B", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Content%20Marketing"},
-            {title: "Core Web Vitals", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Core%20Web%20Vitals"},
-            {title: "User Experience (UX)", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=UX"},
-            {title: "Social Commerce", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Social%20Commerce"},
-            {title: "Omnichannel Retail", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Omnichannel"},
-            {title: "Video Marketing", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Video%20Marketing"},
-            {title: "Podcast Ads", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Podcast%20Ads"},
-            {title: "Local SEO Strategy", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Local%20SEO"},
-            {title: "Affiliate Marketing 2026", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Affiliate"},
-            {title: "Customer Retention", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Retention"},
-            {title: "Programmatic Advertising", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Programmatic"},
-            {title: "B2B Lead Generation", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Lead%20Generation"}
+            {title: "Meta Ads Indonesia", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Meta%20Ads"}
         ];
 
         async function fetchGoogleTrends() {
             const cachedData = localStorage.getItem(CACHE_KEY);
             const cacheTime = localStorage.getItem(CACHE_TIME_KEY);
             
-            // Cek Cache Server-side simulation
             if(cachedData && cacheTime && (new Date().getTime() - parseInt(cacheTime) < CACHE_EXPIRY)) {
                 try {
                     allTrends = JSON.parse(cachedData);
                     buildTrendTabs();
                     renderTrends(0);
-                    return; // Data diambil dari cache cepat!
-                } catch(e) { /* ignore parse error */ }
+                    return; 
+                } catch(e) {}
             }
 
             try {
@@ -1217,16 +1293,13 @@
                 const data = await res.json();
                 
                 if(data.items && data.items.length > 0) {
-                    allTrends = data.items.slice(0, 30); // Ambil 30
-                    // Set Cache
+                    allTrends = data.items.slice(0, 30); 
                     localStorage.setItem(CACHE_KEY, JSON.stringify(allTrends));
                     localStorage.setItem(CACHE_TIME_KEY, new Date().getTime().toString());
                     
                     buildTrendTabs();
                     renderTrends(0);
-                } else {
-                    throw new Error("No data");
-                }
+                } else { throw new Error("No data"); }
             } catch (e) {
                 allTrends = fallbackTrends;
                 buildTrendTabs();
@@ -1277,8 +1350,6 @@
         }
 
         // INIT & UTILS
-        const badgeClass = "px-3 py-1.5 bg-white dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft select-none shadow-sm";
-
         function toggleCard(cardId) {
             const card = document.getElementById(cardId);
             const body = card.querySelector('.service-body');
@@ -1405,7 +1476,7 @@
             id: {
                 navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navGallery: "Galeri", navServices: "Layanan", navShowcase: "Wawasan", btnContact: "Hubungi Saya",
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
-                heroDesc: "Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon. Sinergi antara pemahaman algoritma dan strategi pemasaran memungkinkan saya menerapkan pendekatan optimasi yang lebih mendalam dan berbasis data.",
+                heroDesc: "Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking", statClients: "Klien",
                 tagTimeline: "Garis Waktu", tagMethod: "Metodologi", tagPortfolio: "Portfolio", tagOffer: "Penawaran", tagValidation: "Validasi", tagCreds: "Kredensial", tagShowcase: "Wawasan",
                 compTitle: "Kompetensi Utama",
@@ -1428,21 +1499,24 @@
                 lblSelectTool: "Pilih Alat", lblSelectStrategy: "Pilih Strategi",
                 partnerBadge: "Official Technology Partner", partnerDesc: "Kolaborasi strategis tingkat enterprise untuk menghadirkan solusi Web Development & System Integration yang tangguh. Bersama Garap Digital, kami menjamin infrastruktur teknologi yang <strong>scalable</strong>, aman, dan siap mendukung pertumbuhan bisnis Anda ke level selanjutnya.", partnerLink: "Kunjungi Website Partner",
                 trendLoading: "Menarik Data Trends...", loadingText: "Loading...", btnDetails: "Lihat Detail",
-                scorePerf: "Performa Skor", scoreSeo: "SEO Skor", scoreAcc: "Aksesibilitas", scoreBp: "Praktik Terbaik",
+                scorePerf: "Performa Skor", scoreSeo: "SEO Skor", lblCWV: "Core Web Vitals", lblTechMetrics: "Metrik Teknis (Backend)", lblAssets: "Analisis Aset Web",
 
                 neuralStatus: "Sistem Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, Bot Pakar SEO, dan Audit Web Lanjutan secara Real-time.", 
                 dashTitle: "InsightBox", dashLive: "Data Langsung", dashWait: "Memuat Looker Studio...",
-                aiTitle: "SEO & Biz Expert Bot", aiSub: "Asisten Mandiri 24/7", aiActive: "Aktif", aiAlt: "Ikon Bot",
-                aiGreeting: "Halo! Saya adalah Asisten Bisnis & SEO Anda. Ada yang bisa saya bantu terkait strategi website, optimasi iklan, atau konsultasi harga layanan?", aiPlaceholder: "Tanya tentang SEO, Website, Iklan, atau Harga...",
-                auditTitle: "Auditor Performa Lanjutan", auditSub: "Analisis Core Web Vitals, Ukuran Aset, & Diagnosa Teknis via Google API.", auditBtn: "SCAN", auditAlt: "Ikon PageSpeed", auditIssues: "Peluang Optimasi:", auditScanning: "MEMINDAI DATA...", auditHealthy: "Website Anda sangat sehat! (Tidak ada masalah besar)", auditError: "Gagal memindai URL. Pastikan URL valid dan dapat diakses publik (tanpa password).", auditErrorUrl: "Masukkan URL website yang valid!",
-                trendTitle: "Google Trends Turbo", trendSub: "Top 30 Pencarian Real-Time (Cached)", trendAlt: "Ikon Trends",
+                
+                aiTitle: "Gemini AI", aiSub: "Dapatkan panduan cerdas 24/7", aiActive: "Aktif", aiAlt: "Gemini AI Icon",
+                aiGreeting: "Halo! Saya adalah Asisten Bisnis & SEO Anda. Silakan pilih salah satu topik di bawah ini untuk mendapatkan panduan strategis yang komprehensif.",
+                btnPromptSEO: "Panduan SEO", btnPromptMarketing: "Strategi Marketing", btnPromptBisnis: "Pertumbuhan Bisnis",
+                
+                auditTitle: "PageSpeed", auditSub: "Analisis performa situs Anda", auditBtn: "SCAN", auditAlt: "PageSpeed Icon", auditIssues: "Rekomendasi Pintar:", auditScanning: "MEMINDAI DATA...", auditHealthy: "Website Anda sangat sehat! (Tidak ada masalah besar)", auditError: "Gagal memindai URL. Pastikan URL valid dan dapat diakses publik.", auditErrorUrl: "Masukkan URL website yang valid!",
+                trendTitle: "Google Trends", trendSub: "Dapatkan topik yang cocok untuk konten", trendAlt: "Trends Icon",
 
                 dateJob1: "Jan 2026 - Sekarang", 
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
                 descJob1: "<p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar 50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</li><li><strong>Melakukan riset pasar mendalam</strong> dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</li><li><strong>Memimpin negosiasi kontrak strategis</strong> dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</li></ul>",
-                dateJob2: "Sep 2025 - Des 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-gold text-white text-xs font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group w-full md:w-auto'><i class='fas fa-newspaper'></i> Lihat Artikel Terbit <i class='fas fa-arrow-right group-hover:translate-x-1 transition-transform'></i></a>",
+                dateJob2: "Sep 2025 - Des 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul>",
                 dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul>",
                 dateJob4: "Mei 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>",
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Bisnis Kue", compJob5: "Wirausaha", descJob5: "<p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>",
@@ -1471,7 +1545,7 @@
             en: {
                 navAbout: "About", navSkills: "Skills", navExperience: "Experience", navGallery: "Gallery", navServices: "Services", navShowcase: "Insights", btnContact: "Contact Me",
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
-                heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon. The synergy between my understanding of algorithms from my academic background and my digital marketing strategies allows me to implement a more profound, data-driven, and innovative approach to optimization.",
+                heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Ranking", statClients: "Clients",
                 tagTimeline: "Timeline", tagMethod: "Methodology", tagPortfolio: "Portfolio", tagOffer: "The Offer", tagValidation: "Validation", tagCreds: "Credentials", tagShowcase: "Insights",
                 compTitle: "Core Competencies",
@@ -1494,21 +1568,24 @@
                 lblSelectTool: "Select Tool", lblSelectStrategy: "Select Strategy",
                 partnerBadge: "Official Technology Partner", partnerDesc: "Enterprise-level strategic collaboration to deliver robust Web Development & System Integration solutions. Together with Garap Digital, we ensure your technology infrastructure is <strong>scalable</strong>, secure, and ready to support your business growth to the next level.", partnerLink: "Visit Partner Website",
                 trendLoading: "Fetching Trends Data...", loadingText: "Loading...", btnDetails: "View Details",
-                scorePerf: "Perf. Score", scoreSeo: "SEO Score", scoreAcc: "Accessibility", scoreBp: "Best Practices",
+                scorePerf: "Perf. Score", scoreSeo: "SEO Score", lblCWV: "Core Web Vitals", lblTechMetrics: "Technical Metrics", lblAssets: "Web Asset Analysis",
 
                 neuralStatus: "System Online", neuralTitle: "Neural Command Center", 
                 neuralDesc: "Integrated data ecosystem combining Investment Dashboard, AI SEO Expert Bot, and Real-time Web Audit.", 
                 dashTitle: "InsightBox", dashLive: "Live Data", dashWait: "Loading Looker Studio...",
-                aiTitle: "SEO & Biz Expert Bot", aiSub: "24/7 Virtual Assistant", aiActive: "Active", aiAlt: "Bot Icon",
-                aiGreeting: "Hello! I am your Business & SEO Assistant. How can I help you today regarding website strategy, ad optimization, or service pricing?", aiPlaceholder: "Ask about SEO, Website, Ads, or Pricing...",
-                auditTitle: "Advanced Performance Auditor", auditSub: "Analyze Core Web Vitals, Asset Sizes, & Tech Diagnostics via Google API.", auditBtn: "SCAN", auditAlt: "PageSpeed Icon", auditIssues: "Optimization Opportunities:", auditScanning: "SCANNING DATA...", auditHealthy: "Your website is very healthy! (No major issues)", auditError: "Failed to scan URL. Ensure URL is valid and public (no password protection).", auditErrorUrl: "Enter a valid URL!",
-                trendTitle: "Google Trends Turbo", trendSub: "Top 30 Real-Time Searches (Cached)", trendAlt: "Trends Icon",
+                
+                aiTitle: "Gemini AI", aiSub: "Get smart 24/7 guidance", aiActive: "Active", aiAlt: "Gemini AI Icon",
+                aiGreeting: "Hello! I am your Business & SEO Assistant. Please select a topic below to get a comprehensive strategic guide.",
+                btnPromptSEO: "SEO Guide", btnPromptMarketing: "Marketing Strategy", btnPromptBisnis: "Business Growth",
+
+                auditTitle: "PageSpeed", auditSub: "Analyze your site performance", auditBtn: "SCAN", auditAlt: "PageSpeed Icon", auditIssues: "Optimization Opportunities:", auditScanning: "SCANNING DATA...", auditHealthy: "Your website is very healthy! (No major issues)", auditError: "Failed to scan URL. Ensure URL is valid and public.", auditErrorUrl: "Enter a valid URL!",
+                trendTitle: "Google Trends", trendSub: "Get suitable topics for content", trendAlt: "Trends Icon",
 
                 dateJob1: "Jan 2026 - Present", 
                 roleJob1: "Freelance Business Development Associate",
                 compJob1: "PT Madani Abadi Nusantara",
                 descJob1: "<p>Fully responsible for managing the B2B sales cycle for professional services covering Accounting, Tax, and Business Legality Consulting. Main focus on new market penetration and building long-term relationships with corporate clients.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully increased Customer Retention Rate by 50%</strong> through the implementation of proactive and personalized Customer Relationship Management (CRM) strategies.</li><li><strong>Conducted in-depth market research</strong> and competitor analysis to design more competitive service offerings, directly impacting sales conversion increase.</li><li><strong>Led strategic contract negotiations</strong> with key clients, ensuring project profitability while delivering maximum added value for the client.</li></ul>",
-                dateJob2: "Sep 2025 - Dec 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Underwent an intensive 3-month internship program as a lead content writer. Tasked with producing 29 in-depth articles on Business, Technology, and Digital Trends with strict adherence to the latest SEO standards (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Achieved Ranking #1 on Google Search</strong> for several competitive keywords, proving the effectiveness of keyword research and content structure implemented.</li><li><strong>Articles selected for Google Discover feature</strong>, generating massive organic traffic spikes with zero ad spend.</li><li><strong>Developed a consistent editorial calendar</strong>, ensuring timely content publication relevant to current market trends.</li></ul><a href='https://garapmedia.com/author/faqihalrifai/' target='_blank' class='inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-gold text-white text-xs font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group w-full md:w-auto'><i class='fas fa-newspaper'></i> View Published Articles <i class='fas fa-arrow-right group-hover:translate-x-1 transition-transform'></i></a>",
+                dateJob2: "Sep 2025 - Dec 2025", roleJob2: "Content Writer (Internship)", compJob2: "Garap Media Nusantara", descJob2: "<p>Underwent an intensive 3-month internship program as a lead content writer. Tasked with producing 29 in-depth articles on Business, Technology, and Digital Trends with strict adherence to the latest SEO standards (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Achieved Ranking #1 on Google Search</strong> for several competitive keywords, proving the effectiveness of keyword research and content structure implemented.</li><li><strong>Articles selected for Google Discover feature</strong>, generating massive organic traffic spikes with zero ad spend.</li><li><strong>Developed a consistent editorial calendar</strong>, ensuring timely content publication relevant to current market trends.</li></ul>",
                 dateJob3: "Jul 2025 - Sep 2025", roleJob3: "Marketplace Administrator", compJob3: "Shopify & Shopee", descJob3: "<p>Took a leadership role in establishing and managing a global dropshipping business using the Shopify platform. Oversaw the entire supply chain from sourcing suppliers in China to delivery to customers in the United States (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully booked 137 verified sales</strong> in just the first month of operations, proving product validation and correct marketing strategy.</li><li><strong>Created product virality</strong> by generating over <strong>14,000 organic impressions</strong> on TikTok Shop through creative video content and platform algorithm optimization.</li><li><strong>Managed international customer service (CS)</strong> with rapid response standards, maintaining high customer satisfaction amidst cross-border logistics complexity.</li></ul>",
                 dateJob4: "May 2025 - Jul 2025", roleJob4: "Affiliate Marketing", compJob4: "Shopee", descJob4: "<p>Designed and executed end-to-end affiliate marketing strategies on the Shopee platform. Selectively curated products to ensure fit with target audience demographics (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Leveraged Instagram as the main channel</strong> (traffic source) by creating engaging visual content and persuasive storytelling to drive clicks and conversions.</li><li><strong>Successfully recorded 57 direct sales</strong> in the first month, demonstrating rapid adaptability in understanding online buyer psychology.</li><li><strong>Optimized Shopee promotional features</strong> and exclusive vouchers to increase offer attractiveness for potential buyers.</li></ul>",
                 dateJob5: "Jan 2024 - Apr 2025", roleJob5: "Owner, Cake Business", compJob5: "Entrepreneur", descJob5: "<p>Built a culinary (cake) business from scratch (bootstrapping), managing all operational aspects from production, quality control, marketing, to after-sales service. Placed customer satisfaction as the main business priority.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Successfully acquired a loyal customer base of 437 people</strong> growing organically through Word-of-Mouth (WOM) strategies and local social media marketing.</li><li><strong>Achieved financial stability</strong> with consistent daily revenue exceeding <strong>Rp500,000</strong>, proving the sustainability of the applied business model.</li><li><strong>Developed new product variations</strong> based on customer feedback (feedback loop) to maintain relevance and market interest.</li></ul>",
@@ -1583,7 +1660,7 @@
             }, { passive: true });
             
             triggerReveal(); animateCounters(); ambilDataWordPress();
-            initLookerObserver(); fetchGoogleTrends();
+            initLookerObserver(); fetchGoogleTrends(); initVideoObserver();
             
             const slider = document.getElementById('testimonialSlider');
             if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }

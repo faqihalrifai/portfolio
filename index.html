@@ -12,12 +12,12 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Muhammad Faqih Al Rifai - SEO Specialist, Content Strategist & E-commerce Growth Expert. Portfolio & Professional Services.">
+    <meta name="description" content="Muhammad Faqih Al Rifai - Digital Marketing SEO Specialist, Content Strategist & E-commerce Growth Expert. Portfolio & Professional Services.">
     
     <!-- =========================================
          2. VERIFIKASI GOOGLE & SEO META
          ========================================= -->
-    <title>Muhammad Faqih Al Rifai | Spesialis SEO & Digital Marketing</title>
+    <title>Muhammad Faqih Al Rifai | Digital Marketing SEO Specialist</title>
     
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="Jkno9NlGud5XD9yM1BmWH2oEXnJXhJC0QYoTuM2n8ws" />
@@ -36,7 +36,7 @@
       "name": "Muhammad Faqih Al Rifai",
       "url": "https://faqihalrf.netlify.app/",
       "image": "https://faqihalrf.netlify.app/myphot.webp",
-      "jobTitle": "SEO Specialist & Digital Marketer",
+      "jobTitle": "Digital Marketing SEO Specialist",
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "STMIK IKMI Cirebon"
@@ -125,7 +125,7 @@
     </script>
 
     <style>
-        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; } 
+        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; overflow-x: hidden; } 
         .dark body { background-color: #0f1014; color: #f3f4f6; }
         
         /* OVERRIDE & SMOOTH SCROLLING ENHANCEMENTS */
@@ -332,7 +332,7 @@
                     </h1>
                     
                     <p class="text-sm md:text-base text-textGray dark:text-darkSub leading-relaxed mb-8 max-w-xl text-left" data-i18n="heroDesc">
-                        Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon.
+                        Saya adalah Digital Marketing SEO Specialist yang berfokus pada optimasi mesin pencari, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon. Sinergi antara pemahaman algoritma dan strategi pemasaran memungkinkan saya menerapkan pendekatan optimasi yang lebih mendalam dan berbasis data.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center mb-12 w-full sm:w-auto">
@@ -1007,7 +1007,6 @@
             if (!video) return;
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Jeda cerdas: Jika video tersisa kurang dari 30% di layar, pause. Jika lebih, play.
                     if (entry.intersectionRatio >= 0.3) {
                         video.play().catch(e => console.log('Autoplay prevented by browser', e));
                     } else {
@@ -1051,7 +1050,6 @@
             let queryText = '';
             let responseText = '';
 
-            // Map data untuk bahasa ID / EN
             if (topic === 'seo') {
                 queryText = currentLang === 'en' ? "Complete SEO Guide" : "Panduan Lengkap SEO";
                 responseText = currentLang === 'en' 
@@ -1069,30 +1067,25 @@
                     : "<strong>Panduan Pertumbuhan Bisnis (Scaling):</strong><br><br>1. <strong>Product-Market Fit:</strong> Pastikan produk Anda benar-benar menyelesaikan masalah pasar sebelum membakar uang untuk iklan.<br>2. <strong>Customer Retention (LTV):</strong> Akuisisi pelanggan baru itu mahal. Buat program loyalitas, email marketing rutin, dan layanan after-sales premium agar pelanggan beli berkali-kali.<br>3. <strong>Automasi Operasional:</strong> Gunakan sistem CRM dan ERP (atau Dashboard Custom) untuk melacak KPI tim secara real-time.<br>4. <strong>Profit Margin:</strong> Fokus pada produk dengan margin tinggi untuk mendanai biaya marketing (CAC) yang terus naik.";
             }
 
-            // Sembunyikan opsi sementara
             optionsContainer.style.display = 'none';
 
-            // User Chat
             chatWindow.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-gold text-white p-3 rounded-l-xl rounded-br-xl shadow-sm max-w-[85%]"><p>${queryText}</p></div><div class="w-6 h-6 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-xs"><i class="fas fa-user text-gray-600"></i></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
-            // Loading Indicator
             const loadingId = 'loading-' + Date.now();
             chatWindow.innerHTML += `<div id="${loadingId}" class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-3 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><div class="flex items-center gap-1 text-gold"><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce"></span><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span></div></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
-            // Simulate AI Delay
             setTimeout(() => {
                 document.getElementById(loadingId).remove();
                 chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-6 h-6 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-[10px]"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-4 rounded-r-xl rounded-bl-xl shadow-sm border border-black/5 dark:border-white/5 max-w-[90%] leading-relaxed"><p class="dark:text-darkText">${responseText}</p></div></div>`;
                 chatWindow.scrollTop = chatWindow.scrollHeight;
                 
-                // Tampilkan opsi kembali
                 optionsContainer.style.display = 'flex';
             }, 1200);
         }
 
-        // 3. ADVANCED PAGESPEED INSIGHTS (Deep Detail)
+        // 3. ADVANCED PAGESPEED INSIGHTS
         async function runPageSpeed() {
             const urlInput = document.getElementById('psi-url');
             let url = urlInput.value.trim();
@@ -1120,7 +1113,6 @@
                 const audits = data.lighthouseResult?.audits || {};
                 const cats = data.lighthouseResult?.categories || {};
 
-                // Overall Scores
                 const setScore = (id, score) => {
                     const el = document.getElementById(id);
                     el.innerText = score || '--';
@@ -1129,7 +1121,6 @@
                 setScore('psi-perf', Math.round((cats.performance?.score || 0) * 100));
                 setScore('psi-seo', Math.round((cats.seo?.score || 0) * 100));
 
-                // Core Web Vitals
                 const lcp = audits['largest-contentful-paint']?.displayValue || '--';
                 const cls = audits['cumulative-layout-shift']?.displayValue || '--';
                 const inp = audits['interaction-to-next-paint']?.displayValue || audits['max-potential-fid']?.displayValue || '--';
@@ -1138,12 +1129,10 @@
                 document.getElementById('psi-cls').innerText = cls;
                 document.getElementById('psi-inp').innerText = inp;
 
-                // Technical Metrics
                 document.getElementById('psi-ttfb').innerText = audits['server-response-time']?.displayValue || '--';
                 document.getElementById('psi-fcp').innerText = audits['first-contentful-paint']?.displayValue || '--';
                 document.getElementById('psi-tbt').innerText = audits['total-blocking-time']?.displayValue || '--';
 
-                // Size & Resources Breakdown
                 let totalMB = 0;
                 let sizes = { img: 0, script: 0, stylesheet: 0, font: 0, other: 0 };
                 
@@ -1163,7 +1152,6 @@
                 
                 document.getElementById('psi-size').innerText = totalMB > 0 ? totalMB.toFixed(2) + ' MB' : '-- MB';
                 
-                // Progress Bar Sizes
                 const totalKB = totalMB * 1024;
                 if(totalKB > 0) {
                     const pImg = (sizes.img / totalKB) * 100;
@@ -1185,7 +1173,6 @@
                     `;
                 }
 
-                // Actionable Insights Filter
                 const issuesList = document.getElementById('psi-issues-list');
                 issuesList.innerHTML = '';
                 let issuesFound = false;
@@ -1219,7 +1206,6 @@
                     issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2 font-bold p-3 bg-green-500/10 rounded-lg text-xs"><i class="fas fa-check-circle"></i> ${translations[currentLang].auditHealthy}</li>`;
                 }
 
-                // GSC Insight Tip based on LCP
                 const gscSimText = document.getElementById('gsc-sim-text');
                 let lcpNum = parseFloat(lcp);
                 if(isNaN(lcpNum)) lcpNum = 0;
@@ -1230,7 +1216,6 @@
                     gscSimText.innerHTML = currentLang === 'en' ? `Fixing LCP from ${lcp} down to < 2.5s can historically boost Google search impressions by 10-15%.` : `Perbaikan skor LCP dari ${lcp} menjadi di bawah 2.5s secara historis dapat meningkatkan impresi pencarian Google sebesar 10-15%.`;
                 }
 
-                // Colorize LCP, INP, CLS based on standards
                 const colorMetric = (elId, val, good, poor) => {
                     const el = document.getElementById(elId);
                     if(val === '--' || isNaN(parseFloat(val))) return;
@@ -1241,7 +1226,6 @@
                 }
                 colorMetric('psi-lcp', lcp, 2.5, 4.0);
                 colorMetric('psi-cls', cls, 0.1, 0.25);
-                // INP is typically in ms. If it's formatted "150 ms", we parse it.
                 colorMetric('psi-inp', inp, 200, 500); 
 
                 resultBox.classList.remove('hidden');
@@ -1257,21 +1241,18 @@
             }
         }
 
-        // 4. GOOGLE TRENDS TURBO (30 ITEMS + LOCAL STORAGE CACHE)
+        // 4. GOOGLE TRENDS TURBO (REALTIME - 30 ITEMS)
         let allTrends = [];
         const CACHE_KEY = 'trendsData_v3';
         const CACHE_TIME_KEY = 'trendsDataTime_v3';
-        const CACHE_EXPIRY = 60 * 60 * 1000; // 1 hour
+        const CACHE_EXPIRY = 5 * 60 * 1000; // Dikurangi jadi 5 menit agar lebih Real-time
 
         const fallbackTrends = [
             {title: "Strategi Bisnis E-commerce", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=E-commerce"},
             {title: "Update Algoritma Google", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=SEO"},
             {title: "Cara FYP di TikTok Shop", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=TikTok%20Shop"},
             {title: "Tools AI untuk Marketing", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=AI%20Marketing"},
-            {title: "Peluang Bisnis Dropship", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Dropship"},
-            {title: "Google Analytics 4", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Google%20Analytics%204"},
-            {title: "Conversion Rate", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Conversion%20Rate"},
-            {title: "Meta Ads Indonesia", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Meta%20Ads"}
+            {title: "Peluang Bisnis Dropship", pubDate: new Date().toISOString(), link: "https://trends.google.com/trends/explore?geo=ID&q=Dropship"}
         ];
 
         async function fetchGoogleTrends() {
@@ -1288,8 +1269,10 @@
             }
 
             try {
+                // Tambahkan parameter unik agar tidak dicache oleh API pihak ketiga (memaksa tarik data Real-Time terbaru)
+                const cacheBuster = new Date().getTime();
                 const rssUrl = encodeURIComponent('https://trends.google.com/trends/trendingsearches/daily/rss?geo=ID');
-                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
+                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}&cb=${cacheBuster}`);
                 const data = await res.json();
                 
                 if(data.items && data.items.length > 0) {
@@ -1476,7 +1459,7 @@
             id: {
                 navAbout: "Tentang", navSkills: "Kompetensi", navExperience: "Pengalaman", navGallery: "Galeri", navServices: "Layanan", navShowcase: "Wawasan", btnContact: "Hubungi Saya",
                 heroBadge: "Tersedia untuk Proyek", heroTitle1: "Dominasi Pasar &", heroTitle2: "Pertumbuhan Digital.",
-                heroDesc: "Saya adalah Digital Marketing Specialist yang berfokus pada SEO, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon.",
+                heroDesc: "Saya adalah Digital Marketing SEO Specialist yang berfokus pada optimasi mesin pencari, Strategi Konten, dan Pertumbuhan E-commerce untuk memberikan dampak bisnis yang nyata dan terukur. Lulusan SMAN 5 Cirebon (Angkatan 2024), saat ini saya sedang meningkatkan keahlian teknis dengan menempuh pendidikan Sarjana Teknik Informatika di STMIK IKMI Cirebon. Sinergi antara pemahaman algoritma dan strategi pemasaran memungkinkan saya menerapkan pendekatan optimasi yang lebih mendalam dan berbasis data.",
                 btnPortfolio: "Lihat Portfolio", statArticles: "Artikel", statCerts: "Sertifikasi", statRank: "Ranking", statClients: "Klien",
                 tagTimeline: "Garis Waktu", tagMethod: "Metodologi", tagPortfolio: "Portfolio", tagOffer: "Penawaran", tagValidation: "Validasi", tagCreds: "Kredensial", tagShowcase: "Wawasan",
                 compTitle: "Kompetensi Utama",
@@ -1545,7 +1528,7 @@
             en: {
                 navAbout: "About", navSkills: "Skills", navExperience: "Experience", navGallery: "Gallery", navServices: "Services", navShowcase: "Insights", btnContact: "Contact Me",
                 heroBadge: "Available for Work", heroTitle1: "Dominating Digital", heroTitle2: "Market & Growth.",
-                heroDesc: "I am a Digital Marketing Specialist specializing in SEO, Content Strategy, and E-commerce Growth. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor’s degree in Informatics Engineering at STMIK IKMI Cirebon.",
+                heroDesc: "I am a Digital Marketing SEO Specialist focusing on search engine optimization, Content Strategy, and E-commerce Growth to deliver real, measurable business impact. A graduate of SMAN 5 Cirebon (Class of 2024), I am currently enhancing my technical expertise by pursuing a Bachelor's degree in Informatics Engineering at STMIK IKMI Cirebon. The synergy between algorithmic understanding and marketing strategy allows me to implement a more profound, data-driven optimization approach.",
                 btnPortfolio: "View Portfolio", statArticles: "Articles", statCerts: "Certifications", statRank: "Ranking", statClients: "Clients",
                 tagTimeline: "Timeline", tagMethod: "Methodology", tagPortfolio: "Portfolio", tagOffer: "The Offer", tagValidation: "Validation", tagCreds: "Credentials", tagShowcase: "Insights",
                 compTitle: "Core Competencies",
@@ -1614,20 +1597,20 @@
         };
 
         // RENDER TESTIMONIALS
-        const testimonials = [
-            { text: "Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data.", name: "Rihwan S.", role: "Business Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4", rating: 5 },
-            { text: "Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.", name: "Andi L.", role: "UMKM Owner", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c0aede", rating: 5 },
-            { text: "Saya kesulitan dengan tugas akhir saya, tapi bimbingan beliau sangat berharga.", name: "Dika K.", role: "Mahasiswa", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dika&backgroundColor=ffdfbf", rating: 5 },
-            { text: "Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan.", name: "Maya N.", role: "Online Seller", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maya&backgroundColor=ffdfbf", rating: 5 },
-            { text: "Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh.", name: "Budi P.", role: "Blogger", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Budi&backgroundColor=b6e3f4", rating: 5 },
-            { text: "Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan.", name: "Sari S.", role: "Influencer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sari&backgroundColor=c0aede", rating: 5 },
-            { text: "Sistem undangan digitalnya sangat praktis dan elegan. Sangat membantu acara kami.", name: "Dian N.", role: "Event Organizer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dian&backgroundColor=ffdfbf", rating: 5 },
-            { text: "Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun.", name: "Hendra K.", role: "IT Manager", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hendra&backgroundColor=b6e3f4", rating: 5 }
+        const testimonialsData = [
+            { text: {id: "Mas Faqih membantu kami meningkatkan penjualan online secara drastis. Strateginya sangat berbasis data.", en: "Mr. Faqih helped us drastically increase online sales. His strategy is highly data-driven."}, name: "Rihwan S.", role: {id: "Pemilik Bisnis", en: "Business Owner"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4", rating: 5 },
+            { text: {id: "Hasil website profesional. Ranking #1 di Google untuk kata kunci spesifik kami.", en: "Professional website results. Ranked #1 on Google for our specific keywords."}, name: "Andi L.", role: {id: "Pemilik UMKM", en: "SME Owner"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c0aede", rating: 5 },
+            { text: {id: "Saya kesulitan dengan proyek akhir, tapi bimbingan beliau sangat berharga.", en: "I struggled with my final project, but his guidance was invaluable."}, name: "Dika K.", role: {id: "Mahasiswa", en: "Student"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dika&backgroundColor=ffdfbf", rating: 5 },
+            { text: {id: "Sangat direkomendasikan untuk manajemen iklan digital. ROI meningkat signifikan.", en: "Highly recommended for digital ads management. ROI increased significantly."}, name: "Maya N.", role: {id: "Penjual Online", en: "Online Seller"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maya&backgroundColor=ffdfbf", rating: 5 },
+            { text: {id: "Respon cepat dan artikel berkualitas tinggi. Membantu trafik blog kami tumbuh.", en: "Fast response and high-quality articles. Helped our blog traffic grow."}, name: "Budi P.", role: {id: "Blogger", en: "Blogger"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Budi&backgroundColor=b6e3f4", rating: 5 },
+            { text: {id: "Strategi kontennya brilian. Tingkat keterlibatan kami naik dua kali lipat dalam sebulan.", en: "Brilliant content strategy. Our engagement rate doubled in a month."}, name: "Sari S.", role: {id: "Influencer", en: "Influencer"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sari&backgroundColor=c0aede", rating: 5 },
+            { text: {id: "Sistem undangan digitalnya sangat praktis dan elegan. Sangat membantu acara kami.", en: "The digital invitation system is very practical and elegant. Highly helpful for our event."}, name: "Dian N.", role: {id: "Event Organizer", en: "Event Organizer"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dian&backgroundColor=ffdfbf", rating: 5 },
+            { text: {id: "Audit SEO mendalam mengungkapkan masalah yang kami lewatkan selama bertahun-tahun.", en: "In-depth SEO audit revealed issues we missed for years."}, name: "Hendra K.", role: {id: "IT Manager", en: "IT Manager"}, avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hendra&backgroundColor=b6e3f4", rating: 5 }
         ];
 
         function renderTestimonials() {
             const container = document.getElementById('testimonialSlider');
-            container.innerHTML = testimonials.map(t => {
+            container.innerHTML = testimonialsData.map(t => {
                 const stars = Array(t.rating).fill('<i class="fas fa-star text-gold text-[10px]"></i>').join('');
                 return `
                 <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
@@ -1635,8 +1618,8 @@
                         <img src="${t.avatar}" width="48" height="48" class="w-12 h-12 rounded-full shadow-sm bg-white border border-black/5" alt="${t.name}">
                         <div class="flex gap-1">${stars}</div>
                     </div>
-                    <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-6 italic">"${t.text}"</p>
-                    <div><p class="font-bold text-sm text-darkBlack dark:text-gold">${t.name}</p><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">${t.role}</p></div>
+                    <p class="text-textGray dark:text-darkText text-sm mini-text-mobile leading-relaxed mb-6 italic">"${t.text[currentLang]}"</p>
+                    <div><p class="font-bold text-sm text-darkBlack dark:text-gold">${t.name}</p><p class="text-[10px] uppercase tracking-wide text-textGray dark:text-darkSub">${t.role[currentLang]}</p></div>
                 </div>
             `}).join('');
         }
@@ -1648,25 +1631,34 @@
         const flagEN = "https://flagcdn.com/w20/us.png";
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderCerts(); renderGallery(); renderTestimonials();
-            setLanguage(currentLang);
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
+            // Isolasi triggerReveal agar elemen langsung tampil meski ada error di API
+            triggerReveal();
             window.addEventListener('scroll', triggerReveal, { passive: true });
             
-            const navContainer = document.getElementById('navbar-container');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) { navContainer.classList.remove('h-20'); navContainer.classList.add('h-14'); document.getElementById('navbar').classList.add('glass'); } 
-                else { navContainer.classList.remove('h-14'); navContainer.classList.add('h-20'); }
-            }, { passive: true });
-            
-            triggerReveal(); animateCounters(); ambilDataWordPress();
-            initLookerObserver(); fetchGoogleTrends(); initVideoObserver();
-            
-            const slider = document.getElementById('testimonialSlider');
-            if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }
+            try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
+                
+                const navContainer = document.getElementById('navbar-container');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) { navContainer.classList.remove('h-20'); navContainer.classList.add('h-14'); document.getElementById('navbar').classList.add('glass'); } 
+                    else { navContainer.classList.remove('h-14'); navContainer.classList.add('h-20'); }
+                }, { passive: true });
+                
+                setLanguage(currentLang);
+                animateCounters(); 
+                ambilDataWordPress();
+                initLookerObserver(); 
+                fetchGoogleTrends(); 
+                initVideoObserver();
+                
+                const slider = document.getElementById('testimonialSlider');
+                if (slider) { setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { slider.scrollBy({ left: 320, behavior: 'smooth' }); } }, 4000); }
+            } catch (err) {
+                console.warn("Init Warning:", err);
+            }
         });
 
-        // Fetch WordPress
+        // Fetch WordPress dengan Try Catch Super Aman
         async function ambilDataWordPress() {
             const wadahSlider = document.getElementById('insightsSlider');
             const counterBadge = document.getElementById('article-counter');
@@ -1718,38 +1710,46 @@
         }
 
         function setLanguage(lang) {
-            currentLang = lang; localStorage.setItem('lang', lang);
-            document.querySelectorAll('.current-lang-label').forEach(el => { el.innerText = lang.toUpperCase(); });
-            document.querySelectorAll('.current-lang-flag').forEach(el => { el.innerHTML = `<img src="${lang === 'en' ? flagEN : flagID}" class="inline-block" width="20" height="15" style="width: 16px; height: auto;" alt="Flag">`; });
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => { 
-                const key = el.getAttribute('data-i18n'); 
-                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } 
-            });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { 
-                const key = el.getAttribute('data-i18n-placeholder'); 
-                if (translations[lang][key]) { el.placeholder = translations[lang][key]; } 
-            });
-            document.querySelectorAll('[data-i18n-alt]').forEach(el => { 
-                const key = el.getAttribute('data-i18n-alt'); 
-                if (translations[lang][key]) { el.alt = translations[lang][key]; } 
-            });
-            
-            ['opt-cat1', 'opt-cat2', 'opt-cat3'].forEach(id => { const select = document.getElementById(id); if (select) { const event = new Event('change'); select.dispatchEvent(event); } });
-            
-            const job1Desc = document.getElementById('descJob1'); if(job1Desc) job1Desc.innerHTML = translations[lang].descJob1;
-            const job2Desc = document.getElementById('descJob2'); if(job2Desc) job2Desc.innerHTML = translations[lang].descJob2;
-            const job3Desc = document.getElementById('descJob3'); if(job3Desc) job3Desc.innerHTML = translations[lang].descJob3;
-            const job4Desc = document.getElementById('descJob4'); if(job4Desc) job4Desc.innerHTML = translations[lang].descJob4;
-            const job5Desc = document.getElementById('descJob5'); if(job5Desc) job5Desc.innerHTML = translations[lang].descJob5;
-            const job6Desc = document.getElementById('descJob6'); if(job6Desc) job6Desc.innerHTML = translations[lang].descJob6;
+            try {
+                currentLang = lang; localStorage.setItem('lang', lang);
+                document.querySelectorAll('.current-lang-label').forEach(el => { el.innerText = lang.toUpperCase(); });
+                document.querySelectorAll('.current-lang-flag').forEach(el => { el.innerHTML = `<img src="${lang === 'en' ? flagEN : flagID}" class="inline-block" width="20" height="15" style="width: 16px; height: auto;" alt="Flag">`; });
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => { 
+                    const key = el.getAttribute('data-i18n'); 
+                    if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; } 
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { 
+                    const key = el.getAttribute('data-i18n-placeholder'); 
+                    if (translations[lang] && translations[lang][key]) { el.placeholder = translations[lang][key]; } 
+                });
+                document.querySelectorAll('[data-i18n-alt]').forEach(el => { 
+                    const key = el.getAttribute('data-i18n-alt'); 
+                    if (translations[lang] && translations[lang][key]) { el.alt = translations[lang][key]; } 
+                });
+                
+                ['opt-cat1', 'opt-cat2', 'opt-cat3'].forEach(id => { const select = document.getElementById(id); if (select) { const event = new Event('change'); select.dispatchEvent(event); } });
+                
+                const setHtmlSafe = (id, key) => { const el = document.getElementById(id); if(el && translations[lang][key]) el.innerHTML = translations[lang][key]; };
+                setHtmlSafe('descJob1', 'descJob1');
+                setHtmlSafe('descJob2', 'descJob2');
+                setHtmlSafe('descJob3', 'descJob3');
+                setHtmlSafe('descJob4', 'descJob4');
+                setHtmlSafe('descJob5', 'descJob5');
+                setHtmlSafe('descJob6', 'descJob6');
 
-            renderGallery(); renderCerts(); ambilDataWordPress();
-            
-            if(allTrends.length > 0) {
-                let activeTab = 0;
-                document.querySelectorAll('.trend-tab').forEach((tab, idx) => { if (tab.classList.contains('bg-gold')) activeTab = idx; });
-                renderTrends(activeTab);
+                renderGallery(); 
+                renderCerts(); 
+                renderTestimonials(); // Render Testimoni dengan bahasa yg sesuai
+                if(globalArticles.length > 0) renderArticles(globalArticles);
+                
+                if(allTrends.length > 0) {
+                    let activeTab = 0;
+                    document.querySelectorAll('.trend-tab').forEach((tab, idx) => { if (tab.classList.contains('bg-gold')) activeTab = idx; });
+                    renderTrends(activeTab);
+                }
+            } catch (err) {
+                console.warn("Language Switch Warning:", err);
             }
         }
         document.querySelectorAll('.lang-toggle').forEach(btn => { btn.addEventListener('click', () => { setLanguage(currentLang === 'en' ? 'id' : 'en'); }); });

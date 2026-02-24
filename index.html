@@ -156,12 +156,12 @@
         .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         .h-scroll-container::-webkit-scrollbar { display: none; }
         
-        /* Custom Scrollbar - Dimperhalus & Elegan */
-        .custom-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 10px; }
-        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
-        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.5); border-radius: 10px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(197, 160, 40, 0.8); }
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); border-radius: 4px; }
+        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.6); border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(197, 160, 40, 0.9); }
         
         .testimonial-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -249,15 +249,18 @@
             opacity: 1; pointer-events: auto; transform: translateY(0);
         }
 
-        /* MOBILE OPTIMIZATIONS (< 768px) */
+        /* LIGHTBOX IMG ZOOM */
+        .lightbox-zoomed { transform: scale(1.5); cursor: zoom-out !important; }
+
+        /* MOBILE POPUP & CARDS (< 768px) */
         @media (max-width: 768px) {
             .mini-card-mobile { padding: 1.25rem !important; }
+            .mini-head-mobile { font-size: 1.1rem !important; }
+            .mini-text-mobile { font-size: 0.85rem !important; }
             .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
             .marketing-popup.show { transform: translate(-50%, 0); }
             .bubble { text-align: center; border-top: 4px solid #c5a028; }
             .neural-grid { display: flex; flex-direction: column; }
-            /* Membuat card lebih padat di mobile */
-            .bento-card-mobile-compact { min-height: 450px !important; height: auto !important; max-height: 550px; }
         }
 
         /* DESKTOP POPUP (>= 769px) */
@@ -374,15 +377,14 @@
         </section>
 
         <!-- =======================================================
-             VIDEO ANIMASI (FULL WIDTH 16:9, SMART PAUSE, 1080P CRISP) 
+             VIDEO ANIMASI (DIPERBAIKI UNTUK KUALITAS 1080P) 
              ======================================================= -->
-        <div class="w-full bg-mainWhite dark:bg-darkBg pointer-events-none relative z-10 shadow-sm border-b border-black/5 dark:border-white/5">
-            <!-- Video di set persis proporsi asli, tanpa filter buram, object-cover memastikan tidak ditarik paksa -->
-            <video id="hero-bg-video" src="animasi.mp4" class="w-full h-auto aspect-video object-cover block" autoplay muted playsinline loop disablePictureInPicture></video>
+        <div class="w-full bg-black pointer-events-none relative z-10 shadow-sm border-b border-black/5 dark:border-white/5 flex justify-center overflow-hidden">
+            <video id="hero-bg-video" src="animasi.mp4" class="w-full max-w-[1920px] h-auto aspect-video object-cover block" autoplay muted playsinline loop disablePictureInPicture></video>
         </div>
 
         <!-- =======================================================
-             NEURAL COMMAND CENTER V3.0 (UPGRADED & COMPACT)
+             NEURAL COMMAND CENTER V3.0 (UPGRADED)
              ======================================================= -->
         <section id="neural-command" class="py-20 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
@@ -396,7 +398,7 @@
                     </div>
                     <h2 class="text-3xl md:text-4xl font-serif font-bold dark:text-white">Neural Command Center <span class="text-gold text-lg align-top">v3.0</span></h2>
                     <p class="text-sm text-textGray dark:text-darkSub mt-2 max-w-xl">
-                        Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, Bot Konsultan AI, dan Audit Web Lanjutan secara Real-time.
+                        Ekosistem data terintegrasi yang menggabungkan Dashboard Investasi, Bot Pakar SEO, dan Audit Web Lanjutan secara Real-time.
                     </p>
                 </div>
 
@@ -428,162 +430,168 @@
                         </div>
                     </div>
 
-                    <!-- 2. CUSTOM SEO/BIZ BOT (Gemini AI Style - COMPACT) -->
-                    <div class="col-span-12 md:col-span-7 bento-card bento-card-mobile-compact h-[550px] p-4 md:p-6 flex flex-col">
-                        <div class="flex items-center justify-between mb-3 shrink-0">
+                    <!-- 2. CUSTOM SEO/BIZ BOT (Gemini AI Style) -->
+                    <div class="col-span-12 md:col-span-7 bento-card p-6 md:p-8 flex flex-col h-[600px]">
+                        <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                     <img src="geminiai.webp" width="40" height="40" alt="Gemini AI Icon" class="w-full h-full object-contain rounded-lg">
                                 </div>
-                                <div><h3 class="font-bold text-sm md:text-base dark:text-white">Gemini AI</h3><p class="text-[9px] md:text-[10px] uppercase text-textGray dark:text-darkSub">Konsultan Strategi Bisnis</p></div>
+                                <div><h3 class="font-bold dark:text-white">Gemini AI</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Konsultan AI Strategi Bisnis & Digital</p></div>
                             </div>
-                            <span class="text-[9px] md:text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20">Aktif</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20">Aktif</span>
                         </div>
                         
-                        <!-- Chat Interface -->
-                        <div id="bot-chat-window" class="custom-scroll flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-3 md:p-5 mb-3 overflow-y-auto font-sans text-[11px] md:text-[13px] leading-relaxed border border-black/5 dark:border-white/5 space-y-4">
-                            <div class="flex gap-2 md:gap-3">
-                                <div class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-robot"></i></div>
-                                <div class="bg-white dark:bg-darkCard p-3 md:p-4 rounded-r-2xl rounded-bl-2xl shadow-sm border border-black/5 dark:border-white/5 max-w-[90%]">
-                                    <p class="dark:text-darkText text-gray-800" id="bot-greeting">Selamat datang! Saya adalah wujud AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) komprehensif. <br><br>Silakan geser dan pilih salah satu pilar fokus di bawah ini untuk mendapatkan panduan strategis yang sangat mendalam.</p>
+                        <!-- Chat Interface (Ikon dihilangkan, full teks) -->
+                        <div id="bot-chat-window" class="custom-scroll flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-4 md:p-6 mb-4 overflow-y-auto font-sans text-sm leading-relaxed border border-black/5 dark:border-white/5 space-y-4">
+                            <div class="flex w-full">
+                                <div class="bg-white dark:bg-darkCard p-5 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full">
+                                    <p class="dark:text-darkText text-gray-800" id="bot-greeting">Selamat datang! Saya adalah representasi AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) komprehensif. <br><br>Silakan pilih salah satu pilar fokus di bawah ini untuk mendapatkan panduan strategis yang mendalam.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Input Area (Predefined Options - Horizontally scrollable on mobile) -->
-                        <div class="flex gap-2 overflow-x-auto custom-scroll snap-x pb-2 shrink-0" id="bot-options-container">
-                            <button onclick="sendBotPredefined('seo')" class="snap-start shrink-0 min-w-[45%] md:flex-1 text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[10px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Panduan SEO</button>
-                            <button onclick="sendBotPredefined('marketing')" class="snap-start shrink-0 min-w-[45%] md:flex-1 text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[10px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Strategi Marketing</button>
-                            <button onclick="sendBotPredefined('bisnis')" class="snap-start shrink-0 min-w-[45%] md:flex-1 text-center px-3 py-2.5 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[10px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Scale Bisnis</button>
+                        <!-- Input Area (Predefined Options) -->
+                        <div class="flex gap-2 flex-wrap mt-auto" id="bot-options-container">
+                            <button onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Panduan SEO</button>
+                            <button onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Strategi Marketing</button>
+                            <button onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Pertumbuhan Bisnis</button>
                         </div>
                     </div>
 
                     <!-- 3. PERFORMANCE AUDITOR (Advanced PageSpeed Insight) -->
-                    <div class="col-span-12 md:col-span-5 bento-card bento-card-mobile-compact h-[550px] p-4 md:p-6 flex flex-col justify-between relative group">
+                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-[600px]">
                         <!-- ANIMASI SCANNER LASER -->
                         <div class="scanner-overlay"><div class="scanner-laser"></div></div>
                         
-                        <div class="relative z-50 shrink-0">
+                        <div class="relative z-50">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                     <img src="pagespeed.webp" width="40" height="40" alt="PageSpeed Icon" class="w-full h-full object-contain">
                                 </div>
-                                <div><h3 class="font-bold text-sm md:text-base dark:text-white">PageSpeed</h3><p class="text-[9px] md:text-[10px] uppercase text-textGray dark:text-darkSub">Analisis performa situs Anda</p></div>
+                                <div><h3 class="font-bold text-sm dark:text-white">PageSpeed</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Analisis performa situs Anda</p></div>
                             </div>
                             
-                            <div class="flex items-center gap-2 mb-3 relative z-50 mt-3">
-                                <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-lg text-xs py-2.5 px-3 focus:outline-none focus:border-gold dark:text-white transition-colors">
-                                <button onclick="runPageSpeed()" id="btn-audit" class="text-white bg-gold hover:bg-black dark:hover:bg-white dark:hover:text-gold px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow-md">SCAN</button>
+                            <div class="flex items-center gap-2 mb-3 relative z-50 mt-4">
+                                <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-sm py-2 focus:outline-none focus:border-gold dark:text-white">
+                                <button onclick="runPageSpeed()" id="btn-audit" class="text-gold hover:text-white hover:bg-gold px-4 py-2 rounded-lg text-xs font-bold transition-all border border-gold">SCAN</button>
                             </div>
                         </div>
                         
                         <div class="mt-1 flex-1 overflow-y-auto pr-2 custom-scroll relative z-50">
-                            <!-- Loading Text Dinamis -->
-                            <div id="psi-loading" class="hidden h-full flex flex-col items-center justify-center text-xs text-gold font-bold text-center px-4">
+                            <!-- Loading Text -->
+                            <div id="psi-loading" class="hidden h-full flex flex-col items-center justify-center text-sm text-gold font-bold">
                                 <div class="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin mb-3"></div>
-                                <span id="psi-loading-text">Menghubungkan ke server Google...</span>
+                                <span>MEMINDAI DATA...</span>
                             </div>
 
                             <!-- Advanced Results -->
                             <div id="psi-result" class="hidden flex-col gap-3 pb-2">
                                 <!-- Skor Utama -->
                                 <div class="grid grid-cols-2 gap-2 text-center">
-                                    <div class="bg-lightGray dark:bg-black/30 p-2.5 rounded-xl border border-black/5 dark:border-white/5">
-                                        <div class="text-2xl font-bold leading-none mb-1" id="psi-perf">--</div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                        <div class="text-2xl font-bold" id="psi-perf">--</div>
                                         <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold">Performa Skor</div>
                                     </div>
-                                    <div class="bg-lightGray dark:bg-black/30 p-2.5 rounded-xl border border-black/5 dark:border-white/5">
-                                        <div class="text-2xl font-bold leading-none mb-1" id="psi-seo">--</div>
+                                    <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                        <div class="text-2xl font-bold" id="psi-seo">--</div>
                                         <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold">SEO Skor</div>
                                     </div>
                                 </div>
                                 
-                                <!-- Core Web Vitals -->
-                                <div class="mt-1">
+                                <!-- Core Web Vitals (Standar Utama) -->
+                                <div class="mt-2">
                                     <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Core Web Vitals</span>
-                                    <div class="grid grid-cols-3 gap-2 mt-1.5">
+                                    <div class="grid grid-cols-3 gap-2 mt-1">
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">LCP <span title="Waktu muat visual utama">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-lcp">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">LCP</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Muat visual utama</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-lcp">--</div>
                                         </div>
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">INP <span title="Responsivitas input">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-inp">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">INP</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Responsif input user</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-inp">--</div>
                                         </div>
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">CLS <span title="Pergeseran layout">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-cls">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">CLS</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Stabilitas layout</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-cls">--</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Metrik Teknis -->
-                                <div class="mt-1">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Metrik Teknis</span>
-                                    <div class="grid grid-cols-3 gap-2 mt-1.5">
+                                <!-- Metrik Kecepatan Teknis -->
+                                <div class="mt-2">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Metrik Teknis (Backend)</span>
+                                    <div class="grid grid-cols-3 gap-2 mt-1">
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">TTFB <span title="Respon server">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-ttfb">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">TTFB</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Waktu respon server</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-ttfb">--</div>
                                         </div>
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">FCP <span title="Elemen pertama">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-fcp">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">FCP</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Render konten awal</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-fcp">--</div>
                                         </div>
                                         <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                            <div class="text-[9px] text-textGray dark:text-darkSub mb-0.5">TBT <span title="Waktu tersumbat">ℹ️</span></div>
-                                            <div class="text-xs font-mono font-bold" id="psi-tbt">--</div>
+                                            <div class="text-[10px] font-bold text-darkBlack dark:text-white">TBT</div>
+                                            <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Total durasi macet</div>
+                                            <div class="text-sm font-mono font-bold" id="psi-tbt">--</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Analisis Aset & Bobot -->
-                                <div class="mt-1 bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                <div class="mt-2 bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
                                     <div class="flex justify-between items-end mb-2">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Bobot Halaman</span>
-                                        <span class="text-xs font-bold text-gold" id="psi-size">-- MB</span>
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Analisis Aset Web</span>
+                                        <span class="text-sm font-bold text-gold" id="psi-size">-- MB</span>
                                     </div>
-                                    <div class="w-full h-2 rounded-full overflow-hidden flex mb-2" id="psi-size-bar">
+                                    <div class="w-full h-2 rounded-full overflow-hidden flex" id="psi-size-bar">
                                         <div class="h-full bg-gray-300 w-full"></div>
                                     </div>
-                                    <div class="flex flex-wrap gap-2 text-[9px] font-mono text-textGray dark:text-darkSub" id="psi-reqs">
+                                    <div class="flex flex-wrap gap-2 text-[10px] mt-2 font-mono text-textGray dark:text-darkSub" id="psi-reqs">
                                         --
                                     </div>
                                 </div>
 
                                 <!-- Rekomendasi Pintar (Actionable Insights) -->
-                                <div id="psi-issues" class="flex flex-col gap-2 mt-1">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500">Prioritas Optimasi:</span>
+                                <div id="psi-issues" class="flex flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5 mt-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-red-500">Rekomendasi Pintar:</span>
                                     <ul id="psi-issues-list" class="space-y-2 text-xs text-textGray dark:text-darkSub">
                                         <!-- List diisi via JS -->
                                     </ul>
+                                </div>
+
+                                <!-- GSC Pro Tip Banner -->
+                                <div class="mt-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 p-4 rounded-xl flex items-start gap-3">
+                                    <i class="fab fa-google text-blue-500 mt-0.5"></i>
+                                    <div class="text-xs leading-relaxed text-darkBlack dark:text-white">
+                                        <strong class="text-blue-600 dark:text-blue-400">GSC Insight:</strong> <span id="gsc-sim-text">Perbaikan skor LCP menjadi di bawah 2.5s secara historis dapat meningkatkan impresi pencarian Google sebesar 10-15%.</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 4. GOOGLE TRENDS TURBO (TAB NUMERIK 25 DATA REALTIME) -->
-                    <div class="col-span-12 bento-card p-4 md:p-6 h-auto flex flex-col relative overflow-hidden group">
+                    <!-- 4. GOOGLE TRENDS TURBO (TAB NUMERIK 20 DATA) -->
+                    <div class="col-span-12 bento-card p-6 h-auto flex flex-col">
                         <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4 shrink-0">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                     <img src="googletrends.webp" width="40" height="40" alt="Trends Icon" class="w-full h-full object-contain">
                                 </div>
-                                <div>
-                                    <h3 class="font-bold text-sm md:text-base dark:text-white">Google Trends Real-Time</h3>
-                                    <p class="text-[9px] md:text-[10px] uppercase text-textGray dark:text-darkSub">25 Topik Pencarian Terhangat</p>
-                                </div>
+                                <div><h3 class="font-bold dark:text-white">Google Trends Real-Time</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">20 Topik terhangat saat ini</p></div>
                             </div>
                             <!-- Pagination Tabs Numerik -->
-                            <div class="flex gap-1.5 flex-wrap" id="trends-tabs">
-                                <!-- Generated by JS -->
+                            <div class="flex gap-2 flex-wrap" id="trends-tabs">
+                                <!-- Generated by JS (Tab 1,2,3,4) -->
                             </div>
                         </div>
-
                         <div id="trends-content" class="flex-1 flex flex-col border border-black/5 dark:border-white/5 rounded-xl bg-white dark:bg-darkCard divide-y divide-black/5 dark:divide-white/5">
-                            <div class="p-8 text-center text-sm text-textGray flex flex-col items-center justify-center h-full gap-3">
-                                <div class="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
-                                <span class="font-bold text-xs">Menarik Data Pencarian...</span>
-                            </div>
+                            <div class="p-8 text-center text-sm text-textGray"><i class="fas fa-circle-notch fa-spin text-gold text-2xl mb-3 block"></i><span>Menarik 20 Data Trends Terkini...</span></div>
                         </div>
                     </div>
 
@@ -605,7 +613,7 @@
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-black/10 dark:border-white/10 rounded-full dark:text-darkText">Jan 2026 - Sekarang</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Freelance Business Development Associate</h3>
                                     <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4">PT Madani Abadi Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jan 2026 - Sekarang</span>
@@ -617,22 +625,29 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Job 2 -->
+                    <!-- Job 2 (Garap Media + Surat Rekomendasi) -->
                     <div class="relative pl-12 md:pl-0 group reveal">
                         <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-600 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-emerald-600/10 dark:border-emerald-600/30 rounded-full text-emerald-700 dark:text-emerald-400">Sep 2025 - Des 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Content Writer (Internship)</h3>
                                     <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4">Garap Media Nusantara</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Sep 2025 - Des 2025</span>
                                     <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob2">
-                                        <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul>
-                                        <!-- Tombol Bukti Surat Rekomendasi Garap Media -->
-                                        <button onclick="openLightbox('reqgarmed.webp', 'image')" class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all group shadow-sm">
-                                            <i class="fas fa-file-contract group-hover:scale-110 transition-transform"></i> Lihat Surat Rekomendasi
-                                        </button>
+                                        <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p>
+                                        <ul class='space-y-1 mt-2 list-disc pl-4'>
+                                            <li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li>
+                                            <li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li>
+                                            <li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li>
+                                        </ul>
+                                        <!-- Tombol Surat Rekomendasi -->
+                                        <div class="mt-5">
+                                            <button onclick="openLightbox('reqgarmed.webp', 'image')" class="inline-flex px-4 py-2.5 bg-emerald-600/10 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 text-xs font-bold rounded-xl border border-emerald-600/20 hover:bg-emerald-600 hover:text-white transition-all items-center justify-center gap-2 w-full sm:w-auto shadow-sm">
+                                                <i class="fas fa-file-contract text-sm"></i> Lihat Surat Rekomendasi
+                                            </button>
+                                        </div>
                                     </div>
                                     <button onclick="openJobModal('job2')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
                                 </div>
@@ -645,7 +660,7 @@
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-orange-500/10 dark:border-orange-500/30 rounded-full text-orange-600 dark:text-orange-400">Jul 2025 - Sep 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Marketplace Administrator</h3>
                                     <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jul 2025 - Sep 2025</span>
@@ -663,7 +678,7 @@
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-pink-500/10 dark:border-pink-500/30 rounded-full text-pink-600 dark:text-pink-400">Mei 2025 - Jul 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Affiliate Marketing</h3>
                                     <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4">Shopee</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Mei 2025 - Jul 2025</span>
@@ -681,7 +696,7 @@
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-yellow-500/10 dark:border-yellow-500/30 rounded-full text-yellow-600 dark:text-yellow-400">Jan 2024 - Apr 2025</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Owner, Bisnis Kue</h3>
                                     <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4">Wirausaha</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jan 2024 - Apr 2025</span>
@@ -699,7 +714,7 @@
                         <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
                             <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-teal-600/10 dark:border-teal-600/30 rounded-full text-teal-600 dark:text-teal-400">Mei 2023 - Des 2023</span></div>
                             <div class="md:col-span-9">
-                                <div class="card-gray dark:bg-darkCard p-6 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
+                                <div class="card-gray dark:bg-darkCard p-5 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative">
                                     <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Customer Service & Co-Founder</h3>
                                     <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4">Web Development Venture</p>
                                     <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Mei 2023 - Des 2023</span>
@@ -717,7 +732,7 @@
 
         <!-- MODAL PENGALAMAN KERJA (KHUSUS MOBILE) -->
         <div id="jobModal" class="fixed inset-0 z-[120] flex items-end md:items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeJobModal()">
-            <div class="bg-white dark:bg-darkCard w-full md:w-[600px] max-h-[85vh] rounded-t-3xl md:rounded-3xl p-6 md:p-8 overflow-y-auto custom-scroll transform translate-y-full md:translate-y-10 transition-transform duration-300 shadow-2xl border border-black/5 dark:border-white/10" id="jobModalContent" onclick="event.stopPropagation()">
+            <div class="bg-white dark:bg-darkCard w-full md:w-[600px] max-h-[85vh] rounded-t-3xl md:rounded-3xl p-6 md:p-8 overflow-y-auto transform translate-y-full md:translate-y-10 transition-transform duration-300 shadow-2xl border border-black/5 dark:border-white/10" id="jobModalContent" onclick="event.stopPropagation()">
                 <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mb-6 md:hidden"></div>
                 <div class="flex justify-between items-start mb-6 pb-4 border-b border-black/5 dark:border-white/5">
                     <div class="pr-4">
@@ -784,7 +799,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+             </div>
         </section>
 
         <!-- Gallery -->
@@ -822,14 +837,14 @@
                   <div class="flex flex-col gap-6">
                         <!-- Category 1: Web Development & System Solutions -->
                         <div class="service-card-modern rounded-2xl" id="card-cat1">
-                            <div class="service-header p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat1')">
-                                <div class="flex items-center gap-5">
-                                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-2xl shadow-inner border border-black/5 dark:border-white/10"><i class="fas fa-laptop-code"></i></div>
-                                    <div><p class="text-xl font-bold dark:text-white mb-1 font-serif">Web Development & System Solutions</p><p class="text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Membangun infrastruktur digital fungsional</p></div>
+                            <div class="service-header p-5 md:p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat1')">
+                                <div class="flex items-center gap-4 md:gap-5">
+                                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-xl md:text-2xl shadow-inner border border-black/5 dark:border-white/10 shrink-0"><i class="fas fa-laptop-code"></i></div>
+                                    <div><p class="text-lg md:text-xl font-bold dark:text-white mb-1 font-serif">Web Development & Systems</p><p class="text-[10px] md:text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Membangun infrastruktur digital fungsional</p></div>
                                 </div>
-                                <div class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron"><i class="fas fa-plus"></i></div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron shrink-0"><i class="fas fa-plus"></i></div>
                             </div>
-                            <div class="service-body hidden px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
+                            <div class="service-body hidden px-5 md:px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2">Pilih Solusi</label>
@@ -852,14 +867,14 @@
 
                         <!-- Category 2: Business Operations -->
                         <div class="service-card-modern rounded-2xl" id="card-cat2">
-                             <div class="service-header p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat2')">
-                                <div class="flex items-center gap-5">
-                                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-2xl shadow-inner border border-black/5 dark:border-white/10"><i class="fas fa-briefcase"></i></div>
-                                    <div><p class="text-xl font-bold dark:text-white mb-1 font-serif">Business Operations</p><p class="text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Solusi efisiensi manajemen internal</p></div>
+                             <div class="service-header p-5 md:p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat2')">
+                                <div class="flex items-center gap-4 md:gap-5">
+                                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-xl md:text-2xl shadow-inner border border-black/5 dark:border-white/10 shrink-0"><i class="fas fa-briefcase"></i></div>
+                                    <div><p class="text-lg md:text-xl font-bold dark:text-white mb-1 font-serif">Business Operations</p><p class="text-[10px] md:text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Solusi efisiensi manajemen internal</p></div>
                                 </div>
-                                <div class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron"><i class="fas fa-plus"></i></div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron shrink-0"><i class="fas fa-plus"></i></div>
                             </div>
-                            <div class="service-body hidden px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
+                            <div class="service-body hidden px-5 md:px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2">Pilih Alat</label>
@@ -879,14 +894,14 @@
 
                         <!-- Category 3: Digital Marketing & SEO -->
                          <div class="service-card-modern rounded-2xl" id="card-cat3">
-                             <div class="service-header p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat3')">
-                                <div class="flex items-center gap-5">
-                                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-2xl shadow-inner border border-black/5 dark:border-white/10"><i class="fas fa-bullhorn"></i></div>
-                                    <div><p class="text-xl font-bold dark:text-white mb-1 font-serif">Digital Marketing & SEO</p><p class="text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Dominasi pasar digital & konversi</p></div>
+                             <div class="service-header p-5 md:p-6 flex items-center justify-between cursor-pointer hover:bg-white dark:hover:bg-white/5 transition-colors" onclick="toggleCard('card-cat3')">
+                                <div class="flex items-center gap-4 md:gap-5">
+                                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white dark:bg-white/5 text-gold flex items-center justify-center text-xl md:text-2xl shadow-inner border border-black/5 dark:border-white/10 shrink-0"><i class="fas fa-bullhorn"></i></div>
+                                    <div><p class="text-lg md:text-xl font-bold dark:text-white mb-1 font-serif">Digital Marketing & SEO</p><p class="text-[10px] md:text-xs text-textGray dark:text-darkSub uppercase tracking-wider font-bold">Dominasi pasar digital & konversi</p></div>
                                 </div>
-                                <div class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron"><i class="fas fa-plus"></i></div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-gold text-sm transition-transform duration-300 chevron shrink-0"><i class="fas fa-plus"></i></div>
                             </div>
-                            <div class="service-body hidden px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
+                            <div class="service-body hidden px-5 md:px-8 pb-8 pt-2 border-t border-black/5 dark:border-white/5">
                                 <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div class="md:col-span-2">
                                         <label class="block text-[10px] font-bold uppercase tracking-wider text-textGray dark:text-darkSub mb-2">Pilih Strategi</label>
@@ -993,18 +1008,28 @@
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3"><button aria-label="Scroll Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-up"></i></button><button aria-label="Scroll Bottom" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-down"></i></button></div>
     
-    <!-- LIGHTBOX MODAL (Z-INDEX TERTINGGI 150) -->
-    <div id="lightboxModal" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible transition-all duration-300" aria-hidden="true" onclick="closeLightbox()">
+    <!-- LIGHTBOX MODAL (Diperbarui dengan fitur Zoom) -->
+    <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible transition-all duration-300" aria-hidden="true" onclick="closeLightbox()">
         <button class="absolute top-6 right-6 text-white text-4xl hover:text-gold transition-colors z-50 p-2">&times;</button>
-        <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative">
-            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden" onclick="event.stopPropagation()" loading="lazy">
+        <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative overflow-hidden">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-300 cursor-zoom-in" onclick="event.stopPropagation(); toggleLightboxZoom()" loading="lazy" title="Klik untuk memperbesar/memperkecil">
             <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video>
         </div>
     </div>
 
     <script>
-        // INIT LENIS SCROLL (Premium Smooth Scrolling) - Easing diperhalus lagi
-        const lenis = new Lenis({ duration: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', gestureDirection: 'vertical', smooth: true, mouseMultiplier: 1, smoothTouch: true, touchMultiplier: 2, infinite: false })
+        // INIT LENIS SCROLL (Adjusted parameter agar terasa natural dan profesional)
+        const lenis = new Lenis({ 
+            duration: 1.0, 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            direction: 'vertical', 
+            gestureDirection: 'vertical', 
+            smooth: true, 
+            mouseMultiplier: 0.8, 
+            smoothTouch: false, 
+            touchMultiplier: 1.5, 
+            infinite: false 
+        })
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
@@ -1106,23 +1131,23 @@
 
             optionsContainer.style.display = 'none';
 
-            chatWindow.innerHTML += `<div class="flex gap-3 justify-end"><div class="bg-gold text-white px-4 py-3 rounded-l-2xl rounded-br-2xl shadow-sm max-w-[85%]"><p>${queryText}</p></div><div class="w-8 h-8 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-sm"><i class="fas fa-user text-gray-600"></i></div></div>`;
+            chatWindow.innerHTML += `<div class="flex justify-end w-full"><div class="bg-gold text-white px-5 py-4 rounded-2xl shadow-sm max-w-[85%]"><p>${queryText}</p></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             const loadingId = 'loading-' + Date.now();
-            chatWindow.innerHTML += `<div id="${loadingId}" class="flex gap-3"><div class="w-8 h-8 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-4 rounded-r-2xl rounded-bl-2xl shadow-sm border border-black/5 dark:border-white/5 max-w-[85%]"><div class="flex items-center gap-1 text-gold"><span class="w-2 h-2 rounded-full bg-gold animate-bounce"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span></div></div></div>`;
+            chatWindow.innerHTML += `<div id="${loadingId}" class="flex w-full"><div class="bg-white dark:bg-darkCard p-5 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full"><div class="flex items-center gap-1 text-gold"><span class="w-2 h-2 rounded-full bg-gold animate-bounce"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span></div></div></div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             setTimeout(() => {
                 document.getElementById(loadingId).remove();
-                chatWindow.innerHTML += `<div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-gold shrink-0 flex items-center justify-center text-white text-xs"><i class="fas fa-robot"></i></div><div class="bg-white dark:bg-darkCard p-5 rounded-r-2xl rounded-bl-2xl shadow-sm border border-black/5 dark:border-white/5 max-w-[90%]"><div class="dark:text-darkText text-gray-800">${responseText}</div></div></div>`;
+                chatWindow.innerHTML += `<div class="flex w-full"><div class="bg-white dark:bg-darkCard p-5 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full"><div class="dark:text-darkText text-gray-800">${responseText}</div></div></div>`;
                 chatWindow.scrollTop = chatWindow.scrollHeight;
                 
                 optionsContainer.style.display = 'flex';
             }, 1200);
         }
 
-        // 3. ADVANCED PAGESPEED INSIGHTS (Dengan Simulasi Loading Halus)
+        // 3. ADVANCED PAGESPEED INSIGHTS
         async function runPageSpeed() {
             const urlInput = document.getElementById('psi-url');
             let url = urlInput.value.trim();
@@ -1135,33 +1160,17 @@
             
             btn.closest('.bento-card').classList.add('scanning');
             const resultBox = document.getElementById('psi-result');
-            const loaderContainer = document.getElementById('psi-loading');
-            const loaderText = document.getElementById('psi-loading-text');
+            const loaderText = document.getElementById('psi-loading');
             
             resultBox.classList.add('hidden');
-            loaderContainer.classList.remove('hidden');
-
-            // Simulasi teks agar psikologis pengguna merasa cepat
-            const loadingTexts = [
-                "Menghubungkan ke server Google API...",
-                "Menganalisis Core Web Vitals (LCP, CLS, INP)...",
-                "Memeriksa ukuran gambar dan file statis...",
-                "Mengevaluasi kecepatan respon server (TTFB)...",
-                "Menyusun laporan rekomendasi akhir..."
-            ];
-            let textIndex = 0;
-            const textInterval = setInterval(() => {
-                textIndex = (textIndex + 1) % loadingTexts.length;
-                loaderText.innerText = loadingTexts[textIndex];
-            }, 2500);
+            loaderText.classList.remove('hidden');
 
             try {
                 const apiURL = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=seo`;
                 const res = await fetch(apiURL);
                 const data = await res.json();
                 
-                clearInterval(textInterval);
-                loaderContainer.classList.add('hidden');
+                loaderText.classList.add('hidden');
 
                 const audits = data.lighthouseResult?.audits || {};
                 const cats = data.lighthouseResult?.categories || {};
@@ -1169,7 +1178,7 @@
                 const setScore = (id, score) => {
                     const el = document.getElementById(id);
                     el.innerText = score || '--';
-                    el.className = `text-2xl font-bold leading-none mb-1 ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
+                    el.className = `text-2xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
                 };
                 setScore('psi-perf', Math.round((cats.performance?.score || 0) * 100));
                 setScore('psi-seo', Math.round((cats.seo?.score || 0) * 100));
@@ -1276,16 +1285,15 @@
                     else if(v > poor) el.classList.add('text-red-500');
                     else el.classList.add('text-yellow-500');
                 }
-                colorMetric('psi-lcp', lcp, 2.5, 4.0);
-                colorMetric('psi-cls', cls, 0.1, 0.25);
-                colorMetric('psi-inp', inp, 200, 500); 
+                colorMetric('psi-lcp', lcpNum, 2.5, 4.0);
+                colorMetric('psi-cls', parseFloat(cls), 0.1, 0.25);
+                colorMetric('psi-inp', parseFloat(inp), 200, 500); 
 
                 resultBox.classList.remove('hidden');
                 resultBox.classList.add('flex');
 
             } catch (e) {
-                clearInterval(textInterval);
-                loaderContainer.classList.add('hidden');
+                loaderText.classList.add('hidden');
                 alert("Gagal memindai URL. Pastikan URL valid dan dapat diakses publik.");
             } finally {
                 btn.innerText = "SCAN";
@@ -1294,10 +1302,10 @@
             }
         }
 
-        // 4. GOOGLE TRENDS TURBO (REALTIME - 25 ITEMS DENGAN TAB NUMERIK)
+        // 4. GOOGLE TRENDS TURBO (REALTIME - 20 ITEMS DENGAN TAB NUMERIK)
         let allTrends = [];
-        const CACHE_KEY = 'trendsData_v3_id';
-        const CACHE_TIME_KEY = 'trendsDataTime_v3_id';
+        const CACHE_KEY = 'trendsData_v3_id_20';
+        const CACHE_TIME_KEY = 'trendsDataTime_v3_id_20';
         const CACHE_EXPIRY = 5 * 60 * 1000; // Cache 5 menit
 
         const fallbackTrends = [
@@ -1328,7 +1336,7 @@
                 const data = await res.json();
                 
                 if(data.items && data.items.length > 0) {
-                    allTrends = data.items.slice(0, 25); // Ambil 25 Data
+                    allTrends = data.items.slice(0, 20); // Dibatasi ke 20 Data
                     localStorage.setItem(CACHE_KEY, JSON.stringify(allTrends));
                     localStorage.setItem(CACHE_TIME_KEY, new Date().getTime().toString());
                     buildTrendTabs();
@@ -1344,18 +1352,17 @@
         // Membuat Tab Numerik
         function buildTrendTabs() {
             const tabsContainer = document.getElementById('trends-tabs');
-            if (!tabsContainer) return; // Mencegah Error Cannot set innerHTML of null
             const totalTabs = Math.ceil(allTrends.length / 5); // 5 Data per Tab
             let tabsHtml = '';
             for(let i = 0; i < totalTabs; i++) {
-                tabsHtml += `<button onclick="renderTrends(${i})" class="trend-tab w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center text-[10px] md:text-[11px] font-bold bg-lightGray dark:bg-black/30 text-textGray hover:bg-gold/20 transition-all shadow-sm border border-black/5 dark:border-white/5">${i+1}</button>`;
+                tabsHtml += `<button onclick="renderTrends(${i})" class="trend-tab w-8 h-8 rounded-lg flex items-center justify-center text-[11px] font-bold bg-lightGray dark:bg-black/30 text-textGray hover:bg-gold/20 transition-all shadow-sm border border-black/5 dark:border-white/5">${i+1}</button>`;
             }
             tabsContainer.innerHTML = tabsHtml;
         }
 
         function renderTrends(tabIndex) {
             const container = document.getElementById('trends-content');
-            if(!container || allTrends.length === 0) return;
+            if(allTrends.length === 0) return;
 
             const start = tabIndex * 5;
             const end = start + 5;
@@ -1367,7 +1374,7 @@
                         <span class="text-gold font-bold w-6 text-center text-base">${start + i + 1}</span>
                         <div class="flex flex-col">
                             <span class="text-xs font-bold dark:text-white group-hover:text-gold transition-colors line-clamp-1">${item.title}</span>
-                            <span class="text-[9px] md:text-[10px] text-textGray dark:text-darkSub mt-0.5">${new Date(item.pubDate).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
+                            <span class="text-[10px] text-textGray dark:text-darkSub mt-0.5">${new Date(item.pubDate).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
                         </div>
                     </div>
                     <i class="fas fa-external-link-alt text-[10px] text-textGray/50 group-hover:text-gold transition-colors"></i>
@@ -1508,13 +1515,17 @@
             setTimeout(() => { modal.classList.add('opacity-0', 'invisible'); }, 300);
         }
 
-        // LIGHTBOX LOGIC
+        // LIGHTBOX & ZOOM LOGIC
+        let isLightboxZoomed = false;
+
         function openLightbox(src, type) {
             const modal = document.getElementById('lightboxModal');
             const img = document.getElementById('lightboxImg');
             const video = document.getElementById('lightboxVideo');
 
             modal.classList.remove('opacity-0', 'invisible');
+            isLightboxZoomed = false;
+            img.classList.remove('lightbox-zoomed');
 
             if (type === 'video') {
                 img.classList.add('hidden');
@@ -1532,9 +1543,23 @@
         function closeLightbox() {
             const modal = document.getElementById('lightboxModal');
             const video = document.getElementById('lightboxVideo');
+            const img = document.getElementById('lightboxImg');
+            
             modal.classList.add('opacity-0', 'invisible');
             video.pause();
             video.src = "";
+            isLightboxZoomed = false;
+            img.classList.remove('lightbox-zoomed');
+        }
+
+        function toggleLightboxZoom() {
+            const img = document.getElementById('lightboxImg');
+            isLightboxZoomed = !isLightboxZoomed;
+            if(isLightboxZoomed) {
+                img.classList.add('lightbox-zoomed');
+            } else {
+                img.classList.remove('lightbox-zoomed');
+            }
         }
 
         // RENDER TESTIMONIALS (Pure ID)
@@ -1554,7 +1579,7 @@
             container.innerHTML = testimonialsData.map(t => {
                 const stars = Array(t.rating).fill('<i class="fas fa-star text-gold text-[10px]"></i>').join('');
                 return `
-                <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
+                <div class="testimonial-card shrink-0 w-[300px] md:w-[380px] p-6 md:p-8 rounded-[2rem] shadow-card relative group mini-card-mobile">
                     <div class="flex items-center justify-between mb-4">
                         <img src="${t.avatar}" width="48" height="48" class="w-12 h-12 rounded-full shadow-sm bg-white border border-black/5" alt="${t.name}">
                         <div class="flex gap-1">${stars}</div>

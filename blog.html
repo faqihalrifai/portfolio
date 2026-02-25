@@ -21,7 +21,7 @@
     <meta name="keywords" content="Artikel SEO, Strategi Digital Marketing, E-commerce Tips, Belajar SEO, Muhammad Faqih Al Rifai Blog, Insight Pemasaran Digital">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     
-    <!-- Crawl & Indexing Directives -->
+    <!-- Crawl & Indexing Directives (Memaksa Google Index Cepat) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://faqihalrf.netlify.app/blog.html">
 
@@ -110,9 +110,6 @@
                         darkCard: '#18181b',        
                         darkText: '#f3f4f6',        
                         darkSub: '#9ca3af',
-                        neuralBg: '#0a0a0a',
-                        neuralCard: '#121212',
-                        neuralBorder: '#2a2a2a',        
                     },
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
@@ -138,9 +135,9 @@
 
         /* HIGH-RES ASSETS RENDERER (Anti-Pecah) */
         .img-high-res {
-            image-rendering: -webkit-optimize-contrast; /* Webkit browsers */
-            image-rendering: crisp-edges; /* Standard */
-            transform: translateZ(0); /* Hardware acceleration */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
             backface-visibility: hidden;
         }
 
@@ -216,15 +213,25 @@
         </div>
     </main>
 
-    <!-- Footer Simple -->
-    <div class="py-12 text-center border-t border-black/5 dark:border-white/5 bg-lightGray dark:bg-darkBg">
-        <p class="font-serif text-lg font-bold dark:text-white tracking-wide">Muhammad Faqih Al Rifai</p>
-        <p class="text-[10px] text-textGray/60 dark:text-darkSub/60 uppercase tracking-[0.3em] mt-3">&copy; 2026 Library of Insights. Hak Cipta Dilindungi.</p>
-    </div>
+    <!-- Footer Konsisten dengan Index -->
+    <footer class="bg-lightGray dark:bg-darkBg pt-16 pb-10 px-6 border-t border-black/5 dark:border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
+                <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.</p>
+                <div class="flex gap-6 items-center">
+                    <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold">Kebijakan Privasi</a>
+                    <!-- Tombol Rahasia Bot Indexing -->
+                    <button onclick="triggerIndexing()" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Force Google Index">
+                        <i class="fas fa-satellite-dish"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- SCRIPT -->
     <script>
-        // INIT LENIS SCROLL (Konsisten: Halus namun tidak terlalu licin)
+        // INIT LENIS SCROLL
         const lenis = new Lenis({ 
             duration: 1.0, 
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -263,9 +270,38 @@
             }
         };
 
+        // --- FUNGSI TRIGGER GOOGLE INDEXING BOT ---
+        async function triggerIndexing() {
+            const currentUrl = window.location.href.split('#')[0];
+            const confirmBtn = confirm(`Kirim sinyal ke Google untuk meng-index URL ini sekarang?\n\n${currentUrl}`);
+            
+            if(!confirmBtn) return;
+
+            try {
+                document.body.style.cursor = 'wait';
+                const response = await fetch('/.netlify/functions/index-bot', {
+                    method: 'POST',
+                    body: JSON.stringify({ url: currentUrl }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const result = await response.json();
+                document.body.style.cursor = 'default';
+                
+                if(response.ok) {
+                    alert(`✅ Sukses!\nSinyal berhasil dikirim ke Google. Bot Google akan segera merayapi halaman ini.`);
+                } else {
+                    alert(`❌ Gagal: ${result.error || 'Terjadi kesalahan internal server'}`);
+                }
+            } catch(e) {
+                document.body.style.cursor = 'default';
+                alert("❌ Gagal menghubungi server Netlify Function. Pastikan file script sudah ter-deploy.");
+                console.error(e);
+            }
+        }
+
         // 1. Fetch Data dari WP (Real-time & Anti-Cache Kuat)
         async function fetchAllPosts() {
-            // Gunakan timestamp dan fetch header untuk mencegah cache browser
             const timestamp = new Date().getTime();
             const apiURL = `https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=40&t=${timestamp}`;
             const grid = document.getElementById('blogGrid');
@@ -278,7 +314,6 @@
                     grid.innerHTML = '<p class="col-span-full text-center text-textGray dark:text-darkSub text-sm italic py-10">Belum ada konten yang diterbitkan.</p>';
                     return;
                 }
-
                 renderPosts(allPosts);
             } catch (error) {
                 grid.innerHTML = '<p class="text-red-500 text-center col-span-full text-xs italic py-10">Gagal terhubung ke server. Periksa koneksi internet Anda.</p>';
@@ -288,16 +323,13 @@
         // 2. Render Kartu Modern (Tailwind + Tajam Anti-Pecah)
         function renderPosts(posts) {
             const grid = document.getElementById('blogGrid');
-            
             grid.innerHTML = posts.map(post => {
                 let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600';
                 if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
                     const rawUrl = post._embedded['wp:featuredmedia'][0].source_url;
-                    // Resolusi w=600 h=400 dengan q=85 agar tajam dan berkelas
                     img = `https://wsrv.nl/?url=${encodeURIComponent(rawUrl)}&w=600&h=400&fit=cover&q=85&output=webp`;
                 }
                 const date = new Date(post.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' });
-                
                 let cat = 'Digital Marketing';
                 if (post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
                     cat = post._embedded['wp:term'][0][0].name;
@@ -306,14 +338,13 @@
                 return `
                     <div class="group/card flex flex-col bg-white dark:bg-darkCard rounded-[1.5rem] overflow-hidden border border-black/5 dark:border-white/5 shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
                         <div class="h-48 overflow-hidden relative">
-                            <!-- Class img-high-res untuk memastikan tidak pecah -->
                             <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105 img-high-res" loading="lazy" decoding="async" alt="${post.title.rendered}">
                             <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">${cat}</div>
                         </div>
-                        <div class="p-6 flex flex-col flex-1 relative">
+                        <div class="p-6 flex flex-col flex-1">
                             <span class="text-[10px] text-textGray dark:text-darkSub font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5"><i class="far fa-calendar-alt text-gold"></i> ${date}</span>
                             <h2 class="font-bold text-base md:text-lg dark:text-white mb-4 line-clamp-2 leading-snug group-hover/card:text-gold transition-colors">${post.title.rendered}</h2>
-                            <a href="${post.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1.5 w-fit relative z-20">
+                            <a href="${post.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1.5 w-fit">
                                 ${translations[currentLang].readMore} <i class="fas fa-arrow-right text-[10px] group-hover/card:translate-x-1 transition-transform"></i>
                             </a>
                         </div>
@@ -322,7 +353,7 @@
             }).join('');
         }
 
-        // 3. Pencarian Interaktif (Live per Huruf)
+        // 3. Pencarian Interaktif
         function liveSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const status = document.getElementById('searchStatus');
@@ -357,15 +388,12 @@
             currentLang = lang;
             localStorage.setItem('lang', lang);
             document.getElementById('langToggle').innerText = lang.toUpperCase();
-            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-
             const input = document.getElementById('searchInput');
             input.placeholder = translations[lang].searchPlaceholder;
-            
             if (allPosts.length > 0) renderPosts(allPosts); 
         }
 
@@ -378,7 +406,6 @@
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
-        // Inisialisasi awal
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');

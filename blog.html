@@ -21,68 +21,29 @@
     <meta name="keywords" content="Artikel SEO, Strategi Digital Marketing, E-commerce Tips, Belajar SEO, Muhammad Faqih Al Rifai Blog, Insight Pemasaran Digital">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     
-    <!-- Crawl & Indexing Directives (Memaksa Google Index Cepat) -->
+    <!-- Crawl & Indexing Directives -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://faqihalrf.netlify.app/blog.html">
 
-    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <!-- Open Graph / Social Media Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://faqihalrf.netlify.app/blog.html">
     <meta property="og:title" content="Library of Insights | Muhammad Faqih Al Rifai">
     <meta property="og:description" content="Kumpulan strategi dan wawasan eksklusif seputar Digital Marketing, SEO, dan optimasi bisnis.">
     <meta property="og:image" content="https://faqihalrf.netlify.app/myphot.webp">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://faqihalrf.netlify.app/blog.html">
-    <meta property="twitter:title" content="Library of Insights | Faqih Al Rifai">
-    <meta property="twitter:description" content="Kumpulan strategi dan wawasan eksklusif seputar Digital Marketing, SEO, dan optimasi bisnis.">
-    <meta property="twitter:image" content="https://faqihalrf.netlify.app/myphot.webp">
-
     <!-- Google AdSense Meta -->
     <meta name="google-adsense-account" content="ca-pub-2062441269413992">
-
-    <!-- SCHEMA MARKUP (JSON-LD) - Dioptimalkan untuk Blog -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://faqihalrf.netlify.app/blog.html"
-      },
-      "headline": "Library of Insights",
-      "description": "Kumpulan wawasan, strategi, dan artikel terbaru seputar Digital Marketing, SEO, dan E-commerce.",
-      "author": {
-        "@type": "Person",
-        "name": "Muhammad Faqih Al Rifai"
-      }
-    }
-    </script>
 
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     
-    <!-- PRECONNECT & FONTS -->
+    <!-- FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- GOOGLE ANALYTICS (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZEFRB74DXL');
-    </script>
     
     <!-- Lenis Smooth Scroll -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
@@ -128,12 +89,10 @@
         html { scroll-behavior: auto; }
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto !important; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
         
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        /* HIGH-RES ASSETS RENDERER (Anti-Pecah) */
+        /* HIGH-RES ASSETS RENDERER */
         .img-high-res {
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
@@ -146,11 +105,8 @@
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
 
         /* Custom Scrollbar */
-        .custom-scroll::-webkit-scrollbar, ::-webkit-scrollbar { width: 5px; }
-        .custom-scroll::-webkit-scrollbar-track, ::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); border-radius: 4px; }
-        .dark .custom-scroll::-webkit-scrollbar-track, .dark ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
-        .custom-scroll::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.6); border-radius: 4px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:hover { background: rgba(197, 160, 40, 0.9); }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.6); border-radius: 4px; }
     </style>
 </head>
 <body class="bg-mainWhite text-darkBlack dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative">
@@ -158,13 +114,13 @@
     <!-- Navigasi -->
     <nav class="sticky top-0 z-50 glass py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:text-gold dark:hover:text-gold transition-colors">
-                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:border-gold transition-colors"><i class="fas fa-arrow-left transition-transform group-hover:-translate-x-1"></i></div>
+            <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:text-gold transition-colors">
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all"><i class="fas fa-arrow-left"></i></div>
                 <span data-i18n="navBack">Kembali</span>
             </a>
             <div class="flex items-center gap-3">
                 <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-[10px] font-bold text-darkBlack dark:text-white hover:border-gold transition-colors bg-lightGray dark:bg-black/20">ID</button>
-                <button id="themeToggle" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-darkText hover:text-gold hover:border-gold transition-colors bg-lightGray dark:bg-black/20">
+                <button id="themeToggle" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-darkText hover:text-gold transition-colors bg-lightGray dark:bg-black/20">
                     <i class="fas fa-moon text-xs dark:hidden"></i><i class="fas fa-sun text-xs hidden dark:block text-gold"></i>
                 </button>
             </div>
@@ -180,7 +136,7 @@
             </div>
             <h1 class="text-4xl md:text-6xl font-serif font-bold dark:text-white mb-8 leading-tight" data-i18n="mainTitle">Library of <span class="text-gold italic font-medium">Insights</span></h1>
             
-            <!-- Pencarian Interaktif -->
+            <!-- Pencarian -->
             <div class="relative max-w-2xl mx-auto group">
                 <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi SEO, iklan digital, atau wawasan bisnis..." data-i18n-placeholder="searchPlaceholder" class="w-full pl-12 pr-6 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-sm focus:ring-2 focus:ring-gold/30 focus:border-gold outline-none transition-all shadow-soft group-hover:shadow-lg dark:text-white">
                 <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors text-sm"></i>
@@ -194,34 +150,32 @@
             <div><span data-i18n="resultsFound">Ditemukan</span>: <span id="countResults" class="text-gold text-sm bg-gold/10 px-2 py-0.5 rounded-md ml-1">0</span> Artikel</div>
         </div>
 
-        <!-- GRID ARTIKEL (KARTU MODERN & TAJAM) -->
+        <!-- GRID ARTIKEL -->
         <div id="blogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Loading Placeholder -->
+            <!-- Loading -->
             <div class="col-span-full py-24 text-center flex flex-col items-center justify-center">
                 <div class="inline-block w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p class="text-textGray dark:text-darkSub text-xs font-mono uppercase tracking-widest animate-pulse" data-i18n="loadingText">Menyelaraskan data real-time...</p>
+                <p class="text-textGray dark:text-darkSub text-xs font-mono uppercase tracking-widest animate-pulse" data-i18n="loadingText">Sinkronisasi Pantheon...</p>
             </div>
         </div>
 
-        <!-- Empty State -->
+        <!-- No Results -->
         <div id="noResults" class="hidden py-24 text-center">
-            <div class="w-20 h-20 bg-lightGray dark:bg-darkCard rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 border border-black/5 dark:border-white/5 shadow-inner">
-                <i class="fas fa-search-minus text-2xl"></i>
-            </div>
-            <p class="text-textGray dark:text-darkSub text-sm font-medium" data-i18n="noMatch">Maaf, wawasan tersebut belum tersedia saat ini.</p>
-            <button onclick="document.getElementById('searchInput').value=''; liveSearch();" class="mt-6 text-xs font-bold text-gold hover:text-black dark:hover:text-white transition-colors uppercase tracking-widest border-b border-gold pb-1">Reset Pencarian</button>
+            <i class="fas fa-search-minus text-4xl text-gray-300 mb-4"></i>
+            <p class="text-textGray dark:text-darkSub text-sm font-medium" data-i18n="noMatch">Maaf, wawasan tersebut belum tersedia.</p>
+            <button onclick="document.getElementById('searchInput').value=''; liveSearch();" class="mt-6 text-xs font-bold text-gold uppercase tracking-widest border-b border-gold pb-1">Reset</button>
         </div>
     </main>
 
-    <!-- Footer Konsisten dengan Index -->
+    <!-- Footer -->
     <footer class="bg-lightGray dark:bg-darkBg pt-16 pb-10 px-6 border-t border-black/5 dark:border-white/5">
         <div class="max-w-7xl mx-auto">
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.</p>
                 <div class="flex gap-6 items-center">
                     <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold">Kebijakan Privasi</a>
-                    <!-- Tombol Rahasia Bot Indexing -->
-                    <button onclick="triggerIndexing()" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Force Google Index">
+                    <!-- Tombol Global Indexing -->
+                    <button onclick="triggerIndexing(window.location.href)" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Force Google Index Page">
                         <i class="fas fa-satellite-dish"></i>
                     </button>
                 </div>
@@ -231,7 +185,7 @@
 
     <!-- SCRIPT -->
     <script>
-        // INIT LENIS SCROLL
+        // 1. INIT LENIS (NORMAL & PROFESIONAL)
         const lenis = new Lenis({ 
             duration: 1.0, 
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
@@ -254,8 +208,8 @@
                 navBack: "Kembali",
                 mainTitle: "Library of Insights",
                 searchPlaceholder: "Cari strategi SEO, iklan digital, atau wawasan bisnis...",
-                loadingText: "Menyelaraskan data real-time...",
-                noMatch: "Maaf, wawasan tersebut belum tersedia saat ini.",
+                loadingText: "Sinkronisasi Pantheon...",
+                noMatch: "Maaf, wawasan tersebut belum tersedia.",
                 readMore: "Baca Selengkapnya",
                 resultsFound: "Hasil Pencarian"
             },
@@ -263,17 +217,17 @@
                 navBack: "Back",
                 mainTitle: "Library of Insights",
                 searchPlaceholder: "Search SEO strategies, digital ads, or business insights...",
-                loadingText: "Syncing real-time data...",
-                noMatch: "Sorry, that insight is not available at the moment.",
+                loadingText: "Syncing Pantheon...",
+                noMatch: "Sorry, that insight is not available.",
                 readMore: "Read More",
                 resultsFound: "Search Results"
             }
         };
 
-        // --- FUNGSI TRIGGER GOOGLE INDEXING BOT ---
-        async function triggerIndexing() {
-            const currentUrl = window.location.href.split('#')[0];
-            const confirmBtn = confirm(`Kirim sinyal ke Google untuk meng-index URL ini sekarang?\n\n${currentUrl}`);
+        // 2. TRIGGER INDEXING (CORE FUNCTION)
+        async function triggerIndexing(targetUrl) {
+            const cleanUrl = targetUrl.split('#')[0];
+            const confirmBtn = confirm(`Push indexing Google untuk URL ini?\n\n${cleanUrl}`);
             
             if(!confirmBtn) return;
 
@@ -281,7 +235,7 @@
                 document.body.style.cursor = 'wait';
                 const response = await fetch('/.netlify/functions/index-bot', {
                     method: 'POST',
-                    body: JSON.stringify({ url: currentUrl }),
+                    body: JSON.stringify({ url: cleanUrl }),
                     headers: { 'Content-Type': 'application/json' }
                 });
 
@@ -289,18 +243,18 @@
                 document.body.style.cursor = 'default';
                 
                 if(response.ok) {
-                    alert(`✅ Sukses!\nSinyal berhasil dikirim ke Google. Bot Google akan segera merayapi halaman ini.`);
+                    alert(`✅ Sukses!\nSinyal berhasil dikirim. Google akan segera merayapi URL tersebut.`);
                 } else {
-                    alert(`❌ Gagal: ${result.error || 'Terjadi kesalahan internal server'}`);
+                    alert(`❌ Gagal: ${result.error || 'Internal Server Error'}`);
                 }
             } catch(e) {
                 document.body.style.cursor = 'default';
-                alert("❌ Gagal menghubungi server Netlify Function. Pastikan file script sudah ter-deploy.");
+                alert("❌ Gagal menghubungi Netlify Function.");
                 console.error(e);
             }
         }
 
-        // 1. Fetch Data dari WP (Real-time & Anti-Cache Kuat)
+        // 3. FETCH & RENDER
         async function fetchAllPosts() {
             const timestamp = new Date().getTime();
             const apiURL = `https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=40&t=${timestamp}`;
@@ -311,35 +265,35 @@
                 allPosts = await response.json();
                 
                 if (allPosts.length === 0) {
-                    grid.innerHTML = '<p class="col-span-full text-center text-textGray dark:text-darkSub text-sm italic py-10">Belum ada konten yang diterbitkan.</p>';
+                    grid.innerHTML = '<p class="col-span-full text-center text-textGray py-10">Belum ada artikel.</p>';
                     return;
                 }
                 renderPosts(allPosts);
             } catch (error) {
-                grid.innerHTML = '<p class="text-red-500 text-center col-span-full text-xs italic py-10">Gagal terhubung ke server. Periksa koneksi internet Anda.</p>';
+                grid.innerHTML = '<p class="text-red-500 text-center col-span-full py-10">Gagal memuat data.</p>';
             }
         }
 
-        // 2. Render Kartu Modern (Tailwind + Tajam Anti-Pecah)
         function renderPosts(posts) {
             const grid = document.getElementById('blogGrid');
             grid.innerHTML = posts.map(post => {
                 let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600';
-                if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-                    const rawUrl = post._embedded['wp:featuredmedia'][0].source_url;
-                    img = `https://wsrv.nl/?url=${encodeURIComponent(rawUrl)}&w=600&h=400&fit=cover&q=85&output=webp`;
+                if (post._embedded && post._embedded['wp:featuredmedia']) {
+                    img = `https://wsrv.nl/?url=${encodeURIComponent(post._embedded['wp:featuredmedia'][0].source_url)}&w=600&h=400&fit=cover&q=85&output=webp`;
                 }
                 const date = new Date(post.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' });
-                let cat = 'Digital Marketing';
-                if (post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
-                    cat = post._embedded['wp:term'][0][0].name;
-                }
+                const cat = post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Insight';
                 
                 return `
                     <div class="group/card flex flex-col bg-white dark:bg-darkCard rounded-[1.5rem] overflow-hidden border border-black/5 dark:border-white/5 shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
                         <div class="h-48 overflow-hidden relative">
-                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105 img-high-res" loading="lazy" decoding="async" alt="${post.title.rendered}">
+                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105 img-high-res" loading="lazy">
                             <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">${cat}</div>
+                            
+                            <!-- TACTICAL SATELLITE (PER ARTIKEL) -->
+                            <button onclick="triggerIndexing('${post.link}')" class="absolute top-4 right-4 w-9 h-9 bg-gold/90 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover/card:opacity-100 transition-all hover:bg-black" title="Index This Post">
+                                <i class="fas fa-satellite-dish text-sm"></i>
+                            </button>
                         </div>
                         <div class="p-6 flex flex-col flex-1">
                             <span class="text-[10px] text-textGray dark:text-darkSub font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5"><i class="far fa-calendar-alt text-gold"></i> ${date}</span>
@@ -353,17 +307,14 @@
             }).join('');
         }
 
-        // 3. Pencarian Interaktif
+        // 4. UI LOGIC
         function liveSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const status = document.getElementById('searchStatus');
             const count = document.getElementById('countResults');
             const noRes = document.getElementById('noResults');
 
-            const filtered = allPosts.filter(post => 
-                post.title.rendered.toLowerCase().includes(query) || 
-                post.excerpt.rendered.toLowerCase().includes(query)
-            );
+            const filtered = allPosts.filter(post => post.title.rendered.toLowerCase().includes(query));
 
             if (query.length > 0) {
                 status.classList.remove('hidden');
@@ -383,7 +334,6 @@
             }
         }
 
-        // 4. Pengaturan Bahasa & Tema
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('lang', lang);
@@ -392,24 +342,18 @@
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-            const input = document.getElementById('searchInput');
-            input.placeholder = translations[lang].searchPlaceholder;
+            document.getElementById('searchInput').placeholder = translations[lang].searchPlaceholder;
             if (allPosts.length > 0) renderPosts(allPosts); 
         }
 
-        document.getElementById('langToggle').addEventListener('click', () => {
-            setLanguage(currentLang === 'id' ? 'en' : 'id');
-        });
-
+        document.getElementById('langToggle').addEventListener('click', () => setLanguage(currentLang === 'id' ? 'en' : 'id'));
         document.getElementById('themeToggle').addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            }
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
             setLanguage(currentLang);
             fetchAllPosts();
         });

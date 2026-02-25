@@ -25,17 +25,17 @@ exports.handler = async function(event, context) {
 
     console.log(`[Indexing Bot] Memulai proses indexing untuk URL: ${targetUrl}`);
 
-    // 3. Ambil Kredensial dari Variabel (Nama variabel baru)
+    // 3. Ambil Kredensial dari Variabel Netlify
     const clientEmail = process.env.GOOGLE_SERVICE_EMAIL;
     let privateKey = process.env.GOOGLE_SERVICE_KEY;
     
-    // DETEKSI ERROR LENGKAP: Cek persis variabel mana yang tidak terbaca Netlify
+    // Cek apakah variabel terbaca
     if (!clientEmail || !privateKey) {
       let missingVars = [];
       if (!clientEmail) missingVars.push("GOOGLE_SERVICE_EMAIL");
       if (!privateKey) missingVars.push("GOOGLE_SERVICE_KEY");
       
-      console.error(`[Indexing Bot] Error: Variabel berikut kosong/tidak terbaca: ${missingVars.join(', ')}`);
+      console.error(`[Indexing Bot] Error: Variabel kosong: ${missingVars.join(', ')}`);
       return {
         statusCode: 500,
         headers: { 'Content-Type': 'application/json' },
@@ -43,10 +43,29 @@ exports.handler = async function(event, context) {
       };
     }
 
-    // 4. Pembersihan Private Key (Auto-Fix jika tercopy tanda kutip " di awal/akhir)
+    // ====================================================================
+    // 4. PERBAIKAN SUPER TANGGUH UNTUK PRIVATE KEY (Anti-Error DECODER)
+    // ====================================================================
+    
+    // A. Hapus tanda kutip jika tidak sengaja terbawa saat copy-paste
     privateKey = privateKey.replace(/^["']|["']$/g, '');
-    // Format ulang \n agar Private Key terbaca benar oleh sistem kriptografi Google
+    
+    // B. Ganti teks literal \n menjadi baris baru (newline) beneran
     privateKey = privateKey.replace(/\\n/g, '\n');
+
+    // C. FIX UTAMA: Jika Netlify menghancurkan format multiline menjadi 1 baris
+    // (Inilah yang menyebabkan pesan "DECODER routines::unsupported")
+    if (!privateKey.includes('\n')) {
+      const beginHeader = '-----BEGIN PRIVATE KEY-----';
+      const endHeader = '-----END PRIVATE KEY-----';
+      
+      if (privateKey.includes(beginHeader) && privateKey.includes(endHeader)) {
+          // Ekstrak teks acak di tengahnya, lalu hapus SEMUA spasi kosong
+          let base64Body = privateKey.replace(beginHeader, '').replace(endHeader, '').replace(/\s+/g, '');
+          // Rakit ulang menjadi format standar yang diwajibkan sistem Google
+          privateKey = `${beginHeader}\n${base64Body}\n${endHeader}`;
+      }
+    }
 
     // 5. Autentikasi JWT ke Google API
     const jwtClient = new google.auth.JWT(
@@ -83,7 +102,6 @@ exports.handler = async function(event, context) {
     };
 
   } catch (error) {
-    // Penanganan Error Global (Misal: Email belum dijadikan Owner di GSC)
     console.error('[Indexing Bot] Eksekusi Gagal:', error.message);
     
     let pesanError = 'Gagal menghubungi Google Indexing API.';
@@ -91,8 +109,8 @@ exports.handler = async function(event, context) {
         pesanError = 'Akses Ditolak: Email bot belum ditambahkan sebagai OWNER (Pemilik) di pengaturan Google Search Console.';
     } else if (error.message.includes('not been used') || error.message.includes('disabled')) {
         pesanError = 'API Belum Aktif: Masuk ke Google Cloud Console dan aktifkan "Web Search Indexing API" untuk proyek Anda.';
-    } else if (error.message.includes('PEM') || error.message.includes('key')) {
-        pesanError = 'Format Private Key Salah: Pastikan copy-paste di Netlify pas (termasuk tulisan -----BEGIN dan END-----).';
+    } else if (error.message.includes('PEM') || error.message.includes('key') || error.message.includes('DECODER')) {
+        pesanError = 'Format Private Key Rusak Parah. Pastikan copy-paste di Netlify tepat. Error: ' + error.message;
     } else {
         pesanError = `Error dari Google: ${error.message}`;
     }

@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
+    <!-- =========================================
+         1. GOOGLE TAG MANAGER (JANGAN DIHAPUS)
+         ========================================= -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KW247L2C');</script>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Legal Center | Muhammad Faqih Al Rifai</title>
     <!-- Robots: noindex agar tidak bersaing keyword dengan halaman utama di Google -->
     <meta name="robots" content="noindex, follow"> 
+    
+    <!-- Crawl & Indexing Directives -->
+    <link rel="canonical" href="https://faqihalrf.netlify.app/legal.html">
     
     <!-- Preconnect (Performa) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,21 +42,25 @@
                     colors: {
                         gold: '#c5a028',
                         goldHover: '#a3841f',
-                        darkBg: '#121212',        
-                        darkCard: '#1e1e1e', 
+                        darkBg: '#0f1014',        
+                        darkCard: '#18181b', 
                         darkText: '#f3f4f6',      
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(197, 160, 40, 0.15)',
+                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 25px rgba(197, 160, 40, 0.15)',
                     }
                 }
             }
         }
     </script>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
     <style>
         body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        .dark body { background-color: #121212; color: #f3f4f6; }
+        .dark body { background-color: #0f1014; color: #f3f4f6; }
         
         .glass-nav { 
             background: rgba(255, 255, 255, 0.9); 
@@ -52,11 +68,11 @@
             border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
         .dark .glass-nav { 
-            background: rgba(18, 18, 18, 0.9); 
+            background: rgba(15, 16, 20, 0.9); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
 
-        /* Sidebar Active State */
+        /* Sidebar Active State (Scroll Spy) */
         .sidebar-link {
             border-left: 3px solid transparent;
             transition: all 0.3s ease;
@@ -64,11 +80,8 @@
         .sidebar-link.active {
             border-left-color: #c5a028;
             color: #c5a028;
-            padding-left: 1.5rem; /* Efek geser */
+            padding-left: 1.5rem; 
             font-weight: 700;
-        }
-        .dark .sidebar-link.active {
-            color: #c5a028;
         }
 
         /* Scroll to Top Widget */
@@ -88,11 +101,19 @@
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .dark ::-webkit-scrollbar-thumb { background: #4b5563; }
         ::-webkit-scrollbar-thumb:hover { background: #c5a028; }
+
+        /* HIGH-RES ASSETS RENDERER (Anti-Pecah) */
+        .img-high-res {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
     </style>
 </head>
-<body class="transition-colors duration-300 min-h-screen flex flex-col">
+<body class="transition-colors duration-300 min-h-screen flex flex-col selection:bg-gold selection:text-white">
 
-    <!-- Navigasi (Konsisten dengan Blog & Index) -->
+    <!-- Navigasi -->
     <nav class="sticky top-0 z-50 glass-nav py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="index.html" class="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
@@ -102,28 +123,28 @@
                 <span data-i18n="navBack">Kembali ke Portfolio</span>
             </a>
             <div class="flex items-center gap-3">
-                <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-[10px] font-bold dark:text-white hover:border-gold transition-colors">
+                <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-[10px] font-bold dark:text-white hover:border-gold transition-colors bg-lightGray dark:bg-black/20">
                     <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto mr-2" id="flagIcon" alt="Flag">
                     <span id="langText">ID</span>
                 </button>
-                <button id="themeToggle" class="w-9 h-9 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-gold transition-colors">
-                    <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i>
+                <button id="themeToggle" class="w-9 h-9 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-gold transition-colors bg-lightGray dark:bg-black/20">
+                    <i class="fas fa-moon dark:hidden text-xs"></i><i class="fas fa-sun hidden dark:block text-gold text-xs"></i>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="py-20 bg-gray-50/50 dark:bg-darkCard/20 border-b border-gray-100 dark:border-white/5 relative">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 dark:opacity-[0.02]"></div>
+    <header class="py-20 bg-gray-50/50 dark:bg-darkCard/20 border-b border-gray-100 dark:border-white/5 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <span class="inline-block py-1 px-3 rounded-full bg-gold/10 text-gold font-bold text-[10px] uppercase tracking-[0.2em] mb-4 border border-gold/20" data-i18n="tagLegal">
-                Official Compliance
-            </span>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-white dark:bg-white/5 text-darkBlack dark:text-gold text-[10px] font-bold uppercase tracking-widest mb-6 cursor-default shadow-sm">
+                <i class="fas fa-balance-scale"></i> <span data-i18n="tagLegal">Kepatuhan Resmi</span>
+            </div>
             <h1 class="text-4xl md:text-6xl font-serif font-bold dark:text-white leading-tight mb-6" data-i18n="mainTitle">
                 Legal & <span class="text-gold italic font-medium">Privacy Center</span>
             </h1>
-            <p class="text-gray-500 dark:text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed" data-i18n="legalIntro">
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" data-i18n="legalIntro">
                 Transparansi adalah prioritas kami. Di bawah ini Anda akan menemukan informasi rinci mengenai bagaimana kami melindungi data Anda dan syarat penggunaan layanan profesional kami.
             </p>
         </div>
@@ -131,7 +152,7 @@
 
     <main class="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row gap-16">
         
-        <!-- Sidebar Navigation (Sticky & Scroll Spy) -->
+        <!-- Sidebar Navigation (Scroll Spy Aktif) -->
         <aside class="lg:w-1/4 hidden lg:block">
             <div class="sticky top-32 space-y-8">
                 <div>
@@ -143,8 +164,7 @@
                         <a href="#disclaimer" class="sidebar-link text-xs font-medium text-gray-500 hover:text-gold pl-4 py-2 block" data-i18n="navDisclaimer">Penafian Profesional</a>
                     </nav>
                 </div>
-                <!-- Status Update Box -->
-                <div class="p-6 bg-white dark:bg-darkCard rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+                <div class="p-6 bg-white dark:bg-darkCard rounded-2xl border border-gray-100 dark:border-white/5 shadow-soft">
                     <div class="flex items-center gap-3 mb-2">
                         <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                         <p class="text-[9px] font-bold uppercase text-gray-400" data-i18n="lastUpdated">Status Dokumen</p>
@@ -165,7 +185,7 @@
                     </div>
                     <h2 class="text-2xl md:text-3xl font-serif font-bold dark:text-white" data-i18n="privacyTitle">Kebijakan Privasi</h2>
                 </div>
-                <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 space-y-6 leading-loose bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm">
+                <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 space-y-6 leading-loose bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-soft">
                     <p data-i18n="privacyP1">Kami sangat menghargai privasi Anda. Kebijakan ini menjelaskan bagaimana data pribadi Anda dikumpulkan, digunakan, dan dilindungi saat Anda mengakses situs atau menggunakan jasa Muhammad Faqih Al Rifai.</p>
                     
                     <div>
@@ -174,8 +194,8 @@
                             <span data-i18n="sub1_1">1.1 Informasi yang Dikumpulkan</span>
                         </h4>
                         <ul class="list-none space-y-2 pl-6 border-l-2 border-gray-100 dark:border-white/10">
-                            <li data-i18n="li1_1_1" class="text-xs">Data Identitas: Nama, alamat email, dan nomor WhatsApp yang dikirimkan secara sadar melalui formulir.</li>
-                            <li data-i18n="li1_1_2" class="text-xs">Data Teknis: Alamat IP, jenis browser, durasi kunjungan, dan halaman yang dilihat untuk keperluan analitik.</li>
+                            <li data-i18n="li1_1_1" class="text-xs"><strong>Data Identitas:</strong> Nama, email, dan nomor WhatsApp yang dikirimkan melalui formulir.</li>
+                            <li data-i18n="li1_1_2" class="text-xs"><strong>Data Teknis:</strong> Alamat IP, durasi kunjungan, dan halaman dilihat (GA4).</li>
                         </ul>
                     </div>
 
@@ -184,7 +204,7 @@
                             <i class="fas fa-check-circle text-gold text-xs"></i>
                             <span data-i18n="sub1_2">1.2 Penggunaan Informasi</span>
                         </h4>
-                        <p data-i18n="privacyP2" class="text-xs border-l-2 border-gray-100 dark:border-white/10 pl-6">Data Anda hanya digunakan untuk memproses permintaan layanan, memberikan konsultasi strategi SEO yang dipersonalisasi, dan meningkatkan performa website kami melalui data statistik GA4.</p>
+                        <p data-i18n="privacyP2" class="text-xs border-l-2 border-gray-100 dark:border-white/10 pl-6">Data Anda hanya digunakan untuk memproses permintaan layanan dan meningkatkan performa website kami.</p>
                     </div>
                 </div>
             </section>
@@ -197,17 +217,17 @@
                     </div>
                     <h2 class="text-2xl md:text-3xl font-serif font-bold dark:text-white" data-i18n="termsTitle">Syarat & Ketentuan</h2>
                 </div>
-                <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 space-y-6 leading-loose bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm">
+                <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 space-y-6 leading-loose bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-soft">
                     <p data-i18n="termsIntro">Dengan mengakses situs ini, Anda dianggap telah menyetujui seluruh ketentuan layanan profesional kami sebagai berikut:</p>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-white/5">
                             <h4 class="text-gold font-bold uppercase tracking-widest text-[10px] mb-2" data-i18n="sub2_1">2.1 Hak Kekayaan Intelektual</h4>
-                            <p data-i18n="termsP1" class="text-xs">Seluruh konten, strategi, kode sumber, dan desain yang dipublikasikan di sini adalah milik intelektual Muhammad Faqih Al Rifai. Dilarang keras melakukan reproduksi tanpa izin tertulis.</p>
+                            <p data-i18n="termsP1" class="text-xs leading-relaxed">Seluruh konten, strategi, dan desain yang dipublikasikan adalah milik intelektual Muhammad Faqih Al Rifai.</p>
                         </div>
                         <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-white/5">
                             <h4 class="text-gold font-bold uppercase tracking-widest text-[10px] mb-2" data-i18n="sub2_2">2.2 Kewajiban Pengguna</h4>
-                            <p data-i18n="termsP2" class="text-xs">Pengguna dilarang menggunakan informasi di situs ini untuk aktivitas ilegal, spamming, atau percobaan peretasan yang merugikan ekosistem digital kami.</p>
+                            <p data-i18n="termsP2" class="text-xs leading-relaxed">Pengguna dilarang melakukan aktivitas ilegal, spamming, atau percobaan peretasan pada ekosistem digital kami.</p>
                         </div>
                     </div>
                 </div>
@@ -221,7 +241,7 @@
                     </div>
                     <h2 class="text-2xl md:text-3xl font-serif font-bold dark:text-white" data-i18n="cookiesTitle">Kebijakan Cookies</h2>
                 </div>
-                <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm">
+                <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-soft">
                     <p data-i18n="cookiesDesc" class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                         Situs ini menggunakan cookies untuk mengenali perangkat Anda dan menyimpan preferensi bahasa serta mode tampilan (Gelap/Terang). Analitik kami menggunakan Google Analytics 4 untuk membantu kami memahami konten mana yang paling bermanfaat bagi Anda.
                     </p>
@@ -230,14 +250,14 @@
 
             <!-- 4. Professional Disclaimer -->
             <section id="disclaimer" class="scroll-mt-32 section-content">
-                <div class="p-10 bg-gray-50 dark:bg-darkCard rounded-[2rem] border border-gray-100 dark:border-white/5 relative overflow-hidden group">
+                <div class="p-10 bg-gray-50 dark:bg-darkCard rounded-[2rem] border border-gray-100 dark:border-white/5 relative overflow-hidden group shadow-soft">
                     <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-all duration-500"></div>
                     <div class="flex items-center gap-4 mb-6 text-red-600 dark:text-red-400">
                         <i class="fas fa-exclamation-triangle text-xl"></i>
                         <h2 class="text-xs font-bold uppercase tracking-[0.2em]" data-i18n="disclaimerTitle">Penafian Profesional</h2>
                     </div>
                     <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed relative z-10" data-i18n="disclaimerText">
-                        Harap dicatat bahwa strategi SEO dan Digital Marketing yang kami berikan didasarkan pada data historis dan tren pasar. Kami tidak menjamin peringkat #1 yang instan atau angka pendapatan tetap, karena algoritma mesin pencari seperti Google berubah secara berkala. Semua hasil sangat bergantung pada eksekusi teknis dan variabel pasar luar kendali kami.
+                        Harap dicatat bahwa strategi SEO dan Digital Marketing yang kami berikan didasarkan pada data historis dan tren pasar. Kami tidak menjamin peringkat #1 yang instan, karena algoritma mesin pencari berubah secara berkala.
                     </p>
                 </div>
             </section>
@@ -253,14 +273,21 @@
         </div>
     </main>
 
-    <!-- Footer Simple with Flag -->
-    <div class="py-12 text-center border-t border-gray-50 dark:border-white/5 bg-white dark:bg-darkBg">
+    <!-- Footer Konsisten (Dengan Tombol Satelit) -->
+    <footer class="py-12 text-center border-t border-gray-50 dark:border-white/5 bg-white dark:bg-darkBg mt-auto">
         <p class="font-serif text-lg font-bold dark:text-white mb-2">Muhammad Faqih Al Rifai</p>
-        <div class="flex items-center justify-center gap-2">
-            <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto opacity-70 grayscale hover:grayscale-0 transition-all" alt="Indonesia">
-            <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em]">&copy; 2026 Legal & Compliance Center</p>
+        <div class="flex items-center justify-center gap-4">
+            <div class="flex items-center gap-2">
+                <img src="https://flagcdn.com/w20/id.png" class="w-4 h-auto opacity-70 grayscale hover:grayscale-0 transition-all" alt="Indonesia">
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em]">&copy; 2026 Legal & Compliance Center</p>
+            </div>
+            
+            <!-- Tombol Rahasia Bot Indexing (Satellite) -->
+            <button onclick="triggerIndexing()" class="text-gray-300 dark:text-gray-600 hover:text-gold transition-colors text-xs" title="Force Google Index">
+                <i class="fas fa-satellite-dish"></i>
+            </button>
         </div>
-    </div>
+    </footer>
 
     <!-- Scroll to Top Widget -->
     <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-widget fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110" aria-label="Scroll to Top">
@@ -269,6 +296,21 @@
 
     <!-- SCRIPT -->
     <script>
+        // INIT LENIS SCROLL (Natural & Profesional)
+        const lenis = new Lenis({ 
+            duration: 1.0, 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            direction: 'vertical', 
+            gestureDirection: 'vertical', 
+            smooth: true, 
+            mouseMultiplier: 0.8, 
+            smoothTouch: false, 
+            touchMultiplier: 1.5, 
+            infinite: false 
+        })
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
         let currentLang = localStorage.getItem('lang') || 'id';
         const flagID = "https://flagcdn.com/w20/id.png";
         const flagEN = "https://flagcdn.com/w20/us.png";
@@ -295,13 +337,13 @@
                 termsTitle: "Syarat & Ketentuan",
                 termsIntro: "Dengan mengakses situs ini, Anda dianggap telah menyetujui seluruh ketentuan layanan profesional kami sebagai berikut:",
                 sub2_1: "2.1 Hak Kekayaan Intelektual",
-                termsP1: "Seluruh konten, strategi, kode sumber, dan desain yang dipublikasikan di sini adalah milik intelektual Muhammad Faqih Al Rifai. Dilarang keras melakukan reproduksi tanpa izin tertulis.",
+                termsP1: "Seluruh konten, strategi, kode sumber, dan desain yang dipublikasikan di sini adalah milik intelektual Muhammad Faqih Al Rifai.",
                 sub2_2: "2.2 Kewajiban Pengguna",
-                termsP2: "Pengguna dilarang menggunakan informasi di situs ini untuk aktivitas ilegal, spamming, atau percobaan peretasan yang merugikan ekosistem digital kami.",
+                termsP2: "Pengguna dilarang menggunakan informasi di situs ini untuk aktivitas ilegal atau merugikan ekosistem digital kami.",
                 cookiesTitle: "Kebijakan Cookies",
-                cookiesDesc: "Situs ini menggunakan cookies untuk mengenali perangkat Anda dan menyimpan preferensi bahasa serta mode tampilan (Gelap/Terang). Analitik kami menggunakan Google Analytics 4 untuk membantu kami memahami konten mana yang paling bermanfaat bagi Anda.",
+                cookiesDesc: "Situs ini menggunakan cookies untuk mengenali perangkat Anda dan menyimpan preferensi bahasa serta mode tampilan (Gelap/Terang).",
                 disclaimerTitle: "Penafian Profesional",
-                disclaimerText: "Harap dicatat bahwa strategi SEO dan Digital Marketing yang kami berikan didasarkan pada data historis dan tren pasar. Kami tidak menjamin peringkat #1 yang instan atau angka pendapatan tetap, karena algoritma mesin pencari seperti Google berubah secara berkala. Semua hasil sangat bergantung pada eksekusi teknis dan variabel pasar luar kendali kami.",
+                disclaimerText: "Harap dicatat bahwa strategi SEO dan Digital Marketing yang kami berikan didasarkan pada data historis dan tren pasar. Kami tidak menjamin peringkat #1 yang instan.",
                 legalQuery: "Pertanyaan Hukum?"
             },
             en: {
@@ -316,25 +358,55 @@
                 navDisclaimer: "Professional Disclaimer",
                 lastUpdated: "Document Status",
                 privacyTitle: "Privacy Policy",
-                privacyP1: "We highly value your privacy. This policy explains how your personal data is collected, used, and protected when you access the site or use the services of Muhammad Faqih Al Rifai.",
+                privacyP1: "We highly value your privacy. This policy explains how your personal data is collected, used, and protected when you access the site.",
                 sub1_1: "1.1 Collected Information",
-                li1_1_1: "Identity Data: Name, email address, and WhatsApp number submitted consciously via forms.",
-                li1_1_2: "Technical Data: IP address, browser type, visit duration, and pages viewed for analytical purposes.",
+                li1_1_1: "Identity Data: Name, email address, and WhatsApp number submitted consciously.",
+                li1_1_2: "Technical Data: IP address, browser type, and pages viewed for analytical purposes.",
                 sub1_2: "1.2 Data Usage",
-                privacyP2: "Your data is only used to process service requests, provide personalized SEO strategy consulting, and improve our website performance through GA4 statistical data.",
+                privacyP2: "Your data is only used to process service requests and improve our website performance through GA4 data.",
                 termsTitle: "Terms & Conditions",
                 termsIntro: "By accessing this site, you are deemed to have agreed to all our professional service terms as follows:",
                 sub2_1: "2.1 Intellectual Property Rights",
-                termsP1: "All content, strategies, source code, and designs published here are the intellectual property of Muhammad Faqih Al Rifai. Reproduction without written permission is strictly prohibited.",
+                termsP1: "All content, strategies, and designs published here are the intellectual property of Muhammad Faqih Al Rifai.",
                 sub2_2: "2.2 User Obligations",
-                termsP2: "Users are prohibited from using information on this site for illegal activities, spamming, or hacking attempts that harm our digital ecosystem.",
+                termsP2: "Users are prohibited from using information on this site for illegal activities that harm our digital ecosystem.",
                 cookiesTitle: "Cookies Policy",
-                cookiesDesc: "This site uses cookies to recognize your device and save language preferences and display mode (Dark/Light). Our analytics uses Google Analytics 4 to help us understand which content is most beneficial for you.",
+                cookiesDesc: "This site uses cookies to recognize your device and save language preferences and display mode (Dark/Light).",
                 disclaimerTitle: "Professional Disclaimer",
-                disclaimerText: "Please note that the SEO and Digital Marketing strategies we provide are based on historical data and market trends. We do not guarantee instant #1 rankings or fixed income figures, as search engine algorithms like Google's change periodically. All results depend heavily on technical execution and market variables beyond our control.",
+                disclaimerText: "Please note that the SEO and Digital Marketing strategies we provide are based on historical data. We do not guarantee instant #1 rankings.",
                 legalQuery: "Legal Inquiries?"
             }
         };
+
+        // --- FUNGSI TRIGGER GOOGLE INDEXING BOT ---
+        async function triggerIndexing() {
+            const currentUrl = window.location.href.split('#')[0];
+            const confirmBtn = confirm(`Kirim sinyal ke Google untuk meng-index URL ini sekarang?\n\n${currentUrl}`);
+            
+            if(!confirmBtn) return;
+
+            try {
+                document.body.style.cursor = 'wait';
+                const response = await fetch('/.netlify/functions/index-bot', {
+                    method: 'POST',
+                    body: JSON.stringify({ url: currentUrl }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const result = await response.json();
+                document.body.style.cursor = 'default';
+                
+                if(response.ok) {
+                    alert(`✅ Sukses!\nSinyal berhasil dikirim ke Google. Bot Google akan segera merayapi halaman ini.`);
+                } else {
+                    alert(`❌ Gagal: ${result.error || 'Terjadi kesalahan internal server'}`);
+                }
+            } catch(e) {
+                document.body.style.cursor = 'default';
+                alert("❌ Gagal menghubungi server Netlify Function. Pastikan file script sudah ter-deploy.");
+                console.error(e);
+            }
+        }
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -357,29 +429,18 @@
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
-        // Scroll to Top Logic
+        // Scroll Logic (Widget & Spy)
         const scrollBtn = document.getElementById('scrollTopBtn');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
+            if (window.scrollY > 300) scrollBtn.classList.add('visible');
+            else scrollBtn.classList.remove('visible');
         });
 
-        // Active Link Highlighter (Scroll Spy)
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -60% 0px',
-            threshold: 0
-        };
-
+        const observerOptions = { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Remove active from all
                     document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
-                    // Add active to current
                     const id = entry.target.getAttribute('id');
                     const activeLink = document.querySelector(`.sidebar-link[href="#${id}"]`);
                     if(activeLink) activeLink.classList.add('active');
@@ -387,9 +448,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section-content').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.section-content').forEach(section => observer.observe(section));
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
@@ -401,4 +460,3 @@
     </script>
 </body>
 </html>
-

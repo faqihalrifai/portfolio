@@ -25,15 +25,15 @@ exports.handler = async function(event, context) {
 
     console.log(`[Indexing Bot] Memulai proses indexing untuk URL: ${targetUrl}`);
 
-    // 3. Ambil Kredensial dari Variabel
-    const clientEmail = process.env.GSC_CLIENT_EMAIL;
-    let privateKey = process.env.GSC_PRIVATE_KEY;
+    // 3. Ambil Kredensial dari Variabel (Nama variabel baru)
+    const clientEmail = process.env.GOOGLE_SERVICE_EMAIL;
+    let privateKey = process.env.GOOGLE_SERVICE_KEY;
     
     // DETEKSI ERROR LENGKAP: Cek persis variabel mana yang tidak terbaca Netlify
     if (!clientEmail || !privateKey) {
       let missingVars = [];
-      if (!clientEmail) missingVars.push("GSC_CLIENT_EMAIL");
-      if (!privateKey) missingVars.push("GSC_PRIVATE_KEY");
+      if (!clientEmail) missingVars.push("GOOGLE_SERVICE_EMAIL");
+      if (!privateKey) missingVars.push("GOOGLE_SERVICE_KEY");
       
       console.error(`[Indexing Bot] Error: Variabel berikut kosong/tidak terbaca: ${missingVars.join(', ')}`);
       return {
@@ -86,11 +86,22 @@ exports.handler = async function(event, context) {
     // Penanganan Error Global (Misal: Email belum dijadikan Owner di GSC)
     console.error('[Indexing Bot] Eksekusi Gagal:', error.message);
     
+    let pesanError = 'Gagal menghubungi Google Indexing API.';
+    if (error.message.includes('Permission denied')) {
+        pesanError = 'Akses Ditolak: Email bot belum ditambahkan sebagai OWNER (Pemilik) di pengaturan Google Search Console.';
+    } else if (error.message.includes('not been used') || error.message.includes('disabled')) {
+        pesanError = 'API Belum Aktif: Masuk ke Google Cloud Console dan aktifkan "Web Search Indexing API" untuk proyek Anda.';
+    } else if (error.message.includes('PEM') || error.message.includes('key')) {
+        pesanError = 'Format Private Key Salah: Pastikan copy-paste di Netlify pas (termasuk tulisan -----BEGIN dan END-----).';
+    } else {
+        pesanError = `Error dari Google: ${error.message}`;
+    }
+    
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        error: 'Gagal menghubungi Google Indexing API.',
+        error: pesanError,
         details: error.message
       })
     };

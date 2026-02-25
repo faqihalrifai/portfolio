@@ -1,71 +1,98 @@
 const { google } = require('googleapis');
 
 exports.handler = async function(event, context) {
-    // 1. Cek metode HTTP (Hanya boleh POST untuk keamanan)
-    if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: JSON.stringify({ error: 'Method Not Allowed' }) };
+  // 1. Validasi HTTP Method (Hanya menerima POST)
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Method Not Allowed. Silakan gunakan metode POST.' })
+    };
+  }
+
+  try {
+    // 2. Parsing & Validasi Payload Request
+    const body = JSON.parse(event.body);
+    const targetUrl = body.url;
+
+    if (!targetUrl) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Bad Request. Parameter URL tidak ditemukan di body request.' })
+      };
     }
 
-    try {
-        // 2. Ambil URL yang ingin di-index dari body request
-        const body = JSON.parse(event.body);
-        const targetUrl = body.url;
+    console.log(`[Indexing Bot] Memulai proses indexing untuk URL: ${targetUrl}`);
 
-        if (!targetUrl) {
-            return { statusCode: 400, body: JSON.stringify({ error: 'Missing target URL in request body' }) };
-        }
-
-        console.log(`[Bot] Memulai proses indexing untuk: ${targetUrl}`);
-
-        // 3. Panggil Private Key JSON dari Environment Variables Netlify
-        // Pastikan nama variabel 'GOOGLE_SERVICE_ACCOUNT_KEY' sesuai dengan yang Mas setting di Netlify
-        const keyJsonString = process.env.GOOGLE_SERVICE_ACCOUNT_KEY; 
-        
-        if (!keyJsonString) {
-             console.error("[Bot Error] Environment Variable GOOGLE_SERVICE_ACCOUNT_KEY tidak ditemukan!");
-             return { statusCode: 500, body: JSON.stringify({ error: 'Server Configuration Error' }) };
-        }
-
-        const credentials = JSON.parse(keyJsonString);
-
-        // 4. Autentikasi dengan Google
-        const jwtClient = new google.auth.JWT(
-            credentials.client_email,
-            null,
-            credentials.private_key,
-            ['https://www.googleapis.com/auth/indexing'],
-            null
-        );
-
-        await jwtClient.authorize();
-
-        // 5. Panggil Google Indexing API
-        const indexing = google.indexing({ version: 'v3', auth: jwtClient });
-        
-        const response = await indexing.urlNotifications.publish({
-            requestBody: {
-                url: targetUrl,
-                type: 'URL_UPDATED', // Gunakan 'URL_DELETED' jika menghapus halaman
-            },
-        });
-
-        console.log(`[Bot] Sukses! Respon Google:`, response.data);
-
-        return {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                message: 'Permintaan indexing berhasil dikirim ke Google!',
-                url: targetUrl,
-                googleResponse: response.data
-            })
-        };
-
-    } catch (error) {
-        console.error('[Bot Error]', error.message);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Gagal melakukan indexing', details: error.message })
-        };
+    // 3. Ambil Kredensial dari Variabel
+    const clientEmail = process.env.GSC_CLIENT_EMAIL;
+    let privateKey = process.env.GSC_PRIVATE_KEY;
+    
+    // DETEKSI ERROR LENGKAP: Cek persis variabel mana yang tidak terbaca Netlify
+    if (!clientEmail || !privateKey) {
+      let missingVars = [];
+      if (!clientEmail) missingVars.push("GSC_CLIENT_EMAIL");
+      if (!privateKey) missingVars.push("GSC_PRIVATE_KEY");
+      
+      console.error(`[Indexing Bot] Error: Variabel berikut kosong/tidak terbaca: ${missingVars.join(', ')}`);
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: `Server Configuration Error. Netlify tidak bisa membaca variabel: ${missingVars.join(', ')}. Lakukan Clear Cache & Deploy Site!` })
+      };
     }
+
+    // 4. Pembersihan Private Key (Auto-Fix jika tercopy tanda kutip " di awal/akhir)
+    privateKey = privateKey.replace(/^["']|["']$/g, '');
+    // Format ulang \n agar Private Key terbaca benar oleh sistem kriptografi Google
+    privateKey = privateKey.replace(/\\n/g, '\n');
+
+    // 5. Autentikasi JWT ke Google API
+    const jwtClient = new google.auth.JWT(
+      clientEmail,
+      null,
+      privateKey,
+      ['https://www.googleapis.com/auth/indexing'],
+      null
+    );
+
+    await jwtClient.authorize();
+
+    // 6. Eksekusi Permintaan Google Indexing API
+    const indexing = google.indexing({ version: 'v3', auth: jwtClient });
+    
+    const response = await indexing.urlNotifications.publish({
+      requestBody: {
+        url: targetUrl,
+        type: 'URL_UPDATED', 
+      },
+    });
+
+    console.log(`[Indexing Bot] API Sukses. Respon Google:`, response.data);
+
+    // 7. Kembalikan Response Sukses ke Frontend
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: 'Bot Google telah menerima instruksi perayapan!',
+        url: targetUrl,
+        googleResponse: response.data
+      })
+    };
+
+  } catch (error) {
+    // Penanganan Error Global (Misal: Email belum dijadikan Owner di GSC)
+    console.error('[Indexing Bot] Eksekusi Gagal:', error.message);
+    
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        error: 'Gagal menghubungi Google Indexing API.',
+        details: error.message
+      })
+    };
+  }
 };

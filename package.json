@@ -1,0 +1,12 @@
+{
+  "name": "faqihalrf-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Website & Indexing Bot",
+  "main": "index.html",
+  "dependencies": {
+    "googleapis": "^128.0.0"
+  },
+  "scripts": {
+    "build": "echo 'No build step required for static HTML'"
+  }
+}

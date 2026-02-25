@@ -44,27 +44,42 @@ exports.handler = async function(event, context) {
     }
 
     // ====================================================================
-    // 4. PERBAIKAN SUPER TANGGUH UNTUK PRIVATE KEY (Anti-Error DECODER)
+    // 4. PEMFORMATAN ULANG PRIVATE KEY (BULLETPROOF / ANTI-ERROR)
     // ====================================================================
     
-    // A. Hapus tanda kutip jika tidak sengaja terbawa saat copy-paste
-    privateKey = privateKey.replace(/^["']|["']$/g, '');
-    
-    // B. Ganti teks literal \n menjadi baris baru (newline) beneran
-    privateKey = privateKey.replace(/\\n/g, '\n');
-
-    // C. FIX UTAMA: Jika Netlify menghancurkan format multiline menjadi 1 baris
-    // (Inilah yang menyebabkan pesan "DECODER routines::unsupported")
-    if (!privateKey.includes('\n')) {
-      const beginHeader = '-----BEGIN PRIVATE KEY-----';
-      const endHeader = '-----END PRIVATE KEY-----';
-      
-      if (privateKey.includes(beginHeader) && privateKey.includes(endHeader)) {
-          // Ekstrak teks acak di tengahnya, lalu hapus SEMUA spasi kosong
-          let base64Body = privateKey.replace(beginHeader, '').replace(endHeader, '').replace(/\s+/g, '');
-          // Rakit ulang menjadi format standar yang diwajibkan sistem Google
-          privateKey = `${beginHeader}\n${base64Body}\n${endHeader}`;
+    // A. Jika user tidak sengaja paste seluruh format JSON ke dalam variabel:
+    if (privateKey.trim().startsWith('{')) {
+      try {
+        const parsed = JSON.parse(privateKey);
+        if (parsed.private_key) privateKey = parsed.private_key;
+      } catch (e) {
+        console.warn("Gagal ekstrak dari JSON, mencoba baca mentah.");
       }
+    }
+
+    // B. Bersihkan tanda kutip & perbaiki karakter 'newline' literal (\n)
+    privateKey = privateKey.replace(/^["']|["']$/g, '').replace(/\\n/g, '\n');
+
+    // C. REKONSTRUKSI TOTAL: Paksa potong persis 64 karakter per baris!
+    // Inilah solusi pasti untuk mengatasi error 'DECODER routines::unsupported'
+    const beginHeader = '-----BEGIN PRIVATE KEY-----';
+    const endHeader = '-----END PRIVATE KEY-----';
+    
+    if (privateKey.includes(beginHeader) && privateKey.includes(endHeader)) {
+      // Ambil teks rahasia di tengah-tengah saja
+      let base64Body = privateKey.substring(
+        privateKey.indexOf(beginHeader) + beginHeader.length,
+        privateKey.indexOf(endHeader)
+      );
+      
+      // Hapus seluruh spasi, tab, dan enter yang berantakan
+      base64Body = base64Body.replace(/\s+/g, '');
+      
+      // Potong menjadi array berukuran 64 karakter (Standar wajib PEM/NodeJS)
+      let chunks = base64Body.match(/.{1,64}/g); 
+      
+      // Rakit ulang secara sempurna
+      privateKey = `${beginHeader}\n${chunks.join('\n')}\n${endHeader}\n`;
     }
 
     // 5. Autentikasi JWT ke Google API
@@ -110,7 +125,7 @@ exports.handler = async function(event, context) {
     } else if (error.message.includes('not been used') || error.message.includes('disabled')) {
         pesanError = 'API Belum Aktif: Masuk ke Google Cloud Console dan aktifkan "Web Search Indexing API" untuk proyek Anda.';
     } else if (error.message.includes('PEM') || error.message.includes('key') || error.message.includes('DECODER')) {
-        pesanError = 'Format Private Key Rusak Parah. Pastikan copy-paste di Netlify tepat. Error: ' + error.message;
+        pesanError = 'Format Private Key Masih Ditolak Google. Silakan periksa kembali Variabel Netlify Anda.';
     } else {
         pesanError = `Error dari Google: ${error.message}`;
     }

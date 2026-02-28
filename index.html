@@ -200,16 +200,33 @@
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
 
-        /* TESTIMONIALS & SCROLLERS */
-        .h-scroll-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-        .h-scroll-container::-webkit-scrollbar { display: none; }
-        
-        /* Custom Scrollbar */
-        .custom-scroll::-webkit-scrollbar { width: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); border-radius: 4px; }
-        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
-        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.6); border-radius: 4px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(197, 160, 40, 0.9); }
+        /* CUSTOM SCROLLBAR DENGAN IKON GERIGI (GEAR) */
+        .custom-scroll { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        .custom-scroll::-webkit-scrollbar { height: 12px; width: 8px; }
+        .custom-scroll::-webkit-scrollbar-track { 
+            background: rgba(0,0,0,0.03); 
+            border-radius: 10px; 
+            margin: 0 10px; 
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .custom-scroll::-webkit-scrollbar-track { 
+            background: rgba(255,255,255,0.02); 
+            border-color: rgba(255,255,255,0.05);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb { 
+            background-color: rgba(197, 160, 40, 0.8); 
+            border-radius: 10px; 
+            /* SVG Gear Icon */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffffff' d='M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 10px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { 
+            background-color: rgba(197, 160, 40, 1); 
+        }
         
         .testimonial-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -296,7 +313,7 @@
         /* LIGHTBOX IMG ZOOM */
         .lightbox-zoomed { transform: scale(1.5) !important; cursor: zoom-out !important; }
 
-        /* BENTO SERVICE CARDS CSS */
+        /* BENTO SERVICE CARDS CSS (COMPACT) */
         .bento-service {
             transition: all 0.3s ease;
             transform: translateZ(0);
@@ -319,32 +336,48 @@
         }
         .partner-logo {
             width: 160px; height: 80px; object-fit: contain; margin: 0 2rem;
-            filter: grayscale(100%) opacity(0.6); transition: all 0.3s ease; cursor: default;
+            transition: transform 0.3s ease; cursor: default;
         }
         .partner-logo:hover {
-            filter: grayscale(0%) opacity(1); transform: scale(1.05);
+            transform: scale(1.05);
+        }
+        
+        /* FAN OUT ANIMATION FOR EXPERIENCE MODAL */
+        .fan-card {
+            transform-origin: bottom center;
+            transform: translateY(100vh) rotate(0deg) scale(0.5);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+            transition-delay: var(--fan-delay);
+        }
+        .fan-active .fan-card {
+            opacity: 1;
+            transform: translateY(var(--fan-y)) rotate(var(--fan-rot)) scale(1);
+        }
+        .fan-active .fan-card:hover {
+            transform: translateY(calc(var(--fan-y) - 15px)) rotate(0deg) scale(1.05);
+            z-index: 50;
+            border-color: #c5a028;
+            transition: all 0.3s ease;
+            transition-delay: 0s;
         }
 
-        /* MOBILE POPUP & CARDS (< 768px) */
+        /* MOBILE OVERRIDES */
         @media (max-width: 768px) {
-            .mini-card-mobile { padding: 1.25rem !important; }
-            .mini-head-mobile { font-size: 1.1rem !important; }
-            .mini-text-mobile { font-size: 0.85rem !important; }
             .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
             .marketing-popup.show { transform: translate(-50%, 0); }
             .bubble { text-align: center; border-top: 4px solid #c5a028; }
             .neural-grid { display: flex; flex-direction: column; }
-            /* Memperlebar Chat pada Mobile agar tidak sempit memanjang */
-            .ai-chat-bubble { max-width: 95% !important; }
             .partner-logo { width: 120px; height: 60px; margin: 0 1rem; }
+            /* Chat Flat Width Mobile */
+            .ai-chat-bubble { max-width: 100% !important; }
         }
 
-        /* DESKTOP POPUP (>= 769px) */
+        /* DESKTOP POPUP */
         @media (min-width: 769px) {
             .marketing-popup { top: auto; left: 30px; bottom: 30px; right: auto; transform: translateY(150%); }
             .marketing-popup.show { transform: translateY(0); }
             .bubble { border-left: 4px solid #c5a028; text-align: left; }
-            .ai-chat-bubble { max-width: 85% !important; }
         }
     </style>
 </head>
@@ -360,10 +393,9 @@
             
             <div class="hidden md:flex items-center gap-1 bg-lightGray/50 dark:bg-black/20 p-1 rounded-full border border-black/5 dark:border-white/10 backdrop-blur-sm">
                 <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Tentang</a>
+                <a href="#partnership" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Partner</a>
                 <a href="#neural-command" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all text-gold dark:text-gold"><i class="fas fa-microchip mr-1"></i> Command Center</a>
                 <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Pengalaman</a>
-                <a href="#competence" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Kompetensi</a>
-                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Galeri</a>
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Layanan</a>
             </div>
 
@@ -381,10 +413,9 @@
         <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-mainWhite/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40">
             <div class="flex flex-col p-4 space-y-2">
                 <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Tentang</a>
+                <a href="#partnership" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Partner & Reputasi</a>
                 <a href="#neural-command" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold text-gold bg-gold/5 border border-gold/20">Neural Command Center</a>
                 <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Pengalaman</a>
-                <a href="#competence" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Kompetensi</a>
-                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Galeri</a>
                 <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Layanan</a>
                 <div class="grid grid-cols-1 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i> Tema Gelap/Terang</button>
@@ -457,6 +488,38 @@
             <video id="hero-bg-video" src="animasi.mp4" class="w-full max-w-[1920px] h-auto aspect-video object-cover block" autoplay muted playsinline loop disablePictureInPicture></video>
         </div>
 
+        <!-- Partnership Section (Infinite Marquee Original Colors) -->
+        <section id="partnership" class="py-12 bg-mainWhite dark:bg-darkBg relative z-10 border-b border-black/5 dark:border-white/5 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 mb-8 text-center reveal">
+                <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Kemitraan Strategis</span>
+                <h2 class="text-2xl font-serif font-medium dark:text-white">Didukung Oleh Infrastruktur Terbaik</h2>
+            </div>
+            
+            <div class="relative w-full flex items-center h-28 mx-auto max-w-[1920px] reveal">
+                <!-- Gradients for smooth edges -->
+                <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-mainWhite dark:from-darkBg to-transparent z-20 pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-mainWhite dark:from-darkBg to-transparent z-20 pointer-events-none"></div>
+                
+                <div class="partner-track flex items-center">
+                    <!-- Set 1 -->
+                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
+                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
+                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
+                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
+                    <!-- Set 2 (Duplicate for seamless loop) -->
+                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
+                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
+                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
+                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
+                    <!-- Set 3 (Triple ensure no blank space on ultrawide) -->
+                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
+                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
+                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
+                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
+                </div>
+            </div>
+        </section>
+
         <!-- NEURAL COMMAND CENTER V3.0 -->
         <section id="neural-command" class="py-20 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
@@ -499,31 +562,34 @@
                         </div>
                     </div>
 
-                    <!-- 2. Gemini AI Bot -->
+                    <!-- 2. Gemini AI Bot (FLAT & LEBAR HORIZONTAL) -->
                     <div class="col-span-12 md:col-span-7 bento-card flex flex-col h-auto md:h-[650px]">
                         <div class="p-6 md:p-8 flex flex-col h-full w-full">
-                            <div class="flex items-center justify-between mb-4 shrink-0">
+                            <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4">
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                         <img src="geminiai.webp" width="40" height="40" alt="Gemini AI Icon" class="w-full h-full object-contain rounded-lg img-high-res">
                                     </div>
-                                    <div><h3 class="font-bold dark:text-white">Gemini AI</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Konsultan AI Strategi Bisnis</p></div>
+                                    <div><h3 class="font-bold dark:text-white">Gemini AI Consult</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Business Strategist Mode</p></div>
                                 </div>
                                 <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20">Aktif</span>
                             </div>
                             
-                            <div id="bot-chat-window" class="custom-scroll flex-1 bg-lightGray dark:bg-black/40 rounded-xl p-4 md:p-6 mb-4 overflow-y-auto font-sans text-sm leading-relaxed border border-black/5 dark:border-white/5 space-y-4">
-                                <div class="flex w-full">
-                                    <div class="bg-white dark:bg-darkCard p-5 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full ai-chat-bubble">
-                                        <p class="dark:text-darkText text-gray-800" id="bot-greeting">Selamat datang! Saya adalah representasi AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) komprehensif. <br><br>Silakan pilih salah satu pilar fokus di bawah ini untuk mendapatkan panduan strategis yang mendalam dan terspesialisasi.</p>
+                            <!-- Chat Box (Tanpa Card Berlapis dan Tanpa Icon Robot) -->
+                            <div id="bot-chat-window" class="custom-scroll flex-1 w-full bg-transparent overflow-y-auto font-sans text-sm leading-relaxed space-y-5 pb-4 pr-2">
+                                <!-- Initial Bot Greeting -->
+                                <div class="flex w-full mt-2 items-start">
+                                    <div class="w-full pb-4 text-sm dark:text-darkText text-gray-800">
+                                        Selamat datang! Saya adalah representasi AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) taktis yang luas dan komprehensif.<br><br>Silakan pilih salah satu pilar fokus di bawah ini untuk memulai analisis sistematis kita.
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="flex gap-2 flex-wrap mt-auto shrink-0" id="bot-options-container">
-                                <button onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Panduan SEO</button>
-                                <button onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Strategi Marketing</button>
-                                <button onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-white dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Pertumbuhan Bisnis</button>
+                            <!-- Quick Options -->
+                            <div class="flex gap-2 flex-wrap mt-auto shrink-0 pt-4 border-t border-black/5 dark:border-white/5" id="bot-options-container">
+                                <button onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Panduan SEO</button>
+                                <button onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Strategi Marketing</button>
+                                <button onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Pertumbuhan Bisnis</button>
                             </div>
                         </div>
                     </div>
@@ -661,145 +727,240 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render">
-             <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Garis Waktu</span>
-                    <h2 class="text-3xl md:text-4xl font-serif font-medium mb-4 dark:text-darkText">Perjalanan Karir</h2>
-                </div>
-                <div class="timeline-line relative space-y-12">
-                    <!-- Job 1 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-gold rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-black/10 dark:border-white/10 rounded-full dark:text-darkText">Jan 2026 - Sekarang</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Freelance Business Development Associate</h3>
-                                    <p class="text-sm font-bold text-gold uppercase tracking-wider mb-4">PT Madani Abadi Nusantara</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jan 2026 - Sekarang</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob1">
-                                        <p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar 50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</li><li><strong>Melakukan riset pasar mendalam</strong> dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</li><li><strong>Memimpin negosiasi kontrak strategis</strong> dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</li></ul>
-                                    </div>
-                                    <button onclick="openJobModal('job1')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
+        <!-- SERVICES (BENTO GRID HORIZONTAL SCROLL COMPACT) -->
+        <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
+             <div class="max-w-7xl mx-auto px-6 relative z-10 reveal">
+                  <div class="text-center mb-10">
+                      <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block">Penawaran Eksklusif</span>
+                      <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4">Solusi Terbaik Untuk Anda</h2>
+                      <div class="w-20 h-1 bg-gold mx-auto rounded-full"></div>
+                  </div>
+
+                  <!-- Horizontal Scroll Bar dengan Ikon Gerigi -->
+                  <div class="flex overflow-x-auto gap-6 pb-8 pt-4 snap-x snap-mandatory custom-scroll items-stretch h-auto">
+                        
+                        <!-- 1. Web Development & Systems -->
+                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                            
+                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-laptop-code"></i></div>
+                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
+                            </div>
+                            
+                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Web Dev & System</h3>
+                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
+                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="font-bold text-darkBlack dark:text-white ml-1">4.9/5</span> (45+ Project)
+                            </div>
+
+                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
+                                <select id="bento-opt-1" onchange="updateBentoDesc('bento-opt-1', 'bento-desc-1', 'bento-price-1', 'bento-strike-1')" aria-label="Pilih layanan web" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                    <option value="LandingPage" data-key="descLandingPage">High-Converting Landing Page</option>
+                                    <option value="WPBlog" data-key="descWPBlog">WordPress Blog & News Engine</option>
+                                    <option value="LMS" data-key="descLMS">LMS (Sistem Kursus Online)</option>
+                                    <option value="TryOut" data-key="descTryOut">Sistem Try-Out Online</option>
+                                    <option value="SIAKAD" data-key="descSIAKAD">SIAKAD (Sistem Akademik)</option>
+                                    <option value="Booking" data-key="descBooking">Smart Booking System</option>
+                                    <option value="Property" data-key="descProperty">Property Listing Management</option>
+                                    <option value="Invitation" data-key="descInvitation">Event & Digital Invitations</option>
+                                </select>
+                                
+                                <div id="bento-desc-1" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                    <!-- Terisi via JS -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Job 2 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-emerald-600 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-emerald-600/10 dark:border-emerald-600/30 rounded-full text-emerald-700 dark:text-emerald-400">Sep 2025 - Des 2025</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Content Writer (Internship)</h3>
-                                    <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4">Garap Media Nusantara</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Sep 2025 - Des 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob2">
-                                        <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p>
-                                        <ul class='space-y-1 mt-2 list-disc pl-4'>
-                                            <li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li>
-                                            <li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li>
-                                            <li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li>
-                                        </ul>
-                                        <div class="mt-5">
-                                            <button onclick="openLightbox('reqgarmed.webp', 'image')" class="inline-flex px-4 py-2.5 bg-emerald-600/10 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 text-xs font-bold rounded-xl border border-emerald-600/20 hover:bg-emerald-600 hover:text-white transition-all items-center justify-center gap-2 w-full sm:w-auto shadow-sm group">
-                                                <i class="fas fa-file-contract text-sm group-hover:scale-110 transition-transform"></i> Buka Surat Rekomendasi
-                                            </button>
-                                        </div>
+
+                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
+                                <div class="flex justify-between items-end mb-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-1">Rp 3.500.000</span>
+                                        <span class="text-lg font-bold text-gold" id="bento-price-1">Rp 2.500.000</span>
                                     </div>
-                                    <button onclick="openJobModal('job2')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail & Surat</span> <i class="fas fa-chevron-right"></i></button>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-1"></span>
                                 </div>
+                                <button aria-label="Order Web" onclick="orderBentoService('Web Dev & System', 'bento-opt-1')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <!-- Job 3 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-orange-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-orange-500/10 dark:border-orange-500/30 rounded-full text-orange-600 dark:text-orange-400">Jul 2025 - Sep 2025</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Marketplace Administrator</h3>
-                                    <p class="text-sm font-bold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-4">Shopify & Shopee</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jul 2025 - Sep 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob3">
-                                        <p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul>
-                                    </div>
-                                    <button onclick="openJobModal('job3')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
+
+                        <!-- 2. Digital Marketing & SEO -->
+                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                            
+                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-bullhorn"></i></div>
+                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
+                            </div>
+                            
+                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Digital Marketing & SEO</h3>
+                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
+                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (60+ Klien)
+                            </div>
+
+                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
+                                <select id="bento-opt-2" onchange="updateBentoDesc('bento-opt-2', 'bento-desc-2', 'bento-price-2', 'bento-strike-2')" aria-label="Pilih layanan marketing" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                    <option value="StructureSEO" data-key="descStructureSEO">Optimasi Struktur SEO Google</option>
+                                    <option value="AdsMgmt" data-key="descAdsMgmt">Digital Ads Management</option>
+                                    <option value="StoreMgmt" data-key="descStoreMgmt">E-commerce Store Management</option>
+                                    <option value="GMB" data-key="descGMB">GMB (Google Maps) Optimization</option>
+                                    <option value="ContentStrategy" data-key="descContentStrategy">SEO Content Strategy</option>
+                                    <option value="CRO" data-key="descCRO">Conversion Rate Optimization</option>
+                                </select>
+                                
+                                <div id="bento-desc-2" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                    <!-- Terisi via JS -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Job 4 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-pink-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-pink-500/10 dark:border-pink-500/30 rounded-full text-pink-600 dark:text-pink-400">Mei 2025 - Jul 2025</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Affiliate Marketing</h3>
-                                    <p class="text-sm font-bold text-pink-500 dark:text-pink-400 uppercase tracking-wider mb-4">Shopee</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Mei 2025 - Jul 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob4">
-                                        <p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>
+
+                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
+                                <div class="flex justify-between items-end mb-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-2">Rp 3.500.000</span>
+                                        <span class="text-lg font-bold text-gold" id="bento-price-2">Rp 2.000.000</span>
                                     </div>
-                                    <button onclick="openJobModal('job4')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-2"></span>
                                 </div>
+                                <button aria-label="Order Marketing" onclick="orderBentoService('Digital Marketing & SEO', 'bento-opt-2')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <!-- Job 5 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-yellow-500 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-yellow-500/10 dark:border-yellow-500/30 rounded-full text-yellow-600 dark:text-yellow-400">Jan 2024 - Apr 2025</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Owner, Bisnis Kue</h3>
-                                    <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider mb-4">Wirausaha</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Jan 2024 - Apr 2025</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob5">
-                                        <p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>
-                                    </div>
-                                    <button onclick="openJobModal('job5')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
+
+                        <!-- 3. Business Operations -->
+                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                            
+                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-briefcase"></i></div>
+                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
+                            </div>
+                            
+                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Business Operations</h3>
+                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
+                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                <span class="font-bold text-darkBlack dark:text-white ml-1">4.8/5</span> (30+ Sistem)
+                            </div>
+
+                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
+                                <select id="bento-opt-3" onchange="updateBentoDesc('bento-opt-3', 'bento-desc-3', 'bento-price-3', 'bento-strike-3')" aria-label="Pilih layanan operasional" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                    <option value="Career" data-key="descCareer">Portal Karir & Rekrutmen</option>
+                                    <option value="Dashboard" data-key="descDashboard">Dashboard Monitoring Proyek</option>
+                                    <option value="Inventory" data-key="descInventory">Inventory & Warehouse System</option>
+                                    <option value="ESS" data-key="descESS">Employee Self-Service (ESS)</option>
+                                    <option value="KPI" data-key="descKPI">Custom Company Dashboard (KPI)</option>
+                                </select>
+                                
+                                <div id="bento-desc-3" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                    <!-- Terisi via JS -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Job 6 -->
-                    <div class="relative pl-12 md:pl-0 group reveal">
-                        <div class="absolute left-[11px] top-2 w-5 h-5 bg-white dark:bg-darkBg border-4 border-teal-600 rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="md:grid md:grid-cols-12 md:gap-10 items-start">
-                            <div class="hidden md:block md:col-span-3 text-right pt-2"><span class="text-xs font-bold px-3 py-1 bg-lightGray dark:bg-darkCard border border-teal-600/10 dark:border-teal-600/30 rounded-full text-teal-600 dark:text-teal-400">Mei 2023 - Des 2023</span></div>
-                            <div class="md:col-span-9">
-                                <div class="bg-white dark:bg-darkCard p-4 md:p-8 mini-card-mobile rounded-3xl shadow-soft hover-soft relative border border-black/5 dark:border-white/5">
-                                    <h3 class="text-xl mini-head-mobile font-bold mb-1 dark:text-darkText">Customer Service & Co-Founder</h3>
-                                    <p class="text-sm font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-4">Web Development Venture</p>
-                                    <span class="md:hidden block text-xs font-bold mb-4 opacity-60 dark:text-darkSub">Mei 2023 - Des 2023</span>
-                                    <div class="text-sm mini-text-mobile text-textGray dark:text-darkSub space-y-3 leading-relaxed hidden md:block" id="descJob6">
-                                        <p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</li></ul>
+
+                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
+                                <div class="flex justify-between items-end mb-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-3">Rp 6.500.000</span>
+                                        <span class="text-lg font-bold text-gold" id="bento-price-3">Rp 4.500.000</span>
                                     </div>
-                                    <button onclick="openJobModal('job6')" class="md:hidden mt-2 w-full py-3 rounded-xl border border-gold text-gold text-xs font-bold flex justify-center items-center gap-2 hover:bg-gold hover:text-white transition-all shadow-sm"><span>Lihat Detail</span> <i class="fas fa-chevron-right"></i></button>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-3"></span>
                                 </div>
+                                <button aria-label="Order Bisnis" onclick="orderBentoService('Business Operations', 'bento-opt-3')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+
+                        <!-- 4. Web Hosting & Domain (NEW) -->
+                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-gold/30 shadow-glow flex flex-col h-full relative overflow-hidden group">
+                            <div class="absolute -bottom-10 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-all group-hover:bg-gold/20 group-hover:scale-150"></div>
+                            
+                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-gold text-white flex items-center justify-center text-xl shrink-0 shadow-lg shadow-gold/30"><i class="fas fa-server"></i></div>
+                                <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold px-3 py-1 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse">Hot Promo</span>
+                            </div>
+                            
+                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Web Hosting & Domain</h3>
+                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
+                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (Uptime 99.9%)
+                            </div>
+
+                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
+                                <select id="bento-opt-4" onchange="updateBentoDesc('bento-opt-4', 'bento-desc-4', 'bento-price-4', 'bento-strike-4')" aria-label="Pilih layanan hosting" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-gold/30 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                    <option value="HostingNode" data-key="descHostingNode">Cloud Hosting Pro (20 GB SSD)</option>
+                                    <option value="HostingCorp" data-key="descHostingCorp">Enterprise Cloud (50 GB SSD)</option>
+                                    <option value="VPSServer" data-key="descVPSServer">VPS Server Dedicated (RAM 4GB)</option>
+                                    <option value="DomainReg" data-key="descDomainReg">Registrasi Domain (.com / .id)</option>
+                                </select>
+                                
+                                <div id="bento-desc-4" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                    <!-- Terisi via JS -->
+                                </div>
+                            </div>
+
+                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
+                                <div class="flex justify-between items-end mb-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-4">Rp 1.200.000</span>
+                                        <span class="text-lg font-bold text-gold" id="bento-price-4">Rp 650.000</span>
+                                    </div>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-4">/tahun</span>
+                                </div>
+                                <button aria-label="Order Hosting" onclick="orderBentoService('Hosting & Domain', 'bento-opt-4')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg shadow-gold/30 hover:shadow-gold/50">
+                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                  </div>
+             </div>
         </section>
 
-        <!-- Modal Job -->
-        <div id="jobModal" class="fixed inset-0 z-[120] flex items-end md:items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeJobModal()">
-            <div class="bg-white dark:bg-darkCard w-full md:w-[600px] max-h-[85vh] rounded-t-3xl md:rounded-3xl p-6 md:p-8 overflow-y-auto transform translate-y-full md:translate-y-10 transition-transform duration-300 shadow-2xl border border-black/5 dark:border-white/10" id="jobModalContent" onclick="event.stopPropagation()">
+        <!-- Experience Section (FAN-OUT MODAL SYSTEM) -->
+        <section id="experience" class="py-24 bg-mainWhite dark:bg-darkBg relative defer-render border-t border-black/5 dark:border-white/5">
+             <div class="max-w-5xl mx-auto px-6 text-center reveal">
+                 <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block">Perjalanan Karir</span>
+                 <h2 class="text-3xl md:text-5xl font-serif font-medium mb-10 dark:text-darkText">Eksplorasi Jejak Profesional</h2>
+                 
+                 <div class="flex justify-center">
+                     <!-- Button Open Modal The Fan-Out -->
+                     <button onclick="openFanModal()" class="inline-flex items-center justify-center gap-4 px-8 py-5 bg-black dark:bg-white text-white dark:text-black rounded-full hover:bg-gold dark:hover:bg-gold hover:text-white transition-all shadow-xl hover:shadow-gold/30 text-sm md:text-base font-bold tracking-widest uppercase group relative overflow-hidden">
+                         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[scan-laser_1.5s_ease-in-out]"></div>
+                         <i class="fas fa-layer-group text-lg group-hover:scale-110 transition-transform"></i> 
+                         <span>Buka Catatan Pengalaman</span>
+                     </button>
+                 </div>
+                 <p class="text-xs text-textGray dark:text-darkSub mt-6 italic">Klik tombol di atas untuk membuka arsip portofolio karir.</p>
+             </div>
+        </section>
+
+        <!-- The Fan-Out Experience Modal -->
+        <div id="fanExpModal" class="fixed inset-0 z-[150] flex flex-col items-center justify-center bg-black/90 backdrop-blur-md opacity-0 invisible transition-all duration-500">
+            <!-- Close Button -->
+            <button onclick="closeFanModal()" class="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 bg-white/10 border border-white/20 text-white rounded-full text-xl hover:bg-gold hover:border-gold transition-colors z-[160] flex items-center justify-center shadow-lg"><i class="fas fa-times"></i></button>
+            
+            <div class="text-center w-full absolute top-12 md:top-20 z-50 pointer-events-none">
+                <h3 class="text-white font-serif text-3xl md:text-4xl mb-2 drop-shadow-lg opacity-0 transform -translate-y-10 transition-all duration-700" id="fanTitle">Perjalanan Karir</h3>
+                <p class="text-gold text-xs font-bold uppercase tracking-widest opacity-0 transform -translate-y-5 transition-all duration-700 delay-100" id="fanSub">Geser & Pilih Kartu</p>
+            </div>
+            
+            <!-- Cards Container -->
+            <div class="w-full h-full overflow-x-auto overflow-y-hidden custom-scroll px-6 md:px-16 pt-[20vh] pb-20 flex items-center gap-4 md:gap-8 snap-x snap-mandatory" id="fanContainer">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- Classic Modal Job Detail (Triggered from Fan Cards) -->
+        <div id="jobModal" class="fixed inset-0 z-[160] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeJobModal()">
+            <div class="bg-white dark:bg-darkCard w-full md:w-[600px] max-h-[85vh] rounded-t-3xl md:rounded-3xl p-6 md:p-8 overflow-y-auto transform translate-y-full md:translate-y-10 transition-transform duration-300 shadow-2xl border border-black/5 dark:border-white/10 custom-scroll" id="jobModalContent" onclick="event.stopPropagation()">
                 <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mb-6 md:hidden"></div>
                 <div class="flex justify-between items-start mb-6 pb-4 border-b border-black/5 dark:border-white/5">
                     <div class="pr-4">
                         <h3 class="text-xl font-bold dark:text-white mb-1 leading-tight" id="modalJobRole"></h3>
                         <p class="text-sm font-bold text-gold uppercase tracking-wider mb-2" id="modalJobComp"></p>
-                        <span class="text-xs font-bold bg-lightGray dark:bg-black/30 px-3 py-1 rounded-full text-textGray dark:text-darkSub" id="modalJobDate"></span>
+                        <span class="text-[10px] font-bold bg-lightGray dark:bg-black/30 px-3 py-1 rounded-full text-textGray dark:text-darkSub border border-black/5 dark:border-white/5" id="modalJobDate"></span>
                     </div>
                     <button aria-label="Close Modal" class="text-gray-400 hover:text-gold bg-gray-100 dark:bg-white/5 w-8 h-8 rounded-full flex items-center justify-center transition-colors shrink-0" onclick="closeJobModal()"><i class="fas fa-times"></i></button>
                 </div>
@@ -808,7 +969,7 @@
         </div>
 
         <!-- Competence -->
-        <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render">
+        <section id="competence" class="py-24 bg-mainWhite dark:bg-darkCard/30 relative defer-render border-t border-black/5 dark:border-white/5">
              <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Metodologi</span>
@@ -880,231 +1041,8 @@
                             <p id="hero-desc" class="text-xs uppercase tracking-widest text-gold/90 font-bold">Category</p>
                         </div>
                     </div>
-                    <div class="thumbnail-strip" id="thumbnail-container"></div>
+                    <div class="thumbnail-strip custom-scroll" id="thumbnail-container"></div>
                     <p class="text-center text-xs text-textGray dark:text-darkSub mt-4 italic"><i class="fas fa-info-circle mr-1"></i> Klik gambar untuk memperbesar / thumbnail untuk beralih</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES (BENTO GRID DESIGN) -->
-        <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
-             <div class="max-w-6xl mx-auto px-6 relative z-10 reveal">
-                  <div class="text-center mb-16">
-                      <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block">Penawaran Eksklusif</span>
-                      <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4">Solusi Terbaik Untuk Anda</h2>
-                      <div class="w-20 h-1 bg-gold mx-auto rounded-full"></div>
-                  </div>
-
-                  <!-- Bento Grid Container -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                        
-                        <!-- 1. Web Development & Systems -->
-                        <div class="bento-service bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
-                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10">
-                                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-laptop-code"></i></div>
-                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
-                            </div>
-                            
-                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10">Web Dev & System</h3>
-                            <div class="flex items-center gap-1 mb-5 text-[10px] text-textGray dark:text-darkSub relative z-10">
-                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <span class="font-bold text-darkBlack dark:text-white ml-1">4.9/5</span> (45+ Project)
-                            </div>
-
-                            <div class="mb-5 flex-grow relative z-10">
-                                <select id="bento-opt-1" onchange="updateBentoDesc('bento-opt-1', 'bento-desc-1', 'bento-price-1', 'bento-strike-1')" aria-label="Pilih layanan web" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none">
-                                    <option value="LandingPage" data-key="descLandingPage">High-Converting Landing Page</option>
-                                    <option value="WPBlog" data-key="descWPBlog">WordPress Blog & News Engine</option>
-                                    <option value="LMS" data-key="descLMS">LMS (Sistem Kursus Online)</option>
-                                    <option value="TryOut" data-key="descTryOut">Sistem Try-Out Online</option>
-                                    <option value="SIAKAD" data-key="descSIAKAD">SIAKAD (Sistem Akademik)</option>
-                                    <option value="Booking" data-key="descBooking">Smart Booking System</option>
-                                    <option value="Property" data-key="descProperty">Property Listing Management</option>
-                                    <option value="Invitation" data-key="descInvitation">Event & Digital Invitations</option>
-                                </select>
-                                
-                                <div id="bento-desc-1" class="text-sm text-textGray dark:text-darkSub leading-relaxed min-h-[280px]">
-                                    <!-- Terisi via JS -->
-                                </div>
-                            </div>
-
-                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-5 relative z-10">
-                                <div class="flex flex-col mb-4">
-                                    <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-1">Rp 3.500.000</span>
-                                    <div class="flex items-end gap-1">
-                                        <span class="text-lg md:text-xl font-bold text-gold" id="bento-price-1">Rp 2.500.000</span>
-                                        <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-1"></span>
-                                    </div>
-                                </div>
-                                <button aria-label="Order Web" onclick="orderBentoService('Web Dev & System', 'bento-opt-1')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 2. Digital Marketing & SEO -->
-                        <div class="bento-service bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
-                            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10">
-                                <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-bullhorn"></i></div>
-                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
-                            </div>
-                            
-                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10">Digital Marketing & SEO</h3>
-                            <div class="flex items-center gap-1 mb-5 text-[10px] text-textGray dark:text-darkSub relative z-10">
-                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (60+ Klien)
-                            </div>
-
-                            <div class="mb-5 flex-grow relative z-10">
-                                <select id="bento-opt-2" onchange="updateBentoDesc('bento-opt-2', 'bento-desc-2', 'bento-price-2', 'bento-strike-2')" aria-label="Pilih layanan marketing" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none">
-                                    <option value="StructureSEO" data-key="descStructureSEO">Optimasi Struktur SEO Google</option>
-                                    <option value="AdsMgmt" data-key="descAdsMgmt">Digital Ads Management</option>
-                                    <option value="StoreMgmt" data-key="descStoreMgmt">E-commerce Store Management</option>
-                                    <option value="GMB" data-key="descGMB">GMB (Google Maps) Optimization</option>
-                                    <option value="ContentStrategy" data-key="descContentStrategy">SEO Content Strategy</option>
-                                    <option value="CRO" data-key="descCRO">Conversion Rate Optimization</option>
-                                </select>
-                                
-                                <div id="bento-desc-2" class="text-sm text-textGray dark:text-darkSub leading-relaxed min-h-[280px]">
-                                    <!-- Terisi via JS -->
-                                </div>
-                            </div>
-
-                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-5 relative z-10">
-                                <div class="flex flex-col mb-4">
-                                    <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-2">Rp 3.500.000</span>
-                                    <div class="flex items-end gap-1">
-                                        <span class="text-lg md:text-xl font-bold text-gold" id="bento-price-2">Rp 2.000.000</span>
-                                        <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-2"></span>
-                                    </div>
-                                </div>
-                                <button aria-label="Order Marketing" onclick="orderBentoService('Digital Marketing & SEO', 'bento-opt-2')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 3. Business Operations -->
-                        <div class="bento-service bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
-                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10">
-                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0"><i class="fas fa-briefcase"></i></div>
-                                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] font-bold px-3 py-1 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
-                            </div>
-                            
-                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10">Business Operations</h3>
-                            <div class="flex items-center gap-1 mb-5 text-[10px] text-textGray dark:text-darkSub relative z-10">
-                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                                <span class="font-bold text-darkBlack dark:text-white ml-1">4.8/5</span> (30+ Sistem)
-                            </div>
-
-                            <div class="mb-5 flex-grow relative z-10">
-                                <select id="bento-opt-3" onchange="updateBentoDesc('bento-opt-3', 'bento-desc-3', 'bento-price-3', 'bento-strike-3')" aria-label="Pilih layanan operasional" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none">
-                                    <option value="Career" data-key="descCareer">Portal Karir & Rekrutmen</option>
-                                    <option value="Dashboard" data-key="descDashboard">Dashboard Monitoring Proyek</option>
-                                    <option value="Inventory" data-key="descInventory">Inventory & Warehouse System</option>
-                                    <option value="ESS" data-key="descESS">Employee Self-Service (ESS)</option>
-                                    <option value="KPI" data-key="descKPI">Custom Company Dashboard (KPI)</option>
-                                </select>
-                                
-                                <div id="bento-desc-3" class="text-sm text-textGray dark:text-darkSub leading-relaxed min-h-[280px]">
-                                    <!-- Terisi via JS -->
-                                </div>
-                            </div>
-
-                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-5 relative z-10">
-                                <div class="flex flex-col mb-4">
-                                    <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-3">Rp 6.500.000</span>
-                                    <div class="flex items-end gap-1">
-                                        <span class="text-lg md:text-xl font-bold text-gold" id="bento-price-3">Rp 4.500.000</span>
-                                        <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-3"></span>
-                                    </div>
-                                </div>
-                                <button aria-label="Order Bisnis" onclick="orderBentoService('Business Operations', 'bento-opt-3')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 4. Web Hosting & Domain (NEW) -->
-                        <div class="bento-service bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-gold/30 shadow-glow flex flex-col h-full relative overflow-hidden group">
-                            <div class="absolute -bottom-10 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-all group-hover:bg-gold/20 group-hover:scale-150"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10">
-                                <div class="w-12 h-12 rounded-xl bg-gold text-white flex items-center justify-center text-xl shrink-0 shadow-lg shadow-gold/30"><i class="fas fa-server"></i></div>
-                                <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold px-3 py-1 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse">Hot Promo</span>
-                            </div>
-                            
-                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10">Web Hosting & Domain</h3>
-                            <div class="flex items-center gap-1 mb-5 text-[10px] text-textGray dark:text-darkSub relative z-10">
-                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (Uptime 99.9%)
-                            </div>
-
-                            <div class="mb-5 flex-grow relative z-10">
-                                <select id="bento-opt-4" onchange="updateBentoDesc('bento-opt-4', 'bento-desc-4', 'bento-price-4', 'bento-strike-4')" aria-label="Pilih layanan hosting" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-gold/30 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none">
-                                    <option value="HostingNode" data-key="descHostingNode">Cloud Hosting Pro (20 GB SSD)</option>
-                                    <option value="HostingCorp" data-key="descHostingCorp">Enterprise Cloud (50 GB SSD)</option>
-                                    <option value="VPSServer" data-key="descVPSServer">VPS Server Dedicated (RAM 4GB)</option>
-                                    <option value="DomainReg" data-key="descDomainReg">Registrasi Domain (.com / .id)</option>
-                                </select>
-                                
-                                <div id="bento-desc-4" class="text-sm text-textGray dark:text-darkSub leading-relaxed min-h-[280px]">
-                                    <!-- Terisi via JS -->
-                                </div>
-                            </div>
-
-                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-5 relative z-10">
-                                <div class="flex flex-col mb-4">
-                                    <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-4">Rp 1.200.000</span>
-                                    <div class="flex items-end gap-1">
-                                        <span class="text-lg md:text-xl font-bold text-gold" id="bento-price-4">Rp 650.000</span>
-                                        <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-4">/tahun</span>
-                                    </div>
-                                </div>
-                                <button aria-label="Order Hosting" onclick="orderBentoService('Hosting & Domain', 'bento-opt-4')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg shadow-gold/30 hover:shadow-gold/50">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                  </div>
-             </div>
-        </section>
-        
-        <!-- Partnership Section (Infinite Marquee) -->
-        <section id="partnership" class="py-16 bg-mainWhite dark:bg-darkBg relative z-10 border-t border-black/5 dark:border-white/5 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
-                <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Kemitraan Strategis</span>
-                <h2 class="text-2xl font-serif font-medium dark:text-white">Didukung Oleh Infrastruktur Terbaik</h2>
-            </div>
-            
-            <div class="relative w-full flex items-center h-28 mx-auto max-w-[1920px]">
-                <!-- Gradients for smooth edges -->
-                <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-mainWhite dark:from-darkBg to-transparent z-20 pointer-events-none"></div>
-                <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-mainWhite dark:from-darkBg to-transparent z-20 pointer-events-none"></div>
-                
-                <div class="partner-track">
-                    <!-- Set 1 -->
-                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
-                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
-                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
-                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
-                    <!-- Set 2 (Duplicate for seamless loop) -->
-                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
-                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
-                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
-                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
-                    <!-- Set 3 (Triple ensure no blank space on ultrawide) -->
-                    <img src="garapdigital.webp" alt="Garap Digital" class="partner-logo" loading="lazy">
-                    <img src="domainesia.webp" alt="DomaiNesia" class="partner-logo" loading="lazy">
-                    <img src="hostinger.webp" alt="Hostinger" class="partner-logo" loading="lazy">
-                    <img src="rumahweb.webp" alt="RumahWeb" class="partner-logo" loading="lazy">
                 </div>
             </div>
         </section>
@@ -1115,13 +1053,9 @@
                 <div class="flex flex-col items-center text-center mb-12 mobile-center-text">
                     <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Validasi</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white mb-6">Kata Mereka</h2>
-                    <div class="flex gap-4">
-                         <button aria-label="Scroll Left" onclick="document.getElementById('testimonialSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group"><i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i></button>
-                         <button aria-label="Scroll Right" onclick="document.getElementById('testimonialSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all group"><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></button>
-                    </div>
                 </div>
                 <div class="relative w-full overflow-hidden">
-                    <div class="flex gap-6 py-4 overflow-x-auto h-scroll-container" id="testimonialSlider">
+                    <div class="flex gap-6 pb-8 pt-4 overflow-x-auto custom-scroll snap-x snap-mandatory" id="testimonialSlider">
                         <!-- Injected via JS -->
                     </div>
                 </div>
@@ -1136,9 +1070,13 @@
                     <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white">Wawasan Terbaru</h2>
                     <span id="article-counter" class="bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">Loading...</span>
                 </div>
-                <div class="flex justify-center gap-4"><button aria-label="Scroll Insights Left" onclick="document.getElementById('insightsSlider').scrollBy({left: -280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all"><i class="fas fa-arrow-left"></i></button><button aria-label="Scroll Insights Right" onclick="document.getElementById('insightsSlider').scrollBy({left: 280, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all"><i class="fas fa-arrow-right"></i></button></div>
             </div>
-            <div class="relative w-full overflow-hidden px-6"><div class="flex gap-6 overflow-x-auto h-scroll-container snap-x snap-mandatory pb-4" id="insightsSlider"><p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2"><span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> <span>Loading...</span></p></div><div class="mt-10 text-center"><a href="blog.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold text-gold font-bold text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-all group"><span>Lihat Semua Artikel</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></div></div>
+            <div class="relative w-full px-6">
+                <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 custom-scroll" id="insightsSlider">
+                    <p class="text-center w-full py-10 text-textGray dark:text-darkSub italic flex items-center justify-center gap-2"><span class="w-4 h-4 rounded-full border-2 border-gold border-t-transparent animate-spin"></span> <span>Loading...</span></p>
+                </div>
+                <div class="mt-8 text-center"><a href="blog.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold text-gold font-bold text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-all group"><span>Lihat Semua Artikel</span><i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a></div>
+            </div>
         </section>
 
         <!-- Certifications -->
@@ -1189,6 +1127,28 @@
         <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative overflow-hidden">
             <img id="lightboxImg" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-300 cursor-zoom-in img-high-res" onclick="event.stopPropagation(); toggleLightboxZoom()" loading="lazy" title="Klik untuk memperbesar/memperkecil">
             <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl hidden" controls autoplay onclick="event.stopPropagation()"></video>
+        </div>
+    </div>
+
+    <!-- DATA HIDDEN UNTUK DESKRIPSI EXPERIENCE LENGKAP -->
+    <div class="hidden">
+        <div id="descJob1">
+            <p>Bertanggung jawab penuh dalam mengelola siklus penjualan B2B untuk layanan profesional yang mencakup Konsultasi Akuntansi, Pajak, dan Legalitas Usaha. Fokus utama pada penetrasi pasar baru dan membangun hubungan jangka panjang dengan klien korporat.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil meningkatkan tingkat retensi pelanggan (Customer Retention Rate) sebesar 50%</strong> melalui penerapan strategi Customer Relationship Management (CRM) yang proaktif dan personal.</li><li><strong>Melakukan riset pasar mendalam</strong> dan analisis kompetitor untuk merancang penawaran layanan yang lebih kompetitif, yang berdampak langsung pada peningkatan konversi penjualan.</li><li><strong>Memimpin negosiasi kontrak strategis</strong> dengan klien utama, memastikan profitabilitas proyek tetap terjaga sambil memberikan nilai tambah maksimal bagi klien.</li></ul>
+        </div>
+        <div id="descJob2">
+            <p>Menjalani program magang intensif selama 3 bulan sebagai penulis konten utama. Bertugas memproduksi 29 artikel mendalam seputar Bisnis, Teknologi, dan Tren Digital dengan kepatuhan ketat terhadap standar SEO terbaru (On-Page Optimization).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Mencapai prestasi Ranking #1 di Google Search</strong> untuk beberapa kata kunci kompetitif, membuktikan efektivitas riset keyword dan struktur konten yang diterapkan.</li><li><strong>Artikel terpilih untuk ditampilkan di fitur Google Discover</strong>, menghasilkan lonjakan trafik organik masif tanpa biaya iklan.</li><li><strong>Mengembangkan editorial calendar yang konsisten</strong>, memastikan publikasi konten tepat waktu dan relevan dengan tren pasar saat itu.</li></ul><div class="mt-5"><button onclick="openLightbox('reqgarmed.webp', 'image')" class="inline-flex px-4 py-2.5 bg-emerald-600/10 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 text-xs font-bold rounded-xl border border-emerald-600/20 hover:bg-emerald-600 hover:text-white transition-all items-center justify-center gap-2 w-full sm:w-auto shadow-sm group"><i class="fas fa-file-contract text-sm group-hover:scale-110 transition-transform"></i> Buka Surat Rekomendasi</button></div>
+        </div>
+        <div id="descJob3">
+            <p>Mengambil peran kepemimpinan dalam mendirikan dan mengelola bisnis dropshipping skala global menggunakan platform Shopify. Mengawasi seluruh rantai pasokan (supply chain) mulai dari sourcing supplier di China hingga pengiriman ke pelanggan di Amerika Serikat (US Market).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil membukukan 137 penjualan terverifikasi</strong> hanya dalam bulan pertama operasional, membuktikan validasi produk dan strategi pemasaran yang tepat.</li><li><strong>Menciptakan viralitas produk</strong> dengan menghasilkan lebih dari <strong>14.000 impresi organik</strong> di TikTok Shop melalui konten video kreatif dan optimalisasi algoritma platform.</li><li><strong>Mengelola layanan pelanggan (CS) internasional</strong> dengan standar respons cepat, menjaga tingkat kepuasan pelanggan tetap tinggi di tengah kompleksitas logistik lintas negara.</li></ul>
+        </div>
+        <div id="descJob4">
+            <p>Merancang dan mengeksekusi strategi pemasaran afiliasi end-to-end di platform Shopee. Melakukan kurasi produk secara selektif untuk memastikan kesesuaian dengan demografi audiens target (Product-Market Fit).</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Memanfaatkan Instagram sebagai saluran utama</strong> (traffic source) dengan membuat konten visual menarik dan storytelling yang persuasif untuk mendorong klik dan konversi.</li><li><strong>Sukses mencatatkan 57 penjualan langsung</strong> di bulan pertama, menunjukkan kemampuan adaptasi cepat dalam memahami psikologi pembeli online.</li><li><strong>Mengoptimalkan penggunaan fitur promosi Shopee</strong> dan voucher eksklusif untuk meningkatkan daya tarik penawaran bagi calon pembeli.</li></ul>
+        </div>
+        <div id="descJob5">
+            <p>Membangun bisnis kuliner (kue) dari nol (bootstrapping), mengelola seluruh aspek operasional mulai dari produksi, quality control, pemasaran, hingga layanan purna jual. Menempatkan kepuasan pelanggan sebagai prioritas utama bisnis.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengakuisisi basis pelanggan loyal sebanyak 437 orang</strong> yang tumbuh secara organik melalui strategi Word-of-Mouth (WOM) dan pemasaran media sosial lokal.</li><li><strong>Mencapai stabilitas keuangan</strong> dengan pendapatan harian konsisten melampaui <strong>Rp500.000</strong>, membuktikan keberlanjutan model bisnis yang diterapkan.</li><li><strong>Mengembangkan variasi produk baru</strong> berdasarkan umpan balik pelanggan (feedback loop) untuk menjaga relevansi dan minat pasar.</li></ul>
+        </div>
+        <div id="descJob6">
+            <p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1 mt-2 list-disc pl-4'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan melalui pendekatan konsultatif dan manajemen relasi yang persuasif.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>, yang menjadi aset utama untuk akuisisi klien baru.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar dan profesional.</li></ul>
         </div>
     </div>
 
@@ -1249,7 +1209,7 @@
             observer.observe(container);
         }
 
-        // --- GEMINI AI BOT (Enhanced Detailed Responses) ---
+        // --- GEMINI AI BOT (Flat & Horizontal Layout Tanpa Icon Robot) ---
         function sendBotPredefined(topic) {
             const chatWindow = document.getElementById('bot-chat-window');
             const optionsContainer = document.getElementById('bot-options-container');
@@ -1258,68 +1218,81 @@
             if (topic === 'seo') {
                 queryText = "Berikan panduan komprehensif dan cetak biru (blueprint) SEO 2026 untuk mendominasi peringkat Google.";
                 responseText = `
-                <div class="space-y-4 text-sm leading-relaxed">
+                <div class="space-y-4">
                     <p class="font-bold text-base text-gold border-b border-black/10 dark:border-white/10 pb-2">Cetak Biru Dominasi SEO 2026</p>
                     <p>Algoritma mesin pencari saat ini memprioritaskan <em>User Experience (UX)</em> yang mulus dan kepakaran penulis (E-E-A-T). Berikut adalah kerangka strategis yang harus Anda eksekusi:</p>
-                    <div class="bg-gold/5 border border-gold/20 p-4 rounded-xl">
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li><strong>Optimasi Core Web Vitals:</strong> Targetkan skor *Largest Contentful Paint (LCP)* di bawah 1.5 detik. Hindari pergeseran layout (CLS) dengan menetapkan dimensi presisi pada gambar & iframe.</li>
-                            <li><strong>Penerapan Skema Markup (JSON-LD):</strong> Beri konteks langsung kepada bot Google. Gunakan skema spesifik seperti <em>LocalBusiness</em>, <em>Product</em>, atau <em>FAQPage</em> untuk merebut fitur *Rich Snippet*.</li>
-                            <li><strong>Konsep E-E-A-T:</strong> (Experience, Expertise, Authoritativeness, Trustworthiness). Tulis konten berdasarkan studi kasus nyata, sertakan profil author yang jelas, dan tautkan ke sumber otoritatif.</li>
-                            <li><strong>Akuisisi Backlink Tematik:</strong> Tinggalkan backlink kuantitas. Fokuslah pada penempatan *Guest Post* organik di situs *Niche* yang relevan dengan *Domain Authority (DA)* di atas 40+.</li>
-                            <li><strong>Content Hub & Silo Structure:</strong> Organisasikan artikel Anda dalam satu kategori besar (Pilar Content) yang didukung oleh artikel-artikel kecil (Cluster) melalui eksekusi <em>Internal Linking</em> yang rapat.</li>
-                        </ul>
-                    </div>
-                    <p class="italic text-[11px] opacity-80">*Penerapan konsisten selama 3-6 bulan pada struktur ini terbukti mampu meningkatkan Organic Traffic hingga 300% berdasarkan analitik historis klien kami.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Optimasi Core Web Vitals:</strong> Targetkan skor *Largest Contentful Paint (LCP)* di bawah 1.5 detik. Hindari pergeseran layout (CLS) dengan menetapkan dimensi presisi pada gambar & iframe.</li>
+                        <li><strong>Penerapan Skema Markup (JSON-LD):</strong> Beri konteks langsung kepada bot Google. Gunakan skema spesifik seperti <em>LocalBusiness</em>, <em>Product</em>, atau <em>FAQPage</em> untuk merebut fitur *Rich Snippet*.</li>
+                        <li><strong>Konsep E-E-A-T:</strong> (Experience, Expertise, Authoritativeness, Trustworthiness). Tulis konten berdasarkan studi kasus nyata, sertakan profil author yang jelas, dan tautkan ke sumber otoritatif.</li>
+                        <li><strong>Akuisisi Backlink Tematik:</strong> Tinggalkan backlink kuantitas. Fokuslah pada penempatan *Guest Post* organik di situs *Niche* yang relevan dengan *Domain Authority (DA)* di atas 40+.</li>
+                        <li><strong>Content Hub & Silo Structure:</strong> Organisasikan artikel Anda dalam satu kategori besar (Pilar Content) yang didukung oleh artikel-artikel kecil (Cluster) melalui eksekusi <em>Internal Linking</em> yang rapat.</li>
+                    </ul>
+                    <p class="italic text-xs opacity-80 mt-2">*Penerapan konsisten selama 3-6 bulan pada struktur ini terbukti mampu meningkatkan Organic Traffic hingga 300% berdasarkan analitik historis klien kami.</p>
                 </div>`;
             } else if (topic === 'marketing') {
                 queryText = "Bongkar strategi Digital Marketing terbaik yang mampu memaksimalkan Konversi (CRO) dan ROAS (Return on Ad Spend).";
                 responseText = `
-                <div class="space-y-4 text-sm leading-relaxed">
+                <div class="space-y-4">
                     <p class="font-bold text-base text-emerald-600 dark:text-emerald-400 border-b border-black/10 dark:border-white/10 pb-2">Strategi Omnichannel & Konversi Tinggi</p>
                     <p>Strategi digital marketing modern tidak lagi bisa mengandalkan satu *platform*. Anda membutuhkan sistem *Full-Funnel* yang menjaring audiens dari tahap *Cold* hingga *Hot Buyer*.</p>
-                    <div class="bg-emerald-500/5 border border-emerald-500/20 p-4 rounded-xl">
-                        <ul class="list-decimal pl-5 space-y-2">
-                            <li><strong>Top of Funnel (Awareness):</strong> Manfaatkan konten *Short Video* vertikal (TikTok, IG Reels, YouTube Shorts) dengan *hook* 3 detik pertama yang sangat kuat untuk memancing atensi massal dengan biaya CPC terendah.</li>
-                            <li><strong>Middle of Funnel (Consideration):</strong> Tangkap calon audiens yang tertinggal dengan *Lead Magnet* (E-book, Webinar gratis, Kupon) dan kumpulkan *Database* email/WA mereka. Dorong artikel blog yang menyelesaikan masalah (Pain-points) mereka.</li>
-                            <li><strong>Bottom of Funnel (Conversion):</strong> Luncurkan <em>Retargeting Ads</em> (Meta & Google Ads) yang agresif kepada audiens yang sudah mengunjungi website Anda namun belum membeli. Tawarkan urgensi khusus (Flash Sale 24 jam).</li>
-                            <li><strong>Optimasi CRO (Conversion Rate):</strong> Sederhanakan formulir (Checkout) di *Landing Page* Anda. Gunakan teknik *A/B Testing* untuk warna tombol (Call to Action) dan terapkan efek *Social Proof* (Testimonial & FOMO pop-up).</li>
-                        </ul>
-                    </div>
-                    <p class="font-bold text-xs">Aksi Lanjutan:</p>
+                    <ul class="list-decimal pl-5 space-y-2">
+                        <li><strong>Top of Funnel (Awareness):</strong> Manfaatkan konten *Short Video* vertikal (TikTok, IG Reels, YouTube Shorts) dengan *hook* 3 detik pertama yang sangat kuat untuk memancing atensi massal dengan biaya CPC terendah.</li>
+                        <li><strong>Middle of Funnel (Consideration):</strong> Tangkap calon audiens yang tertinggal dengan *Lead Magnet* (E-book, Webinar gratis, Kupon) dan kumpulkan *Database* email/WA mereka. Dorong artikel blog yang menyelesaikan masalah (Pain-points) mereka.</li>
+                        <li><strong>Bottom of Funnel (Conversion):</strong> Luncurkan <em>Retargeting Ads</em> (Meta & Google Ads) yang agresif kepada audiens yang sudah mengunjungi website Anda namun belum membeli. Tawarkan urgensi khusus (Flash Sale 24 jam).</li>
+                        <li><strong>Optimasi CRO (Conversion Rate):</strong> Sederhanakan formulir (Checkout) di *Landing Page* Anda. Gunakan teknik *A/B Testing* untuk warna tombol (Call to Action) dan terapkan efek *Social Proof* (Testimonial & FOMO pop-up).</li>
+                    </ul>
+                    <p class="font-bold text-xs mt-3">Aksi Lanjutan:</p>
                     <p class="text-xs">Sinkronisasikan Facebook Pixel, TikTok Pixel, dan Google Tag Manager untuk melacak setiap titik interaksi (Touchpoints) secara presisi.</p>
                 </div>`;
             } else if (topic === 'bisnis') {
                 queryText = "Tolong berikan rekomendasi eksklusif terkait Pertumbuhan Bisnis (Skalabilitas) yang terukur.";
                 responseText = `
-                <div class="space-y-4 text-sm leading-relaxed">
+                <div class="space-y-4">
                     <p class="font-bold text-base text-blue-600 dark:text-blue-400 border-b border-black/10 dark:border-white/10 pb-2">Kerangka Skalabilitas & Pertumbuhan Eksponensial</p>
                     <p>Meningkatkan omzet bisnis tidak selalu berarti menaikkan *budget* iklan. Skalabilitas sesungguhnya berada pada retensi pelanggan dan otomasi operasi bisnis Anda.</p>
-                    <div class="bg-blue-500/5 border border-blue-500/20 p-4 rounded-xl">
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li><strong>Fokus Pada LTV (Life-Time Value):</strong> Sangat mahal untuk mengakuisisi pelanggan baru. Buatlah program loyalitas bertingkat (Tier system) atau model langganan (Subscription) untuk memastikan satu pelanggan membeli berulang kali dari Anda.</li>
-                            <li><strong>Validasi Product-Market Fit (PMF):</strong> Sebelum membakar uang di iklan besar-besaran, pastikan persentase *Repeat Order* produk Anda secara organik sudah menyentuh di atas 20-30%.</li>
-                            <li><strong>Otomasi Alur Kerja (Workflow):</strong> Singkirkan pekerjaan manual. Integrasikan *Customer Relationship Management (CRM)* seperti WhatsApp Bot Auto-reply dan Email *Drip Campaigns* untuk *follow-up* pelanggan secara otomatis.</li>
-                            <li><strong>Keputusan Berbasis Data (Data-Driven):</strong> Jangan pernah menebak pasar. Bangun <em>Executive Dashboard</em> (menggunakan Looker Studio / Tableau) yang menyoroti indikator kinerja utama (KPI) harian secara <em>Real-time</em>.</li>
-                        </ul>
-                    </div>
-                    <p class="text-xs italic text-textGray dark:text-darkSub">"Pertumbuhan tidak diciptakan secara instan, melainkan direkayasa melalui sistem, analitik, dan konsistensi operasional."</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Fokus Pada LTV (Life-Time Value):</strong> Sangat mahal untuk mengakuisisi pelanggan baru. Buatlah program loyalitas bertingkat (Tier system) atau model langganan (Subscription) untuk memastikan satu pelanggan membeli berulang kali dari Anda.</li>
+                        <li><strong>Validasi Product-Market Fit (PMF):</strong> Sebelum membakar uang di iklan besar-besaran, pastikan persentase *Repeat Order* produk Anda secara organik sudah menyentuh di atas 20-30%.</li>
+                        <li><strong>Otomasi Alur Kerja (Workflow):</strong> Singkirkan pekerjaan manual. Integrasikan *Customer Relationship Management (CRM)* seperti WhatsApp Bot Auto-reply dan Email *Drip Campaigns* untuk *follow-up* pelanggan secara otomatis.</li>
+                        <li><strong>Keputusan Berbasis Data (Data-Driven):</strong> Jangan pernah menebak pasar. Bangun <em>Executive Dashboard</em> (menggunakan Looker Studio / Tableau) yang menyoroti indikator kinerja utama (KPI) harian secara <em>Real-time</em>.</li>
+                    </ul>
+                    <p class="text-xs italic text-textGray dark:text-darkSub mt-3">"Pertumbuhan tidak diciptakan secara instan, melainkan direkayasa melalui sistem, analitik, dan konsistensi operasional."</p>
                 </div>`;
             }
 
             optionsContainer.style.display = 'none';
-            // User Chat Bubble (Tingkatkan Lebar Maksimal)
-            chatWindow.innerHTML += `<div class="flex justify-end w-full"><div class="bg-gold text-white px-5 py-4 rounded-2xl shadow-sm max-w-full md:max-w-[85%]"><p class="font-medium">${queryText}</p></div></div>`;
+            // User Chat Bubble (Tingkatkan Lebar Maksimal Flat Layout)
+            chatWindow.innerHTML += `
+            <div class="flex w-full justify-end items-start mt-2">
+                <div class="w-full pb-4 border-b border-black/5 dark:border-white/5 text-right ai-chat-bubble">
+                    <p class="font-bold text-gold">${queryText}</p>
+                </div>
+            </div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             const loadingId = 'loading-' + Date.now();
-            chatWindow.innerHTML += `<div id="${loadingId}" class="flex w-full"><div class="bg-white dark:bg-darkCard p-5 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full ai-chat-bubble"><div class="flex items-center gap-1 text-gold"><span class="w-2 h-2 rounded-full bg-gold animate-bounce"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span><span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span></div></div></div>`;
+            chatWindow.innerHTML += `
+            <div id="${loadingId}" class="flex w-full items-start mt-2">
+                <div class="w-full pt-2 pb-4">
+                    <div class="flex items-center gap-1 text-gold">
+                        <span class="w-2 h-2 rounded-full bg-gold animate-bounce"></span>
+                        <span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.1s"></span>
+                        <span class="w-2 h-2 rounded-full bg-gold animate-bounce" style="animation-delay: 0.2s"></span>
+                    </div>
+                </div>
+            </div>`;
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             setTimeout(() => {
                 document.getElementById(loadingId).remove();
-                // AI Chat Bubble
-                chatWindow.innerHTML += `<div class="flex w-full"><div class="bg-white dark:bg-darkCard p-5 md:p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/5 w-full ai-chat-bubble"><div class="dark:text-darkText text-gray-800">${responseText}</div></div></div>`;
+                // AI Chat Output Flat Layout (Tanpa Icon Robot)
+                chatWindow.innerHTML += `
+                <div class="flex w-full items-start mt-2">
+                    <div class="w-full pb-6 text-sm dark:text-darkText text-gray-800 ai-chat-bubble">
+                        ${responseText}
+                    </div>
+                </div>`;
                 chatWindow.scrollTop = chatWindow.scrollHeight;
                 optionsContainer.style.display = 'flex';
             }, 1500);
@@ -1456,9 +1429,9 @@
                 </a>`).join('');
         }
 
-        // --- BENTO GRID SERVICES LOGIC (Tepat 6 Bullet Points per Item) ---
+        // --- BENTO GRID SERVICES LOGIC ---
         const bentoData = {
-            // WEB DEV (8 Options)
+            // WEB DEV
             descLandingPage: {
                 desc: "<p class='font-bold mb-2 text-gold'>Penawaran Landing Page Premium:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Copywriting Persuasif:</strong> Struktur AIDA terbukti konversi 3x lipat.</li><li><strong>Kecepatan Maksimal:</strong> Waktu muat (loading) di bawah 1.5 detik.</li><li><strong>Desain Modern UI/UX:</strong> Elegan dan 100% responsif di semua *device*.</li><li><strong>Tracking Terpadu:</strong> Integrasi penuh Pixel Meta & Google Analytics.</li><li><strong>Tombol Konversi (CTA):</strong> Penempatan strategis untuk klik WhatsApp.</li><li><strong>Revisi Desain Fleksibel:</strong> Jaminan garansi kepuasan klien 100%.</li></ul>",
                 price: "Rp 2.500.000", strike: "Rp 3.500.000", suffix: ""
@@ -1492,7 +1465,7 @@
                 price: "Rp 1.500.000", strike: "Rp 2.500.000", suffix: ""
             },
 
-            // MARKETING (6 Options)
+            // MARKETING
             descStructureSEO: {
                 desc: "<p class='font-bold mb-2 text-gold'>Penawaran Audit & Struktur SEO:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Audit Teknis Menyeluruh:</strong> Perbaikan error Sitemap dan Robots.txt.</li><li><strong>Optimasi Tag Meta & Canonical:</strong> Menghindari deteksi konten duplikat.</li><li><strong>Penerapan Schema Markup:</strong> Meningkatkan visibilitas (Rich Snippet).</li><li><strong>Percepatan Kecepatan Muat:</strong> Optimasi skor Core Web Vitals (LCP/CLS).</li><li><strong>Pembenahan Hirarki (H1-H6):</strong> Menuntun bot Google merayapi konten.</li><li><strong>Laporan Kenaikan Ranking:</strong> Report *Before-After* indeks pencarian.</li></ul>",
                 price: "Rp 2.000.000", strike: "Rp 3.500.000", suffix: ""
@@ -1518,7 +1491,7 @@
                 price: "Rp 3.000.000", strike: "Rp 4.500.000", suffix: ""
             },
 
-            // BUSINESS OPS (5 Options)
+            // BUSINESS OPS
             descCareer: {
                 desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Rekrutmen (ATS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Halaman Karir Eksklusif:</strong> Desain *branding* perusahaan yang memukau pelamar.</li><li><strong>Formulir Kustom Terintegrasi:</strong> Kumpulkan CV & portofolio secara otomatis.</li><li><strong>Filter Kandidat (ATS Lite):</strong> Penyaringan otomatis berbasis keterampilan.</li><li><strong>Bank Data Pendaftar:</strong> Simpan *database* rapi, tak pusing berkas berantakan.</li><li><strong>Notifikasi Kelulusan (WA/Email):</strong> Auto-kabar untuk jadwal wawancara.</li><li><strong>Ekspor Laporan (Excel):</strong> Rekapitulasi jumlah pendaftar tiap divisi.</li></ul>",
                 price: "Rp 4.500.000", strike: "Rp 6.500.000", suffix: ""
@@ -1540,7 +1513,7 @@
                 price: "Rp 5.500.000", strike: "Rp 8.000.000", suffix: ""
             },
 
-            // HOSTING & DOMAIN (4 Options)
+            // HOSTING & DOMAIN
             descHostingNode: {
                 desc: "<p class='font-bold mb-2 text-gold'>Penawaran Hosting Standar (Pro):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas SSD NVMe 20GB:</strong> 10x lebih cepat dari piringan *storage* jadul.</li><li><strong>Control Panel Intuitif:</strong> cPanel / CyberPanel untuk navigasi gampang.</li><li><strong>Batas *Bandwidth Unmetered*:</strong> Tak khawatir web mati gara-gara kepenuhan trafik.</li><li><strong>Akselerator Litespeed:</strong> Jaminan respon *server backend* sangat gesit.</li><li><strong>Penyedia Email Profesional:</strong> Pembuatan maksimal 2 akun kotak masuk aktif.</li><li><strong>Proteksi Let's Encrypt:</strong> Serfikat SSL gembok hijau selamanya (Gratis).</li></ul>",
                 price: "Rp 650.000", strike: "Rp 1.200.000", suffix: "/tahun"
@@ -1584,7 +1557,7 @@
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
-        // --- EXPERIENCES & MODAL ---
+        // --- EXPERIENCES FAN-OUT MODAL ---
         const jobData = {
             job1: { role: "Freelance Business Development Associate", comp: "PT Madani Abadi Nusantara", date: "Jan 2026 - Sekarang" },
             job2: { role: "Content Writer (Internship)", comp: "Garap Media Nusantara", date: "Sep 2025 - Des 2025" },
@@ -1593,6 +1566,69 @@
             job5: { role: "Owner, Bisnis Kue", comp: "Wirausaha", date: "Jan 2024 - Apr 2025" },
             job6: { role: "Customer Service & Co-Founder", comp: "Web Development Venture", date: "Mei 2023 - Des 2023" },
         };
+
+        function renderFanCards() {
+            const container = document.getElementById('fanContainer');
+            const keys = Object.keys(jobData);
+            
+            container.innerHTML = keys.map((key, index) => {
+                const job = jobData[key];
+                // Math for the fan arc spread
+                const spread = 5; 
+                const centerOffset = index - (keys.length - 1) / 2;
+                const rot = centerOffset * spread;
+                const transY = Math.abs(centerOffset) * 12; 
+                
+                return `
+                <div class="fan-card shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-darkCard p-6 rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-black/5 dark:border-white/10 cursor-pointer flex flex-col min-h-[220px]" 
+                     style="--fan-rot: ${rot}deg; --fan-y: ${transY}px; --fan-delay: ${index * 0.1}s;" 
+                     onclick="openJobModal('${key}')">
+                    <div>
+                        <span class="text-[10px] font-bold px-3 py-1 bg-lightGray dark:bg-black/30 rounded-lg text-textGray dark:text-darkSub border border-black/5 dark:border-white/5">${job.date}</span>
+                        <h4 class="font-bold text-xl md:text-2xl mt-4 dark:text-white leading-tight font-serif">${job.role}</h4>
+                        <p class="text-xs text-gold font-bold mt-2 uppercase tracking-wider">${job.comp}</p>
+                    </div>
+                    <div class="mt-auto pt-6 flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-textGray/50 dark:text-darkSub/50 uppercase tracking-widest">Detail <i class="fas fa-chevron-right ml-1 text-[8px]"></i></span>
+                        <div class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack dark:text-white group-hover:bg-gold transition-colors"><i class="fas fa-arrow-up rotate-45"></i></div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function openFanModal() {
+            const modal = document.getElementById('fanExpModal');
+            const container = document.getElementById('fanContainer');
+            const title = document.getElementById('fanTitle');
+            const sub = document.getElementById('fanSub');
+            
+            renderFanCards(); // Inject fresh cards
+            
+            modal.classList.remove('opacity-0', 'invisible');
+            
+            // Trigger animation classes
+            setTimeout(() => {
+                container.classList.add('fan-active');
+                title.classList.remove('opacity-0', '-translate-y-10');
+                sub.classList.remove('opacity-0', '-translate-y-5');
+            }, 50);
+        }
+
+        function closeFanModal() {
+            const modal = document.getElementById('fanExpModal');
+            const container = document.getElementById('fanContainer');
+            const title = document.getElementById('fanTitle');
+            const sub = document.getElementById('fanSub');
+            
+            container.classList.remove('fan-active');
+            title.classList.add('opacity-0', '-translate-y-10');
+            sub.classList.add('opacity-0', '-translate-y-5');
+            
+            setTimeout(() => { 
+                modal.classList.add('opacity-0', 'invisible'); 
+                container.innerHTML = ''; // Clear out to reset animation next time
+            }, 500);
+        }
 
         function openJobModal(jobId) {
             const modal = document.getElementById('jobModal');
@@ -1824,7 +1860,7 @@
             document.getElementById('menuBtn').addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); });
             document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !document.getElementById('menuBtn').contains(e.target)) { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); } });
 
-            // Initialize Bento Grids (Semua layanan akan menyesuaikan data secara auto saat load)
+            // Initialize Bento Grids
             ['bento-opt-1', 'bento-opt-2', 'bento-opt-3', 'bento-opt-4'].forEach(id => {
                 const select = document.getElementById(id);
                 if (select) select.dispatchEvent(new Event('change'));

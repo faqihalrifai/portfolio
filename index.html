@@ -17,8 +17,8 @@
     <!-- =========================================
          2. VERIFIKASI GOOGLE, SEO META & CRAWLING
          ========================================= -->
-    <title>Muhammad Faqih Al Rifai | Digital Marketer & SEO Specialist</title>
-    <meta name="description" content="Muhammad Faqih Al Rifai adalah Digital Marketer & SEO Specialist. Layanan profesional untuk optimasi mesin pencari, Iklan Digital (Ads), Web Development, Hosting, dan Growth E-commerce.">
+    <title>Muhammad Faqih Al Rifai | Pakar Digital Marketing & Konsultan SEO</title>
+    <meta name="description" content="Muhammad Faqih Al Rifai adalah Pakar SEO dan Digital Marketer. Solusi profesional untuk optimasi penelusuran, Iklan Digital (Ads), Web Development, Hosting Premium, dan Skalabilitas Bisnis.">
     <meta name="keywords" content="Digital Marketing Specialist, Konsultan SEO, Pakar SEO Indonesia, Jasa Digital Marketing, E-commerce Specialist, Optimasi Website, Jasa Web Hosting, Domain Murah, Jasa SEO, Web Development, Google Ads Expert">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     
@@ -76,7 +76,7 @@
         "name": "Faqih Digital Marketing & SEO Services",
         "image": "https://faqihalrf.netlify.app/myphot.webp",
         "url": "https://faqihalrf.netlify.app/#services",
-        "priceRange": "$$",
+        "priceRange": "$$$",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Cirebon",
@@ -184,7 +184,7 @@
         
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        /* HIGH-RES ASSETS RENDERER (Anti-Pecah) */
+        /* HIGH-RES ASSETS RENDERER */
         .img-high-res {
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges; 
@@ -201,6 +201,9 @@
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
 
         /* CUSTOM SCROLLBAR DENGAN IKON GERIGI (GEAR) */
+        .h-scroll-container { scrollbar-width: none; -ms-overflow-style: none; } 
+        .h-scroll-container::-webkit-scrollbar { display: none; }
+        
         .custom-scroll { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         .custom-scroll::-webkit-scrollbar { height: 12px; width: 8px; }
         .custom-scroll::-webkit-scrollbar-track { 
@@ -224,9 +227,7 @@
             box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
             cursor: pointer;
         }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { 
-            background-color: rgba(197, 160, 40, 1); 
-        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(197, 160, 40, 1); }
         
         .testimonial-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -237,10 +238,7 @@
             will-change: transform;
             transform: translateZ(0);
         }
-        .dark .testimonial-card { 
-            background: rgba(30, 30, 30, 0.6);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        .dark .testimonial-card { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255,255,255,0.1); }
         .testimonial-card:hover { transform: translateY(-5px); border-color: #c5a028; box-shadow: 0 15px 40px -10px rgba(0,0,0,0.1); }
 
         /* HERO SLIDER */
@@ -248,33 +246,25 @@
         .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; will-change: opacity; }
         .hero-slide.active { opacity: 1; z-index: 10; }
         .hero-slide img, .hero-slide video { width: 100%; height: 100%; object-fit: cover; }
-        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; }
         .thumbnail-item { width: 80px; height: 60px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; flex-shrink: 0; will-change: transform, border-color, opacity; transform: translateZ(0); }
         .thumbnail-item.active { opacity: 1; border-color: #c5a028; transform: scale(1.05); }
         .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* MARKETING POPUP */
+        /* MARKETING POPUP (FOMO ENGINE) */
         .marketing-popup {
             position: fixed; z-index: 100; display: flex; align-items: center; gap: 12px;
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            pointer-events: none; will-change: transform; transform: translateZ(0);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+            pointer-events: none; transform: translateY(150%); opacity: 0;
         }
-        .marketing-popup.show { pointer-events: auto; }
+        .marketing-popup.show { pointer-events: auto; transform: translateY(0); opacity: 1; }
 
         .bubble {
             background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 16px; border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15); max-width: 300px; width: 100%; position: relative;
-            border: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; line-height: 1.4; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15); max-width: 320px; width: 100%; position: relative;
+            border: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; line-height: 1.4; border-left: 4px solid #c5a028;
         }
-        .dark .bubble { background: rgba(30, 30, 30, 0.98); color: #f3f4f6; border: 1px solid rgba(255,255,255,0.1); }
-
-        .popup-close {
-            position: absolute; top: 8px; right: 8px; width: 22px; height: 22px;
-            background: rgba(0,0,0,0.05); color: #4b5563; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; transition: all 0.2s;
-        }
-        .dark .popup-close { background: rgba(255,255,255,0.1); color: #f3f4f6; }
-        .popup-close:hover { background: #c5a028; color: white; transform: scale(1.1); }
+        .dark .bubble { background: rgba(30, 30, 30, 0.98); color: #f3f4f6; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #c5a028; }
 
         /* NEURAL COMMAND CENTER STYLES */
         .neural-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
@@ -313,7 +303,7 @@
         /* LIGHTBOX IMG ZOOM */
         .lightbox-zoomed { transform: scale(1.5) !important; cursor: zoom-out !important; }
 
-        /* BENTO SERVICE CARDS CSS (COMPACT) */
+        /* BENTO SERVICE CARDS CSS (COMPACT & STAGGER) */
         .bento-service {
             transition: all 0.3s ease;
             transform: translateZ(0);
@@ -323,6 +313,30 @@
             border-color: rgba(197, 160, 40, 0.6);
             box-shadow: 0 20px 40px -15px rgba(197, 160, 40, 0.15);
         }
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .stagger-item.active { opacity: 1; transform: translateY(0); }
+
+        /* KALKULATOR PROFIT CUSTOM RANGE SLIDER */
+        input[type=range] {
+            -webkit-appearance: none; width: 100%; background: transparent; padding: 10px 0; margin-bottom: 5px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%;
+            background: #c5a028; cursor: pointer; margin-top: -10px; 
+            box-shadow: 0 0 15px rgba(197,160,40,0.6);
+            border: 4px solid #ffffff;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .dark input[type=range]::-webkit-slider-thumb { border: 4px solid #18181b; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); background: #a3841f; }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%; height: 6px; cursor: pointer; background: #e5e7eb; border-radius: 3px;
+        }
+        .dark input[type=range]::-webkit-slider-runnable-track { background: #374151; }
 
         /* INFINITE PARTNER SLIDER */
         .partner-track {
@@ -338,9 +352,7 @@
             width: 160px; height: 80px; object-fit: contain; margin: 0 2rem;
             transition: transform 0.3s ease; cursor: default;
         }
-        .partner-logo:hover {
-            transform: scale(1.05);
-        }
+        .partner-logo:hover { transform: scale(1.05); }
         
         /* FAN OUT ANIMATION FOR EXPERIENCE MODAL */
         .fan-card {
@@ -362,15 +374,78 @@
             transition-delay: 0s;
         }
 
+        /* INTERACTIVE SEO SILO MAP CSS */
+        .silo-wrapper {
+            width: 100%; overflow: visible; display: flex; justify-content: center;
+        }
+        .silo-container { 
+            position: relative; width: 600px; height: 500px; display: flex; align-items: center; justify-content: center; transform-origin: center center; perspective: 1000px; 
+        }
+        
+        .silo-node {
+            position: absolute; display: flex; align-items: center; justify-content: center; text-align: center;
+            border-radius: 50%; padding: 10px; font-size: 11px; font-weight: bold; cursor: pointer;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translate(0, 0) scale(0); opacity: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 10; line-height: 1.2; background: white; border: 2px solid #c5a028;
+        }
+        .dark .silo-node { background: #18181b; border-color: #c5a028; color: white; }
+        .silo-node:hover { transform: scale(1.1) !important; z-index: 30; border-color: #856d1b; box-shadow: 0 15px 30px rgba(197, 160, 40, 0.2); }
+        
+        .silo-center {
+            position: relative; z-index: 20; width: 150px; height: 150px; background: linear-gradient(135deg, #c5a028, #856d1b);
+            border-radius: 50%; display: flex; flex-col align-items: center; justify-content: center; text-align: center;
+            color: white; font-weight: bold; cursor: pointer; box-shadow: 0 0 30px rgba(197, 160, 40, 0.4);
+            transform: scale(1); transition: all 0.3s ease; padding: 15px; border: 4px solid rgba(255,255,255,0.2);
+        }
+        .silo-center:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(197, 160, 40, 0.6); }
+        
+        /* Level 1 Expansion */
+        .silo-step-1 .l1-n1 { transform: translate(-150px, -110px) scale(1); opacity: 1; }
+        .silo-step-1 .l1-n2 { transform: translate(150px, -110px) scale(1); opacity: 1; }
+        .silo-step-1 .l1-n3 { transform: translate(0px, 160px) scale(1); opacity: 1; }
+        
+        /* Level 2 Expansion (From L1 nodes) */
+        .silo-step-2 .l1-n1 { transform: translate(-170px, -130px) scale(1); opacity: 1; border-color: #c5a028; }
+        .silo-step-2 .l1-n2 { transform: translate(170px, -130px) scale(1); opacity: 1; border-color: #c5a028; }
+        .silo-step-2 .l1-n3 { transform: translate(0px, 180px) scale(1); opacity: 1; border-color: #c5a028; }
+        
+        .silo-step-2 .l2-n1 { transform: translate(-260px, -50px) scale(0.9); opacity: 1; border-color: #3b82f6;}
+        .silo-step-2 .l2-n2 { transform: translate(-70px, -220px) scale(0.9); opacity: 1; border-color: #3b82f6;}
+        
+        .silo-step-2 .l2-n3 { transform: translate(260px, -50px) scale(0.9); opacity: 1; border-color: #10b981;}
+        .silo-step-2 .l2-n4 { transform: translate(70px, -220px) scale(0.9); opacity: 1; border-color: #10b981;}
+        
+        .silo-step-2 .l2-n5 { transform: translate(-120px, 250px) scale(0.9); opacity: 1; border-color: #f59e0b;}
+        .silo-step-2 .l2-n6 { transform: translate(120px, 250px) scale(0.9); opacity: 1; border-color: #f59e0b;}
+
+        /* Connecting Lines */
+        .silo-line {
+            position: absolute; top: 50%; left: 50%; width: 2px; height: 0; background: linear-gradient(to top, rgba(197,160,40,0.6), transparent);
+            transform-origin: bottom center; transition: height 0.8s ease; z-index: 5; opacity: 0;
+        }
+        .silo-step-1 .silo-line, .silo-step-2 .silo-line { opacity: 1; }
+        .silo-step-1 .line-1 { height: 180px; transform: translate(-50%, -100%) rotate(-36deg); }
+        .silo-step-1 .line-2 { height: 180px; transform: translate(-50%, -100%) rotate(36deg); }
+        .silo-step-1 .line-3 { height: 160px; transform: translate(-50%, -100%) rotate(180deg); }
+        
+        /* Extending lines in step 2 */
+        .silo-step-2 .line-1 { height: 210px; transform: translate(-50%, -100%) rotate(-37deg); }
+        .silo-step-2 .line-2 { height: 210px; transform: translate(-50%, -100%) rotate(37deg); }
+        .silo-step-2 .line-3 { height: 180px; transform: translate(-50%, -100%) rotate(180deg); }
+
         /* MOBILE OVERRIDES */
         @media (max-width: 768px) {
-            .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -200%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
+            .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -150%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
             .marketing-popup.show { transform: translate(-50%, 0); }
-            .bubble { text-align: center; border-top: 4px solid #c5a028; }
+            .bubble { text-align: left; border-top: none; border-left: 4px solid #c5a028; }
             .neural-grid { display: flex; flex-direction: column; }
             .partner-logo { width: 120px; height: 60px; margin: 0 1rem; }
-            /* Chat Flat Width Mobile */
-            .ai-chat-bubble { max-width: 100% !important; }
+            /* Chat Full Lebar & Rata di HP */
+            .ai-chat-bubble { width: 100% !important; padding: 0 !important; }
+            
+            /* Silo Scaling on Mobile Without Crop */
+            .silo-container { transform: scale(0.65); margin-top: -60px; margin-bottom: -60px; }
         }
 
         /* DESKTOP POPUP */
@@ -393,10 +468,11 @@
             
             <div class="hidden md:flex items-center gap-1 bg-lightGray/50 dark:bg-black/20 p-1 rounded-full border border-black/5 dark:border-white/10 backdrop-blur-sm">
                 <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Tentang</a>
-                <a href="#partnership" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Partner</a>
                 <a href="#neural-command" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all text-gold dark:text-gold"><i class="fas fa-microchip mr-1"></i> Command Center</a>
-                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Pengalaman</a>
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Layanan</a>
+                <a href="#growth-sim" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Simulator</a>
+                <a href="#experience" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Pengalaman</a>
+                <a href="#gallery" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Portfolio</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-3">
@@ -413,10 +489,11 @@
         <div id="mobileMenu" class="absolute top-20 left-0 w-full bg-mainWhite/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 hidden flex-col shadow-2xl transition-all duration-300 z-40">
             <div class="flex flex-col p-4 space-y-2">
                 <a href="#about" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Tentang</a>
-                <a href="#partnership" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Partner & Reputasi</a>
                 <a href="#neural-command" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold text-gold bg-gold/5 border border-gold/20">Neural Command Center</a>
-                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Pengalaman</a>
-                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Layanan</a>
+                <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Layanan & Harga</a>
+                <a href="#growth-sim" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Profit Simulator</a>
+                <a href="#experience" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Pengalaman Karir</a>
+                <a href="#gallery" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Portfolio Galeri</a>
                 <div class="grid grid-cols-1 gap-3 pt-4 mt-2 border-t border-black/5 dark:border-white/10">
                     <button class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Toggle Dark Mode Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i> Tema Gelap/Terang</button>
                 </div>
@@ -435,7 +512,7 @@
                     </div>
                     
                     <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.1] mb-6 dark:text-darkText text-left">
-                        Otoritas Penelusuran & <br><span class="text-gold italic">Eskalasi Konversi.</span>
+                        Eskalasi Konversi & <br><span class="text-gold italic">Otoritas Penelusuran.</span>
                     </h1>
                     
                     <p class="text-sm md:text-base text-textGray dark:text-darkSub leading-relaxed mb-8 max-w-xl text-left">
@@ -562,7 +639,7 @@
                         </div>
                     </div>
 
-                    <!-- 2. Gemini AI Bot (FLAT & LEBAR HORIZONTAL) -->
+                    <!-- 2. Gemini AI Bot (FLAT TEXT ONLY) -->
                     <div class="col-span-12 md:col-span-7 bento-card flex flex-col h-auto md:h-[650px]">
                         <div class="p-6 md:p-8 flex flex-col h-full w-full">
                             <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4">
@@ -575,18 +652,16 @@
                                 <span class="text-[10px] font-bold px-2 py-1 bg-green-500/10 text-green-500 rounded border border-green-500/20">Aktif</span>
                             </div>
                             
-                            <!-- Chat Box (Tanpa Card Berlapis dan Tanpa Icon Robot) -->
-                            <div id="bot-chat-window" class="custom-scroll flex-1 w-full bg-transparent overflow-y-auto font-sans text-sm leading-relaxed space-y-5 pb-4 pr-2">
+                            <!-- Chat Box (Ultra Flat - No Robot Icon, Full Width) -->
+                            <div id="bot-chat-window" class="custom-scroll flex-1 w-full bg-transparent overflow-y-auto font-sans text-sm leading-relaxed space-y-6 pb-4 pr-2">
                                 <!-- Initial Bot Greeting -->
-                                <div class="flex w-full mt-2 items-start">
-                                    <div class="w-full pb-4 text-sm dark:text-darkText text-gray-800">
-                                        Selamat datang! Saya adalah representasi AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) taktis yang luas dan komprehensif.<br><br>Silakan pilih salah satu pilar fokus di bawah ini untuk memulai analisis sistematis kita.
-                                    </div>
+                                <div class="w-full pb-4 border-b border-black/5 dark:border-white/5 text-sm dark:text-darkText text-gray-800 ai-chat-bubble">
+                                    Selamat datang! Saya adalah representasi AI dari kapabilitas strategis Faqih. Sebagai konsultan bisnis digital Anda, saya siap memberikan cetak biru (blueprint) taktis yang luas dan komprehensif.<br><br>Silakan pilih salah satu pilar fokus di bawah ini untuk memulai analisis sistematis kita.
                                 </div>
                             </div>
                             
                             <!-- Quick Options -->
-                            <div class="flex gap-2 flex-wrap mt-auto shrink-0 pt-4 border-t border-black/5 dark:border-white/5" id="bot-options-container">
+                            <div class="flex gap-2 flex-wrap mt-auto shrink-0 pt-4" id="bot-options-container">
                                 <button onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Panduan SEO</button>
                                 <button onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Strategi Marketing</button>
                                 <button onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 py-3 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all shadow-sm">Pertumbuhan Bisnis</button>
@@ -594,105 +669,122 @@
                         </div>
                     </div>
 
-                    <!-- 3. Performance Auditor -->
-                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col justify-between relative group h-auto md:h-[650px]">
+                    <!-- 3. Performance Auditor (COMPETITOR BENCHMARKING HIBRIDA) -->
+                    <div class="col-span-12 md:col-span-5 bento-card p-6 flex flex-col relative group h-auto md:h-[650px]" id="pagespeed-card">
                         <div class="scanner-overlay"><div class="scanner-laser"></div></div>
                         <div class="relative z-50 flex flex-col h-full">
-                            <div class="flex items-center gap-3 mb-2 shrink-0">
-                                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                    <img src="pagespeed.webp" width="40" height="40" alt="PageSpeed Icon" class="w-full h-full object-contain img-high-res">
+                            <div class="flex items-center justify-between mb-2 shrink-0">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
+                                        <img src="pagespeed.webp" width="40" height="40" alt="PageSpeed Icon" class="w-full h-full object-contain img-high-res">
+                                    </div>
+                                    <div><h3 class="font-bold text-sm dark:text-white">Audit PageSpeed</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Analisis Performa Web</p></div>
                                 </div>
-                                <div><h3 class="font-bold text-sm dark:text-white">PageSpeed</h3><p class="text-[10px] uppercase text-textGray dark:text-darkSub">Analisis performa situs</p></div>
                             </div>
                             
-                            <div class="flex items-center gap-2 mb-3 relative z-50 mt-4 shrink-0">
-                                <input type="text" id="psi-url" placeholder="https://domainanda.com" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-sm py-2 focus:outline-none focus:border-gold dark:text-white">
-                                <button onclick="runPageSpeed()" id="btn-audit" class="text-gold hover:text-white hover:bg-gold px-4 py-2 rounded-lg text-xs font-bold transition-all border border-gold shrink-0">SCAN</button>
+                            <!-- Toggle Mode -->
+                            <div class="flex bg-black/5 dark:bg-white/5 rounded-lg p-1 mt-2 shrink-0">
+                                <button onclick="setAuditMode('single')" id="btn-mode-single" class="flex-1 text-[10px] font-bold py-1.5 rounded-md bg-white dark:bg-darkCard shadow-sm transition-all text-gold">Analisis Mandiri</button>
+                                <button onclick="setAuditMode('compare')" id="btn-mode-compare" class="flex-1 text-[10px] font-bold py-1.5 rounded-md text-textGray dark:text-darkSub transition-all">Komparasi</button>
+                            </div>
+
+                            <!-- Inputs -->
+                            <div class="flex flex-col gap-2 relative z-50 mt-3 shrink-0 bg-lightGray/50 dark:bg-black/20 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-link text-blue-500 w-4 text-center"></i>
+                                    <input type="text" id="psi-url-client" placeholder="URL Web Anda (https://...)" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-1.5 focus:outline-none focus:border-blue-500 dark:text-white">
+                                </div>
+                                <div class="flex items-center gap-2 hidden" id="psi-comp-wrapper">
+                                    <i class="fas fa-skull-crossbones text-red-500 w-4 text-center"></i>
+                                    <input type="text" id="psi-url-comp" placeholder="URL Kompetitor (https://...)" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 text-xs py-1.5 focus:outline-none focus:border-red-500 dark:text-white">
+                                </div>
+                                <button onclick="runAudit()" id="btn-audit" class="mt-2 w-full text-white bg-darkBlack dark:bg-white dark:text-darkBg hover:bg-gold dark:hover:bg-gold py-2 rounded-lg text-xs font-bold transition-all shadow-sm">JALANKAN ANALISIS</button>
                             </div>
                             
-                            <div class="mt-1 flex-1 overflow-y-auto pr-2 custom-scroll relative z-50">
-                                <div id="psi-loading" class="hidden h-full flex flex-col items-center justify-center text-sm text-gold font-bold py-10">
+                            <!-- Results Container (Tinggi padat di mobile hingga hasil muncul) -->
+                            <div class="mt-3 overflow-y-auto custom-scroll relative z-50 flex-1 max-h-[500px] md:max-h-full">
+                                <div id="psi-loading" class="hidden flex-col items-center justify-center text-sm text-gold font-bold py-10">
                                     <div class="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin mb-3"></div>
-                                    <span>MEMINDAI DATA...</span>
+                                    <span class="text-center text-xs">Memindai sistem...<br>Proses ini memakan waktu beberapa detik.</span>
                                 </div>
 
-                                <div id="psi-result" class="hidden flex-col gap-3 pb-2">
+                                <!-- Result Single Layout -->
+                                <div id="psi-result-single" class="hidden flex-col gap-3 pb-2 mt-2">
                                     <div class="grid grid-cols-2 gap-2 text-center">
                                         <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
-                                            <div class="text-2xl font-bold" id="psi-perf">--</div>
+                                            <div class="text-2xl font-bold" id="psi-perf-single">--</div>
                                             <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold">Performa Skor</div>
                                         </div>
                                         <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
-                                            <div class="text-2xl font-bold" id="psi-seo">--</div>
+                                            <div class="text-2xl font-bold" id="psi-seo-single">--</div>
                                             <div class="text-[9px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold">SEO Skor</div>
                                         </div>
                                     </div>
                                     
-                                    <div class="mt-2">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Core Web Vitals</span>
+                                    <div class="mt-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Metrik Kecepatan Taktis</span>
                                         <div class="grid grid-cols-3 gap-2 mt-1">
                                             <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="Largest Contentful Paint">LCP</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Muat visual utama</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-lcp">--</div>
+                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white">LCP</div>
+                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Muat visual</div>
+                                                <div class="text-sm font-mono font-bold" id="psi-lcp-single">--</div>
                                             </div>
                                             <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="Interaction to Next Paint">INP</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Respon klik user</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-inp">--</div>
+                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white">TTFB</div>
+                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Respon Server</div>
+                                                <div class="text-sm font-mono font-bold" id="psi-ttfb-single">--</div>
                                             </div>
                                             <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="Cumulative Layout Shift">CLS</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Stabilitas layout</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-cls">--</div>
+                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white">TBT</div>
+                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Durasi Macet</div>
+                                                <div class="text-sm font-mono font-bold" id="psi-tbt-single">--</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="mt-2">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Metrik Teknis (Backend)</span>
-                                        <div class="grid grid-cols-3 gap-2 mt-1">
-                                            <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="Time to First Byte">TTFB</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Waktu respon server</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-ttfb">--</div>
-                                            </div>
-                                            <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="First Contentful Paint">FCP</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Render web awal</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-fcp">--</div>
-                                            </div>
-                                            <div class="bg-lightGray/50 dark:bg-black/20 p-2 rounded-lg border border-black/5 dark:border-white/5">
-                                                <div class="text-[10px] font-bold text-darkBlack dark:text-white" title="Total Blocking Time">TBT</div>
-                                                <div class="text-[8px] leading-tight text-textGray dark:text-darkSub mb-1">Total durasi macet</div>
-                                                <div class="text-sm font-mono font-bold" id="psi-tbt">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mt-2 bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
+                                    <div class="bg-lightGray dark:bg-black/30 p-3 rounded-xl border border-black/5 dark:border-white/5">
                                         <div class="flex justify-between items-end mb-2">
-                                            <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Analisis Aset Web</span>
-                                            <span class="text-sm font-bold text-gold" id="psi-size">-- MB</span>
+                                            <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white">Beban Aset Web</span>
+                                            <span class="text-sm font-bold text-gold" id="psi-size-single">-- MB</span>
                                         </div>
-                                        <div class="w-full h-2 rounded-full overflow-hidden flex" id="psi-size-bar">
-                                            <div class="h-full bg-gray-300 w-full"></div>
-                                        </div>
-                                        <div class="flex flex-wrap gap-2 text-[10px] mt-2 font-mono text-textGray dark:text-darkSub" id="psi-reqs">--</div>
+                                        <div class="w-full h-2 rounded-full overflow-hidden flex" id="psi-size-bar-single"><div class="h-full bg-gray-300 w-full"></div></div>
+                                        <div class="flex flex-wrap gap-2 text-[10px] mt-2 font-mono text-textGray dark:text-darkSub" id="psi-reqs-single">--</div>
                                     </div>
 
-                                    <div id="psi-issues" class="flex flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5 mt-1">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-red-500">Rekomendasi Pintar:</span>
-                                        <ul id="psi-issues-list" class="space-y-2 text-xs text-textGray dark:text-darkSub"></ul>
-                                    </div>
-
-                                    <div class="mt-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 p-4 rounded-xl flex items-start gap-3">
-                                        <i class="fab fa-google text-blue-500 mt-0.5"></i>
-                                        <div class="text-xs leading-relaxed text-darkBlack dark:text-white">
-                                            <strong class="text-blue-600 dark:text-blue-400">GSC Insight:</strong> <span id="gsc-sim-text">Perbaikan skor LCP menjadi di bawah 2.5s secara historis dapat meningkatkan impresi pencarian Google sebesar 10-15%.</span>
-                                        </div>
+                                    <div class="flex flex-col gap-2 pt-2 border-t border-black/5 dark:border-white/5">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-red-500">Isu Ditemukan:</span>
+                                        <ul id="psi-issues-list-single" class="space-y-2 text-xs text-textGray dark:text-darkSub"></ul>
                                     </div>
                                 </div>
+
+                                <!-- Result Compare Layout -->
+                                <div id="psi-result-compare" class="hidden flex-col gap-4 pb-2 mt-2">
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-[10px] font-bold text-textGray dark:text-darkSub"><span title="Largest Contentful Paint (Kecepatan Muat Utama)">Kecepatan LCP (Semakin Kecil Makin Baik)</span></div>
+                                        <div class="relative w-full h-7 bg-lightGray dark:bg-black/40 rounded-md border border-black/5 dark:border-white/5 overflow-hidden flex items-center justify-between px-2">
+                                            <div class="absolute left-0 top-0 bottom-0 bg-blue-500/20" id="bar-client-lcp" style="width: 0%;"></div>
+                                            <span class="relative z-10 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1"><i class="fas fa-user text-[9px]"></i> <span id="res-client-lcp">--</span>s</span>
+                                            <span class="relative z-10 text-xs font-bold text-red-600 dark:text-red-400 flex items-center gap-1"><span id="res-comp-lcp">--</span>s <i class="fas fa-skull text-[9px]"></i></span>
+                                            <div class="absolute right-0 top-0 bottom-0 bg-red-500/20" id="bar-comp-lcp" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between text-[10px] font-bold text-textGray dark:text-darkSub"><span>Skor Kepatuhan SEO (Semakin Besar Makin Baik)</span></div>
+                                        <div class="relative w-full h-7 bg-lightGray dark:bg-black/40 rounded-md border border-black/5 dark:border-white/5 overflow-hidden flex items-center justify-between px-2">
+                                            <div class="absolute left-0 top-0 bottom-0 bg-blue-500/20" id="bar-client-seo" style="width: 0%;"></div>
+                                            <span class="relative z-10 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1"><i class="fas fa-user text-[9px]"></i> <span id="res-client-seo">--</span></span>
+                                            <span class="relative z-10 text-xs font-bold text-red-600 dark:text-red-400 flex items-center gap-1"><span id="res-comp-seo">--</span> <i class="fas fa-skull text-[9px]"></i></span>
+                                            <div class="absolute right-0 top-0 bottom-0 bg-red-500/20" id="bar-comp-seo" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- The Kill Factor Text -->
+                                    <div class="mt-2 p-4 rounded-xl border" id="kill-factor-box">
+                                        <p class="text-xs leading-relaxed dark:text-white" id="kill-factor-text">--</p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -710,7 +802,7 @@
                                         <h3 class="font-bold dark:text-white">Google Trends Live Terminal</h3>
                                         <span class="text-[9px] bg-red-500/10 text-red-500 font-bold px-1.5 py-0.5 rounded border border-red-500/20 uppercase tracking-widest hidden sm:block">Update Real-Time</span>
                                     </div>
-                                    <p class="text-[10px] uppercase text-textGray dark:text-darkSub mt-0.5">Menampilkan tepat 20 topik terhangat di Indonesia secara langsung</p>
+                                    <p class="text-[10px] uppercase text-textGray dark:text-darkSub mt-0.5">Menampilkan 20 topik terhangat di Indonesia secara langsung</p>
                                 </div>
                             </div>
                         </div>
@@ -727,20 +819,20 @@
             </div>
         </section>
 
-        <!-- SERVICES (BENTO GRID HORIZONTAL SCROLL COMPACT) -->
-        <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden">
+        <!-- SERVICES (BENTO GRID HORIZONTAL SCROLL COMPACT & CONSISTENT) -->
+        <section id="services" class="py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden border-t border-black/5 dark:border-white/5">
              <div class="max-w-7xl mx-auto px-6 relative z-10 reveal">
                   <div class="text-center mb-10">
                       <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3 block">Penawaran Eksklusif</span>
-                      <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4">Solusi Terbaik Untuk Anda</h2>
+                      <h2 class="text-3xl md:text-5xl font-serif font-medium dark:text-white mb-4">Solusi Skalabilitas Bisnis</h2>
                       <div class="w-20 h-1 bg-gold mx-auto rounded-full"></div>
                   </div>
 
-                  <!-- Horizontal Scroll Bar dengan Ikon Gerigi -->
-                  <div class="flex overflow-x-auto gap-6 pb-8 pt-4 snap-x snap-mandatory custom-scroll items-stretch h-auto">
+                  <!-- Horizontal Scroll Bar dengan Ikon Gerigi - Konsisten items-stretch -->
+                  <div class="flex overflow-x-auto gap-6 pb-8 pt-4 snap-x snap-mandatory custom-scroll items-stretch" id="service-stagger-container">
                         
                         <!-- 1. Web Development & Systems -->
-                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                        <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
                             <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
@@ -755,7 +847,7 @@
                             </div>
 
                             <div class="mb-4 flex-grow relative z-10 flex flex-col">
-                                <select id="bento-opt-1" onchange="updateBentoDesc('bento-opt-1', 'bento-desc-1', 'bento-price-1', 'bento-strike-1')" aria-label="Pilih layanan web" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                <select id="bento-opt-1" onchange="updateBentoDesc('bento-opt-1', 'bento-desc-1', 'bento-price-1', 'bento-strike-1')" aria-label="Pilih layanan web" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none shrink-0">
                                     <option value="LandingPage" data-key="descLandingPage">High-Converting Landing Page</option>
                                     <option value="WPBlog" data-key="descWPBlog">WordPress Blog & News Engine</option>
                                     <option value="LMS" data-key="descLMS">LMS (Sistem Kursus Online)</option>
@@ -766,7 +858,7 @@
                                     <option value="Invitation" data-key="descInvitation">Event & Digital Invitations</option>
                                 </select>
                                 
-                                <div id="bento-desc-1" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                <div id="bento-desc-1" class="text-sm text-textGray dark:text-darkSub leading-relaxed flex-grow">
                                     <!-- Terisi via JS -->
                                 </div>
                             </div>
@@ -774,19 +866,64 @@
                             <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
                                 <div class="flex justify-between items-end mb-4">
                                     <div class="flex flex-col">
-                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-1">Rp 3.500.000</span>
-                                        <span class="text-lg font-bold text-gold" id="bento-price-1">Rp 2.500.000</span>
+                                        <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-1">Rp 3.500.000</span>
+                                        <span class="text-xl font-bold text-gold" id="bento-price-1">Rp 2.499.000</span>
                                     </div>
                                     <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-1"></span>
                                 </div>
-                                <button aria-label="Order Web" onclick="orderBentoService('Web Dev & System', 'bento-opt-1')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                <button aria-label="Order Web" onclick="orderBentoService('Web Dev & System', 'bento-opt-1')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Konsultasi Proyek</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 2. Digital Marketing & SEO -->
-                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                        <!-- 2. Web Hosting & Domain (DIPINDAH KE URUTAN 2) -->
+                        <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-gold/30 shadow-glow flex flex-col relative overflow-hidden group">
+                            <div class="absolute -bottom-10 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-all group-hover:bg-gold/20 group-hover:scale-150"></div>
+                            
+                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-gold text-white flex items-center justify-center text-xl shrink-0 shadow-lg shadow-gold/30"><i class="fas fa-server"></i></div>
+                                <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold px-3 py-1 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse">Hot Promo</span>
+                            </div>
+                            
+                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Web Hosting Tercepat</h3>
+                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
+                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (Uptime 99.9%)
+                            </div>
+
+                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
+                                <select id="bento-opt-4" onchange="updateBentoDesc('bento-opt-4', 'bento-desc-4', 'bento-price-4', 'bento-strike-4')" aria-label="Pilih layanan hosting" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-gold/30 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none shrink-0">
+                                    <option value="PaketSingle" data-key="descHostingSingle">Paket Single (1 Website)</option>
+                                    <option value="PaketEntry" data-key="descHostingEntry">Paket Entry Level (3 Domain)</option>
+                                    <option value="PaketStarter" data-key="descHostingStarter">Paket Starter (Best Value)</option>
+                                    <option value="PaketPremium" data-key="descHostingPremium">Paket Premium (Terpopuler)</option>
+                                    <option value="PaketMedium" data-key="descHostingMedium">Paket Medium (Unlimited)</option>
+                                    <option value="PaketSuper" data-key="descHostingSuper">Paket Super (Performa Cepat)</option>
+                                    <option value="PaketMonster" data-key="descHostingMonster">Paket Monster (Bisnis/Pro)</option>
+                                </select>
+                                
+                                <div id="bento-desc-4" class="text-sm text-textGray dark:text-darkSub leading-relaxed flex-grow">
+                                    <!-- Terisi via JS -->
+                                </div>
+                            </div>
+
+                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
+                                <div class="flex justify-between items-end mb-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-4">Rp 25.000</span>
+                                        <span class="text-xl font-bold text-gold" id="bento-price-4">Rp 12.900</span>
+                                    </div>
+                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-4">/bulan</span>
+                                </div>
+                                <button aria-label="Order Hosting" onclick="orderBentoService('Hosting & Domain', 'bento-opt-4')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg shadow-gold/30 hover:shadow-gold/50">
+                                    <span>Pesan Paket Ini</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Digital Marketing & SEO -->
+                        <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
                             <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
@@ -801,7 +938,7 @@
                             </div>
 
                             <div class="mb-4 flex-grow relative z-10 flex flex-col">
-                                <select id="bento-opt-2" onchange="updateBentoDesc('bento-opt-2', 'bento-desc-2', 'bento-price-2', 'bento-strike-2')" aria-label="Pilih layanan marketing" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                <select id="bento-opt-2" onchange="updateBentoDesc('bento-opt-2', 'bento-desc-2', 'bento-price-2', 'bento-strike-2')" aria-label="Pilih layanan marketing" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none shrink-0">
                                     <option value="StructureSEO" data-key="descStructureSEO">Optimasi Struktur SEO Google</option>
                                     <option value="AdsMgmt" data-key="descAdsMgmt">Digital Ads Management</option>
                                     <option value="StoreMgmt" data-key="descStoreMgmt">E-commerce Store Management</option>
@@ -810,7 +947,7 @@
                                     <option value="CRO" data-key="descCRO">Conversion Rate Optimization</option>
                                 </select>
                                 
-                                <div id="bento-desc-2" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                <div id="bento-desc-2" class="text-sm text-textGray dark:text-darkSub leading-relaxed flex-grow">
                                     <!-- Terisi via JS -->
                                 </div>
                             </div>
@@ -818,19 +955,19 @@
                             <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
                                 <div class="flex justify-between items-end mb-4">
                                     <div class="flex flex-col">
-                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-2">Rp 3.500.000</span>
-                                        <span class="text-lg font-bold text-gold" id="bento-price-2">Rp 2.000.000</span>
+                                        <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-2">Rp 3.500.000</span>
+                                        <span class="text-xl font-bold text-gold" id="bento-price-2">Rp 1.999.000</span>
                                     </div>
                                     <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-2"></span>
                                 </div>
-                                <button aria-label="Order Marketing" onclick="orderBentoService('Digital Marketing & SEO', 'bento-opt-2')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                <button aria-label="Order Marketing" onclick="orderBentoService('Digital Marketing & SEO', 'bento-opt-2')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Konsultasi Proyek</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 3. Business Operations -->
-                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-black/5 dark:border-white/10 shadow-soft flex flex-col h-full relative overflow-hidden">
+                        <!-- 4. Business Operations -->
+                        <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
                             <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
@@ -845,7 +982,7 @@
                             </div>
 
                             <div class="mb-4 flex-grow relative z-10 flex flex-col">
-                                <select id="bento-opt-3" onchange="updateBentoDesc('bento-opt-3', 'bento-desc-3', 'bento-price-3', 'bento-strike-3')" aria-label="Pilih layanan operasional" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
+                                <select id="bento-opt-3" onchange="updateBentoDesc('bento-opt-3', 'bento-desc-3', 'bento-price-3', 'bento-strike-3')" aria-label="Pilih layanan operasional" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-4 outline-none appearance-none shrink-0">
                                     <option value="Career" data-key="descCareer">Portal Karir & Rekrutmen</option>
                                     <option value="Dashboard" data-key="descDashboard">Dashboard Monitoring Proyek</option>
                                     <option value="Inventory" data-key="descInventory">Inventory & Warehouse System</option>
@@ -853,7 +990,7 @@
                                     <option value="KPI" data-key="descKPI">Custom Company Dashboard (KPI)</option>
                                 </select>
                                 
-                                <div id="bento-desc-3" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
+                                <div id="bento-desc-3" class="text-sm text-textGray dark:text-darkSub leading-relaxed flex-grow">
                                     <!-- Terisi via JS -->
                                 </div>
                             </div>
@@ -861,61 +998,132 @@
                             <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
                                 <div class="flex justify-between items-end mb-4">
                                     <div class="flex flex-col">
-                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-3">Rp 6.500.000</span>
-                                        <span class="text-lg font-bold text-gold" id="bento-price-3">Rp 4.500.000</span>
+                                        <span class="text-xs text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-3">Rp 6.500.000</span>
+                                        <span class="text-xl font-bold text-gold" id="bento-price-3">Rp 4.499.000</span>
                                     </div>
                                     <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-3"></span>
                                 </div>
-                                <button aria-label="Order Bisnis" onclick="orderBentoService('Business Operations', 'bento-opt-3')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 4. Web Hosting & Domain (NEW) -->
-                        <div class="bento-service min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 border border-gold/30 shadow-glow flex flex-col h-full relative overflow-hidden group">
-                            <div class="absolute -bottom-10 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-all group-hover:bg-gold/20 group-hover:scale-150"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10 shrink-0">
-                                <div class="w-12 h-12 rounded-xl bg-gold text-white flex items-center justify-center text-xl shrink-0 shadow-lg shadow-gold/30"><i class="fas fa-server"></i></div>
-                                <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold px-3 py-1 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse">Hot Promo</span>
-                            </div>
-                            
-                            <h3 class="text-xl md:text-2xl font-bold font-serif dark:text-white mb-1 relative z-10 shrink-0">Web Hosting & Domain</h3>
-                            <div class="flex items-center gap-1 mb-4 text-[10px] text-textGray dark:text-darkSub relative z-10 shrink-0">
-                                <div class="flex text-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (Uptime 99.9%)
-                            </div>
-
-                            <div class="mb-4 flex-grow relative z-10 flex flex-col">
-                                <select id="bento-opt-4" onchange="updateBentoDesc('bento-opt-4', 'bento-desc-4', 'bento-price-4', 'bento-strike-4')" aria-label="Pilih layanan hosting" class="w-full px-4 py-3 rounded-xl bg-lightGray dark:bg-black/30 border border-gold/30 focus:ring-2 focus:ring-gold text-sm font-medium transition-all cursor-pointer hover:border-gold dark:text-white mb-3 outline-none appearance-none shrink-0">
-                                    <option value="HostingNode" data-key="descHostingNode">Cloud Hosting Pro (20 GB SSD)</option>
-                                    <option value="HostingCorp" data-key="descHostingCorp">Enterprise Cloud (50 GB SSD)</option>
-                                    <option value="VPSServer" data-key="descVPSServer">VPS Server Dedicated (RAM 4GB)</option>
-                                    <option value="DomainReg" data-key="descDomainReg">Registrasi Domain (.com / .id)</option>
-                                </select>
-                                
-                                <div id="bento-desc-4" class="text-sm text-textGray dark:text-darkSub leading-relaxed h-auto flex-grow">
-                                    <!-- Terisi via JS -->
-                                </div>
-                            </div>
-
-                            <div class="mt-auto border-t border-black/5 dark:border-white/5 pt-4 relative z-10 shrink-0">
-                                <div class="flex justify-between items-end mb-4">
-                                    <div class="flex flex-col">
-                                        <span class="text-[10px] text-textGray/70 dark:text-darkSub/70 line-through decoration-red-500/50" id="bento-strike-4">Rp 1.200.000</span>
-                                        <span class="text-lg font-bold text-gold" id="bento-price-4">Rp 650.000</span>
-                                    </div>
-                                    <span class="text-[10px] text-textGray dark:text-darkSub font-normal pb-1" id="bento-suffix-4">/tahun</span>
-                                </div>
-                                <button aria-label="Order Hosting" onclick="orderBentoService('Hosting & Domain', 'bento-opt-4')" class="w-full bg-gold text-white rounded-xl py-3 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-lg shadow-gold/30 hover:shadow-gold/50">
-                                    <span>Pesan Sekarang</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
+                                <button aria-label="Order Bisnis" onclick="orderBentoService('Business Operations', 'bento-opt-3')" class="w-full bg-gold text-white rounded-xl py-3.5 font-bold text-xs tracking-widest uppercase hover:bg-black transition-all flex items-center justify-center gap-2 group shadow-md shadow-gold/20">
+                                    <span>Konsultasi Proyek</span> <i class="fab fa-whatsapp text-base group-hover:scale-110 transition-transform"></i>
                                 </button>
                             </div>
                         </div>
 
                   </div>
              </div>
+        </section>
+
+        <!-- ROI & PROFIT SIMULATOR (NEW FEATURE) -->
+        <section id="growth-sim" class="py-24 bg-mainWhite dark:bg-darkBg relative border-t border-black/5 dark:border-white/5">
+            <div class="max-w-5xl mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Kalkulator Pintar</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white mb-4">The Omni-Growth Profit Simulator</h2>
+                    <p class="text-sm text-textGray dark:text-darkSub max-w-2xl mx-auto">Hitung potensi pendapatan Anda berdasarkan strategi kombinasi SEO (Organik) dan Ads (Berbayar), lengkap dengan proyeksi <em>Lifetime Value (LTV)</em> dari pembelian berulang pelanggan.</p>
+                </div>
+
+                <div class="bg-white dark:bg-darkCard rounded-[2rem] border border-black/5 dark:border-white/10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] p-6 md:p-10 flex flex-col lg:flex-row gap-10 items-stretch">
+                    <!-- Input Section -->
+                    <div class="w-full lg:w-1/2 flex flex-col gap-6">
+                        <div>
+                            <label class="flex justify-between text-xs font-bold dark:text-white mb-3"><span>Trafik Organik (SEO) Bulanan</span> <span id="val-org" class="text-gold bg-gold/10 px-2 py-0.5 rounded">5000 views</span></label>
+                            <input type="range" id="sim-org" min="0" max="50000" step="500" value="5000" oninput="calculateProfit()">
+                        </div>
+                        <div>
+                            <label class="flex justify-between text-xs font-bold dark:text-white mb-3"><span>Trafik Berbayar (Ads) Bulanan</span> <span id="val-paid" class="text-gold bg-gold/10 px-2 py-0.5 rounded">2000 views</span></label>
+                            <input type="range" id="sim-paid" min="0" max="50000" step="500" value="2000" oninput="calculateProfit()">
+                        </div>
+                        <div>
+                            <label class="flex justify-between text-xs font-bold dark:text-white mb-3"><span>Rasio Konversi (Conversion Rate)</span> <span id="val-cr" class="text-gold bg-gold/10 px-2 py-0.5 rounded">2.0%</span></label>
+                            <input type="range" id="sim-cr" min="0.1" max="10" step="0.1" value="2" oninput="calculateProfit()">
+                        </div>
+                        <div>
+                            <label class="flex justify-between text-xs font-bold dark:text-white mb-3"><span>Rata-rata Nilai Order (AOV)</span> <span id="val-aov" class="text-gold bg-gold/10 px-2 py-0.5 rounded">Rp 150.000</span></label>
+                            <input type="range" id="sim-aov" min="50000" max="2000000" step="50000" value="150000" oninput="calculateProfit()">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <div>
+                                <label class="text-[10px] font-bold dark:text-darkSub mb-2 block uppercase tracking-wider">Budget Ads (Rp)</label>
+                                <input type="number" id="sim-ads-budget" value="3000000" class="w-full bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 text-xs font-bold focus:border-gold focus:ring-1 focus:ring-gold outline-none dark:text-white transition-all" oninput="calculateProfit()">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold dark:text-darkSub mb-2 block uppercase tracking-wider">Tingkat Retensi (LTV)</label>
+                                <select id="sim-retention" class="w-full bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 text-xs font-bold focus:border-gold focus:ring-1 focus:ring-gold outline-none dark:text-white transition-all cursor-pointer" onchange="calculateProfit()">
+                                    <option value="1">1x Beli (Tidak Repeat)</option>
+                                    <option value="1.2" selected>20% Beli Lagi (Rendah)</option>
+                                    <option value="1.5">50% Beli Lagi (Sedang)</option>
+                                    <option value="2">Berlangganan (Tinggi)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="w-full lg:w-1/2 bg-[#111] rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden shadow-inner">
+                        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-gold/20 rounded-full blur-[80px] pointer-events-none"></div>
+                        <div class="absolute -left-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
+                        
+                        <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2 relative z-10"><i class="fas fa-chart-pie mr-1"></i> Estimasi Total Pendapatan</p>
+                        <h3 class="text-4xl md:text-5xl font-serif font-bold text-white mb-8 relative z-10" id="res-revenue">Rp 0</h3>
+                        
+                        <div class="space-y-4 border-t border-white/10 pt-6 relative z-10">
+                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-lg">
+                                <span class="text-white/70 text-xs font-bold">Total Pembeli (Estimasi)</span>
+                                <span class="text-white font-bold" id="res-buyers">0 Orang</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-lg">
+                                <span class="text-white/70 text-xs font-bold">Biaya (Ads + Manajerial)</span>
+                                <span class="text-red-400 font-bold" id="res-cost">- Rp 5.000.000</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-gradient-to-r from-gold/20 to-transparent p-4 rounded-xl border border-gold/30 mt-4">
+                                <span class="text-white font-bold text-sm">Pengembalian Investasi (ROI)</span>
+                                <span class="text-green-400 font-bold text-xl drop-shadow-md" id="res-roi">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE SEO SILO VISUALIZER -->
+        <section class="py-24 bg-lightGray/50 dark:bg-darkCard/20 border-t border-black/5 dark:border-white/5 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 reveal text-center">
+                <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-2 block">Arsitektur Website</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-medium dark:text-white mb-4">Peta Dominasi Otoritas Topikal</h2>
+                <p class="text-sm text-textGray dark:text-darkSub max-w-xl mx-auto mb-10">Rahasia di balik website pemenang. Klik lingkaran pusat untuk melihat bagaimana aliran otoritas mengalir dari artikel pendukung menuju laman utama untuk mendorong konversi Anda.</p>
+                
+                <div class="silo-wrapper">
+                    <div class="silo-container" id="siloContainer" onclick="advanceSilo()">
+                        <!-- Garis Penghubung -->
+                        <div class="silo-line line-1"></div>
+                        <div class="silo-line line-2"></div>
+                        <div class="silo-line line-3"></div>
+
+                        <!-- Nodes Center -->
+                        <div class="silo-center flex flex-col gap-1">
+                            <i class="fas fa-crown text-2xl mb-1 drop-shadow-md"></i>
+                            <span class="text-xs tracking-wider leading-tight">Pilar Inti:<br>Otoritas Topikal</span>
+                        </div>
+                        
+                        <!-- Nodes Level 1 -->
+                        <div class="silo-node l1-n1 w-24 h-24">Fondasi<br>Teknis SEO</div>
+                        <div class="silo-node l1-n2 w-24 h-24">Klaster<br>Konten LSI</div>
+                        <div class="silo-node l1-n3 w-24 h-24">Sinyal<br>Eksternal</div>
+                        
+                        <!-- Nodes Level 2 (Expanded) -->
+                        <div class="silo-node l2-n1 w-20 h-20">Core Web<br>Vitals</div>
+                        <div class="silo-node l2-n2 w-20 h-20">Skema<br>JSON-LD</div>
+                        
+                        <div class="silo-node l2-n3 w-20 h-20">Riset<br>Entitas</div>
+                        <div class="silo-node l2-n4 w-20 h-20">Silo Internal<br>Linking</div>
+                        
+                        <div class="silo-node l2-n5 w-20 h-20">Digital PR<br>Backlink</div>
+                        <div class="silo-node l2-n6 w-20 h-20">Sitasi Lokal<br>GMB</div>
+                    </div>
+                </div>
+                
+                <p class="text-[10px] text-textGray dark:text-darkSub mt-6 font-bold tracking-widest uppercase animate-pulse cursor-pointer" onclick="advanceSilo()"><i class="fas fa-hand-pointer mr-1"></i> Klik diagram berulang kali untuk interaksi</p>
+            </div>
         </section>
 
         <!-- Experience Section (FAN-OUT MODAL SYSTEM) -->
@@ -932,7 +1140,7 @@
                          <span>Buka Catatan Pengalaman</span>
                      </button>
                  </div>
-                 <p class="text-xs text-textGray dark:text-darkSub mt-6 italic">Klik tombol di atas untuk membuka arsip portofolio karir.</p>
+                 <p class="text-xs text-textGray dark:text-darkSub mt-6 italic">Klik tombol di atas untuk membuka arsip portofolio karir berbentuk kipas.</p>
              </div>
         </section>
 
@@ -943,7 +1151,7 @@
             
             <div class="text-center w-full absolute top-12 md:top-20 z-50 pointer-events-none">
                 <h3 class="text-white font-serif text-3xl md:text-4xl mb-2 drop-shadow-lg opacity-0 transform -translate-y-10 transition-all duration-700" id="fanTitle">Perjalanan Karir</h3>
-                <p class="text-gold text-xs font-bold uppercase tracking-widest opacity-0 transform -translate-y-5 transition-all duration-700 delay-100" id="fanSub">Geser & Pilih Kartu</p>
+                <p class="text-gold text-xs font-bold uppercase tracking-widest opacity-0 transform -translate-y-5 transition-all duration-700 delay-100" id="fanSub">Geser <i class="fas fa-arrows-alt-h mx-1"></i> Pilih Kartu</p>
             </div>
             
             <!-- Cards Container -->
@@ -1001,8 +1209,10 @@
                                 <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Looker Studio</span>
                                 <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Mailchimp</span>
                                 <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Semrush</span>
-                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Canva Pro</span>
-                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">WordPress</span>
+                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Ahrefs</span>
+                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Hotjar</span>
+                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Elementor Pro</span>
+                                <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">cPanel / CyberPanel</span>
                                 <span class="px-3 py-1.5 bg-lightGray dark:bg-darkBg border border-black/10 dark:border-white/10 rounded-lg text-xs font-bold text-textGray dark:text-darkText hover:border-gold transition-colors cursor-default hover-soft shadow-sm">Shopify</span>
                             </div>
                         </div>
@@ -1108,15 +1318,15 @@
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.</p>
                 <div class="flex gap-6 items-center">
                     <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold">Kebijakan Privasi</a>
-                    <button onclick="triggerIndexing()" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Force Google Index">
+                    <button onclick="triggerIndexing()" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Ping Google for Updates">
                         <i class="fas fa-satellite-dish"></i>
                     </button>
                 </div>
             </div>
     </footer>
     
-    <!-- POPUP -->
-    <div id="marketingPopup" class="marketing-popup"><div class="bubble animate-bounce-subtle" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"><div class="popup-close" onclick="event.stopPropagation(); closePopup(true)"><i class="fas fa-times"></i></div><p class="font-bold mb-1 text-gold text-xs">👋 Halo!</p><p id="popupMessage" class="text-xs">Butuh web hosting tangguh?</p><div class="mt-2 flex items-center justify-between gap-1 text-[10px] font-bold text-gold cursor-pointer bg-gold/10 p-1.5 rounded-lg hover:bg-gold hover:text-white transition-colors"><span>Cek Penawaran</span> <i class="fas fa-arrow-right"></i></div></div></div>
+    <!-- FOMO POPUP ENGINE -->
+    <div id="marketingPopup" class="marketing-popup"><div class="bubble"><div class="popup-close" onclick="event.stopPropagation(); closePopup()"><i class="fas fa-times"></i></div><p class="font-bold mb-0.5 text-gold text-[10px] tracking-wider uppercase"><i class="fas fa-bolt"></i> Live Activity</p><p id="popupMessage" class="text-xs dark:text-white">...</p><div class="mt-2 text-[9px] text-textGray dark:text-darkSub opacity-70" id="popupTime">Beberapa saat yang lalu</div></div></div>
 
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-8 z-40 flex flex-col gap-3"><button aria-label="Scroll Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-up"></i></button><button aria-label="Scroll Bottom" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-12 h-12 rounded-full bg-gold shadow-lg text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110"><i class="fas fa-arrow-down"></i></button></div>
@@ -1209,7 +1419,7 @@
             observer.observe(container);
         }
 
-        // --- GEMINI AI BOT (Flat & Horizontal Layout Tanpa Icon Robot) ---
+        // --- GEMINI AI BOT ---
         function sendBotPredefined(topic) {
             const chatWindow = document.getElementById('bot-chat-window');
             const optionsContainer = document.getElementById('bot-options-container');
@@ -1222,25 +1432,25 @@
                     <p class="font-bold text-base text-gold border-b border-black/10 dark:border-white/10 pb-2">Cetak Biru Dominasi SEO 2026</p>
                     <p>Algoritma mesin pencari saat ini memprioritaskan <em>User Experience (UX)</em> yang mulus dan kepakaran penulis (E-E-A-T). Berikut adalah kerangka strategis yang harus Anda eksekusi:</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>Optimasi Core Web Vitals:</strong> Targetkan skor *Largest Contentful Paint (LCP)* di bawah 1.5 detik. Hindari pergeseran layout (CLS) dengan menetapkan dimensi presisi pada gambar & iframe.</li>
-                        <li><strong>Penerapan Skema Markup (JSON-LD):</strong> Beri konteks langsung kepada bot Google. Gunakan skema spesifik seperti <em>LocalBusiness</em>, <em>Product</em>, atau <em>FAQPage</em> untuk merebut fitur *Rich Snippet*.</li>
+                        <li><strong>Optimasi Core Web Vitals:</strong> Targetkan skor Largest Contentful Paint (LCP) di bawah 1.5 detik. Hindari pergeseran layout (CLS) dengan menetapkan dimensi presisi pada gambar & iframe.</li>
+                        <li><strong>Penerapan Skema Markup (JSON-LD):</strong> Beri konteks langsung kepada bot Google. Gunakan skema spesifik seperti <em>LocalBusiness</em>, <em>Product</em>, atau <em>FAQPage</em> untuk merebut fitur Rich Snippet.</li>
                         <li><strong>Konsep E-E-A-T:</strong> (Experience, Expertise, Authoritativeness, Trustworthiness). Tulis konten berdasarkan studi kasus nyata, sertakan profil author yang jelas, dan tautkan ke sumber otoritatif.</li>
-                        <li><strong>Akuisisi Backlink Tematik:</strong> Tinggalkan backlink kuantitas. Fokuslah pada penempatan *Guest Post* organik di situs *Niche* yang relevan dengan *Domain Authority (DA)* di atas 40+.</li>
+                        <li><strong>Akuisisi Backlink Tematik:</strong> Tinggalkan backlink kuantitas. Fokuslah pada penempatan Guest Post organik di situs Niche yang relevan dengan Domain Authority (DA) di atas 40+.</li>
                         <li><strong>Content Hub & Silo Structure:</strong> Organisasikan artikel Anda dalam satu kategori besar (Pilar Content) yang didukung oleh artikel-artikel kecil (Cluster) melalui eksekusi <em>Internal Linking</em> yang rapat.</li>
                     </ul>
-                    <p class="italic text-xs opacity-80 mt-2">*Penerapan konsisten selama 3-6 bulan pada struktur ini terbukti mampu meningkatkan Organic Traffic hingga 300% berdasarkan analitik historis klien kami.</p>
+                    <p class="italic text-xs opacity-80 mt-2">Penerapan konsisten selama 3-6 bulan pada struktur ini terbukti mampu meningkatkan Organic Traffic hingga 300% berdasarkan analitik historis klien kami.</p>
                 </div>`;
             } else if (topic === 'marketing') {
                 queryText = "Bongkar strategi Digital Marketing terbaik yang mampu memaksimalkan Konversi (CRO) dan ROAS (Return on Ad Spend).";
                 responseText = `
                 <div class="space-y-4">
                     <p class="font-bold text-base text-emerald-600 dark:text-emerald-400 border-b border-black/10 dark:border-white/10 pb-2">Strategi Omnichannel & Konversi Tinggi</p>
-                    <p>Strategi digital marketing modern tidak lagi bisa mengandalkan satu *platform*. Anda membutuhkan sistem *Full-Funnel* yang menjaring audiens dari tahap *Cold* hingga *Hot Buyer*.</p>
+                    <p>Strategi digital marketing modern tidak lagi bisa mengandalkan satu platform. Anda membutuhkan sistem Full-Funnel yang menjaring audiens dari tahap Cold hingga Hot Buyer.</p>
                     <ul class="list-decimal pl-5 space-y-2">
-                        <li><strong>Top of Funnel (Awareness):</strong> Manfaatkan konten *Short Video* vertikal (TikTok, IG Reels, YouTube Shorts) dengan *hook* 3 detik pertama yang sangat kuat untuk memancing atensi massal dengan biaya CPC terendah.</li>
-                        <li><strong>Middle of Funnel (Consideration):</strong> Tangkap calon audiens yang tertinggal dengan *Lead Magnet* (E-book, Webinar gratis, Kupon) dan kumpulkan *Database* email/WA mereka. Dorong artikel blog yang menyelesaikan masalah (Pain-points) mereka.</li>
+                        <li><strong>Top of Funnel (Awareness):</strong> Manfaatkan konten Short Video vertikal (TikTok, IG Reels, YouTube Shorts) dengan hook 3 detik pertama yang sangat kuat untuk memancing atensi massal dengan biaya CPC terendah.</li>
+                        <li><strong>Middle of Funnel (Consideration):</strong> Tangkap calon audiens yang tertinggal dengan Lead Magnet (E-book, Webinar gratis, Kupon) dan kumpulkan Database email/WA mereka. Dorong artikel blog yang menyelesaikan masalah (Pain-points) mereka.</li>
                         <li><strong>Bottom of Funnel (Conversion):</strong> Luncurkan <em>Retargeting Ads</em> (Meta & Google Ads) yang agresif kepada audiens yang sudah mengunjungi website Anda namun belum membeli. Tawarkan urgensi khusus (Flash Sale 24 jam).</li>
-                        <li><strong>Optimasi CRO (Conversion Rate):</strong> Sederhanakan formulir (Checkout) di *Landing Page* Anda. Gunakan teknik *A/B Testing* untuk warna tombol (Call to Action) dan terapkan efek *Social Proof* (Testimonial & FOMO pop-up).</li>
+                        <li><strong>Optimasi CRO (Conversion Rate):</strong> Sederhanakan formulir (Checkout) di Landing Page Anda. Gunakan teknik A/B Testing untuk warna tombol (Call to Action) dan terapkan efek Social Proof (Testimonial & FOMO pop-up).</li>
                     </ul>
                     <p class="font-bold text-xs mt-3">Aksi Lanjutan:</p>
                     <p class="text-xs">Sinkronisasikan Facebook Pixel, TikTok Pixel, dan Google Tag Manager untuk melacak setiap titik interaksi (Touchpoints) secara presisi.</p>
@@ -1250,19 +1460,18 @@
                 responseText = `
                 <div class="space-y-4">
                     <p class="font-bold text-base text-blue-600 dark:text-blue-400 border-b border-black/10 dark:border-white/10 pb-2">Kerangka Skalabilitas & Pertumbuhan Eksponensial</p>
-                    <p>Meningkatkan omzet bisnis tidak selalu berarti menaikkan *budget* iklan. Skalabilitas sesungguhnya berada pada retensi pelanggan dan otomasi operasi bisnis Anda.</p>
+                    <p>Meningkatkan omzet bisnis tidak selalu berarti menaikkan budget iklan. Skalabilitas sesungguhnya berada pada retensi pelanggan dan otomasi operasi bisnis Anda.</p>
                     <ul class="list-disc pl-5 space-y-2">
                         <li><strong>Fokus Pada LTV (Life-Time Value):</strong> Sangat mahal untuk mengakuisisi pelanggan baru. Buatlah program loyalitas bertingkat (Tier system) atau model langganan (Subscription) untuk memastikan satu pelanggan membeli berulang kali dari Anda.</li>
-                        <li><strong>Validasi Product-Market Fit (PMF):</strong> Sebelum membakar uang di iklan besar-besaran, pastikan persentase *Repeat Order* produk Anda secara organik sudah menyentuh di atas 20-30%.</li>
-                        <li><strong>Otomasi Alur Kerja (Workflow):</strong> Singkirkan pekerjaan manual. Integrasikan *Customer Relationship Management (CRM)* seperti WhatsApp Bot Auto-reply dan Email *Drip Campaigns* untuk *follow-up* pelanggan secara otomatis.</li>
-                        <li><strong>Keputusan Berbasis Data (Data-Driven):</strong> Jangan pernah menebak pasar. Bangun <em>Executive Dashboard</em> (menggunakan Looker Studio / Tableau) yang menyoroti indikator kinerja utama (KPI) harian secara <em>Real-time</em>.</li>
+                        <li><strong>Validasi Product-Market Fit (PMF):</strong> Sebelum membakar uang di iklan besar-besaran, pastikan persentase Repeat Order produk Anda secara organik sudah menyentuh di atas 20-30%.</li>
+                        <li><strong>Otomasi Alur Kerja (Workflow):</strong> Singkirkan pekerjaan manual. Integrasikan Customer Relationship Management (CRM) seperti WhatsApp Bot Auto-reply dan Email Drip Campaigns untuk follow-up pelanggan secara otomatis.</li>
+                        <li><strong>Keputusan Berbasis Data (Data-Driven):</strong> Jangan pernah menebak pasar. Bangun <em>Executive Dashboard</em> (menggunakan Looker Studio / Tableau) yang menyoroti indikator kinerja utama (KPI) harian secara Real-time.</li>
                     </ul>
                     <p class="text-xs italic text-textGray dark:text-darkSub mt-3">"Pertumbuhan tidak diciptakan secara instan, melainkan direkayasa melalui sistem, analitik, dan konsistensi operasional."</p>
                 </div>`;
             }
 
             optionsContainer.style.display = 'none';
-            // User Chat Bubble (Tingkatkan Lebar Maksimal Flat Layout)
             chatWindow.innerHTML += `
             <div class="flex w-full justify-end items-start mt-2">
                 <div class="w-full pb-4 border-b border-black/5 dark:border-white/5 text-right ai-chat-bubble">
@@ -1286,7 +1495,6 @@
 
             setTimeout(() => {
                 document.getElementById(loadingId).remove();
-                // AI Chat Output Flat Layout (Tanpa Icon Robot)
                 chatWindow.innerHTML += `
                 <div class="flex w-full items-start mt-2">
                     <div class="w-full pb-6 text-sm dark:text-darkText text-gray-800 ai-chat-bubble">
@@ -1298,18 +1506,43 @@
             }, 1500);
         }
 
-        // --- PAGESPEED AUDITOR ---
-        async function runPageSpeed() {
-            const urlInput = document.getElementById('psi-url');
+        // --- PAGESPEED AUDITOR (SINGLE VS COMPARE) ---
+        let auditMode = 'single';
+        function setAuditMode(mode) {
+            auditMode = mode;
+            document.getElementById('btn-mode-single').className = mode === 'single' ? "flex-1 text-[10px] font-bold py-1.5 rounded-md bg-white dark:bg-darkCard shadow-sm transition-all text-gold" : "flex-1 text-[10px] font-bold py-1.5 rounded-md text-textGray dark:text-darkSub transition-all";
+            document.getElementById('btn-mode-compare').className = mode === 'compare' ? "flex-1 text-[10px] font-bold py-1.5 rounded-md bg-white dark:bg-darkCard shadow-sm transition-all text-gold" : "flex-1 text-[10px] font-bold py-1.5 rounded-md text-textGray dark:text-darkSub transition-all";
+            
+            if(mode === 'compare') {
+                document.getElementById('psi-comp-wrapper').classList.remove('hidden');
+                document.getElementById('btn-audit').innerText = "BANDINGKAN SEKARANG";
+                document.getElementById('psi-result-single').classList.add('hidden');
+                document.getElementById('psi-result-compare').classList.add('hidden');
+            } else {
+                document.getElementById('psi-comp-wrapper').classList.add('hidden');
+                document.getElementById('btn-audit').innerText = "JALANKAN ANALISIS";
+                document.getElementById('psi-result-single').classList.add('hidden');
+                document.getElementById('psi-result-compare').classList.add('hidden');
+            }
+        }
+
+        async function runAudit() {
+            if(auditMode === 'single') await runSingleSpeed();
+            else await runCompetitorSpeed();
+        }
+
+        async function runSingleSpeed() {
+            const urlInput = document.getElementById('psi-url-client');
             let url = urlInput.value.trim();
             if(!url) return alert("Masukkan URL website valid!");
             if(!url.startsWith('http')) url = 'https://' + url;
             
             const btn = document.getElementById('btn-audit');
-            btn.innerText = "WAIT.."; btn.disabled = true;
+            btn.innerText = "MENGANALISIS..."; btn.disabled = true;
             btn.closest('.bento-card').classList.add('scanning');
             
-            document.getElementById('psi-result').classList.add('hidden');
+            document.getElementById('psi-result-single').classList.add('hidden');
+            document.getElementById('psi-result-compare').classList.add('hidden');
             document.getElementById('psi-loading').classList.remove('hidden');
 
             try {
@@ -1325,21 +1558,14 @@
                     el.innerText = score || '--';
                     el.className = `text-2xl font-bold ${score >= 90 ? 'text-green-500' : score >= 50 ? 'text-yellow-500' : 'text-red-500'}`;
                 };
-                setScore('psi-perf', Math.round((cats.performance?.score || 0) * 100));
-                setScore('psi-seo', Math.round((cats.seo?.score || 0) * 100));
+                setScore('psi-perf-single', Math.round((cats.performance?.score || 0) * 100));
+                setScore('psi-seo-single', Math.round((cats.seo?.score || 0) * 100));
 
-                const lcp = audits['largest-contentful-paint']?.displayValue || '--';
-                const cls = audits['cumulative-layout-shift']?.displayValue || '--';
-                const inp = audits['interaction-to-next-paint']?.displayValue || audits['max-potential-fid']?.displayValue || '--';
-                
-                document.getElementById('psi-lcp').innerText = lcp;
-                document.getElementById('psi-cls').innerText = cls;
-                document.getElementById('psi-inp').innerText = inp;
-                document.getElementById('psi-ttfb').innerText = audits['server-response-time']?.displayValue || '--';
-                document.getElementById('psi-fcp').innerText = audits['first-contentful-paint']?.displayValue || '--';
-                document.getElementById('psi-tbt').innerText = audits['total-blocking-time']?.displayValue || '--';
+                document.getElementById('psi-lcp-single').innerText = audits['largest-contentful-paint']?.displayValue || '--';
+                document.getElementById('psi-ttfb-single').innerText = audits['server-response-time']?.displayValue || '--';
+                document.getElementById('psi-tbt-single').innerText = audits['total-blocking-time']?.displayValue || '--';
 
-                let totalMB = 0; let sizes = { img: 0, script: 0, stylesheet: 0, font: 0, other: 0 };
+                let totalMB = 0; let sizes = { img: 0, script: 0, stylesheet: 0, font: 0 };
                 if (audits['resource-summary']?.details?.items) {
                     audits['resource-summary'].details.items.forEach(req => {
                         const type = req.resourceType; const sizeKB = req.transferSize / 1024;
@@ -1348,56 +1574,159 @@
                         else if(type === 'stylesheet') sizes.stylesheet += sizeKB;
                         else if(type === 'font') sizes.font += sizeKB;
                         else if(type === 'total') totalMB = req.transferSize / (1024 * 1024);
-                        else sizes.other += sizeKB;
                     });
                 }
                 
-                document.getElementById('psi-size').innerText = totalMB > 0 ? totalMB.toFixed(2) + ' MB' : '-- MB';
+                document.getElementById('psi-size-single').innerText = totalMB > 0 ? totalMB.toFixed(2) + ' MB' : '-- MB';
                 const totalKB = totalMB * 1024;
                 if(totalKB > 0) {
                     const pImg = (sizes.img / totalKB) * 100;
                     const pJs = (sizes.script / totalKB) * 100;
                     const pCss = (sizes.stylesheet / totalKB) * 100;
-                    document.getElementById('psi-size-bar').innerHTML = `<div class="h-full bg-blue-500" style="width:${pImg}%"></div><div class="h-full bg-yellow-500" style="width:${pJs}%"></div><div class="h-full bg-pink-500" style="width:${pCss}%"></div><div class="h-full bg-gray-400" style="width:${100-(pImg+pJs+pCss)}%"></div>`;
-                    document.getElementById('psi-reqs').innerHTML = `<div class="flex items-center gap-1"><div class="w-2 h-2 bg-blue-500 rounded-full"></div> IMG: ${(sizes.img/1024).toFixed(2)}MB</div><div class="flex items-center gap-1"><div class="w-2 h-2 bg-yellow-500 rounded-full"></div> JS: ${(sizes.script/1024).toFixed(2)}MB</div><div class="flex items-center gap-1"><div class="w-2 h-2 bg-pink-500 rounded-full"></div> CSS: ${(sizes.stylesheet/1024).toFixed(2)}MB</div>`;
+                    document.getElementById('psi-size-bar-single').innerHTML = `<div class="h-full bg-blue-500" style="width:${pImg}%"></div><div class="h-full bg-yellow-500" style="width:${pJs}%"></div><div class="h-full bg-pink-500" style="width:${pCss}%"></div><div class="h-full bg-gray-400" style="width:${100-(pImg+pJs+pCss)}%"></div>`;
+                    document.getElementById('psi-reqs-single').innerHTML = `<div class="flex items-center gap-1"><div class="w-2 h-2 bg-blue-500 rounded-full"></div> IMG: ${(sizes.img/1024).toFixed(2)}MB</div><div class="flex items-center gap-1"><div class="w-2 h-2 bg-yellow-500 rounded-full"></div> JS: ${(sizes.script/1024).toFixed(2)}MB</div><div class="flex items-center gap-1"><div class="w-2 h-2 bg-pink-500 rounded-full"></div> CSS: ${(sizes.stylesheet/1024).toFixed(2)}MB</div>`;
                 }
 
-                const issuesList = document.getElementById('psi-issues-list'); issuesList.innerHTML = '';
+                const issuesList = document.getElementById('psi-issues-list-single'); issuesList.innerHTML = '';
                 let issuesCount = 0;
                 ['uses-webp-images', 'unused-javascript', 'unused-css-rules', 'uses-long-cache-ttl', 'render-blocking-resources'].forEach(key => {
                     const audit = audits[key];
                     if (audit?.score < 0.9 && issuesCount < 6) {
-                        issuesList.innerHTML += `<li class="flex items-start gap-2 bg-red-500/5 dark:bg-red-500/10 p-2.5 rounded-lg border border-red-500/10 dark:border-red-500/20 mb-2"><i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 text-[10px] shrink-0"></i> <div class="flex flex-col"><span class="font-bold text-darkBlack dark:text-white text-[11px] mb-0.5">${audit.title}</span><span class="text-[9px] text-textGray dark:text-darkSub"><span class="text-gold font-bold">Detail:</span> ${audit.description?.split('.')[0]}.</span></div></li>`;
+                        issuesList.innerHTML += `<li class="flex items-start gap-2 bg-red-500/5 dark:bg-red-500/10 p-2.5 rounded-lg border border-red-500/10 dark:border-red-500/20"><i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 text-[10px] shrink-0"></i> <div class="flex flex-col"><span class="font-bold text-darkBlack dark:text-white text-[11px] mb-0.5">${audit.title}</span><span class="text-[9px] text-textGray dark:text-darkSub">${audit.description?.split('.')[0]}.</span></div></li>`;
                         issuesCount++;
                     }
                 });
-                if(issuesCount===0) issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2 font-bold p-3 bg-green-500/10 rounded-lg text-xs"><i class="fas fa-check-circle"></i> Website sangat sehat! Berada dalam kondisi optimal.</li>`;
+                if(issuesCount===0) issuesList.innerHTML = `<li class="text-green-500 flex items-center gap-2 font-bold p-3 bg-green-500/10 rounded-lg text-xs"><i class="fas fa-check-circle"></i> Website sangat sehat & teroptimasi dengan baik.</li>`;
 
-                document.getElementById('psi-result').classList.remove('hidden');
-                document.getElementById('psi-result').classList.add('flex');
+                document.getElementById('psi-result-single').classList.remove('hidden');
+                document.getElementById('psi-result-single').classList.add('flex');
+                
+                // Scroll to result on mobile smoothly
+                if(window.innerWidth <= 768) {
+                    setTimeout(() => { document.getElementById('psi-result-single').scrollIntoView({behavior: "smooth", block: "nearest"}); }, 300);
+                }
+
             } catch (e) {
                 document.getElementById('psi-loading').classList.add('hidden');
                 alert("Gagal memindai URL. Pastikan alamat valid dan dapat diakses.");
             } finally {
-                btn.innerText = "SCAN"; btn.disabled = false;
+                btn.innerText = "JALANKAN ANALISIS"; btn.disabled = false;
+                btn.closest('.bento-card').classList.remove('scanning');
+            }
+        }
+
+        async function runCompetitorSpeed() {
+            const urlClientInput = document.getElementById('psi-url-client');
+            const urlCompInput = document.getElementById('psi-url-comp');
+            let urlClient = urlClientInput.value.trim();
+            let urlComp = urlCompInput.value.trim();
+            
+            if(!urlClient || !urlComp) return alert("Masukkan kedua URL website untuk dibandingkan!");
+            if(!urlClient.startsWith('http')) urlClient = 'https://' + urlClient;
+            if(!urlComp.startsWith('http')) urlComp = 'https://' + urlComp;
+            
+            const btn = document.getElementById('btn-audit');
+            btn.innerText = "MENGANALISIS..."; btn.disabled = true;
+            btn.closest('.bento-card').classList.add('scanning');
+            
+            document.getElementById('psi-result-single').classList.add('hidden');
+            document.getElementById('psi-result-compare').classList.add('hidden');
+            document.getElementById('psi-loading').classList.remove('hidden');
+
+            try {
+                const [resClient, resComp] = await Promise.all([
+                    fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(urlClient)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=seo`),
+                    fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(urlComp)}&key=${KEYS.PAGESPEED}&strategy=mobile&category=performance&category=seo`)
+                ]);
+
+                const dataClient = await resClient.json();
+                const dataComp = await resComp.json();
+                
+                document.getElementById('psi-loading').classList.add('hidden');
+
+                // LCP Values
+                let lcpClientStr = dataClient.lighthouseResult?.audits['largest-contentful-paint']?.displayValue || '0 s';
+                let lcpCompStr = dataComp.lighthouseResult?.audits['largest-contentful-paint']?.displayValue || '0 s';
+                let lcpClient = parseFloat(lcpClientStr.replace(/[^0-9.]/g, '')) || 0;
+                let lcpComp = parseFloat(lcpCompStr.replace(/[^0-9.]/g, '')) || 0;
+
+                // SEO Scores
+                let seoClient = Math.round((dataClient.lighthouseResult?.categories?.seo?.score || 0) * 100);
+                let seoComp = Math.round((dataComp.lighthouseResult?.categories?.seo?.score || 0) * 100);
+
+                // Update DOM
+                document.getElementById('res-client-lcp').innerText = lcpClient.toFixed(1);
+                document.getElementById('res-comp-lcp').innerText = lcpComp.toFixed(1);
+                document.getElementById('res-client-seo').innerText = seoClient;
+                document.getElementById('res-comp-seo').innerText = seoComp;
+
+                let lcpClientWidth = Math.min((lcpClient / 5) * 100, 100);
+                let lcpCompWidth = Math.min((lcpComp / 5) * 100, 100);
+                document.getElementById('bar-client-lcp').style.width = lcpClientWidth + '%';
+                document.getElementById('bar-comp-lcp').style.width = lcpCompWidth + '%';
+                
+                document.getElementById('bar-client-seo').style.width = seoClient + '%';
+                document.getElementById('bar-comp-seo').style.width = seoComp + '%';
+
+                // The Kill Factor Logic
+                let killText = "";
+                let killBox = document.getElementById('kill-factor-box');
+                if (lcpComp < lcpClient && (lcpClient - lcpComp > 0.5)) {
+                    let diffPercent = Math.round(((lcpClient - lcpComp) / lcpClient) * 100);
+                    killText = `⚠️ <strong>Peringatan Defisit:</strong> Kompetitor memuat halaman <strong>${diffPercent}% lebih cepat</strong>. Keterlambatan ini membuat Anda berisiko kehilangan potensi <strong>${Math.round(diffPercent * 1.5)}% pembeli</strong> yang tidak sabar menunggu.`;
+                    killBox.className = "mt-2 p-4 rounded-xl border border-red-500/20 bg-red-500/5";
+                } else if (lcpClient < lcpComp) {
+                    killText = `✅ <strong>Keunggulan Kompetitif:</strong> Kecepatan Anda mengalahkan kompetitor. Pertahankan metrik ini untuk terus merebut audiens mereka di hasil pencarian Google.`;
+                    killBox.className = "mt-2 p-4 rounded-xl border border-green-500/20 bg-green-500/5";
+                } else {
+                    killText = `⚖️ <strong>Persaingan Ketat:</strong> Kecepatan hampir seimbang. Fokuslah pada optimasi tingkat lanjut dan struktur konten untuk memenangkan algoritma.`;
+                    killBox.className = "mt-2 p-4 rounded-xl border border-blue-500/20 bg-blue-500/5";
+                }
+                
+                if (seoComp > seoClient) {
+                    killText += `<br><br><span class="text-red-500">Struktur SEO kompetitor juga lebih kuat. Anda sangat perlu audit teknis segera.</span>`;
+                }
+
+                document.getElementById('kill-factor-text').innerHTML = killText;
+                document.getElementById('psi-result-compare').classList.remove('hidden');
+                document.getElementById('psi-result-compare').classList.add('flex');
+                
+                if(window.innerWidth <= 768) {
+                    setTimeout(() => { document.getElementById('psi-result-compare').scrollIntoView({behavior: "smooth", block: "nearest"}); }, 300);
+                }
+
+            } catch (e) {
+                document.getElementById('psi-loading').classList.add('hidden');
+                alert("Gagal membandingkan. Pastikan kedua URL valid dan dapat diakses publik.");
+            } finally {
+                btn.innerText = "BANDINGKAN SEKARANG"; btn.disabled = false;
                 btn.closest('.bento-card').classList.remove('scanning');
             }
         }
 
         // --- GOOGLE TRENDS ---
         let allTrends = [];
-        // Pastikan fallback trends ada persis 20 untuk padding/fallback.
         const fallbackTrends = [
-            {title: "Update Algoritma Google 2026", vol: "500K+", link: "#"}, {title: "Web Hosting Cloud Terbaik", vol: "200K+", link: "#"},
-            {title: "Tutorial TikTok Ads Pemula", vol: "1M+", link: "#"}, {title: "Tools AI untuk Startup", vol: "2M+", link: "#"},
-            {title: "Google Analytics 4 Certification", vol: "50K+", link: "#"}, {title: "Strategi Bisnis Dropship 2026", vol: "500K+", link: "#"},
-            {title: "Optimasi Core Web Vitals", vol: "100K+", link: "#"}, {title: "Panduan Looker Studio", vol: "50K+", link: "#"},
-            {title: "VPS vs Shared Hosting", vol: "150K+", link: "#"}, {title: "Jasa SEO Bulanan Murah", vol: "20K+", link: "#"},
-            {title: "Cara Iklan Meta Ads Konversi", vol: "800K+", link: "#"}, {title: "Ide Bisnis Digital Tanpa Modal", vol: "1.5M+", link: "#"},
-            {title: "Pentingnya SSL untuk Website", vol: "30K+", link: "#"}, {title: "Cara Menaikkan Domain Authority", vol: "100K+", link: "#"},
-            {title: "Harga Pembuatan Website Company Profile", vol: "60K+", link: "#"}, {title: "Apa itu Content Pillar", vol: "40K+", link: "#"},
-            {title: "Strategi Omnichannel Marketing", vol: "70K+", link: "#"}, {title: "Daftar Google Bisnisku", vol: "300K+", link: "#"},
-            {title: "Belajar Copywriting Dasar", vol: "400K+", link: "#"}, {title: "Cara Setup Meta Pixel", vol: "250K+", link: "#"}
+            {title: "Update Algoritma Google 2026", vol: "500K+", q: "Update Algoritma Google"}, 
+            {title: "Web Hosting Cloud Terbaik", vol: "200K+", q: "Web Hosting Cloud"},
+            {title: "Tutorial TikTok Ads Pemula", vol: "1M+", q: "TikTok Ads"}, 
+            {title: "Tools AI untuk Startup", vol: "2M+", q: "Tools AI"},
+            {title: "Google Analytics 4 Certification", vol: "50K+", q: "Google Analytics 4"}, 
+            {title: "Strategi Bisnis Dropship 2026", vol: "500K+", q: "Bisnis Dropship"},
+            {title: "Optimasi Core Web Vitals", vol: "100K+", q: "Core Web Vitals"}, 
+            {title: "Panduan Looker Studio", vol: "50K+", q: "Looker Studio"},
+            {title: "VPS vs Shared Hosting", vol: "150K+", q: "VPS"}, 
+            {title: "Jasa SEO Bulanan Murah", vol: "20K+", q: "Jasa SEO"},
+            {title: "Cara Iklan Meta Ads Konversi", vol: "800K+", q: "Meta Ads"}, 
+            {title: "Ide Bisnis Digital Tanpa Modal", vol: "1.5M+", q: "Bisnis Digital"},
+            {title: "Pentingnya SSL untuk Website", vol: "30K+", q: "SSL Website"}, 
+            {title: "Cara Menaikkan Domain Authority", vol: "100K+", q: "Domain Authority"},
+            {title: "Harga Pembuatan Website Company Profile", vol: "60K+", q: "Pembuatan Website"}, 
+            {title: "Apa itu Content Pillar", vol: "40K+", q: "Content Pillar"},
+            {title: "Strategi Omnichannel Marketing", vol: "70K+", q: "Omnichannel Marketing"}, 
+            {title: "Daftar Google Bisnisku", vol: "300K+", q: "Google Bisnisku"},
+            {title: "Belajar Copywriting Dasar", vol: "400K+", q: "Copywriting"}, 
+            {title: "Cara Setup Meta Pixel", vol: "250K+", q: "Meta Pixel"}
         ];
 
         async function fetchGoogleTrends() {
@@ -1406,11 +1735,14 @@
                 const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}&cb=${new Date().getTime()}`);
                 const data = await res.json();
                 let fetchedItems = data.items?.map(item => ({title: item.title, link: item.link, vol: "Trend Naik"})) || [];
-                // Menggabungkan dan memotong tepat 20 item
+                if(fetchedItems.length === 0) throw new Error("No items");
                 allTrends = [...fetchedItems, ...fallbackTrends].slice(0, 20);
                 renderTrendsList();
             } catch (e) {
-                allTrends = fallbackTrends.slice(0, 20); 
+                allTrends = fallbackTrends.slice(0, 20).map(t => ({
+                    title: t.title, vol: t.vol,
+                    link: `https://trends.google.com/trends/explore?q=${encodeURIComponent(t.q)}&geo=ID`
+                })); 
                 renderTrendsList();
             }
         }
@@ -1432,104 +1764,38 @@
         // --- BENTO GRID SERVICES LOGIC ---
         const bentoData = {
             // WEB DEV
-            descLandingPage: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Landing Page Premium:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Copywriting Persuasif:</strong> Struktur AIDA terbukti konversi 3x lipat.</li><li><strong>Kecepatan Maksimal:</strong> Waktu muat (loading) di bawah 1.5 detik.</li><li><strong>Desain Modern UI/UX:</strong> Elegan dan 100% responsif di semua *device*.</li><li><strong>Tracking Terpadu:</strong> Integrasi penuh Pixel Meta & Google Analytics.</li><li><strong>Tombol Konversi (CTA):</strong> Penempatan strategis untuk klik WhatsApp.</li><li><strong>Revisi Desain Fleksibel:</strong> Jaminan garansi kepuasan klien 100%.</li></ul>",
-                price: "Rp 2.500.000", strike: "Rp 3.500.000", suffix: ""
-            },
-            descWPBlog: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Web Portal / Blog:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Tema Premium:</strong> Desain elegan khusus portal berita/majalah.</li><li><strong>Optimasi SEO Otomatis:</strong> Integrasi plugin Yoast/RankMath Pro.</li><li><strong>Sistem Anti-Spam:</strong> Proteksi kolom komentar dari serangan bot.</li><li><strong>Pemasangan Iklan:</strong> Tata letak siap untuk Google AdSense.</li><li><strong>Kategori & Tag Dinamis:</strong> Pengelompokan artikel tak terbatas.</li><li><strong>Auto-Backup Berkala:</strong> Melindungi aset konten berharga Anda.</li></ul>",
-                price: "Rp 3.000.000", strike: "Rp 4.500.000", suffix: ""
-            },
-            descLMS: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Platform LMS (Kursus):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Manajemen Peran Multilevel:</strong> Akses khusus Admin, Guru, & Murid.</li><li><strong>Sistem Kuis Interaktif:</strong> Lengkap dengan bank soal & pengatur waktu.</li><li><strong>Otomasi Sertifikat:</strong> Kelulusan menghasilkan E-Certificate digital.</li><li><strong>Gateway Pembayaran:</strong> Terima transaksi instan via transfer/E-wallet.</li><li><strong>Proteksi Konten Video:</strong> Hindari pembajakan materi kursus premium.</li><li><strong>Laporan Belajar (Report):</strong> Grafik pencapaian progres tiap siswa.</li></ul>",
-                price: "Rp 5.000.000", strike: "Rp 7.500.000", suffix: ""
-            },
-            descTryOut: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Try-Out CBT:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Ujian Skala Massal:</strong> Sanggup menampung ribuan peserta bersamaan.</li><li><strong>Penilaian Sistem IRT:</strong> Algoritma *Item Response Theory* (Standar UTBK).</li><li><strong>Papan Peringkat (Leaderboard):</strong> Live ranking nasional / per-sekolah.</li><li><strong>Kunci & Pembahasan Soal:</strong> Ditampilkan pasca ujian selesai.</li><li><strong>Waktu Ujian Disiplin:</strong> Blokir otomatis jika waktu hitung mundur habis.</li><li><strong>Ekspor Nilai Cepat:</strong> Output hasil ke bentuk PDF dan Excel.</li></ul>",
-                price: "Rp 4.500.000", strike: "Rp 6.000.000", suffix: ""
-            },
-            descSIAKAD: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Akademik Sekolah:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Database Terpusat:</strong> Kelola data ribuan siswa dan guru tanpa lambat.</li><li><strong>Rapor Digital Online:</strong> Wali murid bisa cek nilai secara real-time.</li><li><strong>Modul Tagihan (SPP):</strong> Lacak status tunggakan atau lunas dengan rapi.</li><li><strong>Jadwal Mengajar Otomatis:</strong> Sinkronisasi absensi dan ruang kelas.</li><li><strong>Notifikasi WhatsApp:</strong> Pemberitahuan SPP atau absensi ke orang tua.</li><li><strong>Hak Akses Berjenjang:</strong> Kepala Sekolah, Tata Usaha, dan Wali Kelas.</li></ul>",
-                price: "Rp 7.500.000", strike: "Rp 10.000.000", suffix: ""
-            },
-            descBooking: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Smart Booking Online:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kalender Interaktif 24/7:</strong> Pelanggan bisa cek jadwal kosong secara live.</li><li><strong>Proteksi Double-Booking:</strong> Cegah bentrok jadwal secara otomatis (AI).</li><li><strong>Integrasi Uang Muka (DP):</strong> Kewajiban deposit untuk validasi layanan.</li><li><strong>WhatsApp Reminder:</strong> Pengingat otomatis H-1 mencegah absen tamu.</li><li><strong>Manajemen Staf / Layanan:</strong> Tiap karyawan memiliki jadwal kerjanya.</li><li><strong>Dasbor Rekapitulasi:</strong> Ekspor laporan reservasi mingguan/bulanan.</li></ul>",
-                price: "Rp 3.500.000", strike: "Rp 5.000.000", suffix: ""
-            },
-            descProperty: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Property Listing App:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Filter Pencarian Lanjut:</strong> Cari bedasar area, tipe, harga, dan fasilitas.</li><li><strong>Fitur Virtual Tour 360°:</strong> Tampilkan simulasi ruangan secara imersif.</li><li><strong>Profil Agen Eksklusif:</strong> Masing-masing agen memiliki halaman listingnya.</li><li><strong>Integrasi Peta Area (Maps):</strong> Menunjukkan POI (sekolah, RS terdekat).</li><li><strong>Kalkulator Simulasi KPR:</strong> Widget otomatis hitung cicilan pengunjung.</li><li><strong>Formulir Jadwal Kunjungan:</strong> *Lead generation* instan masuk email.</li></ul>",
-                price: "Rp 4.000.000", strike: "Rp 6.000.000", suffix: ""
-            },
-            descInvitation: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Undangan Digital VIP:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Custom Nama Tamu:</strong> URL spesifik menyesuaikan setiap undangan.</li><li><strong>Buku Tamu Digital (RSVP):</strong> Tamu bisa konfirmasi hadir secara online.</li><li><strong>Barcode / QR Check-in:</strong> Pindai di pintu masuk untuk pendataan resepsi.</li><li><strong>Desain Premium Responsif:</strong> Elegan diakses baik lewat HP maupun PC.</li><li><strong>Pemutar Musik Latar:</strong> *Autoplay* musik yang menguatkan suasana.</li><li><strong>Galeri & Penunjuk Arah Maps:</strong> Navigasi lokasi akurat tanpa tersasar.</li></ul>",
-                price: "Rp 1.500.000", strike: "Rp 2.500.000", suffix: ""
-            },
+            descLandingPage: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Landing Page Premium:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Copywriting Persuasif:</strong> Struktur AIDA terbukti konversi 3x lipat.</li><li><strong>Kecepatan Maksimal:</strong> Waktu muat (loading) di bawah 1.5 detik.</li><li><strong>Desain Modern UI/UX:</strong> Elegan dan 100% responsif di semua perangkat.</li><li><strong>Tracking Terpadu:</strong> Integrasi penuh Pixel Meta & Google Analytics.</li><li><strong>Tombol Konversi (CTA):</strong> Penempatan strategis untuk klik WhatsApp.</li><li><strong>Revisi Desain Fleksibel:</strong> Jaminan garansi kepuasan klien 100%.</li></ul>", price: "Rp 2.499.000", strike: "Rp 3.500.000", suffix: "" },
+            descWPBlog: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Web Portal / Blog:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Tema Premium:</strong> Desain elegan khusus portal berita/majalah.</li><li><strong>Optimasi SEO Otomatis:</strong> Integrasi plugin Yoast/RankMath Pro.</li><li><strong>Sistem Anti-Spam:</strong> Proteksi kolom komentar dari serangan bot.</li><li><strong>Pemasangan Iklan:</strong> Tata letak siap untuk Google AdSense.</li><li><strong>Kategori & Tag Dinamis:</strong> Pengelompokan artikel tak terbatas.</li><li><strong>Auto-Backup Berkala:</strong> Melindungi aset konten berharga Anda.</li></ul>", price: "Rp 2.999.000", strike: "Rp 4.500.000", suffix: "" },
+            descLMS: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Platform LMS (Kursus):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Manajemen Peran Multilevel:</strong> Akses khusus Admin, Guru, & Murid.</li><li><strong>Sistem Kuis Interaktif:</strong> Lengkap dengan bank soal & pengatur waktu.</li><li><strong>Otomasi Sertifikat:</strong> Kelulusan menghasilkan E-Certificate digital.</li><li><strong>Gateway Pembayaran:</strong> Terima transaksi instan via transfer/E-wallet.</li><li><strong>Proteksi Konten Video:</strong> Hindari pembajakan materi kursus premium.</li><li><strong>Laporan Belajar (Report):</strong> Grafik pencapaian progres tiap siswa.</li></ul>", price: "Rp 4.999.000", strike: "Rp 7.500.000", suffix: "" },
+            descTryOut: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Try-Out CBT:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Ujian Skala Massal:</strong> Sanggup menampung ribuan peserta bersamaan.</li><li><strong>Penilaian Sistem IRT:</strong> Algoritma Item Response Theory (Standar UTBK).</li><li><strong>Papan Peringkat (Leaderboard):</strong> Live ranking nasional / per-sekolah.</li><li><strong>Kunci & Pembahasan Soal:</strong> Ditampilkan pasca ujian selesai.</li><li><strong>Waktu Ujian Disiplin:</strong> Blokir otomatis jika waktu hitung mundur habis.</li><li><strong>Ekspor Nilai Cepat:</strong> Output hasil ke bentuk PDF dan Excel.</li></ul>", price: "Rp 4.499.000", strike: "Rp 6.000.000", suffix: "" },
+            descSIAKAD: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Akademik Sekolah:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Database Terpusat:</strong> Kelola data ribuan siswa dan guru tanpa lambat.</li><li><strong>Rapor Digital Online:</strong> Wali murid bisa cek nilai secara real-time.</li><li><strong>Modul Tagihan (SPP):</strong> Lacak status tunggakan atau lunas dengan rapi.</li><li><strong>Jadwal Mengajar Otomatis:</strong> Sinkronisasi absensi dan ruang kelas.</li><li><strong>Notifikasi WhatsApp:</strong> Pemberitahuan SPP atau absensi ke orang tua.</li><li><strong>Hak Akses Berjenjang:</strong> Kepala Sekolah, Tata Usaha, dan Wali Kelas.</li></ul>", price: "Rp 7.499.000", strike: "Rp 10.000.000", suffix: "" },
+            descBooking: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Smart Booking Online:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kalender Interaktif 24/7:</strong> Pelanggan bisa cek jadwal kosong secara live.</li><li><strong>Proteksi Double-Booking:</strong> Cegah bentrok jadwal secara otomatis (AI).</li><li><strong>Integrasi Uang Muka (DP):</strong> Kewajiban deposit untuk validasi layanan.</li><li><strong>WhatsApp Reminder:</strong> Pengingat otomatis H-1 mencegah absen tamu.</li><li><strong>Manajemen Staf / Layanan:</strong> Tiap karyawan memiliki jadwal kerjanya.</li><li><strong>Dasbor Rekapitulasi:</strong> Ekspor laporan reservasi mingguan/bulanan.</li></ul>", price: "Rp 3.499.000", strike: "Rp 5.000.000", suffix: "" },
+            descProperty: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Property Listing App:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Filter Pencarian Lanjut:</strong> Cari bedasar area, tipe, harga, dan fasilitas.</li><li><strong>Fitur Virtual Tour 360°:</strong> Tampilkan simulasi ruangan secara imersif.</li><li><strong>Profil Agen Eksklusif:</strong> Masing-masing agen memiliki halaman listingnya.</li><li><strong>Integrasi Peta Area (Maps):</strong> Menunjukkan POI (sekolah, RS terdekat).</li><li><strong>Kalkulator Simulasi KPR:</strong> Widget otomatis hitung cicilan pengunjung.</li><li><strong>Formulir Jadwal Kunjungan:</strong> Generasi prospek (Lead) instan masuk email.</li></ul>", price: "Rp 3.999.000", strike: "Rp 6.000.000", suffix: "" },
+            descInvitation: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Undangan Digital VIP:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Custom Nama Tamu:</strong> URL spesifik menyesuaikan setiap undangan.</li><li><strong>Buku Tamu Digital (RSVP):</strong> Tamu bisa konfirmasi hadir secara online.</li><li><strong>Barcode / QR Check-in:</strong> Pindai di pintu masuk untuk pendataan resepsi.</li><li><strong>Desain Premium Responsif:</strong> Elegan diakses baik lewat HP maupun PC.</li><li><strong>Pemutar Musik Latar:</strong> Putar otomatis musik yang menguatkan suasana.</li><li><strong>Galeri & Penunjuk Arah Maps:</strong> Navigasi lokasi akurat tanpa tersasar.</li></ul>", price: "Rp 1.499.000", strike: "Rp 2.500.000", suffix: "" },
 
             // MARKETING
-            descStructureSEO: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Audit & Struktur SEO:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Audit Teknis Menyeluruh:</strong> Perbaikan error Sitemap dan Robots.txt.</li><li><strong>Optimasi Tag Meta & Canonical:</strong> Menghindari deteksi konten duplikat.</li><li><strong>Penerapan Schema Markup:</strong> Meningkatkan visibilitas (Rich Snippet).</li><li><strong>Percepatan Kecepatan Muat:</strong> Optimasi skor Core Web Vitals (LCP/CLS).</li><li><strong>Pembenahan Hirarki (H1-H6):</strong> Menuntun bot Google merayapi konten.</li><li><strong>Laporan Kenaikan Ranking:</strong> Report *Before-After* indeks pencarian.</li></ul>",
-                price: "Rp 2.000.000", strike: "Rp 3.500.000", suffix: ""
-            },
-            descAdsMgmt: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Manajemen Iklan Digital:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Ekskusi Multi-Platform:</strong> Setup rapi di Google, Meta, dan TikTok Ads.</li><li><strong>Uji Belah (A/B Testing):</strong> Evaluasi visual & teks iklan secara harian.</li><li><strong>Penyaringan Audiens Presisi:</strong> Menekan biaya klik (CPC) ke target pasar.</li><li><strong>Instalasi Tracking Pixel:</strong> Perekaman event (Add to Cart / Purchase).</li><li><strong>Siasat Iklan Retargeting:</strong> Mengejar kembali pengunjung potensial.</li><li><strong>Laporan *Return on Ad Spend*:</strong> Transparansi performa tiap minggu.</li></ul>",
-                price: "20% Fee", strike: "30% Fee", suffix: "/bulan"
-            },
-            descStoreMgmt: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Optimasi Toko E-commerce:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Manajemen Inventaris:</strong> Upload/update produk secara terstruktur massal.</li><li><strong>SEO Judul & Deksripsi:</strong> Injeksi *Keyword* supaya mudah dicari pembeli.</li><li><strong>Dekorasi Etalase Premium:</strong> Desain *banner* toko lebih profesional.</li><li><strong>Setup Promosi & Voucher:</strong> Pengaturan Flash Sale/Diskon Ongkir berkala.</li><li><strong>Pelayanan Chat (CS) Responsif:</strong> Menjaga persentase balasan di atas 95%.</li><li><strong>Analisis Strategi Kompetitor:</strong> Pengawasan pergerakan harga pasar/pesaing.</li></ul>",
-                price: "Rp 3.000.000", strike: "Rp 5.000.000", suffix: "/bulan"
-            },
-            descGMB: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Google Bisnisku (GMB):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Dominasi Pencarian Lokal:</strong> Pendaftaran/Verifikasi titik lokasi toko/kantor.</li><li><strong>Pengaturan Profil & Kategori:</strong> Optimasi info jam buka yang sangat presisi.</li><li><strong>Unggah Katalog Berkualitas:</strong> Visual resolusi tinggi yang menarik klien.</li><li><strong>Mekanisme Balasan Ulasan:</strong> Respon otomatis profesional ke pelanggan.</li><li><strong>Tautan ke Website/WA:</strong> Konversi trafik peta jadi panggilan telepon.</li><li><strong>Taktik Pemancingan Bintang 5:</strong> Sistem *review link* yang disederhanakan.</li></ul>",
-                price: "Rp 1.500.000", strike: "Rp 2.500.000", suffix: ""
-            },
-            descContentStrategy: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Strategi Konten Top Tier:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penelitian Kata Kunci:</strong> Membidik kata sandi bervolume tinggi, kompetisi rendah.</li><li><strong>Penyusunan Kalender Editorial:</strong> Rencana konten terarah selama 30 hari.</li><li><strong>Pembuatan Artikel Pilar SEO:</strong> Konten berkualitas berformat panjang.</li><li><strong>Optimasi Aset Visual (Alt-Text):</strong> Google Image mendatangkan trafik ekstra.</li><li><strong>Arsitektur Tautan Internal:</strong> Mengikat *Page Authority* di dalam situs.</li><li><strong>Distribusi Lintas Platform:</strong> Eksekusi penyiaran artikel ke Sosial Media.</li></ul>",
-                price: "Rp 2.500.000", strike: "Rp 4.000.000", suffix: "/bulan"
-            },
-            descCRO: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Optimasi Tingkat Konversi:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Perekaman Layar (Heatmaps):</strong> Lacak pergerakan mouse & klik via Hotjar.</li><li><strong>Pemangkasan Alur Checkout:</strong> Sederhanakan *form* untuk hindari *drop-off*.</li><li><strong>Akselerasi Muat Keranjang:</strong> Fokus perbaikan kecepatan saat transaksi.</li><li><strong>Uji Variasi (A/B Testing):</strong> Mencari kombinasi warna CTA yang memikat.</li><li><strong>Popup 'Exit-Intent':</strong> Tahan audiens yang hendak keluar website.</li><li><strong>Sisipan *Social Proof*:</strong> Widget ulasan palsu/asli yang timbulkan *FOMO*.</li></ul>",
-                price: "Rp 3.000.000", strike: "Rp 4.500.000", suffix: ""
-            },
+            descStructureSEO: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Audit & Struktur SEO:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Audit Teknis Menyeluruh:</strong> Perbaikan error Sitemap dan Robots.txt.</li><li><strong>Optimasi Tag Meta & Canonical:</strong> Menghindari deteksi konten duplikat.</li><li><strong>Penerapan Schema Markup:</strong> Meningkatkan visibilitas (Rich Snippet).</li><li><strong>Percepatan Kecepatan Muat:</strong> Optimasi skor Core Web Vitals (LCP/CLS).</li><li><strong>Pembenahan Hirarki (H1-H6):</strong> Menuntun bot Google merayapi konten.</li><li><strong>Laporan Kenaikan Ranking:</strong> Report Sebelum & Sesudah indeks pencarian.</li></ul>", price: "Rp 1.999.000", strike: "Rp 3.500.000", suffix: "" },
+            descAdsMgmt: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Manajemen Iklan Digital:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Ekskusi Multi-Platform:</strong> Setup rapi di Google, Meta, dan TikTok Ads.</li><li><strong>Uji Belah (A/B Testing):</strong> Evaluasi visual & teks iklan secara harian.</li><li><strong>Penyaringan Audiens Presisi:</strong> Menekan biaya klik (CPC) ke target pasar.</li><li><strong>Instalasi Tracking Pixel:</strong> Perekaman event konversi (Add to Cart / Purchase).</li><li><strong>Siasat Iklan Retargeting:</strong> Mengejar kembali pengunjung potensial.</li><li><strong>Laporan Return on Ad Spend:</strong> Transparansi performa tiap minggu.</li></ul>", price: "20% Fee", strike: "30% Fee", suffix: "/bulan" },
+            descStoreMgmt: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Optimasi Toko E-commerce:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Manajemen Inventaris:</strong> Upload/update produk secara terstruktur massal.</li><li><strong>SEO Judul & Deksripsi:</strong> Injeksi Keyword supaya mudah dicari pembeli.</li><li><strong>Dekorasi Etalase Premium:</strong> Desain banner toko lebih profesional.</li><li><strong>Setup Promosi & Voucher:</strong> Pengaturan Flash Sale/Diskon Ongkir berkala.</li><li><strong>Pelayanan Chat (CS) Responsif:</strong> Menjaga persentase balasan di atas 95%.</li><li><strong>Analisis Strategi Kompetitor:</strong> Pengawasan pergerakan harga pasar/pesaing.</li></ul>", price: "Rp 2.999.000", strike: "Rp 5.000.000", suffix: "/bulan" },
+            descGMB: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Google Bisnisku (GMB):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Dominasi Pencarian Lokal:</strong> Pendaftaran/Verifikasi titik lokasi toko/kantor.</li><li><strong>Pengaturan Profil & Kategori:</strong> Optimasi info jam buka yang sangat presisi.</li><li><strong>Unggah Katalog Berkualitas:</strong> Visual resolusi tinggi yang menarik klien.</li><li><strong>Mekanisme Balasan Ulasan:</strong> Respon otomatis profesional ke pelanggan.</li><li><strong>Tautan ke Website/WA:</strong> Konversi trafik peta jadi panggilan telepon.</li><li><strong>Taktik Pemancingan Bintang 5:</strong> Sistem *review link* yang disederhanakan.</li></ul>", price: "Rp 1.499.000", strike: "Rp 2.500.000", suffix: "" },
+            descContentStrategy: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Strategi Konten Top Tier:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penelitian Kata Kunci:</strong> Membidik kata sandi bervolume tinggi, kompetisi rendah.</li><li><strong>Penyusunan Kalender Editorial:</strong> Rencana konten terarah selama 30 hari.</li><li><strong>Pembuatan Artikel Pilar SEO:</strong> Konten berkualitas berformat panjang.</li><li><strong>Optimasi Aset Visual (Alt-Text):</strong> Google Image mendatangkan trafik ekstra.</li><li><strong>Arsitektur Tautan Internal:</strong> Mengikat Page Authority di dalam situs.</li><li><strong>Distribusi Lintas Platform:</strong> Eksekusi penyiaran artikel ke Sosial Media.</li></ul>", price: "Rp 2.499.000", strike: "Rp 4.000.000", suffix: "/bulan" },
+            descCRO: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Optimasi Tingkat Konversi:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Perekaman Layar (Heatmaps):</strong> Lacak pergerakan mouse & klik via Hotjar.</li><li><strong>Pemangkasan Alur Checkout:</strong> Sederhanakan formulir untuk hindari drop-off.</li><li><strong>Akselerasi Muat Keranjang:</strong> Fokus perbaikan kecepatan saat transaksi.</li><li><strong>Uji Variasi (A/B Testing):</strong> Mencari kombinasi warna CTA yang memikat.</li><li><strong>Popup Exit-Intent:</strong> Tahan audiens yang hendak keluar website.</li><li><strong>Sisipan Social Proof:</strong> Widget ulasan asli yang timbulkan rasa FOMO.</li></ul>", price: "Rp 2.999.000", strike: "Rp 4.500.000", suffix: "" },
 
             // BUSINESS OPS
-            descCareer: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Rekrutmen (ATS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Halaman Karir Eksklusif:</strong> Desain *branding* perusahaan yang memukau pelamar.</li><li><strong>Formulir Kustom Terintegrasi:</strong> Kumpulkan CV & portofolio secara otomatis.</li><li><strong>Filter Kandidat (ATS Lite):</strong> Penyaringan otomatis berbasis keterampilan.</li><li><strong>Bank Data Pendaftar:</strong> Simpan *database* rapi, tak pusing berkas berantakan.</li><li><strong>Notifikasi Kelulusan (WA/Email):</strong> Auto-kabar untuk jadwal wawancara.</li><li><strong>Ekspor Laporan (Excel):</strong> Rekapitulasi jumlah pendaftar tiap divisi.</li></ul>",
-                price: "Rp 4.500.000", strike: "Rp 6.500.000", suffix: ""
-            },
-            descDashboard: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Dashboard Looker Studio:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Visualisasi *Real-time*:</strong> Data grafik hidup 24/7 (Tanpa *refresh* manual).</li><li><strong>Multi-Integrasi *Source*:</strong> Sinkron data dari MySQL, Sheet, dan CRM Ads.</li><li><strong>Metrik Kinerja Instan:</strong> Pemantauan ROI, Laba Rugi, hingga *Sales Funnel*.</li><li><strong>Pembatasan Akses *Secure*:</strong> Terenkripsi, hanya pimpinan yang bisa melihat.</li><li><strong>Penyesuaian Tanggal Dinamis:</strong> Filter tanggal, cabang, & kuartal kapanpun.</li><li><strong>Peringatan Anomali Bot:</strong> *Alert* jika terjadi kerugian mendadak di pasar.</li></ul>",
-                price: "Rp 5.000.000", strike: "Rp 7.500.000", suffix: ""
-            },
-            descInventory: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Gudang (WMS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Sistem Sinkron Multi-Cabang:</strong> Cek persediaan antar gudang dengan presisi.</li><li><strong>Kompatibilitas Barcode:</strong> Mendukung pemindaian barang berbasis laser.</li><li><strong>Peringatan Stok Limit:</strong> *Alert* muncul bila produk butuh belanja (Restock).</li><li><strong>Riwayat Arus (In/Out):</strong> Laporan otomatis tiap pergerakan aset barang.</li><li><strong>Manajemen Pemasok (Supplier):</strong> Database kontak produsen barang rapi.</li><li><strong>Pencetakan Surat Jalan / Resi:</strong> Dokumen otomatis siap cetak PDF.</li></ul>",
-                price: "Rp 4.000.000", strike: "Rp 5.500.000", suffix: ""
-            },
-            descESS: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Portal Karyawan (ESS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Absen Presisi GPS (Geotag):</strong> Membutuhkan validasi foto *selfie* di lokasi.</li><li><strong>Formulir Izin / Cuti Online:</strong> Permohonan tanpa kertas (Paperless).</li><li><strong>Slip Gaji Rahasia (PDF):</strong> Di-<em>download</em> dari akun karyawan dengan *password*.</li><li><strong>Penyusunan Jadwal & Shift:</strong> Kelola rotasi kerja malam/pagi jadi mudah.</li><li><strong>Pengumuman *Broadcast*:</strong> Pesan terpusat (HRD) untuk seluruh tim.</li><li><strong>Persetujuan Atasan Berjenjang:</strong> Sistem *Approval* dari Manajer ke Direktur.</li></ul>",
-                price: "Rp 6.000.000", strike: "Rp 8.500.000", suffix: ""
-            },
-            descKPI: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Tracker KPI Otomatis:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penyusunan Target vs Realisasi:</strong> Perbandingan grafis secara *real-time*.</li><li><strong>Papan Skor Gamifikasi:</strong> Memicu kompetisi sehat bagi staf *Sales* (*Leaderboard*).</li><li><strong>Koneksi Data Otomatis:</strong> Integrasi angka penjualan tanpa *input* ganda.</li><li><strong>Evaluasi Produktivitas Cepat:</strong> Menilai kontribusi tiap individu / divisi.</li><li><strong>Tampilan Ramah *Mobile*:</strong> Pantau perkembangan perusahaan dari genggaman.</li><li><strong>Rekam Jejak Historis Tahunan:</strong> Pencapaian lampau tak hilang, mudah dinilai.</li></ul>",
-                price: "Rp 5.500.000", strike: "Rp 8.000.000", suffix: ""
-            },
+            descCareer: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Rekrutmen (ATS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Halaman Karir Eksklusif:</strong> Desain branding perusahaan yang memukau pelamar.</li><li><strong>Formulir Kustom Terintegrasi:</strong> Kumpulkan CV & portofolio secara otomatis.</li><li><strong>Filter Kandidat (ATS Lite):</strong> Penyaringan otomatis berbasis keterampilan.</li><li><strong>Bank Data Pendaftar:</strong> Simpan database rapi, tak pusing berkas berantakan.</li><li><strong>Notifikasi Kelulusan (WA/Email):</strong> Pesan otomatis untuk jadwal wawancara.</li><li><strong>Ekspor Laporan (Excel):</strong> Rekapitulasi jumlah pendaftar tiap divisi.</li></ul>", price: "Rp 4.499.000", strike: "Rp 6.500.000", suffix: "" },
+            descDashboard: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Dashboard Looker Studio:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Visualisasi Real-time:</strong> Data grafik hidup 24/7 (Tanpa perlu *refresh* manual).</li><li><strong>Multi-Integrasi Source:</strong> Sinkron data dari MySQL, Sheet, dan CRM Ads.</li><li><strong>Metrik Kinerja Instan:</strong> Pemantauan ROI, Laba Rugi, hingga Sales Funnel.</li><li><strong>Pembatasan Akses Tereskripsi:</strong> Sangat aman, hanya pimpinan yang bisa melihat.</li><li><strong>Penyesuaian Tanggal Dinamis:</strong> Filter tanggal, cabang, & kuartal kapanpun.</li><li><strong>Peringatan Anomali Bot:</strong> Peringatan dini jika terjadi kerugian mendadak.</li></ul>", price: "Rp 4.999.000", strike: "Rp 7.500.000", suffix: "" },
+            descInventory: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Sistem Gudang (WMS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Sistem Sinkron Multi-Cabang:</strong> Cek persediaan antar gudang dengan presisi.</li><li><strong>Kompatibilitas Barcode:</strong> Mendukung pemindaian barang berbasis laser.</li><li><strong>Peringatan Stok Limit:</strong> Peringatan muncul bila produk butuh dibeli (Restock).</li><li><strong>Riwayat Arus (In/Out):</strong> Laporan otomatis tiap pergerakan aset barang.</li><li><strong>Manajemen Pemasok (Supplier):</strong> Database kontak produsen barang rapi.</li><li><strong>Pencetakan Surat Jalan / Resi:</strong> Dokumen otomatis siap cetak format PDF.</li></ul>", price: "Rp 3.999.000", strike: "Rp 5.500.000", suffix: "" },
+            descESS: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Portal Karyawan (ESS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Absen Presisi GPS (Geotag):</strong> Membutuhkan validasi foto (selfie) di lokasi.</li><li><strong>Formulir Izin / Cuti Online:</strong> Permohonan terintegrasi tanpa kertas (Paperless).</li><li><strong>Slip Gaji Rahasia (PDF):</strong> Di-<em>download</em> dari akun karyawan dengan kata sandi.</li><li><strong>Penyusunan Jadwal & Shift:</strong> Kelola rotasi kerja malam/pagi jadi sangat mudah.</li><li><strong>Pengumuman Massal:</strong> Pesan terpusat dari HRD untuk seluruh tim perusahaan.</li><li><strong>Persetujuan Atasan Berjenjang:</strong> Sistem persetujuan berantai antar Manajer.</li></ul>", price: "Rp 5.999.000", strike: "Rp 8.500.000", suffix: "" },
+            descKPI: { desc: "<p class='font-bold mb-2 text-gold'>Penawaran Tracker KPI Otomatis:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penyusunan Target vs Realisasi:</strong> Perbandingan grafis secara sinkron seketika.</li><li><strong>Papan Skor Gamifikasi:</strong> Memicu kompetisi sehat bagi staf Sales (Leaderboard).</li><li><strong>Koneksi Data Otomatis:</strong> Integrasi angka penjualan tanpa harus mengentri ganda.</li><li><strong>Evaluasi Produktivitas Cepat:</strong> Menilai kontribusi tiap individu atau divisi kerja.</li><li><strong>Tampilan Ramah Mobile:</strong> Pantau perkembangan perusahaan tepat dari genggaman.</li><li><strong>Rekam Jejak Historis Tahunan:</strong> Pencapaian lampau tidak hilang, mudah dinilai.</li></ul>", price: "Rp 5.499.000", strike: "Rp 8.000.000", suffix: "" },
 
             // HOSTING & DOMAIN
-            descHostingNode: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Hosting Standar (Pro):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas SSD NVMe 20GB:</strong> 10x lebih cepat dari piringan *storage* jadul.</li><li><strong>Control Panel Intuitif:</strong> cPanel / CyberPanel untuk navigasi gampang.</li><li><strong>Batas *Bandwidth Unmetered*:</strong> Tak khawatir web mati gara-gara kepenuhan trafik.</li><li><strong>Akselerator Litespeed:</strong> Jaminan respon *server backend* sangat gesit.</li><li><strong>Penyedia Email Profesional:</strong> Pembuatan maksimal 2 akun kotak masuk aktif.</li><li><strong>Proteksi Let's Encrypt:</strong> Serfikat SSL gembok hijau selamanya (Gratis).</li></ul>",
-                price: "Rp 650.000", strike: "Rp 1.200.000", suffix: "/tahun"
-            },
-            descHostingCorp: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Cloud Bisnis (Enterprise):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Ruang Simpan SSD NVMe 50GB:</strong> Menyimpan jutaan baris data & media resolusi.</li><li><strong>Jaminan RAM Terdedikasi 2GB:</strong> Cegah kelambatan di waktu *Peak Hours* toko.</li><li><strong>Keamanan Lapis Baja Imunify360:</strong> Tameng pencegah serangan virus & DDoS.</li><li><strong>Penyelamatan Backup Harian:</strong> *Restore* web yang eror hanya dengan satu klik.</li><li><strong>Pembuatan Maksimal 10 Email:</strong> Kapasitas lebih untuk berbagai departemen.</li><li><strong>VIP Support 24/7 (Prioritas):</strong> Penyelesaian kendala teknis *server* seketika.</li></ul>",
-                price: "Rp 1.500.000", strike: "Rp 2.800.000", suffix: "/tahun"
-            },
-            descVPSServer: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Dedicated Server (VPS):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kekuatan Mentah Mutlak:</strong> Spesifikasi RAM 4GB, 2 Core CPU, & 80GB NVMe.</li><li><strong>Kekuasaan Penuh *Root Access*:</strong> Kendalikan *server* sesuai spesifikasi idaman.</li><li><strong>Uptime Tingkat Enterprise:</strong> SLA Jaminan server hidup 99.9% tanpa gangguan.</li><li><strong>Sistem Operasi Modifikasi:</strong> Opsionalitas Ubuntu, AlmaLinux, maupun CentOS.</li><li><strong>Isolasi Sumber Daya:</strong> Performa Anda tidak dibagi dengan pengguna/web lain.</li><li><strong>Asistensi Migrasi Gratis:</strong> Bantuan *setup* atau pindahan tanpa tambahan biaya.</li></ul>",
-                price: "Rp 2.400.000", strike: "Rp 3.500.000", suffix: "/tahun"
-            },
-            descDomainReg: {
-                desc: "<p class='font-bold mb-2 text-gold'>Penawaran Pemesanan Domain (.com/.id):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penegasan Identitas Merek:</strong> Cegah ide nama *brand* Anda direbut pesaing.</li><li><strong>Penyamaran Privasi (WHOIS):</strong> Sembunyikan data nomor & email Anda dari spam (Gratis).</li><li><strong>Modifikasi DNS Sepenuhnya:</strong> Otoritas ubah *nameserver* kapan saja sesuka hati.</li><li><strong>Bebas Hambatan Transfer:</strong> Anda pegang kendali *EPP code* mutlak kepemilikan.</li><li><strong>Otomasi Pengingat Kadaluwarsa:</strong> Auto-email masuk sebulan sebelum masa habis.</li><li><strong>Aktivasi Super Kilat (Instan):</strong> Langsung menyala di detik tagihan Anda dibayarkan.</li></ul>",
-                price: "Rp 160.000", strike: "Rp 250.000", suffix: "/tahun"
-            }
+            descHostingSingle: { desc: "<p class='font-bold mb-2 text-gold'>Paket Paling Murah (Single):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas Penyimpanan:</strong> 10 GB SSD Storage ultra presisi.</li><li><strong>Kuota Domain:</strong> Setup optimal untuk 1 Website aktif.</li><li><strong>Fasilitas Komunikasi:</strong> Gratis 1 Akun Email Bisnis (Mailbox).</li><li><strong>Sistem Keamanan:</strong> Gratis sertifikat SSL selamanya.</li><li><strong>Pemulihan Data:</strong> Otomatis Backup data mingguan.</li><li><strong>Cocok Untuk:</strong> Landing page tunggal / Web Entry Level.</li></ul>", price: "Rp 12.900", strike: "Rp 25.000", suffix: "/bulan" },
+            descHostingEntry: { desc: "<p class='font-bold mb-2 text-gold'>Paket Entry Level:</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas Penyimpanan:</strong> 1 GB Space memadai untuk pemula.</li><li><strong>Kuota Domain:</strong> Alokasi tangguh untuk 3 Website/Domain.</li><li><strong>Lalu Lintas Kunjungan:</strong> Mendukung batas Unlimited Traffic.</li><li><strong>Sistem Keamanan:</strong> Gratis sertifikat SSL gembok hijau resmi.</li><li><strong>Fasilitas Editor Web:</strong> Akses gratis dan mudah ke SitePro Builder.</li><li><strong>Cocok Untuk:</strong> Website portofolio atau blog sederhana.</li></ul>", price: "Rp 15.000", strike: "Rp 35.000", suffix: "/bulan" },
+            descHostingStarter: { desc: "<p class='font-bold mb-2 text-gold'>Paket Starter (Budget Value):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas Penyimpanan:</strong> 1 GB NVMe (Jauh lebih cepat dari SSD biasa).</li><li><strong>Lalu Lintas Kunjungan:</strong> Kinerja andal dengan Unlimited Bandwidth.</li><li><strong>Kuota Domain:</strong> Performa berdedikasi penuh untuk 1 Website.</li><li><strong>Bonus Ekstra:</strong> Dapatkan Gratis 1 Domain ekstensi .ONLINE.</li><li><strong>Kecepatan Load:</strong> Teknologi mutakhir NVMe memotong waktu akses.</li><li><strong>Cocok Untuk:</strong> Platform profil pribadi dan startup baru berdiri.</li></ul>", price: "Rp 16.500", strike: "Rp 40.000", suffix: "/bulan" },
+            descHostingPremium: { desc: "<p class='font-bold mb-2 text-gold'>Paket Premium (Terpopuler):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas Penyimpanan:</strong> 20 GB SSD berkapasitas sangat lega.</li><li><strong>Kuota Domain:</strong> Dukungan penuh hingga operasional 3 Website.</li><li><strong>Platform CMS:</strong> Dukungan Managed WordPress eksklusif.</li><li><strong>Bonus Spesial:</strong> Gratis 1 Domain Utama bebas pilih nama.</li><li><strong>Fasilitas Marketing:</strong> Terintegrasi Fitur Email Marketing Bawaan.</li><li><strong>Value Ekstra:</strong> Kategori Best Seller pilihan ribuan klien bisnis.</li></ul>", price: "Rp 23.900", strike: "Rp 55.000", suffix: "/bulan" },
+            descHostingMedium: { desc: "<p class='font-bold mb-2 text-gold'>Paket Medium (Unlimited):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Kapasitas Penyimpanan:</strong> Tanpa Batas Ruang (Unlimited Space).</li><li><strong>Kuota Domain & Email:</strong> Tambah Addon Domain tanpa batasan kuantitas.</li><li><strong>Kebebasan Lalu Lintas:</strong> Jaminan keamanan Unlimited Bandwidth.</li><li><strong>Bonus Domain:</strong> 100% Gratis Nama Domain Pilihan Anda.</li><li><strong>Paket Plugin:</strong> Premium WP Plugin senilai Rp 10 Juta (Akses Gratis).</li><li><strong>Performa Stabil:</strong> Mampu menampung arus traffic padat setiap harinya.</li></ul>", price: "Rp 29.900", strike: "Rp 75.000", suffix: "/bulan" },
+            descHostingSuper: { desc: "<p class='font-bold mb-2 text-gold'>Paket Super (Performa Cepat):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penyimpanan Ultra:</strong> 5 GB NVMe (Teknologi penyimpanan terdepan).</li><li><strong>Sistem Multi-Web:</strong> Unlimited Website & Pembuatan Database.</li><li><strong>Sistem Pemulihan:</strong> Layanan ekspor data Remote Backup terjamin.</li><li><strong>Bonus Spesial:</strong> Termasuk Gratis Registrasi Domain Populer .COM.</li><li><strong>Protokol Performa:</strong> Optimalisasi Load Balancer tingkat lanjut.</li><li><strong>Cocok Untuk:</strong> Perusahaan menengah dengan mobilitas data sangat tinggi.</li></ul>", price: "Rp 31.500", strike: "Rp 80.000", suffix: "/bulan" },
+            descHostingMonster: { desc: "<p class='font-bold mb-2 text-gold'>Paket Monster (Bisnis/Pro):</p><ul class='space-y-1 list-disc pl-4 text-xs text-textGray dark:text-darkSub'><li><strong>Penyimpanan Maksimal:</strong> 12 GB NVMe Solid State Drive Super Cepat.</li><li><strong>Kecepatan Server:</strong> Alokasi 4X Performance Resources CPU & RAM.</li><li><strong>Akses Prioritas Utama:</strong> Fitur Pro & Monitoring Keamanan Anti-DDoS.</li><li><strong>Kemerdekaan Identitas:</strong> Nikmati Gratis Registrasi Domain .COM Eksklusif.</li><li><strong>Komputasi Berat:</strong> Mampu memproses antrean transaksi E-commerce.</li><li><strong>Performa Tinggi:</strong> Solusi sempurna tanpa perlu menyewa VPS mahal.</li></ul>", price: "Rp 51.000", strike: "Rp 120.000", suffix: "/bulan" }
         };
 
         function updateBentoDesc(selectId, descId, priceId, strikeId) {
@@ -1557,6 +1823,56 @@
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
+        // --- PROFIT SIMULATOR (CALCULATOR) ---
+        function calculateProfit() {
+            const tOrg = parseInt(document.getElementById('sim-org').value);
+            const tPaid = parseInt(document.getElementById('sim-paid').value);
+            const cr = parseFloat(document.getElementById('sim-cr').value) / 100;
+            const aov = parseInt(document.getElementById('sim-aov').value);
+            const retention = parseFloat(document.getElementById('sim-retention').value);
+            const adSpend = parseInt(document.getElementById('sim-ads-budget').value);
+            const agencyFee = 2500000;
+
+            document.getElementById('val-org').innerText = tOrg.toLocaleString('id-ID') + ' views';
+            document.getElementById('val-paid').innerText = tPaid.toLocaleString('id-ID') + ' views';
+            document.getElementById('val-cr').innerText = (cr * 100).toFixed(1) + '%';
+            document.getElementById('val-aov').innerText = 'Rp ' + aov.toLocaleString('id-ID');
+
+            const buyers = Math.round((tOrg + tPaid) * cr);
+            const revenue = buyers * aov * retention;
+            const totalCost = adSpend + agencyFee;
+            let roi = 0;
+            if (totalCost > 0) {
+                roi = ((revenue - totalCost) / totalCost) * 100;
+            }
+
+            document.getElementById('res-buyers').innerText = buyers.toLocaleString('id-ID') + ' Orang';
+            document.getElementById('res-cost').innerText = '- Rp ' + totalCost.toLocaleString('id-ID');
+            document.getElementById('res-revenue').innerText = 'Rp ' + Math.round(revenue).toLocaleString('id-ID');
+            document.getElementById('res-roi').innerText = roi.toFixed(1) + '%';
+            
+            const elRoi = document.getElementById('res-roi');
+            if (roi > 0) { elRoi.className = "text-green-400 font-bold text-xl drop-shadow-md"; } 
+            else { elRoi.className = "text-red-400 font-bold text-xl drop-shadow-md"; }
+        }
+
+        // --- INTERACTIVE SEO SILO VISUALIZER ---
+        let siloState = 0;
+        function advanceSilo() {
+            const container = document.getElementById('siloContainer');
+            siloState++;
+            
+            if (siloState === 1) {
+                container.classList.add('silo-step-1');
+            } else if (siloState === 2) {
+                container.classList.add('silo-step-2');
+            } else {
+                // Reset
+                siloState = 0;
+                container.classList.remove('silo-step-1', 'silo-step-2');
+            }
+        }
+
         // --- EXPERIENCES FAN-OUT MODAL ---
         const jobData = {
             job1: { role: "Freelance Business Development Associate", comp: "PT Madani Abadi Nusantara", date: "Jan 2026 - Sekarang" },
@@ -1573,7 +1889,6 @@
             
             container.innerHTML = keys.map((key, index) => {
                 const job = jobData[key];
-                // Math for the fan arc spread
                 const spread = 5; 
                 const centerOffset = index - (keys.length - 1) / 2;
                 const rot = centerOffset * spread;
@@ -1601,12 +1916,8 @@
             const container = document.getElementById('fanContainer');
             const title = document.getElementById('fanTitle');
             const sub = document.getElementById('fanSub');
-            
-            renderFanCards(); // Inject fresh cards
-            
+            renderFanCards();
             modal.classList.remove('opacity-0', 'invisible');
-            
-            // Trigger animation classes
             setTimeout(() => {
                 container.classList.add('fan-active');
                 title.classList.remove('opacity-0', '-translate-y-10');
@@ -1619,14 +1930,12 @@
             const container = document.getElementById('fanContainer');
             const title = document.getElementById('fanTitle');
             const sub = document.getElementById('fanSub');
-            
             container.classList.remove('fan-active');
             title.classList.add('opacity-0', '-translate-y-10');
             sub.classList.add('opacity-0', '-translate-y-5');
-            
             setTimeout(() => { 
                 modal.classList.add('opacity-0', 'invisible'); 
-                container.innerHTML = ''; // Clear out to reset animation next time
+                container.innerHTML = ''; 
             }, 500);
         }
 
@@ -1634,12 +1943,10 @@
             const modal = document.getElementById('jobModal');
             const content = document.getElementById('jobModalContent');
             const descHtml = document.getElementById('desc' + jobId.charAt(0).toUpperCase() + jobId.slice(1)).innerHTML;
-            
             document.getElementById('modalJobRole').innerText = jobData[jobId].role;
             document.getElementById('modalJobComp').innerText = jobData[jobId].comp;
             document.getElementById('modalJobDate').innerText = jobData[jobId].date;
             document.getElementById('modalJobDesc').innerHTML = descHtml;
-            
             modal.classList.remove('opacity-0', 'invisible');
             content.classList.remove('translate-y-full', 'md:translate-y-10');
             content.classList.add('translate-y-0', 'md:translate-y-0');
@@ -1792,21 +2099,43 @@
         function changeSlide(direction) { let nextIndex = currentSlide + direction; if (nextIndex >= galleryItems.length) nextIndex = 0; if (nextIndex < 0) nextIndex = galleryItems.length - 1; goToSlide(nextIndex); }
         function updateText(index) { document.getElementById('hero-title').innerText = galleryItems[index].title; document.getElementById('hero-desc').innerText = galleryItems[index].subtitle; }
 
-        // --- POPUP ---
+        // --- GLOBAL SOCIAL PROOF (FOMO ENGINE) ---
+        const notifications = [
+            { city: "Cirebon", action: "baru saja pesan Paket Hosting Single", time: "2 menit yang lalu" },
+            { city: "Jakarta", action: "sedang konsultasi via AI Chat", time: "5 menit yang lalu" },
+            { city: "Surabaya", action: "mengunduh Blueprint SEO 2026", time: "10 menit yang lalu" },
+            { city: "Bandung", action: "berlangganan Ads Management", time: "12 menit yang lalu" },
+            { city: "Yogyakarta", action: "membandingkan audit kompetitor", time: "Baru saja" }
+        ];
+        
         const popup = document.getElementById('marketingPopup');
-        let popupCount = 0;
-        function showPopup() {
-            if (popupCount >= 2) return;
-            popup.classList.add('show'); popupCount++;
-            setTimeout(() => { popup.classList.remove('show'); }, 8000);
+        let fomoIndex = 0;
+        let isPopupClosed = false;
+
+        function initFOMOPopup() {
+            if (isPopupClosed) return;
+            const data = notifications[fomoIndex];
+            document.getElementById('popupMessage').innerHTML = `Seseorang di <strong>${data.city}</strong> ${data.action}.`;
+            document.getElementById('popupTime').innerText = data.time;
+            popup.classList.add('show');
+            setTimeout(() => { if (!isPopupClosed) popup.classList.remove('show'); }, 5000);
+            fomoIndex = (fomoIndex + 1) % notifications.length;
         }
-        function closePopup(permanent = false) { popup.classList.remove('show'); if(permanent) popupCount = 99; }
-        setTimeout(showPopup, 15000);
+
+        function closePopup() { 
+            popup.classList.remove('show'); 
+            isPopupClosed = true; 
+        }
+        
+        setTimeout(() => {
+            initFOMOPopup();
+            setInterval(() => { initFOMOPopup(); }, 20000); 
+        }, 10000);
 
         // --- GOOGLE INDEXING BOT ---
         async function triggerIndexing() {
             const currentUrl = window.location.href.split('#')[0];
-            if(!confirm(`Kirim sinyal ke Google untuk meng-index URL ini sekarang?\n\n${currentUrl}`)) return;
+            if(!confirm(`Kirim sinyal Ping (Pembaruan) ke Google Indexer sekarang?\n\n${currentUrl}`)) return;
             try {
                 document.body.style.cursor = 'wait';
                 const response = await fetch('/.netlify/functions/index-bot', { method: 'POST', body: JSON.stringify({ url: currentUrl }), headers: { 'Content-Type': 'application/json' } });
@@ -1814,15 +2143,25 @@
                 if(response.ok) alert(`✅ Sukses! Sinyal perayapan terkirim ke Google.`);
                 else alert(`❌ Gagal terkirim.`);
             } catch(e) {
-                document.body.style.cursor = 'default'; alert("❌ Gagal menghubungi server Netlify.");
+                document.body.style.cursor = 'default'; alert("❌ Gagal menghubungi server.");
             }
         }
 
-        // --- ANIMASI SCROLL & INIT ---
+        // --- ANIMASI SCROLL, INIT, & STAGGER ---
         function triggerReveal() { 
             document.querySelectorAll('.reveal').forEach(r => { if (r.getBoundingClientRect().top < window.innerHeight - 50) r.classList.add('active'); }); 
             const scrollWidget = document.querySelector('.scroll-widget'); 
             if (scrollWidget) { scrollWidget.classList.toggle('visible', window.scrollY > 300); }
+            
+            // Stagger Effect untuk Card Layanan (Bento Grid)
+            const staggerContainer = document.getElementById('service-stagger-container');
+            if (staggerContainer && staggerContainer.getBoundingClientRect().top < window.innerHeight - 50) {
+                const items = staggerContainer.querySelectorAll('.stagger-item');
+                items.forEach((item, idx) => {
+                    item.style.transitionDelay = `${idx * 0.15}s`;
+                    item.classList.add('active');
+                });
+            }
         }
 
         function animateCounters() { 
@@ -1860,19 +2199,17 @@
             document.getElementById('menuBtn').addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); });
             document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !document.getElementById('menuBtn').contains(e.target)) { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); } });
 
-            // Initialize Bento Grids
-            ['bento-opt-1', 'bento-opt-2', 'bento-opt-3', 'bento-opt-4'].forEach(id => {
+            // Initialize Bento Grids & Calculator
+            ['bento-opt-1', 'bento-opt-4', 'bento-opt-2', 'bento-opt-3'].forEach(id => {
                 const select = document.getElementById(id);
                 if (select) select.dispatchEvent(new Event('change'));
             });
+            calculateProfit();
 
             // Init Data
             animateCounters(); renderGallery(); renderCerts(); renderTestimonials();
             ambilDataWordPress(); fetchGoogleTrends();
             initLookerObserver(); initVideoObserver();
-            
-            const slider = document.getElementById('testimonialSlider');
-            if (slider) setInterval(() => { if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) slider.scrollTo({ left: 0, behavior: 'smooth' }); else slider.scrollBy({ left: 320, behavior: 'smooth' }); }, 4000);
         });
     </script>
 </body>

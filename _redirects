@@ -1,0 +1,5 @@
+# Redirect dari subdomain netlify ke domain baru
+https://faqihalrf.netlify.app/* https://faqihalrf.online/:splat  301!
+
+# Redirect dari www ke non-www (agar satu pintu)
+http://www.faqihalrf.online/* https://faqihalrf.online/:splat  301!

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+# Arahkan Google ke sitemap domain baru
+Sitemap: https://faqihalrf.online/sitemap.xml

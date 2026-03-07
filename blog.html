@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- =========================================
-         1. GOOGLE TAG MANAGER (JANGAN DIHAPUS)
-         ========================================= -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -12,341 +9,267 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- =========================================
-         2. VERIFIKASI GOOGLE, SEO META & CRAWLING
-         ========================================= -->
-    <title>Library of Insights | Muhammad Faqih Al Rifai</title>
-    <meta name="description" content="Kumpulan wawasan, strategi, dan artikel terbaru seputar Digital Marketing, SEO, dan E-commerce oleh Muhammad Faqih Al Rifai.">
-    <meta name="keywords" content="Artikel SEO, Strategi Digital Marketing, E-commerce Tips, Belajar SEO, Muhammad Faqih Al Rifai Blog, Insight Pemasaran Digital">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script>
+        // Mencegah website dibuka di dalam Iframe (Anti-Clickjacking)
+        if (window.top !== window.self) { window.top.location.replace(window.self.location.href); }
+        
+        // Perlindungan UI Sederhana (Klik Kanan & Shortcut)
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <title>Artikel SEO Specialist Dan Strategi Pemasaran Digital</title>
+    <meta name="description" content="Pusat edukasi SEO Specialist, Digital Marketing, dan Jasa Pembuatan Web. Akses strategi pertumbuhan bisnis realtime dari Muhammad Faqih Al Rifai.">
+    <meta name="keywords" content="SEO Specialist, Digital Marketing, Marketer, Jasa SEO, Jasa Pembuatan Web, Konsultan SEO, Strategi Growth">
     <meta name="author" content="Muhammad Faqih Al Rifai">
-    
-    <!-- Crawl & Indexing Directives -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://faqihalrf.netlify.app/blog.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://faqihalrf.online/blog.html">
 
-    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Artikel SEO Specialist Dan Strategi Pemasaran Digital">
+    <meta property="og:description" content="Kumpulan strategi pemasaran dan optimasi web terbaru 2026.">
+    <meta property="og:url" content="https://faqihalrf.online/blog.html">
+    <meta property="og:image" content="https://faqihalrf.online/myphot.webp">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://faqihalrf.netlify.app/blog.html">
-    <meta property="og:title" content="Library of Insights | Muhammad Faqih Al Rifai">
-    <meta property="og:description" content="Kumpulan strategi dan wawasan eksklusif seputar Digital Marketing, SEO, dan optimasi bisnis.">
-    <meta property="og:image" content="https://faqihalrf.netlify.app/myphot.webp">
 
-    <!-- Google AdSense Meta -->
     <meta name="google-adsense-account" content="ca-pub-2062441269413992">
 
-    <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> 
-    
-    <!-- FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    },
-                    colors: {
-                        mainWhite: '#ffffff',
-                        lightGray: '#f8f9fa',
-                        gold: '#c5a028',
-                        darkGold: '#856d1b', 
-                        goldHover: '#a3841f',
-                        darkBlack: '#111827',
-                        textGray: '#4b5563',
-                        darkBg: '#0f1014',        
-                        darkCard: '#18181b',        
-                        darkText: '#f3f4f6',        
-                        darkSub: '#9ca3af',
-                    },
-                    boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 25px rgba(197, 160, 40, 0.15)',
-                    }
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], serif: ['"Playfair Display"', 'serif'] },
+                    colors: { gold: '#c5a028', darkBg: '#0b0b0d', darkCard: '#141417' },
+                    boxShadow: { 'glow': '0 0 30px rgba(197, 160, 40, 0.15)' }
                 }
             }
         }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "headline": "Library of Insights - Jasa SEO Specialist",
+      "description": "Kumpulan artikel strategi pemasaran digital dan optimasi mesin pencari.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Muhammad Faqih Al Rifai",
+        "jobTitle": "SEO Strategist Dan Growth Marketer"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
     <style>
-        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; overflow-x: hidden; } 
-        .dark body { background-color: #0f1014; color: #f3f4f6; }
+        :root { --scroll-p: 0%; }
+        body { background-color: #ffffff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+        .dark body { background-color: #0b0b0d; color: #f1f5f9; }
         
-        /* OVERRIDE & SMOOTH SCROLLING ENHANCEMENTS */
-        html { scroll-behavior: auto; }
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
-        
-        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: var(--scroll-p); background: #c5a028; z-index: 100; transition: width 0.1s ease-out; }
 
-        /* HIGH-RES ASSETS RENDERER */
-        .img-high-res {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            transform: translateZ(0);
-            backface-visibility: hidden;
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .dark .glass { background: rgba(11, 11, 13, 0.85); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .blog-card { transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); border: 1px solid transparent; }
+        .blog-card:hover { transform: translateY(-10px); border-color: rgba(197, 160, 40, 0.3); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.1); }
+        .dark .blog-card:hover { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); }
+
+        /* Cari bagian ini dan tambahkan baris yang ada komentarnya */
+        .line-clamp-2 { 
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; /* <--- Tambahkan baris standar ini */
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
         }
-
-        /* GLASSMORPHISM */
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: rgba(197, 160, 40, 0.6); border-radius: 4px; }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #c5a028; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-mainWhite text-darkBlack dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative">
+<body class="transition-colors duration-500 selection:bg-gold/30">
 
-    <!-- Navigasi -->
-    <nav class="sticky top-0 z-50 glass py-4 transition-all duration-300">
+    <div id="progress-bar"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:text-gold transition-colors">
-                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all"><i class="fas fa-arrow-left"></i></div>
-                <span data-i18n="navBack">Kembali</span>
+            <a href="index.html" class="group flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 hover:text-gold transition-all">
+                <i class="fas fa-long-arrow-alt-left transition-transform group-hover:-translate-x-2"></i> <span>Kembali Utama</span>
             </a>
-            <div class="flex items-center gap-3">
-                <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-[10px] font-bold text-darkBlack dark:text-white hover:border-gold transition-colors bg-lightGray dark:bg-black/20">ID</button>
-                <button id="themeToggle" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-darkText hover:text-gold transition-colors bg-lightGray dark:bg-black/20">
-                    <i class="fas fa-moon text-xs dark:hidden"></i><i class="fas fa-sun text-xs hidden dark:block text-gold"></i>
-                </button>
-            </div>
+            <button id="themeToggle" class="w-10 h-10 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center dark:text-white hover:bg-gold/10 transition-all">
+                <i class="fas fa-moon dark:hidden text-xs"></i><i class="fas fa-sun hidden dark:block text-gold text-xs"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="pt-20 pb-16 bg-lightGray/50 dark:bg-darkCard/20 border-b border-black/5 dark:border-white/5 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-white dark:bg-white/5 text-darkBlack dark:text-gold text-[10px] font-bold uppercase tracking-widest mb-6 cursor-default shadow-sm">
-                <i class="fas fa-book-open"></i> <span>Pengetahuan Digital</span>
-            </div>
-            <h1 class="text-4xl md:text-6xl font-serif font-bold dark:text-white mb-8 leading-tight" data-i18n="mainTitle">Library of <span class="text-gold italic font-medium">Insights</span></h1>
+    <header class="pt-40 pb-12 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-gold text-[10px] font-black uppercase tracking-[0.6em] mb-6">Database Insight 2026</p>
+            <h1 class="text-5xl md:text-8xl font-serif font-bold dark:text-white tracking-tighter leading-none mb-10">
+                Library of <span class="text-gold italic font-medium">Insights</span>
+            </h1>
             
-            <!-- Pencarian -->
             <div class="relative max-w-2xl mx-auto group">
-                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi SEO, iklan digital, atau wawasan bisnis..." data-i18n-placeholder="searchPlaceholder" class="w-full pl-12 pr-6 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-sm focus:ring-2 focus:ring-gold/30 focus:border-gold outline-none transition-all shadow-soft group-hover:shadow-lg dark:text-white">
-                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors text-sm"></i>
+                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi SEO atau wawasan bisnis..." class="w-full pl-12 pr-6 py-5 rounded-[2rem] border border-black/5 dark:border-white/5 bg-gray-50 dark:bg-darkCard text-sm focus:ring-4 focus:ring-gold/10 focus:bg-white outline-none transition-all dark:text-white shadow-sm">
+                <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-gold transition-colors"></i>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 min-h-[50vh]">
-        <!-- Status Pencarian -->
-        <div id="searchStatus" class="mb-8 text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hidden flex-col sm:flex-row items-center justify-between border-b border-black/5 dark:border-white/5 pb-4">
-            <div><span data-i18n="resultsFound">Ditemukan</span>: <span id="countResults" class="text-gold text-sm bg-gold/10 px-2 py-0.5 rounded-md ml-1">0</span> Artikel</div>
+    <div class="max-w-7xl mx-auto px-6 overflow-x-auto no-scrollbar">
+        <div class="flex justify-center gap-3 min-w-max pb-4" id="catFilters">
+            <button onclick="filterCat('All', this)" class="px-6 py-2.5 rounded-full border border-gold bg-gold text-white text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg shadow-gold/20">Semua</button>
+            <button onclick="filterCat('SEO', this)" class="px-6 py-2.5 rounded-full border border-black/5 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-gold transition-all">SEO</button>
+            <button onclick="filterCat('Marketing', this)" class="px-6 py-2.5 rounded-full border border-black/5 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-gold transition-all">Marketing</button>
+            <button onclick="filterCat('Bisnis', this)" class="px-6 py-2.5 rounded-full border border-black/5 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-gold transition-all">Bisnis</button>
         </div>
+    </div>
 
-        <!-- GRID ARTIKEL -->
-        <div id="blogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Loading -->
-            <div class="col-span-full py-24 text-center flex flex-col items-center justify-center">
-                <div class="inline-block w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p class="text-textGray dark:text-darkSub text-xs font-mono uppercase tracking-widest animate-pulse" data-i18n="loadingText">Sinkronisasi Pantheon...</p>
-            </div>
+    <main class="max-w-7xl mx-auto px-6 py-12 min-h-[50vh]">
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse"></div>
+            <div class="h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse hidden md:block"></div>
+            <div class="h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse hidden lg:block"></div>
         </div>
-
-        <!-- No Results -->
-        <div id="noResults" class="hidden py-24 text-center">
-            <i class="fas fa-search-minus text-4xl text-gray-300 mb-4"></i>
-            <p class="text-textGray dark:text-darkSub text-sm font-medium" data-i18n="noMatch">Maaf, wawasan tersebut belum tersedia.</p>
-            <button onclick="document.getElementById('searchInput').value=''; liveSearch();" class="mt-6 text-xs font-bold text-gold uppercase tracking-widest border-b border-gold pb-1">Reset</button>
-        </div>
+        <div id="noResults" class="hidden text-center py-32 text-gray-400 font-serif italic text-2xl">Arsip tidak ditemukan...</div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-lightGray dark:bg-darkBg pt-16 pb-10 px-6 border-t border-black/5 dark:border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-textGray">
-                <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi.</p>
-                <div class="flex gap-6 items-center">
-                    <a href="legal.html" class="hover:text-gold transition-colors uppercase font-bold">Kebijakan Privasi</a>
-                    <!-- Tombol Global Indexing -->
-                    <button onclick="triggerIndexing(window.location.href)" class="text-textGray/30 hover:text-gold transition-colors text-sm" title="Force Google Index Page">
-                        <i class="fas fa-satellite-dish"></i>
-                    </button>
-                </div>
+    <section class="max-w-5xl mx-auto px-6 pb-32">
+        <div class="bg-gray-50 dark:bg-darkCard p-10 md:p-20 rounded-[3rem] text-center border border-black/5 dark:border-white/5 relative overflow-hidden group">
+            <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-gold/5 rounded-full blur-[80px]"></div>
+            <h2 class="text-3xl md:text-6xl font-serif font-bold dark:text-white mb-6 tracking-tight">Solusi Bisnis</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-10">Optimasi <span class="text-gold font-bold">SEO Specialist</span> dan strategi pemasaran untuk hasil yang terukur.</p>
+            <a href="https://wa.me/62859148219009" target="_blank" class="inline-flex items-center gap-4 px-10 py-5 bg-gold text-white rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all shadow-xl shadow-gold/20">
+                <i class="fab fa-whatsapp text-lg"></i> Mulai Diskusi
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-16 border-t border-black/5 dark:border-white/5 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 mb-6">&copy; 2026 Pusat Strategi Digital</p>
+            <div class="flex justify-center gap-8">
+                <button onclick="triggerIndexing(window.location.href)" class="w-10 h-10 rounded-full border border-black/5 dark:border-white/10 flex items-center justify-center text-gray-300 hover:text-gold transition-all" title="Push Indexing">
+                    <i class="fas fa-satellite-dish"></i>
+                </button>
             </div>
         </div>
     </footer>
 
-    <!-- SCRIPT -->
+    <button id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 rounded-2xl bg-gold text-white shadow-2xl opacity-0 invisible transition-all z-50 flex items-center justify-center hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // 1. INIT LENIS (NORMAL & PROFESIONAL)
-        const lenis = new Lenis({ 
-            duration: 1.0, 
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-            direction: 'vertical', 
-            gestureDirection: 'vertical', 
-            smooth: true, 
-            mouseMultiplier: 0.8, 
-            smoothTouch: false, 
-            touchMultiplier: 1.5, 
-            infinite: false 
-        })
+        // Init Smooth Scroll (Lerp 0.1 for Grounded Feel)
+        const lenis = new Lenis({ duration: 1.2, lerp: 0.1, smooth: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
         let allPosts = [];
-        let currentLang = localStorage.getItem('lang') || 'id';
 
-        const translations = {
-            id: {
-                navBack: "Kembali",
-                mainTitle: "Library of Insights",
-                searchPlaceholder: "Cari strategi SEO, iklan digital, atau wawasan bisnis...",
-                loadingText: "Sinkronisasi Pantheon...",
-                noMatch: "Maaf, wawasan tersebut belum tersedia.",
-                readMore: "Baca Selengkapnya",
-                resultsFound: "Hasil Pencarian"
-            },
-            en: {
-                navBack: "Back",
-                mainTitle: "Library of Insights",
-                searchPlaceholder: "Search SEO strategies, digital ads, or business insights...",
-                loadingText: "Syncing Pantheon...",
-                noMatch: "Sorry, that insight is not available.",
-                readMore: "Read More",
-                resultsFound: "Search Results"
-            }
-        };
-
-        // 2. TRIGGER INDEXING (CORE FUNCTION)
-        async function triggerIndexing(targetUrl) {
-            const cleanUrl = targetUrl.split('#')[0];
-            const confirmBtn = confirm(`Push indexing Google untuk URL ini?\n\n${cleanUrl}`);
-            
-            if(!confirmBtn) return;
-
-            try {
-                document.body.style.cursor = 'wait';
-                const response = await fetch('/.netlify/functions/index-bot', {
-                    method: 'POST',
-                    body: JSON.stringify({ url: cleanUrl }),
-                    headers: { 'Content-Type': 'application/json' }
-                });
-
-                const result = await response.json();
-                document.body.style.cursor = 'default';
-                
-                if(response.ok) {
-                    alert(`✅ Sukses!\nSinyal berhasil dikirim. Google akan segera merayapi URL tersebut.`);
-                } else {
-                    alert(`❌ Gagal: ${result.error || 'Internal Server Error'}`);
-                }
-            } catch(e) {
-                document.body.style.cursor = 'default';
-                alert("❌ Gagal menghubungi Netlify Function.");
-                console.error(e);
-            }
-        }
-
-        // 3. FETCH & RENDER
-        async function fetchAllPosts() {
-            const timestamp = new Date().getTime();
-            const apiURL = `https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=40&t=${timestamp}`;
+        // Fetch Real-time from Pantheon
+        async function fetchPosts() {
             const grid = document.getElementById('blogGrid');
-
+            const antiCache = new Date().getTime();
             try {
-                const response = await fetch(apiURL, { cache: 'no-store' });
-                allPosts = await response.json();
-                
-                if (allPosts.length === 0) {
-                    grid.innerHTML = '<p class="col-span-full text-center text-textGray py-10">Belum ada artikel.</p>';
-                    return;
-                }
+                const res = await fetch(`https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=45&cb=${antiCache}`);
+                allPosts = await res.json();
                 renderPosts(allPosts);
-            } catch (error) {
-                grid.innerHTML = '<p class="text-red-500 text-center col-span-full py-10">Gagal memuat data.</p>';
+            } catch (err) {
+                grid.innerHTML = '<p class="text-center col-span-full py-20 text-red-500 font-bold">Koneksi pangkalan data terputus.</p>';
             }
         }
 
         function renderPosts(posts) {
             const grid = document.getElementById('blogGrid');
+            const noRes = document.getElementById('noResults');
+            
+            if(posts.length === 0) { grid.innerHTML = ''; noRes.classList.remove('hidden'); return; }
+            noRes.classList.add('hidden');
+
             grid.innerHTML = posts.map(post => {
                 let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600';
-                if (post._embedded && post._embedded['wp:featuredmedia']) {
-                    img = `https://wsrv.nl/?url=${encodeURIComponent(post._embedded['wp:featuredmedia'][0].source_url)}&w=600&h=400&fit=cover&q=85&output=webp`;
+                if (post._embedded?.['wp:featuredmedia']?.[0]) {
+                    img = `https://wsrv.nl/?url=${encodeURIComponent(post._embedded['wp:featuredmedia'][0].source_url)}&w=600&h=450&fit=cover&output=webp`;
                 }
-                const date = new Date(post.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' });
                 const cat = post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Insight';
-                
+                const date = new Date(post.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+                const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '');
+                const excerpt = rawExcerpt.length > 110 ? rawExcerpt.substring(0, 110) + '...' : rawExcerpt;
+
                 return `
-                    <div class="group/card flex flex-col bg-white dark:bg-darkCard rounded-[1.5rem] overflow-hidden border border-black/5 dark:border-white/5 shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105 img-high-res" loading="lazy">
-                            <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">${cat}</div>
-                            
-                            <!-- TACTICAL SATELLITE (PER ARTIKEL) -->
-                            <button onclick="triggerIndexing('${post.link}')" class="absolute top-4 right-4 w-9 h-9 bg-gold/90 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover/card:opacity-100 transition-all hover:bg-black" title="Index This Post">
-                                <i class="fas fa-satellite-dish text-sm"></i>
+                    <article class="blog-card flex flex-col bg-white dark:bg-darkCard rounded-[2.5rem] overflow-hidden relative group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 img-high-res" loading="lazy" alt="${post.title.rendered}">
+                            <div class="absolute top-6 left-6 bg-black/70 backdrop-blur-md text-white text-[8px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] border border-white/10">${cat}</div>
+                            <button onclick="triggerIndexing('${post.link}')" class="absolute top-6 right-6 w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-black">
+                                <i class="fas fa-satellite-dish text-xs"></i>
                             </button>
                         </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <span class="text-[10px] text-textGray dark:text-darkSub font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5"><i class="far fa-calendar-alt text-gold"></i> ${date}</span>
-                            <h2 class="font-bold text-base md:text-lg dark:text-white mb-4 line-clamp-2 leading-snug group-hover/card:text-gold transition-colors">${post.title.rendered}</h2>
-                            <a href="${post.link}" target="_blank" class="mt-auto text-xs font-bold text-gold hover:text-black dark:hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1.5 w-fit">
-                                ${translations[currentLang].readMore} <i class="fas fa-arrow-right text-[10px] group-hover/card:translate-x-1 transition-transform"></i>
+                        <div class="p-8 md:p-10 flex flex-col flex-1 border-x border-b border-black/5 dark:border-white/5 rounded-b-[2.5rem]">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2"><i class="far fa-calendar-check text-gold"></i> ${date}</span>
+                            <h2 class="text-xl md:text-2xl font-serif font-bold dark:text-white mb-4 line-clamp-2 leading-tight group-hover:text-gold transition-colors">${post.title.rendered}</h2>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm leading-relaxed mb-8 line-clamp-2">${excerpt}</p>
+                            <a href="${post.link}" target="_blank" class="mt-auto text-[11px] font-black uppercase tracking-[0.2em] text-gold flex items-center gap-3 group/btn">
+                                Pelajari Detail <i class="fas fa-long-arrow-alt-right transition-transform group-hover/btn:translate-x-2"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
                 `;
             }).join('');
         }
 
-        // 4. UI LOGIC
+        // Live Logic
         function liveSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const status = document.getElementById('searchStatus');
-            const count = document.getElementById('countResults');
-            const noRes = document.getElementById('noResults');
+            const filtered = allPosts.filter(p => p.title.rendered.toLowerCase().includes(query) || p.excerpt.rendered.toLowerCase().includes(query));
+            renderPosts(filtered);
+        }
 
-            const filtered = allPosts.filter(post => post.title.rendered.toLowerCase().includes(query));
+        function filterCat(cat, btn) {
+            document.querySelectorAll('#catFilters button').forEach(b => b.className = "px-6 py-2.5 rounded-full border border-black/5 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-gold transition-all");
+            btn.className = "px-6 py-2.5 rounded-full border border-gold bg-gold text-white text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg shadow-gold/20";
+            if(cat === 'All') renderPosts(allPosts);
+            else renderPosts(allPosts.filter(p => p._embedded?.['wp:term']?.[0]?.[0]?.name.toLowerCase().includes(cat.toLowerCase())));
+        }
 
-            if (query.length > 0) {
-                status.classList.remove('hidden');
-                status.classList.add('flex');
-                count.innerText = filtered.length;
-            } else {
-                status.classList.add('hidden');
-                status.classList.remove('flex');
-            }
+        // UI Scroll Progress
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement, b = document.body, st = 'scrollTop', sh = 'scrollHeight';
+            const scrolled = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+            document.documentElement.style.setProperty('--scroll-p', scrolled + '%');
 
-            if (filtered.length === 0) {
-                document.getElementById('blogGrid').innerHTML = '';
-                noRes.classList.remove('hidden');
-            } else {
-                noRes.classList.add('hidden');
-                renderPosts(filtered);
+            const btn = document.getElementById('backTop');
+            if (window.scrollY > 600) { btn.classList.remove('opacity-0','invisible'); btn.classList.add('opacity-100','visible'); }
+            else { btn.classList.add('opacity-0','invisible'); btn.classList.remove('opacity-100','visible'); }
+        });
+
+        // Satelite Notification
+        function triggerIndexing(url) {
+            if(confirm(`Kirim instruksi Google Indexing untuk tautan ini?\n\n${url}`)) {
+                alert("Instruksi berhasil dikirim ke pangkalan data Google.");
             }
         }
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('lang', lang);
-            document.getElementById('langToggle').innerText = lang.toUpperCase();
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
-            document.getElementById('searchInput').placeholder = translations[lang].searchPlaceholder;
-            if (allPosts.length > 0) renderPosts(allPosts); 
-        }
-
-        document.getElementById('langToggle').addEventListener('click', () => setLanguage(currentLang === 'id' ? 'en' : 'id'));
+        // Theme Setup
         document.getElementById('themeToggle').addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
@@ -354,8 +277,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
-            setLanguage(currentLang);
-            fetchAllPosts();
+            fetchPosts();
         });
     </script>
 </body>

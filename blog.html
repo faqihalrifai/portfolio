@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
+    <!-- =========================================
+         1. GOOGLE TAG MANAGER (JANGAN DIHAPUS)
+         ========================================= -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -12,7 +15,27 @@
     <meta name="theme-color" content="#ffffff">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Strategic Insights Journal</title>
+    <!-- =========================================
+         2. PERLINDUNGAN KEAMANAN (ANTI HACK DASAR)
+         ========================================= -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script>
+        try {
+            if (window.top !== window.self) { window.top.location.replace(window.self.location.href); }
+        } catch (e) {
+            console.warn("Peringatan: Berjalan di dalam sandbox iframe.");
+        }
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    
+    <title>Strategic Insights Journal | Muhammad Faqih Al Rifai</title>
     <meta name="description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan. Sebuah jurnal yang didedikasikan untuk mengungkap cara kerja bisnis modern secara sederhana namun mendalam.">
     <meta name="keywords" content="SEO Specialist Indonesia, Strategi Pemasaran Digital, Konsultan Bisnis, Belajar SEO 2026, Digital Marketing, Muhammad Faqih Al Rifai, Growth Hack">
     <meta name="author" content="Muhammad Faqih Al Rifai">
@@ -24,22 +47,31 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 
-    <link rel="canonical" href="https://faqihalrf.online/library"> 
+    <link rel="canonical" href="https://faqihalrf.online/blog.html"> 
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="google-site-verification" content="Jkno9NlGud5XD9yM1BmWH2oEXnJXhJC0QYoTuM2n8ws" />
     <meta name="google-ads-account" content="ca-pub-2062441269413992">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <meta property="og:title" content="Strategic Insights Journal | Muhammad Faqih Al Rifai">
-    <meta property="og:description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://faqihalrf.online/library">
+    <meta property="og:url" content="https://faqihalrf.online/blog.html">
+    <meta property="og:site_name" content="Muhammad Faqih Al Rifai">
+    <meta property="og:title" content="Strategic Insights Journal | Muhammad Faqih Al Rifai">
+    <meta property="og:description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan. Publikasi wawasan bisnis mendalam.">
+    <meta property="og:image" content="https://faqihalrf.online/myphot.webp">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://faqihalrf.online/blog.html">
+    <meta property="twitter:title" content="Strategic Insights Journal | Muhammad Faqih Al Rifai">
+    <meta property="twitter:description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan. Publikasi wawasan bisnis mendalam.">
+    <meta property="twitter:image" content="https://faqihalrf.online/myphot.webp">
     
+    <!-- PRECONNECT & PRELOAD UNTUK PERFORMA (LCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" as="image" href="myphot.webp">
 
+    <!-- GOOGLE ANALYTICS (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -48,238 +80,429 @@
       gtag('config', 'G-ZEFRB74DXL');
     </script>
 
+    <!-- SCHEMA.ORG JSON-LD -->
     <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Muhammad Faqih Al Rifai",
-        "url": "https://faqihalrf.online/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://faqihalrf.online/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@context": "https://schema.org",
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Strategic Insights Journal",
+      "url": "https://faqihalrf.online/blog.html",
+      "description": "Jurnal strategi pemasaran digital dan rahasia pertumbuhan bisnis oleh Muhammad Faqih Al Rifai.",
+      "publisher": {
         "@type": "Person",
         "name": "Muhammad Faqih Al Rifai",
-        "url": "https://faqihalrf.online/",
-        "image": "https://faqihalrf.online/myphot.webp",
-        "jobTitle": "SEO Strategist Dan Growth Marketer",
-        "description": "Konsultan SEO dan pakar pemasaran digital yang fokus pada pertumbuhan bisnis melalui strategi berbasis data.",
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "STMIK IKMI Cirebon"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/muhammad-faqih-al-rifai",
-          "https://www.instagram.com/faqihalrf",
-          "https://www.tiktok.com/@faqihalrf"
-        ]
+        "image": "https://faqihalrf.online/myphot.webp"
       }
-    ]
+    }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- FONTS & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], serif: ['"Playfair Display"', 'serif'] },
-                    colors: { gold: '#c5a028', darkBg: '#09090b', darkCard: '#121215' },
-                    boxShadow: { 'glow': '0 0 40px rgba(197, 160, 40, 0.1)' }
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        mainWhite: '#ffffff',
+                        lightGray: '#f8f9fa',
+                        gold: '#c5a028',
+                        darkGold: '#856d1b',
+                        goldHover: '#a3841f',
+                        darkBlack: '#111827',
+                        textGray: '#4b5563',
+                        darkBg: '#0f1014',        
+                        darkCard: '#18181b',        
+                        darkText: '#f3f4f6',        
+                        darkSub: '#9ca3af',
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 25px rgba(197, 160, 40, 0.15)',
+                    }
                 }
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-
+    
     <style>
-        :root { --scroll-p: 0%; }
-        body { background-color: #ffffff; color: #1a1a1a; overflow-x: hidden; }
-        .dark body { background-color: #09090b; color: #fafafa; }
-        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: var(--scroll-p); background: linear-gradient(90deg, #c5a028, #f3d47a); z-index: 100; transition: width 0.1s ease-out; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dark .glass { background: rgba(9, 9, 11, 0.8); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        .dark body { background-color: #0f1014; color: #f3f4f6; }
+        
+        html { scroll-behavior: smooth; } /* Standard native smooth scroll */
+        
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .blog-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.04); }
-        .dark .blog-card { border: 1px solid rgba(255,255,255,0.04); }
-        .blog-card:hover { transform: translateY(-12px) scale(1.01); border-color: rgba(197, 160, 40, 0.4); box-shadow: 0 40px 80px -15px rgba(0,0,0,0.12); }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #c5a028; border-radius: 10px; }
+        
+        .blog-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.04); transform: translateZ(0); }
+        .dark .blog-card { border: 1px solid rgba(255,255,255,0.08); }
+        .blog-card:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(197, 160, 40, 0.6); box-shadow: 0 30px 60px -15px rgba(197, 160, 40, 0.15); z-index: 10; }
+        
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); border-radius: 10px; margin: 4px; border: 1px solid rgba(0,0,0,0.05); }
+        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.05); }
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: rgba(197, 160, 40, 0.6); border-radius: 10px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(197, 160, 40, 1); }
+
+        .img-high-res {
+            image-rendering: -webkit-optimize-contrast; 
+            image-rendering: crisp-edges; 
+            transform: translateZ(0); 
+            backface-visibility: hidden;
+        }
     </style>
 </head>
 
-<body class="transition-colors duration-700 selection:bg-gold/30">
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW247L2C"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body class="transition-colors duration-300 selection:bg-gold selection:text-white font-sans antialiased relative custom-scroll">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW247L2C" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <div id="progress-bar"></div>
-
-    <nav class="fixed top-0 w-full z-50 glass py-5">
-        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
-            <a href="index.html" class="group flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.4em] text-gray-500 hover:text-gold transition-all">
-                <i class="fas fa-arrow-left transition-transform group-hover:-translate-x-2"></i> <span>Kembali</span>
+    <!-- Navbar Konsisten -->
+    <nav class="fixed top-0 w-full z-50 glass h-20 flex items-center transition-all duration-300" id="navbar" aria-label="Navigasi Halaman Blog">
+        <div class="max-w-7xl w-full mx-auto px-6 md:px-8 flex justify-between items-center">
+            <a href="index.html" aria-label="Kembali ke Halaman Beranda Utama" class="group flex items-center gap-3 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.4em] text-textGray dark:text-darkSub hover:text-darkGold dark:hover:text-gold transition-colors p-2 -ml-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50">
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-white transition-all shadow-sm">
+                    <i class="fas fa-arrow-left transition-transform group-hover:-translate-x-0.5"></i>
+                </div>
+                <span class="hidden sm:inline">Kembali</span>
             </a>
-            <button id="themeToggle" class="w-12 h-12 rounded-2xl border border-black/5 dark:border-white/10 flex items-center justify-center dark:text-white hover:bg-gold/10 transition-all">
+            <button type="button" id="themeToggle" aria-label="Ganti Tema Mode Gelap Terang Halaman" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:text-darkGold dark:hover:text-gold hover:border-gold/50 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50">
                 <i class="fas fa-moon dark:hidden text-sm"></i><i class="fas fa-sun hidden dark:block text-gold text-sm"></i>
             </button>
         </div>
     </nav>
 
-    <header class="pt-48 pb-16 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <p class="text-gold text-[10px] font-black uppercase tracking-[0.6em] mb-6">Artikel</p>
-            <h1 class="text-5xl md:text-8xl font-serif font-bold dark:text-white tracking-tighter leading-none mb-10">
-                Library of <span class="text-gold italic font-medium">Insights</span>
+    <!-- Header Section -->
+    <header class="pt-36 md:pt-48 pb-12 md:pb-16 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-gradient-to-l from-lightGray/50 dark:from-white/5 to-transparent pointer-events-none -z-10"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-lightGray/50 dark:bg-white/5 text-darkBlack dark:text-gold text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] mb-6 shadow-sm cursor-default">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span><span>Pusat Literasi</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-serif font-bold dark:text-white tracking-tighter leading-tight mb-8 drop-shadow-sm">
+                Library of <span class="text-darkGold dark:text-gold italic font-medium">Insights</span>
             </h1>
-            <div class="relative max-w-2xl mx-auto group">
-                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Cari strategi SEO atau wawasan bisnis..." class="w-full pl-16 pr-8 py-6 rounded-3xl border border-black/5 dark:border-white/5 bg-gray-50/50 dark:bg-darkCard text-base focus:ring-4 focus:ring-gold/10 outline-none transition-all dark:text-white">
-                <i class="fas fa-search absolute left-7 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-gold text-lg transition-colors"></i>
+            <div class="relative max-w-2xl mx-auto group w-full px-2" role="search">
+                <label for="searchInput" class="sr-only">Kotak Pencarian Artikel Publikasi</label>
+                <input type="search" id="searchInput" onkeyup="liveSearch()" title="Ketik untuk mencari artikel" placeholder="Cari strategi SEO atau wawasan bisnis..." aria-label="Cari artikel strategi pemasaran atau bisnis" class="w-full pl-14 pr-6 py-4 md:py-5 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-sm md:text-base focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all dark:text-white shadow-soft placeholder:text-gray-400">
+                <i class="fas fa-search absolute left-6 md:left-7 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold text-base md:text-lg transition-colors pointer-events-none" aria-hidden="true"></i>
             </div>
         </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-8 mb-16">
-        <div class="flex sm:justify-center items-center gap-4 overflow-x-auto no-scrollbar pb-2" id="catFilters">
-            <button onclick="filterCat('All', this)" class="whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl bg-gold text-white text-[10px] font-bold uppercase tracking-widest shadow-xl shadow-gold/20">Semua</button>
-            <button onclick="filterCat('SEO', this)" class="whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl border border-black/5 dark:border-white/5 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gold transition-all">SEO</button>
-            <button onclick="filterCat('Marketing', this)" class="whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl border border-black/5 dark:border-white/5 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gold transition-all">Marketing</button>
-            <button onclick="filterCat('Bisnis', this)" class="whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl border border-black/5 dark:border-white/5 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gold transition-all">Bisnis</button>
+    <!-- Kategori Filter -->
+    <div class="max-w-7xl mx-auto px-6 md:px-8 mb-12">
+        <div class="flex justify-start sm:justify-center items-center gap-3 overflow-x-auto custom-scroll pb-4 pt-2 px-2 snap-x" id="catFilters" role="tablist" aria-label="Filter Kategori Artikel">
+            <button type="button" role="tab" aria-selected="true" onclick="filterCat('All', this)" class="snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full bg-gold text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest shadow-md shadow-gold/20 transition-all focus:outline-none focus:ring-2 focus:ring-gold/50">Semua</button>
+            <button type="button" role="tab" aria-selected="false" onclick="filterCat('SEO', this)" class="snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:border-gold hover:text-darkGold dark:hover:text-gold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50">SEO</button>
+            <button type="button" role="tab" aria-selected="false" onclick="filterCat('Marketing', this)" class="snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:border-gold hover:text-darkGold dark:hover:text-gold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50">Marketing</button>
+            <button type="button" role="tab" aria-selected="false" onclick="filterCat('Bisnis', this)" class="snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:border-gold hover:text-darkGold dark:hover:text-gold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50">Bisnis</button>
         </div>
     </div>
 
-    <main class="max-w-7xl mx-auto px-8 py-8 min-h-[60vh]">
-        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
-            <div class="h-[500px] rounded-[3.5rem] bg-gray-100 dark:bg-white/5 animate-pulse"></div>
-            <div class="h-[500px] rounded-[3.5rem] bg-gray-100 dark:bg-white/5 animate-pulse hidden md:block"></div>
-            <div class="h-[500px] rounded-[3.5rem] bg-gray-100 dark:bg-white/5 animate-pulse hidden lg:block"></div>
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-6 md:px-8 py-4 min-h-[50vh]">
+        <!-- Area Hasil Artikel -->
+        <div id="blogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12" role="region" aria-live="polite">
+            <!-- Skeleton Loader -->
+            <div aria-hidden="true" class="h-[400px] md:h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5"></div>
+            <div aria-hidden="true" class="h-[400px] md:h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5 hidden sm:block"></div>
+            <div aria-hidden="true" class="h-[400px] md:h-[450px] rounded-[2.5rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5 hidden lg:block"></div>
         </div>
-        <div id="noResults" class="hidden text-center py-40">
-            <i class="fas fa-search text-gray-200 dark:text-gray-800 text-7xl mb-6"></i>
-            <p class="text-gray-400 font-serif italic text-2xl">Belum ada publikasi...</p>
+        
+        <!-- Pesan Tidak Ada Hasil -->
+        <div id="noResults" class="hidden text-center py-20 md:py-32" aria-live="assertive">
+            <div class="w-20 h-20 bg-gray-100 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-search text-gray-300 dark:text-gray-600 text-3xl"></i>
+            </div>
+            <p class="text-textGray dark:text-darkSub font-serif italic text-xl md:text-2xl font-medium">Belum ada publikasi untuk kata kunci ini...</p>
+            <button aria-label="Hapus Filter Pencarian" onclick="document.getElementById('searchInput').value=''; liveSearch();" class="mt-6 text-xs text-gold hover:text-darkGold transition-colors font-bold uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-gold rounded p-1">Reset Pencarian</button>
         </div>
     </main>
 
-    <section class="max-w-6xl mx-auto px-8 pb-40 pt-20">
-        <div class="bg-gray-50 dark:bg-darkCard p-12 md:p-32 rounded-[4rem] md:rounded-[5rem] text-center border border-black/5 dark:border-white/5 relative overflow-hidden shadow-2xl">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px]"></div>
-            <h2 class="text-4xl md:text-8xl font-serif font-bold dark:text-white mb-10 tracking-tighter">Ready to Scale?</h2>
-            <p class="text-gray-500 dark:text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto mb-14">Konsultasi <span class="text-gold font-bold">SEO Specialist</span> dan strategi pertumbuhan bisnis eksklusif.</p>
-            <a href="https://wa.me/62859148219009" target="_blank" class="inline-flex items-center gap-5 px-14 py-6 bg-gold text-white rounded-3xl font-bold text-[11px] uppercase tracking-[0.3em] hover:bg-black transition-all shadow-2xl shadow-gold/30 transform hover:scale-105">
-                <i class="fab fa-whatsapp text-2xl"></i> Mulai Diskusi
-            </a>
+    <!-- CTA Section Konsisten -->
+    <section class="max-w-6xl mx-auto px-6 md:px-8 pb-32 pt-24 relative z-10">
+        <div class="bg-lightGray dark:bg-darkCard p-10 md:p-24 lg:p-32 rounded-[3rem] md:rounded-[4rem] text-center border border-black/5 dark:border-white/10 relative overflow-hidden shadow-soft">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-gold/10 rounded-full blur-[80px] pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-6xl lg:text-7xl font-serif font-bold dark:text-white mb-6 md:mb-8 tracking-tight">Ready to Scale?</h2>
+                <p class="text-textGray dark:text-darkSub text-sm md:text-xl max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed font-medium">Konsultasi bersama <span class="text-darkGold dark:text-gold font-bold">SEO Specialist</span> dan rancang strategi pertumbuhan bisnis eksklusif Anda sekarang juga.</p>
+                <a href="https://wa.me/62859148219009?text=Halo%20Mas%20Faqih,%20saya%20tertarik%20untuk%20konsultasi%20skalabilitas%20bisnis." target="_blank" rel="noopener noreferrer" aria-label="Mulai Diskusi via WhatsApp" class="inline-flex items-center gap-4 px-10 md:px-14 py-4 md:py-5 bg-gold text-white rounded-full font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-black transition-all shadow-xl shadow-gold/20 transform hover:-translate-y-1">
+                    <i class="fab fa-whatsapp text-lg md:text-xl"></i> Mulai Diskusi
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer class="py-24 border-t border-black/5 dark:border-white/5 text-center">
-        <div class="max-w-7xl mx-auto px-8">
-            <p class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 mb-8">&copy; 2026 MUHAMMAD FAQIH AL RIFAI</p>
+    <!-- Footer Konsisten Identik dengan Index -->
+    <footer id="contact" class="bg-lightGray dark:bg-darkBg pt-24 pb-12 px-6 md:px-8 border-t border-black/5 dark:border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
+                <div class="max-w-xl">
+                    <p class="text-4xl md:text-5xl font-serif font-medium mb-6 dark:text-white tracking-tight">Mari Bekerja Sama.</p>
+                    <p class="text-sm md:text-base text-textGray dark:text-darkSub mb-10 leading-relaxed">Siap meningkatkan traffic dan penjualan bisnis Anda melalui strategi digital yang tepat.</p>
+                    <a href="mailto:faqihalrf@gmail.com" aria-label="Email Pertanyaan Bisnis" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-gold text-white rounded-full hover:bg-black transition-all duration-300 shadow-xl hover:shadow-gold/30 text-sm md:text-base font-bold tracking-wide group">
+                        <i class="far fa-envelope text-lg group-hover:scale-110 transition-transform"></i> faqihalrf@gmail.com
+                    </a>
+                </div>
+                <div>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-widest text-darkGold dark:text-gold mb-8">Jejaring Sosial</p>
+                    <div class="flex gap-6 text-2xl text-textGray dark:text-darkSub">
+                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer" aria-label="Profil Koneksi LinkedIn Profesional" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/faqihalrf?igsh=ejBpYnRsc3RqemIx" target="_blank" rel="noopener noreferrer" aria-label="Portofolio Visual Instagram" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf?_t=ZS-8znBgzmkjYX&_r=1" target="_blank" rel="noopener noreferrer" aria-label="Siaran Publik TikTok" class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/62859148219009" target="_blank" rel="noopener noreferrer" aria-label="Ruang Percakapan Eksekutif WhatsApp" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-black/5 dark:border-white/5 pt-10 mb-10">
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-textGray/60 dark:text-darkSub/60 mb-6">Bidang Spesialisasi</p>
+                <div class="flex flex-wrap gap-x-6 gap-y-3 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium leading-relaxed">
+                    <span>Pakar SEO</span><span>Strategi Pemasaran</span><span>SEO Perusahaan</span><span>Pertumbuhan Ecommerce</span><span>Manajemen Server</span><span>Infrastruktur Cloud</span><span>Domain Resmi</span><span>Pengembang Web</span><span>Audit Iklan</span>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs md:text-sm text-textGray dark:text-darkSub font-medium">
+                <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex gap-8 items-center">
+                    <a href="legal.html" aria-label="Dokumen Kebijakan Privasi Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-xs">Kebijakan Privasi</a>
+                    <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Interupsi Ulang Perekaman Indeks Tautan Google Otomatis" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Ping Robot Google Untuk Memindai Keterbaruan"><i class="fas fa-satellite-dish"></i></button>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <button id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-8 w-14 h-14 rounded-2xl bg-gold text-white shadow-2xl opacity-0 invisible translate-y-6 transition-all z-50 flex items-center justify-center hover:bg-black group">
-        <i class="fas fa-chevron-up group-hover:-translate-y-1 transition-transform"></i>
+    <!-- Widget Navigasi Atas -->
+    <button type="button" id="backTop" aria-label="Kembali ke Atas Halaman" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold text-white shadow-xl opacity-0 invisible translate-y-6 transition-all z-50 flex items-center justify-center hover:bg-black hover:scale-110 focus:outline-none focus:ring-4 focus:ring-gold/30 group">
+        <i class="fas fa-arrow-up text-lg group-hover:-translate-y-1 transition-transform"></i>
     </button>
 
     <script>
-        // Security & Smooth Scroll
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        const lenis = new Lenis({ duration: 1.2 });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
+        // Init Konfigurasi Tema
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            document.getElementById('themeToggle').addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            });
 
+            // Mulai Muat Artikel
+            fetchPosts();
+        });
+
+        // Global Variable
         let allPosts = [];
 
+        // Pengambilan Data WordPress
         async function fetchPosts() {
             try {
                 const res = await fetch(`https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=45&cb=${Date.now()}`);
+                if (!res.ok) throw new Error('Network response failure');
                 allPosts = await res.json();
                 renderPosts(allPosts);
+                
+                // Panggil Bot Siluman Auto-Index untuk artikel baru
+                otomatisCekDanPing(allPosts);
+
             } catch (err) {
-                document.getElementById('blogGrid').innerHTML = '<p class="text-center col-span-full py-20 text-red-400 font-serif italic text-xl">Koneksi pangkalan data terputus.</p>';
+                document.getElementById('blogGrid').innerHTML = '<div class="col-span-full py-20 text-center"><div class="inline-flex w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/20 items-center justify-center mb-4"><i class="fas fa-exclamation-triangle text-red-500 text-2xl"></i></div><p class="text-textGray dark:text-darkSub font-serif italic text-lg md:text-xl">Gangguan koneksi sambungan. Pangkalan data menolak permintaan masuk saat ini.</p></div>';
             }
         }
 
+        // Render Struktur Kartu Artikel
         function renderPosts(posts) {
             const grid = document.getElementById('blogGrid');
             const noRes = document.getElementById('noResults');
-            if(posts.length === 0) { grid.innerHTML = ''; noRes.classList.remove('hidden'); return; }
+            
+            if(posts.length === 0) { 
+                grid.innerHTML = ''; 
+                noRes.classList.remove('hidden'); 
+                return; 
+            }
+            
             noRes.classList.add('hidden');
 
             grid.innerHTML = posts.map(post => {
+                // Konfigurasi Image Caching Berperforma Tinggi
                 let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800';
                 if (post._embedded?.['wp:featuredmedia']?.[0]) {
-                    img = `https://wsrv.nl/?url=${encodeURIComponent(post._embedded['wp:featuredmedia'][0].source_url)}&w=800&h=600&fit=cover&output=webp&q=80`;
+                    const rawUrl = post._embedded['wp:featuredmedia'][0].source_url;
+                    img = `https://wsrv.nl/?url=${encodeURIComponent(rawUrl)}&w=600&h=450&fit=cover&output=webp&q=80`;
                 }
+                
+                // Parsing Kategori & Waktu
                 const cat = post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Insight';
-                const date = new Date(post.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                const dateObj = new Date(post.date);
+                const date = dateObj.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+                
+                // Ekstraksi Paragraf Ringkasan
                 const rawExcerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '');
-                const excerpt = rawExcerpt.length > 95 ? rawExcerpt.substring(0, 95) + '...' : rawExcerpt;
+                const excerpt = rawExcerpt.length > 100 ? rawExcerpt.substring(0, 100) + '...' : rawExcerpt;
 
                 return `
-                    <article class="blog-card flex flex-col bg-white dark:bg-darkCard rounded-[3.5rem] overflow-hidden group">
-                        <div class="h-72 overflow-hidden relative">
-                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" loading="lazy">
-                            <div class="absolute top-8 left-8 bg-white/90 dark:bg-black/80 backdrop-blur-md text-black dark:text-white text-[8px] font-black px-4 py-2 rounded-xl uppercase tracking-[0.2em]">${cat}</div>
-                        </div>
-                        <div class="p-10 flex flex-col flex-1 border-x border-b border-black/5 dark:border-white/5 rounded-b-[3.5rem]">
-                            <span class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
-                                <span class="w-6 h-px bg-gold/30"></span> ${date}
+                    <article class="blog-card flex flex-col bg-white dark:bg-darkCard rounded-[2.5rem] md:rounded-[3rem] overflow-hidden group shadow-soft">
+                        <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="h-56 md:h-64 lg:h-72 overflow-hidden relative block outline-none focus:ring-4 focus:ring-gold/50" aria-label="Buka literatur: ${post.title.rendered}">
+                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 img-high-res" alt="Ilustrasi Visual Artikel ${post.title.rendered}" loading="lazy" decoding="async">
+                            <div class="absolute top-6 left-6 md:top-8 md:left-8 bg-white/95 dark:bg-black/80 backdrop-blur-md text-darkBlack dark:text-white text-[9px] md:text-[10px] font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl uppercase tracking-widest border border-black/5 dark:border-white/10 shadow-sm">${cat}</div>
+                        </a>
+                        <div class="p-8 md:p-10 flex flex-col flex-1 relative z-10 bg-white dark:bg-darkCard border-x border-b border-black/5 dark:border-white/5 rounded-b-[2.5rem] md:rounded-b-[3rem]">
+                            <span class="text-[9px] md:text-[10px] text-textGray/60 dark:text-darkSub/60 font-bold uppercase tracking-widest mb-4 flex items-center gap-3">
+                                <span class="w-8 h-0.5 bg-gold/50 rounded-full"></span> ${date}
                             </span>
-                            <h2 class="text-xl font-serif font-bold dark:text-white mb-5 line-clamp-2 italic group-hover:text-gold transition-colors">
-                                ${post.title.rendered}
-                            </h2>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mb-8 line-clamp-2">${excerpt}</p>
-                            <a href="${post.link}" target="_blank" class="mt-auto text-[10px] font-black uppercase tracking-[0.3em] text-gold flex items-center gap-4 group/btn">
-                                Pelajari Detail <i class="fas fa-chevron-right text-[7px] transition-transform group-hover/btn:translate-x-2"></i>
+                            <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="outline-none focus:underline" aria-label="Baca publikasi riset: ${post.title.rendered}">
+                                <h2 class="text-lg md:text-xl lg:text-2xl font-serif font-bold text-darkBlack dark:text-white mb-4 line-clamp-2 md:line-clamp-3 leading-snug group-hover:text-darkGold dark:group-hover:text-gold transition-colors duration-300">
+                                    ${post.title.rendered}
+                                </h2>
                             </a>
+                            <p class="text-textGray dark:text-darkSub text-xs md:text-sm leading-relaxed mb-8 line-clamp-2 md:line-clamp-3">${excerpt}</p>
+                            <div class="mt-auto pt-4 border-t border-black/5 dark:border-white/5">
+                                <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="inline-flex text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-darkGold dark:text-gold items-center gap-3 group/btn outline-none focus:ring-2 focus:ring-gold rounded p-1" aria-label="Pelajari Rincian Strategi Lanjut">
+                                    <span>Pelajari Detail</span>
+                                    <div class="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center group-hover/btn:bg-gold group-hover/btn:text-white transition-all duration-300">
+                                        <i class="fas fa-arrow-right text-[10px] transition-transform group-hover/btn:translate-x-0.5"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </article>
                 `;
             }).join('');
         }
 
+        // Search Bar Real-time
         function liveSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = allPosts.filter(p => p.title.rendered.toLowerCase().includes(query) || p.excerpt.rendered.toLowerCase().includes(query));
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if(!query) { renderPosts(allPosts); return; }
+            
+            const filtered = allPosts.filter(p => 
+                p.title.rendered.toLowerCase().includes(query) || 
+                p.excerpt.rendered.toLowerCase().includes(query)
+            );
             renderPosts(filtered);
-        }
-
-        function filterCat(cat, btn) {
+            
+            // Reset kategori tab selection
             document.querySelectorAll('#catFilters button').forEach(b => {
-                b.className = "whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl border border-black/5 dark:border-white/5 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:border-gold transition-all";
+                b.className = "snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:border-gold hover:text-darkGold dark:hover:text-gold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50";
+                b.setAttribute('aria-selected', 'false');
             });
-            btn.className = "whitespace-nowrap flex-none px-8 py-3.5 rounded-2xl bg-gold text-white text-[10px] font-bold uppercase tracking-widest shadow-xl shadow-gold/20";
-            if(cat === 'All') renderPosts(allPosts);
-            else renderPosts(allPosts.filter(p => p._embedded?.['wp:term']?.[0]?.[0]?.name.toLowerCase().includes(cat.toLowerCase())));
         }
 
+        // Logika Tab Navigasi Kategori
+        function filterCat(cat, btn) {
+            document.getElementById('searchInput').value = ''; 
+            
+            document.querySelectorAll('#catFilters button').forEach(b => {
+                b.className = "snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-darkCard text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:border-gold hover:text-darkGold dark:hover:text-gold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50";
+                b.setAttribute('aria-selected', 'false');
+            });
+            
+            btn.className = "snap-start whitespace-nowrap flex-none px-6 md:px-8 py-3 rounded-full bg-gold text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest shadow-md shadow-gold/20 transition-all focus:outline-none focus:ring-2 focus:ring-gold/50";
+            btn.setAttribute('aria-selected', 'true');
+            
+            if(cat === 'All') {
+                renderPosts(allPosts);
+            } else {
+                renderPosts(allPosts.filter(p => {
+                    const postCat = p._embedded?.['wp:term']?.[0]?.[0]?.name;
+                    return postCat && postCat.toLowerCase().includes(cat.toLowerCase());
+                }));
+            }
+        }
+
+        // Perekaman Indexing Manual Untuk Google Bot (Tombol di Footer)
+        async function triggerIndexing() {
+            const btn = document.getElementById('pingBotBtn');
+            const icon = btn.innerHTML;
+            const currentUrl = window.location.href.split('#')[0];
+            
+            if(!confirm(`Apakah Anda menghendaki izin pelepasan transmisi sinyal pengiriman instruksi perintah Perayapan Interupsi Pembaruan Evaluasi Indeks Baru secara paksa segera menuju Fasilitas Server Antrian Pemantauan Penelusuran Robot Google pusat saat momen detik ini juga?\n\nIdentitas URL Publikasi Terkait Target Sasaran Permintaan: ${currentUrl}`)) return;
+            
+            try {
+                document.body.style.cursor = 'wait';
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-gold"></i>';
+                
+                const response = await fetch('/.netlify/functions/index-bot', { method: 'POST', body: JSON.stringify({ url: currentUrl }), headers: { 'Content-Type': 'application/json' } });
+                
+                if(response.ok) alert(`✅ Peringatan Laporan Status Resolusi Identifikasi Eksekusi Terkonfirmasi: Rangkaian Pelaksanaan Skema Operasi Terbaca Telah Menyatakan Berhasil Diselesaikan! Aliran transmisi tembakan sinyal permohonan instruksi perayapan kode bot prioritas tingkat tinggi telah dikonfirmasi tervalidasi terkirim langsung menembus mulus menuju pangkalan gerbang antarmuka penyedia layanan infrastruktur pemrosesan antrian robot pencatatan mesin pencari pelacak indeks milik institusi raksasa Google Server Pusat dunia.`);
+                else alert(`❌ Peringatan Laporan Kesalahan: Pendeteksian Jalur Sinyal Transmisi Jaringan Permintaan Anda Mengalami Gagal Total Ditolak Terkirim Penuh.`);
+            } catch(e) {
+                alert("❌ Peringatan Temuan Identifikasi Celah Status Kesalahan Darurat Gangguan Koneksi Fatal: Peringatan Dini Terdeteksi Sedang Terjadi Sebuah Interupsi Masalah Kemacetan Kegagalan Komunikasi Interaksi Transmisi Pengiriman Sinyal Panggilan Dari Arah Klien Menuju Infrastruktur Pangkalan Basis Penerima Resolusi Sistem Otomasi Jaringan Layanan Permintaan Eksekusi Awan.");
+            } finally {
+                document.body.style.cursor = 'default';
+                btn.innerHTML = icon;
+            }
+        }
+
+        // Perekaman Indeks Bot Siluman (Otomatis mem-ping Google jika ada artikel yang usianya < 24 Jam)
+        function otomatisCekDanPing(posts) {
+            if (!posts || posts.length === 0) return;
+            
+            const artikelTerbaru = posts[0];
+            const waktuPos = new Date(artikelTerbaru.date).getTime();
+            const waktuSekarang = Date.now();
+            const selisihJam = (waktuSekarang - waktuPos) / (1000 * 60 * 60);
+            
+            // Periksa jika artikel terdeteksi rilis dalam 24 Jam Terakhir
+            if (selisihJam <= 24) {
+                const riwayatPing = localStorage.getItem('riwayatAutoPingArtikel');
+                const idArtikelStr = artikelTerbaru.id.toString();
+                
+                if (riwayatPing !== idArtikelStr) {
+                    localStorage.setItem('riwayatAutoPingArtikel', idArtikelStr);
+                    fetch('/.netlify/functions/index-bot', { 
+                        method: 'POST', 
+                        body: JSON.stringify({ url: artikelTerbaru.link }), 
+                        headers: { 'Content-Type': 'application/json' } 
+                    }).catch(e => { /* Error diabaikan tanpa peringatan UI agar tidak mengganggu sesi baca pengunjung */ });
+                }
+            }
+        }
+
+        // Sistem Event Scroll Native yang normal & lag-free (Mengatur Navbar & Tombol Back To Top)
         window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.documentElement.style.setProperty('--scroll-p', scrolled + '%');
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const navbar = document.getElementById('navbar');
+            
+            if (winScroll > 20) {
+                navbar.classList.remove('h-20');
+                navbar.classList.add('h-14');
+            } else {
+                navbar.classList.add('h-20');
+                navbar.classList.remove('h-14');
+            }
+            
             const btn = document.getElementById('backTop');
-            if (window.scrollY > 800) { btn.classList.remove('opacity-0','invisible','translate-y-6'); btn.classList.add('opacity-100','visible','translate-y-0'); }
-            else { btn.classList.add('opacity-0','invisible','translate-y-6'); btn.classList.remove('opacity-100','visible','translate-y-0'); }
-        });
+            if (winScroll > 600) { 
+                btn.classList.remove('opacity-0', 'invisible', 'translate-y-6'); 
+                btn.classList.add('opacity-100', 'visible', 'translate-y-0'); 
+            } else { 
+                btn.classList.add('opacity-0', 'invisible', 'translate-y-6'); 
+                btn.classList.remove('opacity-100', 'visible', 'translate-y-0'); 
+            }
+        }, { passive: true });
 
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
-            fetchPosts();
-        });
     </script>
 </body>
 </html>

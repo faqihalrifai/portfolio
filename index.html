@@ -99,7 +99,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preload" as="image" href="myphot.webp">
 
-    <!-- GOOGLE ANALYTICS (GA4) - Diubah menjadi async penuh -->
+    <!-- GOOGLE ANALYTICS (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -140,7 +140,7 @@
                         mainWhite: '#ffffff',
                         lightGray: '#f8f9fa',
                         gold: '#c5a028',
-                        darkGold: '#856d1b', /* Warna emas yang lebih gelap untuk standar A11y pada background terang */
+                        darkGold: '#856d1b',
                         goldHover: '#a3841f',
                         darkBlack: '#111827',
                         textGray: '#4b5563',
@@ -184,7 +184,6 @@
         
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        /* PERFORMA OPTIMIZATION: Membatasi render untuk elemen di luar layar */
         .defer-render {
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
@@ -204,7 +203,6 @@
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
 
-        /* SCROLL BARS */
         .h-scroll-container { scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; } 
         .h-scroll-container::-webkit-scrollbar { display: none; }
         
@@ -215,7 +213,6 @@
         .custom-scroll::-webkit-scrollbar-thumb { background-color: rgba(197, 160, 40, 0.6); border-radius: 10px; }
         .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(197, 160, 40, 1); }
         
-        /* TESTIMONIALS CARDS */
         .testimonial-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
             background: rgba(255, 255, 255, 0.7);
@@ -231,6 +228,13 @@
         }
         .testimonial-card:hover { transform: translateY(-5px); border-color: #c5a028; box-shadow: 0 15px 40px -10px rgba(0,0,0,0.1); }
 
+        .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); transform: translateZ(0); }
+        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; will-change: opacity; z-index: 1; pointer-events: none;}
+        .hero-slide.active { opacity: 1; z-index: 10; pointer-events: auto;}
+        .hero-slide img, .hero-slide video { width: 100%; height: 100%; object-fit: cover; }
+        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: none; }
+        .thumbnail-item { width: 80px; height: 60px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; flex-shrink: 0; transform: translateZ(0); }
+        .thumbnail-item.active { opacity: 1; border-color: #c5a028; transform: scale(1.05); }
         /* HERO SLIDER */
         .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); transform: translateZ(0); }
         .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; will-change: opacity; z-index: 1; pointer-events: none;}
@@ -240,15 +244,6 @@
         .thumbnail-item { width: 80px; height: 60px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; flex-shrink: 0; transform: translateZ(0); }
         .thumbnail-item.active { opacity: 1; border-color: #c5a028; transform: scale(1.05); }
         .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* MARKETING POPUP */
-        .marketing-popup { position: fixed; z-index: 100; display: flex; align-items: center; gap: 12px; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease; pointer-events: none; transform: translateY(150%); opacity: 0; }
-        .marketing-popup.show { pointer-events: auto; transform: translateY(0); opacity: 1; }
-        .bubble { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 16px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); max-width: 320px; width: 100%; position: relative; border: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; line-height: 1.4; border-left: 4px solid #c5a028; }
-        .dark .bubble { background: rgba(30, 30, 30, 0.98); color: #f3f4f6; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #c5a028; }
-        .popup-close { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; background: rgba(0,0,0,0.05); color: #4b5563; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; transition: all 0.2s; }
-        .dark .popup-close { background: rgba(255,255,255,0.1); color: #f3f4f6; }
-        .popup-close:hover { background: #c5a028; color: white; transform: scale(1.1); }
 
         .neural-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
         .bento-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem; overflow: hidden; position: relative; transition: all 0.3s ease; transform: translateZ(0); }
@@ -256,7 +251,6 @@
         .bento-card:hover { border-color: #c5a028; box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1); transform: translateY(-2px); }
         .icon-force-white { background-color: #ffffff !important; }
 
-        /* REAL SCANNER LASER ANIMATION */
         .scanner-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 40; display: none; pointer-events: none; overflow: hidden; border-radius: 1.5rem; backdrop-filter: blur(2px); }
         .scanning .scanner-overlay { display: block; }
         .laser-line { position: absolute; left: 0; right: 0; height: 2px; background: #c5a028; box-shadow: 0 0 15px 5px rgba(197, 160, 40, 0.6); animation: scan-laser 2s ease-in-out infinite alternate; will-change: transform; }
@@ -266,7 +260,6 @@
         .scroll-widget.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .lightbox-zoomed { transform: scale(1.5) !important; cursor: zoom-out !important; }
 
-        /* BENTO SERVICE CARDS */
         .bento-service { transition: all 0.3s ease; transform: translateZ(0); }
         .bento-service:hover { transform: translateY(-4px); border-color: rgba(197, 160, 40, 0.6); box-shadow: 0 20px 40px -15px rgba(197, 160, 40, 0.15); }
         .stagger-item { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -281,7 +274,6 @@
         .fan-active .fan-card { opacity: 1; transform: translateY(var(--fan-y)) rotate(var(--fan-rot)) scale(1); }
         .fan-active .fan-card:hover { transform: translateY(calc(var(--fan-y) - 15px)) rotate(0deg) scale(1.05); z-index: 50; border-color: #c5a028; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); transition-delay: 0s; }
 
-        /* NEW TRENDS CARD STYLING */
         .executive-trend-card {
             background: #ffffff;
             transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
@@ -307,40 +299,32 @@
             opacity: 0.15;
         }
 
-        /* CERTIFICATE STACK FIX FOR OVERFLOW */
         #cert-stack-container {
             padding-left: 2rem;
             padding-right: 2rem;
         }
 
         @media (max-width: 768px) {
-            .marketing-popup { top: 20px; left: 50%; transform: translate(-50%, -150%); width: 90%; max-width: 320px; bottom: auto; right: auto; }
-            .marketing-popup.show { transform: translate(-50%, 0); }
-            .bubble { text-align: left; border-top: none; border-left: 4px solid #c5a028; }
             .neural-grid { display: flex; flex-direction: column; gap: 1.5rem; }
             .partner-logo { width: 120px; height: 60px; margin: 0 1rem; }
             #cert-stack-container { padding-left: 1rem; padding-right: 1rem; justify-content: flex-start; }
-        }
-        @media (min-width: 769px) {
-            .marketing-popup { top: auto; left: 30px; bottom: 30px; right: auto; transform: translateY(150%); }
-            .marketing-popup.show { transform: translateY(0); }
         }
     </style>
 </head>
 <body class="bg-mainWhite text-darkBlack dark:bg-darkBg dark:text-darkText transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm" id="navbar">
+    <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm" id="navbar" aria-label="Navigasi Utama">
         <div id="navbar-container" class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center transition-all duration-300">
             <a href="#" class="font-bold tracking-tight hover:text-darkGold dark:hover:text-gold transition-colors flex items-center gap-2 group min-w-0" aria-label="Beranda">
                 <span class="text-[13px] sm:text-base md:text-lg font-serif tracking-wide dark:text-darkText truncate">Muhammad Faqih Al Rifai</span>
                 <div class="relative flex items-center justify-center shrink-0">
                     <i class="fas fa-check-circle text-gold text-base md:text-lg"></i>
                 </div>
+            </a>
             
             <div class="hidden md:flex items-center gap-1 bg-lightGray/50 dark:bg-black/20 p-1 rounded-full border border-black/5 dark:border-white/10 backdrop-blur-sm">
                 <a href="#about" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Tentang</a>
-                <!-- A11y Fix: text-darkGold in light mode, text-gold in dark mode for contrast -->
                 <a href="#neural-command" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all text-darkGold dark:text-gold"><i class="fas fa-microchip mr-1"></i>Dashboard</a>
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Layanan</a>
                 <a href="#core-kompetensi" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Kompetensi</a>
@@ -428,18 +412,12 @@
                     <div class="relative w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <!-- PERBAIKAN PERFORMA: fetchpriority dan eager loading tetap untuk Hero LCP -->
                             <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover img-high-res" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- VIDEO ANIMASI - PERBAIKAN PERFORMA: Hilangkan autoplay agar tidak block render, dikontrol JS Observer -->
-        <div class="w-full bg-black pointer-events-none relative z-10 shadow-sm border-y border-black/5 dark:border-white/5 flex justify-center overflow-hidden">
-            <video id="hero-bg-video" src="animasi.mp4" class="w-full max-w-[1920px] h-auto aspect-video object-cover block" muted playsinline loop preload="none" disablePictureInPicture title="Latar Video Animasi Penelusuran Digital"></video>
-        </div>
 
         <!-- Partnership Section -->
         <section id="partnership" class="defer-render py-24 bg-mainWhite dark:bg-darkBg relative z-10 border-b border-black/5 dark:border-white/5 overflow-hidden">
@@ -465,6 +443,11 @@
             </div>
         </section>
 
+        <!-- VIDEO ANIMASI -->
+        <div class="w-full bg-black pointer-events-none relative z-10 shadow-sm border-y border-black/5 dark:border-white/5 flex justify-center overflow-hidden">
+            <video id="hero-bg-video" src="animasi.mp4" class="w-full max-w-[1920px] h-auto aspect-video object-cover block" muted playsinline loop preload="none" disablePictureInPicture title="Latar Video Animasi Penelusuran Digital"></video>
+        </div>
+
         <!-- NEURAL COMMAND CENTER V4.0 -->
         <section id="neural-command" class="defer-render py-24 relative bg-[#f4f5f7] dark:bg-[#0a0a0a] border-y border-black/5 dark:border-white/5 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
@@ -482,7 +465,7 @@
                 </div>
 
                 <div class="neural-grid reveal" style="animation-delay: 0.1s;">
-                    <!-- 1. InsightBox -->
+                    <!-- 1. InsightBox (Looker) -->
                     <div class="col-span-12 bento-card p-4 md:p-8 bg-[#0f1014] border-black/20 dark:border-white/10 relative group">
                         <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-xl"></div>
                         <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6 relative z-10">
@@ -504,37 +487,7 @@
                         </div>
                     </div>
 
-                    <!-- 2. Gemini AI Bot -->
-                    <div class="col-span-12 md:col-span-7 bento-card flex flex-col h-[500px] md:h-[650px]">
-                        <div class="p-6 md:p-8 flex flex-col h-full w-full relative">
-                            <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4 relative z-10">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                        <!-- PERBAIKAN PERFORMA: Lazy load -->
-                                        <img src="geminiai.webp" loading="lazy" width="40" height="40" alt="Ikon Robot Konsultan AI Gemini" class="w-full h-full object-contain rounded-lg img-high-res">
-                                    </div>
-                                    <div><h3 class="font-bold text-base md:text-lg dark:text-white">Asisten Strategi</h3><p class="text-[10px] md:text-xs uppercase text-textGray dark:text-darkSub font-mono">Powered by Gemini AI</p></div>
-                                </div>
-                                <span class="text-[10px] font-bold px-3 py-1.5 bg-green-500/10 text-green-500 rounded border border-green-500/20 font-mono animate-pulse shrink-0">[ ONLINE ]</span>
-                            </div>
-                            
-                            <div id="bot-chat-window" class="custom-scroll flex-1 w-full bg-transparent overflow-y-auto font-mono text-xs md:text-sm leading-relaxed space-y-4 pb-4 pr-2 relative z-10">
-                                <div class="w-full text-slate-800 dark:text-darkText bg-lightGray/50 dark:bg-white/5 rounded-xl p-4 md:p-5 border border-black/5 dark:border-white/10 font-sans shadow-sm">
-                                    Selamat datang. Gunakan <span class="text-darkGold dark:text-gold font-bold">Asisten Faqih</span> ini untuk merancang strategi bisnis digital Anda secara instan.
-                                <br><br>
-                                    Klik tombol di bawah untuk mendapatkan panduan strategi yang Anda butuhkan.
-                            </div>
-                        </div>
-                            
-                            <div class="flex gap-3 flex-wrap mt-auto shrink-0 pt-4 relative z-10" id="bot-options-container">
-                                <button type="button" aria-label="Minta Panduan Strategi SEO" onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Optimasi SEO</button>
-                                <button type="button" aria-label="Minta Panduan Digital Ads" onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Iklan Digital</button>
-                                <button type="button" aria-label="Minta Panduan Ekspansi Bisnis" onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Ekspansi Bisnis</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. Performance Auditor -->
+                    <!-- 2. Performance Auditor (Swapped for PageSpeed Insight first) -->
                     <div class="col-span-12 md:col-span-5 bento-card p-6 md:p-8 flex flex-col relative group h-[500px] md:h-[650px]" id="pagespeed-card">
                         <div class="scanner-overlay"><div class="laser-line"></div></div>
                         <div class="relative z-50 flex flex-col h-full">
@@ -551,7 +504,6 @@
                                 <div class="flex items-center gap-3">
                                     <label for="psi-url-client" class="sr-only">Alamat Website</label>
                                     <i class="fas fa-search text-gold w-5 text-center text-lg"></i>
-                                    <!-- PERBAIKAN A11Y: Penambahan title -->
                                     <input type="url" id="psi-url-client" title="Masukkan Alamat URL Website Tujuan" placeholder="https://domain.com" aria-label="Masukkan Alamat Website Tujuan" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 font-mono text-sm md:text-base py-2 focus:outline-none focus:border-gold dark:text-white placeholder:text-gray-400">
                                 </div>
                                 <button type="button" aria-label="Mulai Pemindaian Website" onclick="runAudit()" id="btn-audit" class="mt-2 w-full text-white bg-darkBlack dark:bg-white dark:text-darkBg hover:bg-gold dark:hover:bg-gold py-3 rounded-lg text-xs md:text-sm tracking-widest font-bold transition-all duration-300 shadow-sm uppercase font-mono">MULAI PEMINDAIAN</button>
@@ -627,6 +579,35 @@
                         </div>
                     </div>
 
+                    <!-- 3. Gemini AI Bot (Swapped) -->
+                    <div class="col-span-12 md:col-span-7 bento-card flex flex-col h-[500px] md:h-[650px]">
+                        <div class="p-6 md:p-8 flex flex-col h-full w-full relative">
+                            <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4 relative z-10">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
+                                        <img src="geminiai.webp" loading="lazy" width="40" height="40" alt="Ikon Robot Konsultan AI Gemini" class="w-full h-full object-contain rounded-lg img-high-res">
+                                    </div>
+                                    <div><h3 class="font-bold text-base md:text-lg dark:text-white">Asisten Strategi</h3><p class="text-[10px] md:text-xs uppercase text-textGray dark:text-darkSub font-mono">Powered by Gemini AI</p></div>
+                                </div>
+                                <span class="text-[10px] font-bold px-3 py-1.5 bg-green-500/10 text-green-500 rounded border border-green-500/20 font-mono animate-pulse shrink-0">[ ONLINE ]</span>
+                            </div>
+                            
+                            <div id="bot-chat-window" class="custom-scroll flex-1 w-full bg-transparent overflow-y-auto font-mono text-xs md:text-sm leading-relaxed space-y-4 pb-4 pr-2 relative z-10">
+                                <div class="w-full text-slate-800 dark:text-darkText bg-lightGray/50 dark:bg-white/5 rounded-xl p-4 md:p-5 border border-black/5 dark:border-white/10 font-sans shadow-sm">
+                                    Selamat datang. Gunakan <span class="text-darkGold dark:text-gold font-bold">Asisten Faqih</span> ini untuk merancang strategi bisnis digital Anda secara instan.
+                                <br><br>
+                                    Klik tombol di bawah untuk mendapatkan panduan strategi yang Anda butuhkan.
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-3 flex-wrap mt-auto shrink-0 pt-4 relative z-10" id="bot-options-container">
+                                <button type="button" aria-label="Minta Panduan Strategi SEO" onclick="sendBotPredefined('seo')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Optimasi SEO</button>
+                                <button type="button" aria-label="Minta Panduan Digital Ads" onclick="sendBotPredefined('marketing')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Iklan Digital</button>
+                                <button type="button" aria-label="Minta Panduan Ekspansi Bisnis" onclick="sendBotPredefined('bisnis')" class="flex-1 min-w-[30%] text-center px-3 md:px-4 py-3 md:py-4 bg-lightGray dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl text-[11px] md:text-xs font-bold text-darkBlack dark:text-white hover:border-gold hover:text-gold transition-all duration-300 shadow-sm uppercase tracking-wider">Ekspansi Bisnis</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- 4. Google Trends Live -->
                     <div class="col-span-12 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/5 rounded-3xl overflow-hidden py-12 md:py-16 relative transition-all duration-500 mt-4 md:mt-0">
                         <div class="mb-10 text-center max-w-2xl mx-auto px-4 relative z-10">
@@ -660,6 +641,24 @@
                       <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block">Layanan</span>
                       <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 dark:text-white tracking-tight leading-tight">Solusi Pertumbuhan Bisnis</h2>
                       <div class="w-16 h-1 bg-gold mx-auto rounded-full opacity-80"></div>
+                      
+                      <!-- Flash Sale Fake Timer -->
+                      <div class="inline-flex items-center justify-center gap-2 md:gap-3 mt-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 px-5 py-2.5 rounded-full shadow-sm">
+                          <div class="text-red-600 dark:text-red-400 font-bold text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-1.5">
+                              <i class="fas fa-bolt animate-pulse text-sm"></i> Flash Sale Berakhir Dalam:
+                          </div>
+                          <div class="flex gap-1.5 text-red-700 dark:text-red-300 font-mono font-bold text-sm md:text-base" id="flash-timer">
+                              <span class="bg-white dark:bg-black/50 px-2 py-0.5 rounded border border-red-100 dark:border-red-900/50" id="fs-hours">02</span><span class="text-red-400">:</span>
+                              <span class="bg-white dark:bg-black/50 px-2 py-0.5 rounded border border-red-100 dark:border-red-900/50" id="fs-minutes">45</span><span class="text-red-400">:</span>
+                              <span class="bg-white dark:bg-black/50 px-2 py-0.5 rounded border border-red-100 dark:border-red-900/50" id="fs-seconds">30</span>
+                          </div>
+                      </div>
+
+                      <!-- Navigation Arrow Buttons -->
+                      <div class="flex justify-center gap-4 mt-6">
+                          <button type="button" aria-label="Geser Kiri Layanan" onclick="document.getElementById('service-stagger-container').scrollBy({left: -350, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-md group"><i class="fas fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i></button>
+                          <button type="button" aria-label="Geser Kanan Layanan" onclick="document.getElementById('service-stagger-container').scrollBy({left: 350, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all shadow-md group"><i class="fas fa-arrow-right text-lg group-hover:translate-x-1 transition-transform"></i></button>
+                      </div>
                   </div>
 
                   <div class="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory custom-scroll items-stretch" id="service-stagger-container">
@@ -668,7 +667,7 @@
                         <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
-                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0">
+                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0 h-14">
                                 <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl md:text-2xl shrink-0"><i class="fas fa-laptop-code"></i></div>
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] md:text-[10px] font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
                             </div>
@@ -716,7 +715,7 @@
                         <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-gold/30 shadow-glow flex flex-col relative overflow-hidden group">
                             <div class="absolute -bottom-10 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-all duration-500 group-hover:bg-gold/20 group-hover:scale-150"></div>
                             
-                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0">
+                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0 h-14">
                                 <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gold text-white flex items-center justify-center text-xl md:text-2xl shrink-0 shadow-lg shadow-gold/30"><i class="fas fa-server"></i></div>
                                 <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[9px] md:text-[10px] font-bold px-3 py-1.5 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse">Promo Terbatas</span>
                             </div>
@@ -764,7 +763,7 @@
                         <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
-                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0">
+                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0 h-14">
                                 <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xl md:text-2xl shrink-0"><i class="fas fa-bullhorn"></i></div>
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] md:text-[10px] font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
                             </div>
@@ -810,7 +809,7 @@
                         <div class="bento-service stagger-item min-w-[90vw] md:min-w-[450px] snap-center bg-white dark:bg-darkCard rounded-[2rem] p-6 md:p-8 border border-black/5 dark:border-white/10 shadow-soft flex flex-col relative overflow-hidden">
                             <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
                             
-                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0">
+                            <div class="flex justify-between items-start mb-6 relative z-10 shrink-0 h-14">
                                 <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl md:text-2xl shrink-0"><i class="fas fa-briefcase"></i></div>
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] md:text-[10px] font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider">Tersedia</span>
                             </div>
@@ -856,6 +855,33 @@
              </div>
         </section>
 
+        <!-- Certifications -->
+        <section id="certificates" class="defer-render py-24 relative overflow-hidden bg-mainWhite dark:bg-darkBg border-t border-black/5 dark:border-white/5">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+                
+                <div class="text-center mb-16 space-y-4 reveal">
+                    <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block">Kredibilitas</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 dark:text-white tracking-tight leading-tight">
+                        Sertifikasi <span class="text-darkGold dark:text-gold italic">Profesional</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gold mx-auto rounded-full opacity-80"></div>
+                    <p class="text-textGray dark:text-darkSub max-w-lg mx-auto font-light tracking-wide text-sm md:text-base mt-4">
+                        Seluruh keahlian saya telah terverifikasi secara resmi oleh lembaga teknologi dunia.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center py-10 w-full overflow-x-auto overflow-y-visible custom-scroll pb-16 reveal" id="cert-stack-container" role="region" aria-label="Daftar Sertifikasi Resmi"></div>
+                
+                <p class="text-[10px] md:text-xs text-textGray dark:text-darkSub font-medium tracking-widest uppercase reveal text-center max-w-xs md:max-w-full leading-relaxed mt-4"><i class="fas fa-info-circle text-gold mr-1 text-sm align-middle"></i> Arahkan kursor atau tekan lencana di atas untuk melihat detail validasi kompetensi.</p>
+                
+                <div class="mt-12 flex gap-3 reveal">
+                    <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-white/10"></div>
+                    <div class="w-2 h-2 rounded-full bg-gold"></div>
+                    <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-white/10"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- CORE KOMPETENSI SECTION -->
         <section id="core-kompetensi" class="defer-render py-24 bg-lightGray/30 dark:bg-black/20 border-t border-black/5 dark:border-white/5 relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-6 md:px-8 relative z-10">
@@ -868,7 +894,7 @@
                     <div class="w-16 h-1 bg-gold mx-auto rounded-full opacity-80"></div>
                 </div>
 
-                <div id="comp-cover" class="cursor-pointer bg-white dark:bg-darkCard border border-gold/50 rounded-[2rem] p-10 md:p-14 text-center shadow-soft hover:shadow-glow transition-all duration-500 ease-in-out group opacity-100 visible reveal" onclick="openComp()">
+                <div id="comp-cover" class="cursor-pointer bg-white dark:bg-darkCard border border-gold/50 rounded-[2rem] p-10 md:p-14 text-center shadow-soft hover:shadow-glow transition-all duration-500 ease-in-out group opacity-100 visible reveal" onclick="openComp()" role="button" aria-expanded="false" aria-controls="comp-grid-wrapper">
                     <div class="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center text-gold mx-auto mb-8 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-500">
                         <i class="fas fa-fingerprint text-3xl"></i>
                     </div>
@@ -876,7 +902,7 @@
                     <p class="text-sm md:text-base text-textGray dark:text-darkSub max-w-lg mx-auto">Klik di sini untuk melihat daftar lengkap skill dan teknologi yang saya gunakan.</p>
                 </div>
 
-                <div id="comp-grid-wrapper" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]">
+                <div id="comp-grid-wrapper" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" role="region" aria-live="polite">
                     <div class="overflow-hidden">
                         <div id="comp-inner" class="bg-white dark:bg-darkCard border border-gold/30 rounded-[2rem] p-8 md:p-12 shadow-2xl opacity-0 transform translate-y-8 transition-all duration-700 ease-out mt-4 md:mt-0">
                             <div class="flex justify-between items-center mb-10 border-b border-black/5 dark:border-white/10 pb-6">
@@ -994,27 +1020,6 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section class="defer-render py-24 relative overflow-hidden bg-mainWhite dark:bg-darkCard/20 border-t border-black/5 dark:border-white/5">
-             <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-                <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-6 reveal">
-                    <div class="text-center md:text-left space-y-4">
-                        <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block">Testimoni</span>
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 dark:text-white tracking-tight leading-tight">Apa Kata Mereka?</h2>
-                        <div class="w-16 h-1 bg-gold mx-auto md:mx-0 rounded-full opacity-80"></div>
-                    </div>
-                    <div class="flex gap-3 shrink-0">
-                         <button type="button" aria-label="Geser Kiri Ulasan" onclick="document.getElementById('testimonialSlider').scrollBy({left: -400, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all group"><i class="fas fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i></button>
-                         <button type="button" aria-label="Geser Kanan Ulasan" onclick="document.getElementById('testimonialSlider').scrollBy({left: 400, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all group"><i class="fas fa-arrow-right text-lg group-hover:translate-x-1 transition-transform"></i></button>
-                    </div>
-                </div>
-                
-                <div class="relative w-full overflow-hidden reveal">
-                    <div class="flex gap-6 pb-10 pt-4 px-2 overflow-x-auto custom-scroll snap-x snap-mandatory" id="testimonialSlider"></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Articles -->
         <section id="articles" class="defer-render py-24 bg-mainWhite dark:bg-darkCard/30 relative overflow-hidden border-t border-black/5 dark:border-white/5">
             <div class="max-w-7xl mx-auto px-6 md:px-8 mb-16 text-center reveal">
@@ -1032,29 +1037,23 @@
             </div>
         </section>
 
-        <!-- Certifications -->
-        <section id="certificates" class="defer-render py-24 relative overflow-hidden bg-mainWhite dark:bg-darkBg border-t border-black/5 dark:border-white/5">
-            <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
-                
-                <div class="text-center mb-16 space-y-4 reveal">
-                    <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block">Kredibilitas</span>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 dark:text-white tracking-tight leading-tight">
-                        Sertifikasi <span class="text-darkGold dark:text-gold italic">Profesional</span>
-                    </h2>
-                    <div class="w-16 h-1 bg-gold mx-auto rounded-full opacity-80"></div>
-                    <p class="text-textGray dark:text-darkSub max-w-lg mx-auto font-light tracking-wide text-sm md:text-base mt-4">
-                        Seluruh keahlian saya telah terverifikasi secara resmi oleh lembaga teknologi dunia.
-                    </p>
+        <!-- Testimonials -->
+        <section id="testimonials" class="defer-render py-24 relative overflow-hidden bg-mainWhite dark:bg-darkCard/20 border-t border-black/5 dark:border-white/5">
+             <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-6 reveal">
+                    <div class="text-center md:text-left space-y-4">
+                        <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block">Testimoni</span>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 dark:text-white tracking-tight leading-tight">Apa Kata Mereka?</h2>
+                        <div class="w-16 h-1 bg-gold mx-auto md:mx-0 rounded-full opacity-80"></div>
+                    </div>
+                    <div class="flex gap-3 shrink-0">
+                         <button type="button" aria-label="Geser Kiri Ulasan" onclick="document.getElementById('testimonialSlider').scrollBy({left: -400, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all group"><i class="fas fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i></button>
+                         <button type="button" aria-label="Geser Kanan Ulasan" onclick="document.getElementById('testimonialSlider').scrollBy({left: 400, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:text-white hover:border-gold transition-all group"><i class="fas fa-arrow-right text-lg group-hover:translate-x-1 transition-transform"></i></button>
+                    </div>
                 </div>
-
-                <div class="flex items-center justify-center py-10 w-full overflow-x-auto overflow-y-visible custom-scroll pb-16 reveal" id="cert-stack-container"></div>
                 
-                <p class="text-[10px] md:text-xs text-textGray dark:text-darkSub font-medium tracking-widest uppercase reveal text-center max-w-xs md:max-w-full leading-relaxed mt-4"><i class="fas fa-info-circle text-gold mr-1 text-sm align-middle"></i> Arahkan kursor atau tekan lencana di atas untuk melihat detail validasi kompetensi.</p>
-                
-                <div class="mt-12 flex gap-3 reveal">
-                    <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-white/10"></div>
-                    <div class="w-2 h-2 rounded-full bg-gold"></div>
-                    <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-white/10"></div>
+                <div class="relative w-full overflow-hidden reveal">
+                    <div class="flex gap-6 pb-10 pt-4 px-2 overflow-x-auto custom-scroll snap-x snap-mandatory" id="testimonialSlider"></div>
                 </div>
             </div>
         </section>
@@ -1100,9 +1099,6 @@
         </div>
     </footer>
     
-    <!-- FOMO POPUP ENGINE -->
-    <div id="marketingPopup" class="marketing-popup"><div class="bubble"><button type="button" class="popup-close" onclick="event.stopPropagation(); closePopup()" aria-label="Tutup Jendela Indikator Penjualan"><i class="fas fa-times"></i></button><p class="font-bold mb-1 text-darkGold dark:text-gold text-[10px] md:text-xs tracking-wider uppercase"><i class="fas fa-bolt"></i> Siaran Kesepakatan Langsung</p><p id="popupMessage" class="text-xs md:text-sm dark:text-white leading-tight mt-1">...</p><div class="mt-2.5 text-[9px] md:text-[10px] text-textGray dark:text-darkSub opacity-70 font-mono" id="popupTime">Beberapa detik sebelumnya</div></div></div>
-
     <!-- WIDGETS -->
     <div class="scroll-widget fixed bottom-8 right-6 md:right-8 z-40 flex flex-col gap-3">
         <button type="button" aria-label="Navigasi Loncatan Ke Batas Atas Layar" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold shadow-xl text-white flex items-center justify-center hover:bg-black transition-all duration-300 hover:scale-110"><i class="fas fa-arrow-up text-lg"></i></button>
@@ -1128,11 +1124,10 @@
         <div id="descJob6"><p>Berperan ganda sebagai Co-Founder dan ujung tombak layanan pelanggan (CS) dalam usaha rintisan pengembangan website. Bertanggung jawab atas manajemen ekspektasi klien dan menjembatani komunikasi teknis antara klien dan tim developer.</p><ul class='space-y-1.5 mt-3 list-disc pl-5'><li><strong>Berhasil mengamankan 6 proyek pengembangan web bernilai tinggi</strong> hanya dalam kurun waktu 1 bulan.</li><li><strong>Mempertahankan reputasi layanan prima</strong> dengan rata-rata rating kepuasan pelanggan sempurna <strong>4.9 hingga 5 bintang</strong>.</li><li><strong>Menyusun Standar Operasional Prosedur (SOP)</strong> untuk onboarding klien, memastikan proses serah terima proyek berjalan lancar.</li></ul></div>
     </div>
 
-    <!-- SCRIPT LENIS - Dipindah ke paling bawah dan diberi atribut defer agar tidak render-blocking -->
+    <!-- SCRIPT LENIS -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <script>
-        // Inisialisasi Lenis diubah menunggu script di-load
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof Lenis !== 'undefined') {
                 const lenis = new Lenis({ duration: 1.0, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', gestureDirection: 'vertical', smooth: true, mouseMultiplier: 0.8, smoothTouch: false, touchMultiplier: 1.5, infinite: false });
@@ -1180,32 +1175,32 @@
 
         // DATA LAYANAN BENTO GRID
         const servicesData = {
-            LandingPage:{price:"Rp 2.499.000",strike:"Rp 3.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Layanan pembuatan Halaman Penawaran eksklusif yang dirancang menggunakan teknik penulisan persuasif tingkat lanjut dan psikologi memikat untuk memaksimalkan rasio keberhasilan konversi dari anggaran kampanye iklan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Penulisan Teks Persuasif Metode AIDA & PAS","Akselerasi Kecepatan Muat Ekstra (Di Bawah 2 Detik)","Interkoneksi Sinyal API Pixel Facebook Canggih","Kesesuaian Modul Antarmuka Responsif Berbagai Layar","Pemetaan Struktur Tata Letak Pengguna Validasi UX","Pengujian Varian Ganda Penawaran Halaman"]},
-            WPBlog:{price:"Rp 2.999.000",strike:"Rp 4.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Tingkatkan otoritas kekuasaan dominasi bisnis di wilayah mesin pencari lewat instalasi struktur WordPress mandiri tingkat lanjut. Penyesuaian konfigurasi arsitektur internal spesifik terpusat dominasi jangka panjang.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Distribusi CMS Infrastruktur Web Terkini","Injeksi Robot Peta Situs Pencarian Otomatis Terbaru","Perisai Perangkat Perlindungan Celah Peretas Ganda","Sinkronisasi Validasi Mesin Pemantauan Statistik Pengunjung","Penyuntikan Klasifikasi Informasi Skema Tersistem","Lisensi Visual Arsitektur Perancang Berbayar Lengkap"]},
-            LMS:{price:"Rp 4.999.000",strike:"Rp 7.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Modifikasi pengetahuan bisnis menjadi aset digital berulang otomatis bernilai fantastis lewat platform pelatihan terkurung (LMS) eksekutif. Proteksi berlapis kuat mengamankan karya intelektual berharga milik perusahaan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Administrasi Hak Izin Multi Peran Pengajar Sistem","Validasi Formasi Modul Soal Ganda Sistem Otomatis","Gateway Sistem Pembayaran Mesin Otomasi Bank Langsung","Sistem Validasi Lembar Sertifikat Kode QR Kelulusan","Penguncian Skrip Anti Manipulasi Penggandaan Ilegal","Pelacakan Kurikulum Presentase Capaian Mahasiswa"]},
-            TryOut:{price:"Rp 4.499.000",strike:"Rp 6.000.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pengadaan ekosistem pengalaman simulasi uji kompetensi skala sangat besar dengan stabilitas ketat yang presisi. Sangat relevan mereduksi beban birokrasi bimbingan belajar, sekolah bergengsi, maupun instansi penilaian publik.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Antarmuka Identik Standardisasi Penilaian BKN Atau UTBK","Alur Penyerapan Format Basis Data Angka Sistem Excel","Pengaturan Presisi Validasi Waktu Mandiri Dari Sisi Server","Isolasi Tab Ruang Ujian Perlindungan Cegah Peretasan","Kalkulasi Peringkat Papan Tanding Analisis Performa Instan","Salinan Penilaian Individu Tercetak Format Lengkap"]},
-            SIAKAD:{price:"Rp 7.499.000",strike:"Rp 10.000.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pusat administrasi edukasi terintegrasi canggih yang mereduksi ketidakefisienan jam kerja rutin, pendataan kalkulasi otomatis, dan melebarkan cakupan kejelasan arus sirkulasi pembayaran yayasan secara mutlak dan pasti.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Otomatisasi Kalkulasi Poin Evaluasi Kinerja Penilaian Siswa","Konsolidasi Rincian Arus Tagihan Pendanaan Akademik Valid","Pemisahan Lapis Ruang Kontrol Siswa Dan Para Wali Berbeda","Eskalasi Interupsi Penyiaran Pengumuman Jaringan Pesan","Arsip Pencatatan Kedisiplinan Kehadiran Lingkup Sistem","Pemantauan Ruang Kendali Manajemen Skala Keseluruhan"]},
-            Booking:{price:"Rp 3.499.000",strike:"Rp 5.000.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur registrasi penjadwalan daring respons cepat aktif siang dan malam. Mendegradasi persentase ketidakhadiran prospek lewat peringatan notifikasi terotomatisasi secara profesional tanpa perlu tenaga kerja manusia ekstra.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sinkronisasi Logika Manajemen Sesi Hari Dan Jam Pilihan","Otomasi Penyortiran Delegasi Petugas Mandiri Ahli Perusahaan","Alur Penyiaran Pesan Validasi Rutinitas Interupsi Acara Tiba","Ekstraksi Rekapitulasi Daftar Kontak Klien Eksklusif Sentral","Kanal Penerimaan Biaya Retensi Muka Terkunci Jaringan Enkripsi","Pengungkapan Pola Kepadatan Jadwal Transaksi Waktu Terakurat"]},
-            Property:{price:"Rp 3.999.000",strike:"Rp 6.000.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Eskalasi etalase arsip komersial bidang properti bergengsi lewat tata letak elegan. Menyortir kualifikasi permintaan calon investor yang lebih berkelas tinggi serta mendongkrak validitas agen pemasar independen.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Galeri Visual Ruangan Sinematik Dan Ekstraksi Resolusi Tinggi","Sistem Penyaringan Variabel Titik Area Kawasan Dan Opsi Anggaran","Distribusi Halaman Mandiri Validasi Rekam Jejak Prestasi Para Agen","Semat Koordinat Pemetaan Lokasi Tata Letak Interaktif Terintegrasi","Injeksi Logika Kalkulasi Kredit Pendanaan Simulasi Pembiayaan Nyata","Integrasi Penghubung Alur Kesepakatan Pertemuan Kunjungan Lahan"]},
-            Invitation:{price:"Rp 1.499.000",strike:"Rp 2.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kanal penyebaran pengumuman acara formal berkelas VIP dan modern terakselerasi sistem validasi tamu. Memanjakan audiens lewat alur perjalanan eksklusif serta mendokumentasikan kedatangan lebih presisi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sistem Pendataan Rekapitulasi Konfirmasi Buku Interaktif","Instalasi Pintu Masuk Penjadwalan Pemindai Validasi Ruang QR","Kompilasi Modul Melodi Latar Dan Album Penampil Menawan Sentuhan","Alur Pembuatan Transmisi Pesan Massal Interupsi Notifikasi Undangan","Koordinasi Arah Taut Pemetaan Lokasi Jalur Satelit Panduan Lintas","Sentralisasi Ucapan Simpati Menghiasi Lembar Catatan Acara Tersiar"]},
-            Career:{price:"Rp 4.499.000",strike:"Rp 6.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kerek gengsi standar penyeleksian profesionalitas calon tenaga kerja melalui kanal portal mandiri instansi internal Anda. Filter ketat aplikasi spesifikasi tingkat tinggi demi akuisisi bakat berpotensi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sentralisasi Tata Letak Arsip Lowongan Tenaga Kerja Perusahaan Internal","Validasi Sinkronisasi Peringkat Evaluasi Rekam Jejak Para Calon Posisi","Penyimpanan Enkripsi Berkas Lamaran Kurikulum Vitae Sentral Penuh","Akselerasi Informasi Perjalanan Tahapan Penyeleksian Terkirim Valid","Dukungan Ujian Tertulis Ringkas Menyaring Kemampuan Praktis Pemula","Manipulasi Pemisahan Kompetensi Karakter Pelamar Kerja Melalui Basis Cerdas"]},
-            Dashboard:{price:"Rp 4.999.000",strike:"Rp 7.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Markas sentral kendali visual tingkat tinggi merepresentasikan hasil angka mentah ke dalam grafik cemerlang berwawasan strategis. Instruksi bisnis yang dieksekusi perusahaan semakin tidak pernah meleset sasarannya.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Eskalasi Visualisasi Realita Evaluasi Kapasitas Kinerja Berbasis Diagram","Sinkronisasi Terhubung Rantai Mesin Pusat Penyimpanan Perusahaan Besar","Penguncian Penyekatan Distribusi Rahasia Kewenangan Informasi Data","Manajemen Pembuatan File Arsip Valid Laporan Pendanaan Skala Berjenjang","Otomatisasi Penyatuan Saluran Perantara Aliran Berkas Luar Sangat Banyak","Skema Operasi Interaksi Fleksibel Klasifikasi Rentang Tanggal Spesifik Acak"]},
-            Inventory:{price:"Rp 3.999.000",strike:"Rp 5.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pusat kendali pasokan inventaris presisi guna menyegel aset perusahaan. Kapasitas pengenalan mematikan celah ancaman manipulasi angka mutasi gudang sekaligus merampingkan waktu rotasi harian staf Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Pelacakan Penempatan Perputaran Barang Cabang Terbanyak Waktu Bersamaan","Interkoneksi Perangkat Sistem Pendeteksi Cepat Modul Pembaca Kode Batang","Alarm Pemberitahuan Preventif Amang Batas Persediaan Kritis Berangsur Habis","Catatan Valid Pendataan Untung Kerugian Detail Distribusi Perpindahan Aset","Pengelompokan Fleksibel Hierarki Sistem Keluarga Model Macam Berbeda Luas","Sistem Validasi Jejak Audit Semua Pergerakan Kegiatan Rutin Pengelola Utama"]},
-            ESS:{price:"Rp 5.999.000",strike:"Rp 8.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Transformasi mutakhir portal perantara independen mengeliminasi kekusutan birokrasi konvensional pengelolaan Sumber Daya Manusia. Menyuntik hak mandiri karyawan mendaftar cuti serta manajemen administrasi paperless.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Verifikasi Hadir Koordinat Spesifik Deteksi Pencocokan Swafoto Titik Lapangan","Penjadwalan Pengajuan Izin Menjauhi Kewajiban Perusahaan Format Berurut Sah","Unduh Surat Dokumen Transaksi Upah Kinerja Privasi Rahasia Pengguna Kunci","Etalase Pengumuman Pemberitahuan Lingkup Komunitas Tenaga Pekerja Pusat","Pemutakhiran Kemandirian Formasi Data Pendukung Individu Selesai Otomatis","Arsitektur Jenjang Penyetujuan Kewenangan Eksekutif Atasan Secara Pararel"]},
-            StructureSEO:{price:"Rp 1.999.000",strike:"Rp 3.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pemindaian struktur komprehensif membasmi hambatan celah sirkulasi arsitektur fondasi di hadapan algoritma penilaian mesin Google. Langkah fundamental mutlak wajib dijalani sebelum menembakkan materi konten organik lanjutan.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Isolasi Membuang Serpihan Sirkuit Rusak Peringatan Penuh Kode Galat Kesalahan","Perombakan Format Konstruksi Susunan Tajuk Induk Beserta Deskripsi Pemasaran","Standarisasi Pengaturan Robot Pembaca Arah Indeks Distribusi Berkas Pemetaan","Otomatisasi Peningkat Modul Penilaian Ukuran Kapasitas Waktu Penelusuran Visual","Tinjauan Mutlak Mengurangi Kegagalan Ketidaksesuaian Bentuk Antarmuka Layar","Pembuatan Skrip Penanaman Klasifikasi Data Khusus Tingkat Pemahaman Berkelas"]},
-            AdsMgmt:{price:"20% Biaya Jasa",strike:"30% Biaya Jasa",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Orkestrasi kampanye promosi agresif spektrum jangkauan luas Google maupun Meta Ads. Kami mengeliminasi lalu lintas manipulatif tak relevan demi menciptakan pengembalian pengeluaran investasi terbaik dalam catatan bisnis Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Presisi Spesifikasi Identifikasi Minat Profesi Usia Perilaku Pembeli Berkualitas","Sirkulasi Penggiliran Otomatis Konsep Gambar Pemasaran Agar Mengurangi Kejenuhan","Skema Menarik Perhatian Sisa Calon Terbuang Guna Meminimalisir Kehilangan Profit","Pengecekan Kesesuaian Komposisi Suntikan Alokasi Anggaran Modul Pencarian Kunci","Perekaman Membongkar Celah Kekurangan Rasio Halaman Penawaran Agar Tidak Pergi","Penghasilan Bukti Pencatatan Metrik Keberhasilan Hitungan Pendapatan Operasional"]},
-            StoreMgmt:{price:"Rp 2.999.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Delegasikan beban operasional etalase perniagaan digital Anda kepada ahli. Memungkinkan perusahaan berfokus penuh di wilayah manajerial pengembangan relasi sementara tim internal membereskan teknis unggahan hingga visualisasi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Penyisipan Perhitungan Penentuan Label Pemasaran Komoditas Pencarian Prioritas","Manipulasi Pembaharuan Grafis Spanduk Etalase Mendapatkan Sensasi Kepercayaan","Konfigurasi Penyesuaian Kalender Tenggat Waktu Pembagian Rabat Khusus Penawaran","Manajemen Alokasi Peringkat Prioritas Titik Atas Pencarian Iklan Pasar Konvensional","Rangkaian Kalimat Deskripsi Susunan Kata Pembuat Hasrat Ingin Segera Mendapatkan","Evaluasi Pemantauan Arus Informasi Laporan Konversi Kesepakatan Final Sempurna"]},
-            GMB:{price:"Rp 1.499.000",strike:"Rp 2.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kuasai dominasi pencarian fisik perniagaan lokal terdekat Anda. Menata infrastruktur penempatan pemetaan titik bisnis di Google Map, menculik pengunjung rute arah dan saluran telepon harian dari sekutu pesaing kompetitor wilayah.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Persetujuan Administrasi Bukti Fisik Koordinat Lokasi Menuju Keamanan Sah Berizin","Injeksi Susunan Kalimat Kunci Kategori Permintaan Kepadatan Layanan Spesifik Radius","Siasat Pengumpulan Sinyal Percakapan Terbuka Rekomendasi Puas Bukti Kemapanan Bisnis","Rancangan Pengaturan Sirkulasi Pameran Kabar Harian Pembaruan Aktivitas Rutin Aktif","Tinjauan Taktik Mengeksplorasi Skala Kelemahan Penanda Perusahaan Bersaing Sama Identik","Inisiasi Pengelompokan Portofolio Gambar Hasil Jasa Kepercayaan Pada Katalog Resmi Berkelas"]},
-            ContentStrategy:{price:"Rp 2.499.000",strike:"Rp 4.000.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Menciptakan rentetan eksekusi artikel publikasi berkualitas ekstrim yang tidak sekedar mendominasi logika peringkat Google. Ini soal menjalin otoritas murni serta menyuapi pengetahuan krusial merajut kesetiaan abadi calon pengikut.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Pemetaan Ekstraksi Kelompok Susunan Modul Permintaan Informasi Sesuai Hirarki Tingkat","Perakitan Ekspedisi Naskah Panjang Mengupas Misteri Kajian Topik Sepenuhnya Bersih Murni","Bentukan Tatanan Arsitektur Pragmatis Membujuk Pikiran Terjerumus Secara Halus Pemasaran","Penyusunan Rencana Strategi Publikasi Urutan Tayang Terkoordinasi Jarak Waktu Tidak Berhenti","Validasi Distribusi Penyebaran Akses Rantai Menuju Taut Lingkungan Referensi Diakui Internasional","Standarisasi Pengolahan Penyisipan Resolusi Grafis Informasi Memperjelas Maksud Kalimat Bacaan"]},
-            CRO:{price:"Rp 2.999.000",strike:"Rp 4.500.000",suffix:"",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Maksimalkan akumulasi pengembalian uang nyata tanpa menaikan investasi iklan yang sedang berjalan. Kami merekam gerak-gerik pengguna di layar untuk mendiagnosis titik kerusakan minat yang merintangi keputusan pembelian.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Memindai Sesi Perjalanan Tetesan Gerak Mouse Sentuh Layar Pengunjung Aktif Sepenuhnya","Pemantauan Mengurai Kegagalan Titik Terjun Hilangnya Harapan Kepercayaan Calon Tersisa","Uji Coba Ganda Kontras Desain Warna Tekanan Ajakan Perintah Mempengaruhi Insting Spontan","Pengurangan Tingkat Frustasi Interaksi Isian Pertanyaan Administrasi Memperpendek Syarat Akhir","Penyisipan Lencana Segel Tanda Validasi Keabsahan Profesional Penghilang Kebimbangan Akut","Tantangan Ekstrim Percepatan Penambahan Waktu Mundur Menggiring Ketakutan Ketinggalan Penawaran"]},
-            HostingBasic:{price:"Rp 12.900",strike:"Rp 25.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pondasi arsitektur perintis web dengan ketersediaan biaya terjangkau sangat minim risiko. Dirancang sangat stabil memuluskan sirkulasi kehadiran situs portofolio dasar independen berskala lalu lintas pengunjung yang masuk akal standar.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Alokasi Piringan Cepat Akses Padat Berkapasitas Batas Maksimal Dua Puluh Gigabita Kuat","Penyediaan Sertifikasi Pengunci Sambungan Koneksi Mengubah HTTP Menjadi Valid Terjamin Aman","Spesifikasi Pendirian Pondasi Akses Domain Mandiri Difokuskan Kepada Satu Titik Utama Eksekusi","Otoritas Menyusun Rangkaian Komunikasi Pesan Mandiri Lewat Dua Identitas Email Usaha Berkelas","Penjagaan Pasif Membendung Gangguan Aktivitas Jaringan Terselubung Dasar Otomatis Memantau","Tampilan Kendali Manajemen Penyusunan Sistem Menu Navigasi Sederhana Standar Praktik Industri"]},
-            HostingStarter:{price:"Rp 16.500",strike:"Rp 40.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Titik perpotongan absolut rasio kepuasan performa dengan besaran anggaran ekonomis terbaik. Melibatkan penempatan ekosistem solid-state modern NVMe mempersembahkan sensasi jeda sekian mikro detik kala mengeksplorasi layanan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Ruang Komputasi Sangat Padat Sempurna Batas Satu Gigabita Teknologi Baru Menyambar Kilat","Arus Keluar Masuk Pertukaran Transmisi Informasi Dibebaskan Tidak Melibatkan Pemotongan Sama Sekali","Fasilitas Registrasi Tambahan Pilihan Nama Internet Ekstensi Pilihan Cuma-cuma Selama Promosi","Pengawasan Aktif Perlindungan Gempuran Pasukan Robot Peretas Palsu Menyumbat Jalan Jaringan Utama","Modul Penyimpanan Pintar Pengingat Tampilan Depan Tidak Perlu Analisa Berulang Tingkat Tinggi","Eksekusi Pemasangan Otomatis Berbagai Platform Perangkat Dasar Mandiri Terjadwal Tanpa Keahlian Khusus"]},
-            HostingPremium:{price:"Rp 23.900",strike:"Rp 55.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Komposisi keseimbangan pamungkas langganan eksekutif profesional yang paling mengundang decak kagum. Dirakit spesifik bagi barisan praktisi pemasaran agresif penguasa aset yang mewajibkan kehandalan tingkat tinggi namun tetap mudah diatur.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Pemeliharaan Multi Saluran Situs Dapat Dijejalkan Sampai Tiga Induk Berbeda Platform Dalam Sistem","Tampungan Penyimpanan Berlipat Tiga Menuju Enam Puluh Gigabita Solid Di Lingkungan Infrastruktur Awan","Kebebasan Mutlak Kepemilikan Hak Registrasi Taut Ekstensi Tingkat Teratas Khusus Varian Tertentu","Otomasi Penjaminan Data Keutuhan Penyalinan Rekapitulasi Berkas Mingguan Bebas Gagal Komputasi","Injeksi Pelipat Ganda Kecepatan Proses Kode Objek Khusus Platform Pengembangan Bahasa Mutakhir","Akses Autentikasi Keabsahan Verifikasi Modul Koneksi Gembok Terproteksi Untuk Ratusan Nama Alias Lain"]},
-            HostingMedium:{price:"Rp 29.900",strike:"Rp 75.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Ruang kreasi komputasi luar biasa fleksibel membuka peluang pertumbuhan tak memiliki garis akhir. Dirancang istimewa menahan tekanan arus publik membludak, terbebas sama sekali kekhawatiran limitasi kapasitas penyimpanan aset statis media berat.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Penghapusan Ketentuan Batasan Alokasi Perhitungan Pemakaian Disk Ruang Rekam Benar-Benar Lepas Bebas","Konfigurasi Anak Titik Tambahan Induk Bebas Disusun Sampai Tingkatan Tidak Terhingga Rantai Panjang","Pemberian Izin Penciptaan Modul Mesin Basis Data Informasi Bebas Diciptakan Sesuka Kebutuhan Tanpa Stop","Integrasi Modul Lisensi Komersial Penambah Nilai Estetika Mutlak Berbayar Langsung Tersedia Tinggal Pakai","Sistem Intelijen Penjaringan Manipulasi Pertukaran Pesan Massal Penipu Dijegal Ke Ruang Karantina Eksekutif","Kewenangan Mengelola Hierarki Pohon Berkas Lewat Pengaturan Terpisah Keamanan Sangat Tinggi Dienskripsi"]},
-            HostingPro:{price:"Rp 31.500",strike:"Rp 80.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Manufaktur pemrosesan komputasi setara sistem mesin elit. Dioptimalkan melahap instruksi pemrosesan ribuan keranjang E-commerce bertubi-tubi tanpa gangguan, mempersembahkan perisai tebal proteksi data periklanan berharga tidak tertembus.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Hak Pakai Mutlak Ruang Sirkuit Memori Teknologi Cepat Rambat Penunjang Logika Perangkat Ekstrim Lanjutan","Infrastruktur Penyesuaian Eksekusi Bahasa Pemrograman Skrip Teranyar Menyajikan Ruang Pengembangan Lepas","Penambahan Kapasitas Kotak Administrasi Pertukaran Surat Elektronik Perusahaan Hingga Sepuluh Nama Berbeda","Konfigurasi Penyiapan Arsip Modul Komplit Pencadangan Berkala Hari Per Hari Tidak Meninggalkan Satupun Titik Kelemahan","Karantina Kekuatan Pengguna Pada Akun Bersifat Terisolasi Penuh Satu Sama Lain Merawat Integritas Bebas Konflik Pararel","Disesuaikan Modul Penyesuaian Spesifikasi Mempertahankan Proses Pencarian Data Transaksi Berat Barang Katalog Banyak Sangat"]},
-            HostingExpert:{price:"Rp 51.000",strike:"Rp 120.000",suffix:"/bulan",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Level penguasa ekosistem awan tertinggi tanpa kompromi menyaingi server tunggal dedicated sejati. Dirancang eksklusif entitas perusahaan berskala super, menanggung limpahan transmisi berat terus menerus, menepis tuntas segala keruwetan instalasi teknis.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Isolasi Mesin Pemroses Inti Otak CPU Serta Aliran Kapasitas RAM Dikhususkan Total Melayani Kebutuhan Anda Secara Berdikari","Pemberian Besaran Tangki Penyimpanan Arsip Data Berjumlah Ratusan Lipat Gigabita Kapasitas Berlebihan Guna Memasukkan Apa Saja","Konfigurasi Mesin Menyelesaikan Permintaan Respon Panggilan Rantai Eksekusi Bertubi Tanpa Sedikitpun Menunjukkan Gejala Tersendat","Alokasi Pintu Layanan Bantuan Delegasi Teknisi Ahli Bersiap Respons Cepat Menyingkirkan Antrian Layanan Pelanggan Biasa Keseluruhan","Pelepasan Hambatan Kustomisasi Otoritas Sertifikasi Modul Kode Pengamanan Berlapis Validasi Berbayar Pribadi Sangat Kredibel Sekali","Sertifikasi Keyakinan Jaminan Janji Kompensasi Kesepakatan Jaringan Terkoneksi Lancar Total Nyaris Tanpa Sedikit Waktu Terputus Sama Sekali"]},
-            DomainCom:{price:"Rp 165.000",strike:"Rp 200.000",suffix:"/tahun",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Mahkota perniagaan digital penguasa panggung internasional mutlak menduduki tahta kepercayaan global. Mengunci pendaftaran waralaba ekstensi COM mengibarkan supremasi komersial, langsung menanamkan persepsi eksklusif dan kemapanan organisasi instan.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Benefit Pendaftaran:</p>",bullets:["Kekuasaan Jaringan Transmisi Penyebaran Server Nama Seluruh Benua Super Singkat Memangkas Waktu Resolusi Konektivitas Arah Taut","Kendali Kokpit Manajemen Otomatis Bebas Konfigurasi Arahan Alamat Pengganti Berlaku Setiap Detik Sangat Menguntungkan Penyesuaian","Proteksi Ekstra Canggih Meredam Manuver Manipulasi Perampokan Nama Alamat Ilegal Penjahat Mengalihkan Perhatian Kepemilikan Aset","Opsi Manipulasi Tampilan Papan Pengumuman Publik Bertujuan Menghapus Identitas Jejak Pribadi Supaya Tidak Dieksploitasi Pemasar Lain","Penerusan Jalur Administrasi Kertas Digital Berpusat Mengalir Langsung Mengisi Pundi Inbox Rahasia Tanpa Ketahuan Mengurangi Akses Lain","Kunci Keamanan Terkini Proteksi Modul Gembok Berlapis Melarang Keras Percobaan Pemindahan Server Tanpa Izin Surat Pemilik Sah Aset Berkelas"]},
-            DomainId:{price:"Rp 250.000",strike:"Rp 300.000",suffix:"/tahun",desc:"<p class='mb-4 text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Manifestasi legitimasi supremasi identitas nasional memenangkan dominasi mesin pencari domestik sangat agresif. Akhiran ID adalah stempel bukti hukum negara memberangus keraguan pelanggan bertransaksi memperlihatkan validitas badan resmi terverifikasi absah.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Benefit Pendaftaran:</p>",bullets:["Monopoli Algoritma Prioritas Khusus Pemetaan Preferensi Pencarian Google Wilayah Geografis Indonesia Memborong Peringkat Menuju Lembar Kesatu","Mekanisme Saringan Validasi Dokumen Identitas Kenegaraan Mutlak Sebagai Tolak Ukur Kepastian Mengeliminasi Peserta Anonim Praktik Tipuan Daring","Pengamanan Mutlak Kekayaan Hak Intelektual Merek Nasional Di Hadapan Regulasi Lembaga Internasional Antisipasi Sengketa Nama Usaha Menyesatkan Publik","Modul Arsitektur Sistem Arah Terkoordinasi Cepat Sigap Mengalirkan Lintasan Padat Pelanggan Regional Tanpa Keluhan Masalah Latensi Akses Sambungan Lambat","Kredensial Otorisasi Tercatat Permanen Dalam Log Lembaga Resmi PANDI Terakreditasi Standar Pelayanan Sistem Informasi Negara Hukum Transparan Sekali Terlihat Jelas","Prasyarat Legal Ketat Melampirkan Kartu Pendiri Sebagai Tanda Verifikasi Menjamin Hanya Pihak Bertanggung Jawab Serius Mampu Melakukan Pengambilan Nama Bisnis ID"]}
+            LandingPage:{price:"Rp 2.499.000",strike:"Rp 3.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Layanan pembuatan Halaman Penawaran eksklusif yang dirancang menggunakan teknik penulisan persuasif tingkat lanjut dan psikologi memikat untuk memaksimalkan rasio keberhasilan konversi dari anggaran kampanye iklan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Penulisan Naskah Persuasif Metode AIDA & PAS Berkonversi Tinggi", "Akselerasi Kecepatan Muat Halaman Ekstra Cepat Di Bawah 2 Detik", "Interkoneksi Sinyal Pelacakan API Pixel Facebook Sangat Canggih", "Kesesuaian Modul Antarmuka Visual Responsif Untuk Berbagai Layar", "Pemetaan Struktur Tata Letak Berdasarkan Validasi Pengalaman Pengguna (UX)", "Pengujian Varian Ganda (A/B Testing) Pada Titik Halaman Penawaran Khusus"]},
+            WPBlog:{price:"Rp 2.999.000",strike:"Rp 4.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Tingkatkan otoritas kekuasaan dominasi bisnis di wilayah mesin pencari lewat instalasi struktur WordPress mandiri tingkat lanjut. Penyesuaian konfigurasi arsitektur internal spesifik terpusat dominasi jangka panjang.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Distribusi Infrastruktur Manajemen Konten (CMS) Versi Publikasi Terkini", "Injeksi Peta Situs Otomatis Penarik Penelusuran Robot Google Tingkat Lanjut", "Pemasangan Perisai Lapis Ganda Anti-Peretas Keamanan Sangat Maksimal", "Sinkronisasi Papan Pemantauan Arus Statistik Pengunjung Akurat Real-Time", "Penyuntikan Klasifikasi Informasi Skema Tertata Sistematis Pencarian Global", "Hak Akses Penggunaan Lisensi Arsitektur Visual Berbayar Tingkat Premium Penuh"]},
+            LMS:{price:"Rp 4.999.000",strike:"Rp 7.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Modifikasi pengetahuan bisnis menjadi aset digital berulang otomatis bernilai fantastis lewat platform pelatihan terkurung (LMS) eksekutif. Proteksi berlapis kuat mengamankan karya intelektual berharga milik perusahaan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Pengaturan Hak Izin Kompleks Multi Peran Antara Pengajar Dan Pengurus Sistem", "Pembuatan Validasi Formasi Modul Soal Pilihan Ganda Penilaian Secara Otomatis", "Integrasi Saluran Pembayaran Keuangan Masuk (Payment Gateway) Bank Terenkripsi", "Sistem Validasi Lembar Sertifikat Kelulusan Terenkripsi Kode Pemindai QR Aktif", "Penguncian Algoritma Anti Manipulasi Pencegahan Pembajakan Serta Penggandaan Ilegal", "Papan Pantau Laporan Aktivitas Kurikulum Presentase Capaian Mahasiswa Rinci"]},
+            TryOut:{price:"Rp 4.499.000",strike:"Rp 6.000.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pengadaan ekosistem pengalaman simulasi uji kompetensi skala sangat besar dengan stabilitas ketat yang presisi. Sangat relevan mereduksi beban birokrasi bimbingan belajar, sekolah bergengsi, maupun instansi penilaian publik.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Desain Antarmuka Identik Standardisasi Penilaian Sistem Tes BKN Atau Ujian UTBK", "Alur Penyerapan Format Basis Data Soal Massal Cepat Berbasis Lembar Kerja Excel", "Pengaturan Presisi Batas Validasi Waktu Ujian Terpusat Mandiri Dari Komputasi Server", "Isolasi Tab Peramban Ruang Ujian Aktif Guna Perlindungan Tindak Kecurangan Peserta", "Kalkulasi Penilaian Akhir Peringkat Secara Instan Lengkap Dengan Analisis Performa", "Generasi Salinan Formulir Hasil Penilaian Individu Peserta Format Tercetak Lengkap"]},
+            SIAKAD:{price:"Rp 7.499.000",strike:"Rp 10.000.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pusat administrasi edukasi terintegrasi canggih yang mereduksi ketidakefisienan jam kerja rutin, pendataan kalkulasi otomatis, dan melebarkan cakupan kejelasan arus sirkulasi pembayaran yayasan secara mutlak dan pasti.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Otomatisasi Kalkulasi Poin Evaluasi Kinerja Penilaian Angka Siswa Terpadu Secara Lengkap", "Konsolidasi Pemantauan Rincian Arus Tagihan Pendanaan Akademik Yayasan Paling Valid", "Pemisahan Lapis Ruang Kontrol Khusus Antara Dewan Pengajar Siswa Dan Para Wali Murid", "Eskalasi Interupsi Penyiaran Pengumuman Massal Melalui Jaringan Pesan Saluran Sentral", "Arsip Pencatatan Riwayat Kedisiplinan Kehadiran Presensi Lingkup Ekosistem Terpusat", "Ruang Kendali Pemantauan Skala Keseluruhan Manajemen Mutu Pendidikan Organisasi Sekolah"]},
+            Booking:{price:"Rp 3.499.000",strike:"Rp 5.000.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur registrasi penjadwalan daring respons cepat aktif siang dan malam. Mendegradasi persentase ketidakhadiran prospek lewat peringatan notifikasi terotomatisasi secara profesional tanpa perlu tenaga kerja manusia ekstra.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sinkronisasi Otomatis Logika Manajemen Sesi Pembagian Hari Dan Jam Pilihan Klien Aktif", "Otomasi Penyortiran Delegasi Penugasan Kepada Tenaga Mandiri Ahli Internal Perusahaan", "Alur Penyiaran Pesan Validasi Rutinitas Interupsi Saat Jadwal Acara Telah Hampir Tiba", "Ekstraksi Kompilasi Rekapitulasi Daftar Kontak Klien Pelanggan Spesifik Terkumpul Sentral", "Kanal Penerimaan Biaya Retensi Uang Muka Terkunci Jaringan Enkripsi Pengamanan Finansial", "Laporan Pola Analisis Kepadatan Jadwal Transaksi Rentang Waktu Terakurat Dan Rinci"]},
+            Property:{price:"Rp 3.999.000",strike:"Rp 6.000.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Eskalasi etalase arsip komersial bidang properti bergengsi lewat tata letak elegan. Menyortir kualifikasi permintaan calon investor yang lebih berkelas tinggi serta mendongkrak validitas agen pemasar independen.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Penataan Galeri Visual Ruangan Tata Letak Sinematik Tampilan Ekstraksi Resolusi Tinggi", "Sistem Penyaringan Filter Cerdas Variabel Area Titik Kawasan Dan Opsi Kapasitas Anggaran", "Distribusi Laman Halaman Mandiri Penampilan Rekam Jejak Validasi Prestasi Para Agen Terikat", "Penyematan Titik Koordinat Pemetaan Lokasi Tata Letak Area Penelusuran Interaktif Terintegrasi", "Injeksi Logika Kalkulasi Kredit Pendanaan Cicilan Simulasi Pembiayaan Nyata Untuk Audiens", "Integrasi Ruang Penghubung Alur Kesepakatan Pertemuan Kunjungan Lahan Secara Langsung"]},
+            Invitation:{price:"Rp 1.499.000",strike:"Rp 2.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kanal penyebaran pengumuman acara formal berkelas VIP dan modern terakselerasi sistem validasi tamu. Memanjakan audiens lewat alur perjalanan eksklusif serta mendokumentasikan kedatangan lebih presisi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sistem Terintegrasi Pendataan Rekapitulasi Konfirmasi Buku Kehadiran Tamu Sangat Interaktif", "Instalasi Gerbang Pintu Masuk Penjadwalan Registrasi Pemindai Validasi Kehadiran Barcode QR", "Kompilasi Modul Melodi Musik Latar Serta Album Visual Menawan Sentuhan Grafis Eksklusif", "Alur Pembuatan Transmisi Siaran Pesan Massal Interupsi Notifikasi Undangan Tepat Waktu", "Koordinasi Arah Penautan Pemetaan Lokasi Langsung Menuju Jalur Navigasi Satelit Panduan Lintas", "Pusat Sentralisasi Ucapan Simpati Serta Doa Menghiasi Lembar Catatan Acara Tampil Tersiar"]},
+            Career:{price:"Rp 4.499.000",strike:"Rp 6.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kerek gengsi standar penyeleksian profesionalitas calon tenaga kerja melalui kanal portal mandiri instansi internal Anda. Filter ketat aplikasi spesifikasi tingkat tinggi demi akuisisi bakat berpotensi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Sentralisasi Tata Letak Arsip Lowongan Tenaga Kerja Perusahaan Mandiri Internal", "Validasi Sinkronisasi Peringkat Evaluasi Rekam Jejak Para Calon Pengisi Posisi", "Penyimpanan Enkripsi Berkas Lamaran Kurikulum Vitae Sentral Administrasi Penuh", "Akselerasi Informasi Perjalanan Tahapan Penyeleksian Terkirim Valid Secara Terbuka", "Dukungan Ujian Tertulis Ringkas Menyaring Kemampuan Praktis Pengetahuan Kandidat Pemula", "Manipulasi Pemisahan Kompetensi Karakter Pelamar Kerja Melalui Susunan Basis Sangat Cerdas"]},
+            Dashboard:{price:"Rp 4.999.000",strike:"Rp 7.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Markas sentral kendali visual tingkat tinggi merepresentasikan hasil angka mentah ke dalam grafik cemerlang berwawasan strategis. Instruksi bisnis yang dieksekusi perusahaan semakin tidak pernah meleset sasarannya.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Eskalasi Visualisasi Realita Evaluasi Kapasitas Kinerja Berbasis Diagram Grafis Mengesankan", "Sinkronisasi Terhubung Rantai Mesin Pusat Penyimpanan Jaringan Skala Perusahaan Besar", "Penguncian Penyekatan Distribusi Rahasia Kewenangan Akses Informasi Data Antar Divisi", "Manajemen Pembuatan File Arsip Valid Laporan Keuangan Pendanaan Skala Berjenjang", "Otomatisasi Penyatuan Saluran Perantara Aliran Berkas Luar Ruang Dalam Jumlah Sangat Banyak", "Skema Operasi Interaksi Fleksibel Klasifikasi Rentang Tanggal Eksekusi Spesifik Secara Acak"]},
+            Inventory:{price:"Rp 3.999.000",strike:"Rp 5.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pusat kendali pasokan inventaris presisi guna menyegel aset perusahaan. Kapasitas pengenalan mematikan celah ancaman manipulasi angka mutasi gudang sekaligus merampingkan waktu rotasi harian staf Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Pelacakan Penempatan Perputaran Barang Cabang Terbanyak Waktu Eksekusi Secara Bersamaan", "Interkoneksi Perangkat Sistem Pendeteksi Cepat Modul Mesin Pembaca Label Kode Batang Pindai", "Alarm Pemberitahuan Preventif Amang Batas Persediaan Kondisi Kritis Terkuras Berangsur Habis", "Catatan Valid Pendataan Kalkulasi Untung Kerugian Detail Distribusi Perpindahan Mutasi Aset", "Pengelompokan Fleksibel Hierarki Sistem Keluarga Model Macam Ragam Berbeda Sangat Luas", "Sistem Validasi Jejak Audit Seluruh Pergerakan Kegiatan Rutin Para Pengelola Operator Utama"]},
+            ESS:{price:"Rp 5.999.000",strike:"Rp 8.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Transformasi mutakhir portal perantara independen mengeliminasi kekusutan birokrasi konvensional pengelolaan Sumber Daya Manusia. Menyuntik hak mandiri karyawan mendaftar cuti serta manajemen administrasi paperless.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Paket Terpadu Memuat:</p>",bullets:["Verifikasi Hadir Koordinat Spesifik Deteksi Pencocokan Swafoto Titik Lingkungan Lokasi Lapangan", "Penjadwalan Pengajuan Izin Menjauhi Kewajiban Perusahaan Format Berurut Rekam Sah Tertulis", "Unduh Surat Dokumen Transaksi Upah Kinerja Privasi Rahasia Pengguna Kunci Lapis Ganda", "Etalase Pengumuman Pemberitahuan Lingkup Komunitas Tenaga Pekerja Organisasi Pusat", "Pemutakhiran Kemandirian Formasi Data Pendukung Individu Selesai Proses Input Otomatis", "Arsitektur Jenjang Penyetujuan Kewenangan Hak Eksekutif Atasan Secara Pararel Dan Terpusat"]},
+            StructureSEO:{price:"Rp 1.999.000",strike:"Rp 3.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pemindaian struktur komprehensif membasmi hambatan celah sirkulasi arsitektur fondasi di hadapan algoritma penilaian mesin Google. Langkah fundamental mutlak wajib dijalani sebelum menembakkan materi konten organik lanjutan.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Isolasi Membuang Serpihan Sirkuit Rusak Peringatan Penuh Kode Galat Kesalahan","Perombakan Format Konstruksi Susunan Tajuk Induk Beserta Deskripsi Pemasaran","Standarisasi Pengaturan Robot Pembaca Arah Indeks Distribusi Berkas Pemetaan","Otomatisasi Peningkat Modul Penilaian Ukuran Kapasitas Waktu Penelusuran Visual","Tinjauan Mutlak Mengurangi Kegagalan Ketidaksesuaian Bentuk Antarmuka Layar","Pembuatan Skrip Penanaman Klasifikasi Data Khusus Tingkat Pemahaman Berkelas"]},
+            AdsMgmt:{price:"20% Biaya Jasa",strike:"30% Biaya Jasa",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Orkestrasi kampanye promosi agresif spektrum jangkauan luas Google maupun Meta Ads. Kami mengeliminasi lalu lintas manipulatif tak relevan demi menciptakan pengembalian pengeluaran investasi terbaik dalam catatan bisnis Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Presisi Spesifikasi Identifikasi Minat Profesi Usia Perilaku Pembeli Berkualitas","Sirkulasi Penggiliran Otomatis Konsep Gambar Pemasaran Agar Mengurangi Kejenuhan","Skema Menarik Perhatian Sisa Calon Terbuang Guna Meminimalisir Kehilangan Profit","Pengecekan Kesesuaian Komposisi Suntikan Alokasi Anggaran Modul Pencarian Kunci","Perekaman Membongkar Celah Kekurangan Rasio Halaman Penawaran Agar Tidak Pergi","Penghasilan Bukti Pencatatan Metrik Keberhasilan Hitungan Pendapatan Operasional"]},
+            StoreMgmt:{price:"Rp 2.999.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Delegasikan beban operasional etalase perniagaan digital Anda kepada ahli. Memungkinkan perusahaan berfokus penuh di wilayah manajerial pengembangan relasi sementara tim internal membereskan teknis unggahan hingga visualisasi.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Penyisipan Perhitungan Penentuan Label Pemasaran Komoditas Pencarian Prioritas","Manipulasi Pembaharuan Grafis Spanduk Etalase Mendapatkan Sensasi Kepercayaan","Konfigurasi Penyesuaian Kalender Tenggat Waktu Pembagian Rabat Khusus Penawaran","Manajemen Alokasi Peringkat Prioritas Titik Atas Pencarian Iklan Pasar Konvensional","Rangkaian Kalimat Deskripsi Susunan Kata Pembuat Hasrat Ingin Segera Mendapatkan","Evaluasi Pemantauan Arus Informasi Laporan Konversi Kesepakatan Final Sempurna"]},
+            GMB:{price:"Rp 1.499.000",strike:"Rp 2.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Kuasai dominasi pencarian fisik perniagaan lokal terdekat Anda. Menata infrastruktur penempatan pemetaan titik bisnis di Google Map, menculik pengunjung rute arah dan saluran telepon harian dari sekutu pesaing kompetitor wilayah.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Persetujuan Administrasi Bukti Fisik Koordinat Lokasi Menuju Keamanan Sah Berizin","Injeksi Susunan Kalimat Kunci Kategori Permintaan Kepadatan Layanan Spesifik Radius","Siasat Pengumpulan Sinyal Percakapan Terbuka Rekomendasi Puas Bukti Kemapanan Bisnis","Rancangan Pengaturan Sirkulasi Pameran Kabar Harian Pembaruan Aktivitas Rutin Aktif","Tinjauan Taktik Mengeksplorasi Skala Kelemahan Penanda Perusahaan Bersaing Sama Identik","Inisiasi Pengelompokan Portofolio Gambar Hasil Jasa Kepercayaan Pada Katalog Resmi Berkelas"]},
+            ContentStrategy:{price:"Rp 2.499.000",strike:"Rp 4.000.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Menciptakan rentetan eksekusi artikel publikasi berkualitas ekstrim yang tidak sekedar mendominasi logika peringkat Google. Ini soal menjalin otoritas murni serta menyuapi pengetahuan krusial merajut kesetiaan abadi calon pengikut.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Pemetaan Ekstraksi Kelompok Susunan Modul Permintaan Informasi Sesuai Hirarki Tingkat","Perakitan Ekspedisi Naskah Panjang Mengupas Misteri Kajian Topik Sepenuhnya Bersih Murni","Bentukan Tatanan Arsitektur Pragmatis Membujuk Pikiran Terjerumus Secara Halus Pemasaran","Penyusunan Rencana Strategi Publikasi Urutan Tayang Terkoordinasi Jarak Waktu Tidak Berhenti","Validasi Distribusi Penyebaran Akses Rantai Menuju Taut Lingkungan Referensi Diakui Internasional","Standarisasi Pengolahan Penyisipan Resolusi Grafis Informasi Memperjelas Maksud Kalimat Bacaan"]},
+            CRO:{price:"Rp 2.999.000",strike:"Rp 4.500.000",suffix:"",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Maksimalkan akumulasi pengembalian uang nyata tanpa menaikan investasi iklan yang sedang berjalan. Kami merekam gerak-gerik pengguna di layar untuk mendiagnosis titik kerusakan minat yang merintangi keputusan pembelian.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Titik Eskalasi Eksekusi:</p>",bullets:["Memindai Sesi Perjalanan Tetesan Gerak Mouse Sentuh Layar Pengunjung Aktif Sepenuhnya","Pemantauan Mengurai Kegagalan Titik Terjun Hilangnya Harapan Kepercayaan Calon Tersisa","Uji Coba Ganda Kontras Desain Warna Tekanan Ajakan Perintah Mempengaruhi Insting Spontan","Pengurangan Tingkat Frustasi Interaksi Isian Pertanyaan Administrasi Memperpendek Syarat Akhir","Penyisipan Lencana Segel Tanda Validasi Keabsahan Profesional Penghilang Kebimbangan Akut","Tantangan Ekstrim Percepatan Penambahan Waktu Mundur Menggiring Ketakutan Ketinggalan Penawaran"]},
+            HostingBasic:{price:"Rp 12.900",strike:"Rp 25.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Pondasi arsitektur perintis web dengan ketersediaan biaya terjangkau sangat minim risiko. Dirancang sangat stabil memuluskan sirkulasi kehadiran situs portofolio dasar independen berskala lalu lintas pengunjung yang masuk akal standar.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Alokasi Piringan Cepat Akses Padat Berkapasitas Batas Maksimal Dua Puluh Gigabita Kuat","Penyediaan Sertifikasi Pengunci Sambungan Koneksi Mengubah HTTP Menjadi Valid Terjamin Aman","Spesifikasi Pendirian Pondasi Akses Domain Mandiri Difokuskan Kepada Satu Titik Utama Eksekusi","Otoritas Menyusun Rangkaian Komunikasi Pesan Mandiri Lewat Dua Identitas Email Usaha Berkelas","Penjagaan Pasif Membendung Gangguan Aktivitas Jaringan Terselubung Dasar Otomatis Memantau","Tampilan Kendali Manajemen Penyusunan Sistem Menu Navigasi Sederhana Standar Praktik Industri"]},
+            HostingStarter:{price:"Rp 16.500",strike:"Rp 40.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Titik perpotongan absolut rasio kepuasan performa dengan besaran anggaran ekonomis terbaik. Melibatkan penempatan ekosistem solid-state modern NVMe mempersembahkan sensasi jeda sekian mikro detik kala mengeksplorasi layanan Anda.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Ruang Komputasi Sangat Padat Sempurna Batas Satu Gigabita Teknologi Baru Menyambar Kilat","Arus Keluar Masuk Pertukaran Transmisi Informasi Dibebaskan Tidak Melibatkan Pemotongan Sama Sekali","Fasilitas Registrasi Tambahan Pilihan Nama Internet Ekstensi Pilihan Cuma-cuma Selama Promosi","Pengawasan Aktif Perlindungan Gempuran Pasukan Robot Peretas Palsu Menyumbat Jalan Jaringan Utama","Modul Penyimpanan Pintar Pengingat Tampilan Depan Tidak Perlu Analisa Berulang Tingkat Tinggi","Eksekusi Pemasangan Otomatis Berbagai Platform Perangkat Dasar Mandiri Terjadwal Tanpa Keahlian Khusus"]},
+            HostingPremium:{price:"Rp 23.900",strike:"Rp 55.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Komposisi keseimbangan pamungkas langganan eksekutif profesional yang paling mengundang decak kagum. Dirakit spesifik bagi barisan praktisi pemasaran agresif penguasa aset yang mewajibkan kehandalan tingkat tinggi namun tetap mudah diatur.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Pemeliharaan Multi Saluran Situs Dapat Dijejalkan Sampai Tiga Induk Berbeda Platform Dalam Sistem","Tampungan Penyimpanan Berlipat Tiga Menuju Enam Puluh Gigabita Solid Di Lingkungan Infrastruktur Awan","Kebebasan Mutlak Kepemilikan Hak Registrasi Taut Ekstensi Tingkat Teratas Khusus Varian Tertentu","Otomasi Penjaminan Data Keutuhan Penyalinan Rekapitulasi Berkas Mingguan Bebas Gagal Komputasi","Injeksi Pelipat Ganda Kecepatan Proses Kode Objek Khusus Platform Pengembangan Bahasa Mutakhir","Akses Autentikasi Keabsahan Verifikasi Modul Koneksi Gembok Terproteksi Untuk Ratusan Nama Alias Lain"]},
+            HostingMedium:{price:"Rp 29.900",strike:"Rp 75.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Ruang kreasi komputasi luar biasa fleksibel membuka peluang pertumbuhan tak memiliki garis akhir. Dirancang istimewa menahan tekanan arus publik membludak, terbebas sama sekali kekhawatiran limitasi kapasitas penyimpanan aset statis media berat.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Penghapusan Ketentuan Batasan Alokasi Perhitungan Pemakaian Disk Ruang Rekam Benar-Benar Lepas Bebas","Konfigurasi Anak Titik Tambahan Induk Bebas Disusun Sampai Tingkatan Tidak Terhingga Rantai Panjang","Pemberian Izin Penciptaan Modul Mesin Basis Data Informasi Bebas Diciptakan Sesuka Kebutuhan Tanpa Stop","Integrasi Modul Lisensi Komersial Penambah Nilai Estetika Mutlak Berbayar Langsung Tersedia Tinggal Pakai","Sistem Intelijen Penjaringan Manipulasi Pertukaran Pesan Massal Penipu Dijegal Ke Ruang Karantina Eksekutif","Kewenangan Mengelola Hierarki Pohon Berkas Lewat Pengaturan Terpisah Keamanan Sangat Tinggi Dienskripsi"]},
+            HostingPro:{price:"Rp 31.500",strike:"Rp 80.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Manufaktur pemrosesan komputasi setara sistem mesin elit. Dioptimalkan melahap instruksi pemrosesan ribuan keranjang E-commerce bertubi-tubi tanpa gangguan, mempersembahkan perisai tebal proteksi data periklanan berharga tidak tertembus.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Hak Pakai Mutlak Ruang Sirkuit Memori Teknologi Cepat Rambat Penunjang Logika Perangkat Ekstrim Lanjutan","Infrastruktur Penyesuaian Eksekusi Bahasa Pemrograman Skrip Teranyar Menyajikan Ruang Pengembangan Lepas","Penambahan Kapasitas Kotak Administrasi Pertukaran Surat Elektronik Perusahaan Hingga Sepuluh Nama Berbeda","Konfigurasi Penyiapan Arsip Modul Komplit Pencadangan Berkala Hari Per Hari Tidak Meninggalkan Satupun Titik Kelemahan","Karantina Kekuatan Pengguna Pada Akun Bersifat Terisolasi Penuh Satu Sama Lain Merawat Integritas Bebas Konflik Pararel","Disesuaikan Modul Penyesuaian Spesifikasi Mempertahankan Proses Pencarian Data Transaksi Berat Barang Katalog Banyak Sangat"]},
+            HostingExpert:{price:"Rp 51.000",strike:"Rp 120.000",suffix:"/bulan",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Level penguasa ekosistem awan tertinggi tanpa kompromi menyaingi server tunggal dedicated sejati. Dirancang eksklusif entitas perusahaan berskala super, menanggung limpahan transmisi berat terus menerus, menepis tuntas segala keruwetan instalasi teknis.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Rincian Infrastruktur:</p>",bullets:["Isolasi Mesin Pemroses Inti Otak CPU Serta Aliran Kapasitas RAM Dikhususkan Total Melayani Kebutuhan Anda Secara Berdikari","Pemberian Besaran Tangki Penyimpanan Arsip Data Berjumlah Ratusan Lipat Gigabita Kapasitas Berlebihan Guna Memasukkan Apa Saja","Konfigurasi Mesin Menyelesaikan Permintaan Respon Panggilan Rantai Eksekusi Bertubi Tanpa Sedikitpun Menunjukkan Gejala Tersendat","Alokasi Pintu Layanan Bantuan Delegasi Teknisi Ahli Bersiap Respons Cepat Menyingkirkan Antrian Layanan Pelanggan Biasa Keseluruhan","Pelepasan Hambatan Kustomisasi Otoritas Sertifikasi Modul Kode Pengamanan Berlapis Validasi Berbayar Pribadi Sangat Kredibel Sekali","Sertifikasi Keyakinan Jaminan Janji Kompensasi Kesepakatan Jaringan Terkoneksi Lancar Total Nyaris Tanpa Sedikit Waktu Terputus Sama Sekali"]},
+            DomainCom:{price:"Rp 165.000",strike:"Rp 200.000",suffix:"/tahun",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Mahkota perniagaan digital penguasa panggung internasional mutlak menduduki tahta kepercayaan global. Mengunci pendaftaran waralaba ekstensi COM mengibarkan supremasi komersial, langsung menanamkan persepsi eksklusif dan kemapanan organisasi instan.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Benefit Pendaftaran:</p>",bullets:["Kekuasaan Jaringan Transmisi Penyebaran Server Nama Seluruh Benua Super Singkat Memangkas Waktu Resolusi Konektivitas Arah Taut","Kendali Kokpit Manajemen Otomatis Bebas Konfigurasi Arahan Alamat Pengganti Berlaku Setiap Detik Sangat Menguntungkan Penyesuaian","Proteksi Ekstra Canggih Meredam Manuver Manipulasi Perampokan Nama Alamat Ilegal Penjahat Mengalihkan Perhatian Kepemilikan Aset","Opsi Manipulasi Tampilan Papan Pengumuman Publik Bertujuan Menghapus Identitas Jejak Pribadi Supaya Tidak Dieksploitasi Pemasar Lain","Penerusan Jalur Administrasi Kertas Digital Berpusat Mengalir Langsung Mengisi Pundi Inbox Rahasia Tanpa Ketahuan Mengurangi Akses Lain","Kunci Keamanan Terkini Proteksi Modul Gembok Berlapis Melarang Keras Percobaan Pemindahan Server Tanpa Izin Surat Pemilik Sah Aset Berkelas"]},
+            DomainId:{price:"Rp 250.000",strike:"Rp 300.000",suffix:"/tahun",desc:"<p class='mb-4 min-h-[170px] md:min-h-[120px] lg:min-h-[100px] text-xs md:text-sm text-textGray dark:text-gray-300 leading-relaxed'>Manifestasi legitimasi supremasi identitas nasional memenangkan dominasi mesin pencari domestik sangat agresif. Akhiran ID adalah stempel bukti hukum negara memberangus keraguan pelanggan bertransaksi memperlihatkan validitas badan resmi terverifikasi absah.</p><p class='font-bold mb-3 text-darkBlack dark:text-white text-[10px] md:text-xs uppercase tracking-wider'>Benefit Pendaftaran:</p>",bullets:["Monopoli Algoritma Prioritas Khusus Pemetaan Preferensi Pencarian Google Wilayah Geografis Indonesia Memborong Peringkat Menuju Lembar Kesatu","Mekanisme Saringan Validasi Dokumen Identitas Kenegaraan Mutlak Sebagai Tolak Ukur Kepastian Mengeliminasi Peserta Anonim Praktik Tipuan Daring","Pengamanan Mutlak Kekayaan Hak Intelektual Merek Nasional Di Hadapan Regulasi Lembaga Internasional Antisipasi Sengketa Nama Usaha Menyesatkan Publik","Modul Arsitektur Sistem Arah Terkoordinasi Cepat Sigap Mengalirkan Lintasan Padat Pelanggan Regional Tanpa Keluhan Masalah Latensi Akses Sambungan Lambat","Kredensial Otorisasi Tercatat Permanen Dalam Log Lembaga Resmi PANDI Terakreditasi Standar Pelayanan Sistem Informasi Negara Hukum Transparan Sekali Terlihat Jelas","Prasyarat Legal Ketat Melampirkan Kartu Pendiri Sebagai Tanda Verifikasi Menjamin Hanya Pihak Bertanggung Jawab Serius Mampu Melakukan Pengambilan Nama Bisnis ID"]}
         };
 
         function updateBentoDesc(selectId, descId, priceId, strikeId) {
@@ -1217,7 +1212,7 @@
             const data = servicesData[val];
             if(!data) return;
 
-            cardArea.innerHTML = data.desc + `<ul class="space-y-2.5 mt-2 list-none pl-1">` + data.bullets.map(b => `<li class="flex items-start gap-2 text-[11px] md:text-xs text-textGray dark:text-gray-300 font-medium"><i class="fas fa-check-circle text-green-500 mt-[2px] text-[10px] shrink-0"></i> <span>${b}</span></li>`).join('') + `</ul>`;
+            cardArea.innerHTML = data.desc + `<ul class="space-y-2.5 mt-auto list-none pl-1 pt-4 border-t border-black/5 dark:border-white/5">` + data.bullets.map(b => `<li class="flex items-start gap-2 text-[11px] md:text-xs text-textGray dark:text-gray-300 font-medium"><i class="fas fa-check-circle text-green-500 mt-[2px] text-[10px] shrink-0"></i> <span>${b}</span></li>`).join('') + `</ul>`;
             
             const cardParent = select.closest('.bento-service');
             cardParent.querySelector('#' + strikeId).innerText = data.strike;
@@ -1226,20 +1221,19 @@
             const suffixId = selectId.replace('opt', 'suffix');
             const suffixEl = document.getElementById(suffixId);
             if(suffixEl) suffixEl.innerText = data.suffix;
-            
-            const categoryName = select.getAttribute('data-cat-name');
-            const serviceName = select.options[select.selectedIndex].text;
-            const btnEl = cardParent.querySelector('button[aria-label^="Konsultasi"], button[aria-label^="Pesan"]');
-            const phone = "62859148219009";
-            const text = `Halo Mas Faqih, saya tertarik dengan Layanan Pilihan: *${categoryName}*.%0A👉 Rincian Modul: *${serviceName}*%0A%0AMohon panduan prosedur pendaftaran, struktur pembiayaan komprehensif, dan langkah awal inisiasi proyeknya. Terima Kasih!`;
-            if(btnEl) btnEl.setAttribute('onclick', `window.open('https://wa.me/${phone}?text=${text}', '_blank')`);
         }
 
         function orderBentoService(category, selectId) {
             const select = document.getElementById(selectId);
+            const val = select.value;
+            const data = servicesData[val];
             const subService = select.options[select.selectedIndex].text;
             const phone = "62859148219009";
-            const text = `Halo Mas Faqih, saya tertarik dengan Layanan Pilihan: *${category}*.%0A👉 Rincian Modul: *${subService}*%0A%0AMohon panduan prosedur pendaftaran, struktur pembiayaan komprehensif, dan langkah awal inisiasi proyeknya. Terima Kasih!`;
+            
+            const featuresText = data.bullets.map(b => `- ${b}`).join('%0A');
+            
+            const text = `Halo Mas Faqih, saya tertarik dengan Layanan Pilihan: *${category}*.%0A👉 Paket Layanan: *${subService}*%0A💰 Harga Promo: *${data.price}*${data.suffix ? ' ' + data.suffix : ''}%0A%0A✨ *Fitur yang didapatkan:*%0A${featuresText}%0A%0AMohon panduan prosedur pendaftaran, struktur pembiayaan komprehensif, dan langkah awal inisiasi proyeknya. Terima Kasih!`;
+            
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
 
@@ -1557,16 +1551,16 @@
         // --- GOOGLE TRENDS LIVE ---
         let allTrends = [];
         const fallbackTrends = [
-            {title: "Update Algoritma Google", vol: "500K+", link: "#", heat: "high"}, 
-            {title: "Web Hosting Cloud NVMe", vol: "200K+", link: "#", heat: "med"},
-            {title: "TikTok Ads Conversion", vol: "1M+", link: "#", heat: "high"}, 
-            {title: "Tools AI Content Writer", vol: "2M+", link: "#", heat: "max"},
-            {title: "Google Analytics 4", vol: "50K+", link: "#", heat: "low"}, 
-            {title: "Strategi Dropship Shopify", vol: "500K+", link: "#", heat: "med"},
-            {title: "Core Web Vitals", vol: "100K+", link: "#", heat: "med"}, 
-            {title: "Beli Domain Murah", vol: "50K+", link: "#", heat: "low"},
-            {title: "E-commerce Automation", vol: "150K+", link: "#", heat: "med"},
-            {title: "Semantic Search SEO", vol: "80K+", link: "#", heat: "low"},
+            {title: "Update Algoritma Google", vol: "500K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Update+Algoritma+Google", heat: "high"}, 
+            {title: "Web Hosting Cloud NVMe", vol: "200K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Web+Hosting+Cloud+NVMe", heat: "med"},
+            {title: "TikTok Ads Conversion", vol: "1M+", link: "https://trends.google.com/trends/explore?geo=ID&q=TikTok+Ads+Conversion", heat: "high"}, 
+            {title: "Tools AI Content Writer", vol: "2M+", link: "https://trends.google.com/trends/explore?geo=ID&q=Tools+AI+Content+Writer", heat: "max"},
+            {title: "Google Analytics 4", vol: "50K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Google+Analytics+4", heat: "low"}, 
+            {title: "Strategi Dropship Shopify", vol: "500K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Strategi+Dropship+Shopify", heat: "med"},
+            {title: "Core Web Vitals", vol: "100K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Core+Web+Vitals", heat: "med"}, 
+            {title: "Beli Domain Murah", vol: "50K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Beli+Domain+Murah", heat: "low"},
+            {title: "E-commerce Automation", vol: "150K+", link: "https://trends.google.com/trends/explore?geo=ID&q=E-commerce+Automation", heat: "med"},
+            {title: "Semantic Search SEO", vol: "80K+", link: "https://trends.google.com/trends/explore?geo=ID&q=Semantic+Search+SEO", heat: "low"},
         ];
         
         const statusLabels = ["Tren Melejit", "Lalu Lintas Masif", "Penelusuran Populer", "Sangat Dominan", "Skala Tinggi Pencarian", "Topik Relevan Teratas"];
@@ -1588,8 +1582,9 @@
                     else if(index < 12) heat = 'med';
                     
                     const keywords = [item.title, "kabar terbaru " + item.title, "penelusuran " + item.title].join(', ');
+                    const directLink = `https://trends.google.com/trends/explore?geo=ID&q=${encodeURIComponent(item.title)}`;
                     
-                    return {title: item.title, link: item.link, vol: "Skala Naik Ekstrim", heat: heat, kw: keywords};
+                    return {title: item.title, link: directLink, vol: "Skala Naik Ekstrim", heat: heat, kw: keywords};
                 }) || [];
                 
                 if (fetchedItems.length < 20) {
@@ -2018,33 +2013,6 @@
             }
         }
 
-        // --- GLOBAL FOMO ENGINE ---
-        const notifications = [
-            { city: "Cirebon", action: "berhasil melegalisasi kesepakatan registrasi kepemilikan Infrastruktur Paket Hosting Penyimpanan Kapasitas Server Khusus", time: "Kurang dari 2 menit yang lalu sebelumnya" },
-            { city: "Jakarta Selatan Pusat", action: "telah memesan jadwal tiket antrian menuntut ruang konsultasi membedah panduan Arsitektur Teknis Strategi Pemasaran Digital Eksklusif", time: "Sekitar rentang 5 menit waktu mundur yang lalu" },
-            { city: "Surabaya", action: "sedang mengunduh dokumen rahasia tata letak mempelajari membaca tuntas konstruksi pola Cetak Biru Logika Operasi SEO Organik Valid", time: "Terhitung tepat 10 menit waktu berlalu di belakang" },
-            { city: "Bandung", action: "membuat keputusan berani untuk resmi langsung berlangganan aktivasi Layanan Eksekusi Pengaturan Iklan Kampanye Berbayar Skala Profesional Lanjut", time: "Melewati durasi 12 menit yang lalu sesudahnya" },
-            { city: "Daerah Istimewa Yogyakarta", action: "dengan sangat antusias teliti memeriksa tajam menelusuri penawaran Katalog Harga Pembuatan Konstruksi Fondasi Basis Web Aplikasi Kompleks", time: "Baru saja terjadi sekejap mata pada saat ini berlangsung" }
-        ];
-        
-        const popup = document.getElementById('marketingPopup');
-        let fomoIndex = 0; let isPopupClosed = false;
-
-        function initFOMOPopup() {
-            if (isPopupClosed || !popup) return;
-            const data = notifications[fomoIndex];
-            const msgEl = document.getElementById('popupMessage');
-            const timeEl = document.getElementById('popupTime');
-            if(msgEl) msgEl.innerHTML = `Mitra afiliasi identitas di area <strong>${data.city}</strong> ${data.action}.`;
-            if(timeEl) timeEl.innerText = data.time;
-            popup.classList.add('show');
-            setTimeout(() => { if (!isPopupClosed) popup.classList.remove('show'); }, 6000);
-            fomoIndex = (fomoIndex + 1) % notifications.length;
-        }
-
-        function closePopup() { if(popup) popup.classList.remove('show'); isPopupClosed = true; }
-        setTimeout(() => { initFOMOPopup(); setInterval(() => { initFOMOPopup(); }, 25000); }, 15000);
-
         // --- GOOGLE INDEXING BOT ---
         async function triggerIndexing() {
             const btn = document.getElementById('pingBotBtn');
@@ -2100,6 +2068,27 @@
             document.querySelectorAll('.counter').forEach(c => observer.observe(c)); 
         }
 
+        // --- FAKE FLASH SALE TIMER ---
+        function initFlashSaleTimer() {
+            let hours = 2; let minutes = 45; let seconds = 30;
+            const hEl = document.getElementById('fs-hours');
+            const mEl = document.getElementById('fs-minutes');
+            const sEl = document.getElementById('fs-seconds');
+
+            if(!hEl || !mEl || !sEl) return;
+
+            setInterval(() => {
+                seconds--;
+                if(seconds < 0) { seconds = 59; minutes--; }
+                if(minutes < 0) { minutes = 59; hours--; }
+                if(hours < 0) { hours = 2; minutes = 59; seconds = 59; }
+
+                hEl.innerText = hours.toString().padStart(2, '0');
+                mEl.innerText = minutes.toString().padStart(2, '0');
+                sEl.innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             // Theme setup
             document.querySelectorAll('.theme-toggle').forEach(btn => { btn.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }); });
@@ -2130,6 +2119,7 @@
             // Init Animations & Fetchers
             triggerReveal(); window.addEventListener('scroll', triggerReveal, { passive: true });
             animateCounters(); 
+            initFlashSaleTimer();
             renderGallery(); 
             renderCertStack(); 
             renderTestimonials();

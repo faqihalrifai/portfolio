@@ -36,9 +36,9 @@
     </script>
     
     <!-- OPTIMASI SEO & KATA KUNCI UTAMA BLOG -->
-    <title>Blog & Wawasan | Digital Marketing Specialist Cirebon</title>
+    <title>Strategic Insight Journal</title>
     <meta name="description" content="Jurnal wawasan dan publikasi riset dari Muhammad Faqih Al Rifai, Growth Marketer & SEO Specialist. Membahas strategi Jasa SEO Organic, SEM, dan pertumbuhan bisnis digital.">
-    <meta name="keywords" content="Digital Marketing Specialist Cirebon, Blog SEO, Growth Marketer, SEO Specialist, Jasa SEO Organic, SEM, Konsultan Digital Marketing Jawa Barat, Ahli Digital Marketing Mundu, Jasa SEO Cirebon, SEO Berbasis AI 2026">
+    <meta name="keywords" content="Strategic Insight Journal, Digital Marketing Specialist Cirebon, Blog SEO, Growth Marketer, SEO Specialist, Jasa SEO Organic, SEM, Konsultan Digital Marketing Jawa Barat, Ahli Digital Marketing Mundu, Jasa SEO Cirebon, SEO Berbasis AI 2026">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -57,13 +57,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://faqihalrf.online/blog.html">
     <meta property="og:site_name" content="Muhammad Faqih Al Rifai">
-    <meta property="og:title" content="Blog & Wawasan | Digital Marketing Specialist Cirebon">
+    <meta property="og:title" content="Strategic Insight Journal">
     <meta property="og:description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan. Publikasi wawasan bisnis mendalam dari pakar SEO Cirebon.">
     <meta property="og:image" content="https://faqihalrf.online/myphot.webp">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://faqihalrf.online/blog.html">
-    <meta property="twitter:title" content="Blog & Wawasan | Digital Marketing Specialist Cirebon">
+    <meta property="twitter:title" content="Strategic Insight Journal">
     <meta property="twitter:description" content="Mengubah data menjadi strategi dan ide menjadi pertumbuhan. Publikasi wawasan bisnis mendalam dari pakar SEO Cirebon.">
     <meta property="twitter:image" content="https://faqihalrf.online/myphot.webp">
     
@@ -90,7 +90,7 @@
           "@type": "Blog",
           "@id": "https://faqihalrf.online/blog.html#blog",
           "url": "https://faqihalrf.online/blog.html",
-          "name": "Blog & Wawasan | Digital Marketing Specialist Cirebon",
+          "name": "Strategic Insight Journal",
           "description": "Jurnal strategi pemasaran digital dan rahasia pertumbuhan bisnis oleh Muhammad Faqih Al Rifai, Growth Marketer & SEO Specialist.",
           "publisher": {
             "@id": "https://faqihalrf.online/#person"
@@ -150,7 +150,7 @@
                         mainWhite: '#ffffff',
                         lightGray: '#f8f9fa',
                         gold: '#c5a028',
-                        darkGold: '#856d1b',
+                        darkGold: '#c5a028',
                         goldHover: '#a3841f',
                         darkBlack: '#111827',
                         textGray: '#4b5563',
@@ -172,7 +172,7 @@
         body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .dark body { background-color: #0f1014; color: #f3f4f6; }
         
-        html { scroll-behavior: smooth; } /* Standard native smooth scroll */
+        html { scroll-behavior: smooth; } 
         
         * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -347,19 +347,48 @@
         // Global Variable
         let allPosts = [];
 
-        // Pengambilan Data WordPress
+        // Pengambilan Data WordPress dengan Caching Otomatis untuk Kecepatan Ekstra
         async function fetchPosts() {
+            const CACHE_KEY = 'blogPosts_v1';
+            const CACHE_TIME_KEY = 'blogPostsTime_v1';
+            const CACHE_DURATION = 1000 * 60 * 30; // 30 Menit Cache
+            
+            const cachedData = localStorage.getItem(CACHE_KEY);
+            const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+
+            // Jika ada cache yang masih segar, langsung render 0 detik delay
+            if (cachedData && cachedTime && (Date.now() - parseInt(cachedTime) < CACHE_DURATION)) {
+                try {
+                    allPosts = JSON.parse(cachedData);
+                    renderPosts(allPosts);
+                    otomatisCekDanPing(allPosts);
+                    return; // Hentikan eksekusi, cache sudah dipasang
+                } catch (e) {
+                    console.log("Cache usang, mengambil ulang...");
+                }
+            }
+
+            // Jika tidak ada cache, fetch ke server
             try {
-                const res = await fetch(`https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=45&cb=${Date.now()}`);
+                const res = await fetch(`https://dev-faqihalrf.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=45`);
                 if (!res.ok) throw new Error('Network response failure');
                 allPosts = await res.json();
-                renderPosts(allPosts);
                 
-                // Panggil Bot Siluman Auto-Index untuk artikel baru
+                // Simpan ke Cache Lokal browser
+                localStorage.setItem(CACHE_KEY, JSON.stringify(allPosts));
+                localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+
+                renderPosts(allPosts);
                 otomatisCekDanPing(allPosts);
 
             } catch (err) {
-                document.getElementById('blogGrid').innerHTML = '<div class="col-span-full py-20 text-center"><div class="inline-flex w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/20 items-center justify-center mb-4"><i class="fas fa-exclamation-triangle text-red-500 text-2xl"></i></div><p class="text-textGray dark:text-darkSub font-serif italic text-lg md:text-xl">Gangguan koneksi sambungan. Pangkalan data menolak permintaan masuk saat ini.</p></div>';
+                // Fallback offline: gunakan cache lama jika gagal fetch jaringan
+                if(cachedData) {
+                    allPosts = JSON.parse(cachedData);
+                    renderPosts(allPosts);
+                } else {
+                    document.getElementById('blogGrid').innerHTML = '<div class="col-span-full py-20 text-center"><div class="inline-flex w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/20 items-center justify-center mb-4"><i class="fas fa-exclamation-triangle text-red-500 text-2xl"></i></div><p class="text-textGray dark:text-darkSub font-serif italic text-lg md:text-xl">Gangguan koneksi sambungan. Pangkalan data menolak permintaan masuk saat ini.</p></div>';
+                }
             }
         }
 
@@ -377,7 +406,7 @@
             noRes.classList.add('hidden');
 
             grid.innerHTML = posts.map(post => {
-                // Konfigurasi Image Caching Berperforma Tinggi
+                // Konfigurasi Image Caching Berperforma Tinggi (Lazy & WebP)
                 let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800';
                 if (post._embedded?.['wp:featuredmedia']?.[0]) {
                     const rawUrl = post._embedded['wp:featuredmedia'][0].source_url;

@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /private/
 
-# Arahkan Google ke sitemap domain baru
+Disallow: /private/
+Disallow: /config/
+Disallow: /backups/
+Disallow: /logs/
+
 Sitemap: https://faqihalrf.online/sitemap.xml

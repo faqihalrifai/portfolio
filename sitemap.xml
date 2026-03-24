@@ -1,36 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Halaman Beranda Utama (Priority Tertinggi) -->
   <url>
     <loc>https://faqihalrf.online/</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Hub Publikasi (Blog) -->
   <url>
     <loc>https://faqihalrf.online/blog.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Halaman Bukti Keberhasilan (Client Success Stories) -->
   <url>
-    <loc>https://faqihalrf.online/blog.html?post=strategi-seo-2026</loc>
-    <lastmod>2026-03-07</lastmod>
+    <loc>https://faqihalrf.online/testimoni.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Daftar 5 Artikel Terkini (Real-time Mapped to Domain) -->
+  <url>
+    <loc>https://faqihalrf.online/blog.html?post=inbound-marketing</loc>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://faqihalrf.online/blog.html?post=cara-optimasi-ads</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://faqihalrf.online/blog.html?post=optimasi-seo-organik</loc>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://faqihalrf.online/blog.html?post=strategi-bisnis-modern</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://faqihalrf.online/blog.html?post=apa-itu-seo</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://faqihalrf.online/blog.html?post=apa-itu-marketing</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Kebijakan Privasi & Legal -->
   <url>
     <loc>https://faqihalrf.online/legal.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

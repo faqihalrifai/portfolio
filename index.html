@@ -1419,11 +1419,22 @@
             if (container) { const scrollAmount = window.innerWidth > 768 ? 400 : 300; container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' }); }
         };
 
+        window.stopGalleryAutoSlide = function() {
+            if (window.galleryInterval) clearInterval(window.galleryInterval);
+        };
+
+        window.startGalleryAutoSlide = function() {
+            if (window.galleryInterval) clearInterval(window.galleryInterval);
+            window.galleryInterval = setInterval(() => { window.goToGallerySlide((window.currentSlide + 1) % galleryData.length); }, 5000);
+        };
+
         window.prevGallerySlide = function() {
+            window.stopGalleryAutoSlide();
             if(typeof window.currentSlide !== 'undefined') { let nextIndex = window.currentSlide - 1; if(nextIndex < 0) nextIndex = galleryData.length - 1; goToGallerySlide(nextIndex); }
         };
 
         window.nextGallerySlide = function() {
+            window.stopGalleryAutoSlide();
             if(typeof window.currentSlide !== 'undefined') { let nextIndex = (window.currentSlide + 1) % galleryData.length; goToGallerySlide(nextIndex); }
         };
 
@@ -1721,16 +1732,16 @@
             
             wrapper.innerHTML = galleryData.map((item, index) => {
                 if (item.type === 'video' || item.src.endsWith('.mp4')) {
-                    return `<div class="hero-slide ${index === 0 ? 'active' : ''} bg-black" data-index="${index}"><video src="${item.src}" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" autoplay loop muted playsinline></video></div>`;
+                    return `<div class="hero-slide ${index === 0 ? 'active' : ''} bg-black cursor-zoom-in" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><video src="${item.src}" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105 pointer-events-none" autoplay loop muted playsinline></video></div>`;
                 }
-                return `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title}" title="Klik untuk perbesar detail proyek: ${item.title}" class="img-high-res transition-transform duration-700 hover:scale-105 cursor-zoom-in" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`;
+                return `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title}" title="Klik untuk perbesar detail proyek: ${item.title}" class="img-high-res transition-transform duration-700 hover:scale-105 cursor-zoom-in" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`;
             }).join('');
             
             thumbContainer.innerHTML = galleryData.map((item, index) => {
                 if (item.type === 'video' || item.src.endsWith('.mp4')) {
-                    return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToGallerySlide(${index})" title="${item.title}"><video src="${item.src}" class="w-full h-full object-cover" muted playsinline preload="metadata"></video></div>`;
+                    return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><video src="${item.src}" class="w-full h-full object-cover" muted playsinline preload="metadata"></video></div>`;
                 }
-                return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" loading="lazy" decoding="async"></div>`;
+                return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" loading="lazy" decoding="async"></div>`;
             }).join('');
 
             window.goToGallerySlide = function(index) {
@@ -1757,7 +1768,7 @@
             if (titleEl && galleryData[0]) titleEl.innerText = galleryData[0].title; 
             if (descEl && galleryData[0]) descEl.innerText = galleryData[0].caption;
 
-            setInterval(() => { goToGallerySlide((window.currentSlide + 1) % galleryData.length); }, 5000);
+            window.startGalleryAutoSlide();
         }
 
         const certData = [
@@ -1801,17 +1812,45 @@
         }
 
         window.openLightbox = function(src) {
-            const modal = document.getElementById('lightboxModal'), img = document.getElementById('lightboxImg');
-            if(!modal || !img) return; img.src = src; img.classList.remove('hidden'); modal.classList.remove('invisible', 'opacity-0'); document.body.style.overflow = 'hidden';
+            window.stopGalleryAutoSlide();
+            const modal = document.getElementById('lightboxModal'), img = document.getElementById('lightboxImg'), vid = document.getElementById('lightboxVideo');
+            if(!modal || !img || !vid) return; 
+            
+            if (src.endsWith('.mp4') || src.endsWith('.webm')) {
+                img.classList.add('hidden');
+                img.src = '';
+                vid.src = src;
+                vid.classList.remove('hidden');
+                vid.play().catch(e=>{});
+            } else {
+                vid.classList.add('hidden');
+                vid.pause();
+                vid.src = '';
+                img.src = src;
+                img.classList.remove('hidden');
+            }
+            
+            modal.classList.remove('invisible', 'opacity-0'); 
+            document.body.style.overflow = 'hidden';
         }
 
         window.closeLightbox = function() {
-            const modal = document.getElementById('lightboxModal'), img = document.getElementById('lightboxImg');
-            if(!modal || !img) return; modal.classList.add('invisible', 'opacity-0'); img.classList.remove('lightbox-zoomed'); setTimeout(() => { img.classList.add('hidden'); img.src = ''; }, 500); document.body.style.overflow = '';
+            const modal = document.getElementById('lightboxModal'), img = document.getElementById('lightboxImg'), vid = document.getElementById('lightboxVideo');
+            if(!modal || !img || !vid) return; 
+            modal.classList.add('invisible', 'opacity-0'); 
+            img.classList.remove('lightbox-zoomed'); 
+            vid.classList.remove('lightbox-zoomed');
+            setTimeout(() => { 
+                img.classList.add('hidden'); img.src = ''; 
+                vid.classList.add('hidden'); vid.pause(); vid.src = '';
+            }, 500); 
+            document.body.style.overflow = '';
         }
         
         window.toggleLightboxZoom = function() {
-            const img = document.getElementById('lightboxImg'); if(img) img.classList.toggle('lightbox-zoomed');
+            const img = document.getElementById('lightboxImg'), vid = document.getElementById('lightboxVideo');
+            if(img && !img.classList.contains('hidden')) img.classList.toggle('lightbox-zoomed');
+            if(vid && !vid.classList.contains('hidden')) vid.classList.toggle('lightbox-zoomed');
         }
 
     </script>
@@ -1821,6 +1860,7 @@
         <button type="button" class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-4xl md:text-5xl hover:text-gold transition-colors z-50 p-2" aria-label="Tutup Jendela Fokus Visual Pembuktian">&times;</button>
         <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative overflow-hidden">
             <img id="lightboxImg" src="" alt="Fokus Layar Penuh Sorotan Dokumentasi Bukti Otentik" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-500 ease-in-out cursor-zoom-in img-high-res will-change-transform" onclick="event.stopPropagation(); toggleLightboxZoom()" loading="lazy" title="Ketuk Permukaan Panel Untuk Penyesuaian Ruang Tampil Ekstra Besar">
+            <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-500 ease-in-out cursor-zoom-in will-change-transform" onclick="event.stopPropagation(); toggleLightboxZoom()" controls playsinline title="Ketuk Permukaan Panel Untuk Penyesuaian Ruang Tampil Ekstra Besar"></video>
         </div>
     </div>
 </body>

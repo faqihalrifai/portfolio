@@ -1703,13 +1703,15 @@
 
         const galleryData = [
             { id: "core", type: "image", src: "core.webp", title: "Optimasi Core Web Vitals", desc: "Audit Technical SEO", caption: "Skor sempurna pada metrik LCP, FID, dan CLS. Waktu muat halaman dipangkas di bawah 1 detik untuk retensi trafik maksimal dan sinyal peringkat Google yang kuat." },
-            { id: "rank", type: "image", src: "rank.webp", title: "Dominasi Peringkat Organik", desc: "Pencapaian Halaman Pertama", caption: "Mengamankan posisi 3 besar pada puluhan kata kunci komersial kompetitif tinggi, meningkatkan trafik organik hingga 400% dalam 6 bulan." },
-            { id: "reqgarmed", type: "image", src: "reqgarmed.webp", title: "Ekspansi Digital B2B Garmen", desc: "Strategi Web Development", caption: "Restrukturisasi corong pemasaran untuk industri manufaktur. Menghasilkan lonjakan permintaan prospek (leads) B2B berkualitas tinggi secara konsisten." },
-            { id: "shopfy", type: "image", src: "shopfy.webp", title: "Skalabilitas E-Commerce Shopify", desc: "Sistem Toko Online Global", caption: "Integrasi sistem e-commerce tingkat lanjut dengan desain konversi (CRO) yang ramah pengguna. Mampu menangani ribuan transaksi per hari tanpa kendala." },
+            { id: "grader", type: "image", src: "grader.webp", title: "Audit Performa Web Analyzer", desc: "Optimasi Kecepatan Halaman", caption: "Mencapai metrik hijau sempurna pada uji performa PageSpeed Insights untuk meminimalkan rasio pentalan (bounce rate) dan mendongkrak retensi." },
+            { id: "droc", type: "image", src: "droc.webp", title: "Dasbor Analitik Real-Time", desc: "Integrasi Data Eksekutif", caption: "Sistem pemantauan kinerja metrik audiens dan konversi secara real-time untuk mempercepat pengambilan keputusan strategis bisnis." },
             { id: "uno", type: "image", src: "uno.webp", title: "Redesain Antarmuka Premium", desc: "Modernisasi UI/UX", caption: "Transformasi visual website B2B dengan pendekatan estetik dan profesional untuk membangun kepercayaan (trust) instan di mata klien korporat." },
             { id: "two", type: "image", src: "two.webp", title: "Struktur Hierarki Informasi", desc: "Navigasi Website Terarah", caption: "Penyusunan ulang arsitektur informasi (Silo Structure) yang memudahkan audiens menemukan layanan sekaligus mempermudah bot Google merayapi halaman." },
-            { id: "three", type: "image", src: "three.webp", title: "Performa Website Landing Page", desc: "Jasa Pembuatan Website", caption: "Penekanan kecepatan halaman sekencang mungkin dengan optimasi *clean code* dan materi (ad-creative) yang sangat persuasif untuk menopang bisnis." },
-            { id: "four", type: "image", src: "four.mp4", title: "Otomatisasi Sistem Manajemen", desc: "Infrastruktur Backend E-commerce", caption: "Pembuatan sistem otomasi inventaris yang memelihara manajemen stok, dan memudahkan operasional bisnis klien di dunia e-commerce." }
+            { id: "rank", type: "image", src: "rank.webp", title: "Dominasi Peringkat Organik", desc: "Pencapaian Halaman Pertama", caption: "Mengamankan posisi 3 besar pada puluhan kata kunci komersial kompetitif tinggi, meningkatkan trafik organik hingga 400% dalam 6 bulan." },
+            { id: "reqgarmed", type: "image", src: "reqgarmed.webp", title: "Ekspansi Digital B2B Garmen", desc: "Strategi Web Development", caption: "Restrukturisasi corong pemasaran untuk industri manufaktur. Menghasilkan lonjakan permintaan prospek (leads) B2B berkualitas tinggi secara konsisten." },
+            { id: "four", type: "video", src: "four.mp4", title: "Otomatisasi Sistem Manajemen", desc: "Infrastruktur Backend E-commerce", caption: "Pembuatan sistem otomasi inventaris yang memelihara manajemen stok, dan memudahkan operasional bisnis klien di dunia e-commerce." },
+            { id: "three", type: "image", src: "three.webp", title: "Performa Website Landing Page", desc: "Jasa Pembuatan Website", caption: "Penekanan kecepatan halaman sekencang mungkin dengan optimasi clean code dan materi (ad-creative) yang sangat persuasif untuk menopang bisnis." },
+            { id: "shopfy", type: "image", src: "shopfy.webp", title: "Skalabilitas E-Commerce Shopify", desc: "Sistem Toko Online Global", caption: "Integrasi sistem e-commerce tingkat lanjut dengan desain konversi (CRO) yang ramah pengguna. Mampu menangani ribuan transaksi per hari tanpa kendala." }
         ];
 
         function renderGallery() {
@@ -1717,9 +1719,19 @@
             if(!wrapper || !thumbContainer) return;
             window.currentSlide = 0;
             
-            wrapper.innerHTML = galleryData.map((item, index) => `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title} | ${item.caption}" title="Klik untuk perbesar detail proyek: ${item.title}" class="img-high-res transition-transform duration-700 hover:scale-105" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`).join('');
+            wrapper.innerHTML = galleryData.map((item, index) => {
+                if (item.type === 'video' || item.src.endsWith('.mp4')) {
+                    return `<div class="hero-slide ${index === 0 ? 'active' : ''} bg-black" data-index="${index}"><video src="${item.src}" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" autoplay loop muted playsinline></video></div>`;
+                }
+                return `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title}" title="Klik untuk perbesar detail proyek: ${item.title}" class="img-high-res transition-transform duration-700 hover:scale-105 cursor-zoom-in" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`;
+            }).join('');
             
-            thumbContainer.innerHTML = galleryData.map((item, index) => `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" loading="lazy" decoding="async"></div>`).join('');
+            thumbContainer.innerHTML = galleryData.map((item, index) => {
+                if (item.type === 'video' || item.src.endsWith('.mp4')) {
+                    return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToGallerySlide(${index})" title="${item.title}"><video src="${item.src}" class="w-full h-full object-cover" muted playsinline preload="metadata"></video></div>`;
+                }
+                return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" loading="lazy" decoding="async"></div>`;
+            }).join('');
 
             window.goToGallerySlide = function(index) {
                 const slides = document.querySelectorAll('.hero-slide'), thumbs = document.querySelectorAll('.thumbnail-item');
@@ -1729,9 +1741,21 @@
                 if (slides[window.currentSlide]) slides[window.currentSlide].classList.add('active');
                 if (thumbs[window.currentSlide]) thumbs[window.currentSlide].classList.add('active');
                 
+                const data = galleryData[window.currentSlide];
+                const titleEl = document.getElementById('hero-title'), descEl = document.getElementById('hero-desc');
+                if (titleEl) titleEl.innerText = data.title;
+                if (descEl) descEl.innerText = data.caption;
+                
                 const activeThumb = thumbs[window.currentSlide], thumbContainerEl = document.getElementById('thumbnail-container');
-                if (activeThumb && thumbContainerEl) { const scrollPos = activeThumb.offsetLeft - (thumbContainerEl.clientWidth / 2) + (activeThumb.clientWidth / 2); thumbContainerEl.scrollTo({ left: scrollPos, behavior: 'smooth' }); }
+                if (activeThumb && thumbContainerEl) { 
+                    const scrollPos = activeThumb.offsetLeft - (thumbContainerEl.clientWidth / 2) + (activeThumb.clientWidth / 2); 
+                    thumbContainerEl.scrollTo({ left: scrollPos, behavior: 'smooth' }); 
+                }
             };
+
+            const titleEl = document.getElementById('hero-title'), descEl = document.getElementById('hero-desc');
+            if (titleEl && galleryData[0]) titleEl.innerText = galleryData[0].title; 
+            if (descEl && galleryData[0]) descEl.innerText = galleryData[0].caption;
 
             setInterval(() => { goToGallerySlide((window.currentSlide + 1) % galleryData.length); }, 5000);
         }

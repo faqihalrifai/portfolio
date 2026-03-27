@@ -92,7 +92,7 @@
     }
     </script>
     
-    <!-- PRECONNECT & PRELOAD UNTUK PERFORMA -->
+    <!-- PRECONNECT & PRELOAD UNTUK PERFORMA (LCP/FCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -173,84 +173,9 @@
         }
     </script>
 
+    <!-- CSS Minified for Performance (TTFB/FCP Optimization) -->
     <style>
-        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; overflow-x: hidden; -webkit-font-smoothing: antialiased;} 
-        .dark body { background-color: #0f1014; color: #f3f4f6; }
-        
-        html { scroll-behavior: smooth; }
-        
-        .defer-render { content-visibility: auto; contain-intrinsic-size: 1000px; }
-        .img-high-res { image-rendering: crisp-edges; transform: translateZ(0); backface-visibility: hidden; }
-        
-        .reveal { will-change: transform, opacity; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .animate-slide-up { will-change: transform, opacity; }
-        
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
-
-        .custom-scroll { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 10px; margin: 4px; }
-        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
-        .custom-scroll::-webkit-scrollbar-thumb { background-color: rgba(197, 160, 40, 0.6); border-radius: 10px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(197, 160, 40, 1); }
-        
-        .custom-h-scroll { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
-        .custom-h-scroll::-webkit-scrollbar { height: 6px; }
-        .custom-h-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 10px; margin: 0 20px; }
-        .dark .custom-h-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
-        .custom-h-scroll::-webkit-scrollbar-thumb { background-color: #c5a028; border-radius: 10px; cursor: pointer;}
-        
-        .hero-slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; background: #000; aspect-ratio: 16/9; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3); transform: translateZ(0); }
-        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; display: flex; align-items: center; justify-content: center; cursor: zoom-in; will-change: opacity; z-index: 1; pointer-events: none;}
-        .hero-slide.active { opacity: 1; z-index: 10; pointer-events: auto;}
-        .hero-slide img, .hero-slide video { width: 100%; height: 100%; object-fit: cover; }
-        .thumbnail-strip { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; scrollbar-width: none; }
-        .thumbnail-item { width: 60px; height: 45px; border-radius: 0.5rem; overflow: hidden; cursor: pointer; opacity: 0.5; transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 0 2px transparent; flex-shrink: 0; transform: translateZ(0); will-change: transform, opacity; }
-        @media (min-width: 768px) { .thumbnail-item { width: 80px; height: 60px; } }
-        .thumbnail-item.active { opacity: 1; box-shadow: 0 0 0 2px #c5a028; transform: scale(1.05); }
-        .thumbnail-item img { width: 100%; height: 100%; object-fit: cover; }
-
-        .neural-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
-        .bento-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem; overflow: hidden; position: relative; transition: all 0.3s ease; transform: translateZ(0); }
-        .dark .bento-card { background: #18181b; border: 1px solid rgba(255,255,255,0.08); }
-        .bento-card:hover { border-color: #c5a028; box-shadow: 0 10px 30px -10px rgba(197, 160, 40, 0.1); transform: translateY(-2px); }
-        .icon-force-white { background-color: #ffffff !important; }
-
-        .scanner-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 40; display: none; pointer-events: none; overflow: hidden; border-radius: 1.5rem; backdrop-filter: blur(2px); }
-        .scanning .scanner-overlay { display: block; }
-        .laser-line { position: absolute; left: 0; right: 0; height: 2px; background: #c5a028; box-shadow: 0 0 15px 5px rgba(197, 160, 40, 0.6); animation: scan-laser 2s ease-in-out infinite alternate; will-change: transform; }
-        
-        .scroll-widget { opacity: 0; pointer-events: none; transition: all 0.3s ease; transform: translateY(20px); }
-        .scroll-widget.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-        .lightbox-zoomed { transform: scale(1.5) !important; cursor: zoom-out !important; }
-
-        .bento-service { transition: all 0.3s ease; transform: translateZ(0); display: flex; flex-direction: column; }
-        .bento-service:hover { transform: translateY(-4px); border-color: rgba(197, 160, 40, 0.6); box-shadow: 0 20px 40px -15px rgba(197, 160, 40, 0.15); }
-
-        .partner-track { display: flex; width: max-content; animation: scroll-partner 35s linear infinite; }
-        @keyframes scroll-partner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .partner-logo { width: 120px; height: 60px; object-fit: contain; margin: 0 1.5rem; transition: transform 0.3s ease; cursor: default; }
-        @media (min-width: 768px) { .partner-logo { width: 160px; height: 80px; margin: 0 2rem; } }
-        .partner-logo:hover { transform: scale(1.05); }
-
-        .executive-trend-card { background: #ffffff; transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); border: 1px solid rgba(0, 0, 0, 0.05); }
-        .dark .executive-trend-card { background: #121215; border: 1px solid rgba(255, 255, 255, 0.03); }
-        .executive-trend-card:hover { transform: translateY(-8px) scale(1.02); border-color: #c5a028; box-shadow: 0 20px 50px -15px rgba(197, 160, 40, 0.2); z-index: 50; }
-        .edge-mask { mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-
-        .confetti-piece { position: absolute; width: 8px; height: 8px; opacity: 0; }
-        .wizard-step { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
-        .wizard-step.active { display: block; opacity: 1; animation: popIn 0.5s ease-out forwards; }
-        .form-radio-label:has(input:checked) { border-color: #c5a028; background-color: rgba(197, 160, 40, 0.1); }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-
-        .looker-cover { position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); backdrop-filter: blur(3px); cursor: pointer; transition: opacity 0.3s ease; }
-        .looker-cover:hover { background: rgba(0,0,0,0.6); }
-        .card-scroll-area { overflow-y: auto; flex: 1; min-height: 0; }
-
+        body{background-color:#ffffff;color:#111827;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}.dark body{background-color:#0f1014;color:#f3f4f6}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.dark .glass{background:rgba(15,16,20,0.95);border-bottom:1px solid rgba(255,255,255,0.08)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.dark .custom-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.03)}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(197,160,40,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#c5a028}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.dark .custom-h-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#c5a028;border-radius:10px;cursor:pointer}.hero-slider-container{position:relative;width:100%;overflow:hidden;border-radius:1.5rem;background:#000;aspect-ratio:16/9;box-shadow:0 20px 50px -10px rgba(0,0,0,0.3);transform:translateZ(0)}.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease-in-out;display:flex;align-items:center;justify-content:center;cursor:zoom-in;will-change:opacity;z-index:1;pointer-events:none}.hero-slide.active{opacity:1;z-index:10;pointer-events:auto}.hero-slide img,.hero-slide video{width:100%;height:100%;object-fit:cover}.thumbnail-strip{display:flex;gap:0.5rem;overflow-x:auto;padding:1rem 0;scrollbar-width:none}.thumbnail-item{width:60px;height:45px;border-radius:0.5rem;overflow:hidden;cursor:pointer;opacity:0.5;transition:opacity 0.3s ease,transform 0.3s ease,box-shadow 0.3s ease;box-shadow:0 0 0 2px transparent;flex-shrink:0;transform:translateZ(0);will-change:transform,opacity}@media (min-width:768px){.thumbnail-item{width:80px;height:60px}}.thumbnail-item.active{opacity:1;box-shadow:0 0 0 2px #c5a028;transform:scale(1.05)}.thumbnail-item img,.thumbnail-item video{width:100%;height:100%;object-fit:cover}.neural-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}.bento-card{background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:1.5rem;overflow:hidden;position:relative;transition:all 0.3s ease;transform:translateZ(0)}.dark .bento-card{background:#18181b;border:1px solid rgba(255,255,255,0.08)}.bento-card:hover{border-color:#c5a028;box-shadow:0 10px 30px -10px rgba(197,160,40,0.1);transform:translateY(-2px)}.icon-force-white{background-color:#ffffff!important}.scanner-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6);z-index:40;display:none;pointer-events:none;overflow:hidden;border-radius:1.5rem;backdrop-filter:blur(2px)}.scanning .scanner-overlay{display:block}.laser-line{position:absolute;left:0;right:0;height:2px;background:#c5a028;box-shadow:0 0 15px 5px rgba(197,160,40,0.6);animation:scan-laser 2s ease-in-out infinite alternate;will-change:transform}.scroll-widget{opacity:0;pointer-events:none;transition:all 0.3s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.bento-service{transition:all 0.3s ease;transform:translateZ(0);display:flex;flex-direction:column}.bento-service:hover{transform:translateY(-4px);border-color:rgba(197,160,40,0.6);box-shadow:0 20px 40px -15px rgba(197,160,40,0.15)}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:120px;height:60px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:160px;height:80px;margin:0 2rem}}.partner-logo:hover{transform:scale(1.05)}.executive-trend-card{background:#ffffff;transition:all 0.5s cubic-bezier(0.2,1,0.3,1);border:1px solid rgba(0,0,0,0.05)}.dark .executive-trend-card{background:#121215;border:1px solid rgba(255,255,255,0.03)}.executive-trend-card:hover{transform:translateY(-8px) scale(1.02);border-color:#c5a028;box-shadow:0 20px 50px -15px rgba(197,160,40,0.2);z-index:50}.edge-mask{mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}.confetti-piece{position:absolute;width:8px;height:8px;opacity:0}.wizard-step{display:none;opacity:0;transition:opacity 0.4s ease-in-out}.wizard-step.active{display:block;opacity:1;animation:popIn 0.5s ease-out forwards}.form-radio-label:has(input:checked){border-color:#c5a028;background-color:rgba(197,160,40,0.1)}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}.looker-cover{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);backdrop-filter:blur(3px);cursor:pointer;transition:opacity 0.3s ease}.looker-cover:hover{background:rgba(0,0,0,0.6)}.card-scroll-area{overflow-y:auto;flex:1;min-height:0}
         @media (max-width: 768px) {
             .neural-grid { display: flex; flex-direction: column; gap: 1rem; }
             #cert-stack-container { justify-content: flex-start; }
@@ -296,7 +221,7 @@
                 <a href="#services" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Layanan</a>
                 <a href="#lead-gen" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Konsultasi</a>
                 <a href="#core-kompetensi" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Kompetensi</a>
-                <a href="#insights" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Blog</a>
+                <a href="blog" class="nav-link px-4 py-1.5 text-xs font-bold rounded-full text-textGray hover:bg-gold hover:text-white dark:text-darkText dark:hover:text-darkBg transition-all">Blog</a>
             </div>
 
             <div class="flex items-center gap-1 md:gap-3">
@@ -317,8 +242,8 @@
                 <a href="#services" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Layanan SEO & Web</a>
                 <a href="#lead-gen" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Mulai Konsultasi Gratis</a>
                 <a href="#core-kompetensi" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Matriks Keahlian</a>
-                <a href="#insights" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Publikasi (Blog)</a>
-                <a href="testimoni.html" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Testimoni Klien</a>
+                <a href="blog" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Publikasi (Blog)</a>
+                <a href="testimoni" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Testimoni Klien</a>
                 <div class="grid grid-cols-1 gap-2 pt-3 mt-2 border-t border-black/5 dark:border-white/10">
                     <button type="button" class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Ganti Tema Mode Gelap Terang Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i> Ganti Tema</button>
                 </div>
@@ -384,7 +309,7 @@
                     <div class="relative w-[85%] sm:w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[2rem] md:rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
                         <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover img-high-res" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" decoding="async">
+                            <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover img-high-res" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" loading="eager" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -393,7 +318,7 @@
 
         <!-- VIDEO ANIMASI HD FIX 16:9 FULL SCREEN -->
         <div class="w-full bg-black pointer-events-none relative z-10 shadow-sm flex justify-center overflow-hidden aspect-video">
-            <video id="hero-bg-video" src="animasi.mp4" class="w-full h-full object-cover block" muted playsinline loop preload="none" disablePictureInPicture title="Latar Video Animasi Penelusuran Digital"></video>
+            <video id="hero-bg-video" src="animasi.mp4" width="1920" height="1080" class="w-full h-full object-cover block" muted playsinline loop preload="none" disablePictureInPicture title="Latar Video Animasi Penelusuran Digital"></video>
         </div>
 
         <!-- Partnership Section (Optimized Marquee Loop) -->
@@ -469,7 +394,7 @@
                                 <i class="fas fa-play-circle text-4xl md:text-6xl text-gold mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm"></i>
                                 <span class="text-xs md:text-sm font-bold text-white uppercase tracking-widest bg-black/50 px-4 py-2 rounded-full border border-white/10">Muat Dasshboard</span>
                             </div>
-                            <iframe id="looker-iframe" width="100%" height="100%" data-src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" style="border:0; opacity: 0; transition: opacity 1s ease-in-out; display: none;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20" title="Tampilan Dasbor Investasi & Kinerja Digital"></iframe>
+                            <iframe id="looker-iframe" width="100%" height="100%" data-src="https://lookerstudio.google.com/embed/reporting/ca41321c-60a4-4998-9fbb-290bd20979fe/page/kIV1C" frameborder="0" loading="lazy" style="border:0; opacity: 0; transition: opacity 1s ease-in-out; display: none;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" class="relative z-20" title="Tampilan Dasbor Investasi & Kinerja Digital"></iframe>
                             <div id="looker-loader" class="absolute inset-0 flex-col items-center justify-center text-white/30 pointer-events-none z-0 hidden">
                                 <i class="fas fa-circle-notch fa-spin text-3xl md:text-4xl mb-3"></i><p class="text-[10px] md:text-xs font-mono tracking-widest">MENGHUBUNGKAN DATA...</p>
                             </div>
@@ -863,7 +788,7 @@
                         </div>
                     </div>
 
-                    <!-- Step 2: Kebutuhan Utama (Updated to remove Ads) -->
+                    <!-- Step 2: Kebutuhan Utama -->
                     <div id="step-2" class="wizard-step">
                         <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">2. Apa Prioritas Target Anda Saat Ini?</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans">
@@ -1179,7 +1104,7 @@
                 </div>
                 
                 <div class="mt-8 md:mt-10 text-center reveal font-sans">
-                    <a href="blog.html" class="inline-flex items-center gap-3 px-8 py-4 border border-black/10 dark:border-white/20 rounded-full text-[15px] md:text-sm font-bold text-darkBlack dark:text-white hover:bg-gold hover:text-white dark:hover:bg-gold hover:border-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                    <a href="blog" class="inline-flex items-center gap-3 px-8 py-4 border border-black/10 dark:border-white/20 rounded-full text-[15px] md:text-sm font-bold text-darkBlack dark:text-white hover:bg-gold hover:text-white dark:hover:bg-gold hover:border-gold transition-all duration-300 shadow-sm hover:shadow-md">
                         Lihat Semua Artikel <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1207,6 +1132,10 @@
                     <div class="slider-container hero-slider-container mb-4 group rounded-2xl md:rounded-[2rem] bg-gray-100 dark:bg-[#18181b]">
                         <div id="hero-slides-wrapper" class="w-full h-full relative"></div>
                     </div>
+                    <div class="text-center mb-6 px-2">
+                        <h3 id="hero-title" class="text-lg md:text-2xl font-serif font-bold mb-1.5 text-darkBlack dark:text-white leading-tight">Judul Sorotan Eksekutif</h3>
+                        <p id="hero-desc" class="text-[11px] md:text-xs tracking-wide text-textGray dark:text-darkSub font-medium font-sans">Kategori Layanan Operasional</p>
+                    </div>
                     <div class="thumbnail-strip custom-h-scroll py-3 px-1 flex justify-center md:justify-start" id="thumbnail-container"></div>
                 </div>
             </div>
@@ -1224,7 +1153,7 @@
                  <p class="text-[15px] md:text-base text-textGray dark:text-darkSub leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 px-4 font-sans">
                      Jelajahi studi kasus dan ulasan langsung dari klien saya mengenai dampak strategis yang telah berhasil dicapai secara nyata.
                  </p>
-                 <a href="testimoni.html" class="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-darkBlack text-white dark:bg-white dark:text-darkBg rounded-full hover:bg-gold dark:hover:bg-gold transition-all duration-300 shadow-xl text-xs md:text-sm font-bold tracking-widest uppercase group font-sans">
+                 <a href="testimoni" class="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-darkBlack text-white dark:bg-white dark:text-darkBg rounded-full hover:bg-gold dark:hover:bg-gold transition-all duration-300 shadow-xl text-xs md:text-sm font-bold tracking-widest uppercase group font-sans">
                      Buka Halaman Testimoni <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                  </a>
              </div>
@@ -1351,7 +1280,7 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium text-center md:text-left font-sans">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
                 <div class="flex justify-center gap-8 items-center">
-                    <a href="legal.html" aria-label="Dokumen Kebijakan Privasi Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-xs font-mono">Kebijakan Privasi</a>
+                    <a href="legal" aria-label="Dokumen Kebijakan Privasi Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-xs font-mono">Kebijakan Privasi</a>
                     <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Interupsi Ulang Perekaman Indeks Tautan Google Otomatis" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Ping Robot Google Untuk Memindai Keterbaruan"><i class="fas fa-satellite-dish"></i></button>
                 </div>
             </div>
@@ -1732,16 +1661,16 @@
             
             wrapper.innerHTML = galleryData.map((item, index) => {
                 if (item.type === 'video' || item.src.endsWith('.mp4')) {
-                    return `<div class="hero-slide ${index === 0 ? 'active' : ''} bg-black cursor-zoom-in" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><video src="${item.src}" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105 pointer-events-none" autoplay loop muted playsinline></video></div>`;
+                    return `<div class="hero-slide ${index === 0 ? 'active' : ''} bg-black cursor-zoom-in" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><video src="${item.src}" width="800" height="450" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105 pointer-events-none" autoplay loop muted playsinline></video></div>`;
                 }
-                return `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title}" title="Klik untuk perbesar detail proyek: ${item.title}" class="img-high-res transition-transform duration-700 hover:scale-105 cursor-zoom-in" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`;
+                return `<div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="window.stopGalleryAutoSlide(); openLightbox('${item.src}')"><img src="${item.src}" alt="${item.title}" title="Klik untuk perbesar detail proyek: ${item.title}" width="800" height="450" class="img-high-res transition-transform duration-700 hover:scale-105 cursor-zoom-in" loading="${index === 0 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'auto'}" decoding="async"></div>`;
             }).join('');
             
             thumbContainer.innerHTML = galleryData.map((item, index) => {
                 if (item.type === 'video' || item.src.endsWith('.mp4')) {
-                    return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><video src="${item.src}" class="w-full h-full object-cover" muted playsinline preload="metadata"></video></div>`;
+                    return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><video src="${item.src}" width="80" height="60" class="w-full h-full object-cover" muted playsinline preload="metadata"></video></div>`;
                 }
-                return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" loading="lazy" decoding="async"></div>`;
+                return `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="window.stopGalleryAutoSlide(); goToGallerySlide(${index})" title="${item.title}"><img src="${item.src}" alt="Thumbnail ${item.title}" width="80" height="60" loading="lazy" decoding="async"></div>`;
             }).join('');
 
             window.goToGallerySlide = function(index) {

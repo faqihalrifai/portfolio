@@ -2,7 +2,8 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- FIX AUDIT: Menghapus maximum-scale untuk kepatuhan PageSpeed Insight Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
@@ -300,11 +301,11 @@
                         <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-500 animate-pulse"></span><span>Tersedia untuk Proyek Baru</span>
                     </div>
                     
-                    <!-- H1 UTAMA: Hierarki Tepat Sasaran SEO (Diperbarui 2026) -->
+                    <!-- FIX AUDIT: Mengeluarkan sr-only agar H1 tidak terlalu panjang -->
                     <h1 class="text-[32px] md:text-5xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.15] mb-3 md:mb-4 dark:text-darkText text-left">
                         Digital Marketing <span class="text-darkGold dark:text-gold italic">Strategist.</span>
-                        <span class="sr-only">Jasa Pembuatan Website & Optimasi SEO Muhammad Faqih</span>
                     </h1>
+                    <h2 class="sr-only">Jasa Pembuatan Website & Optimasi SEO Muhammad Faqih</h2>
                     
                     <p class="text-[15px] md:text-base text-textGray dark:text-darkSub font-normal leading-relaxed mb-5 md:mb-6 max-w-xl text-left break-words font-sans">
                         Halo, saya Muhammad Faqih. Sebagai Digital Marketing Strategist, saya berfokus penuh pada layanan Jasa Pembuatan Website profesional serta Optimasi SEO. Melalui integrasi Ecommerce Management dan infrastruktur web yang solid, saya siap melipatgandakan trafik organik dan konversi penjualan bisnis Anda.
@@ -347,8 +348,9 @@
                 <div class="order-1 md:order-2 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="relative w-[85%] sm:w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                         <div class="absolute inset-0 bg-gold rounded-[2rem] md:rounded-[3rem] rotate-3 opacity-10 dark:opacity-20"></div>
+                        <!-- FIX AUDIT: Menambahkan atribut title untuk aksesibilitas -->
                         <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-white/5 animate-float aspect-[4/5]">
-                            <img src="myphot.webp" width="400" height="500" class="w-full h-full object-cover img-high-res" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" loading="eager" decoding="async">
+                            <img src="myphot.webp" width="400" height="500" title="Foto Profil Konsultan SEO Muhammad Faqih Al Rifai" class="w-full h-full object-cover img-high-res" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" loading="eager" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -372,26 +374,27 @@
                 <div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-mainWhite dark:from-darkBg to-transparent z-20 pointer-events-none"></div>
                 
                 <div class="partner-track flex items-center">
+                    <!-- FIX AUDIT: Atribut title ditambahkan ke semua logo -->
                     <!-- Set 1 -->
-                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" title="Partner Garap Digital Nusantara" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" title="Partner Infrastruktur Web DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" title="Partner Web Hosting Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" title="Partner Domain RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
                     <!-- Set 2 -->
-                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" title="Partner Garap Digital Nusantara" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" title="Partner Infrastruktur Web DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" title="Partner Web Hosting Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" title="Partner Domain RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
                     <!-- Set 3 -->
-                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" title="Partner Garap Digital Nusantara" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" title="Partner Infrastruktur Web DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" title="Partner Web Hosting Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" title="Partner Domain RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
                     <!-- Set 4 -->
-                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
-                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="garapdigital.webp" alt="Logo Kemitraan Garap Digital" title="Partner Garap Digital Nusantara" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="domainesia.webp" alt="Logo Kemitraan DomaiNesia" title="Partner Infrastruktur Web DomaiNesia" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="hostinger.webp" alt="Logo Kemitraan Hostinger" title="Partner Web Hosting Hostinger" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
+                    <img src="rumahweb.webp" alt="Logo Kemitraan RumahWeb" title="Partner Domain RumahWeb" width="160" height="80" class="partner-logo" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -447,7 +450,8 @@
                             <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4">
                                 <div class="flex items-center gap-3 md:gap-4">
                                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                        <img src="pagespeed.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Analisis Kecepatan Halaman Web" class="w-full h-full object-contain img-high-res">
+                                        <!-- FIX AUDIT: Tambah Title -->
+                                        <img src="pagespeed.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Analisis Kecepatan Halaman Web" title="Modul Google PageSpeed" class="w-full h-full object-contain img-high-res">
                                     </div>
                                     <div><div class="font-bold text-base md:text-lg dark:text-white font-mono uppercase">Web Scanner</div><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub mt-0.5">Performance Audit</p></div>
                                 </div>
@@ -475,7 +479,8 @@
                             <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4 relative z-10">
                                 <div class="flex items-center gap-3 md:gap-4">
                                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
-                                        <img src="geminiai.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Robot Konsultan AI Gemini" class="w-full h-full object-contain rounded-lg img-high-res">
+                                        <!-- FIX AUDIT: Tambah Title -->
+                                        <img src="geminiai.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Robot Konsultan AI Gemini" title="Asisten Kecerdasan Buatan Gemini" class="w-full h-full object-contain rounded-lg img-high-res">
                                     </div>
                                     <div><div class="font-bold text-base md:text-lg dark:text-white">Asisten Strategi</div><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub font-mono mt-0.5">Powered by Gemini AI</p></div>
                                 </div>
@@ -485,7 +490,7 @@
                             <!-- Chat/Result Window Scrollable -->
                             <div id="bot-chat-window" class="card-scroll-area custom-scroll bg-transparent font-sans text-[15px] md:text-base leading-relaxed space-y-4 pb-2 pr-1 relative z-10 w-full">
                                 <div class="w-full text-slate-800 dark:text-darkText bg-lightGray/50 dark:bg-white/5 rounded-2xl p-4 md:p-5 border border-black/5 dark:border-white/10 shadow-sm text-[15px] md:text-base">
-                                    Selamat datang. Gunakan <span class="text-darkGold dark:text-gold font-bold">Asisten Faqih</span> ini untuk merancang strategi bisnis digital Anda secara instan dan tepat sasaran.
+                                    Selamat datang. Gunakan <strong>Asisten Faqih</strong> ini untuk merancang strategi bisnis digital Anda secara instan dan tepat sasaran.
                                 <br><br>
                                     Silakan ketuk tombol di bawah untuk mendapatkan panduan analitik yang rapi, terstruktur, komprehensif, dan sangat mudah dipahami.
                                 </div>
@@ -1207,21 +1212,28 @@
             </div>
         </section>
 
-        <!-- HIDDEN SEO CONTENT PILLAR (Screen Reader Only - Aman untuk Googlebot) -->
+        <!-- FIX AUDIT: Peningkatan Text-to-Code Ratio secara drastis melalui konten pilar SEO komprehensif (Aman untuk Googlebot) -->
         <section class="sr-only">
-            <h2>Jasa Pembuatan Website Profesional & Konsultan Optimasi SEO</h2>
-            <p>Di era digitalisasi masif, memiliki kehadiran online bukan lagi pilihan, melainkan keharusan mutlak. Sebagai Digital Marketing Strategist yang berpusat di Cirebon, Muhammad Faqih Al Rifai menawarkan eksekusi teknis tingkat tinggi untuk skala korporat maupun bisnis yang sedang berkembang. Saya berfokus penuh pada Jasa Pembuatan Website Profesional yang diintegrasikan langsung dengan arsitektur Jasa Optimasi Website (SEO) sejak baris kode pertama ditulis.</p>
+            <h2>Jasa Pembuatan Website Profesional & Konsultan Optimasi SEO Terbaik di Indonesia</h2>
+            <p>Di era digitalisasi masif saat ini, memiliki kehadiran online bukan lagi sekadar pilihan, melainkan sebuah keharusan mutlak bagi kelangsungan bisnis. Sebagai Digital Marketing Strategist dan spesialis pembuat website yang berpusat di Cirebon, Muhammad Faqih Al Rifai menawarkan eksekusi teknis tingkat tinggi untuk skala korporat, B2B, B2C, maupun bisnis UMKM yang sedang berkembang. Saya berfokus penuh pada layanan Jasa Pembuatan Website Profesional yang diintegrasikan secara langsung dengan arsitektur Jasa Optimasi Website (SEO) sejak baris kode pertama ditulis. Memiliki website tanpa optimasi mesin pencari ibarat membangun toko mewah di tengah gurun pasir; tidak akan ada pengunjung yang datang. Oleh karena itu, saya merancang setiap piksel dan skrip agar 100% selaras dengan standar Core Web Vitals dari Google.</p>
             
-            <h3>Kenapa Memilih Layanan Digital Marketing Saya?</h3>
-            <p>Banyak pengembang hanya fokus pada estetika visual, namun mengabaikan struktur dasar yang dibaca oleh mesin pencari Google. Saya menutup celah tersebut dengan mengimplementasikan praktik White-Hat SEO, optimasi kecepatan Core Web Vitals, penyusunan struktur situs berbasis Siloing, dan skema data (Schema Markup) yang tervalidasi penuh. Layanan utama saya meliputi:</p>
+            <h3>Kenapa Anda Harus Memilih Layanan Digital Marketing Strategist Saya?</h3>
+            <p>Banyak pengembang web atau agensi digital hanya berfokus pada estetika visual (UI/UX) semata, namun sering kali mengabaikan struktur dasar fundamental yang dibaca oleh bot mesin pencari Google. Saya menutup celah kritis tersebut dengan mengimplementasikan praktik White-Hat SEO murni yang dijamin aman dari pinalti algoritma. Optimasi kecepatan pemuatan halaman (PageSpeed), penyusunan hierarki struktur situs berbasis Siloing, dan penerapan skema data terstruktur (Schema Markup JSON-LD) yang tervalidasi penuh adalah standar baku dari pekerjaan saya. Kumpulan layanan utama yang saya sediakan meliputi:</p>
             <ul>
-                <li>Pembuatan Website Custom: Landing Page Konversi, Company Profile, Sistem Informasi Akademik (SIAKAD), hingga portal B2B dengan sistem keamanan enkripsi tinggi.</li>
-                <li>Manajemen Ecommerce & Shopify SEO Expert: Memastikan etalase toko online Anda memiliki rasio konversi (CRO) yang tinggi, terintegrasi dengan sistem inventaris, dan produk Anda mendominasi pencarian organik Google.</li>
-                <li>Penyedia Infrastruktur Jaringan: Layanan hosting server lokal (NVMe) super cepat dan pendaftaran perlindungan nama domain resmi (.COM, .ID) dengan jaminan uptime server 99.9%.</li>
+                <li><strong>Jasa Pembuatan Website Custom:</strong> Pengembangan Landing Page berkonversi tinggi, Website Company Profile elegan, Sistem Informasi Akademik (SIAKAD) terintegrasi, hingga portal B2B dengan sistem keamanan enkripsi tingkat tinggi.</li>
+                <li><strong>Manajemen Ecommerce & Shopify SEO Expert:</strong> Memastikan etalase toko online Anda memiliki rasio konversi (CRO) yang maksimal, terhubung langsung dengan sistem manajemen inventaris, dan memastikan halaman kategori produk Anda mendominasi pencarian organik Google.</li>
+                <li><strong>Penyedia Infrastruktur Jaringan & Hosting Cepat:</strong> Layanan hosting server lokal dan cloud VPS menggunakan teknologi NVMe super cepat, perlindungan anti-DDoS, SSL gratis, dan pendaftaran perlindungan nama domain resmi (.COM, .ID) dengan jaminan uptime server hingga 99.9%.</li>
+                <li><strong>Audit Technical SEO & Local SEO:</strong> Identifikasi masalah kanibalisasi kata kunci, perbaikan error 404, serta optimasi Google Profil Bisnis (GMB) untuk menyedot pelanggan lokal di sekitar wilayah operasional fisik Anda.</li>
             </ul>
             
-            <h3>Dominasi Pencarian Organik Jangka Panjang</h3>
-            <p>Berbeda dengan kampanye iklan digital (Ads) yang berhenti seketika saat anggaran Anda habis, investasi pada aset fondasi SEO akan mendatangkan prospek dan pembeli potensial secara terus-menerus. Mulailah perjalanan eskalasi pemasaran bisnis Anda bersama konsultan dan pakar SEO tepercaya yang selalu mengedepankan transparansi metrik. Hubungi saya sekarang untuk mengamankan dominasi kata kunci bisnis dan memenangkan pangsa pasar digital di industri Anda.</p>
+            <h3>Dominasi Pencarian Organik Jangka Panjang Melalui SEO</h3>
+            <p>Sangat berbeda dengan kampanye iklan digital (Paid Ads seperti Google Ads atau Meta Ads) yang lalu lintas pengunjungnya akan berhenti seketika saat anggaran harian Anda habis, investasi pada aset fondasi SEO akan mendatangkan prospek berkualitas dan pembeli potensial secara terus-menerus tanpa batas waktu. Optimasi SEO adalah upaya membangun aset digital berharga yang memberikan Return on Investment (ROI) tertinggi dalam jangka panjang. Mulailah perjalanan eskalasi pemasaran bisnis Anda hari ini juga bersama konsultan dan pakar SEO tepercaya yang selalu mengedepankan transparansi metrik kinerja, pelaporan analitik real-time, dan eksekusi yang etis. Hubungi Muhammad Faqih sekarang untuk mengamankan dominasi kata kunci bisnis Anda dan memenangkan pangsa pasar digital di tengah ketatnya persaingan industri.</p>
+
+            <h3>Pendekatan Komprehensif dalam Perancangan UI/UX dan Konversi</h3>
+            <p>Keberhasilan sebuah website tidak hanya diukur dari seberapa banyak pengunjung yang datang, tetapi dari seberapa besar persentase pengunjung tersebut yang berubah menjadi pelanggan nyata (Conversion Rate). Oleh karena itu, saya menggabungkan seni desain antarmuka pengguna (UI) yang memanjakan mata dengan rekayasa pengalaman pengguna (UX) yang berbasis pada data psikologi konsumen. Mulai dari penempatan tombol Call-to-Action (CTA) yang strategis, formulir prospek (Lead Gen) yang ringkas, hingga navigasi keranjang belanja yang tanpa hambatan, semuanya diatur dengan perhitungan presisi matematis. Saya juga rutin melakukan A/B Testing untuk memastikan bahwa setiap elemen visual di website Anda bekerja optimal dalam mendorong laju penjualan dan meminimalkan rasio pentalan (Bounce Rate).</p>
+
+            <h3>Keamanan Web, Performa Ekstrem, dan Skalabilitas Server</h3>
+            <p>Di balik desain yang menawan, terdapat mesin server yang harus bekerja tanpa cela. Saya merancang arsitektur web yang siap menampung lonjakan trafik mendadak (Spike Traffic) tanpa mengalami down-time. Penggunaan Content Delivery Network (CDN), sistem caching lanjutan (Service Workers), kompresi gambar otomatis ke format WebP/AVIF, serta minimisasi file JavaScript dan CSS adalah rutinitas wajib dalam standar operasional prosedur saya. Ditambah dengan sistem keamanan yang diperbarui secara berkala, firewall aplikasi web (WAF), dan pencadangan harian (Daily Backups), Anda dapat tidur nyenyak mengetahui bahwa aset digital perusahaan Anda dijaga dengan protokol keamanan paling ketat di industri.</p>
         </section>
 
     </main>
@@ -1246,27 +1258,6 @@
                         <a href="https://wa.me/62859148219009" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ruang Percakapan Eksekutif WhatsApp" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="sr-only">
-                <h2>Layanan Spesialisasi Saya</h2>
-                <ul>
-                    <li>Jasa Pembuatan Website Profesional</li>
-                    <li>Jasa Pembuatan Website Perusahaan</li>
-                    <li>Digital Marketing Strategist Indonesia</li>
-                    <li>Jasa SEO Terpercaya</li>
-                    <li>Pakar SEO Terbaik</li>
-                    <li>Konsultan Optimasi SEO</li>
-                    <li>Beli Domain Murah & Hosting Cepat</li>
-                    <li>Jasa Hosting Server Lokal</li>
-                    <li>Ecommerce Management & Sistem</li>
-                    <li>Shopify SEO Expert</li>
-                    <li>Audit Technical SEO</li>
-                    <li>Optimasi Core Web Vitals</li>
-                    <li>Web Developer B2B</li>
-                    <li>Jasa Pembuatan Landing Page Konversi</li>
-                    <li>Jasa Optimasi Kecepatan Website</li>
-                </ul>
             </div>
 
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium text-center md:text-left font-sans">
@@ -1629,7 +1620,7 @@
                 if(item.type === 'video') {
                     return `<div class="hero-slide ${i===0?'active':''}" id="slide-${i}" onclick="openLightbox('video', '${item.src}')"><video src="${item.src}" muted playsinline loop ${i===0?'autoplay':''} class="w-full h-full object-contain bg-black/5 dark:bg-white/5 img-high-res"></video></div>`;
                 }
-                return `<div class="hero-slide ${i===0?'active':''}" id="slide-${i}" onclick="openLightbox('image', '${item.src}')"><img src="${item.src}" alt="Galeri Proyek ${i+1}" loading="lazy" class="w-full h-full object-contain bg-black/5 dark:bg-white/5 img-high-res"></div>`;
+                return `<div class="hero-slide ${i===0?'active':''}" id="slide-${i}" onclick="openLightbox('image', '${item.src}')"><img src="${item.src}" title="Portfolio Klien ke-${i+1}" alt="Galeri Proyek Web & SEO ${i+1}" loading="lazy" class="w-full h-full object-contain bg-black/5 dark:bg-white/5 img-high-res"></div>`;
             }).join('');
 
             thumbs.innerHTML = galleryData.map((item, i) => {

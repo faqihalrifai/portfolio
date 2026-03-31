@@ -20,11 +20,13 @@
     <link rel="alternate" type="text/plain" href="llms.txt" title="Panduan Entitas LLM Content">
 
     <script>
-        // KEAMANAN SUPER KETAT 2026 & IP CANONICALIZATION
+        // KEAMANAN SUPER KETAT 2026 & CANONICALIZATION (IP & WWW)
         try { 
             if (window.top !== window.self) { window.top.location.replace(window.self.location.href); }
-            // IP Canonicalization: Redirect otomatis jika diakses lewat IP Server
-            if (/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/.test(window.location.hostname)) {
+            
+            // SEO Fix: Redirect IP atau www ke domain utama (non-www)
+            const host = window.location.hostname;
+            if (/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/.test(host) || host.startsWith('www.')) {
                 window.location.replace("https://faqihalrf.online" + window.location.pathname + window.location.search);
             }
         } catch (e) {}
@@ -298,14 +300,14 @@
                     
                     <!-- H1 UTAMA: Hierarki Tepat Sasaran SEO (Diperbarui 2026) -->
                     <h1 class="text-[32px] md:text-5xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.15] mb-3 md:mb-4 dark:text-darkText text-left">
-                        Jasa Web <span class="text-darkGold dark:text-gold italic">Optimasi SEO.</span>
+                        Digital Marketing <span class="text-darkGold dark:text-gold italic">Strategist.</span>
                     </h1>
                     
-                    <p class="text-[15px] md:text-base text-textGray dark:text-darkSub font-normal leading-relaxed mb-6 md:mb-8 max-w-xl text-left break-words font-sans">
+                    <p class="text-[15px] md:text-base text-textGray dark:text-darkSub font-normal leading-relaxed mb-5 md:mb-6 max-w-xl text-left break-words font-sans">
                         Halo, saya Faqih. Sebagai Digital Marketing Strategist, saya berfokus pada Jasa Pembuatan Website profesional dan Jasa Optimasi Website (SEO). Melalui integrasi Ecommerce Management dan infrastruktur web yang solid, saya siap melipatgandakan trafik organik dan konversi penjualan bisnis Anda.
                     </p>
                     
-                    <div class="flex flex-wrap gap-4 md:gap-5 items-center justify-start mb-8 md:mb-12 w-full">
+                    <div class="flex flex-wrap gap-4 md:gap-5 items-center justify-start mb-4 md:mb-5 w-full">
                         <!-- Tombol Unduh CV yang rapi -->
                         <a href="berkas/CV_Faqih_Al_Rifai.pdf" download="CV_Faqih_Al_Rifai.pdf" aria-label="Unduh Dokumen Curriculum Vitae" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-gold text-white rounded-full hover:bg-black transition-all duration-300 shadow-sm text-xs md:text-sm font-bold tracking-wide group whitespace-nowrap">
                             <i class="fas fa-file-download group-hover:-translate-y-0.5 transition-transform"></i> Unduh CV
@@ -320,7 +322,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-5 md:pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-4 text-center md:text-left">
+                    <div class="pt-3 md:pt-4 border-t border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-y-4 md:gap-y-5 gap-x-4 text-center md:text-left">
                         <div class="flex flex-col items-center md:items-start">
                             <div class="text-2xl md:text-4xl font-serif font-semibold counter dark:text-darkText" data-target="50">0</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest font-bold text-textGray dark:text-darkSub mt-1 md:mt-2">Artikel SEO</div>
@@ -418,7 +420,7 @@
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div><div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div><div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
                                 </div>
                                 <i class="fas fa-chart-line text-gold text-lg md:text-xl"></i>
-                                <h3 class="text-sm md:text-lg font-mono font-bold text-white tracking-wide">Statistik Performa</h3>
+                                <div class="text-sm md:text-lg font-mono font-bold text-white tracking-wide">Statistik Performa</div>
                             </div>
                             <span class="text-[10px] md:text-xs uppercase font-bold font-mono text-green-400 bg-green-400/10 px-3 py-1.5 md:py-2 rounded whitespace-nowrap">Live Data</span>
                         </div>
@@ -435,9 +437,8 @@
                         </div>
                     </div>
 
-                    <!-- 2. Performance Auditor -->
+                    <!-- 2. Performance Auditor (LOCKED - MAINTANANCE) -->
                     <div class="col-span-12 md:col-span-5 bento-card flex flex-col relative group h-[500px]" id="pagespeed-card">
-                        <div class="scanner-overlay"><div class="laser-line"></div></div>
                         <div class="p-5 md:p-6 lg:p-8 flex flex-col h-full relative z-50">
                             <!-- Header Fixed -->
                             <div class="flex items-center justify-between mb-4 shrink-0 border-b border-black/5 dark:border-white/5 pb-4">
@@ -445,73 +446,21 @@
                                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                         <img src="pagespeed.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Analisis Kecepatan Halaman Web" class="w-full h-full object-contain img-high-res">
                                     </div>
-                                    <div><h3 class="font-bold text-base md:text-lg dark:text-white font-mono uppercase">Web Scanner</h3><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub mt-0.5">Powered by PageSpeed</p></div>
+                                    <div><div class="font-bold text-base md:text-lg dark:text-white font-mono uppercase">Web Scanner</div><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub mt-0.5">Performance Audit</p></div>
                                 </div>
                             </div>
-                            
-                            <!-- Input Form Fixed -->
-                            <div class="flex flex-col gap-3 relative z-50 shrink-0 bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 mb-3">
-                                <div class="flex items-center gap-3">
-                                    <label for="psi-url-client" class="sr-only">Alamat Website</label>
-                                    <i class="fas fa-search text-gold w-5 text-center text-lg"></i>
-                                    <input type="url" id="psi-url-client" onkeydown="if(event.key === 'Enter') runAudit()" title="Masukkan URL Website" placeholder="https://domain.com" aria-label="Masukkan Alamat Website Tujuan" class="w-full bg-transparent border-b border-black/10 dark:border-white/10 font-mono text-sm md:text-base py-2 focus:outline-none focus:border-gold dark:text-white placeholder:text-gray-400">
-                                </div>
-                                <button type="button" aria-label="Mulai Pemindaian Website" onclick="runAudit()" id="btn-audit" class="mt-1 w-full text-white bg-darkBlack dark:bg-white dark:text-darkBg hover:bg-gold dark:hover:bg-gold py-3 rounded-lg text-[11px] md:text-sm tracking-widest font-bold transition-all duration-300 shadow-sm uppercase font-mono">MULAI PEMINDAIAN</button>
-                            </div>
-                            
-                            <!-- Scrollable Area -->
-                            <div class="card-scroll-area custom-scroll pr-1 relative z-50">
-                                <!-- Loading Progress Bar -->
-                                <div id="psi-loading" class="hidden flex-col items-center justify-center py-6 md:py-10 w-full transition-opacity duration-500 ease-in-out">
-                                    <div class="w-full max-w-[150px] md:max-w-[200px] h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden mb-3 relative">
-                                        <div class="absolute left-0 top-0 bottom-0 w-1/2 bg-gold animate-[scan-laser_1.5s_ease-in-out_infinite]"></div>
-                                    </div>
-                                    <span class="text-[10px] md:text-xs tracking-widest text-darkGold dark:text-gold font-mono uppercase font-bold animate-pulse text-center" id="psi-load-text">[ MENGHUBUNGI API GOOGLE PAGESPEED... ]</span>
-                                </div>
 
-                                <!-- Result Layout -->
-                                <div id="psi-result-single" class="hidden flex-col gap-3 pb-2 font-mono transition-opacity duration-500 ease-in-out">
-                                    <div class="grid grid-cols-2 gap-3 text-center">
-                                        <div class="bg-lightGray dark:bg-black/30 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 relative overflow-hidden">
-                                            <div class="absolute inset-0 bg-green-500/5 hidden" id="psi-perf-bg"></div>
-                                            <div class="text-3xl md:text-4xl font-black relative z-10" id="psi-perf-single">--</div>
-                                            <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold relative z-10 mt-1">Skor Performa</div>
-                                        </div>
-                                        <div class="bg-lightGray dark:bg-black/30 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 relative overflow-hidden">
-                                            <div class="absolute inset-0 bg-green-500/5 hidden" id="psi-seo-bg"></div>
-                                            <div class="text-3xl md:text-4xl font-black relative z-10" id="psi-seo-single">--</div>
-                                            <div class="text-[9px] md:text-[10px] uppercase tracking-wider text-textGray dark:text-darkSub font-bold relative z-10 mt-1">Indeks SEO</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="mt-2 space-y-2">
-                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2.5 rounded-lg border border-black/5 dark:border-white/5 flex items-center justify-between gap-2">
-                                            <div class="text-[10px] md:text-xs font-bold text-darkBlack dark:text-white">LCP (Kecepatan Muat)</div>
-                                            <div class="text-xs md:text-sm font-bold text-right" id="psi-lcp-single">--</div>
-                                        </div>
-                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2.5 rounded-lg border border-black/5 dark:border-white/5 flex items-center justify-between gap-2">
-                                            <div class="text-[10px] md:text-xs font-bold text-darkBlack dark:text-white">FCP (Render Pertama)</div>
-                                            <div class="text-xs md:text-sm font-bold text-right" id="psi-fcp-single">--</div>
-                                        </div>
-                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2.5 rounded-lg border border-black/5 dark:border-white/5 flex items-center justify-between gap-2">
-                                            <div class="text-[10px] md:text-xs font-bold text-darkBlack dark:text-white">CLS (Stabilitas Visual)</div>
-                                            <div class="text-xs md:text-sm font-bold text-right" id="psi-cls-single">--</div>
-                                        </div>
-                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2.5 rounded-lg border border-black/5 dark:border-white/5 flex items-center justify-between gap-2">
-                                            <div class="text-[10px] md:text-xs font-bold text-darkBlack dark:text-white">TTFB (Respon Server)</div>
-                                            <div class="text-xs md:text-sm font-bold text-right" id="psi-ttfb-single">--</div>
-                                        </div>
-                                        <div class="bg-lightGray/50 dark:bg-black/20 p-2.5 rounded-lg border border-black/5 dark:border-white/5 flex items-center justify-between gap-2">
-                                            <div class="text-[10px] md:text-xs font-bold text-darkBlack dark:text-white">TBT (Jeda Interaksi)</div>
-                                            <div class="text-xs md:text-sm font-bold text-right" id="psi-tbt-single">--</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex flex-col gap-2 pt-3 border-t border-black/5 dark:border-white/5 mt-1">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-darkBlack dark:text-white" id="psi-audit-title">Catatan Sistem:</span>
-                                        <ul id="psi-issues-list-single" class="space-y-2 text-[9px] md:text-[10px] text-textGray dark:text-darkSub font-mono leading-relaxed"></ul>
-                                    </div>
+                            <!-- Locked Content -->
+                            <div class="flex-grow flex flex-col items-center justify-center text-center px-4">
+                                <div class="w-20 h-20 bg-gray-100 dark:bg-white/5 rounded-full flex items-center justify-center mb-6 shadow-inner border border-black/5 dark:border-white/10 text-gray-400 dark:text-gray-500">
+                                    <i class="fas fa-lock text-3xl"></i>
                                 </div>
+                                <div class="text-lg md:text-xl font-bold dark:text-white mb-2 font-serif">Sistem Sedang Diperbarui</div>
+                                <p class="text-[13px] md:text-sm text-textGray dark:text-darkSub font-sans leading-relaxed">
+                                    Fitur pemindaian Core Web Vitals saat ini sedang dalam pemeliharaan untuk peningkatan akurasi. <br><br>
+                                    Untuk audit manual, silakan gunakan sesi konsultasi.
+                                </p>
+                                <a href="#lead-gen" aria-label="Gunakan sesi konsultasi" class="mt-6 px-6 py-2.5 border border-gold text-gold rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-white transition-all inline-block">Gunakan Konsultasi</a>
                             </div>
                         </div>
                     </div>
@@ -525,7 +474,7 @@
                                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white flex items-center justify-center shadow-sm border border-black/5 p-1.5 icon-force-white shrink-0">
                                         <img src="geminiai.webp" loading="lazy" decoding="async" width="45" height="45" alt="Ikon Robot Konsultan AI Gemini" class="w-full h-full object-contain rounded-lg img-high-res">
                                     </div>
-                                    <div><h3 class="font-bold text-base md:text-lg dark:text-white">Asisten Strategi</h3><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub font-mono mt-0.5">Powered by Gemini AI</p></div>
+                                    <div><div class="font-bold text-base md:text-lg dark:text-white">Asisten Strategi</div><p class="text-[10px] md:text-[11px] uppercase text-textGray dark:text-darkSub font-mono mt-0.5">Powered by Gemini AI</p></div>
                                 </div>
                                 <span class="text-[9px] md:text-[10px] font-bold px-2.5 py-1 md:px-3 md:py-1.5 bg-green-500/10 text-green-500 rounded border border-green-500/20 font-mono animate-pulse shrink-0">[ ONLINE ]</span>
                             </div>
@@ -578,7 +527,7 @@
         <!-- SERVICES -->
         <section id="services" class="defer-render py-16 md:py-24 bg-lightGray/50 dark:bg-darkCard/20 relative overflow-hidden border-t border-black/5 dark:border-white/5">
              <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-                  
+                 
                   <div class="flex flex-col items-center justify-center mb-8 md:mb-12 gap-5 reveal w-full text-center">
                       <div class="space-y-3 w-full">
                           <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block font-sans">Layanan Utama</span>
@@ -605,7 +554,7 @@
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider mt-1 font-mono">Tersedia</span>
                             </div>
                             
-                            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Jasa Pembuatan Website</h2>
+                            <div class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Jasa Pembuatan Website</div>
                             <div class="flex items-center gap-2 mb-4 md:mb-5 text-[15px] md:text-base text-textGray dark:text-darkSub relative z-10 shrink-0 font-sans">
                                 <div class="flex text-gold text-[10px] md:text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                 <span class="font-bold text-darkBlack dark:text-white ml-1">4.9/5</span> (45+ Proyek)
@@ -651,7 +600,7 @@
                                 <span class="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full border border-red-200 dark:border-red-800 uppercase tracking-wider animate-pulse mt-1 font-mono">Promo Terbatas</span>
                             </div>
                             
-                            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Hosting & Infrastruktur Web</h2>
+                            <div class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Hosting & Infrastruktur Web</div>
                             <div class="flex items-center gap-2 mb-4 md:mb-5 text-[15px] md:text-base text-textGray dark:text-darkSub relative z-10 shrink-0 font-sans">
                                 <div class="flex text-gold text-[10px] md:text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                 <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (Uptime 99.9%)
@@ -697,7 +646,7 @@
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider mt-1 font-mono">Tersedia</span>
                             </div>
                             
-                            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Jasa Optimasi Website (SEO)</h2>
+                            <div class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Jasa Optimasi Website (SEO)</div>
                             <div class="flex items-center gap-2 mb-4 md:mb-5 text-[15px] md:text-base text-textGray dark:text-darkSub relative z-10 shrink-0 font-sans">
                                 <div class="flex text-gold text-[10px] md:text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                 <span class="font-bold text-darkBlack dark:text-white ml-1">5.0/5</span> (60+ Klien)
@@ -742,7 +691,7 @@
                                 <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800 uppercase tracking-wider mt-1 font-mono">Tersedia</span>
                             </div>
                             
-                            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Ecommerce Management & Sistem</h2>
+                            <div class="text-xl md:text-2xl lg:text-3xl font-bold font-serif dark:text-white mb-1 md:mb-2 relative z-10 shrink-0">Ecommerce Management & Sistem</div>
                             <div class="flex items-center gap-2 mb-4 md:mb-5 text-[15px] md:text-base text-textGray dark:text-darkSub relative z-10 shrink-0 font-sans">
                                 <div class="flex text-gold text-[10px] md:text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                                 <span class="font-bold text-darkBlack dark:text-white ml-1">4.8/5</span> (30+ Sistem)
@@ -802,7 +751,7 @@
 
                     <!-- Step 1: Profil -->
                     <div id="step-1" class="wizard-step active font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">1. Informasi Kontak Eksekutif</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">1. Informasi Kontak Eksekutif</div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             <div class="col-span-1 md:col-span-2">
                                 <label class="block text-[15px] font-bold text-darkBlack dark:text-white mb-2">Nama Lengkap</label>
@@ -824,7 +773,7 @@
 
                     <!-- Step 2: Kebutuhan Utama -->
                     <div id="step-2" class="wizard-step font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">2. Prioritas Target Utama</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">2. Prioritas Target Utama</div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <label class="form-radio-label flex flex-col items-center justify-center text-center border border-black/10 dark:border-white/10 rounded-2xl p-5 cursor-pointer transition-all hover:border-gold group">
                                 <input type="radio" name="wiz-goal" value="sales" class="hidden">
@@ -852,7 +801,7 @@
                     
                     <!-- Step 3: Sektor Industri -->
                     <div id="step-3" class="wizard-step font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">3. Sektor Industri Bisnis</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">3. Sektor Industri Bisnis</div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                             <label class="form-radio-label flex items-center border border-black/10 dark:border-white/10 rounded-xl p-4 md:p-5 cursor-pointer transition-all hover:border-gold">
                                 <input type="radio" name="wiz-industry" value="Ritel" class="w-5 h-5 text-gold focus:ring-gold shrink-0">
@@ -883,7 +832,7 @@
 
                     <!-- Step 4: Anggaran -->
                     <div id="step-4" class="wizard-step font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">4. Estimasi Anggaran Proyek</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">4. Estimasi Anggaran Proyek</div>
                         <div class="grid grid-cols-1 gap-3 md:gap-4">
                             <label class="form-radio-label flex items-center border border-black/10 dark:border-white/10 rounded-xl p-4 md:p-5 cursor-pointer transition-all hover:border-gold">
                                 <input type="radio" name="wiz-budget" value="Rendah" class="w-5 h-5 text-gold focus:ring-gold shrink-0">
@@ -906,7 +855,7 @@
 
                     <!-- Step 5: Skala Bisnis -->
                     <div id="step-5" class="wizard-step font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">5. Skala Bisnis Saat Ini</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">5. Skala Bisnis Saat Ini</div>
                         <div class="grid grid-cols-1 gap-3 md:gap-4">
                             <label class="form-radio-label flex items-center border border-black/10 dark:border-white/10 rounded-xl p-4 md:p-5 cursor-pointer transition-all hover:border-gold">
                                 <input type="radio" name="wiz-scale" value="Merintis" class="w-5 h-5 text-gold focus:ring-gold shrink-0">
@@ -929,7 +878,7 @@
 
                     <!-- Step 6: Target Waktu -->
                     <div id="step-6" class="wizard-step font-sans">
-                        <h3 class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">6. Target Mulai Pengerjaan</h3>
+                        <div class="text-lg md:text-2xl font-serif font-bold dark:text-white mb-6">6. Target Mulai Pengerjaan</div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                             <label class="form-radio-label flex items-center border border-black/10 dark:border-white/10 rounded-xl p-4 md:p-5 cursor-pointer transition-all hover:border-gold">
                                 <input type="radio" name="wiz-timeline" value="Secepatnya" class="w-5 h-5 text-gold focus:ring-gold shrink-0">
@@ -953,7 +902,7 @@
                     <!-- Step 7: Loading -->
                     <div id="step-7" class="wizard-step text-center py-16 md:py-24 font-sans">
                         <i class="fas fa-circle-notch fa-spin text-4xl md:text-5xl text-gold mb-5"></i>
-                        <h3 class="text-xl md:text-2xl font-serif font-bold dark:text-white mb-3">Memindai Variabel Bisnis...</h3>
+                        <div class="text-xl md:text-2xl font-serif font-bold dark:text-white mb-3">Memindai Variabel Bisnis...</div>
                         <p class="text-[13px] md:text-[14px] text-textGray dark:text-darkSub font-mono uppercase tracking-widest animate-pulse">Menghitung Formulasi Solusi Bisnis Terbaik Anda</p>
                     </div>
 
@@ -964,13 +913,13 @@
                             <i class="fas fa-check"></i>
                         </div>
                         
-                        <h3 class="text-2xl md:text-3xl font-serif font-bold dark:text-white mb-2 relative z-10">Rekomendasi Strategi Tersedia</h3>
+                        <div class="text-2xl md:text-3xl font-serif font-bold dark:text-white mb-2 relative z-10">Rekomendasi Strategi Tersedia</div>
                         <p class="text-[15px] md:text-base text-textGray dark:text-darkSub mb-6 md:mb-8 relative z-10 px-2">Berdasarkan hasil analisis untuk sektor <strong id="res-industry-lbl" class="text-darkBlack dark:text-white">industri</strong>, berikut adalah rancangan solusi paling optimal untuk eskalasi bisnis Anda.</p>
                         
                         <div class="bg-gradient-to-br from-gold/10 to-transparent border border-gold/40 border-dashed rounded-2xl p-5 md:p-8 mb-6 mx-auto w-full text-left relative overflow-hidden z-10 shadow-sm">
                             <span class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-bl-lg shadow-sm animate-pulse tracking-widest font-mono">REKOMENDASI</span>
                             
-                            <h4 id="wiz-result-title" class="text-lg md:text-xl font-bold text-darkGold dark:text-gold mb-2 pr-20">Paket Optimasi</h4>
+                            <div id="wiz-result-title" class="text-lg md:text-xl font-bold text-darkGold dark:text-gold mb-2 pr-20">Paket Optimasi</div>
                             <p id="wiz-result-desc" class="text-[15px] md:text-base text-darkBlack dark:text-white leading-relaxed font-medium mb-4">Solusi tepat untuk merancang sistem yang stabil.</p>
                             
                             <div class="bg-white dark:bg-black/40 p-4 rounded-xl border border-black/5 dark:border-white/5 mb-5">
@@ -1057,34 +1006,32 @@
             </div>
         </section>
 
-        <!-- PUSAT LITERASI (BLOG SHOWCASE REALTIME) -->
+        <!-- PUSAT LITERASI (LOCKED - DIARAHKAN KE BLOGSPOT) -->
         <section id="insights" class="defer-render py-16 md:py-24 relative overflow-hidden bg-lightGray/30 dark:bg-darkCard/20 border-t border-black/5 dark:border-white/5">
             <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-                <div class="flex flex-col items-center justify-center mb-8 md:mb-12 gap-5 reveal w-full text-center px-2">
+                <div class="flex flex-col items-center justify-center mb-8 gap-5 reveal w-full text-center px-2">
                     <div class="space-y-3 w-full">
                         <span class="text-[10px] md:text-xs font-bold tracking-[0.2em] text-darkGold dark:text-gold uppercase block font-sans">Publikasi</span>
-                        <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Artikel Terbaru</h2>
+                        <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Artikel & Insight</h2>
                         <div class="w-12 md:w-16 h-1 bg-gold mx-auto rounded-full opacity-80 mt-4 md:mt-6"></div>
                     </div>
-                    
-                    <!-- Slider Arrows Blog -->
-                    <div class="flex gap-3 justify-center mt-2 md:mt-4">
-                        <button type="button" onclick="slideContainer('homeBlogGrid', -1)" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kiri Artikel"><i class="fas fa-chevron-left"></i></button>
-                        <button type="button" onclick="slideContainer('homeBlogGrid', 1)" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/20 flex items-center justify-center text-darkBlack dark:text-white hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kanan Artikel"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="max-w-4xl mx-auto reveal px-2">
+                    <div class="bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 shadow-soft hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center relative overflow-hidden">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-gray-100 dark:bg-white/5 rounded-full flex items-center justify-center mb-5 md:mb-6 shadow-inner border border-black/5 dark:border-white/10 text-gray-400 dark:text-gray-500 mx-auto relative z-10">
+                            <i class="fas fa-lock text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white mb-3 font-serif relative z-10 tracking-tight">Akses Publikasi Dialihkan</h3>
+                        <p class="text-[14px] md:text-[15px] text-textGray dark:text-darkSub font-sans leading-relaxed max-w-xl mx-auto mb-6 md:mb-8 relative z-10">
+                            Sistem sinkronisasi artikel sedang diperbarui untuk optimasi <em>Core Web Vitals</em>. Untuk membaca insight, strategi, dan studi kasus terbaru, silakan kunjungi portal blog resmi kami.
+                        </p>
+                        <div class="relative z-10 w-full sm:w-auto">
+                            <a href="https://faqihalrf.blogspot.com" target="_blank" rel="noopener noreferrer" aria-label="Menuju portal blogspot" class="flex sm:inline-flex items-center justify-center gap-3 px-8 py-4 bg-darkBlack text-white dark:bg-white dark:text-darkBg rounded-full text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-gold dark:hover:bg-gold transition-all group shadow-xl w-full">
+                                Menuju Web Portal <i class="fas fa-external-link-alt group-hover:scale-110 transition-transform"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                
-                <div id="homeBlogGrid" class="flex overflow-x-auto gap-6 md:gap-8 pb-8 pt-4 px-2 snap-x snap-mandatory custom-h-scroll items-stretch reveal scroll-smooth font-sans">
-                    <!-- Skeleton Loader -->
-                    <div class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[400px] rounded-[2rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5"></div>
-                    <div class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[400px] rounded-[2rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5"></div>
-                    <div class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[400px] rounded-[2rem] bg-gray-100 dark:bg-white/5 animate-pulse shadow-sm border border-black/5 dark:border-white/5"></div>
-                </div>
-                
-                <div class="mt-8 md:mt-10 text-center reveal font-sans">
-                    <a href="https://faqihalrf.blogspot.com" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 border border-black/10 dark:border-white/20 rounded-full text-[15px] md:text-sm font-bold text-darkBlack dark:text-white hover:bg-gold hover:text-white dark:hover:bg-gold hover:border-gold transition-all duration-300 shadow-sm hover:shadow-md">
-                        Lihat Semua Artikel <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </section>
@@ -1106,7 +1053,7 @@
                     <div class="w-16 h-16 md:w-20 md:h-20 bg-gold/10 rounded-full flex items-center justify-center text-gold mx-auto mb-4 md:mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-500">
                         <i class="fas fa-fingerprint text-2xl md:text-3xl"></i>
                     </div>
-                    <h3 class="text-lg md:text-3xl font-bold uppercase tracking-[0.2em] text-darkGold dark:text-gold mb-3 md:mb-4 leading-tight font-mono">Ketuk Akses Matriks</h3>
+                    <div class="text-lg md:text-3xl font-bold uppercase tracking-[0.2em] text-darkGold dark:text-gold mb-3 md:mb-4 leading-tight font-mono">Ketuk Akses Matriks</div>
                 </div>
 
                 <!-- Panel Matriks Terbuka -->
@@ -1114,7 +1061,7 @@
                     <div class="overflow-hidden">
                         <div id="comp-inner" class="bg-white dark:bg-darkCard border border-gold/30 rounded-[1.5rem] md:rounded-[3rem] p-4 md:p-10 shadow-2xl opacity-0 transform translate-y-8 transition-all duration-700 ease-out mt-4 md:mt-0">
                             <div class="flex justify-between items-center mb-4 md:mb-6 border-b border-black/5 dark:border-white/10 pb-3 md:pb-5">
-                                <h3 class="text-lg md:text-3xl font-serif font-bold dark:text-white tracking-wide flex items-center"><i class="fas fa-fingerprint text-gold mr-2 md:mr-3"></i> Kapabilitas Profesional</h3>
+                                <div class="text-lg md:text-3xl font-serif font-bold dark:text-white tracking-wide flex items-center"><i class="fas fa-fingerprint text-gold mr-2 md:mr-3"></i> Kapabilitas Profesional</div>
                                 <button type="button" onclick="closeComp()" aria-label="Tutup Panel Kapabilitas" class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-lightGray dark:bg-white/5 flex items-center justify-center text-textGray dark:text-darkSub hover:bg-gold hover:text-white transition-all shrink-0"><i class="fas fa-times text-sm md:text-lg"></i></button>
                             </div>
 
@@ -1122,7 +1069,7 @@
                                 
                                 <!-- Penguasaan Teknis -->
                                 <div class="snap-center min-w-[85vw] md:min-w-0 shrink-0">
-                                    <h4 class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-gold rounded-full shadow-[0_0_8px_#c5a028]"></div> Penguasaan Teknis</h4>
+                                    <div class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-gold rounded-full shadow-[0_0_8px_#c5a028]"></div> Penguasaan Teknis</div>
                                     <ul class="space-y-2.5 md:space-y-3">
                                         <li class="text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 leading-snug break-words whitespace-normal">Perencanaan Arsitektur Website & SEO</li>
                                         <li class="text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 leading-snug break-words whitespace-normal">Optimasi Kecepatan Halaman (PageSpeed)</li>
@@ -1136,7 +1083,7 @@
                                 
                                 <!-- Ekosistem Perangkat -->
                                 <div class="snap-center min-w-[85vw] md:min-w-0 shrink-0">
-                                    <h4 class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-blue-500 rounded-full shadow-[0_0_8px_#3b82f6]"></div> Ekosistem Perangkat</h4>
+                                    <div class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-blue-500 rounded-full shadow-[0_0_8px_#3b82f6]"></div> Ekosistem Perangkat</div>
                                     <ul class="space-y-2.5 md:space-y-3">
                                         <li class="flex items-start gap-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 break-words whitespace-normal"><i class="fab fa-google text-blue-500 w-5 text-center text-lg mt-0.5 shrink-0"></i> <span>Search Console & GA4</span></li>
                                         <li class="flex items-start gap-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 break-words whitespace-normal"><i class="fas fa-chart-bar text-blue-600 w-5 text-center text-lg mt-0.5 shrink-0"></i> <span>Looker Studio (Data Viz)</span></li>
@@ -1149,7 +1096,7 @@
                                 
                                 <!-- Skala Non-Teknis -->
                                 <div class="snap-center min-w-[85vw] md:min-w-0 shrink-0">
-                                    <h4 class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> Skala Non-Teknis</h4>
+                                    <div class="text-sm md:text-base font-bold uppercase tracking-widest text-darkBlack dark:text-white mb-4 flex items-center gap-2 md:gap-3 font-mono"><div class="w-2.5 h-2.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> Skala Non-Teknis</div>
                                     <ul class="space-y-2.5 md:space-y-3">
                                         <li class="flex justify-between items-start text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 gap-2 break-words whitespace-normal"><span>Komunikasi Analitik</span> <span class="bg-gold/10 text-darkGold dark:text-gold px-2 py-1 rounded font-bold text-[9px] md:text-[10px] uppercase tracking-wider shrink-0 mt-0.5 font-mono">Ahli</span></li>
                                         <li class="flex justify-between items-start text-[14px] md:text-[15px] text-textGray dark:text-gray-300 font-medium pb-2 border-b border-black/5 dark:border-white/5 gap-2 break-words whitespace-normal"><span>Manajemen Proyek</span> <span class="bg-gold/10 text-darkGold dark:text-gold px-2 py-1 rounded font-bold text-[9px] md:text-[10px] uppercase tracking-wider shrink-0 mt-0.5 font-mono">Ahli</span></li>
@@ -1401,7 +1348,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => { fetchHomeBlogPosts(); fetchGoogleTrends(); initAdvancedCaching(); }, 500);
+            setTimeout(() => { fetchGoogleTrends(); initAdvancedCaching(); }, 500);
 
             document.querySelectorAll('.theme-toggle').forEach(btn => { btn.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }); });
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
@@ -1447,67 +1394,6 @@
             window.stopGalleryAutoSlide();
             if(typeof window.currentSlide !== 'undefined') { let nextIndex = (window.currentSlide + 1) % galleryData.length; goToGallerySlide(nextIndex); }
         };
-
-        async function fetchHomeBlogPosts() {
-            const grid = document.getElementById('homeBlogGrid'); if(!grid) return;
-            
-            try {
-                // Endpoint Blogger Resmi Realtime, membatasi 3 hasil terbaru
-                const res = await fetch(`https://faqihalrf.blogspot.com/feeds/posts/default?alt=json&max-results=3`);
-                if (!res.ok) throw new Error('API Error');
-                const data = await res.json();
-                const posts = data.feed.entry || [];
-                renderHomeBlog(posts, grid);
-            } catch (err) {
-                grid.innerHTML = '<div class="col-span-full py-10 text-center"><p class="text-textGray dark:text-darkSub text-[15px] md:text-sm">Gagal memuat artikel. Silakan muat ulang halaman.</p></div>';
-            }
-        }
-
-        function renderHomeBlog(posts, grid) {
-            if(!posts || posts.length === 0) return;
-            
-            grid.innerHTML = posts.map((post, i) => {
-                let postLink = '#';
-                if (post.link) { post.link.forEach(l => { if (l.rel === 'alternate') postLink = l.href; }); }
-
-                let img = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800';
-                if (post.media$thumbnail && post.media$thumbnail.url) {
-                    img = post.media$thumbnail.url.replace(/\/s[0-9]+(\-c)?\//, '/w600-h400-c/');
-                } else if (post.content && post.content.$t && post.content.$t.match(/<img.+?src="([^"]+)"/)) {
-                    img = post.content.$t.match(/<img.+?src="([^"]+)"/)[1];
-                }
-
-                const cat = post.category && post.category.length > 0 ? post.category[0].term : 'Insight';
-                const date = new Date(post.published.$t).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
-                const title = post.title.$t;
-                
-                let excerpt = "Taktik optimasi strategis untuk memaksimalkan kehadiran digital.";
-                if(post.summary && post.summary.$t) {
-                    excerpt = post.summary.$t.replace(/(<([^>]+)>)/gi, "").substring(0, 110) + '...';
-                } else if(post.content && post.content.$t) {
-                    excerpt = post.content.$t.replace(/(<([^>]+)>)/gi, "").substring(0, 110) + '...';
-                }
-
-                return `
-                    <article class="blog-card snap-center shrink-0 w-[85vw] md:w-[400px] flex flex-col bg-white dark:bg-darkCard rounded-[2rem] overflow-hidden group shadow-sm hover:shadow-soft transition-all duration-300 border border-black/5 dark:border-white/5 font-sans">
-                        <a href="${postLink}" target="_blank" rel="noopener noreferrer" class="h-48 md:h-56 overflow-hidden relative block outline-none shrink-0">
-                            <img src="${img}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 img-high-res" alt="${title}" loading="lazy" decoding="async">
-                            <div class="absolute top-4 left-4 md:top-5 md:left-5 bg-white/95 dark:bg-black/80 backdrop-blur-md text-darkBlack dark:text-white text-[9px] md:text-[10px] font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-lg uppercase tracking-widest shadow-sm font-mono">${cat}</div>
-                        </a>
-                        <div class="p-5 md:p-6 flex flex-col flex-1 text-left">
-                            <span class="text-[9px] md:text-[10px] text-textGray/60 dark:text-darkSub/60 font-bold uppercase tracking-widest mb-2 flex items-center gap-2 font-mono"><span class="w-4 h-0.5 bg-gold/50 rounded-full"></span> ${date}</span>
-                            <a href="${postLink}" target="_blank" rel="noopener noreferrer" class="outline-none"><h3 class="text-base md:text-lg font-serif font-bold text-darkBlack dark:text-white mb-2 line-clamp-2 leading-snug group-hover:text-gold transition-colors">${title}</h3></a>
-                            <p class="text-textGray dark:text-darkSub text-[14px] md:text-[15px] leading-relaxed mb-4 line-clamp-3">${excerpt}</p>
-                            <div class="mt-auto pt-3 border-t border-black/5 dark:border-white/5">
-                                <a href="${postLink}" target="_blank" rel="noopener noreferrer" class="inline-flex text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-darkGold dark:text-gold items-center gap-2 group/btn font-mono">
-                                    <span>Pelajari Taktik</span><div class="w-5 h-5 rounded-full bg-gold/10 flex items-center justify-center group-hover/btn:bg-gold group-hover/btn:text-white transition-all"><i class="fas fa-arrow-right text-[8px] md:text-[9px] transition-transform group-hover/btn:translate-x-0.5"></i></div>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
 
         let currentStep = 1, wizardData = {};
         window.nextStep = function(step) {
@@ -1582,34 +1468,34 @@
         window.closeComp = function() { const cover = document.getElementById('comp-cover'), wrapper = document.getElementById('comp-grid-wrapper'), inner = document.getElementById('comp-inner'); if(!cover || !wrapper || !inner) return; inner.classList.add('opacity-0', 'translate-y-8'); setTimeout(() => { wrapper.style.gridTemplateRows = '0fr'; setTimeout(() => { cover.style.display = 'block'; setTimeout(() => { cover.classList.remove('opacity-0', 'invisible'); cover.classList.add('opacity-100', 'visible'); }, 50); }, 700); }, 600); };
 
         const servicesData = {
-            LandingPage:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Landing Page Konversi</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Website satu halaman yang dirancang dan diprogram eksklusif dari nol untuk memancing psikologi pengunjung agar langsung membeli dari penawaran Anda.</p>",bullets:["Desain antarmuka eksklusif", "Kecepatan akses super kilat", "Penanaman struktur SEO fundamental", "Tata letak beradaptasi sempurna (Mobile)", "Tombol pesanan langsung terhubung WA"]},
-            WPBlog:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Profil Bisnis B2B & Portal Berita</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Platform resmi perusahaan yang dibangun presisi untuk meningkatkan kredibilitas di mata investor dan mendominasi pencarian Google.</p>",bullets:["Struktur pemrograman bersih (SEO)", "Sistem keamanan tingkat tinggi (Anti Peretas)", "Panel admin tertutup & mudah", "Integrasi seluruh aset media sosial", "Sistem manajemen berita tanpa batas"]},
-            LMS:{price:"Rp 7.200.000",strike:"Rp 9.000.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Platform Kelas Online (LMS)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Sistem cerdas untuk menjual dan mengelola kursus digital Anda secara otomatis sepenuhnya. Dari proses pembayaran hingga sertifikasi.</p>",bullets:["Penerimaan pembayaran otomatis (QRIS/Bank)", "Perlindungan sistem anti-bajak video", "Modul evaluasi ujian & kuis mandiri", "Pencetakan sertifikat digital otomatis", "Laporan pendapatan komprehensif"]},
-            TryOut:{price:"Rp 6.800.000",strike:"Rp 8.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Ujian & Try-Out (CBT)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur ujian daring stabilitas tinggi untuk bimbingan belajar, menampung ribuan peserta tanpa kendala server down.</p>",bullets:["Simulasi ujian dengan pembatas waktu mundur", "Fitur pengunci layar anti-kecurangan", "Kalkulasi nilai dan peringkat instan", "Impor data soal & peserta skala masif", "Laporan analisis kelemahan siswa"]},
-            SIAKAD:{price:"Rp 10.000.000",strike:"Rp 12.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Informasi Akademik</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Solusi digital komprehensif yang menyatukan seluruh data akademik, presensi, dan arus keuangan yayasan dalam satu pintu aman.</p>",bullets:["Rekapitulasi nilai otomatis untuk rapor", "Pemantauan arus tagihan SPP real-time", "Portal berbeda untuk guru, siswa, & ortu", "Manajemen jadwal & absensi harian", "Database privat dienkripsi ketat"]},
-            Booking:{price:"Rp 4.400.000",strike:"Rp 5.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Reservasi Pintar</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Website dengan fitur penjadwalan otomatis yang menerima pesanan jasa layanan 24 jam nonstop, menggantikan pencatatan manual.</p>",bullets:["Kalender pemesanan dengan penutupan otomatis", "Pengingat otomatis via WhatsApp/Email", "Penagihan uang muka (DP) online", "Pengaturan jadwal multi-staf/dokter", "Perekaman riwayat kunjungan database"]},
-            Property:{price:"Rp 5.200.000",strike:"Rp 6.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Katalog Properti Real Estat</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Etalase properti mewah dengan sistem pencarian tingkat lanjut mempermudah calon pembeli menemukan unit impian dengan cepat.</p>",bullets:["Ruang galeri foto & video resolusi tinggi", "Filter pencarian cerdas (Harga/Lokasi/Fasilitas)", "Tombol interaksi mengarah ke Agen Terkait", "Kalkulator simulasi perhitungan KPR", "Integrasi peta lokasi interaktif wilayah"]},
+            LandingPage:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Landing Page Konversi</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Website satu halaman yang dirancang dan diprogram eksklusif dari nol untuk memancing psikologi pengunjung agar langsung membeli dari penawaran Anda.</p>",bullets:["Desain antarmuka eksklusif", "Kecepatan akses super kilat", "Penanaman struktur SEO fundamental", "Tata letak beradaptasi sempurna (Mobile)", "Tombol pesanan langsung terhubung WA"]},
+            WPBlog:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Profil Bisnis B2B & Portal Berita</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Platform resmi perusahaan yang dibangun presisi untuk meningkatkan kredibilitas di mata investor dan mendominasi pencarian Google.</p>",bullets:["Struktur pemrograman bersih (SEO)", "Sistem keamanan tingkat tinggi (Anti Peretas)", "Panel admin tertutup & mudah", "Integrasi seluruh aset media sosial", "Sistem manajemen berita tanpa batas"]},
+            LMS:{price:"Rp 7.200.000",strike:"Rp 9.000.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Platform Kelas Online (LMS)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Sistem cerdas untuk menjual dan mengelola kursus digital Anda secara otomatis sepenuhnya. Dari proses pembayaran hingga sertifikasi.</p>",bullets:["Penerimaan pembayaran otomatis (QRIS/Bank)", "Perlindungan sistem anti-bajak video", "Modul evaluasi ujian & kuis mandiri", "Pencetakan sertifikat digital otomatis", "Laporan pendapatan komprehensif"]},
+            TryOut:{price:"Rp 6.800.000",strike:"Rp 8.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Ujian & Try-Out (CBT)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur ujian daring stabilitas tinggi untuk bimbingan belajar, menampung ribuan peserta tanpa kendala server down.</p>",bullets:["Simulasi ujian dengan pembatas waktu mundur", "Fitur pengunci layar anti-kecurangan", "Kalkulasi nilai dan peringkat instan", "Impor data soal & peserta skala masif", "Laporan analisis kelemahan siswa"]},
+            SIAKAD:{price:"Rp 10.000.000",strike:"Rp 12.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Informasi Akademik</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Solusi digital komprehensif yang menyatukan seluruh data akademik, presensi, dan arus keuangan yayasan dalam satu pintu aman.</p>",bullets:["Rekapitulasi nilai otomatis untuk rapor", "Pemantauan arus tagihan SPP real-time", "Portal berbeda untuk guru, siswa, & ortu", "Manajemen jadwal & absensi harian", "Database privat dienkripsi ketat"]},
+            Booking:{price:"Rp 4.400.000",strike:"Rp 5.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Reservasi Pintar</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Website dengan fitur penjadwalan otomatis yang menerima pesanan jasa layanan 24 jam nonstop, menggantikan pencatatan manual.</p>",bullets:["Kalender pemesanan dengan penutupan otomatis", "Pengingat otomatis via WhatsApp/Email", "Penagihan uang muka (DP) online", "Pengaturan jadwal multi-staf/dokter", "Perekaman riwayat kunjungan database"]},
+            Property:{price:"Rp 5.200.000",strike:"Rp 6.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Katalog Properti Real Estat</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Etalase properti mewah dengan sistem pencarian tingkat lanjut mempermudah calon pembeli menemukan unit impian dengan cepat.</p>",bullets:["Ruang galeri foto & video resolusi tinggi", "Filter pencarian cerdas (Harga/Lokasi/Fasilitas)", "Tombol interaksi mengarah ke Agen Terkait", "Kalkulator simulasi perhitungan KPR", "Integrasi peta lokasi interaktif wilayah"]},
             
-            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Audit Technical SEO</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Menguasai halaman pertama Google organik. Merombak fondasi teknis membangun otoritas situs agar mendatangkan pembeli berkat visibilitas tinggi.</p>",bullets:["Audit menyeluruh arsitektur website", "Riset pemetaan kata kunci komersial tinggi", "Optimalisasi kecepatan (Core Web Vitals)", "Penataan struktur algoritma konten", "Menghapus Kanibalisasi SEO Internal"]},
-            SpeedOpt:{price:"Rp 2.000.000",strike:"Rp 2.500.000",suffix:"/perbaikan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Optimasi Kecepatan Web</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Meresolusi skor Core Web Vitals merah Anda (LCP, CLS, FID) agar lolos penilaian metrik performa ekstrem dari mesin pencari Google.</p>",bullets:["Pembersihan CSS/JS yang tak terpakai", "Kompresi gambar berformat Next-Gen (WebP)", "Implementasi aturan Cache Server Lanjut", "Pemangkasan Waktu Respon Server (TTFB)", "Laporan perbandingan skor PageSpeed"]},
-            CRO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Optimasi Rasio Konversi (CRO)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Memaksimalkan aset dengan menganalisis perilaku pengunjung, menambal kebocoran agar setiap trafik yang datang berkonversi menjadi pembeli nyata.</p>",bullets:["Perekaman sesi (Heatmap) pola klik", "Uji coba A/B Testing penawaran visual", "Penyederhanaan alur formulir/checkout", "Penguatan elemen kepercayaan (Trust Badges)", "Evaluasi psikologi UI/UX untuk retensi"]},
-            GMB:{price:"Rp 1.500.000",strike:"Rp 1.875.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Dominasi Google Bisnis Lokal</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Jadikan bisnis fisik penguasa mutlak di wilayah Anda. Menyedot pelanggan dari radius terdekat yang mencari layanan di Google Maps.</p>",bullets:["Pengamanan titik koordinat bisnis", "Penanaman kata kunci lokal pada deskripsi", "Manajemen respon untuk reputasi 5 bintang", "Pembaruan katalog produk berkala", "Peningkatan ke peringkat Top 3 Local Pack"]},
-            SEOArticle:{price:"Rp 2.500.000",strike:"Rp 3.125.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Produksi Konten Pilar (Blog SEO)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Bangun dominasi informasi di industri Anda melalui pembuatan artikel pilar mendalam yang menjebak lalu lintas penelusuran secara organik.</p>",bullets:["Pembuatan kalender editorial berbasis volume", "Penulisan orisinal oleh penulis khusus", "Penyebaran kata kunci turunan (LSI)", "Penyatuan jaring internal linking artikel", "Optimasi struktur H1-H3 & Meta Tag SEO"]},
-            Backlink:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Strategi Otoritas & Backlink</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Memperoleh rujukan dari situs-situs otoritas tinggi. Ini adalah elemen penentu (Off-Page SEO) untuk mendongkrak peringkat ke jajaran atas.</p>",bullets:["Outreach natural ke portal media tier-1", "Eksekusi Content Placement White-Hat", "Penghapusan tautan beracun (Toxic Links)", "Peningkatan skor Domain Authority (DA)", "Keamanan penuh dari Pinalti Algoritma"]},
+            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Audit Technical SEO</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Menguasai halaman pertama Google organik. Merombak fondasi teknis membangun otoritas situs agar mendatangkan pembeli berkat visibilitas tinggi.</p>",bullets:["Audit menyeluruh arsitektur website", "Riset pemetaan kata kunci komersial tinggi", "Optimalisasi kecepatan (Core Web Vitals)", "Penataan struktur algoritma konten", "Menghapus Kanibalisasi SEO Internal"]},
+            SpeedOpt:{price:"Rp 2.000.000",strike:"Rp 2.500.000",suffix:"/perbaikan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Optimasi Kecepatan Web</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Meresolusi skor Core Web Vitals merah Anda (LCP, CLS, FID) agar lolos penilaian metrik performa ekstrem dari mesin pencari Google.</p>",bullets:["Pembersihan CSS/JS yang tak terpakai", "Kompresi gambar berformat Next-Gen (WebP)", "Implementasi aturan Cache Server Lanjut", "Pemangkasan Waktu Respon Server (TTFB)", "Laporan perbandingan skor PageSpeed"]},
+            CRO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Optimasi Rasio Konversi (CRO)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Memaksimalkan aset dengan menganalisis perilaku pengunjung, menambal kebocoran agar setiap trafik yang datang berkonversi menjadi pembeli nyata.</p>",bullets:["Perekaman sesi (Heatmap) pola klik", "Uji coba A/B Testing penawaran visual", "Penyederhanaan alur formulir/checkout", "Penguatan elemen kepercayaan (Trust Badges)", "Evaluasi psikologi UI/UX untuk retensi"]},
+            GMB:{price:"Rp 1.500.000",strike:"Rp 1.875.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Dominasi Google Bisnis Lokal</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Jadikan bisnis fisik penguasa mutlak di wilayah Anda. Menyedot pelanggan dari radius terdekat yang mencari layanan di Google Maps.</p>",bullets:["Pengamanan titik koordinat bisnis", "Penanaman kata kunci lokal pada deskripsi", "Manajemen respon untuk reputasi 5 bintang", "Pembaruan katalog produk berkala", "Peningkatan ke peringkat Top 3 Local Pack"]},
+            SEOArticle:{price:"Rp 2.500.000",strike:"Rp 3.125.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Produksi Konten Pilar (Blog SEO)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Bangun dominasi informasi di industri Anda melalui pembuatan artikel pilar mendalam yang menjebak lalu lintas penelusuran secara organik.</p>",bullets:["Pembuatan kalender editorial berbasis volume", "Penulisan orisinal oleh penulis khusus", "Penyebaran kata kunci turunan (LSI)", "Penyatuan jaring internal linking artikel", "Optimasi struktur Meta Tag SEO"]},
+            Backlink:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Strategi Otoritas & Backlink</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Memperoleh rujukan dari situs-situs otoritas tinggi. Ini adalah elemen penentu (Off-Page SEO) untuk mendongkrak peringkat ke jajaran atas.</p>",bullets:["Outreach natural ke portal media tier-1", "Eksekusi Content Placement White-Hat", "Penghapusan tautan beracun (Toxic Links)", "Peningkatan skor Domain Authority (DA)", "Keamanan penuh dari Pinalti Algoritma"]},
             
-            StoreMgmt:{price:"Rp 3.500.000",strike:"Rp 4.375.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Manajemen Etalase Shopify</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Delegasikan kerumitan toko digital. Saya memadukan keahlian Shopify SEO Expert untuk mendatangkan traffic, dan memastikan etalase terlihat premium.</p>",bullets:["Optimasi On-Page SEO Katalog Produk", "Manajemen unggahan kategori yang rapi", "Penulisan deskripsi produk ramah SEO", "Pengaturan kampanye diskon/Flash Sale", "Penyelarasan stok & pembaharuan gambar"]},
-            Dashboard:{price:"Rp 5.000.000",strike:"Rp 6.250.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Dasbor Analitik Eksekutif</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Pusat kendali visual menyajikan data bisnis kompleks menjadi grafik. Membantu pimpinan mengambil keputusan kinerja Ecommerce tanpa pusing membaca data mentah.</p>",bullets:["Visualisasi data real-time e-commerce", "Penyajian metrik performa utama (KPI)", "Pemetaan tren penjualan mingguan/bulanan", "Ekspor laporan presentasi ke format PDF", "Integrasi arus data Google Analytics 4 (GA4)"]},
-            Inventory:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Manajemen Inventaris</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Platform pencatatan stok presisi mematikan celah kerugian e-commerce. Mengotomatisasi pemantauan rotasi agar perputaran fisik selalu terlacak transparan.</p>",bullets:["Perekaman stok masuk dan keluar e-commerce", "Alarm pemberitahuan batas kritis barang", "Infrastruktur pemindaian Barcode/QR", "Pelacakan integrasi gudang toko online", "Rekam jejak aktivitas operator (Log Audit)"]},
-            ESS:{price:"Rp 6.000.000",strike:"Rp 7.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Portal Mandiri Karyawan (HR)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Sistem birokrasi penunjang operasional perusahaan. Fasilitas terenkripsi untuk staf mengurus administrasi secara paperless dari genggaman ponsel.</p>",bullets:["Sistem presensi penguncian lokasi (GPS)", "Alur pengajuan cuti & lembur berjenjang", "Distribusi slip gaji elektronik aman", "Papan pengumuman komunikasi internal", "Penyimpanan arsip dokumen kepegawaian"]},
-            Invoicing:{price:"Rp 3.600.000",strike:"Rp 4.500.000",suffix:"",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Automasi Penagihan (Invoicing)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Hentikan kebocoran arus kas. Mengdigitalisasi proses pembuatan faktur & mengirimkan peringatan penagihan otomatis agar arus kas bisnis tetap sehat.</p>",bullets:["Pembuatan faktur digital otomatis standar pajak", "Pengiriman peringatan tagihan terjadwal via Email", "Penandaan rekap status bayar secara sistem", "Kalkulasi perpajakan & diskon otomatis", "Laporan ringkasan piutang arus kas real-time"]},
+            StoreMgmt:{price:"Rp 3.500.000",strike:"Rp 4.375.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Manajemen Etalase Shopify</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Delegasikan kerumitan toko digital. Saya memadukan keahlian Shopify SEO Expert untuk mendatangkan traffic, dan memastikan etalase terlihat premium.</p>",bullets:["Optimasi On-Page SEO Katalog Produk", "Manajemen unggahan kategori yang rapi", "Penulisan deskripsi produk ramah SEO", "Pengaturan kampanye diskon/Flash Sale", "Penyelarasan stok & pembaharuan gambar"]},
+            Dashboard:{price:"Rp 5.000.000",strike:"Rp 6.250.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Dasbor Analitik Eksekutif</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Pusat kendali visual menyajikan data bisnis kompleks menjadi grafik. Membantu pimpinan mengambil keputusan kinerja Ecommerce tanpa pusing membaca data mentah.</p>",bullets:["Visualisasi data real-time e-commerce", "Penyajian metrik performa utama (KPI)", "Pemetaan tren penjualan mingguan/bulanan", "Ekspor laporan presentasi ke format PDF", "Integrasi arus data Google Analytics 4 (GA4)"]},
+            Inventory:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Sistem Manajemen Inventaris</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Platform pencatatan stok presisi mematikan celah kerugian e-commerce. Mengotomatisasi pemantauan rotasi agar perputaran fisik selalu terlacak transparan.</p>",bullets:["Perekaman stok masuk dan keluar e-commerce", "Alarm pemberitahuan batas kritis barang", "Infrastruktur pemindaian Barcode/QR", "Pelacakan integrasi gudang toko online", "Rekam jejak aktivitas operator (Log Audit)"]},
+            ESS:{price:"Rp 6.000.000",strike:"Rp 7.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Portal Mandiri Karyawan (HR)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Sistem birokrasi penunjang operasional perusahaan. Fasilitas terenkripsi untuk staf mengurus administrasi secara paperless dari genggaman ponsel.</p>",bullets:["Sistem presensi penguncian lokasi (GPS)", "Alur pengajuan cuti & lembur berjenjang", "Distribusi slip gaji elektronik aman", "Papan pengumuman komunikasi internal", "Penyimpanan arsip dokumen kepegawaian"]},
+            Invoicing:{price:"Rp 3.600.000",strike:"Rp 4.500.000",suffix:"",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Automasi Penagihan (Invoicing)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Hentikan kebocoran arus kas. Mengdigitalisasi proses pembuatan faktur & mengirimkan peringatan penagihan otomatis agar arus kas bisnis tetap sehat.</p>",bullets:["Pembuatan faktur digital otomatis standar pajak", "Pengiriman peringatan tagihan terjadwal via Email", "Penandaan rekap status bayar secara sistem", "Kalkulasi perpajakan & diskon otomatis", "Laporan ringkasan piutang arus kas real-time"]},
             
-            HostingBasic:{price:"Rp 28.000",strike:"Rp 35.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Fondasi (Pemula)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur stabil untuk menopang Landing Page atau profil perusahaan. Harga hosting server lokal ini sesungguhnya sangat hemat dan bersahabat.</p>",bullets:["Penyimpanan NVMe proses sangat cepat", "Sertifikasi gembok keamanan SSL Gratis", "Kapasitas RAM cukup untuk pemula", "Pemindai keamanan otomatis (Malware)", "Jaminan stabilitas uptime jaringan 99.9%"]},
-            HostingStarter:{price:"Rp 40.000",strike:"Rp 50.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Akselerasi (Menengah)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Keseimbangan performa web bagi etalase toko yang mulai kedatangan pengunjung setiap harinya tanpa khawatir mengenai limitasi koneksi trafik.</p>",bullets:["Limitasi RAM lebih lega mencegah lambat", "Bandwidth lalu lintas data Unmetered", "Akselerasi performa caching ringan", "Firewall pertahanan menolak *bot* jahat", "Akun email bisnis eksklusif siap pakai"]},
-            HostingPremium:{price:"Rp 60.000",strike:"Rp 75.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Superior (Rekomendasi)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Mesin bertenaga tinggi untuk toko E-commerce. Memastikan seluruh keranjang belanja dan checkout bekerja tanpa kendala koneksi server (*timeout*).</p>",bullets:["Bisa menampung belasan Website/Domain", "Kapasitas RAM & CPU tangguh kelas atas", "Sistem pencadangan harian (*Daily Backup*)", "Email korporasi tanpa batasan kuota khusus", "Bantuan prioritas infrastruktur *Support* 24/7"]},
-            HostingExpert:{price:"Rp 120.000",strike:"Rp 150.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Elit (Skala Besar)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur tertinggi sebelum masuk *Cloud*. Sangat sempurna untuk perniagaan skala besar yang menyedot ratusan trafik simultan (SEO agresif).</p>",bullets:["Isolasi mutlak alokasi sumber daya Server", "Performa database (MySQL) dioptimalkan penuh", "Penyimpanan untuk data video & produk melimpah", "Menangani proses antrean data seketika (Redis)", "Performa mematikan untuk segala CMS (Shopify/WP)"]},
-            DomainCom:{price:"Rp 200.000",strike:"Rp 250.000",suffix:"/thn",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Lisensi Domain Global (.COM)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Mahkota identitas bisnis internet global. Amankan merek Anda dengan layanan beli domain murah yang pengurusannya kami tangani secara langsung 100%.</p>",bullets:["Kepemilikan legal ekstensi domain (.COM)", "DNS Manager gratis & mudah diarahkan", "Fitur proteksi pembajakan nama (Lock)", "Perlindungan data pribadi (Whois Privacy)", "Kredibilitas global melintasi benua"]},
-            DomainId:{price:"Rp 320.000",strike:"Rp 400.000",suffix:"/thn",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Lisensi Domain Nasional (.ID)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Simbol keabsahan hukum domestik. Pengakuan Google akan prioritas Lokal (Indonesia), mewajibkan verifikasi legalitas (KTP/Dokumen PT) untuk membelinya.</p>",bullets:["Domain prestise dengan trust level maksimal", "Diistimewakan oleh algoritma SEO lokal Google", "Penyaringan ketat dari identitas palsu (*fraud*)", "Server DNS lokal memastikan *ping* ultra-rendah", "Mendongkrak persepsi keamanan para pembeli"]},
-            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<h3 class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Cloud VPS Eksklusif (Dedicated)</h3><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Server komputer privat yang disewakan untuk operasional sistem raksasa (SIAKAD, ERP) atau e-commerce besar yang menyedot sumber daya mandiri mutlak.</p>",bullets:["IP Publik Khusus untuk akses tanpa repot", "Tingkat penguasaan server level Administrator", "Kapasitas RAM gigantik tidak diganggu klien lain", "Akses jaringan internet pita lebar simetris (*Gigabit*)", "Bisa mengakomodasi instalasi OS spesifik khusus"]}
+            HostingBasic:{price:"Rp 28.000",strike:"Rp 35.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Fondasi (Pemula)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur stabil untuk menopang Landing Page atau profil perusahaan. Harga hosting server lokal ini sesungguhnya sangat hemat dan bersahabat.</p>",bullets:["Penyimpanan NVMe proses sangat cepat", "Sertifikasi gembok keamanan SSL Gratis", "Kapasitas RAM cukup untuk pemula", "Pemindai keamanan otomatis (Malware)", "Jaminan stabilitas uptime jaringan 99.9%"]},
+            HostingStarter:{price:"Rp 40.000",strike:"Rp 50.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Akselerasi (Menengah)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Keseimbangan performa web bagi etalase toko yang mulai kedatangan pengunjung setiap harinya tanpa khawatir mengenai limitasi koneksi trafik.</p>",bullets:["Limitasi RAM lebih lega mencegah lambat", "Bandwidth lalu lintas data Unmetered", "Akselerasi performa caching ringan", "Firewall pertahanan menolak *bot* jahat", "Akun email bisnis eksklusif siap pakai"]},
+            HostingPremium:{price:"Rp 60.000",strike:"Rp 75.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Superior (Rekomendasi)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Mesin bertenaga tinggi untuk toko E-commerce. Memastikan seluruh keranjang belanja dan checkout bekerja tanpa kendala koneksi server (*timeout*).</p>",bullets:["Bisa menampung belasan Website/Domain", "Kapasitas RAM & CPU tangguh kelas atas", "Sistem pencadangan harian (*Daily Backup*)", "Email korporasi tanpa batasan kuota khusus", "Bantuan prioritas infrastruktur *Support* 24/7"]},
+            HostingExpert:{price:"Rp 120.000",strike:"Rp 150.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Hosting Elit (Skala Besar)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Infrastruktur tertinggi sebelum masuk *Cloud*. Sangat sempurna untuk perniagaan skala besar yang menyedot ratusan trafik simultan (SEO agresif).</p>",bullets:["Isolasi mutlak alokasi sumber daya Server", "Performa database (MySQL) dioptimalkan penuh", "Penyimpanan untuk data video & produk melimpah", "Menangani proses antrean data seketika (Redis)", "Performa mematikan untuk segala CMS (Shopify/WP)"]},
+            DomainCom:{price:"Rp 200.000",strike:"Rp 250.000",suffix:"/thn",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Lisensi Domain Global (.COM)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Mahkota identitas bisnis internet global. Amankan merek Anda dengan layanan beli domain murah yang pengurusannya kami tangani secara langsung 100%.</p>",bullets:["Kepemilikan legal ekstensi domain (.COM)", "DNS Manager gratis & mudah diarahkan", "Fitur proteksi pembajakan nama (Lock)", "Perlindungan data pribadi (Whois Privacy)", "Kredibilitas global melintasi benua"]},
+            DomainId:{price:"Rp 320.000",strike:"Rp 400.000",suffix:"/thn",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Lisensi Domain Nasional (.ID)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Simbol keabsahan hukum domestik. Pengakuan Google akan prioritas Lokal (Indonesia), mewajibkan verifikasi legalitas (KTP/Dokumen PT) untuk membelinya.</p>",bullets:["Domain prestise dengan trust level maksimal", "Diistimewakan oleh algoritma SEO lokal Google", "Penyaringan ketat dari identitas palsu (*fraud*)", "Server DNS lokal memastikan *ping* ultra-rendah", "Mendongkrak persepsi keamanan para pembeli"]},
+            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<div class='text-[15px] md:text-base font-bold text-darkBlack dark:text-white mb-2'>Cloud VPS Eksklusif (Dedicated)</div><p class='mb-4 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed'>Server komputer privat yang disewakan untuk operasional sistem raksasa (SIAKAD, ERP) atau e-commerce besar yang menyedot sumber daya mandiri mutlak.</p>",bullets:["IP Publik Khusus untuk akses tanpa repot", "Tingkat penguasaan server level Administrator", "Kapasitas RAM gigantik tidak diganggu klien lain", "Akses jaringan internet pita lebar simetris (*Gigabit*)", "Bisa mengakomodasi instalasi OS spesifik khusus"]}
         };
 
         window.updateBentoDesc = function(selectId, descId, priceId, strikeId) {
@@ -1645,16 +1531,16 @@
 
             if (topic === 'seo') { 
                 queryText = "Minta Panduan Strategi Optimasi SEO"; 
-                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><p class="font-bold text-[13px] md:text-[14px] text-darkGold dark:text-gold uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-search"></i> Kerangka Jasa Optimasi Website Taktikal</p><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Konstruksi Entitas Semantik Global</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Membangun struktur Schema Markup spesifik. Memandu bot perayap Google untuk memahami bahwa bisnis Anda adalah entitas otoritatif terpercaya di industri Anda.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Restrukturisasi Core Web Vitals (CWV)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Memperbaiki parameter LCP dan CLS secara ekstrem. Website Anda akan dimuat penuh di bawah 1,5 detik, memenangkan prioritas UX Google dibanding kompetitor.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Dominasi Klaster Topik Konten</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Berhenti mengejar kata kunci tunggal acak. Menciptakan rantai artikel pilar berkesinambungan yang saling menautkan kekuatan (internal linking) layaknya jaring laba-laba.</p></div></div>`; 
-                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Penanaman Sinyal E-E-A-T</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mempublikasikan elemen validasi pakar, profil pengarang mendalam, serta sitasi pihak ketiga yang membuktikan bisnis Anda sah dan mematuhi pedoman kualitas Google (Quality Raters Guidelines).</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Audit & Pembersihan Kanibalisasi Aset Beracun</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengidentifikasi ribuan halaman usang, URL mati (404), dan konten duplikat yang diam-diam menahan kenaikan ranking. Kita akan menghapus tautan usang untuk mengembalikan kekuatan indeks absolut.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">06. Geotagging & Dominasi Google Bisnis Lokal</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menanamkan koordinat GPS tak terlihat pada aset media. Ini memaksa Google memunculkan profil Anda (Local Pack) setiap kali prospek di sekitar wilayah Anda mengetik niat beli.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-gold/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Kesimpulan Data</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Formulasi Entitas Peta Situs Terkirim Ke Mesin Indeksasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pembersihan Hambatan Render JavaScript Selesai.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Rancangan Struktur Silo Selesai Diaplikasikan.</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-gold mt-0.5"></i> <span>Menunggu Penjadwalan Perayapan Ulang (Crawl) dari Google...</span></li></ul></div></div>`;
+                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><div class="font-bold text-[13px] md:text-[14px] text-darkGold dark:text-gold uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-search"></i> Kerangka Jasa Optimasi Website Taktikal</div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Konstruksi Entitas Semantik Global</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Membangun struktur Schema Markup spesifik. Memandu bot perayap Google untuk memahami bahwa bisnis Anda adalah entitas otoritatif terpercaya di industri Anda.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Restrukturisasi Core Web Vitals (CWV)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Memperbaiki parameter LCP dan CLS secara ekstrem. Website Anda akan dimuat penuh di bawah 1,5 detik, memenangkan prioritas UX Google dibanding kompetitor.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Dominasi Klaster Topik Konten</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Berhenti mengejar kata kunci tunggal acak. Menciptakan rantai artikel pilar berkesinambungan yang saling menautkan kekuatan (internal linking) layaknya jaring laba-laba.</p></div></div>`; 
+                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Penanaman Sinyal E-E-A-T</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mempublikasikan elemen validasi pakar, profil pengarang mendalam, serta sitasi pihak ketiga yang membuktikan bisnis Anda sah dan mematuhi pedoman kualitas Google (Quality Raters Guidelines).</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Audit & Pembersihan Kanibalisasi Aset Beracun</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengidentifikasi ribuan halaman usang, URL mati (404), dan konten duplikat yang diam-diam menahan kenaikan ranking. Kita akan menghapus tautan usang untuk mengembalikan kekuatan indeks absolut.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">06. Geotagging & Dominasi Google Bisnis Lokal</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menanamkan koordinat GPS tak terlihat pada aset media. Ini memaksa Google memunculkan profil Anda (Local Pack) setiap kali prospek di sekitar wilayah Anda mengetik niat beli.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-gold/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Kesimpulan Data</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Formulasi Entitas Peta Situs Terkirim Ke Mesin Indeksasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pembersihan Hambatan Render JavaScript Selesai.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Rancangan Struktur Silo Selesai Diaplikasikan.</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-gold mt-0.5"></i> <span>Menunggu Penjadwalan Perayapan Ulang (Crawl) dari Google...</span></li></ul></div></div>`;
             } else if (topic === 'marketing') { 
                 queryText = "Minta Panduan Infrastruktur Jasa Pembuatan Website Profesional"; 
-                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><p class="font-bold text-[13px] md:text-[14px] text-blue-600 dark:text-blue-400 uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-laptop-code"></i> Arsitektur Pembuatan & Skalabilitas Hosting</p><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Migrasi Hosting & Domain Murah (High-Speed)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menyiapkan server hosting server lokal dengan teknologi NVMe dan lisensi domain otentik. Mengalokasikan sumber daya absolut yang menjamin Uptime Web 99% tanpa kegagalan (Server Timeout).</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Penataan Navigasi & Arsitektur Situs (Siloing)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengategorikan semua URL secara matematis dan terstruktur. Hal ini akan mencegah perayapan (*Crawl*) berulang oleh bot pencari dan memastikan efisiensi anggaran pelacakan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Pemetaan Corong Landing Page (CRO)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Trafik masif akan terbuang percuma tanpa penawaran tajam. Saya mendesain UI/UX (A/B Testing) untuk memanipulasi psikologi prospek agar seketika menekan tombol konversi atau WhatsApp.</p></div></div>`; 
-                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Keamanan Sistem Cloud Hosting & SSL</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengamankan situs dari serangan *DDoS* dan Injeksi Spam dengan menerapkan SSL ganda, *Firewall*, serta *Auto-Backup* yang memproteksi data bisnis klien secara absolut.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Eskalasi Web & Kompresi Next-Gen</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Merampingkan kerangka skrip JS/CSS dan mengubah visual ke format gambar (*WebP/AVIF*), memastikan rasio pentalan (*Bounce Rate*) ditekan di batas minimal walau diakses dari seluler 3G.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-blue-500/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Infrastruktur Website</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Konektivitas DNS & Proteksi SSL Telah Diverifikasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pembersihan Skrip Eksternal Blokir Rendering Berjalan.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Kapasitas Server Stabil (TTFB &lt; 300ms).</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-blue-500 mt-0.5"></i> <span>Memigrasi Aset ke Content Delivery Network (CDN)...</span></li></ul></div></div>`;
+                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><div class="font-bold text-[13px] md:text-[14px] text-blue-600 dark:text-blue-400 uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-laptop-code"></i> Arsitektur Pembuatan & Skalabilitas Hosting</div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Migrasi Hosting & Domain Murah (High-Speed)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menyiapkan server hosting server lokal dengan teknologi NVMe dan lisensi domain otentik. Mengalokasikan sumber daya absolut yang menjamin Uptime Web 99% tanpa kegagalan (Server Timeout).</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Penataan Navigasi & Arsitektur Situs (Siloing)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengategorikan semua URL secara matematis dan terstruktur. Hal ini akan mencegah perayapan (*Crawl*) berulang oleh bot pencari dan memastikan efisiensi anggaran pelacakan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Pemetaan Corong Landing Page (CRO)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Trafik masif akan terbuang percuma tanpa penawaran tajam. Saya mendesain UI/UX (A/B Testing) untuk memanipulasi psikologi prospek agar seketika menekan tombol konversi atau WhatsApp.</p></div></div>`; 
+                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Keamanan Sistem Cloud Hosting & SSL</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengamankan situs dari serangan *DDoS* dan Injeksi Spam dengan menerapkan SSL ganda, *Firewall*, serta *Auto-Backup* yang memproteksi data bisnis klien secara absolut.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Eskalasi Web & Kompresi Next-Gen</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Merampingkan kerangka skrip JS/CSS dan mengubah visual ke format gambar (*WebP/AVIF*), memastikan rasio pentalan (*Bounce Rate*) ditekan di batas minimal walau diakses dari seluler 3G.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-blue-500/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Infrastruktur Website</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Konektivitas DNS & Proteksi SSL Telah Diverifikasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pembersihan Skrip Eksternal Blokir Rendering Berjalan.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Kapasitas Server Stabil (TTFB &lt; 300ms).</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-blue-500 mt-0.5"></i> <span>Memigrasi Aset ke Content Delivery Network (CDN)...</span></li></ul></div></div>`;
             } else if (topic === 'bisnis') { 
                 queryText = "Minta Panduan Shopify SEO Expert & Manajemen Ecommerce"; 
-                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><p class="font-bold text-[13px] md:text-[14px] text-purple-600 dark:text-purple-400 uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-project-diagram"></i> Kerangka Skalabilitas Ecommerce & Toko Online</p><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Optimasi Metadata Katalog Shopify (Shopify SEO)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Katalog e-commerce harus ramah pencari. Merestrukturisasi *title tags*, *alt images*, dan arsitektur kategori produk (*collection page*) agar ranking etalase Anda merajai hasil penelusuran kata kunci.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Penilaian Prospek E-Commerce (Shopping Cart C.R.O)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Tingkat pengabaian keranjang (*cart abandonment*) adalah kebocoran mematikan. Kami meringkas tata letak keranjang belanja Shopify agar pembeli mengkonversi tanpa gangguan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Digitalisasi Dasbor Terpusat (Executive Data Warehouse)</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menggabungkan arus mutasi Gudang (Sistem Inventaris), Pelacakan konversi e-commerce, dan Rekapitulasi Kas ke dalam satu layar visual real-time agar eksekutif dapat memantau putaran aset harian secara komprehensif.</p></div></div>`; 
-                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Penguatan UX/UI Desain Toko</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Kecepatan adalah inti (*Core Web Vitals*). Saya membersihkan pemanggilan aplikasi (*Apps*) Shopify yang tidak perlu agar skor *Mobile Loading Speed* melesat demi pengalaman belanja yang menyenangkan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><h4 class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Sinkronisasi Data Produk Terpusat</h4><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengeksekusi pembaruan data secara massal (*bulk*) dan merapikan *URL Tagging* produk Shopify. Mengintegrasikannya dalam *Google Merchant Center* dan umpan data E-commerce organik.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-purple-500/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Skalabilitas E-commerce</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pendeteksian Variasi Deskripsi & Kategori Shopify Selesai.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Formulasi Survei UX Keranjang Belanja Terverifikasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Jalur Distribusi *Sitemap* Katalog E-commerce Terhubung.</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-purple-500 mt-0.5"></i> <span>Mengekstrak Laporan Eksekutif Penjualan & Inventaris...</span></li></ul></div></div>`;
+                responseText = `<div class="space-y-4 md:space-y-5 text-left font-sans"><div class="font-bold text-[13px] md:text-[14px] text-purple-600 dark:text-purple-400 uppercase mb-2 border-b border-black/10 dark:border-white/10 pb-2"><i class="fas fa-project-diagram"></i> Kerangka Skalabilitas Ecommerce & Toko Online</div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">01. Optimasi Metadata Katalog Shopify (Shopify SEO)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Katalog e-commerce harus ramah pencari. Merestrukturisasi *title tags*, *alt images*, dan arsitektur kategori produk (*collection page*) agar ranking etalase Anda merajai hasil penelusuran kata kunci.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">02. Penilaian Prospek E-Commerce (Shopping Cart C.R.O)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Tingkat pengabaian keranjang (*cart abandonment*) adalah kebocoran mematikan. Kami meringkas tata letak keranjang belanja Shopify agar pembeli mengkonversi tanpa gangguan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">03. Digitalisasi Dasbor Terpusat (Executive Data Warehouse)</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Menggabungkan arus mutasi Gudang (Sistem Inventaris), Pelacakan konversi e-commerce, dan Rekapitulasi Kas ke dalam satu layar visual real-time agar eksekutif dapat memantau putaran aset harian secara komprehensif.</p></div></div>`; 
+                hiddenText = `<div class="space-y-4 md:space-y-5 text-left font-sans mt-4 pt-4 border-t border-black/10 dark:border-white/10 border-dashed"><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">04. Penguatan UX/UI Desain Toko</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Kecepatan adalah inti (*Core Web Vitals*). Saya membersihkan pemanggilan aplikasi (*Apps*) Shopify yang tidak perlu agar skor *Mobile Loading Speed* melesat demi pengalaman belanja yang menyenangkan.</p></div><div class="bg-lightGray/50 dark:bg-black/20 p-3 md:p-4 rounded-xl border border-black/5 dark:border-white/5 shadow-sm"><div class="text-[13px] md:text-[14px] font-bold text-darkBlack dark:text-white mb-1">05. Sinkronisasi Data Produk Terpusat</div><p class="text-[12px] md:text-[13px] text-textGray dark:text-gray-300 leading-relaxed">Mengeksekusi pembaruan data secara massal (*bulk*) dan merapikan *URL Tagging* produk Shopify. Mengintegrasikannya dalam *Google Merchant Center* dan umpan data E-commerce organik.</p></div><div class="bg-white dark:bg-[#121215] p-4 rounded-xl border border-purple-500/30 mt-4 shadow-sm"><strong class="text-[11px] md:text-[12px] text-darkBlack dark:text-white font-bold block text-center border-b border-black/10 dark:border-white/10 pb-2 font-mono">Status Audit Skalabilitas E-commerce</strong><ul class="list-none text-[10px] md:text-[11px] mt-3 text-textGray dark:text-gray-300 space-y-2 font-medium font-mono"><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Pendeteksian Variasi Deskripsi & Kategori Shopify Selesai.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Formulasi Survei UX Keranjang Belanja Terverifikasi.</span></li><li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Jalur Distribusi *Sitemap* Katalog E-commerce Terhubung.</span></li><li class="flex items-start gap-2"><i class="fas fa-spinner fa-spin text-purple-500 mt-0.5"></i> <span>Mengekstrak Laporan Eksekutif Penjualan & Inventaris...</span></li></ul></div></div>`;
             }
 
             optionsContainer.style.display = 'none';
@@ -1677,53 +1563,6 @@
             const el = document.getElementById(id);
             if(el) { el.classList.remove('hidden'); setTimeout(() => { el.classList.remove('opacity-0'); requestAnimationFrame(() => document.getElementById('bot-chat-window').scrollTop = document.getElementById('bot-chat-window').scrollHeight); }, 50); }
             btn.style.display = 'none';
-        }
-
-        window.runAudit = async function() {
-            const urlInput = document.getElementById('psi-url-client'); let url = urlInput.value.trim();
-            if(!url) return alert("Peringatan: Masukkan alamat website yang valid (https://...)."); if(!url.startsWith('http')) url = 'https://' + url;
-            const btn = document.getElementById('btn-audit'); btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> MEMINDAI SISTEM...'; btn.disabled = true; btn.closest('.bento-card').classList.add('scanning');
-            document.getElementById('psi-result-single').classList.add('hidden'); document.getElementById('psi-loading').classList.remove('hidden'); document.getElementById('psi-loading').classList.add('flex'); document.getElementById('psi-load-text').innerText = '[ MENGHUBUNGI API GOOGLE PAGESPEED... ]';
-
-            try {
-                // MENGGUNAKAN API REALTIME GOOGLE PAGESPEED INSIGHTS DENGAN KUNCI YANG DIBERIKAN
-                const apiEndpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&category=PERFORMANCE&category=SEO&strategy=mobile&key=AIzaSyA2Ur2X5fc_923IUPj4oUzWYL9UFmqEWEE`;
-                const response = await fetch(apiEndpoint);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-                
-                const lighthouse = data.lighthouseResult;
-                const perfScore = Math.round(lighthouse.categories.performance.score * 100);
-                const seoScore = Math.round(lighthouse.categories.seo.score * 100);
-                const getMetric = (id) => lighthouse.audits[id] ? lighthouse.audits[id].displayValue : '--';
-
-                document.getElementById('psi-loading').classList.remove('flex'); document.getElementById('psi-loading').classList.add('hidden');
-                
-                const setScoreDynamic = (id, score) => { 
-                    const el = document.getElementById(id); el.innerText = score; 
-                    let colorClass = score >= 90 ? 'text-green-500' : score >= 50 ? 'text-orange-500' : 'text-red-500';
-                    el.className = `text-3xl md:text-4xl font-black relative z-10 ${colorClass}`; 
-                };
-                
-                setScoreDynamic('psi-perf-single', perfScore); setScoreDynamic('psi-seo-single', seoScore);
-                document.getElementById('psi-perf-bg').classList.remove('hidden'); document.getElementById('psi-seo-bg').classList.remove('hidden');
-                
-                document.getElementById('psi-lcp-single').innerText = getMetric('largest-contentful-paint'); document.getElementById('psi-lcp-single').className = 'text-xs md:text-sm font-bold text-darkBlack dark:text-white text-right shrink-0';
-                document.getElementById('psi-fcp-single').innerText = getMetric('first-contentful-paint'); document.getElementById('psi-fcp-single').className = 'text-xs md:text-sm font-bold text-darkBlack dark:text-white text-right shrink-0';
-                document.getElementById('psi-cls-single').innerText = getMetric('cumulative-layout-shift'); document.getElementById('psi-cls-single').className = 'text-xs md:text-sm font-bold text-darkBlack dark:text-white text-right shrink-0';
-                document.getElementById('psi-ttfb-single').innerText = getMetric('server-response-time'); document.getElementById('psi-ttfb-single').className = 'text-xs md:text-sm font-bold text-darkBlack dark:text-white text-right shrink-0';
-                document.getElementById('psi-tbt-single').innerText = getMetric('total-blocking-time'); document.getElementById('psi-tbt-single').className = 'text-xs md:text-sm font-bold text-darkBlack dark:text-white text-right shrink-0';
-                
-                document.getElementById('psi-audit-title').innerText = "Catatan Sistem Real-Time:"; document.getElementById('psi-audit-title').className = "text-[10px] md:text-xs font-bold uppercase tracking-wider text-green-500 font-mono mt-1 border-b border-black/5 dark:border-white/5 pb-2 block";
-                document.getElementById('psi-issues-list-single').innerHTML = `<li class="flex items-start gap-2.5 mt-2"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0 text-[10px] md:text-xs"></i><span>Pemindaian berhasil untuk <strong>${url}</strong>.</span></li><li class="flex items-start gap-2.5 mt-2"><i class="fas fa-info-circle text-blue-500 mt-1 shrink-0 text-[10px] md:text-xs"></i><span>Metrik diukur berdasarkan lingkungan perangkat seluler (Mobile) standar Google Lighthouse.</span></li><li class="flex items-start gap-2.5 mt-2"><i class="fas fa-info-circle text-blue-500 mt-1 shrink-0 text-[10px] md:text-xs"></i><span>Performa di bawah 90 mengindikasikan struktur kode atau aset media yang belum teroptimasi maksimal.</span></li>`;
-                document.getElementById('psi-result-single').classList.remove('hidden'); document.getElementById('psi-result-single').classList.add('flex');
-            } catch (error) {
-                document.getElementById('psi-loading').classList.remove('flex'); document.getElementById('psi-loading').classList.add('hidden');
-                alert("Pemindaian gagal atau waktu tunggu (timeout) habis. Pastikan URL dapat diakses publik atau coba lagi beberapa saat.");
-            } finally {
-                btn.innerText = "ULANGI PEMINDAIAN"; btn.disabled = false; btn.closest('.bento-card').classList.remove('scanning');
-                if(window.innerWidth <= 768) { setTimeout(() => { document.querySelector('.card-scroll-area').scrollBy({top: 300, behavior: 'smooth'}); }, 100); }
-            }
         }
 
         let allTrends = [];
@@ -1849,7 +1688,7 @@
                             <div class="w-8 h-8 ${cert.bg} ${cert.color} rounded-lg flex items-center justify-center shrink-0 shadow-sm"><i class="${cert.icon} text-sm"></i></div>
                             <span class="bg-green-500/10 text-green-600 dark:text-green-400 text-[8px] font-bold px-1.5 py-0.5 rounded border border-green-500/20 uppercase tracking-widest font-mono">Verified</span>
                         </div>
-                        <h3 class="text-xs md:text-[13px] font-bold text-darkBlack dark:text-white leading-tight mb-1 font-sans line-clamp-3">${cert.title}</h3>
+                        <div class="text-xs md:text-[13px] font-bold text-darkBlack dark:text-white leading-tight mb-1 font-sans line-clamp-3">${cert.title}</div>
                     </div>
                     <div class="mt-2 pt-2 border-t border-black/5 dark:border-white/5">
                         <p class="text-[9px] md:text-[10px] text-textGray dark:text-gray-400 font-bold uppercase tracking-wider font-mono line-clamp-1">${cert.org}</p>

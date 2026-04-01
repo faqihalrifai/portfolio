@@ -1,5 +1,5 @@
-# Mengalihkan semua trafik dari subdomain Netlify ke domain baru secara paksa
-https://faqihalrf.netlify.app/* https://faqihalrf.online/:splat  301!
-
-# Mengalihkan dari WWW ke Non-WWW (opsional agar seragam)
+# Redirect WWW ke Non-WWW (Sangat penting buat SEO)
 https://www.faqihalrf.online/* https://faqihalrf.online/:splat  301!
+
+# Memastikan semua trafik ke HTTPS
+http://faqihalrf.online/* https://faqihalrf.online/:splat  301!

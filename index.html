@@ -25,9 +25,6 @@
         try { 
             if (window.top !== window.self) { window.top.location.replace(window.self.location.href); }
             const host = window.location.hostname;
-            if (/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/.test(host) || host.startsWith('www.')) {
-                window.location.replace("https://faqihalrf.online" + window.location.pathname + window.location.search);
-            }
         } catch (e) {}
 
         document.addEventListener('contextmenu', event => event.preventDefault());
@@ -38,14 +35,18 @@
         });
         document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
     </script>
-    <noscript><meta http-equiv="refresh" content="0; url=https://faqihalrf.online/" /></noscript>
+    <noscript>
+    <div style="position: fixed; top: 0; left: 0; width: 100%; background: #c5a028; color: white; text-align: center; padding: 10px; z-index: 9999; font-weight: bold;">
+        Aktifkan JavaScript pada browser Anda untuk melihat performa analitik secara real-time.
+    </div>
+</noscript>
 
     <!-- =========================================
          OPTIMASI SEO & KATA KUNCI UTAMA (ENHANCED)
          ========================================= -->
-    <title>Jasa Pembuatan Website Perusahaan Profesional & Optimasi SEO | Muhammad Faqih</title>
+    <title>Jasa Pembuatan Website & Optimasi SEO | Muhammad Faqih</title>
     <!-- Optimal Meta Description (< 160 Karakter) -->
-    <meta name="description" content="Mencari jasa pembuatan website perusahaan profesional & konsultan SEO lokal untuk UMKM? Tingkatkan trafik organik & konversi bisnis Anda bersama pakar SEO Faqih.">
+    <meta name="description" content="Jasa pembuatan website & optimasi SEO profesional. Tingkatkan trafik organik dan konversi bisnis Anda bersama Faqih. Solusi tepat untuk UMKM & Perusahaan!">
     <meta name="keywords" content="Jasa pembuatan website perusahaan profesional, Harga jasa pembuatan website e-commerce, Jasa bikin web toko online terpercaya, Jasa optimasi SEO website terpercaya, Konsultan SEO lokal untuk UMKM, Cara menaikkan ranking website di Google, Pakar SEO Shopify Indonesia, Beli domain murah server lokal">
     <meta name="author" content="Muhammad Faqih Al Rifai">
 
@@ -282,7 +283,7 @@
                 <a href="#lead-gen" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Mulai Konsultasi Gratis</a>
                 <a href="#core-kompetensi" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Matriks Keahlian</a>
                 <a href="https://faqihalrf.blogspot.com" target="_blank" rel="noopener noreferrer" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Publikasi (Blog)</a>
-                <a href="testimoni" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Testimoni Klien</a>
+                <a href="/testimoni" class="mobile-link px-4 py-3 rounded-xl text-sm font-bold hover:bg-gold hover:text-white dark:text-darkText dark:hover:bg-white/10">Testimoni Klien</a>
                 <div class="grid grid-cols-1 gap-2 pt-3 mt-2 border-t border-black/5 dark:border-white/10">
                     <button type="button" class="theme-toggle flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-lightGray dark:bg-white/10 text-sm font-bold" aria-label="Ganti Tema Mode Gelap Terang Mobile"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i> Ganti Tema</button>
                 </div>
@@ -1129,7 +1130,7 @@
                  <p class="text-[15px] md:text-base text-textGray dark:text-darkSub leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 px-4 font-sans">
                      Jelajahi studi kasus dan ulasan langsung dari klien saya mengenai dampak strategis yang telah berhasil dicapai secara nyata.
                  </p>
-                 <a href="testimoni" class="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-darkBlack text-white dark:bg-white dark:text-darkBg rounded-full hover:bg-gold dark:hover:bg-gold transition-all duration-300 shadow-xl text-xs md:text-sm font-bold tracking-widest uppercase group font-sans">
+                 <a href="/testimoni" class="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-darkBlack text-white dark:bg-white dark:text-darkBg rounded-full hover:bg-gold dark:hover:bg-gold transition-all duration-300 shadow-xl text-xs md:text-sm font-bold tracking-widest uppercase group font-sans">
                      Buka Halaman Testimoni <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                  </a>
              </div>
@@ -1250,7 +1251,7 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium text-center md:text-left font-sans">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
                 <div class="flex justify-center gap-8 items-center">
-                    <a href="legal" aria-label="Dokumen Kebijakan Privasi Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-xs font-mono">Kebijakan Privasi</a>
+                    <a href="/legal" aria-label="Dokumen Kebijakan Privasi Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-xs font-mono">Kebijakan Privasi</a>
                     <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Interupsi Ulang Perekaman Indeks Tautan Google Otomatis" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Ping Robot Google Untuk Memindai Keterbaruan"><i class="fas fa-satellite-dish"></i></button>
                 </div>
             </div>

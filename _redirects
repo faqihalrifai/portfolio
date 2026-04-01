@@ -1,5 +1,5 @@
-# Redirect WWW ke Non-WWW (Sangat penting buat SEO)
+# Redirect WWW ke Non-WWW secara absolut (Status 301)
 https://www.faqihalrf.online/* https://faqihalrf.online/:splat  301!
 
-# Memastikan semua trafik ke HTTPS
+# Pastikan tidak ada halaman yang bisa diakses via HTTP biasa
 http://faqihalrf.online/* https://faqihalrf.online/:splat  301!

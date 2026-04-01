@@ -190,7 +190,6 @@
                 <i class="fas fa-check-circle"></i> <span>Dokumen Terverifikasi 2026</span>
             </div>
             
-            <!-- FIX AUDIT: H1 Murni tanpa tag di dalamnya, kata kunci dimasukkan -->
             <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 dark:text-white tracking-tight drop-shadow-sm leading-tight px-2">
                 Kebijakan Privasi dan Ketentuan Layanan Jasa SEO
             </h1>
@@ -223,7 +222,6 @@
                 <!-- 1. KEBIJAKAN PRIVASI -->
                 <section id="privacy" class="reveal section-item scroll-mt-28">
                     <div class="bg-white dark:bg-darkCard p-6 md:p-10 rounded-[2rem] border border-black/5 dark:border-white/5 shadow-soft font-sans">
-                        <!-- FIX AUDIT: H2 Murni tanpa tag span di dalamnya -->
                         <div class="flex items-center gap-3 md:gap-4 border-b border-black/5 dark:border-white/5 pb-4 md:pb-6 mb-6">
                             <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-gold/10 text-darkGold dark:text-gold text-[15px] md:text-lg flex items-center justify-center font-mono shrink-0">01</span>
                             <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white m-0">Kebijakan Privasi Data Website</h2>
@@ -234,7 +232,6 @@
                             <h3 class="font-bold text-darkBlack dark:text-white text-[15px] md:text-[17px] mt-6">Kredensial & Akses Pihak Ketiga</h3>
                             <p>Dalam menjalankan tugas teknis seperti <em>Technical SEO Audit</em> dan implementasi strategi optimasi website, saya akan mengelola kredensial penting bisnis Anda. Saya menjamin keamanan penuh atas seluruh akses data berikut dalam proses pengelolaan:</p>
                             
-                            <!-- FIX AUDIT: Menggunakan tag list UL/LI dengan benar -->
                             <ul class="list-none space-y-3 mt-3">
                                 <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses alat analitik inti seperti <strong>Google Search Console (GSC)</strong>, <strong>Google Analytics 4 (GA4)</strong>, dan <strong>Google Tag Manager</strong>.</span></li>
                                 <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Informasi <em>Login Content Management System</em> (CMS) seperti <strong>WordPress</strong>, <strong>Shopify</strong>, atau panel kontrol server <em>Hosting</em> dan Domain klien.</span></li>
@@ -341,8 +338,9 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] md:text-[15px] text-textGray dark:text-darkSub font-medium text-center md:text-left">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
                 <div class="flex justify-center gap-8 items-center">
-                    <a href="index.html" aria-label="Kembali ke Beranda Utama" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Beranda Utama</a>
-                    <a href="testimoni" aria-label="Lihat Testimoni Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Testimoni Klien</a>
+                    <!-- FIX AUDIT: Mengubah index.html menjadi / dan testimoni menjadi /testimoni -->
+                    <a href="/" aria-label="Kembali ke Beranda Utama" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Beranda Utama</a>
+                    <a href="/testimoni" aria-label="Lihat Testimoni Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Testimoni Klien</a>
                     <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Interupsi Ulang Perekaman Indeks Tautan Google Otomatis" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Ping Robot Google Untuk Memindai Keterbaruan"><i class="fas fa-satellite-dish"></i></button>
                 </div>
             </div>

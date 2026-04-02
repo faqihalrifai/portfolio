@@ -1,16 +1,56 @@
-﻿Muhammad Faqih Al Rifai - Portfolio & Layanan
-Digital Marketing Strategist, Konsultan SEO, dan Web Developer B2B yang berbasis di Cirebon, Jawa Barat, Indonesia.
-Tentang
-Muhammad Faqih Al Rifai adalah seorang pakar pemasaran digital yang berfokus pada pembuatan website perusahaan profesional, manajemen e-commerce (Shopify), dan optimasi mesin pencari (SEO) teknikal. Fokus utamanya adalah membantu bisnis melipatgandakan konversi dan visibilitas organik di Google (Core Web Vitals).
-Layanan Utama
-* Pengembangan Website: Pembuatan Landing Page konversi tinggi, Website Perusahaan (B2B), platform Kelas Online (LMS), Sistem Ujian (CBT), dan Katalog Properti.
-* Optimasi SEO: Audit Technical SEO, Optimasi Kecepatan Web (PageSpeed), Local SEO (Google Bisnisku), Penulisan Artikel Pilar, dan Strategi Backlink White-Hat.
-* Manajemen E-Commerce: Pengelolaan toko Shopify, sistem inventaris digital, Automasi Invoicing, dan pembuatan dasbor analitik eksekutif (Looker Studio).
-* Infrastruktur Web: Penyediaan Cloud VPS, Web Hosting NVMe berkinerja tinggi, dan lisensi domain resmi (.COM / .ID).
-Detail Kontak & Jejaring Profesional
-* Website Resmi: https://faqihalrf.online/
-* Publikasi / Blog: https://www.google.com/search?q=https://faqihalrf.blogspot.com/
-* LinkedIn: https://www.linkedin.com/in/muhammad-faqih-al-rifai
-* Instagram: https://www.instagram.com/faqihalrf
-* Email: faqihalrf@gmail.com
-* WhatsApp: +62859148219009
+============================================================
+PROFIL PROFESIONAL & KATALOG LAYANAN DIGITAL
+============================================================
+
+[IDENTITAS UTAMA]
+Nama           : Muhammad Faqih Al Rifai
+Peran Utama    : Digital Marketing Strategist
+Spesialisasi   : Konsultan SEO & Web Developer B2B
+Lokasi Basis   : Cirebon, Jawa Barat, Indonesia
+
+------------------------------------------------------------
+[RINGKASAN EKSEKUTIF]
+------------------------------------------------------------
+Muhammad Faqih Al Rifai adalah seorang pakar pemasaran digital 
+yang berfokus pada pembuatan website perusahaan profesional, 
+manajemen e-commerce, dan optimasi mesin pencari (SEO) teknikal. 
+Fokus utamanya adalah membantu bisnis melipatgandakan konversi 
+dan visibilitas organik di mesin pencari Google.
+
+------------------------------------------------------------
+[MATRIKS LAYANAN UTAMA]
+------------------------------------------------------------
+
+1. PENGEMBANGAN WEBSITE (DEVELOPMENT)
+   - Landing Page Konversi Tinggi
+   - Website Profil Perusahaan (B2B)
+   - Platform Kelas Online (LMS)
+   - Sistem Ujian Online (CBT)
+   - Katalog Properti & Real Estate
+
+2. OPTIMASI MESIN PENCARI (SEO)
+   - Audit Technical SEO (On-Page & Off-Page)
+   - Optimasi Kecepatan Web (Core Web Vitals/PageSpeed)
+   - Local SEO & Google Maps Optimization
+   - Penulisan Konten Artikel Pilar (Authority Content)
+   - Strategi Backlink White-Hat
+
+3. MANAJEMEN E-COMMERCE & SISTEM
+   - Pengelolaan Toko Shopify (Expert)
+   - Sistem Inventaris Digital
+   - Automasi Penagihan (Invoicing System)
+   - Dasbor Analitik Eksekutif (Data Visualization)
+
+------------------------------------------------------------
+[DETAIL KONTAK & JEJARING PROFESIONAL]
+------------------------------------------------------------
+URL Portofolio : https://faqihalrf.online/
+Blog/Publikasi : https://faqihalrf.blogspot.com/
+LinkedIn       : https://www.linkedin.com/in/muhammad-faqih-al-rifai
+Instagram      : https://www.instagram.com/faqihalrf
+Email Bisnis   : faqihalrf@gmail.com
+WhatsApp       : +62-859-1482-19009
+
+============================================================
+Generated: 2026-04-02 | Muhammad Faqih Al Rifai Data Sheet
+============================================================

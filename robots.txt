@@ -1,25 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /config/
-Disallow: /backups/
-Disallow: /logs/
-Disallow: /.git/
-Disallow: /.env
-Disallow: /*?s=
-Disallow: /search/
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /*?fbclid=
 
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-Sitemap: https://faqihalrf.online/sitemap.xml
+Sitemap: https://www.google.com/search?q=https://faqihalrf.online/sitemap.xml

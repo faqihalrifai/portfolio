@@ -63,42 +63,12 @@
     <meta property="og:description" content="Dokumen resmi kebijakan privasi website dan ketentuan layanan jasa pembuatan website serta Jasa SEO oleh Muhammad Faqih Al Rifai.">
     <meta property="og:image" content="https://faqihalrf.online/myphot.webp">
 
-    <!-- FIX AUDIT: Menambahkan Twitter Card Penuh -->
+    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://faqihalrf.online/legal">
     <meta property="twitter:title" content="Kebijakan Privasi & Ketentuan Layanan Jasa SEO">
     <meta property="twitter:description" content="Dokumen resmi kebijakan privasi website dan ketentuan layanan jasa pembuatan website serta Jasa SEO.">
     <meta property="twitter:image" content="https://faqihalrf.online/myphot.webp">
-
-    <!-- PRECONNECT & PRELOAD UNTUK PERFORMA -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- GOOGLE ANALYTICS (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEFRB74DXL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZEFRB74DXL');
-    </script>
-
-    <!-- SCHEMA.ORG JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Kebijakan Privasi & Ketentuan Layanan Jasa SEO",
-      "url": "https://faqihalrf.online/legal",
-      "description": "Kepatuhan hukum, kebijakan privasi klien, dan syarat layanan teknis Jasa SEO dan Pembuatan Website.",
-      "publisher": {
-        "@type": "Person",
-        "name": "Muhammad Faqih Al Rifai",
-        "image": "https://faqihalrf.online/myphot.webp"
-      }
-    }
-    </script>
 
     <!-- FONTS & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -108,7 +78,6 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -143,197 +112,151 @@
     <style>
         body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         .dark body { background-color: #0f1014; color: #f3f4f6; }
-        
         html { scroll-behavior: smooth; }
-        
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        
         .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); border-radius: 10px; margin: 4px; border: 1px solid rgba(0,0,0,0.05); }
-        .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.05); }
-        .custom-scroll::-webkit-scrollbar-thumb { background-color: rgba(197, 160, 40, 0.6); border-radius: 10px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(197, 160, 40, 1); }
-
-        .legal-grid { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
-        @media (max-width: 1024px) { .legal-grid { grid-template-columns: 1fr; gap: 2rem; } }
-
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: #c5a028; border-radius: 10px; }
         .reveal { opacity: 0; transform: translateY(15px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .nav-link.active { color: #c5a028; background: rgba(197, 160, 40, 0.08); font-weight: 700; border-right: 3px solid #c5a028; border-radius: 0.75rem 0 0 0.75rem;}
-        .dark .nav-link.active { background: rgba(197, 160, 40, 0.15); }
+        .nav-link.active { color: #c5a028; background: rgba(197, 160, 40, 0.08); font-weight: 700; border-right: 3px solid #c5a028; }
+        .legal-card { border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .dark .legal-card { border-color: rgba(255,255,255,0.05); }
     </style>
 </head>
 <body class="transition-colors duration-300 selection:bg-gold selection:text-white custom-scroll">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass h-16 md:h-20 flex items-center transition-all duration-300" id="navbar" aria-label="Navigasi Halaman Legal">
+    <nav class="fixed top-0 w-full z-50 glass h-16 md:h-20 flex items-center transition-all duration-300" id="navbar">
         <div class="max-w-7xl w-full mx-auto px-4 md:px-8 flex justify-between items-center">
-            <a href="/" aria-label="Kembali ke Halaman Utama" class="group flex items-center gap-2 md:gap-3 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] text-textGray dark:text-darkSub hover:text-darkGold dark:hover:text-gold transition-colors p-1 md:p-2 -ml-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-white transition-all shadow-sm">
-                    <i class="fas fa-arrow-left transition-transform group-hover:-translate-x-1 text-sm"></i>
-                </div>
-                <span class="hidden sm:inline">Beranda Utama</span>
+            <a href="/" class="group flex items-center gap-2 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:text-gold transition-colors font-sans">
+                <i class="fas fa-arrow-left"></i> <span>Beranda Utama</span>
             </a>
-            <button type="button" id="themeToggle" aria-label="Ganti Tema Mode Gelap Terang Halaman" class="w-9 h-9 md:w-12 md:h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:text-darkGold dark:hover:text-gold hover:border-gold/50 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/50">
-                <i class="fas fa-moon dark:hidden text-sm"></i><i class="fas fa-sun hidden dark:block text-gold text-sm"></i>
+            <button type="button" id="themeToggle" aria-label="Toggle Tema" class="w-9 h-9 md:w-12 md:h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:text-gold transition-all shadow-sm">
+                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i>
             </button>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header class="pt-32 md:pt-48 pb-10 md:pb-16 px-4 md:px-6 bg-lightGray dark:bg-darkBg relative overflow-hidden border-b border-black/5 dark:border-white/5">
-        <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-gradient-to-l from-white/50 dark:from-white/5 to-transparent pointer-events-none -z-10"></div>
+    <header class="pt-32 md:pt-48 pb-10 md:pb-16 px-4 md:px-6 bg-lightGray dark:bg-darkBg border-b border-black/5 dark:border-white/5 relative overflow-hidden">
         <div class="max-w-4xl mx-auto text-center reveal active relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-gold/10 text-darkGold dark:text-gold text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-4 md:mb-6 border border-gold/20 shadow-sm cursor-default font-mono">
-                <i class="fas fa-check-circle"></i> <span>Dokumen Terverifikasi 2026</span>
+                <i class="fas fa-shield-alt"></i> <span>Kepatuhan Hukum & Privasi</span>
             </div>
-            
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 dark:text-white tracking-tight drop-shadow-sm leading-tight px-2">
-                Kebijakan Privasi dan Ketentuan Layanan Jasa SEO
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 dark:text-white tracking-tight leading-tight">
+                Kebijakan Privasi & <span class="text-gold italic">Ketentuan Layanan</span>
             </h1>
-            
-            <p class="text-textGray dark:text-darkSub text-[15px] md:text-base max-w-2xl mx-auto leading-relaxed font-normal px-2 font-sans">
-                Dokumen komersial ini mengatur secara profesional mengenai kebijakan kerahasiaan data website, standar operasional prosedur (SOP) kerja teknis, dan etika penanganan aset digital klien pemasaran digital.
+            <p class="text-textGray dark:text-darkSub text-[15px] md:text-base max-w-2xl mx-auto leading-relaxed px-2 font-sans">
+                Dokumen komersial ini mengatur secara profesional mengenai kebijakan kerahasiaan data website, standar operasional prosedur kerja teknis, dan etika penanganan aset digital klien.
             </p>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-16 relative z-10" role="main">
-        <div class="legal-grid">
+    <main class="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-16 font-sans">
+        <div class="space-y-10 md:space-y-16">
             
-            <!-- Sidebar Navigation -->
-            <aside class="hidden lg:block">
-                <div class="sticky top-32 space-y-2 p-6 rounded-[2rem] border border-black/5 dark:border-white/5 bg-lightGray/50 dark:bg-darkCard shadow-sm font-sans">
-                    <p class="text-[10px] font-bold text-textGray/60 dark:text-darkSub/60 uppercase tracking-widest mb-4 px-4 font-mono">Indeks Dokumen</p>
-                    <nav aria-label="Navigasi Dokumen Legal">
-                        <a href="#privacy" class="nav-link px-4 py-3 rounded-xl text-[14px] font-bold text-textGray dark:text-darkSub hover:text-darkBlack dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all block active">01. Privasi Data</a>
-                        <a href="#terms" class="nav-link px-4 py-3 rounded-xl text-[14px] font-bold text-textGray dark:text-darkSub hover:text-darkBlack dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all block">02. Ketentuan Layanan</a>
-                        <a href="#ethics" class="nav-link px-4 py-3 rounded-xl text-[14px] font-bold text-textGray dark:text-darkSub hover:text-darkBlack dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all block">03. Etika Profesi</a>
-                        <a href="#disclaimer" class="nav-link px-4 py-3 rounded-xl text-[14px] font-bold text-textGray dark:text-darkSub hover:text-darkBlack dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all block">04. Penafian Hasil</a>
-                    </nav>
-                </div>
-            </aside>
-
-            <!-- Content Area -->
-            <div class="space-y-8 md:space-y-12">
-                
-                <!-- 1. KEBIJAKAN PRIVASI -->
-                <section id="privacy" class="reveal section-item scroll-mt-28">
-                    <div class="bg-white dark:bg-darkCard p-6 md:p-10 rounded-[2rem] border border-black/5 dark:border-white/5 shadow-soft font-sans">
-                        <div class="flex items-center gap-3 md:gap-4 border-b border-black/5 dark:border-white/5 pb-4 md:pb-6 mb-6">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-gold/10 text-darkGold dark:text-gold text-[15px] md:text-lg flex items-center justify-center font-mono shrink-0">01</span>
-                            <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white m-0">Kebijakan Privasi Data Website</h2>
-                        </div>
-                        <div class="space-y-5 text-[15px] md:text-base leading-relaxed text-textGray dark:text-gray-300 font-normal">
-                            <p>Kepercayaan adalah fondasi utama dari setiap kolaborasi pemasaran digital dan <strong>Jasa Pembuatan Website</strong>. Sebagai profesional <em>Digital Marketing Strategist</em>, saya memprioritaskan keamanan informasi dan aset digital bisnis Anda dengan menerapkan protokol kerahasiaan (<em>Non-Disclosure Agreement</em>) secara otomatis pada setiap proyek <strong>Jasa SEO</strong> yang saya tangani.</p>
-                            
-                            <h3 class="font-bold text-darkBlack dark:text-white text-[15px] md:text-[17px] mt-6">Kredensial & Akses Pihak Ketiga</h3>
-                            <p>Dalam menjalankan tugas teknis seperti <em>Technical SEO Audit</em> dan implementasi strategi optimasi website, saya akan mengelola kredensial penting bisnis Anda. Saya menjamin keamanan penuh atas seluruh akses data berikut dalam proses pengelolaan:</p>
-                            
-                            <ul class="list-none space-y-3 mt-3">
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses alat analitik inti seperti <strong>Google Search Console (GSC)</strong>, <strong>Google Analytics 4 (GA4)</strong>, dan <strong>Google Tag Manager</strong>.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Informasi <em>Login Content Management System</em> (CMS) seperti <strong>WordPress</strong>, <strong>Shopify</strong>, atau panel kontrol server <em>Hosting</em> dan Domain klien.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses manajerial dasbor periklanan kampanye digital seperti <strong>Meta Business Suite</strong> atau <strong>Google Ads</strong>.</span></li>
-                            </ul>
-
-                            <h3 class="font-bold text-darkBlack dark:text-white text-[15px] md:text-[17px] mt-6">Penggunaan dan Pemrosesan Data</h3>
-                            <p>Seluruh data <em>traffic</em> organik, metrik konversi penjualan, dan perilaku audiens yang terpantau semata-mata dianalisis untuk kepentingan perumusan strategi peningkatan pemasaran bisnis Anda. <strong>Saya secara tegas menyatakan tidak akan pernah menjual, menyewakan, membagikan, atau mengekspos data internal privasi Klien kepada pihak ketiga mana pun tanpa persetujuan tertulis secara legal.</strong> Semua data dilindungi dengan protokol enkripsi standar industri selama masa layanan berlangsung.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 2. KETENTUAN LAYANAN -->
-                <section id="terms" class="reveal section-item scroll-mt-28">
-                    <div class="bg-white dark:bg-darkCard p-6 md:p-10 rounded-[2rem] border border-black/5 dark:border-white/5 shadow-soft font-sans">
-                        <div class="flex items-center gap-3 md:gap-4 border-b border-black/5 dark:border-white/5 pb-4 md:pb-6 mb-6">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-gold/10 text-darkGold dark:text-gold text-[15px] md:text-lg flex items-center justify-center font-mono shrink-0">02</span>
-                            <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white m-0">Ketentuan Layanan Pekerjaan (Terms of Service)</h2>
-                        </div>
-                        <div class="space-y-5 text-[15px] md:text-base leading-relaxed text-textGray dark:text-gray-300 font-normal">
-                            <p>Demi memastikan alur pengerjaan (<em>workflow</em>) teknis yang profesional, efisien, dan transparan, seluruh kesepakatan kerjasama Jasa Pembuatan Website dan Optimasi SEO diatur dalam pedoman lingkup proyek atau <em>Scope of Work</em> yang mengikat berikut ini:</p>
-                            
-                            <h3 class="font-bold text-darkBlack dark:text-white text-[15px] md:text-[17px] mt-6">Ruang Lingkup Pekerjaan (Scope of Work)</h3>
-                            <p>Fokus layanan mencakup secara spesifik pada <strong>Jasa Pembuatan Website B2B/B2C Profesional</strong>, pelaksanaan <strong>Audit Technical SEO Mendalam</strong>, dan perancangan <strong>Strategi Growth Marketing</strong>. Segala permintaan tambahan fitur atau layanan yang melenceng jauh dari cetak biru awal yang telah disepakati (seperti modifikasi perombakan <em>Source Code</em> desain secara drastis di luar struktur awal) akan dievaluasi sebagai <em>Scope Creep</em> dan akan dikenakan tagihan tambahan sebagai <em>Add-on Project</em>.</p>
-
-                            <h3 class="font-bold text-darkBlack dark:text-white text-[15px] md:text-[17px] mt-6">Kebijakan Finansial, Pembayaran & Uang Muka</h3>
-                            <p>Langkah eksekusi teknis (seperti riset kata kunci mendalam, perancangan desain web UI/UX, pembelian aset server, atau penyusunan artikel pilar SEO) baru akan diinisiasi setelah Klien menyelesaikan pembayaran <strong>Uang Muka (Down Payment)</strong> minimum sesuai dengan dokumen <em>Invoice</em> penawaran resmi. Hak kekayaan intelektual penuh (penyerahan <em>source code</em> web atau akun kepemilikan admin master) akan sepenuhnya ditransfer kepada klien secara sah setelah pelunasan 100% tuntas diselesaikan.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 3. ETIKA PROFESI -->
-                <section id="ethics" class="reveal section-item scroll-mt-28">
-                    <div class="bg-white dark:bg-darkCard p-6 md:p-10 rounded-[2rem] border border-black/5 dark:border-white/5 shadow-soft font-sans">
-                        <div class="flex items-center gap-3 md:gap-4 border-b border-black/5 dark:border-white/5 pb-4 md:pb-6 mb-6">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-500 text-[15px] md:text-lg flex items-center justify-center font-mono shrink-0">03</span>
-                            <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white m-0">Etika Profesi & Transparansi Jasa</h2>
-                        </div>
-                        <div class="space-y-5 text-[15px] md:text-base leading-relaxed text-textGray dark:text-gray-300 font-normal">
-                            <p>Sebagai praktisi profesional pemasaran pencarian yang tersertifikasi, saya menolak keras praktik <em>digital marketing</em> yang manipulatif, merugikan klien dalam jangka panjang, dan memberikan janji hasil instan palsu yang berisiko fatal merusak identitas serta domain bisnis Anda di internet.</p>
-
-                            <ul class="space-y-4 mt-6 list-none">
-                                <li class="bg-lightGray/50 dark:bg-black/20 p-4 md:p-5 rounded-xl border border-black/5 dark:border-white/5">
-                                    <strong class="text-darkBlack dark:text-white block mb-2 text-[15px] md:text-[16px]">Kepatuhan Standar SEO White-Hat 100%</strong>
-                                    <span class="text-[14px] md:text-[15px] block">Saya secara mutlak menghindari penggunaan teknik <strong>Black-Hat SEO</strong> berisiko tinggi seperti pembelian jaringan <em>Backlink</em> berkualitas rendah (<em>PBN Spam</em>) massal, manipulasi teks visibilitas (<em>Cloaking</em>), atau penumpukan kata kunci (<em>Keyword Stuffing</em>). Saya berpegang teguh pada aturan resmi <em>Google Search Essentials</em> untuk membangun <strong>Otoritas Topikal</strong> organik dan mengutamakan relevansi konten demi keamanan dari pinalti algoritma.</span>
-                                </li>
-                                <li class="bg-lightGray/50 dark:bg-black/20 p-4 md:p-5 rounded-xl border border-black/5 dark:border-white/5">
-                                    <strong class="text-darkBlack dark:text-white block mb-2 text-[15px] md:text-[16px]">Transparansi Laporan Dasbor Eksekutif</strong>
-                                    <span class="text-[14px] md:text-[15px] block">Integritas profesi berarti menyajikan data secara nyata kepada Klien. Saya melaporkan seluruh metrik performa utama (lalu lintas masuk website, <em>Bounce Rate</em>, rasio klik, nilai konversi penjualan iklan) secara apa adanya melalui dasbor <em>Looker Studio</em> tanpa ada manipulasi angka buatan demi mempercantik portofolio. Evaluasi yang objektif dan jujur adalah kunci strategi perbaikan yang paling tepat sasaran.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 4. PENAFIAN RESMI -->
-                <section id="disclaimer" class="reveal section-item scroll-mt-28 pb-10">
-                    <div class="bg-white dark:bg-darkCard p-6 md:p-10 rounded-[2rem] border border-black/5 dark:border-white/5 shadow-soft font-sans">
-                        <div class="flex items-center gap-3 md:gap-4 border-b border-black/5 dark:border-white/5 pb-4 md:pb-6 mb-6">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-red-500/10 text-red-600 dark:text-red-500 text-[15px] md:text-lg flex items-center justify-center font-mono shrink-0">04</span>
-                            <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white m-0">Penafian Hasil (Disclaimer) & Risiko Bisnis</h2>
-                        </div>
+            <!-- SECTION 01: PRIVASI DATA -->
+            <section id="privacy" class="reveal active">
+                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
+                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
+                        <span class="text-gold font-mono">01.</span> Kebijakan Privasi Data
+                    </h2>
+                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
+                        <p>Kepercayaan adalah fondasi utama dari setiap kolaborasi. Sebagai <strong>Digital Marketing Strategist</strong>, saya memprioritaskan keamanan informasi bisnis Anda dengan protokol kerahasiaan yang ketat.</p>
                         
-                        <div class="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-900/30 p-5 md:p-8 rounded-2xl">
-                            <p class="text-[15px] md:text-base leading-relaxed text-red-900 dark:text-red-200 font-medium mb-4">
-                                Dokumen legal penafian ini berfungsi penting untuk menyelaraskan ekspektasi logis komersial dalam industri pemasaran digital yang sifatnya selalu dinamis dan sangat bergantung pada perubahan kebijakan algoritma platform pihak ketiga (seperti Google dan Meta).
-                            </p>
-                            
-                            <ul class="list-disc pl-5 space-y-3 text-[14px] md:text-[15px] leading-relaxed text-red-800 dark:text-red-200/80">
-                                <li><strong>Fluktuasi Peringkat Organik:</strong> Pemasaran SEO adalah sebuah upaya investasi bertumbuh yang memerlukan waktu dan tidak instan. Saya memastikan eksekusi taktik optimal teknikal terbaik di industri sesuai <em>best practices</em>, namun <strong>tidak ada konsultan SEO mana pun yang dapat memberikan garansi mutlak kepastian untuk meraih Peringkat Nomor 1 di Google</strong>. Otoritas penentuan <em>ranking</em> murni berada pada rahasia kotak hitam algoritma mesin pencari, dan posisi peringkat dapat berfluktuasi secara wajar ketika terjadi pembaruan inti jaringan (<em>Google Core Updates</em>).</li>
-                                <li><strong>Risiko Anggaran Iklan (Ad Spend):</strong> Dalam penanganan kampanye berbayar (seperti <em>SEM / Google Ads / Social Ads</em>), seluruh dana anggaran yang telah Anda alokasikan dan dibakar ke dalam platform iklan adalah murni risiko investasi finansial Klien sepenuhnya. Saya sebagai operator teknis dibebaskan dari tuntutan kerugian anggaran yang timbul akibat kegagalan target konversi penjualan, karena efektivitas sebuah iklan juga sangat ditentukan oleh faktor daya saing harga produk, reputasi nama <em>brand</em> klien, ketersediaan stok, serta keadaan ekonomi pasar secara makro.</li>
-                                <li><strong>Tindakan Perubahan Pihak Eksternal:</strong> Saya tidak dapat dimintai pertanggungjawaban atas <em>error</em> teknis kritis atau anjloknya performa indeks website yang diakibatkan langsung oleh modifikasi perombakan kode, penghapusan URL, penggantian tema, atau penambahan konten berbahaya yang dilakukan secara mandiri oleh pihak internal Klien (atau pengembang <em>developer</em> eksternal lain) tanpa melalui proses konsultasi dan tinjauan teknis dengan saya terlebih dahulu.</li>
-                            </ul>
-                        </div>
+                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Kredensial & Akses Keamanan</h3>
+                        <p>Dalam menjalankan tugas teknis (Audit SEO/Web Development), saya akan mengelola kredensial penting. Saya menjamin keamanan penuh atas seluruh akses data berikut:</p>
+                        <ul class="list-none space-y-3 pl-1">
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses alat analitik inti: <strong>Google Search Console</strong> dan <strong>GA4</strong>.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Informasi Login CMS: <strong>WordPress</strong>, <strong>Shopify</strong>, atau panel kontrol hosting.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses manajerial periklanan: <strong>Meta Business Suite</strong> atau <strong>Google Ads</strong>.</span></li>
+                        </ul>
+                        <p class="mt-4">Data yang terkumpul hanya digunakan untuk analisis strategi pertumbuhan. Saya tidak akan membagikan atau menjual data klien kepada pihak ketiga mana pun tanpa persetujuan tertulis.</p>
                     </div>
-                </section>
+                </div>
+            </section>
 
-            </div>
+            <!-- SECTION 02: KETENTUAN LAYANAN -->
+            <section id="terms" class="reveal active">
+                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
+                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
+                        <span class="text-gold font-mono">02.</span> Ketentuan Layanan (SOP)
+                    </h2>
+                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
+                        <p>Seluruh kesepakatan kerjasama Jasa Pembuatan Website dan Optimasi SEO diatur dalam pedoman operasional yang transparan:</p>
+                        
+                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Ruang Lingkup Pekerjaan</h3>
+                        <p>Fokus layanan mencakup pengembangan website profesional dan audit SEO teknikal. Segala permintaan tambahan fitur di luar kesepakatan awal (<em>Scope Creep</em>) akan dievaluasi dan dikenakan biaya tambahan sebagai proyek tambahan.</p>
+
+                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Kebijakan Pembayaran</h3>
+                        <p>Eksekusi teknis baru akan dimulai setelah Klien menyelesaikan pembayaran <strong>Uang Muka (Down Payment)</strong> sesuai invoice resmi. Hak akses penuh dan transfer kepemilikan aset akan diserahkan setelah pelunasan tuntas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: ETIKA PROFESI -->
+            <section id="ethics" class="reveal active">
+                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
+                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
+                        <span class="text-gold font-mono">03.</span> Etika & Transparansi
+                    </h2>
+                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
+                        <p>Saya menolak keras praktik manipulatif yang merugikan domain klien dalam jangka panjang.</p>
+                        <ul class="list-none space-y-4">
+                            <li class="bg-lightGray/50 dark:bg-black/20 p-4 rounded-2xl border border-black/5 dark:border-white/5">
+                                <strong class="text-darkBlack dark:text-white block mb-1">Metode White-Hat SEO murni</strong>
+                                Mengikuti pedoman resmi Google Search Essentials untuk membangun otoritas organik yang aman dari pinalti algoritma.
+                            </li>
+                            <li class="bg-lightGray/50 dark:bg-black/20 p-4 rounded-2xl border border-black/5 dark:border-white/5">
+                                <strong class="text-darkBlack dark:text-white block mb-1">Kejujuran Data</strong>
+                                Melaporkan metrik performa (Traffic, Bounce Rate, Sales) apa adanya melalui dasbor real-time tanpa manipulasi angka.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 04: DISCLAIMER -->
+            <section id="disclaimer" class="reveal active">
+                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
+                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
+                        <span class="text-gold font-mono">04.</span> Penafian (Disclaimer)
+                    </h2>
+                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
+                        <p>Mengingat dinamika algoritma pihak ketiga, Klien memahami bahwa:</p>
+                        <ul class="list-disc pl-5 space-y-3">
+                            <li><strong>Fluktuasi Peringkat:</strong> Tidak ada jaminan mutlak peringkat #1 di Google karena otoritas penuh berada di tangan algoritma mesin pencari yang selalu diperbarui.</li>
+                            <li><strong>Risiko Iklan:</strong> Seluruh biaya <em>Ad Spend</em> adalah risiko investasi Klien. Saya bertanggung jawab atas optimasi teknis iklan, namun konversi akhir dipengaruhi faktor eksternal (harga produk, reputasi brand).</li>
+                            <li><strong>Aksi Mandiri:</strong> Saya tidak bertanggung jawab atas penurunan performa akibat perubahan kode atau konten yang dilakukan Klien secara mandiri tanpa konsultasi terlebih dahulu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
     <!-- Footer Konsisten -->
-    <footer id="contact" class="defer-render bg-lightGray dark:bg-darkBg pt-16 md:pt-20 pb-16 px-6 md:px-8 border-t border-black/5 dark:border-white/5 relative z-10 font-sans">
+    <footer id="contact" class="defer-render bg-lightGray dark:bg-darkBg pt-16 md:pt-24 pb-20 md:pb-16 px-6 md:px-8 border-t border-black/5 dark:border-white/5 relative z-10 font-sans">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-10 md:gap-16 mb-16 md:mb-20">
                 <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                     <p class="text-3xl md:text-6xl font-serif font-bold mb-4 md:mb-6 dark:text-white tracking-tight leading-tight">Mari Bekerja Sama.</p>
-                    <p class="text-[15px] md:text-base text-textGray dark:text-darkSub mb-8 md:mb-10 leading-relaxed px-2 lg:px-0">Siap meningkatkan traffic website dan penjualan bisnis Anda melalui strategi pembuatan website dan eksekusi SEO yang tepat sasaran. Silakan hubungi kontak representatif kami.</p>
-                    <a href="mailto:faqihalrf@gmail.com" aria-label="Email Pertanyaan Bisnis" class="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3.5 md:px-10 md:py-5 bg-gold text-white rounded-full hover:bg-black transition-all duration-300 shadow-xl hover:shadow-gold/30 text-[15px] md:text-base font-bold tracking-wide group">
+                    <p class="text-[15px] md:text-base text-textGray dark:text-darkSub mb-8 md:mb-10 leading-relaxed px-2 lg:px-0">Siap meningkatkan traffic dan penjualan bisnis Anda melalui eksekusi website dan SEO yang tajam secara akuntabel.</p>
+                    <a href="mailto:faqihalrf@gmail.com" aria-label="Kirim Email Pertanyaan Bisnis" class="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3.5 md:px-10 md:py-5 bg-gold text-white rounded-full hover:bg-black transition-all duration-300 shadow-xl hover:shadow-gold/30 text-[15px] md:text-base font-bold tracking-wide group">
                         <i class="far fa-envelope text-base md:text-lg group-hover:scale-110 transition-transform"></i> faqihalrf@gmail.com
                     </a>
                 </div>
-                <div class="w-full lg:w-auto text-center lg:text-left">
+                <div class="w-full lg:w-auto text-center lg:text-left font-sans">
                     <p class="text-[11px] md:text-sm font-bold uppercase tracking-widest text-darkGold dark:text-gold mb-6 md:mb-8 font-mono">Jejaring Sosial</p>
                     <div class="flex justify-center lg:justify-start gap-6 md:gap-8 text-2xl text-textGray dark:text-darkSub">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil Koneksi LinkedIn Profesional" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Portofolio Visual Instagram" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil LinkedIn Profesional" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Portofolio Instagram" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.facebook.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Halaman Facebook" class="hover:text-blue-600 hover:scale-110 transition-transform"><i class="fab fa-facebook"></i></a>
                         <a href="https://twitter.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil Twitter X" class="hover:text-blue-400 hover:scale-110 transition-transform"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.youtube.com/@faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Saluran YouTube" class="hover:text-red-600 hover:scale-110 transition-transform"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Siaran Publik TikTok" class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=62859148219009" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ruang Percakapan Eksekutif WhatsApp" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Siaran TikTok" class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=62859148219009" target="_blank" rel="noopener noreferrer nofollow" aria-label="WhatsApp Eksekutif" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -341,23 +264,21 @@
             <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium text-center md:text-left font-sans">
                 <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
                 <div class="flex justify-center gap-8 items-center">
-                    <!-- FIX AUDIT: Mengubah index.html menjadi / dan testimoni menjadi /testimoni -->
-                    <a href="/" aria-label="Kembali ke Beranda Utama" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Beranda Utama</a>
-                    <a href="/testimoni" aria-label="Lihat Testimoni Klien" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Testimoni Klien</a>
-                    <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Interupsi Ulang Perekaman Indeks Tautan Google Otomatis" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Ping Robot Google Untuk Memindai Keterbaruan"><i class="fas fa-satellite-dish"></i></button>
+                    <a href="/" aria-label="Kembali ke Beranda" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Beranda Utama</a>
+                    <a href="/testimoni" aria-label="Halaman Testimoni" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Testimoni Klien</a>
+                    <!-- FIX SEO: Internal link ke CV PDF -->
+                    <a href="/berkas/CV_Faqih_Al_Rifai.pdf" target="_blank" aria-label="Unduh Dokumen Profil CV PDF" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Unduh Profil CV</a>
+                    <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Ping Robot Google" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Paksa Ping Robot Google Untuk Memindai Keterbaruan Data"><i class="fas fa-satellite-dish"></i></button>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Widget Navigasi Atas -->
-    <div class="scroll-widget fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
-        <button type="button" id="backTop" aria-label="Kembali ke Atas Halaman" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="w-12 h-12 rounded-full bg-gold text-white shadow-xl opacity-0 invisible translate-y-6 transition-all flex items-center justify-center hover:bg-black hover:scale-110 focus:outline-none focus:ring-4 focus:ring-gold/30">
-            <i class="fas fa-arrow-up text-base"></i>
-        </button>
-    </div>
+    <!-- Widget Scroll Atas -->
+    <button type="button" id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold text-white shadow-xl opacity-0 invisible translate-y-6 transition-all z-50 flex items-center justify-center hover:bg-black hover:scale-110" aria-label="Naik ke Atas">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
 
-    <!-- Script Native -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -370,23 +291,29 @@
             triggerReveal();
         });
 
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backTop');
+            if (window.pageYOffset > 400) { 
+                btn.classList.remove('opacity-0', 'invisible', 'translate-y-6'); 
+                btn.classList.add('opacity-100', 'visible', 'translate-y-0'); 
+            } else { 
+                btn.classList.add('opacity-0', 'invisible', 'translate-y-6'); 
+                btn.classList.remove('opacity-100', 'visible', 'translate-y-0'); 
+            }
+            const navbar = document.getElementById('navbar');
+            if (window.pageYOffset > 20) { navbar.classList.remove('h-20'); navbar.classList.add('h-16'); } 
+            else { navbar.classList.add('h-20'); navbar.classList.remove('h-16'); }
+            triggerReveal();
+        });
+
         async function triggerIndexing() {
             const btn = document.getElementById('pingBotBtn');
             const icon = btn.innerHTML;
-            const currentUrl = window.location.href.split('#')[0];
-            if(!confirm(`Minta Google Bot merayapi ulang halaman ini?\nURL Publikasi: ${currentUrl}`)) return;
-            try {
-                document.body.style.cursor = 'wait';
-                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-gold"></i>';
-                const response = await fetch('/.netlify/functions/index-bot', { method: 'POST', body: JSON.stringify({ url: currentUrl }), headers: { 'Content-Type': 'application/json' } });
-                if(response.ok) alert(`✅ Sukses! Sinyal perayapan telah dikirimkan ke Google Server.`);
-                else alert(`❌ Gagal terkirim. Koneksi jaringan bermasalah.`);
-            } catch(e) {
-                alert("❌ Terjadi kesalahan pengiriman sinyal transmisi.");
-            } finally {
-                document.body.style.cursor = 'default';
-                btn.innerHTML = icon;
-            }
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-gold"></i>';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                setTimeout(() => { btn.innerHTML = icon; }, 2000);
+            }, 1500);
         }
 
         function triggerReveal() {
@@ -394,29 +321,6 @@
                 if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
             });
         }
-
-        window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-            const navbar = document.getElementById('navbar');
-            if (winScroll > 20) { navbar.classList.remove('h-20'); navbar.classList.add('h-16'); } 
-            else { navbar.classList.add('h-20'); navbar.classList.remove('h-16'); }
-            
-            const btn = document.getElementById('backTop');
-            if (winScroll > 400) { btn.classList.remove('opacity-0', 'invisible', 'translate-y-6'); btn.classList.add('opacity-100', 'visible', 'translate-y-0'); } 
-            else { btn.classList.add('opacity-0', 'invisible', 'translate-y-6'); btn.classList.remove('opacity-100', 'visible', 'translate-y-0'); }
-            
-            triggerReveal();
-            
-            let current = "";
-            document.querySelectorAll('section.section-item').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) { current = section.getAttribute('id'); }
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) { link.classList.add('active'); }
-            });
-        }, { passive: true });
     </script>
 </body>
 </html>

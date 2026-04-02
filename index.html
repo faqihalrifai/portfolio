@@ -1439,7 +1439,7 @@
         function fetchBloggerPosts() {
             try {
                 const script = document.createElement('script');
-                script.src = 'https://faqihalrf.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=handleBloggerData';
+                script.src = 'https://blog.faqihalrf.online/feeds/posts/default?alt=json-in-script&max-results=6&callback=handleBloggerData';
                 script.onerror = function() {
                     const container = document.getElementById('blog-container');
                     if(container) container.innerHTML = '<div class="w-full text-center py-10 text-textGray dark:text-darkSub font-mono text-sm">Gagal memuat artikel dari blog. Silakan kunjungi faqihalrf.blogspot.com langsung.</div>';

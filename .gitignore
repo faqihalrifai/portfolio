@@ -1,4 +1,19 @@
-node_modules
-*.json
-!.github/workflows/*.json
+Dependency directories
+
+node_modules/
+
+Netlify & Build folders
+
+.netlify/
+dist/
+build/
+
+Environment variables (JANGAN PERNAH MENGUNGGAH .env KE GITHUB)
+
 .env
+.env.local
+
+OS generated files
+
+.DS_Store
+Thumbs.db

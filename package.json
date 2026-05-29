@@ -1,12 +1,14 @@
 {
-  "name": "faqihalrf-portfolio",
+  "name": "faqih-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio Website & Indexing Bot",
+  "description": "Portfolio Digital Marketer & SEO Specialist",
   "main": "index.html",
-  "dependencies": {
-    "googleapis": "^128.0.0"
-  },
   "scripts": {
-    "build": "echo 'No build step required for static HTML'"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "googleapis": "^133.0.0"
+  },
+  "author": "Muhammad Faqih Al Rifai",
+  "license": "ISC"
 }

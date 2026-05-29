@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- =========================================
-         1. GOOGLE TAG MANAGER (JANGAN DIHAPUS)
-         ========================================= -->
+    <!-- GTM -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -11,37 +9,35 @@
     })(window,document,'script','dataLayer','GTM-KW247L2C');</script>
 
     <meta charset="UTF-8">
-    <!-- FIX AUDIT: Hapus maximum-scale untuk kepatuhan PageSpeed Mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#ffffff">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- =========================================
-         2. PERLINDUNGAN KEAMANAN (ANTI HACK DASAR)
-         ========================================= -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
+    <!-- Security Maksimal -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <script>
-        try {
+        try { 
             if (window.top !== window.self) { window.top.location.replace(window.self.location.href); }
-        } catch (e) {
-            console.warn("Peringatan: Berjalan di dalam sandbox iframe.");
-        }
+        } catch (e) {}
+
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U') || (e.ctrlKey && e.key === 'S') || (e.ctrlKey && e.key === 'P')) {
                 e.preventDefault();
             }
         });
     </script>
-    
-    <!-- OPTIMASI SEO -->
-    <title>Kebijakan Privasi & Layanan Jasa SEO | Muhammad Faqih</title>
-    <!-- FIX AUDIT: Deskripsi optimal di bawah 160 Karakter -->
-    <meta name="description" content="Dokumen resmi kebijakan privasi website dan ketentuan layanan jasa pembuatan website serta Jasa SEO oleh Digital Marketing Strategist Muhammad Faqih Al Rifai.">
-    <meta name="keywords" content="kebijakan privasi website, ketentuan layanan jasa digital, privacy policy, terms of service, kebijakan privasi jasa seo, aturan layanan pembuatan website">
+
+    <!-- Optimasi Meta On-Page SEO (Screaming Frog Approved) -->
+    <title>Kebijakan Privasi dan Ketentuan Layanan B2B | Muhammad Faqih</title>
+    <meta name="description" content="Dokumen resmi kebijakan privasi, kerahasiaan data, dan syarat ketentuan layanan jasa pembuatan website serta optimasi SEO B2B oleh Muhammad Faqih Al Rifai.">
+    <meta name="keywords" content="kebijakan privasi website, ketentuan layanan jasa digital, privacy policy, terms of service, kebijakan privasi jasa seo, aturan layanan pembuatan website, digital marketing portfolio, syarat ketentuan, jasa seo, website copywriting">
     <meta name="author" content="Muhammad Faqih Al Rifai">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -49,44 +45,57 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     
-    <!-- FIX AUDIT: Canonical URL bersih tanpa parameter -->
     <link rel="canonical" href="https://faqihalrf.online/legal">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="google-site-verification" content="Jkno9NlGud5XD9yM1BmWH2oEXnJXhJC0QYoTuM2n8ws" />
-    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- OPEN GRAPH -->
+    <!-- Open Graph Data Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://faqihalrf.online/legal">
     <meta property="og:site_name" content="Muhammad Faqih Al Rifai">
-    <meta property="og:title" content="Kebijakan Privasi & Ketentuan Layanan Jasa SEO | Muhammad Faqih">
-    <meta property="og:description" content="Dokumen resmi kebijakan privasi website dan ketentuan layanan jasa pembuatan website serta Jasa SEO oleh Muhammad Faqih Al Rifai.">
+    <meta property="og:title" content="Kebijakan Privasi dan Ketentuan Layanan Jasa SEO">
+    <meta property="og:description" content="Dokumen resmi kebijakan privasi dan syarat ketentuan layanan digital marketing dan SEO B2B oleh Muhammad Faqih Al Rifai.">
     <meta property="og:image" content="https://faqihalrf.online/myphot.webp">
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card Metadata -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://faqihalrf.online/legal">
-    <meta property="twitter:title" content="Kebijakan Privasi & Ketentuan Layanan Jasa SEO">
-    <meta property="twitter:description" content="Dokumen resmi kebijakan privasi website dan ketentuan layanan jasa pembuatan website serta Jasa SEO.">
+    <meta property="twitter:title" content="Kebijakan Privasi dan Ketentuan Layanan Jasa SEO">
+    <meta property="twitter:description" content="Dokumen resmi kebijakan privasi dan syarat ketentuan layanan.">
     <meta property="twitter:image" content="https://faqihalrf.online/myphot.webp">
 
-    <!-- FONTS & CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
-    
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <!-- Structured Data JSON-LD (WebPage Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://faqihalrf.online/legal#webpage",
+      "url": "https://faqihalrf.online/legal",
+      "name": "Kebijakan Privasi dan Ketentuan Layanan B2B | Muhammad Faqih",
+      "description": "Dokumen resmi kebijakan privasi, kerahasiaan data, dan syarat ketentuan layanan oleh Muhammad Faqih, Digital Marketer dan SEO Specialist.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Muhammad Faqih Al Rifai",
+        "url": "https://faqihalrf.online/"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"></noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['Lato', 'Arial', 'sans-serif'],
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                        mono: ['Calibri', 'sans-serif'],
                     },
                     colors: {
                         mainWhite: '#ffffff',
@@ -95,14 +104,6 @@
                         darkGold: '#c5a028',
                         darkBlack: '#111827',
                         textGray: '#4b5563',
-                        darkBg: '#0f1014',        
-                        darkCard: '#18181b',        
-                        darkText: '#f3f4f6',        
-                        darkSub: '#9ca3af',
-                    },
-                    boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 25px rgba(197, 160, 40, 0.15)',
                     }
                 }
             }
@@ -110,217 +111,119 @@
     </script>
 
     <style>
-        body { background-color: #ffffff; color: #111827; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        .dark body { background-color: #0f1014; color: #f3f4f6; }
-        html { scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dark .glass { background: rgba(15, 16, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background-color: #c5a028; border-radius: 10px; }
-        .reveal { opacity: 0; transform: translateY(15px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .nav-link.active { color: #c5a028; background: rgba(197, 160, 40, 0.08); font-weight: 700; border-right: 3px solid #c5a028; }
-        .legal-card { border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
-        .dark .legal-card { border-color: rgba(255,255,255,0.05); }
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            font-family: 'Lato', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Format Desain Kertas Dokumen Klasik & Bersih */
+        .document-paper {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .section-divider {
+            border-bottom: 1px solid #e5e7eb;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
-<body class="transition-colors duration-300 selection:bg-gold selection:text-white custom-scroll">
+<body class="py-12 px-4 md:px-8 selection:bg-gold selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass h-16 md:h-20 flex items-center transition-all duration-300" id="navbar">
-        <div class="max-w-7xl w-full mx-auto px-4 md:px-8 flex justify-between items-center">
-            <a href="/" class="group flex items-center gap-2 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-textGray dark:text-darkSub hover:text-gold transition-colors font-sans">
-                <i class="fas fa-arrow-left"></i> <span>Beranda Utama</span>
+    <div class="max-w-3xl mx-auto">
+        
+        <!-- Navigasi Kembali Minimalis -->
+        <div class="mb-8">
+            <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-textGray hover:text-gold transition-colors duration-300">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Kembali ke Beranda</span>
             </a>
-            <button type="button" id="themeToggle" aria-label="Toggle Tema" class="w-9 h-9 md:w-12 md:h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-darkBlack dark:text-white hover:text-gold transition-all shadow-sm">
-                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block text-gold"></i>
-            </button>
         </div>
-    </nav>
 
-    <!-- Header Section -->
-    <header class="pt-32 md:pt-48 pb-10 md:pb-16 px-4 md:px-6 bg-lightGray dark:bg-darkBg border-b border-black/5 dark:border-white/5 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center reveal active relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-gold/10 text-darkGold dark:text-gold text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-4 md:mb-6 border border-gold/20 shadow-sm cursor-default font-mono">
-                <i class="fas fa-shield-alt"></i> <span>Kepatuhan Hukum & Privasi</span>
-            </div>
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 dark:text-white tracking-tight leading-tight">
-                Kebijakan Privasi & <span class="text-gold italic">Ketentuan Layanan</span>
-            </h1>
-            <p class="text-textGray dark:text-darkSub text-[15px] md:text-base max-w-2xl mx-auto leading-relaxed px-2 font-sans">
-                Dokumen komersial ini mengatur secara profesional mengenai kebijakan kerahasiaan data website, standar operasional prosedur kerja teknis, dan etika penanganan aset digital klien.
-            </p>
-        </div>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-16 font-sans">
-        <div class="space-y-10 md:space-y-16">
+        <!-- Wadah Kertas Dokumen Resmi -->
+        <article class="document-paper p-8 md:p-16 rounded-2xl">
             
-            <!-- SECTION 01: PRIVASI DATA -->
-            <section id="privacy" class="reveal active">
-                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
-                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
-                        <span class="text-gold font-mono">01.</span> Kebijakan Privasi Data
-                    </h2>
-                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
-                        <p>Kepercayaan adalah fondasi utama dari setiap kolaborasi. Sebagai <strong>Digital Marketing Strategist</strong>, saya memprioritaskan keamanan informasi bisnis Anda dengan protokol kerahasiaan yang ketat.</p>
-                        
-                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Kredensial & Akses Keamanan</h3>
-                        <p>Dalam menjalankan tugas teknis (Audit SEO/Web Development), saya akan mengelola kredensial penting. Saya menjamin keamanan penuh atas seluruh akses data berikut:</p>
-                        <ul class="list-none space-y-3 pl-1">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses alat analitik inti: <strong>Google Search Console</strong> dan <strong>GA4</strong>.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Informasi Login CMS: <strong>WordPress</strong>, <strong>Shopify</strong>, atau panel kontrol hosting.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>Akses manajerial periklanan: <strong>Meta Business Suite</strong> atau <strong>Google Ads</strong>.</span></li>
-                        </ul>
-                        <p class="mt-4">Data yang terkumpul hanya digunakan untuk analisis strategi pertumbuhan. Saya tidak akan membagikan atau menjual data klien kepada pihak ketiga mana pun tanpa persetujuan tertulis.</p>
-                    </div>
-                </div>
+            <!-- Judul Dokumen Utama -->
+            <header class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-serif font-bold text-darkBlack uppercase tracking-wide">Kebijakan Privasi dan Ketentuan Layanan</h1>
+                <p class="text-xs font-mono text-textGray mt-3 tracking-widest uppercase">Pembaruan Resmi: Tahun 2026</p>
+                <div class="w-16 h-0.5 bg-gold mx-auto mt-6"></div>
+            </header>
+
+            <section class="space-y-6 text-sm md:text-base text-textGray leading-relaxed text-justify font-sans">
+                <p>
+                    Dokumen ini merupakan bentuk pernyataan resmi yang mengatur mekanisme kerja sama, batasan privasi, dan aturan penanganan media digital antara Muhammad Faqih Al Rifai (selanjutnya disebut sebagai Penyedia Layanan) dengan seluruh klien pengguna jasa (selanjutnya disebut sebagai Klien). Dengan mempercayakan pembuatan sistem web atau optimasi pemasaran digital kepada kami, Klien secara sadar menyetujui seluruh ketentuan di bawah ini.
+                </p>
+
+                <!-- BAGIAN 1 -->
+                <div class="section-divider"></div>
+                <h2 class="font-serif font-bold text-lg md:text-xl text-darkBlack uppercase tracking-wide">Kebijakan Privasi dan Kerahasiaan Data</h2>
+                <ul class="list-decimal pl-5 space-y-3 mt-3">
+                    <li>
+                        <strong>Penjagaan Kredensial Akses:</strong> Penyedia Layanan menjamin keamanan data administratif yang diserahkan oleh Klien (seperti akun Google Search Console, Google Analytics 4, dasbor web hosting, CMS WordPress, atau Shopify) dan menyimpannya menggunakan sistem lokal yang aman.
+                    </li>
+                    <li>
+                        <strong>Tujuan Pengambilan Data:</strong> Semua data lalu lintas kunjungan, data perilaku pasar, dan metrik konversi pelanggan yang didapatkan hanya akan digunakan untuk tujuan penataan taktis promosi, optimalisasi performa web, dan penyusunan laporan tertulis kepada Klien.
+                    </li>
+                    <li>
+                        <strong>Kerahasiaan Informasi Bisnis:</strong> Penyedia Layanan berkomitmen secara profesional untuk tidak membagikan, memindahtangankan, atau mendistribusikan aset informasi berharga milik Klien kepada instansi eksternal atau pihak ketiga mana pun tanpa persetujuan tertulis formal sebelumnya.
+                    </li>
+                </ul>
+
+                <!-- BAGIAN 2 -->
+                <div class="section-divider"></div>
+                <h2 class="font-serif font-bold text-lg md:text-xl text-darkBlack uppercase tracking-wide">Ruang Lingkup dan Metodologi Kerja</h2>
+                <ul class="list-decimal pl-5 space-y-3 mt-3">
+                    <li>
+                        <strong>Kepatuhan Aturan Mesin Pencari:</strong> Seluruh teknik optimasi mesin pencari dijalankan murni menggunakan metode White-Hat SEO yang selaras dengan panduan resmi Google Search Essentials. Tindakan manipulasi ilegal (Black-Hat) yang membahayakan reputasi domain jangka panjang ditolak secara tegas.
+                    </li>
+                    <li>
+                        <strong>Batasan Layanan:</strong> Kategori dan rincian fitur pengerjaan diatur secara transparan sesuai dengan proposal penawaran resmi. Segala penambahan fitur di luar kesepakatan awal akan diproses sebagai proyek amandemen tambahan.
+                    </li>
+                    <li>
+                        <strong>Laporan Kinerja Transparan:</strong> Penyedia Layanan akan menyerahkan perkembangan pelaporan secara berkala mengenai metrik konversi dan visibilitas domain apa adanya tanpa adanya rekayasa angka.
+                    </li>
+                </ul>
+
+                <!-- BAGIAN 3 -->
+                <div class="section-divider"></div>
+                <h2 class="font-serif font-bold text-lg md:text-xl text-darkBlack uppercase tracking-wide">Hak Milik dan Pembayaran</h2>
+                <ul class="list-decimal pl-5 space-y-3 mt-3">
+                    <li>
+                        <strong>Uang Muka Operasional:</strong> Inisiasi perancangan sistem dan optimasi teknikal baru akan dieksekusi secara resmi setelah Klien melunasi pembayaran Uang Muka (Down Payment) sesuai nilai kesepakatan pada dokumen invoice resmi.
+                    </li>
+                    <li>
+                        <strong>Serah Terima Kepemilikan:</strong> Hak kepemilikan penuh, lisensi kode sumber, dan kredensial utama administrator akan dilimpahkan seluruhnya kepada pihak Klien setelah seluruh sisa kewajiban pelunasan diselesaikan secara tuntas.
+                    </li>
+                </ul>
+
+                <!-- BAGIAN 4 -->
+                <div class="section-divider"></div>
+                <h2 class="font-serif font-bold text-lg md:text-xl text-darkBlack uppercase tracking-wide">Batasan Tanggung Jawab dan Sanggahan</h2>
+                <ul class="list-decimal pl-5 space-y-3 mt-3">
+                    <li>
+                        <strong>Dinamika Algoritma Google:</strong> Klien menyadari sepenuhnya bahwa hasil peringkat pencarian organik bersifat fluktuatif dan berada di bawah kendali penuh pihak mesin pencari. Penyedia Layanan memfokuskan pengerjaan pada kepatuhan teknis terbaik, bukan garansi mutlak posisi nomor 1.
+                    </li>
+                    <li>
+                        <strong>Finansial Kampanye Mandiri:</strong> Seluruh biaya modal kampanye berbayar (Meta Ads atau Google Ads) ditanggung sepenuhnya oleh anggaran internal Klien. Penyedia Layanan bertanggung jawab mengoptimalkan struktur kampanye dan rasio klik, namun tidak menanggung kerugian margin penjualan Klien.
+                    </li>
+                    <li>
+                        <strong>Kejadian Pasca-Serah Terima:</strong> Penyedia Layanan dibebaskan dari kewajiban ganti rugi atas kerusakan sistem, hilangnya indeks, atau pinalti jika hal tersebut terjadi akibat modifikasi kode sumber yang diubah secara sepihak oleh Klien tanpa koordinasi supervisi tertulis sebelumnya.
+                    </li>
+                </ul>
             </section>
 
-            <!-- SECTION 02: KETENTUAN LAYANAN -->
-            <section id="terms" class="reveal active">
-                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
-                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
-                        <span class="text-gold font-mono">02.</span> Ketentuan Layanan (SOP)
-                    </h2>
-                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
-                        <p>Seluruh kesepakatan kerjasama Jasa Pembuatan Website dan Optimasi SEO diatur dalam pedoman operasional yang transparan:</p>
-                        
-                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Ruang Lingkup Pekerjaan</h3>
-                        <p>Fokus layanan mencakup pengembangan website profesional dan audit SEO teknikal. Segala permintaan tambahan fitur di luar kesepakatan awal (<em>Scope Creep</em>) akan dievaluasi dan dikenakan biaya tambahan sebagai proyek tambahan.</p>
+            <!-- Tanda Tangan Formal & Hak Cipta di Baris Paling Bawah -->
+            <footer class="mt-16 pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center text-xs text-textGray font-mono tracking-wider gap-4">
+                <p>AUTORITAS PERSETUJUAN: CO-0026</p>
+                <p>© 2026 MUHAMMAD FAQIH AL RIFAI. ALL RIGHTS RESERVED.</p>
+            </footer>
 
-                        <h3 class="font-bold text-darkBlack dark:text-white mt-6">Kebijakan Pembayaran</h3>
-                        <p>Eksekusi teknis baru akan dimulai setelah Klien menyelesaikan pembayaran <strong>Uang Muka (Down Payment)</strong> sesuai invoice resmi. Hak akses penuh dan transfer kepemilikan aset akan diserahkan setelah pelunasan tuntas.</p>
-                    </div>
-                </div>
-            </section>
+        </article>
 
-            <!-- SECTION 03: ETIKA PROFESI -->
-            <section id="ethics" class="reveal active">
-                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
-                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
-                        <span class="text-gold font-mono">03.</span> Etika & Transparansi
-                    </h2>
-                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
-                        <p>Saya menolak keras praktik manipulatif yang merugikan domain klien dalam jangka panjang.</p>
-                        <ul class="list-none space-y-4">
-                            <li class="bg-lightGray/50 dark:bg-black/20 p-4 rounded-2xl border border-black/5 dark:border-white/5">
-                                <strong class="text-darkBlack dark:text-white block mb-1">Metode White-Hat SEO murni</strong>
-                                Mengikuti pedoman resmi Google Search Essentials untuk membangun otoritas organik yang aman dari pinalti algoritma.
-                            </li>
-                            <li class="bg-lightGray/50 dark:bg-black/20 p-4 rounded-2xl border border-black/5 dark:border-white/5">
-                                <strong class="text-darkBlack dark:text-white block mb-1">Kejujuran Data</strong>
-                                Melaporkan metrik performa (Traffic, Bounce Rate, Sales) apa adanya melalui dasbor real-time tanpa manipulasi angka.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+    </div>
 
-            <!-- SECTION 04: DISCLAIMER -->
-            <section id="disclaimer" class="reveal active">
-                <div class="bg-white dark:bg-darkCard p-6 md:p-10 legal-card shadow-soft">
-                    <h2 class="text-xl md:text-3xl font-serif font-bold dark:text-white mb-6 flex items-center gap-3">
-                        <span class="text-gold font-mono">04.</span> Penafian (Disclaimer)
-                    </h2>
-                    <div class="space-y-5 text-[14px] md:text-[15px] text-textGray dark:text-gray-300 leading-relaxed">
-                        <p>Mengingat dinamika algoritma pihak ketiga, Klien memahami bahwa:</p>
-                        <ul class="list-disc pl-5 space-y-3">
-                            <li><strong>Fluktuasi Peringkat:</strong> Tidak ada jaminan mutlak peringkat #1 di Google karena otoritas penuh berada di tangan algoritma mesin pencari yang selalu diperbarui.</li>
-                            <li><strong>Risiko Iklan:</strong> Seluruh biaya <em>Ad Spend</em> adalah risiko investasi Klien. Saya bertanggung jawab atas optimasi teknis iklan, namun konversi akhir dipengaruhi faktor eksternal (harga produk, reputasi brand).</li>
-                            <li><strong>Aksi Mandiri:</strong> Saya tidak bertanggung jawab atas penurunan performa akibat perubahan kode atau konten yang dilakukan Klien secara mandiri tanpa konsultasi terlebih dahulu.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer Konsisten -->
-    <footer id="contact" class="defer-render bg-lightGray dark:bg-darkBg pt-16 md:pt-24 pb-20 md:pb-16 px-6 md:px-8 border-t border-black/5 dark:border-white/5 relative z-10 font-sans">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row justify-between items-start gap-10 md:gap-16 mb-16 md:mb-20">
-                <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-                    <p class="text-3xl md:text-6xl font-serif font-bold mb-4 md:mb-6 dark:text-white tracking-tight leading-tight">Mari Bekerja Sama.</p>
-                    <p class="text-[15px] md:text-base text-textGray dark:text-darkSub mb-8 md:mb-10 leading-relaxed px-2 lg:px-0">Siap meningkatkan traffic dan penjualan bisnis Anda melalui eksekusi website dan SEO yang tajam secara akuntabel.</p>
-                    <a href="mailto:faqihalrf@gmail.com" aria-label="Kirim Email Pertanyaan Bisnis" class="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3.5 md:px-10 md:py-5 bg-gold text-white rounded-full hover:bg-black transition-all duration-300 shadow-xl hover:shadow-gold/30 text-[15px] md:text-base font-bold tracking-wide group">
-                        <i class="far fa-envelope text-base md:text-lg group-hover:scale-110 transition-transform"></i> faqihalrf@gmail.com
-                    </a>
-                </div>
-                <div class="w-full lg:w-auto text-center lg:text-left font-sans">
-                    <p class="text-[11px] md:text-sm font-bold uppercase tracking-widest text-darkGold dark:text-gold mb-6 md:mb-8 font-mono">Jejaring Sosial</p>
-                    <div class="flex justify-center lg:justify-start gap-6 md:gap-8 text-2xl text-textGray dark:text-darkSub">
-                        <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil LinkedIn Profesional" class="hover:text-gold hover:scale-110 transition-transform"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Portofolio Instagram" class="hover:text-pink-600 hover:scale-110 transition-transform"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Halaman Facebook" class="hover:text-blue-600 hover:scale-110 transition-transform"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil Twitter X" class="hover:text-blue-400 hover:scale-110 transition-transform"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/@faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Saluran YouTube" class="hover:text-red-600 hover:scale-110 transition-transform"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@faqihalrf" target="_blank" rel="noopener noreferrer nofollow" aria-label="Siaran TikTok" class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=62859148219009" target="_blank" rel="noopener noreferrer nofollow" aria-label="WhatsApp Eksekutif" class="hover:text-green-600 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] md:text-sm text-textGray dark:text-darkSub font-medium text-center md:text-left font-sans">
-                <p>&copy; 2026 Muhammad Faqih Al Rifai. Hak Cipta Dilindungi Undang-Undang.</p>
-                <div class="flex justify-center gap-8 items-center">
-                    <a href="/" aria-label="Kembali ke Beranda" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Beranda Utama</a>
-                    <a href="/testimoni" aria-label="Halaman Testimoni" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Testimoni Klien</a>
-                    <!-- FIX SEO: Internal link ke CV PDF -->
-                    <a href="/berkas/CV_Faqih_Al_Rifai.pdf" target="_blank" aria-label="Unduh Dokumen Profil CV PDF" class="hover:text-gold transition-colors uppercase font-bold tracking-widest text-[10px] md:text-[11px] font-mono">Unduh Profil CV</a>
-                    <button type="button" onclick="triggerIndexing()" id="pingBotBtn" aria-label="Ping Robot Google" class="text-textGray/40 hover:text-gold transition-colors text-lg flex items-center justify-center w-8 h-8" title="Paksa Ping Robot Google Untuk Memindai Keterbaruan Data"><i class="fas fa-satellite-dish"></i></button>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Widget Scroll Atas -->
-    <button type="button" id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-8 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold text-white shadow-xl opacity-0 invisible translate-y-6 transition-all z-50 flex items-center justify-center hover:bg-black hover:scale-110" aria-label="Naik ke Atas">
-        <i class="fas fa-arrow-up text-lg"></i>
-    </button>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            }
-            document.getElementById('themeToggle').addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-            });
-            triggerReveal();
-        });
-
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('backTop');
-            if (window.pageYOffset > 400) { 
-                btn.classList.remove('opacity-0', 'invisible', 'translate-y-6'); 
-                btn.classList.add('opacity-100', 'visible', 'translate-y-0'); 
-            } else { 
-                btn.classList.add('opacity-0', 'invisible', 'translate-y-6'); 
-                btn.classList.remove('opacity-100', 'visible', 'translate-y-0'); 
-            }
-            const navbar = document.getElementById('navbar');
-            if (window.pageYOffset > 20) { navbar.classList.remove('h-20'); navbar.classList.add('h-16'); } 
-            else { navbar.classList.add('h-20'); navbar.classList.remove('h-16'); }
-            triggerReveal();
-        });
-
-        async function triggerIndexing() {
-            const btn = document.getElementById('pingBotBtn');
-            const icon = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-gold"></i>';
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
-                setTimeout(() => { btn.innerHTML = icon; }, 2000);
-            }, 1500);
-        }
-
-        function triggerReveal() {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
-            });
-        }
-    </script>
 </body>
 </html>

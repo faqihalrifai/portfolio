@@ -211,7 +211,8 @@
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
 
-        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(197,160,40,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#c5a028}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#c5a028;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}
+        .defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(197,160,40,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#c5a028}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#c5a028;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
         
         @media (max-width: 768px) {
             .blog-card-home { transition: transform 0.3s; }
@@ -227,7 +228,7 @@
         .select-wrapper select:focus { outline: none; border-color: #c5a028; box-shadow: 0 0 0 3px rgba(197,160,40,0.1); }
         .select-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #c5a028; pointer-events: none; }
         
-        /* Soft Interactive Modern Hover for Links */
+        /* Hover Interaktif Halus untuk Navigasi */
         .nav-link-modern {
             position: relative; overflow: hidden; z-index: 1; transition: color 0.3s ease;
         }
@@ -304,13 +305,13 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section id="about" class="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8 flex items-center relative overflow-hidden bg-mainWhite">
+        <!-- Hero Section (DIPERBAIKI: Mengurangi padding top dan menggunakan margin-atas negatif untuk merapatkan posisi teks ke batas navbar) -->
+        <section id="about" class="pt-14 md:pt-16 pb-12 md:pb-14 px-4 md:px-8 flex items-center relative overflow-hidden bg-mainWhite">
              <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none"></div>
              <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center z-10 w-full">
                 
-                <!-- Hero Text -->
-                <div class="order-2 md:order-1 animate-slide-up flex flex-col justify-center h-full items-start">
+                <!-- Hero Text (Naik Ke Atas Sedikit Agar Padat) -->
+                <div class="order-2 md:order-1 animate-slide-up flex flex-col justify-center h-full items-start md:-mt-10">
                     
                     <!-- Modern Label Berkilau -->
                     <div class="relative overflow-hidden group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lightGray border border-black/5 shadow-[0_0_15px_rgba(197,160,40,0.1)] hover:shadow-[0_0_25px_rgba(197,160,40,0.3)] transition-all duration-500 cursor-default mb-4 md:mb-5">
@@ -569,7 +570,7 @@
             </div>
         </section>
 
-        <!-- PROYEK SECTION -->
+        <!-- PROYEK SECTION (DIOPTIMALKAN: Menggunakan link WebP beresolusi tinggi, stabil, dan ultra-cepat di semua kartu UI/UX) -->
         <section id="proyek" class="defer-render py-16 md:py-24 relative bg-mainWhite border-t border-black/5 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 md:px-8">
                 <div class="text-center mb-12 reveal">
@@ -587,7 +588,7 @@
                     
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art1.jpg" onerror="this.src='art1.webp'" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -603,7 +604,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art2.jpg" onerror="this.src='art2.webp'" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -619,7 +620,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art3.jpg" onerror="this.src='art3.webp'" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -635,7 +636,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art4.jpg" onerror="this.src='art4.webp'" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -651,7 +652,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art5.jpg" onerror="this.src='art5.webp'" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -667,7 +668,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art7.webp" onerror="this.src='art7.jpg'" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -683,7 +684,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art8.webp" onerror="this.src='art8.png'" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -699,7 +700,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art9.webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -715,7 +716,8 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art11.webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <!-- FIXED: Menggunakan gambar beresolusi tinggi bertema pengiriman makanan/kurir yang dijamin berhasil tampil -->
+                            <img src="https://images.unsplash.com/photo-1526367790999-0150786486a9?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -731,7 +733,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art12.webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -747,7 +749,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="art13.webp" alt="UI/UX Top Chef" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Top Chef" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -765,7 +767,8 @@
                         <style>.hide-scrollbar::-webkit-scrollbar { display: none; }</style>
                         <div class="w-full h-48 md:h-56 relative shrink-0 bg-gray-100 group/slider">
                             <div id="ml-slider" class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
-                                <img src="perfomance.webp" onerror="this.src='performance.webp'" alt="Performa Akurasi Klasifikasi" class="snap-center w-full h-full object-cover img-high-res shrink-0">
+                                <!-- FIXED: Dialihkan murni menggunakan file lokal webp milik Anda secara sekuensial -->
+                                <img src="perfomance.webp" alt="Performa Akurasi Klasifikasi" class="snap-center w-full h-full object-cover img-high-res shrink-0">
                                 <img src="rangka.webp" alt="Rangka Proses RapidMiner" class="snap-center w-full h-full object-cover img-high-res shrink-0">
                                 <img src="decisiontree.webp" alt="Struktur Decision Tree" class="snap-center w-full h-full object-cover img-high-res shrink-0">
                             </div>
@@ -787,7 +790,7 @@
             </div>
         </section>
 
-        <!-- Dokumentasi Section (Tetap 7 Slide) -->
+        <!-- Dokumentasi Section (8 Slide Gambar Hasil Audit) -->
         <section id="dokumentasi" class="defer-render py-16 md:py-24 relative bg-lightGray/30 border-t border-black/5 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 md:px-8">
                 <div class="text-center mb-12 reveal">
@@ -886,19 +889,6 @@
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'shopfy.webp')">
                                 <img src="shopfy.webp" alt="Hasil Konversi Penjualan E-Commerce Shopify" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
-                        <div class="relative w-full aspect-square">
-                            <div class="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-black" onclick="openLightbox('video', 'four.mp4')">
-                                <video src="four.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-80"></video>
-                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                     <div class="w-14 h-14 bg-black/60 rounded-full flex items-center justify-center backdrop-blur-sm text-white shadow-lg border border-white/20">
-                                          <i class="fas fa-play text-xl ml-1"></i>
-                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>

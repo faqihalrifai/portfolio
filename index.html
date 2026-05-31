@@ -764,7 +764,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <style>.hide-scrollbar::-webkit-scrollbar { display: none; }</style>
-                        <div class="w-full h-48 md:h-56 relative shrink-0 bg-gray-100 group/slider">
+                        <div class="w-full h-48 md:h-52 relative shrink-0 bg-gray-100 group/slider">
                             <div id="ml-slider" class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
                                 <!-- FIXED: Menggunakan berkas WebP lokal secara urut sesuai instruksi -->
                                 <img src="perfomance.webp" onerror="this.src='performance.webp'" alt="Performa Akurasi Klasifikasi" class="snap-center w-full h-full object-cover img-high-res shrink-0">
@@ -853,7 +853,7 @@
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'pg.webp')">
                                 <img src="pg.webp" alt="Skor Kecepatan Pemuatan Halaman Website Google PageSpeed Insights" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
-                            <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(197,160,40,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'rt.webp')">
+                            <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'rt.webp')">
                                 <img src="rt.webp" alt="Analisis Trafik Pengunjung Harian melalui Google Analytics Secara Real Time" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
                         </div>
@@ -865,7 +865,7 @@
                                 <img src="uno.webp" alt="Tangkapan Layar Hasil Pencarian Teratas Peringkat Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'two.webp')">
-                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Mobilisasi" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
                         </div>
                     </div>
@@ -983,7 +983,7 @@
                             <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Sesuai standar Monitoring & Reporting ROI, KPI utama bukanlah sekadar Trafik Naik, melainkan Leads/Sales Naik. Melalui setup analitik tingkat lanjut (GTM, GA4, GSC), saya akan melacak pertumbuhan klik, efisiening penghematan biaya dibanding Ads (Ads Spend Savings), dan jumlah konversi riil pelanggan di Bottom of Funnel (BOFU).
+                            Sesuai standar Monitoring & Reporting ROI, KPI utama bukanlah sekadar Trafik Naik, melainkan Leads/Sales Naik. Melalui setup analitik tingkat lanjut (GTM, GA4, GSC), saya akan melacak pertumbuhan klik, efisiensi penghematan biaya dibanding Ads (Ads Spend Savings), dan jumlah konversi riil pelanggan di Bottom of Funnel (BOFU).
                         </p>
                     </details>
 
@@ -1028,36 +1028,39 @@
         </div>
     </footer>
 
-    <!-- WIDGETS SCROLL & CHATBOT -->
-    <div class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40">
-        <button type="button" onclick="toggleChatbot()" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#b89020] shadow-[0_4px_15px_rgba(197,160,40,0.4)] text-white flex items-center justify-center hover:shadow-[0_6px_20px_rgba(197,160,40,0.6)] transition-all duration-300 hover:scale-110">
+    <!-- WIDGETS SCROLL & CHATBOT (SEKARANG DIKAPSULASI DALAM SATU WRAPPER DRAGGABLE UNTUK LOGIKA DRAG INTEGRAL) -->
+    <div id="chat-widget-container" class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40 flex flex-col items-start">
+        
+        <!-- UI Chatbot (Murni Personal AI) -->
+        <div id="chatbot-ui" class="chat-closed w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/10 transition-all duration-300 mb-3">
+            <div id="chatbot-header" class="bg-gradient-to-r from-gold to-[#b89020] text-white p-4 flex justify-between items-center shadow-sm cursor-grab active:cursor-grabbing select-none">
+                <div class="flex items-center gap-2 pointer-events-none">
+                    <span class="font-bold text-sm drop-shadow-sm">Asisten Virtual Pribadi</span>
+                </div>
+                <button type="button" onclick="toggleChatbot()" class="text-white/90 hover:text-white hover:rotate-90 transition-transform duration-300 p-1"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll">
+                <div class="flex gap-2">
+                    <div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Halo! Saya asisten virtual Faqih. Ada yang bisa saya bantu terkait layanan pemasaran digital? (Kirim link web Anda jika ingin saya cek performa kecepatannya secara otomatis).</div>
+                </div>
+            </div>
+
+            <div class="p-3 border-t border-black/5 bg-gray-50">
+                <form id="chat-form" class="flex gap-2 items-center" onsubmit="sendBotMessage(event)">
+                    <input type="text" id="chat-input" placeholder="Tanyakan sesuatu atau kirim URL..." class="flex-1 border border-black/10 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-gold bg-white" required>
+                    <button type="submit" class="bg-gold text-white border border-gold w-10 h-10 rounded-xl hover:bg-white hover:text-gold transition-colors flex items-center justify-center shrink-0 shadow-sm">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tombol Pemicu Chatbot (Sistem Hover Gold -> Putih) -->
+        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#b89020] shadow-[0_4px_15px_rgba(197,160,40,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing">
             <i class="fas fa-paper-plane text-xl"></i>
         </button>
-    </div>
 
-    <!-- UI Chatbot (Murni Personal AI - Draggable) -->
-    <div id="chatbot-ui" class="chat-closed fixed bottom-24 left-4 md:left-8 w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-black/10 transition-all duration-300">
-        <div class="bg-gradient-to-r from-gold to-[#b89020] text-white p-4 flex justify-between items-center shadow-sm select-none">
-            <div class="flex items-center gap-2">
-                <span class="font-bold text-sm drop-shadow-sm pointer-events-none">Asisten Virtual Pribadi</span>
-            </div>
-            <button onclick="toggleChatbot()" class="text-white/90 hover:text-white hover:rotate-90 transition-transform duration-300"><i class="fas fa-times"></i></button>
-        </div>
-
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll">
-            <div class="flex gap-2">
-                <div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Halo! Saya asisten virtual Faqih. Ada yang bisa saya bantu terkait layanan pemasaran digital? (Kirim link web Anda jika ingin saya cek performa kecepatannya secara otomatis).</div>
-            </div>
-        </div>
-
-        <div class="p-3 border-t border-black/5 bg-gray-50">
-            <form id="chat-form" class="flex gap-2 items-center" onsubmit="sendBotMessage(event)">
-                <input type="text" id="chat-input" placeholder="Tanyakan sesuatu atau kirim URL..." class="flex-1 border border-black/10 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-gold bg-white" required>
-                <button type="submit" class="bg-gold text-white border border-gold w-10 h-10 rounded-xl hover:bg-white hover:text-gold transition-colors flex items-center justify-center shrink-0 shadow-sm">
-                    <i class="fas fa-paper-plane text-xs"></i>
-                </button>
-            </form>
-        </div>
     </div>
 
     <!-- WIDGET SCROLL ATAS BAWAH MUNCUL OTOMATIS -->
@@ -1159,69 +1162,96 @@
             }, 300);
         }
 
-        /* --- CHATBOT DRAGGABLE LOGIC --- */
-        function makeChatbotDraggable() {
-            const ui = document.getElementById('chatbot-ui');
-            const header = ui.querySelector('.bg-gradient-to-r');
-            
+        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC --- */
+        function makeWidgetDraggable() {
+            const container = document.getElementById('chat-widget-container');
+            const toggleBtn = document.getElementById('chat-toggle-btn');
+            const chatbotHeader = document.getElementById('chatbot-header');
+
+            let activeElement = null;
             let isDragging = false;
             let startX, startY, initialX, initialY;
-            
-            header.style.cursor = 'move';
-            
-            header.addEventListener('mousedown', dragStart);
-            document.addEventListener('mousemove', drag);
-            document.addEventListener('mouseup', dragEnd);
-            
-            header.addEventListener('touchstart', dragStart, { passive: true });
-            document.addEventListener('touchmove', drag, { passive: false });
-            document.addEventListener('touchend', dragEnd);
-            
-            function dragStart(e) {
-                if (e.target.closest('button')) return; 
-                isDragging = true;
-                
-                const rect = ui.getBoundingClientRect();
+            let dragDistance = 0;
+
+            const onStart = (e) => {
+                // Jangan drag jika mengklik tombol tutup di dalam header
+                if (e.target.closest('button') && e.target.id !== 'chat-toggle-btn') return;
+                activeElement = e.currentTarget;
+                isDragging = false;
+                dragDistance = 0;
+
+                const rect = container.getBoundingClientRect();
                 initialX = rect.left;
                 initialY = rect.top;
-                
-                ui.style.bottom = 'auto';
-                ui.style.right = 'auto';
-                ui.style.left = initialX + 'px';
-                ui.style.top = initialY + 'px';
-                
+
                 const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
                 const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-                
+
                 startX = clientX - initialX;
                 startY = clientY - initialY;
-            }
-            
-            function drag(e) {
-                if (!isDragging) return;
-                if (e.type === 'touchmove') e.preventDefault();
-                
+
+                document.addEventListener('mousemove', onMove, { passive: false });
+                document.addEventListener('mouseup', onEnd);
+                document.addEventListener('touchmove', onMove, { passive: false });
+                document.addEventListener('touchend', onEnd);
+            };
+
+            const onMove = (e) => {
                 const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
                 const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
-                
-                let newX = clientX - startX;
-                let newY = clientY - startY;
-                
-                const minX = 0;
-                const minY = 0;
-                const maxX = window.innerWidth - ui.offsetWidth;
-                const maxY = window.innerHeight - ui.offsetHeight;
-                
-                newX = Math.max(minX, Math.min(newX, maxX));
-                newY = Math.max(minY, Math.min(newY, maxY));
-                
-                ui.style.left = newX + 'px';
-                ui.style.top = newY + 'px';
-            }
-            
-            function dragEnd() {
-                isDragging = false;
-            }
+
+                let deltaX = clientX - (startX + initialX);
+                let deltaY = clientY - (startY + initialY);
+                dragDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                // Sensitivitas drag: jika bergeser lebih dari 5 piksel, tandai sebagai aktivitas geser
+                if (dragDistance > 5) {
+                    isDragging = true;
+                }
+
+                if (isDragging) {
+                    e.preventDefault();
+                    let newX = clientX - startX;
+                    let newY = clientY - startY;
+
+                    // Batasan ruang layar agar widget tidak meluncur keluar jendela viewport
+                    const minX = 0;
+                    const minY = 0;
+                    const maxX = window.innerWidth - container.offsetWidth;
+                    const maxY = window.innerHeight - container.offsetHeight;
+
+                    newX = Math.max(minX, Math.min(newX, maxX));
+                    newY = Math.max(minY, Math.min(newY, maxY));
+
+                    container.style.bottom = 'auto';
+                    container.style.right = 'auto';
+                    container.style.left = `${newX}px`;
+                    container.style.top = `${newY}px`;
+                }
+            };
+
+            const onEnd = () => {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onEnd);
+                document.removeEventListener('touchmove', onMove);
+                document.removeEventListener('touchend', onEnd);
+            };
+
+            // Kaitkan handler mouse dan sentuhan layar
+            toggleBtn.addEventListener('mousedown', onStart);
+            toggleBtn.addEventListener('touchstart', onStart, { passive: true });
+            chatbotHeader.addEventListener('mousedown', onStart);
+            chatbotHeader.addEventListener('touchstart', onStart, { passive: true });
+
+            // Cegah pemicu klik tak disengaja ketika sedang menggeser widget
+            toggleBtn.addEventListener('click', (e) => {
+                if (isDragging) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                } else {
+                    toggleChatbot();
+                }
+            });
         }
 
         function toggleChatbot() {
@@ -1283,14 +1313,6 @@
             container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold"></i></div></div>`);
             container.scrollTop = container.scrollHeight;
 
-            // Memeriksa Protokol file lokal untuk memberikan bantuan bimbingan pemecahan masalah (diagnostik)
-            if (window.location.protocol === 'file:') {
-                document.getElementById(loadingId).remove();
-                const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, "Deteksi Sistem: Anda membuka berkas HTML ini secara lokal (file:/// protocol). Fungsi chatbot Netlify tidak dapat merespon di tingkat berkas lokal tanpa penyedia server publik. Silakan lakukan 'Drag and Drop' folder Anda ke Netlify untuk mengaktifkan fungsionalitas AI ini secara utuh.");
-                return;
-            }
-
             try {
                 const response = await fetch('/.netlify/functions/index-bot', {
                     method: 'POST',
@@ -1306,12 +1328,12 @@
                     await typeTextEffect(bubbleId, data.reply);
                 } else {
                     const bubbleId = addMessageToUI('bot', '', true);
-                    await typeTextEffect(bubbleId, "Maaf, server AI sedang mengalami antrean pemrosesan data yang padat. Silakan kirimkan kembali input Anda beberapa saat lagi.");
+                    await typeTextEffect(bubbleId, "Maaf, sistem saya sedang sibuk. Silakan coba beberapa saat lagi.");
                 }
             } catch(err) {
                 document.getElementById(loadingId).remove();
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, "Gagal terhubung ke server API. Pastikan Anda telah men-deploy situs ini ke Netlify agar fungsi backend berjalan dengan sempurna.");
+                await typeTextEffect(bubbleId, "Gagal terhubung ke jaringan server.");
             }
         }
 
@@ -1485,7 +1507,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { fetchBloggerPosts(); }, 500);
-            makeChatbotDraggable(); // Menginisialisasi sistem drag chatbot
+            makeWidgetDraggable(); // Aktifkan sistem drag widget chatbot integral
             
             const navContainer = document.getElementById('navbar-container');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -1562,7 +1584,7 @@
             HostingExpert:{price:"Rp 120.000",strike:"Rp 150.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Sumber Daya Eksklusif</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Level teratas infrastruktur pembagian sumber. Sempurna untuk operasi skala berat, memproses antrean panjang database query secara paralel simultan.</p></div>",bullets:["Isolasi spesifik unit Prosesor (Pencegahan Overload)", "Olah database berkecepatan IOPS absolut (MySQL)", "Sinkronisasi antrean lalu lintas beban masuk (Redis)", "Penyangga kerangka logis CMS level kustomisasi"]},
             DomainCom:{price:"Rp 200.000",strike:"Rp 250.000",suffix:"/thn",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Identitas Bisnis Global</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Verifikasi tertinggi untuk hak kekayaan intelektual Online internasional. Pertahankan otoritas merek dagang Anda di tingkat penelusuran global dengan (.COM).</p></div>",bullets:["Pendaftaran sah lisensi identifikasi nama global", "Otoritas Manajemen DNS rekaman server", "Kunci ganda pencegahan bajak migrasi domain", "Elevasi Trust-Signals korporat taraf Internasional"]},
             DomainId:{price:"Rp 320.000",strike:"Rp 400.000",suffix:"/thn",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Keabsahan Entitas Nasional</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Kode sakti di mata Algoritma Google Indonesia (Geo-Targeting). Memberikan sentimen kewenangan legal formal bagi calon konsumen B2B Nusantara.</p></div>",bullets:["Sinyal kepatuhan registrasi mutlak PANDI (KTP/SIUP)", "Faktor afirmatif Algoritma spesifik perayap lokalisasi", "Kekebalan dari serangan identifikasi domain anonim", "Dongkrakan instan profil kredibilitas lembaga/PT"]},
-            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Virtual Private Server</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Otonomi absolut untuk kebutuhan korporasi level atas (ERP/Aplikasi Privat). Resource perangkat keras 100% dipisahkan khusus (Dedicated) bagi perusahaan Anda.</p></div>",bullets:["Mandat kendali IP Publik statis khusus", "Hak penguasaan administrasi sistem (Root/SSH)", "Daya komputasi RAM Hardware terisolir pasti", "Kompatibel untuk arsitektur pengamanan jaringan spesifik"]}
+            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Virtual Private Server</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Otonomi absolut untuk kebutuhan korporasi level atas (ERP/Aplikasi Privat). Resource perangkat keras 100% dipisahkan khusus (Dedicated) bagi perusahaan Anda.</p></div>",bullets:["Mandat kendali IP Publik statis khusus", "Hak penguasaan administrative sistem (Root/SSH)", "Daya komputasi RAM Hardware terisolir pasti", "Kompatibel untuk arsitektur pengamanan jaringan spesifik"]}
         };
 
         window.updateProductList = function() {

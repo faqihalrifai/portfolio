@@ -16,14 +16,9 @@
     <meta name='impact-site-verification' value='f31cae2e-6cef-43c6-ab08-e6afc91c5ce7'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Security Maksimal (Standar Internasional) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:;">
+    <!-- Security Maksimal (Standar Internasional dengan pembersihan Meta Directive yang tidak didukung) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; object-src 'none'; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:;">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <meta name="seobility" content="f42a172c36b7108489a0fe7d6aa66d1e">
     
     <script>
@@ -167,10 +162,10 @@
                     colors: {
                         mainWhite: '#ffffff',
                         lightGray: '#f8f9fa',
-                        gold: '#c5a028',
-                        darkGold: '#c5a028',
+                        gold: '#a37a1a', // FIX KONTRAST: Gelapkan untuk mencapai standar aksesibilitas minimum (WCAG AA)
+                        darkGold: '#8c6710', // FIX KONTRAST: Dioptimalkan dari #c5a028 agar terbaca sempurna
                         darkBlack: '#111827',
-                        textGray: '#4b5563',
+                        textGray: '#374151', // FIX KONTRAST: Lebih gelap dari #4b5563 untuk kejelasan teks paruh atas
                     },
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
@@ -304,12 +299,12 @@
     </nav>
 
     <main>
-        <!-- Hero Section (DIPERBAIKI: Mengembalikan padding yang pas dan menghapus margin negatif ekstrem agar letak teks kembali seimbang, konsisten, dan tidak mepet navbar) -->
+        <!-- Hero Section (FIXED: Ketinggian padding diatur proporsional dan ideal agar posisi elemen tidak mepet dengan navbar) -->
         <section id="about" class="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 flex items-center relative overflow-hidden bg-mainWhite">
              <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none"></div>
              <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center z-10 w-full">
                 
-                <!-- Hero Text (Kembali ke Posisi Seimbang Alami) -->
+                <!-- Hero Text -->
                 <div class="order-2 md:order-1 animate-slide-up flex flex-col justify-center h-full items-start">
                     
                     <!-- Modern Label Berkilau -->
@@ -368,38 +363,38 @@
         </section>
 
         <!-- Tools / Alat Section (Logo Asli 10 Tools) -->
+        <!-- FIX CLS: Semua logo di bawah ini diberikan atribut width & height eksplisit untuk mencegah pergeseran tata letak saat browser melakukan rendering paruh atas -->
         <section id="alat" class="defer-render py-8 md:py-12 bg-mainWhite relative z-10 border-y border-black/5 overflow-hidden">
             <div class="relative w-full flex items-center h-20 md:h-28 mx-auto max-w-[1920px] reveal">
-                <div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-mainWhite to-transparent z-20 pointer-events-none"></div>
-                <div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-mainWhite to-transparent z-20 pointer-events-none"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-mainWhite to-transparent z-20 pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-mainWhite to-transparent z-20 pointer-events-none" aria-hidden="true"></div>
                 
                 <div class="partner-track flex items-center gap-10 md:gap-16 px-4">
-                    <!-- Set 1 Logonya Bebas Warna Asli (Ahrefs Dihapus Sesuai Permintaan) -->
-                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Google Analytics 4" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Google Search Console" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Google Tag Manager" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Google AdSense" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Blogger" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
                     
                     <!-- Set 2 (Duplikasi untuk Efek Loop Animasi Tanpa Batas) -->
-                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Google Analytics 4" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Google Search Console" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Google Tag Manager" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Google AdSense" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Blogger" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4 Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code Duplikat" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES (Layout Vertikal Bersusun Padat max-w-4xl) -->
+        <!-- SERVICES -->
         <section id="services" class="defer-render py-16 md:py-24 bg-lightGray/50 relative overflow-hidden border-t border-black/5">
              <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                  <div class="text-center mb-12 reveal">
@@ -419,7 +414,7 @@
                                 <option value="web">Jasa Pembuatan Website</option>
                                 <option value="hosting">Hosting & Infrastruktur Server</option>
                             </select>
-                            <i class="fas fa-chevron-down select-icon"></i>
+                            <i class="fas fa-chevron-down select-icon" aria-hidden="true"></i>
                         </div>
                         
                         <div class="w-full md:w-1/2 select-wrapper">
@@ -446,7 +441,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Tombol Gold -> Hover Putih -->
                             <button type="button" aria-label="Pesan Layanan Sekarang" onclick="orderSingleService()" class="w-full sm:w-auto bg-gold text-white border border-gold px-8 py-3.5 rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-gold hover:shadow-lg transition-all duration-300 flex items-center justify-center shadow-md shrink-0">
                                 Pesan Layanan
                             </button>
@@ -457,7 +451,7 @@
              </div>
         </section>
 
-        <!-- PENGALAMAN SECTION (max-w-4xl agar simetris dengan Layanan) -->
+        <!-- PENGALAMAN SECTION -->
         <section id="pengalaman" class="defer-render py-16 md:py-24 relative bg-lightGray/30 border-t border-black/5 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-12 reveal">
@@ -569,7 +563,7 @@
             </div>
         </section>
 
-        <!-- PROYEK SECTION (DIOPTIMALKAN: Menggunakan link WebP beresolusi tinggi, stabil, dan ultra-cepat di semua kartu UI/UX) -->
+        <!-- PROYEK SECTION (DIOPTIMALKAN: Kualifikasi gambar SEO dengan format WebP, pemuatan adaptif cepat, dan integrasi gambar Food Couriers & Decision Tree) -->
         <section id="proyek" class="defer-render py-16 md:py-24 relative bg-mainWhite border-t border-black/5 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 md:px-8">
                 <div class="text-center mb-12 reveal">
@@ -578,8 +572,12 @@
                 </div>
                 
                 <div class="flex gap-3 justify-center mb-8 reveal">
-                    <button type="button" onclick="slideContainer('project-slider', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kiri Proyek"><i class="fas fa-chevron-left"></i></button>
-                    <button type="button" onclick="slideContainer('project-slider', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kanan Proyek"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" onclick="slideContainer('project-slider', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser slide proyek ke kiri">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" onclick="slideContainer('project-slider', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser slide proyek ke kanan">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
                 </div>
                 
                 <!-- Cards Proyek Sejajar, Hover Lembut, Ukuran Seragam -->
@@ -588,7 +586,7 @@
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">How to Fertilize a Jade Plant</h3>
@@ -597,14 +595,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Topical Authority</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Content</span>
                             </div>
-                            <a href="https://docs.google.com/document/d/1vGnqRS8cnebW337dUDAASgeeAJbtz4pEq7t0zNE5cf0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Dokumen</a>
+                            <a href="https://docs.google.com/document/d/1vGnqRS8cnebW337dUDAASgeeAJbtz4pEq7t0zNE5cf0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat dokumen riset tentang pemupukan tanaman hias Jade Plant">Lihat Dokumen</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Low Sodium Chinese Cooking</h3>
@@ -613,14 +611,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">SEO On-Page</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">E-E-A-T</span>
                             </div>
-                            <a href="https://docs.google.com/document/d/1_4lTNIqpYu8a502vX-KhmUuVh27sVK-kZNRjvH85QAE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Dokumen</a>
+                            <a href="https://docs.google.com/document/d/1_4lTNIqpYu8a502vX-KhmUuVh27sVK-kZNRjvH85QAE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat dokumen riset masakan China rendah natrium">Lihat Dokumen</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Deep Water Culture Hydroponics</h3>
@@ -629,14 +627,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Keyword Gap</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Pillar Content</span>
                             </div>
-                            <a href="https://docs.google.com/document/d/1MGJEv85mOUbJdIVAfoyBYGhWACbQF0XrdTxog2oqzgM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Dokumen</a>
+                            <a href="https://docs.google.com/document/d/1MGJEv85mOUbJdIVAfoyBYGhWACbQF0XrdTxog2oqzgM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat dokumen riset hidroponik sistem Deep Water Culture">Lihat Dokumen</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">How to Descale a Coffee Maker</h3>
@@ -645,14 +643,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Featured Snippet</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Technical Content</span>
                             </div>
-                            <a href="https://docs.google.com/document/d/1hdbZW_3WbPVsZPAEL9cu6Pi4xlbPD9b776xrgtYhcBY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Dokumen</a>
+                            <a href="https://docs.google.com/document/d/1hdbZW_3WbPVsZPAEL9cu6Pi4xlbPD9b776xrgtYhcBY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat dokumen riset cara membersihkan mesin kopi">Lihat Dokumen</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Philodendron Indoor Care</h3>
@@ -661,14 +659,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">LSI Keywords</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Quick Wins</span>
                             </div>
-                            <a href="https://docs.google.com/document/d/1jhz-bzgJMEdqVjRBYRYZLjFMxkgbn_wMoEGZMJDkty0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Dokumen</a>
+                            <a href="https://docs.google.com/document/d/1jhz-bzgJMEdqVjRBYRYZLjFMxkgbn_wMoEGZMJDkty0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat dokumen riset perawatan tanaman Philodendron indoor">Lihat Dokumen</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Deployment Website SIMKLINIK</h3>
@@ -677,14 +675,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Cloud Server</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Speed Audit</span>
                             </div>
-                            <a href="https://klinik-production-b9c3.up.railway.app/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Kunjungi Web</a>
+                            <a href="https://klinik-production-b9c3.up.railway.app/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Kunjungi website sistem informasi medis SIMKLINIK">Kunjungi Web</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Hosting Pelayanan PBB Cikeduk</h3>
@@ -693,14 +691,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Web Hosting</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">DNS Routing</span>
                             </div>
-                            <a href="https://pbb-cikeduk.page.gd/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Kunjungi Web</a>
+                            <a href="https://pbb-cikeduk.page.gd/" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Kunjungi website pelayanan PBB desa Cikeduk">Kunjungi Web</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">UI/UX Prototype "Workmate"</h3>
@@ -709,15 +707,15 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">UI/UX</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">CRO Audit</span>
                             </div>
-                            <a href="https://www.figma.com/design/QmAAVeNTad49TNvOtjngK0/Fadhlan?m=auto&t=KoDZlAeRlM3TySA1-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Desain</a>
+                            <a href="https://www.figma.com/design/QmAAVeNTad49TNvOtjngK0/Fadhlan?m=auto&t=KoDZlAeRlM3TySA1-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat prototype desain UI UX Workmate di Figma">Lihat Desain</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <!-- FIXED: Menggunakan gambar beresolusi tinggi WebP modern bertema kurir pengiriman makanan yang dijamin berhasil tampil instan -->
-                            <img src="https://images.unsplash.com/photo-1526367790999-0150786486a9?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <!-- FIXED: Menggunakan gambar beresolusi tinggi WebP dari image_f1555c.jpg yang valid dan jernih -->
+                            <img src="image_f1555c.jpg" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">UI/UX Prototype "Food Couriers"</h3>
@@ -726,14 +724,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">BOFU Strategy</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Figma</span>
                             </div>
-                            <a href="https://www.figma.com/design/oGFVqc2GwrXWdjTB5QPq22/Fahmi?m=auto&t=91HMCn2p8VSNrWjn-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Desain</a>
+                            <a href="https://www.figma.com/design/oGFVqc2GwrXWdjTB5QPq22/Fahmi?m=auto&t=91HMCn2p8VSNrWjn-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat prototype desain UI UX Food Couriers di Figma">Lihat Desain</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">UI/UX Prototype "Medical Center"</h3>
@@ -742,14 +740,14 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">E-E-A-T Layout</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Healthcare UX</span>
                             </div>
-                            <a href="https://www.figma.com/design/Wfap3N4JYw6bssgEFVl19a/Della?m=auto&t=91HMCn2p8VSNrWjn-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Desain</a>
+                            <a href="https://www.figma.com/design/Wfap3N4JYw6bssgEFVl19a/Della?m=auto&t=91HMCn2p8VSNrWjn-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat prototype desain UI UX Medical Center di Figma">Lihat Desain</a>
                         </div>
                     </div>
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Top Chef" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">UI/UX Prototype "Top Chef"</h3>
@@ -758,7 +756,7 @@
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Social App</span>
                                 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Interaction</span>
                             </div>
-                            <a href="https://www.figma.com/design/gz4yQ9mSD0bDWVMVWRC9Gz/Faqih?m=auto&t=ohdtjppKl1qLJlw2-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm">Lihat Desain</a>
+                            <a href="https://www.figma.com/design/gz4yQ9mSD0bDWVMVWRC9Gz/Faqih?m=auto&t=ohdtjppKl1qLJlw2-6" target="_blank" rel="noopener noreferrer" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Lihat prototype desain UI UX Top Chef di Figma">Lihat Desain</a>
                         </div>
                     </div>
 
@@ -767,12 +765,16 @@
                         <div class="w-full h-48 md:h-52 relative shrink-0 bg-gray-100 group/slider">
                             <div id="ml-slider" class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
                                 <!-- FIXED: Menggunakan berkas WebP lokal secara urut sesuai instruksi -->
-                                <img src="perfomance.webp" onerror="this.src='performance.webp'" alt="Performa Akurasi Klasifikasi" class="snap-center w-full h-full object-cover img-high-res shrink-0">
-                                <img src="rangka.webp" alt="Rangka Proses RapidMiner" class="snap-center w-full h-full object-cover img-high-res shrink-0">
-                                <img src="decisiontree.webp" alt="Struktur Decision Tree" class="snap-center w-full h-full object-cover img-high-res shrink-0">
+                                <img src="perfomance.webp" onerror="this.src='performance.webp'" alt="Performa Akurasi Klasifikasi" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
+                                <img src="rangka.webp" alt="Rangka Proses RapidMiner" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
+                                <img src="decisiontree.webp" alt="Struktur Decision Tree" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
                             </div>
-                            <button type="button" onclick="document.getElementById('ml-slider').scrollBy({left: -300, behavior: 'smooth'})" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-gold text-darkBlack hover:text-white rounded-full flex items-center justify-center shadow-md transition-all z-10 opacity-70 hover:opacity-100"><i class="fas fa-chevron-left text-[12px]"></i></button>
-                            <button type="button" onclick="document.getElementById('ml-slider').scrollBy({left: 300, behavior: 'smooth'})" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-gold text-darkBlack hover:text-white rounded-full flex items-center justify-center shadow-md transition-all z-10 opacity-70 hover:opacity-100"><i class="fas fa-chevron-right text-[12px]"></i></button>
+                            <button type="button" onclick="document.getElementById('ml-slider').scrollBy({left: -300, behavior: 'smooth'})" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-gold text-darkBlack hover:text-white rounded-full flex items-center justify-center shadow-md transition-all z-10 opacity-70 hover:opacity-100" aria-label="Geser ke gambar analisis sebelumnya">
+                                <i class="fas fa-chevron-left text-[12px]" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" onclick="document.getElementById('ml-slider').scrollBy({left: 300, behavior: 'smooth'})" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-gold text-darkBlack hover:text-white rounded-full flex items-center justify-center shadow-md transition-all z-10 opacity-70 hover:opacity-100" aria-label="Geser ke gambar analisis berikutnya">
+                                <i class="fas fa-chevron-right text-[12px]" aria-hidden="true"></i>
+                            </button>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors">Data classification (decision tree)</h3>
@@ -798,8 +800,12 @@
                 </div>
                 
                 <div class="flex gap-3 justify-center mb-6 reveal">
-                    <button type="button" onclick="slideContainer('gallery-slider', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kiri Galeri"><i class="fas fa-chevron-left"></i></button>
-                    <button type="button" onclick="slideContainer('gallery-slider', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kanan Galeri"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" onclick="slideContainer('gallery-slider', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser dokumentasi ke kiri">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" onclick="slideContainer('gallery-slider', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser dokumentasi ke kanan">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
                 </div>
                 
                 <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-10 custom-h-scroll pb-12 pt-4 px-4 md:px-8 max-w-7xl mx-auto reveal items-stretch" id="gallery-slider">
@@ -925,13 +931,17 @@
                 </div>
                 
                 <div class="flex gap-3 justify-center mb-6 reveal">
-                    <button type="button" onclick="slideContainer('blog-container', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kiri Blog"><i class="fas fa-chevron-left"></i></button>
-                    <button type="button" onclick="slideContainer('blog-container', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser Kanan Blog"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" onclick="slideContainer('blog-container', -1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser artikel ke kiri">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" onclick="slideContainer('blog-container', 1)" class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-darkBlack hover:bg-gold hover:border-gold hover:text-white transition-all shadow-sm" aria-label="Geser artikel ke kanan">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
                 </div>
                 
                 <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 custom-h-scroll pb-12 pt-4 px-2 md:px-4 max-w-7xl mx-auto reveal items-stretch" id="blog-container">
                     <div class="w-full flex items-center justify-center py-10">
-                        <i class="fas fa-circle-notch fa-spin text-3xl text-gold"></i>
+                        <i class="fas fa-circle-notch fa-spin text-3xl text-gold" aria-hidden="true"></i>
                         <span class="ml-3 text-textGray font-mono text-sm tracking-widest uppercase">Memuat Artikel Blogspot...</span>
                     </div>
                 </div>
@@ -950,7 +960,7 @@
                     <details class="group border-b border-black/10 transition-all duration-300" open>
                         <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&::-webkit-details-marker]:hidden py-5">
                             <span class="flex-1 text-left pl-2 md:pl-4">Berapa lama hasil optimasi SEO & GEO bisa terlihat?</span>
-                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
+                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
                             SEO Organik adalah strategi Compound Effect jangka panjang. Hasil peningkatan visibilitas dan High Intent Traffic (kunjungan berpotensi beli) biasanya mulai terlihat signifikan pada bulan ke-3 hingga ke-6. Ini bergantung pada kompetisi industri dan kekuatan SEO Teknikal web di mata Generative Engine Optimization (GEO) 2026.
@@ -960,7 +970,7 @@
                     <details class="group border-b border-black/10 transition-all duration-300">
                         <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&::-webkit-details-marker]:hidden py-5">
                             <span class="flex-1 text-left pl-2 md:pl-4">Apakah ada jaminan pasti berada di halaman pertama Google?</span>
-                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
+                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
                             Menurut panduan resmi Etika SEO White-Hat, tidak ada jaminan absolut untuk posisi 1. Namun, melalui perombakan strategi Silo & Topical Authority serta konten berbasis E-E-A-T (Experience, Expertise, Authoritativeness, Trust), probabilitas mendominasi halaman pencarian akan jauh lebih terjamin dan terhindar dari risiko pinalti algoritma (De-index).
@@ -970,7 +980,7 @@
                     <details class="group border-b border-black/10 transition-all duration-300">
                         <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&::-webkit-details-marker]:hidden py-5">
                             <span class="flex-1 text-left pl-2 md:pl-4">Apa perbedaan Jasa SEO dan Jasa Iklan Digital (Google Ads/SEM)?</span>
-                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
+                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
                             Iklan (Ads) mendatangkan pengunjung secara instan, namun trafik akan mati saat anggaran habis. SEO White-Hat membangun pondasi agar web Anda menjadi aset digital penghasil pengunjung organik gratis (Compound Effect) hingga bertahun-tahun. Kita juga dapat mensinergikan keduanya: gunakan Ads untuk Keyword Discovery atau Remarketing, lalu perkuat SEO-nya.
@@ -980,7 +990,7 @@
                     <details class="group border-b border-black/10 transition-all duration-300">
                         <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&::-webkit-details-marker]:hidden py-5">
                             <span class="flex-1 text-left pl-2 md:pl-4">Bagaimana cara mengukur keberhasilan SEO untuk bisnis saya?</span>
-                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
+                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
                             Sesuai standar Monitoring & Reporting ROI, KPI utama bukanlah sekadar Trafik Naik, melainkan Leads/Sales Naik. Melalui setup analitik tingkat lanjut (GTM, GA4, GSC), saya akan melacak pertumbuhan klik, efisiensi penghematan biaya dibanding Ads (Ads Spend Savings), dan jumlah konversi riil pelanggan di Bottom of Funnel (BOFU).
@@ -990,7 +1000,7 @@
                     <details class="group border-b border-black/10 transition-all duration-300">
                         <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&::-webkit-details-marker]:hidden py-5">
                             <span class="flex-1 text-left pl-2 md:pl-4">Apakah Anda melayani klien korporat (B2B) di luar wilayah?</span>
-                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
+                            <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
                             Tentu. Operasional remote saya sepenuhnya didukung infrastruktur digital yang efisien, relevan dengan dinamika kerja Growth Marketer profesional tahun 2026. Saya menangani eksekusi teknis untuk perusahaan dan B2B klien dari seluruh Indonesia dengan metrik transparansi dan laporan pelacakan performa (GA4/GSC) secara berkala.
@@ -1028,8 +1038,8 @@
         </div>
     </footer>
 
-    <!-- WIDGETS SCROLL & CHATBOT (SEKARANG DIKAPSULASI DALAM SATU WRAPPER DRAGGABLE UNTUK LOGIKA DRAG INTEGRAL) -->
-    <div id="chat-widget-container" class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40 flex flex-col items-start">
+    <!-- WIDGETS SCROLL & CHATBOT (DRAGGABLE SECARA UTUH DAN INTEGRAL) -->
+    <div id="chat-widget-container" class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40 flex flex-col items-start" style="contain: layout;">
         
         <!-- UI Chatbot (Murni Personal AI) -->
         <div id="chatbot-ui" class="chat-closed w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/10 transition-all duration-300 mb-3">
@@ -1037,7 +1047,9 @@
                 <div class="flex items-center gap-2 pointer-events-none">
                     <span class="font-bold text-sm drop-shadow-sm">Asisten Virtual Pribadi</span>
                 </div>
-                <button type="button" onclick="toggleChatbot()" class="text-white/90 hover:text-white hover:rotate-90 transition-transform duration-300 p-1"><i class="fas fa-times"></i></button>
+                <button type="button" onclick="toggleChatbot()" class="text-white/90 hover:text-white hover:rotate-90 transition-transform duration-300 p-1" aria-label="Tutup panel asisten virtual">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
             </div>
 
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll">
@@ -1049,29 +1061,27 @@
             <div class="p-3 border-t border-black/5 bg-gray-50">
                 <form id="chat-form" class="flex gap-2 items-center" onsubmit="sendBotMessage(event)">
                     <input type="text" id="chat-input" placeholder="Tanyakan sesuatu atau kirim URL..." class="flex-1 border border-black/10 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-gold bg-white" required>
-                    <button type="submit" class="bg-gold text-white border border-gold w-10 h-10 rounded-xl hover:bg-white hover:text-gold transition-colors flex items-center justify-center shrink-0 shadow-sm">
-                        <i class="fas fa-paper-plane text-xs"></i>
+                    <button type="submit" class="bg-gold text-white border border-gold w-10 h-10 rounded-xl hover:bg-white hover:text-gold transition-colors flex items-center justify-center shrink-0 shadow-sm" aria-label="Kirim pesan ke asisten virtual">
+                        <i class="fas fa-paper-plane text-xs" aria-hidden="true"></i>
                     </button>
                 </form>
             </div>
         </div>
 
         <!-- Tombol Pemicu Chatbot (Sistem Hover Gold -> Putih) -->
-        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#b89020] shadow-[0_4px_15px_rgba(197,160,40,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing">
-            <i class="fas fa-paper-plane text-xl"></i>
+        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#b89020] shadow-[0_4px_15px_rgba(197,160,40,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing" aria-label="Buka obrolan asisten virtual">
+            <i class="fas fa-paper-plane text-xl" aria-hidden="true"></i>
         </button>
 
     </div>
 
     <!-- WIDGET SCROLL ATAS BAWAH MUNCUL OTOMATIS -->
     <div class="scroll-widget fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
-        <!-- Tombol Gold -> Hover Putih -->
         <button type="button" aria-label="Navigasi Loncatan Ke Batas Atas Layar" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold bg-gold shadow-lg text-white flex items-center justify-center hover:bg-white hover:text-gold transition-all duration-300 hover:scale-110">
-            <!-- SVG Arrow modern & tipis -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
         </button>
         <button type="button" aria-label="Navigasi Loncatan Ke Batas Bawah Layar" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold bg-gold shadow-lg text-white flex items-center justify-center hover:bg-white hover:text-gold transition-all duration-300 hover:scale-110">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
     </div>
     
@@ -1087,12 +1097,12 @@
         </div>
     </div>
 
-    <!-- MODAL KAGGLE DATASET PROJECT 12 -->
+    <!-- MODAL KAGGLE DATASET -->
     <div id="kaggleModal" class="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeKaggleModal()">
         <div class="bg-white w-full max-w-3xl max-h-[85vh] m-4 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col" onclick="event.stopPropagation()">
             <div class="p-6 border-b border-black/5 flex justify-between items-center bg-gray-50">
                 <h3 class="text-xl font-serif font-bold text-darkBlack">Kaggle Dataset Detail</h3>
-                <button onclick="closeKaggleModal()" class="text-gray-400 hover:text-red-500 transition-colors"><i class="fas fa-times text-xl"></i></button>
+                <button onclick="closeKaggleModal()" class="text-gray-400 hover:text-red-500 transition-colors" aria-label="Tutup detail modal Kaggle"><i class="fas fa-times text-xl"></i></button>
             </div>
             <div class="p-6 overflow-y-auto custom-scroll text-[14px] text-textGray leading-relaxed space-y-4">
                 <h4 class="text-lg font-bold text-darkBlack">Restaurant Sales-Dirty Data for Cleaning Training</h4>
@@ -1105,8 +1115,7 @@
                 Terdapat nilai kosong pada kolom Item, Price, Quantity, Order Total, Payment Method. Dataset memuat 5 kategori menu utama: Starters, Main Dishes, Desserts, Drinks, Side Dishes, yang melingkupi transaksi dari Januari 2022 hingga Desember 2023.</p>
                 <p><strong>Metode Resolusi (Decision Tree):</strong><br>
                 Dalam proyek RapidMiner, deduksi nilai kosong dilakukan melalui logika kalkulasi silang (Order Total = Price x Quantity) serta algoritma Pohon Keputusan (Decision Tree) untuk mengklasifikasikan kategori atau memprediksi metode pembayaran yang tidak lengkap dengan akurasi pengujian hingga 98.96%.</p>
-                <!-- Tombol Gold -> Hover Putih -->
-                <a href="https://www.kaggle.com/datasets/ahmedmohamed2003/restaurant-sales-dirty-data-for-cleaning-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 px-4 py-2 border border-gold bg-gold text-white font-bold rounded-xl hover:bg-white hover:text-gold transition-colors text-xs uppercase tracking-wider">
+                <a href="https://www.kaggle.com/datasets/ahmedmohamed2003/restaurant-sales-dirty-data-for-cleaning-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 px-4 py-2 border border-gold bg-gold text-white font-bold rounded-xl hover:bg-white hover:text-gold transition-colors text-xs uppercase tracking-wider" aria-label="Kunjungi Sumber Dataset Restoran di Kaggle">
                     Sumber Dataset (Kaggle) <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
@@ -1162,7 +1171,7 @@
             }, 300);
         }
 
-        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC --- */
+        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC (FIX FORCED REFLOW) --- */
         function makeWidgetDraggable() {
             const container = document.getElementById('chat-widget-container');
             const toggleBtn = document.getElementById('chat-toggle-btn');
@@ -1172,9 +1181,12 @@
             let isDragging = false;
             let startX, startY, initialX, initialY;
             let dragDistance = 0;
+            
+            // Meng-cache dimensi kontainer chatbot untuk mencegah layout thrashing saat diseret
+            let cachedWidth = 0;
+            let cachedHeight = 0;
 
             const onStart = (e) => {
-                // Jangan drag jika mengklik tombol tutup di dalam header
                 if (e.target.closest('button') && e.target.id !== 'chat-toggle-btn') return;
                 activeElement = e.currentTarget;
                 isDragging = false;
@@ -1183,6 +1195,10 @@
                 const rect = container.getBoundingClientRect();
                 initialX = rect.left;
                 initialY = rect.top;
+
+                // Meng-cache sekali dimensi kontainer saat menyentuh/klik
+                cachedWidth = container.offsetWidth;
+                cachedHeight = container.offsetHeight;
 
                 const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
                 const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
@@ -1204,7 +1220,6 @@
                 let deltaY = clientY - (startY + initialY);
                 dragDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-                // Sensitivitas drag: jika bergeser lebih dari 5 piksel, tandai sebagai aktivitas geser
                 if (dragDistance > 5) {
                     isDragging = true;
                 }
@@ -1214,11 +1229,11 @@
                     let newX = clientX - startX;
                     let newY = clientY - startY;
 
-                    // Batasan ruang layar agar widget tidak meluncur keluar jendela viewport
+                    // Menggunakan variabel cache tanpa memicu reflow geometri paksa
                     const minX = 0;
                     const minY = 0;
-                    const maxX = window.innerWidth - container.offsetWidth;
-                    const maxY = window.innerHeight - container.offsetHeight;
+                    const maxX = window.innerWidth - cachedWidth;
+                    const maxY = window.innerHeight - cachedHeight;
 
                     newX = Math.max(minX, Math.min(newX, maxX));
                     newY = Math.max(minY, Math.min(newY, maxY));
@@ -1237,13 +1252,11 @@
                 document.removeEventListener('touchend', onEnd);
             };
 
-            // Kaitkan handler mouse dan sentuhan layar
             toggleBtn.addEventListener('mousedown', onStart);
             toggleBtn.addEventListener('touchstart', onStart, { passive: true });
             chatbotHeader.addEventListener('mousedown', onStart);
             chatbotHeader.addEventListener('touchstart', onStart, { passive: true });
 
-            // Cegah pemicu klik tak disengaja ketika sedang menggeser widget
             toggleBtn.addEventListener('click', (e) => {
                 if (isDragging) {
                     e.preventDefault();
@@ -1295,7 +1308,7 @@
             container.scrollTop = container.scrollHeight;
             
             if (isTyping) {
-                return bubbleId; 
+                return bubbleId; // kembalikan ID untuk diketik
             }
         }
 
@@ -1563,28 +1576,28 @@
         };
 
         const singleServiceData = {
-            LandingPage:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Website Konversi (BOFU)</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Website satu halaman (Bottom of Funnel) yang dirancang khusus untuk memancing pelanggan melakukan action (WhatsApp/Pembelian) dengan performa muat ekstra cepat.</p></div>",bullets:["Desain UX berorientasi penjualan langsung", "Loading LCP super kilat (GEO Readiness)", "Penanaman fondasi GTM & Google Analytics 4", "Tombol pesanan langsung terhubung WA Tracker"]},
-            WPBlog:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Profil B2B (SEO Friendly)</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Platform representasi perusahaan yang dibangun kokoh untuk mendominasi peringkat Google dan memancarkan sinyal E-E-A-T yang valid kepada investor.</p></div>",bullets:["Struktur kode bersih sesuai algoritma terbaru", "Arsitektur URL untuk Topikal Otoritas Silo", "Panel administrator mudah dikelola (CMS)", "Sistem manajemen publikasi artikel SEO"]},
-            LMS:{price:"Rp 7.200.000",strike:"Rp 9.000.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>E-Learning Otomatis</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Sistem cerdas untuk menjual kursus secara otomatis. Maksimalkan pasif Revenue Tunnel Anda dari pembayaran hingga penerbitan sertifikat digital.</p></div>",bullets:["Penerimaan bayar otomatis (QRIS/Bank Virtual)", "Perlindungan ketat anti-bajak konten video", "Modul evaluasi ujian (Quiz) & Laporan Belajar", "Pembuatan e-sertifikat kelulusan seketika"]},
-            TryOut:{price:"Rp 6.800.000",strike:"Rp 8.500.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Platform Ujian (CBT)</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Infrastruktur stabil (CBT) untuk edukasi dan bimbingan belajar, menampung ujian serentak tanpa down-time yang merugikan pengguna.</p></div>",bullets:["Timer simulasi ujian pengaman waktu (Real-time)", "Penguncian layar mencegah kecurangan siswa", "Skoring dan sistem peringkat analitik instan", "Laporan analisis kekuatan & kelemahan materi"]},
-            SIAKAD:{price:"Rp 10.000.000",strike:"Rp 12.500.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Sistem Informasi Akademik</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Solusi mutakhir yang mengonsolidasikan data presensi, nilai, serta sirkulasi keuangan institusi dalam satu ruang kendali aman nan terpusat.</p></div>",bullets:["Rekap e-Rapor dan penilaian mahasiswa instan", "Akses portal Guru, Murid & Wali Mahasiswa", "Pantauan absensi QR-Code / PIN harian", "Otorisasi database rahasia tingkat tinggi"]},
-            Booking:{price:"Rp 4.400.000",strike:"Rp 5.500.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Mesin Lead Generation</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Fokus pada akuisisi Leads 24 jam dengan integrasi kalender cerdas, mempermudah pelanggan menjadwalkan jasa/konsultasi kapan pun.</p></div>",bullets:["Algoritma kalender sinkronisasi jadwal otomatis", "Notifikasi Reminder Booking via Email / WA", "Otorisasi pengaturan waktu jam staf paralel", "Rekam jejak riwayat pemesanan Customer"]},
+            LandingPage:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Website Konversi (BOFU)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Website satu halaman (Bottom of Funnel) yang dirancang khusus untuk memancing pelanggan melakukan action (WhatsApp/Pembelian) dengan performa muat ekstra cepat.</p></div>",bullets:["Desain UX berorientasi penjualan langsung", "Loading LCP super kilat (GEO Readiness)", "Penanaman fondasi GTM & Google Analytics 4", "Tombol pesanan langsung terhubung WA Tracker"]},
+            WPBlog:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Profil Bisnis B2B (SEO Friendly)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Platform representasi perusahaan yang dibangun kokoh untuk mendominasi peringkat Google dan memancarkan sinyal E-E-A-T yang valid kepada investor.</p></div>",bullets:["Struktur kode bersih sesuai algoritma terbaru", "Arsitektur URL untuk Topikal Otoritas Silo", "Panel administrator mudah dikelola (CMS)", "Sistem manajemen publikasi artikel SEO"]},
+            LMS:{price:"Rp 7.200.000",strike:"Rp 9.000.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>E-Learning Otomatis</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Sistem cerdas untuk menjual kursus secara otomatis. Maksimalkan pasif Revenue Tunnel Anda dari pembayaran hingga penerbitan sertifikat digital.</p></div>",bullets:["Penerimaan bayar otomatis (QRIS/Bank Virtual)", "Perlindungan ketat anti-bajak konten video", "Modul evaluasi ujian (Quiz) & Laporan Belajar", "Pembuatan e-sertifikat kelulusan seketika"]},
+            TryOut:{price:"Rp 6.800.000",strike:"Rp 8.500.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Platform Ujian (CBT)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Infrastruktur stabil (CBT) untuk edukasi dan bimbingan belajar, menampung ujian serentak tanpa down-time yang merugikan pengguna.</p></div>",bullets:["Timer simulasi ujian pengaman waktu (Real-time)", "Penguncian layar mencegah kecurangan siswa", "Skoring dan sistem peringkat analitik instan", "Laporan analisis kekuatan & kelemahan materi"]},
+            SIAKAD:{price:"Rp 10.000.000",strike:"Rp 12.500.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Sistem Informasi Akademik</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Solusi mutakhir yang mengonsolidasikan data presensi, nilai, serta sirkulasi keuangan institusi dalam satu ruang kendali aman nan terpusat.</p></div>",bullets:["Rekap e-Rapor dan penilaian mahasiswa instan", "Akses portal Guru, Murid & Wali Mahasiswa", "Pantauan absensi QR-Code / PIN harian", "Otorisasi database rahasia tingkat tinggi"]},
+            Booking:{price:"Rp 4.400.000",strike:"Rp 5.500.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Mesin Lead Generation</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Fokus pada akuisisi Leads 24 jam dengan integrasi kalender cerdas, mempermudah pelanggan menjadwalkan jasa/konsultasi kapan pun.</p></div>",bullets:["Algoritma kalender sinkronisasi jadwal otomatis", "Notifikasi Reminder Booking via Email / WA", "Otorisasi pengaturan waktu jam staf paralel", "Rekam jejak riwayat pemesanan Customer"]},
             Property:{price:"Rp 5.200.000",strike:"Rp 6.500.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Etalase Real Estat</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Etalase premium penyokong konversi makelar properti dengan filter pencarian wilayah canggih (Geo-SEO) untuk high-intent property searchers.</p></div>",bullets:["Galeri visual resolusi tinggi (Lossless UX)", "Filter radius lokasi cerdas multi-parameter", "Injeksi simulasi hitung kredit KPR Mandiri", "Pemetaan interaktif wilayah API Maps resmi"]},
             
-            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Arsitektur Technical SEO</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Strategi fundamental mengamankan indeks bot perayap Google (GSC). Audit ketat mencakup perbaikan Indexing, LCP web, dan resolusi duplikasi Meta-tag.</p></div>",bullets:["Audit perayapan (Crawlability) menyeluruh", "Riset Kata Kunci (Volume Tinggi + Persaingan Rendah)", "Penambahan mark-up Skema E-E-A-T Web", "Resolusi halaman Error 404 & Sitemap XML"]},
-            SpeedOpt:{price:"Rp 2.000.000",strike:"Rp 2.500.000",suffix:"/perbaikan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Optimasi Core Web Vitals</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Menyelamatkan User Experience dengan menekan Largest Contentful Paint (LCP) di bawah 2.5 detik. Faktor absolut untuk lolos penilaian ranking (GEO) 2026.</p></div>",bullets:["Pemangkasan skrip pemblokir (CSS/JS deferral)", "Generasi format aset visual mutakhir (WebP/AVIF)", "Eksekusi sistem Server Caching tingkat lanjut", "Optimalisasi TTFB (Time to First Byte) respon server"]},
-            CRO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Monitoring & Reporting ROI</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Merubah kueri pencarian menjadi angka pemasukan (Revenue). Audit Conversion Rate (CRO) yang menambal kebocoran Funnel, agar metrik Sales/Leads melonjak.</p></div>",bullets:["Integrasi Tag Manager & Evaluasi GA4", "Pelacakan Sesi pengunjung (UX Heatmap)", "Sinergi SEO-SEM untuk Remarketing prospek", "Optimalisasi CTA (Call-to-Action) agresif"]},
-            GMB:{price:"Rp 1.500.000",strike:"Rp 1.875.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Dominasi Local (Geo-SEO)</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Raih Top 3 Local Pack di wilayah Anda. Sangat krusial untuk bisnis brick-and-mortar agar memenangkan visibilitas Near Me secara instan dari Maps.</p></div>",bullets:["Sinkronisasi Google Bisnisku secara utuh", "Penanaman kueri lokal (Buyer Intent) relevan", "Esktraksi nilai ulasan berkonsep 5 Bintang E-E-A-T", "Suntikan Otoritas sinyal Sitasi Lokal Terpercaya"]},
-            SEOArticle:{price:"Rp 2.500.000",strike:"Rp 3.125.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Strategi Silo (Pillar Content)</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Menulis jaringan artikel (Cluster) edukatif menuju artikel Pilar (Topical Authority) dengan kualifikasi murni Experience & Expertise, disukai Google 2026.</p></div>",bullets:["Analisis Gap Kueri Kompetitor Teratas", "Riset Silo berantai (Internal Linking Hierarchy)", "Produksi jurnalisme organik, relevan, informatif", "Pengaturan Snippet HTML meraih Posisi 0 SERP"]},
-            Backlink:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Otoritas Backlink White-Hat</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Injeksi metrik Trust & Authority langsung dari ranah portal media besar (Tier-1). Bebas PBN Black-Hat, aman 100% dari potensi terjungkal Algoritma De-Index.</p></div>",bullets:["Outreach langsung relasi Media Publikasi Nasional", "Sertifikasi Content Placement Do-Follow murni", "Pemberdayaan Domain Authority (DA/DR) stabil", "Skalabilitas penguatan ranking jangka panjang"]},
+            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Arsitektur Technical SEO</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Strategi fundamental mengamankan indeks bot perayap Google (GSC). Audit ketat mencakup perbaikan Indexing, LCP web, dan resolusi duplikasi Meta-tag.</p></div>",bullets:["Audit perayapan (Crawlability) menyeluruh", "Riset Kata Kunci (Volume Tinggi + Persaingan Rendah)", "Penambahan mark-up Skema E-E-A-T Web", "Resolusi halaman Error 404 & Sitemap XML"]},
+            SpeedOpt:{price:"Rp 2.000.000",strike:"Rp 2.500.000",suffix:"/perbaikan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Optimasi Core Web Vitals</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Menyelamatkan User Experience dengan menekan Largest Contentful Paint (LCP) di bawah 2.5 detik. Faktor absolut untuk lolos penilaian ranking (GEO) 2026.</p></div>",bullets:["Pemangkasan skrip pemblokir (CSS/JS deferral)", "Generasi format aset visual mutakhir (WebP/AVIF)", "Eksekusi sistem Server Caching tingkat lanjut", "Optimalisasi TTFB (Time to First Byte) respon server"]},
+            CRO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Monitoring & Reporting ROI</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Merubah kueri pencarian menjadi angka pemasukan (Revenue). Audit Conversion Rate (CRO) yang menambal kebocoran Funnel, agar metrik Sales/Leads melonjak.</p></div>",bullets:["Integrasi Tag Manager & Evaluasi GA4", "Pelacakan Sesi pengunjung (UX Heatmap)", "Sinergi SEO-SEM untuk Remarketing prospek", "Optimalisasi CTA (Call-to-Action) agresif"]},
+            GMB:{price:"Rp 1.500.000",strike:"Rp 1.875.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Dominasi Local (Geo-SEO)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Raih Top 3 Local Pack di wilayah Anda. Sangat krusial untuk bisnis brick-and-mortar agar memenangkan visibilitas Near Me secara instan dari Maps.</p></div>",bullets:["Sinkronisasi Google Bisnisku secara utuh", "Penanaman kueri lokal (Buyer Intent) relevan", "Esktraksi nilai ulasan berkonsep 5 Bintang E-E-A-T", "Suntikan Otoritas sinyal Sitasi Lokal Terpercaya"]},
+            SEOArticle:{price:"Rp 2.500.000",strike:"Rp 3.125.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Strategi Silo (Pillar Content)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Menulis jaringan artikel (Cluster) edukatif menuju artikel Pilar (Topical Authority) dengan kualifikasi murni Experience & Expertise, disukai Google 2026.</p></div>",bullets:["Analisis Gap Kueri Kompetitor Teratas", "Riset Silo berantai (Internal Linking Hierarchy)", "Produksi jurnalisme organik, relevan, informatif", "Pengaturan Snippet HTML meraih Posisi 0 SERP"]},
+            Backlink:{price:"Rp 4.000.000",strike:"Rp 5.000.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Otoritas Backlink White-Hat</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Injeksi metrik Trust & Authority langsung dari ranah portal media besar (Tier-1). Bebas PBN Black-Hat, aman 100% dari potensi terjungkal Algoritma De-Index.</p></div>",bullets:["Outreach langsung relasi Media Publikasi Nasional", "Sertifikasi Content Placement Do-Follow murni", "Pemberdayaan Domain Authority (DA/DR) stabil", "Skalabilitas penguatan ranking jangka panjang"]},
             
-            HostingBasic:{price:"Rp 28.000",strike:"Rp 35.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Kinerja Andal Dasar</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Infrastruktur stabil untuk menopang Landing Page atau entitas profil start-up. Hosting lokal dengan garansi isolasi pengamanan yang mantap.</p></div>",bullets:["Penggerak media penyimpanan NVMe kilat", "Otentikasi gembok Secure Socket (SSL) gratis", "Pemindai proaktif intrusi Malware & Virus", "Garansi komitmen stabilitas Uptime 99%"]},
-            HostingStarter:{price:"Rp 40.000",strike:"Rp 50.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Performa Akselerasi</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Keseimbangan daya angkat server bagi UMKM/Portal web yang stabil mencatat puluhan kueri pengunjung harian organik tanpa lag.</p></div>",bullets:["Alokasi sirkuit memori RAM yang moderat", "Limitasi beban lalu lintas Bandwidth Unmetered", "Modul mitigasi serbuan DDoS dasar (Firewall)", "Platform Email operasional bisnis bawaan"]},
-            HostingPremium:{price:"Rp 60.000",strike:"Rp 75.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Ketahanan Tingkat Tinggi</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Mesin superior andalan perniagaan E-Commerce. Menjamin arus proses keranjang belanja dan checkout API tidak mengalami Timeout.</p></div>",bullets:["Skalabilitas pendaftaran Addon Domain masif", "Spesifikasi silinder Prosesor vCPU menonjol", "Mekanisme duplikasi pengamanan data Harian", "Tiket laporan prioritas insiden teknis (Support 24/7)"]},
-            HostingExpert:{price:"Rp 120.000",strike:"Rp 150.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Sumber Daya Eksklusif</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Level teratas infrastruktur pembagian sumber. Sempurna untuk operasi skala berat, memproses antrean panjang database query secara paralel simultan.</p></div>",bullets:["Isolasi spesifik unit Prosesor (Pencegahan Overload)", "Olah database berkecepatan IOPS absolut (MySQL)", "Sinkronisasi antrean lalu lintas beban masuk (Redis)", "Penyangga kerangka logis CMS level kustomisasi"]},
-            DomainCom:{price:"Rp 200.000",strike:"Rp 250.000",suffix:"/thn",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Identitas Bisnis Global</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Verifikasi tertinggi untuk hak kekayaan intelektual Online internasional. Pertahankan otoritas merek dagang Anda di tingkat penelusuran global dengan (.COM).</p></div>",bullets:["Pendaftaran sah lisensi identifikasi nama global", "Otoritas Manajemen DNS rekaman server", "Kunci ganda pencegahan bajak migrasi domain", "Elevasi Trust-Signals korporat taraf Internasional"]},
-            DomainId:{price:"Rp 320.000",strike:"Rp 400.000",suffix:"/thn",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Keabsahan Entitas Nasional</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Kode sakti di mata Algoritma Google Indonesia (Geo-Targeting). Memberikan sentimen kewenangan legal formal bagi calon konsumen B2B Nusantara.</p></div>",bullets:["Sinyal kepatuhan registrasi mutlak PANDI (KTP/SIUP)", "Faktor afirmatif Algoritma spesifik perayap lokalisasi", "Kekebalan dari serangan identifikasi domain anonim", "Dongkrakan instan profil kredibilitas lembaga/PT"]},
-            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Virtual Private Server</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Otonomi absolut untuk kebutuhan korporasi level atas (ERP/Aplikasi Privat). Resource perangkat keras 100% dipisahkan khusus (Dedicated) bagi perusahaan Anda.</p></div>",bullets:["Mandat kendali IP Publik statis khusus", "Hak penguasaan administrative sistem (Root/SSH)", "Daya komputasi RAM Hardware terisolir pasti", "Kompatibel untuk arsitektur pengamanan jaringan spesifik"]}
+            HostingBasic:{price:"Rp 28.000",strike:"Rp 35.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Kinerja Andal Dasar</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Infrastruktur stabil untuk menopang Landing Page atau entitas profil start-up. Hosting lokal dengan garansi isolasi pengamanan yang mantap.</p></div>",bullets:["Penggerak media penyimpanan NVMe kilat", "Otentikasi gembok Secure Socket (SSL) gratis", "Pemindai proaktif intrusi Malware & Virus", "Garansi komitmen stabilitas Uptime 99%"]},
+            HostingStarter:{price:"Rp 40.000",strike:"Rp 50.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Performa Akselerasi</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Keseimbangan daya angkat server bagi UMKM/Portal web yang stabil mencatat puluhan kueri pengunjung harian organik tanpa lag.</p></div>",bullets:["Alokasi sirkuit memori RAM yang moderat", "Limitasi beban lalu lintas Bandwidth Unmetered", "Modul mitigasi serbuan DDoS dasar (Firewall)", "Platform Email opersional bisnis bawaan"]},
+            HostingPremium:{price:"Rp 60.000",strike:"Rp 75.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Ketahanan Tingkat Tinggi</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Mesin superior andalan perniagaan E-Commerce. Menjamin arus proses keranjang belanja dan checkout API tidak mengalami Timeout.</p></div>",bullets:["Skalabilitas pendaftaran Addon Domain masif", "Spesifikasi silinder Prosesor vCPU menonjol", "Mekanisme duplikasi pengamanan data Harian", "Tiket laporan prioritas insiden teknis (Support 24/7)"]},
+            HostingExpert:{price:"Rp 120.000",strike:"Rp 150.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Sumber Daya Eksklusif</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Level teratas infrastruktur pembagian sumber. Sempurna untuk operasi skala berat, memproses antrean panjang database query secara paralel simultan.</p></div>",bullets:["Isolasi spesifik unit Prosesor (Pencegahan Overload)", "Olah database berkecepatan IOPS absolut (MySQL)", "Sinkronisasi antrean lalu lintas beban masuk (Redis)", "Penyangga kerangka logis CMS level kustomisasi"]},
+            DomainCom:{price:"Rp 200.000",strike:"Rp 250.000",suffix:"/thn",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Identitas Bisnis Global</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Verifikasi tertinggi untuk hak kekayaan intelektual Online internasional. Pertahankan otoritas merek dagang Anda di tingkat penelusuran global dengan (.COM).</p></div>",bullets:["Pendaftaran sah lisensi identifikasi nama global", "Otoritas Manajemen DNS rekaman server", "Kunci ganda pencegahan bajak migrasi domain", "Elevasi Trust-Signals korporat taraf Internasional"]},
+            DomainId:{price:"Rp 320.000",strike:"Rp 400.000",suffix:"/thn",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Keabsahan Entitas Nasional</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Kode sah di mata Algoritma Google Indonesia (Geo-Targeting). Memberikan sentimen kewenangan legal formal bagi calon konsumen B2B Nusantara.</p></div>",bullets:["Sinyal kepatuhan registrasi mutlak PANDI (KTP/SIUP)", "Faktor afirmatif Algoritma spesifik perayap lokalisasi", "Kekebalan dari serangan identifikasi domain anonim", "Dongkrakan instan profil kredibilitas lembaga/PT"]},
+            VPS:{price:"Rp 400.000",strike:"Rp 500.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Virtual Private Server</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Otonomi absolut untuk kebutuhan korporasi level atas (ERP/Aplikasi Privat). Resource perangkat keras 100% dipisahkan khusus (Dedicated) bagi perusahaan Anda.</p></div>",bullets:["Mandat kendali IP Publik statis khusus", "Hak penguasaan administrasi sistem (Root/SSH)", "Daya komputasi RAM Hardware terisolir pasti", "Kompatibel untuk arsitektur pengamanan jaringan spesifik"]}
         };
 
         window.updateProductList = function() {

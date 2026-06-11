@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- GTM -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KW247L2C');</script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992" crossorigin="anonymous"></script>
-
-    <meta charset="UTF-8">
+    <!-- GTM dipindahkan ke lazy loader bawah agar tidak menghambat LCP/TBT -->
+    <!-- AdSense dipindahkan ke lazy loader bawah agar PageSpeed lebih ringan -->
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#ffffff">
     <meta name='impact-site-verification' value='f31cae2e-6cef-43c6-ab08-e6afc91c5ce7'>
@@ -132,7 +125,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     
     <link rel="preload" as="image" href="myphot.webp" fetchpriority="high">
 
@@ -239,6 +231,12 @@
         .nav-link-modern:hover::after { transform: scaleY(1); }
         .nav-link-modern:hover { color: #ffffff !important; }
         
+
+        /* Chat tetap rapi di semua layar, tidak draggable agar tidak berpindah-pindah */
+        #chat-widget-container { left: 1rem; right: auto; top: auto; bottom: 1.5rem; }
+        @media (min-width: 768px) { #chat-widget-container { left: 2rem; bottom: 2rem; } }
+        @media (max-width: 420px) { #chatbot-ui { width: calc(100vw - 2rem); } }
+
         /* Chatbot Animasi Lembut Konsisten */
         .chat-open { transform: scale(1); opacity: 1; pointer-events: auto; }
         .chat-closed { transform: scale(0.95); opacity: 0; pointer-events: none; }
@@ -1132,12 +1130,12 @@
         </div>
     </footer>
 
-    <!-- WIDGETS SCROLL & CHATBOT (DRAGGABLE SECARA PENGGABUNGAN TOTAL VIEWPORT-WIDE TANPA BATAS) -->
+    <!-- WIDGETS SCROLL & CHATBOT (FIXED POSITION, RESPONSIVE, TIDAK BERGESER) -->
     <div id="chat-widget-container" class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40 flex flex-col items-start" style="contain: layout;">
         
         <!-- UI Chatbot (Murni Personal AI) -->
         <div id="chatbot-ui" class="chat-closed w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/10 transition-all duration-300 mb-3">
-            <div id="chatbot-header" class="bg-gradient-to-r from-gold to-[#00558E] text-white p-4 flex justify-between items-center shadow-sm cursor-grab active:cursor-grabbing select-none">
+            <div id="chatbot-header" class="bg-gradient-to-r from-gold to-[#00558E] text-white p-4 flex justify-between items-center shadow-sm cursor-default select-none">
                 <div class="flex items-center gap-2 pointer-events-none">
                     <span class="font-bold text-sm drop-shadow-sm">Asisten Virtual Pribadi</span>
                 </div>
@@ -1163,7 +1161,7 @@
         </div>
 
         <!-- Tombol Pemicu Chatbot (Sistem Hover Gold -> Putih) -->
-        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#00558E] shadow-[0_4px_15px_rgba(38,128,190,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing" aria-label="Buka obrolan asisten virtual">
+        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#00558E] shadow-[0_4px_15px_rgba(38,128,190,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-pointer" aria-label="Buka obrolan asisten virtual">
             <i class="fas fa-paper-plane text-xl" aria-hidden="true"></i>
         </button>
 
@@ -1237,6 +1235,16 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-ZEFRB74DXL');
+
+            setTimeout(() => {
+                if (document.querySelector('script[data-lazy-adsense="true"]')) return;
+                const adsScript = document.createElement('script');
+                adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2062441269413992';
+                adsScript.async = true;
+                adsScript.crossOrigin = 'anonymous';
+                adsScript.dataset.lazyAdsense = 'true';
+                document.body.appendChild(adsScript);
+            }, 5000);
         }
 
         function loadLazyScripts() {
@@ -1267,104 +1275,12 @@
             }, 300);
         }
 
-        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC (COMPLETELY FREE VIEWPORT-WIDE) --- */
+        /* --- CHATBOT FIXED POSITION: tombol tetap di kiri bawah, tidak bisa terseret ke tengah layar --- */
         function makeWidgetDraggable() {
-            const container = document.getElementById('chat-widget-container');
             const toggleBtn = document.getElementById('chat-toggle-btn');
-            const chatbotHeader = document.getElementById('chatbot-header');
-
-            let isDragging = false;
-            let startX = 0, startY = 0;
-            let initialX = 0, initialY = 0;
-            let dragDistance = 0;
-            
-            let cachedWidth = 0;
-            let cachedHeight = 0;
-
-            const onStart = (e) => {
-                if (e.target.closest('button') && e.target.id !== 'chat-toggle-btn') return;
-                
-                const rect = container.getBoundingClientRect();
-                initialX = rect.left;
-                initialY = rect.top;
-
-                cachedWidth = container.offsetWidth;
-                cachedHeight = container.offsetHeight;
-
-                const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-                const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-
-                startX = clientX - initialX;
-                startY = clientY - initialY;
-                isDragging = false;
-                dragDistance = 0;
-
-                document.addEventListener('mousemove', onMove, { passive: false });
-                document.addEventListener('mouseup', onEnd);
-                document.addEventListener('touchmove', onMove, { passive: false });
-                document.addEventListener('touchend', onEnd);
-            };
-
-            const onMove = (e) => {
-                const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-                const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
-
-                let deltaX = clientX - (startX + initialX);
-                let deltaY = clientY - (startY + initialY);
-                dragDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-                if (dragDistance > 5) {
-                    isDragging = true;
-                }
-
-                if (isDragging) {
-                    container.classList.add('is-dragging');
-                    e.preventDefault();
-                    let newX = clientX - startX;
-                    let newY = clientY - startY;
-
-                    const padding = 12;
-                    const minX = padding;
-                    const minY = padding;
-                    const maxX = window.innerWidth - cachedWidth - padding;
-                    const maxY = window.innerHeight - cachedHeight - padding;
-
-                    newX = Math.max(minX, Math.min(newX, maxX));
-                    newY = Math.max(minY, Math.min(newY, maxY));
-
-                    container.style.bottom = 'auto';
-                    container.style.right = 'auto';
-                    container.style.left = `${newX}px`;
-                    container.style.top = `${newY}px`;
-                }
-            };
-
-            const onEnd = () => {
-                container.classList.remove('is-dragging');
-                document.removeEventListener('mousemove', onMove);
-                document.removeEventListener('mouseup', onEnd);
-                document.removeEventListener('touchmove', onMove);
-                document.removeEventListener('touchend', onEnd);
-            };
-
-            toggleBtn.addEventListener('mousedown', onStart);
-            toggleBtn.addEventListener('touchstart', onStart, { passive: true });
-            chatbotHeader.addEventListener('mousedown', onStart);
-            chatbotHeader.addEventListener('touchstart', onStart, { passive: true });
-
-            let clickStartTime = 0;
-            toggleBtn.addEventListener('mousedown', () => { clickStartTime = Date.now(); });
-            toggleBtn.addEventListener('touchstart', () => { clickStartTime = Date.now(); }, { passive: true });
-
-            toggleBtn.addEventListener('click', (e) => {
-                const clickDuration = Date.now() - clickStartTime;
-                if (isDragging || clickDuration > 200) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                } else {
-                    toggleChatbot();
-                }
-            });
+            if (!toggleBtn || toggleBtn.dataset.bound === 'true') return;
+            toggleBtn.dataset.bound = 'true';
+            toggleBtn.addEventListener('click', toggleChatbot);
         }
 
         function toggleChatbot() {
@@ -1489,7 +1405,7 @@
                 const loadingEl = document.getElementById(loadingId);
                 if (loadingEl) loadingEl.remove();
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, 'Maaf, koneksi AI sedang belum tersambung. Pastikan Netlify Function index-bot sudah berhasil deploy dan environment OPENAI_API_KEY sudah terpasang.');
+                await typeTextEffect(bubbleId, 'Maaf, koneksi AI sedang belum tersambung. Pastikan Netlify Function index-bot sudah berhasil deploy dan environment GROQ_API_KEY sudah terpasang.');
                 console.warn('Chatbot AI error:', err);
             } finally {
                 input.disabled = false;
@@ -1726,7 +1642,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { fetchBloggerPosts(); }, 500);
-            makeWidgetDraggable(); // Aktifkan sistem drag bebas viewport-wide untuk chatbot integral
+            makeWidgetDraggable(); // Tombol chat tetap fixed di kiri bawah dan tidak berpindah-pindah
             startHeroTypingEffect(); // Panggil fungsi efek mengetik ganda paruh atas
             
             const navContainer = document.getElementById('navbar-container');

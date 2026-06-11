@@ -1,14 +1,9 @@
 {
-  "name": "faqih-portfolio",
+  "name": "faqih-portfolio-netlify-functions",
   "version": "1.0.0",
-  "description": "Portfolio Digital Marketer & SEO Specialist",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "type": "commonjs",
   "dependencies": {
-    "googleapis": "^133.0.0"
-  },
-  "author": "Muhammad Faqih Al Rifai",
-  "license": "ISC"
+    "googleapis": "^144.0.0"
+  }
 }

@@ -211,7 +211,7 @@
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
 
-        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(38,128,190,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#2680BE}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#2680BE;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:auto;display:block;max-width:100%;transform:translateZ(0);backface-visibility:hidden;-webkit-font-smoothing:antialiased}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(38,128,190,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#2680BE}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#2680BE;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
         
         @media (max-width: 768px) {
             .blog-card-home { transition: transform 0.3s; }
@@ -255,7 +255,70 @@
             color: #2680BE;
         }
         @keyframes blink { 50% { opacity: 0; } }
+
+        /* FIX KUALITAS WEBP + CHAT AI CLEAN */
+        img { max-width: 100%; height: auto; }
+        img[src$=".webp"], img[src*=".webp?"] { image-rendering: auto; }
+        .webp-fallback-clean {
+            object-fit: contain !important;
+            padding: 1rem;
+            background: linear-gradient(135deg,#f8f9fa,#ffffff) !important;
+            border: 1px solid rgba(38,128,190,.10);
+        }
+        #chat-messages .bot-bubble,
+        #chat-messages .user-bubble {
+            white-space: pre-line;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+        #chat-widget-container.is-dragging {
+            transition: none !important;
+        }
+        @media (min-width: 768px) {
+            #about { min-height: calc(100vh - 80px); }
+        }
+        @media (max-width: 767px) {
+            #about { min-height: auto; }
+        }
+
     </style>
+
+    <script>
+        /* Global WebP Safety Guard: mencegah tampilan gambar pecah/broken di semua kartu */
+        (function () {
+            const svgFallback = encodeURIComponent(`
+                <svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+                    <defs>
+                        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#f8f9fa"/>
+                            <stop offset="100%" stop-color="#ffffff"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="900" height="900" rx="56" fill="url(#g)"/>
+                    <circle cx="450" cy="365" r="92" fill="#eaf3fa" stroke="#2680BE" stroke-width="10"/>
+                    <path d="M275 610c72-102 128-153 167-153 30 0 53 23 76 47 22 23 43 46 72 46 31 0 61-26 92-78 37 46 70 92 99 138H275z" fill="#d8ecf8" stroke="#2680BE" stroke-width="8" stroke-linejoin="round"/>
+                    <text x="450" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#002248">Gambar sedang dimuat ulang</text>
+                    <text x="450" y="770" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#374151">Pastikan file .webp berada di folder website</text>
+                </svg>`);
+
+            window.handleImageError = function (img) {
+                if (!img || img.dataset.fallbackApplied === 'true') return;
+                img.dataset.fallbackApplied = 'true';
+                img.classList.add('webp-fallback-clean');
+                img.loading = img.getAttribute('loading') || 'lazy';
+                img.decoding = 'async';
+                img.src = 'data:image/svg+xml;charset=UTF-8,' + svgFallback;
+            };
+
+            window.addEventListener('error', function (event) {
+                const target = event.target;
+                if (target && target.tagName === 'IMG') {
+                    window.handleImageError(target);
+                }
+            }, true);
+        })();
+    </script>
+
 </head>
 <body class="bg-mainWhite text-darkBlack transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative text-[15px] md:text-base">
 
@@ -306,12 +369,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="about" class="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 flex items-center relative overflow-hidden bg-mainWhite">
+        <section id="about" class="pt-20 md:pt-24 pb-14 md:pb-20 px-4 md:px-8 flex items-start relative overflow-hidden bg-mainWhite">
              <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none"></div>
-             <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center z-10 w-full">
+             <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-start z-10 w-full">
                 
                 <!-- Hero Text -->
-                <div class="order-2 md:order-1 animate-slide-up flex flex-col justify-center h-full items-start">
+                <div class="order-2 md:order-1 animate-slide-up flex flex-col justify-start h-full items-start md:pt-2">
                     
                     <!-- Modern Label Berkilau -->
                     <div class="relative overflow-hidden group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lightGray border border-black/5 shadow-[0_0_15px_rgba(197,160,40,0.1)] hover:shadow-[0_0_25px_rgba(197,160,40,0.3)] transition-all duration-500 cursor-default mb-4 md:mb-5">
@@ -361,7 +424,7 @@
                 <div class="order-1 md:order-2 flex flex-col justify-center animate-slide-up delay-200">
                     <div class="relative w-[85%] sm:w-full max-w-sm lg:max-w-[420px] mx-auto flex justify-center mb-6 md:mb-8 animate-wave">
                         <div class="w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 bg-white p-2">
-                            <img src="myphot.webp" width="510" height="637" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" loading="eager" decoding="async">
+                            <img src="myphot.webp" width="510" height="637" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" fetchpriority="high" loading="eager" decoding="async" onerror="handleImageError(this)">
                         </div>
                     </div>
                 </div>
@@ -376,26 +439,26 @@
                 <div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-mainWhite to-transparent z-20 pointer-events-none" aria-hidden="true"></div>
                 
                 <div class="partner-track flex items-center gap-10 md:gap-16 px-4">
-                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
                     
                     <!-- Set 2 (Duplikasi untuk Efek Loop Animasi Tanpa Batas) -->
-                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4 Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code Duplikat" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
-                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async">
+                    <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="Logo WordPress Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="Logo GitHub Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Logo Google Analytics 4 Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googlesearchconsole/4285F4" alt="Logo Google Search Console Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googletagmanager/4285F4" alt="Logo Google Tag Manager Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/googleadsense/4285F4" alt="Logo Google AdSense Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/blogger/FF5722" alt="Logo Blogger Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Logo Visual Studio Code Duplikat" width="48" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
+                    <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Logo Semrush Duplikat" width="120" height="48" class="h-8 md:h-12 w-auto object-contain drop-shadow-sm hover:scale-110 hover:-translate-y-1 transition-all duration-300" loading="lazy" decoding="async" onerror="handleImageError(this)">
                 </div>
             </div>
         </section>
@@ -472,7 +535,7 @@
                         <!-- ITEM 1 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="independent.webp" alt="Independent Consultant Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="independent.webp" alt="Independent Consultant Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Okt 2025 – Srg</div>
                                     <div class="text-xs text-textGray mb-1.5">Cirebon (Remote)</div>
@@ -492,7 +555,7 @@
                         <!-- ITEM 2 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="madani.webp" alt="PT Madani Abadi Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="madani.webp" alt="PT Madani Abadi Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Jan 2026 – Srg</div>
                                     <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
@@ -512,7 +575,7 @@
                         <!-- ITEM 3 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="garap.webp" alt="PT Garap Digital Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="garap.webp" alt="PT Garap Digital Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Sep 2025 – Des 2025</div>
                                     <div class="text-xs text-textGray mb-1.5">Depok (Remote)</div>
@@ -532,7 +595,7 @@
                         <!-- ITEM 4 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="selfemployee.webp" alt="Self Employed Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="selfemployee.webp" alt="Self Employed Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Agu 2015 – Nov 2025</div>
                                     <div class="text-xs text-textGray mb-1.5">Cirebon (Remote)</div>
@@ -552,7 +615,7 @@
                         <!-- ITEM 5 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="sfgrup.webp" alt="SF GROUP Enterprise Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="sfgrup.webp" alt="SF GROUP Enterprise Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Mei 2025 – Sep 2025</div>
                                     <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
@@ -572,7 +635,7 @@
                         <!-- ITEM 6 -->
                         <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
                             <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-                                <img src="angphot.webp" alt="Angphot Orion Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <img src="angphot.webp" alt="Angphot Orion Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" onerror="handleImageError(this)">
                                 <div>
                                     <div class="text-sm font-bold text-darkBlack mb-0.5">Jun 2025 – Agu 2025</div>
                                     <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
@@ -616,7 +679,7 @@
                     
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -632,7 +695,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -648,7 +711,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -664,7 +727,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -680,7 +743,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -696,7 +759,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -712,7 +775,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -728,7 +791,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -745,7 +808,7 @@
                     <!-- FIXED: "Food Couriers" - Gambar diarahkan murni ke berkas food.webp rapi jernih milik Anda -->
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="food.webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="food.webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -761,7 +824,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -777,7 +840,7 @@
 
                     <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Top Chef" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Top Chef" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -797,8 +860,8 @@
                             <div id="ml-slider" class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
                                 <!-- FIXED: Menggunakan berkas WebP lokal secara urut sesuai instruksi -->
                                 <img src="perfomance.webp" onerror="this.src='performance.webp'" alt="Performa Akurasi Klasifikasi" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
-                                <img src="rangka.webp" alt="Rangka Proses RapidMiner" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
-                                <img src="decisiontree.webp" alt="Struktur Decision Tree" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0">
+                                <img src="rangka.webp" alt="Rangka Proses RapidMiner" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0" onerror="handleImageError(this)">
+                                <img src="decisiontree.webp" alt="Struktur Decision Tree" width="360" height="208" class="snap-center w-full h-full object-cover img-high-res shrink-0" onerror="handleImageError(this)">
                             </div>
                             <button type="button" onclick="document.getElementById('ml-slider').scrollBy({left: -300, behavior: 'smooth'})" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-gold text-darkBlack hover:text-white rounded-full flex items-center justify-center shadow-md transition-all z-10 opacity-70 hover:opacity-100" aria-label="Geser ke gambar analisis sebelumnya">
                                 <i class="fas fa-chevron-left text-[12px]" aria-hidden="true"></i>
@@ -844,10 +907,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'kj.webp')">
-                                <img src="kj.webp" alt="Dokumentasi Audit Semrush Pengecekan Kesehatan Website 100%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="kj.webp" alt="Dokumentasi Audit Semrush Pengecekan Kesehatan Website 100%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'mm.webp')">
-                                <img src="mm.webp" alt="Dokumentasi Peningkatan Peringkat Pencarian Google SERP" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="mm.webp" alt="Dokumentasi Peningkatan Peringkat Pencarian Google SERP" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -855,10 +918,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'do.webp')">
-                                <img src="do.webp" alt="Dokumentasi Skor Optimasi SEO On-Page Mencapai 88%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="do.webp" alt="Dokumentasi Skor Optimasi SEO On-Page Mencapai 88%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'sd.webp')">
-                                <img src="sd.webp" alt="Dokumentasi Metrik Kinerja Kecepatan Perayapan Website 100%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="sd.webp" alt="Dokumentasi Metrik Kinerja Kecepatan Perayapan Website 100%" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -866,10 +929,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'core.webp')">
-                                <img src="core.webp" alt="Laporan Dasbor Core Web Vitals Penelusuran Google" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="core.webp" alt="Laporan Dasbor Core Web Vitals Penelusuran Google" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'grader.webp')">
-                                <img src="grader.webp" alt="Penilaian Sempurna Audit Website Grader HubSpot" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="grader.webp" alt="Penilaian Sempurna Audit Website Grader HubSpot" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -877,10 +940,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'droc.webp')">
-                                <img src="droc.webp" alt="Lonjakan Angka Peningkatan Trafik Organik Website Klien" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="droc.webp" alt="Lonjakan Angka Peningkatan Trafik Organik Website Klien" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'gf.webp')">
-                                <img src="gf.webp" alt="Tangkapan Layar Penguasaan Kata Kunci SEO di Halaman Pertama Google" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="gf.webp" alt="Tangkapan Layar Penguasaan Kata Kunci SEO di Halaman Pertama Google" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -888,10 +951,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'pg.webp')">
-                                <img src="pg.webp" alt="Skor Kecepatan Pemuatan Halaman Website Google PageSpeed Insights" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="pg.webp" alt="Skor Kecepatan Pemuatan Halaman Website Google PageSpeed Insights" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'rt.webp')">
-                                <img src="rt.webp" alt="Analisis Trafik Pengunjung Harian melalui Google Analytics Secara Real Time" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="rt.webp" alt="Analisis Trafik Pengunjung Harian melalui Google Analytics Secara Real Time" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -899,10 +962,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'uno.webp')">
-                                <img src="uno.webp" alt="Tangkapan Layar Hasil Pencarian Teratas Peringkat Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="uno.webp" alt="Tangkapan Layar Hasil Pencarian Teratas Peringkat Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'two.webp')">
-                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -910,10 +973,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'rank.webp')">
-                                <img src="rank.webp" alt="Grafik Statistik Laporan Pergerakan Peringkat Penelusuran Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="rank.webp" alt="Grafik Statistik Laporan Pergerakan Peringkat Penelusuran Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'reqgarmed.webp')">
-                                <img src="reqgarmed.webp" alt="Status Perekaman Kesehatan Indeks Google Search Console" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="reqgarmed.webp" alt="Status Perekaman Kesehatan Indeks Google Search Console" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -921,10 +984,10 @@
                     <div class="snap-center shrink-0 w-[75vw] max-w-[280px] md:max-w-[340px]">
                         <div class="relative w-full aspect-square">
                             <div class="absolute top-0 left-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.1)] border-[4px] border-white z-10 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'three.webp')">
-                                <img src="three.webp" alt="Pertumbuhan Traffic Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="three.webp" alt="Pertumbuhan Traffic Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(197,160,40,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'shopfy.webp')">
-                                <img src="shopfy.webp" alt="Hasil Konversi Penjualan E-Commerce Shopify" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="shopfy.webp" alt="Hasil Konversi Penjualan E-Commerce Shopify" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res" onerror="handleImageError(this)">
                             </div>
                         </div>
                     </div>
@@ -943,7 +1006,7 @@
                 </div>
 
                 <div class="w-full reveal mb-8 md:mb-10 px-2 md:px-0 flex justify-center">
-                    <img src="sertif.webp" alt="Sertifikat Profesional Digital Marketing Google IBM SEO Web Development Faqih Al Rifai" class="w-full max-w-4xl h-auto object-contain img-high-res" width="1200" height="800" loading="lazy" decoding="async">
+                    <img src="sertif.webp" alt="Sertifikat Profesional Digital Marketing Google IBM SEO Web Development Faqih Al Rifai" class="w-full max-w-4xl h-auto object-contain img-high-res" width="1200" height="800" loading="lazy" decoding="async" onerror="handleImageError(this)">
                 </div>
 
                 <a href="https://www.linkedin.com/in/muhammad-faqih-al-rifai/" target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#0077b5] border-2 border-[#0077b5] rounded-full hover:bg-[#0077b5] hover:text-white transition-all duration-500 ease-in-out shadow-sm hover:shadow-lg font-bold text-xs md:text-sm tracking-widest font-sans reveal">
@@ -1085,7 +1148,7 @@
 
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll">
                 <div class="flex gap-2">
-                    <div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Halo! Saya asisten virtual Faqih. Ada yang bisa saya bantu terkait layanan pemasaran digital? (Kirim link web Anda jika ingin saya cek performa kecepatannya secara otomatis).</div>
+                    <div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Halo! Saya asisten AI Faqih. Tanyakan apa saja tentang layanan digital marketing, SEO, website, atau kirim URL website Anda untuk dianalisis.</div>
                 </div>
             </div>
 
@@ -1121,7 +1184,7 @@
     <div id="lightboxModal" class="modal fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 invisible transition-all duration-500 ease-in-out" aria-hidden="true" onclick="closeLightbox()">
         <button type="button" class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-4xl md:text-5xl hover:text-gold transition-colors z-50 p-2" aria-label="Tutup Jendela Fokus Visual Pembuktian">&times;</button>
         <div class="max-w-7xl max-h-[90vh] w-full p-4 flex items-center justify-center relative overflow-hidden">
-            <img id="lightboxImg" src="" alt="Fokus Layar Penuh Sorotan Dokumentasi" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-500 ease-in-out cursor-zoom-in img-high-res will-change-transform" onclick="event.stopPropagation(); toggleLightboxZoom()" loading="lazy">
+            <img id="lightboxImg" src="" alt="Fokus Layar Penuh Sorotan Dokumentasi" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-500 ease-in-out cursor-zoom-in img-high-res will-change-transform" onclick="event.stopPropagation(); toggleLightboxZoom()" loading="lazy" onerror="handleImageError(this)">
             <video id="lightboxVideo" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl hidden transition-transform duration-500 ease-in-out cursor-zoom-in will-change-transform" controls autoplay onclick="event.stopPropagation(); toggleLightboxZoom()"></video>
         </div>
         <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
@@ -1255,6 +1318,7 @@
                 }
 
                 if (isDragging) {
+                    container.classList.add('is-dragging');
                     e.preventDefault();
                     let newX = clientX - startX;
                     let newY = clientY - startY;
@@ -1276,6 +1340,7 @@
             };
 
             const onEnd = () => {
+                container.classList.remove('is-dragging');
                 document.removeEventListener('mousemove', onMove);
                 document.removeEventListener('mouseup', onEnd);
                 document.removeEventListener('touchmove', onMove);
@@ -1314,17 +1379,34 @@
             }
         }
 
+        const CHATBOT_AI_ENDPOINT = '/.netlify/functions/index-bot';
+
+        function cleanAIText(rawText) {
+            return String(rawText || '')
+                .replace(/\*\*(.*?)\*\*/g, '$1')
+                .replace(/__(.*?)__/g, '$1')
+                .replace(/`{1,3}/g, '')
+                .replace(/^#{1,6}\s*/gm, '')
+                .replace(/^\s*[-*]\s+/gm, '• ')
+                .replace(/\*/g, '')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)')
+                .replace(/[ \t]+\n/g, '\n')
+                .replace(/\n{3,}/g, '\n\n')
+                .trim();
+        }
+
         async function typeTextEffect(elementId, text) {
             const element = document.getElementById(elementId);
             if(!element) return;
-            element.innerHTML = '';
+            const cleanText = cleanAIText(text);
+            element.textContent = '';
             element.classList.add('typing-cursor');
             
-            for (let i = 0; i < text.length; i++) {
-                element.innerHTML += text.charAt(i);
+            for (let i = 0; i < cleanText.length; i++) {
+                element.textContent += cleanText.charAt(i);
                 const container = document.getElementById('chat-messages');
                 container.scrollTop = container.scrollHeight;
-                await new Promise(resolve => setTimeout(resolve, 15)); // kecepatan ngetik
+                await new Promise(resolve => setTimeout(resolve, 10));
             }
             element.classList.remove('typing-cursor');
         }
@@ -1334,79 +1416,85 @@
             const wrapper = document.createElement('div');
             wrapper.className = `flex gap-2 ${sender === 'user' ? 'flex-row-reverse' : ''}`;
             
-            let bubbleId = `bubble-${Date.now()}`;
+            const bubble = document.createElement('div');
+            const bubbleId = `bubble-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+            bubble.id = bubbleId;
+            bubble.className = `${sender === 'user' ? 'user-bubble' : 'bot-bubble bg-gray-100'} p-3 rounded-xl text-xs leading-relaxed max-w-[85%]`;
+            bubble.textContent = isTyping ? '' : cleanAIText(text);
             
-            let bubbleHtml = `<div id="${bubbleId}" class="${sender === 'user' ? 'user-bubble' : 'bot-bubble bg-gray-100'} p-3 rounded-xl text-xs leading-relaxed max-w-[85%]">${isTyping ? '' : text}</div>`;
-            
-            wrapper.innerHTML = bubbleHtml;
+            wrapper.appendChild(bubble);
             container.appendChild(wrapper);
             container.scrollTop = container.scrollHeight;
             
-            if (isTyping) {
-                return bubbleId; // kembalikan ID untuk diketik
-            }
+            if (isTyping) return bubbleId;
         }
 
-        /* --- HYBRID CHATBOT AI & OFFLINE INTELLIGENCE --- */
-        function getLocalResponse(userMessage) {
-            const query = userMessage.toLowerCase();
-            
-            if (query.includes('harga') || query.includes('tarif') || query.includes('biaya') || query.includes('paket') || query.includes('layanan')) {
-                return "Faqih menyediakan 3 kategori layanan utama untuk pertumbuhan bisnis Anda:\n\n1. **Optimasi Website (SEO Organik)**: Audit Technical SEO, Optimasi Core Web Vitals, Silo Pillar Content, hingga Backlink Otoritas.\n2. **Jasa Pembuatan Website**: Landing Page konversi tinggi, WordPress B2B Blog, E-Learning LMS, SIAKAD, dan Sistem CBT.\n3. **Infrastruktur Server**: Cloud VPS dan lisensi domain.\n\nDetail harga lengkapnya bisa Anda cek langsung pada tab 'Layanan' di atas!";
-            }
-            if (query.includes('seo') || query.includes('organik') || query.includes('search engine') || query.includes('ranking')) {
-                return "Sebagai SEO Specialist, seluruh optimasi yang saya lakukan murni berpegang pada metode **White-Hat SEO** yang mematuhi panduan Google Search Essentials. Saya juga merancang arsitektur website agar relevan dengan algoritma **Generative Engine Optimization (GEO) 2026** agar brand Anda direkomendasikan langsung oleh kecerdasan buatan (AI) di internet.";
-            }
-            if (query.includes('kontak') || query.includes('hubungi') || query.includes('whatsapp') || query.includes('email')) {
-                return "Tentu! Anda bisa berdiskusi langsung dengan Muhammad Faqih melalui:\n\n- **WhatsApp**: +62 859-1482-19009\n- **Email**: faqihalrf@gmail.com\n- **LinkedIn**: Muhammad Faqih Al Rifai\n\nSilakan klik tombol 'Pesan Layanan' di atas untuk diarahkan secara otomatis ke WhatsApp.";
-            }
-            if (query.includes('proyek') || query.includes('portfolio') || query.includes('kerjaan') || query.includes('hasil')) {
-                return "Beberapa proyek pengerjaan visual saya melingkupi:\n\n- Pembuatan & hosting pelayanan SIMKLINIK dan PBB Cikeduk.\n- Desain UI/UX 'Workmate' & 'Food Couriers' di Figma.\n- Klasifikasi Data Decision Tree dengan RapidMiner.\n\nSemua visualisasinya bisa Anda geser langsung di seksi 'Proyek'!";
-            }
-            if (query.includes('siapa') || query.includes('faqih') || query.includes('profil') || query.includes('tentang')) {
-                return "Saya Muhammad Faqih Al Rifai, seorang Digital Marketer & SEO Specialist lulusan S1 Teknik Informatika dari STMIK IKMI Cirebon. Fokus keahlian saya adalah mempertemukan optimasi pencarian organik dengan performa ROI bisnis secara transparan.";
-            }
-            
-            return "Terima kasih atas pesan Anda! Sebagai asisten virtual pribadi, saya merekomendasikan Anda untuk berkonsultasi langsung melalui WhatsApp di **+62 859-1482-19009** atau email **faqihalrf@gmail.com** agar Muhammad Faqih dapat menganalisis dan mengaudit situs arrays secara gratis.";
+        function getAIReplyFromPayload(data) {
+            if (!data) return '';
+            if (typeof data === 'string') return data;
+            return data.reply || data.answer || data.message || data.output_text || data.response || '';
         }
 
         async function sendBotMessage(e) {
             e.preventDefault();
             const input = document.getElementById('chat-input');
+            const submitBtn = document.querySelector('#chat-form button[type="submit"]');
             let text = input.value.trim();
             if(!text) return;
 
             addMessageToUI('user', text);
             input.value = '';
+            input.disabled = true;
+            if (submitBtn) submitBtn.disabled = true;
             
             const loadingId = 'loading-' + Date.now();
             const container = document.getElementById('chat-messages');
-            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold"></i></div></div>`);
+            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold"></i> AI sedang menjawab...</div></div>`);
             container.scrollTop = container.scrollHeight;
 
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 45000);
+
             try {
-                const response = await fetch('/.netlify/functions/index-bot', {
+                const response = await fetch(CHATBOT_AI_ENDPOINT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({
+                        message: text,
+                        page: 'portfolio-faqihalrf',
+                        instruction: 'Jawab sebagai AI assistant Muhammad Faqih Al Rifai dalam bahasa Indonesia yang natural, rapi, tanpa markdown bintang, tanpa simbol **, dan tetap profesional.'
+                    }),
+                    signal: controller.signal
                 });
+                clearTimeout(timeout);
                 
-                document.getElementById(loadingId).remove();
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.remove();
                 
-                if (response.ok) {
-                    const data = await response.json();
-                    const bubbleId = addMessageToUI('bot', '', true);
-                    await typeTextEffect(bubbleId, data.reply);
-                } else {
-                    const fallbackReply = getLocalResponse(text);
-                    const bubbleId = addMessageToUI('bot', '', true);
-                    await typeTextEffect(bubbleId, fallbackReply);
+                let data = null;
+                try { data = await response.json(); } catch (_) { data = await response.text(); }
+
+                if (!response.ok) {
+                    const errorMessage = getAIReplyFromPayload(data) || `Netlify Function error ${response.status}`;
+                    throw new Error(errorMessage);
                 }
-            } catch(err) {
-                document.getElementById(loadingId).remove();
-                const fallbackReply = getLocalResponse(text);
+
+                const aiReply = cleanAIText(getAIReplyFromPayload(data));
+                if (!aiReply) throw new Error('Backend AI belum mengirim field reply/answer/message.');
+
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, fallbackReply);
+                await typeTextEffect(bubbleId, aiReply);
+            } catch(err) {
+                clearTimeout(timeout);
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.remove();
+                const bubbleId = addMessageToUI('bot', '', true);
+                await typeTextEffect(bubbleId, 'Maaf, koneksi AI sedang belum tersambung. Pastikan Netlify Function index-bot sudah berhasil deploy dan environment OPENAI_API_KEY sudah terpasang.');
+                console.warn('Chatbot AI error:', err);
+            } finally {
+                input.disabled = false;
+                if (submitBtn) submitBtn.disabled = false;
+                input.focus();
             }
         }
 
@@ -1512,9 +1600,9 @@
                 excerpt = excerpt.substring(0, 150).trim() + '...';
 
                 return `
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full cursor-default">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full cursor-default" onerror="handleImageError(this)">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <img src="${thumbnail}" alt="${title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="${thumbnail}" alt="${title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageError(this)">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">

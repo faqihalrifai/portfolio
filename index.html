@@ -162,14 +162,19 @@
                     colors: {
                         mainWhite: '#ffffff',
                         lightGray: '#f8f9fa',
-                        gold: '#a37a1a', // FIX KONTRAST: Gelapkan untuk mencapai standar aksesibilitas minimum (WCAG AA)
-                        darkGold: '#8c6710', // FIX KONTRAST: Dioptimalkan dari #c5a028 agar terbaca sempurna
-                        darkBlack: '#111827',
-                        textGray: '#374151', // FIX KONTRAST: Lebih gelap dari #4b5563 untuk kejelasan teks paruh atas
+                        // SKEMA WARNA MONOKROMATIK BIRU BARU SESUAI GAMBAR INPUT USER (#56c1bc)
+                        gold: '#2680BE',       // #2680BE (Biru Sedang - Warna Utama Elemen)
+                        darkGold: '#00558E',   // #00558E (Biru Tua - Warna Efek Hover Aktif)
+                        darkBlack: '#002248',  // #002248 (Biru Gelap/Navy - Judul & Tajuk Utama)
+                        textGray: '#374151',   
+                        blueLight: '#74AED4',  // #74AED4 (Biru Muda untuk detail & aksen lembut)
+                        blueMid: '#2680BE',
+                        blueDark: '#00558E',
+                        blueDeep: '#002248'
                     },
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 25px rgba(197, 160, 40, 0.15)',
+                        'glow': '0 0 25px rgba(38, 128, 190, 0.15)',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -206,7 +211,7 @@
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
 
-        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(197,160,40,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#c5a028}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#c5a028;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+        body{background-color:#ffffff;color:#111827;font-family:'Lato',Arial,sans-serif;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}.defer-render{content-visibility:auto;contain-intrinsic-size:1000px}.img-high-res{image-rendering:crisp-edges;transform:translateZ(0);backface-visibility:hidden}.reveal{will-change:transform,opacity;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease-out,transform 0.8s cubic-bezier(0.2,0.8,0.2,1)}.reveal.active{opacity:1;transform:translateY(0)}.animate-slide-up{will-change:transform,opacity}.glass{background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}.custom-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.custom-scroll::-webkit-scrollbar{height:6px;width:6px}.custom-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.03);border-radius:10px;margin:4px}.custom-scroll::-webkit-scrollbar-thumb{background-color:rgba(38,128,190,0.6);border-radius:10px}.custom-scroll::-webkit-scrollbar-thumb:hover{background-color:#2680BE}.custom-h-scroll{scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.custom-h-scroll::-webkit-scrollbar{height:6px}.custom-h-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,0.04);border-radius:10px;margin:0 20px}.custom-h-scroll::-webkit-scrollbar-thumb{background-color:#2680BE;border-radius:10px;cursor:pointer}.scroll-widget{opacity:0;pointer-events:none;transition:opacity 0.4s ease, transform 0.4s ease;transform:translateY(20px)}.scroll-widget.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.lightbox-zoomed{transform:scale(1.5)!important;cursor:zoom-out!important}.partner-track{display:flex;width:max-content;animation:scroll-partner 35s linear infinite}@keyframes scroll-partner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}.partner-logo{width:105px;height:52px;object-fit:contain;margin:0 1.5rem;transition:transform 0.3s ease;cursor:default}@media (min-width:768px){.partner-logo{width:142px;height:71px;margin:0 2rem}}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
         
         @media (max-width: 768px) {
             .blog-card-home { transition: transform 0.3s; }
@@ -217,10 +222,10 @@
         .select-wrapper select { 
             appearance: none; -webkit-appearance: none; -moz-appearance: none;
             width: 100%; background: #f8f9fa; border: 1px solid rgba(0,0,0,0.1); 
-            border-radius: 1rem; padding: 1rem 1.25rem; font-size: 1rem; font-weight: 700; color: #111827; cursor: pointer; transition: all 0.3s ease; 
+            border-radius: 1rem; padding: 1rem 1.25rem; font-size: 1rem; font-weight: 700; color: #002248; cursor: pointer; transition: all 0.3s ease; 
         }
-        .select-wrapper select:focus { outline: none; border-color: #c5a028; box-shadow: 0 0 0 3px rgba(197,160,40,0.1); }
-        .select-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #c5a028; pointer-events: none; }
+        .select-wrapper select:focus { outline: none; border-color: #2680BE; box-shadow: 0 0 0 3px rgba(38, 128, 190, 0.1); }
+        .select-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #2680BE; pointer-events: none; }
         
         /* Soft Interactive Modern Hover for Links */
         .nav-link-modern {
@@ -228,7 +233,7 @@
         }
         .nav-link-modern::after {
             content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; 
-            background: #c5a028; z-index: -1; transform: scaleY(0); transform-origin: bottom; 
+            background: #2680BE; z-index: -1; transform: scaleY(0); transform-origin: bottom; 
             transition: transform 0.3s ease; border-radius: 9999px;
         }
         .nav-link-modern:hover::after { transform: scaleY(1); }
@@ -240,13 +245,14 @@
         #chatbot-ui { transform-origin: bottom left; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
         
         /* Chatbot Bubble */
-        .bot-bubble { background: #f3f4f6; color: #111827; border-bottom-left-radius: 0; }
-        .user-bubble { background: #c5a028; color: #ffffff; border-bottom-right-radius: 0; }
+        .bot-bubble { background: #f3f4f6; color: #002248; border-bottom-left-radius: 0; }
+        .user-bubble { background: #2680BE; color: #ffffff; border-bottom-right-radius: 0; }
 
         /* Typing cursor */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-end infinite;
+            color: #2680BE;
         }
         @keyframes blink { 50% { opacity: 0; } }
     </style>
@@ -299,7 +305,7 @@
     </nav>
 
     <main>
-        <!-- Hero Section (FIXED: Ketinggian padding diatur proporsional dan ideal agar posisi elemen tidak mepet dengan navbar) -->
+        <!-- Hero Section -->
         <section id="about" class="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 flex items-center relative overflow-hidden bg-mainWhite">
              <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none"></div>
              <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center z-10 w-full">
@@ -316,33 +322,34 @@
                         <span class="text-[11px] md:text-xs font-bold tracking-wide text-textGray group-hover:text-darkBlack uppercase font-sans transition-colors duration-300 z-10">S1 Teknik Informatika - STMIK IKMI Cirebon</span>
                     </div>
 
-                    <h1 class="text-[32px] md:text-5xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.15] mb-3 md:mb-4 text-darkBlack text-left">
+                    <!-- FIXED FOR TYPING EFFECT: Menggunakan penanda ID agar skrip mengetik berjalan, teks asli tetap ada untuk kebutuhan SEO Google -->
+                    <h1 id="hero-title-typed" class="text-[32px] md:text-5xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.15] mb-3 md:mb-4 text-darkBlack text-left min-h-[38px] md:min-h-[55px] lg:min-h-[80px]">
                         Digital <span class="text-darkGold italic">Marketer.</span>
                     </h1>
                     <h2 class="sr-only">Jasa Pembuatan Website & Optimasi SEO Muhammad Faqih</h2>
                     
-                    <p class="text-[15px] md:text-base text-textGray font-normal leading-relaxed mb-6 md:mb-8 max-w-xl text-left break-words font-sans">
-                        Halo, saya Muhammad Faqih. Seorang <strong>Digital Marketer & SEO Specialist</strong> yang berfokus pada strategi organik White-Hat dan <strong>Generative Engine Optimization (GEO) 2026</strong>. Berbekal konsep E-E-A-T dan arsitektur technical SEO yang presisi, saya siap melipatgandakan visibilitas website Anda dan mengonversi trafik organik menjadi High-Intent Leads maupun Sales yang nyata untuk mendorong skala bisnis (ROI).
+                    <p id="hero-desc-typed" class="text-[15px] md:text-base text-textGray font-normal leading-relaxed mb-6 md:mb-8 max-w-xl text-left break-words font-sans min-h-[100px]">
+                        Halo, saya Muhammad Faqih. Seorang Digital Marketer & SEO Specialist yang berfokus pada strategi organik White-Hat dan Generative Engine Optimization (GEO) 2026. Berbekal konsep E-E-A-T dan arsitektur technical SEO yang presisi, saya siap melipatgandakan visibilitas website Anda dan mengonversi trafik organik menjadi High-Intent Leads maupun Sales yang nyata untuk mendorong skala bisnis (ROI).
                     </p>
                     
                     <!-- 4 Animate Counters -->
                     <div class="mt-2 flex flex-wrap justify-start gap-4 md:gap-6 text-left">
-                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(197,160,40,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
+                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                             <div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-target="2" data-suffix="+">0</div>
                             <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Years Exp</div>
                         </div>
-                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(197,160,40,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
+                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                             <div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-target="60" data-suffix="+">0</div>
                             <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Artikel SEO</div>
                         </div>
-                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(197,160,40,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
+                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                             <div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-target="45" data-suffix="">0</div>
                             <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Sertifikasi</div>
                         </div>
-                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(197,160,40,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
+                        <div class="flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                             <div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-target="90" data-suffix="+">0</div>
                             <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Klien B2B</div>
@@ -363,7 +370,6 @@
         </section>
 
         <!-- Tools / Alat Section (Logo Asli 10 Tools) -->
-        <!-- FIX CLS: Semua logo di bawah ini diberikan atribut width & height eksplisit untuk mencegah pergeseran tata letak saat browser melakukan rendering paruh atas -->
         <section id="alat" class="defer-render py-8 md:py-12 bg-mainWhite relative z-10 border-y border-black/5 overflow-hidden">
             <div class="relative w-full flex items-center h-20 md:h-28 mx-auto max-w-[1920px] reveal">
                 <div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-mainWhite to-transparent z-20 pointer-events-none" aria-hidden="true"></div>
@@ -394,16 +400,16 @@
             </div>
         </section>
 
-        <!-- SERVICES -->
+        <!-- SERVICES (FIXED WIDTH: Diubah ke max-w-5xl agar konsisten dan simetris secara sempurna) -->
         <section id="services" class="defer-render py-16 md:py-24 bg-lightGray/50 relative overflow-hidden border-t border-black/5">
-             <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+             <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
                  <div class="text-center mb-12 reveal">
                      <h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight">Layanan</h2>
                      <div class="w-12 h-1 bg-gold mx-auto rounded-full mt-4"></div>
                  </div>
 
-                 <!-- KARTU LAYANAN MENINGGI -->
-                 <div class="w-full max-w-4xl mx-auto bg-white rounded-[2rem] border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden reveal flex flex-col">
+                 <!-- KARTU LAYANAN MENINGGI (max-w-5xl horizontal) -->
+                 <div class="w-full bg-white rounded-[2rem] border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden reveal flex flex-col">
                     
                     <!-- Panel Atas: Seleksi Kategori & Produk (Dipadatkan) -->
                     <div class="w-full p-6 md:p-8 border-b border-black/5 bg-gray-50 flex flex-col md:flex-row gap-4 md:gap-6 justify-between items-center">
@@ -422,7 +428,7 @@
                             <select id="main-product-select" onchange="updateSingleServiceCard()" aria-label="Pilih Paket Spesifik" class="shadow-sm bg-white">
                                 <!-- Diisi secara dinamis oleh JavaScript -->
                             </select>
-                            <i class="fas fa-chevron-down select-icon"></i>
+                            <i class="fas fa-chevron-down select-icon" aria-hidden="true"></i>
                         </div>
                     </div>
 
@@ -441,6 +447,7 @@
                                 </div>
                             </div>
                             
+                            <!-- Tombol Gold -> Hover Putih -->
                             <button type="button" aria-label="Pesan Layanan Sekarang" onclick="orderSingleService()" class="w-full sm:w-auto bg-gold text-white border border-gold px-8 py-3.5 rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-gold hover:shadow-lg transition-all duration-300 flex items-center justify-center shadow-md shrink-0">
                                 Pesan Layanan
                             </button>
@@ -451,22 +458,26 @@
              </div>
         </section>
 
-        <!-- PENGALAMAN SECTION -->
+        <!-- PENGALAMAN SECTION (FIXED WIDTH & LOGOS: Berhasil menerapkan logos webp dengan ukuran label tag seragam) -->
         <section id="pengalaman" class="defer-render py-16 md:py-24 relative bg-lightGray/30 border-t border-black/5 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight">Pengalaman</h2>
                     <div class="w-12 h-1 bg-gold mx-auto rounded-full mt-4"></div>
                 </div>
 
-                <div class="w-full max-w-4xl mx-auto bg-white border border-black/10 rounded-[2rem] p-2 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] reveal">
-                    <div class="max-h-[500px] overflow-y-auto custom-scroll p-4 md:p-6 space-y-8 font-sans">
+                <div class="w-full bg-white border border-black/10 rounded-[2rem] p-4 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] reveal">
+                    <div class="max-h-[520px] overflow-y-auto custom-scroll p-2 md:p-4 space-y-8 font-sans">
                         
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Okt 2025 – Sekarang</div>
-                                <div class="text-xs text-textGray mb-2">Cirebon (Remote)</div>
-                                <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Full Time</div>
+                        <!-- ITEM 1 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="independent.webp" alt="Independent Consultant Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Okt 2025 – Srg</div>
+                                    <div class="text-xs text-textGray mb-1.5">Cirebon (Remote)</div>
+                                    <div class="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Full Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">Growth Marketer & SEO Specialist <span class="text-textGray font-normal text-sm md:text-base font-sans">| Independent Consultant</span></h3>
@@ -478,11 +489,15 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Jan 2026 – Sekarang</div>
-                                <div class="text-xs text-textGray mb-2">Jakarta (Remote)</div>
-                                <div class="text-[10px] font-bold text-gold bg-gold/10 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Part Time</div>
+                        <!-- ITEM 2 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="madani.webp" alt="PT Madani Abadi Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Jan 2026 – Srg</div>
+                                    <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
+                                    <div class="text-[11px] font-bold text-yellow-700 bg-yellow-50 border border-yellow-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Part Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">Freelance Business Development Associate <span class="text-textGray font-normal text-sm md:text-base font-sans">| PT Madani Abadi Nusantara</span></h3>
@@ -494,11 +509,15 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Sep 2025 – Des 2025</div>
-                                <div class="text-xs text-textGray mb-2">Depok (Remote)</div>
-                                <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Full Time</div>
+                        <!-- ITEM 3 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="garap.webp" alt="PT Garap Digital Nusantara Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Sep 2025 – Des 2025</div>
+                                    <div class="text-xs text-textGray mb-1.5">Depok (Remote)</div>
+                                    <div class="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Full Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">Internship SEO Content Writer <span class="text-textGray font-normal text-sm md:text-base font-sans">| PT. Garap Digital Nusantara</span></h3>
@@ -510,11 +529,15 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Agu 2015 – Nov 2025</div>
-                                <div class="text-xs text-textGray mb-2">Cirebon (Remote)</div>
-                                <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Full Time</div>
+                        <!-- ITEM 4 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="selfemployee.webp" alt="Self Employed Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Agu 2015 – Nov 2025</div>
+                                    <div class="text-xs text-textGray mb-1.5">Cirebon (Remote)</div>
+                                    <div class="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Full Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">E-commerce Manager & Affiliate Marketer <span class="text-textGray font-normal text-sm md:text-base font-sans">| Self-Employed</span></h3>
@@ -526,11 +549,15 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Mei 2025 – Sep 2025<br><span class="text-xs font-normal">(4 Bulan)</span></div>
-                                <div class="text-xs text-textGray mb-2">Jakarta (Remote)</div>
-                                <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Full Time</div>
+                        <!-- ITEM 5 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="sfgrup.webp" alt="SF GROUP Enterprise Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Mei 2025 – Sep 2025</div>
+                                    <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
+                                    <div class="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Full Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">Internship AI SEO Copywriter (GEO Prepared) <span class="text-textGray font-normal text-sm md:text-base font-sans">| SF GROUP Enterprise</span></h3>
@@ -542,11 +569,15 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8">
-                            <div class="md:w-1/4 shrink-0">
-                                <div class="text-sm font-bold text-darkBlack mb-1">Jun 2025 – Agu 2025<br><span class="text-xs font-normal">(3 Bulan)</span></div>
-                                <div class="text-xs text-textGray mb-2">Jakarta (Remote)</div>
-                                <div class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block uppercase tracking-wider font-mono">Full Time</div>
+                        <!-- ITEM 6 -->
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                            <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <img src="angphot.webp" alt="Angphot Orion Logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0">
+                                <div>
+                                    <div class="text-sm font-bold text-darkBlack mb-0.5">Jun 2025 – Agu 2025</div>
+                                    <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
+                                    <div class="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-1 rounded-md inline-block uppercase tracking-wider font-mono shrink-0">Full Time</div>
+                                </div>
                             </div>
                             <div class="md:w-3/4">
                                 <h3 class="text-lg md:text-xl font-bold font-serif text-darkBlack mb-1">Internship Technical SEO <span class="text-textGray font-normal text-sm md:text-base font-sans">| Angphot Orion</span></h3>
@@ -563,7 +594,7 @@
             </div>
         </section>
 
-        <!-- PROYEK SECTION (DIOPTIMALKAN: Kualifikasi gambar SEO dengan format WebP, pemuatan adaptif cepat, dan integrasi gambar Food Couriers & Decision Tree) -->
+        <!-- PROYEK SECTION -->
         <section id="proyek" class="defer-render py-16 md:py-24 relative bg-mainWhite border-t border-black/5 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 md:px-8">
                 <div class="text-center mb-12 reveal">
@@ -583,7 +614,7 @@
                 <!-- Cards Proyek Sejajar, Hover Lembut, Ukuran Seragam -->
                 <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 custom-h-scroll pb-12 pt-4 px-2 md:px-4 max-w-7xl mx-auto reveal items-stretch" id="project-slider">
                     
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Fertilize a Jade Plant" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -599,7 +630,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Low Sodium Chinese Cooking Method" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -615,7 +646,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Deep Water Culture Hydroponics" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -631,7 +662,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80&fm=webp" alt="How to Descale a Coffee Maker" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -647,7 +678,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Philodendron Indoor Care" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -663,7 +694,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website Medis" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -679,7 +710,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Hosting Website PBB Cikeduk" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -695,7 +726,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Workmate" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -711,10 +742,10 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <!-- FIXED: "Food Couriers" - Gambar diarahkan murni ke berkas food.webp rapi jernih milik Anda -->
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
-                            <!-- FIXED: Menggunakan gambar beresolusi tinggi WebP dari image_f1555c.jpg yang valid dan jernih -->
-                            <img src="image_f1555c.jpg" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
+                            <img src="food.webp" alt="UI/UX Food Couriers" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col flex-grow">
@@ -728,7 +759,7 @@
                         </div>
                     </div>
 
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp" alt="UI/UX Medical Center" loading="lazy" decoding="async" class="w-full h-full object-cover img-high-res group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" aria-hidden="true"></div>
@@ -871,7 +902,7 @@
                                 <img src="uno.webp" alt="Tangkapan Layar Hasil Pencarian Teratas Peringkat Website" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
                             <div class="absolute bottom-0 right-0 w-[65%] h-[65%] rounded-xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.15)] border-[4px] border-white z-20 hover:z-30 cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-gray-100" onclick="openLightbox('image', 'two.webp')">
-                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Mobilisasi" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
+                                <img src="two.webp" alt="Laporan Pertumbuhan Kunjungan Organik Secara Konsisten" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover img-high-res">
                             </div>
                         </div>
                     </div>
@@ -902,7 +933,7 @@
             </div>
         </section>
 
-        <!-- Sertifikasi -->
+        <!-- Sertifikasi (max-w-5xl) -->
         <section id="sertifikasi" class="defer-render py-16 md:py-24 relative overflow-hidden bg-mainWhite border-t border-black/5">
             <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center text-center">
                 
@@ -948,9 +979,9 @@
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
+        <!-- FAQ SECTION (FIXED WIDTH: Diperlebar konsisten ke max-w-5xl agar simetris sempurna) -->
         <section id="faq" class="defer-render py-16 md:py-24 relative overflow-hidden bg-mainWhite border-t border-black/5">
-            <div class="max-w-4xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight">Pertanyaan Umum</h2>
                     <div class="w-12 h-1 bg-gold mx-auto rounded-full mt-4"></div>
@@ -973,7 +1004,7 @@
                             <i class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0" aria-hidden="true"></i>
                         </summary>
                         <p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Menurut panduan resmi Etika SEO White-Hat, tidak ada jaminan absolut untuk posisi 1. Namun, melalui perombakan strategi Silo & Topical Authority serta konten berbasis E-E-A-T (Experience, Expertise, Authoritativeness, Trust), probabilitas mendominasi halaman pencarian akan jauh lebih terjamin dan terhindar dari risiko pinalti algoritma (De-index).
+                            Menurut panduan resmi Etika SEO White-Hat, tidak ada jaminan absolut untuk posisi 1. Namun, melalui perombakan strategi Silo & Topical Authority serta konten berbasis E-E-A-T (Experience, Expertise, Authoritativeness, Trust), probabilitas mendominasi halaman pencarian akan jauh lebih terjamin and terhindar dari risiko pinalti algoritma (De-index).
                         </p>
                     </details>
 
@@ -1038,12 +1069,12 @@
         </div>
     </footer>
 
-    <!-- WIDGETS SCROLL & CHATBOT (DRAGGABLE SECARA UTUH DAN INTEGRAL) -->
+    <!-- WIDGETS SCROLL & CHATBOT (DRAGGABLE SECARA PENGGABUNGAN TOTAL VIEWPORT-WIDE TANPA BATAS) -->
     <div id="chat-widget-container" class="fixed bottom-6 left-4 md:bottom-8 md:left-8 z-40 flex flex-col items-start" style="contain: layout;">
         
         <!-- UI Chatbot (Murni Personal AI) -->
         <div id="chatbot-ui" class="chat-closed w-80 md:w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/10 transition-all duration-300 mb-3">
-            <div id="chatbot-header" class="bg-gradient-to-r from-gold to-[#b89020] text-white p-4 flex justify-between items-center shadow-sm cursor-grab active:cursor-grabbing select-none">
+            <div id="chatbot-header" class="bg-gradient-to-r from-gold to-[#00558E] text-white p-4 flex justify-between items-center shadow-sm cursor-grab active:cursor-grabbing select-none">
                 <div class="flex items-center gap-2 pointer-events-none">
                     <span class="font-bold text-sm drop-shadow-sm">Asisten Virtual Pribadi</span>
                 </div>
@@ -1069,7 +1100,7 @@
         </div>
 
         <!-- Tombol Pemicu Chatbot (Sistem Hover Gold -> Putih) -->
-        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#b89020] shadow-[0_4px_15px_rgba(197,160,40,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing" aria-label="Buka obrolan asisten virtual">
+        <button type="button" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-[#00558E] shadow-[0_4px_15px_rgba(38,128,190,0.4)] text-white flex items-center justify-center hover:bg-white hover:text-gold hover:border hover:border-gold hover:scale-110 transition-all duration-300 cursor-grab active:cursor-grabbing" aria-label="Buka obrolan asisten virtual">
             <i class="fas fa-paper-plane text-xl" aria-hidden="true"></i>
         </button>
 
@@ -1077,6 +1108,7 @@
 
     <!-- WIDGET SCROLL ATAS BAWAH MUNCUL OTOMATIS -->
     <div class="scroll-widget fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3">
+        <!-- Tombol Gold -> Hover Putih -->
         <button type="button" aria-label="Navigasi Loncatan Ke Batas Atas Layar" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold bg-gold shadow-lg text-white flex items-center justify-center hover:bg-white hover:text-gold transition-all duration-300 hover:scale-110">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
         </button>
@@ -1097,12 +1129,12 @@
         </div>
     </div>
 
-    <!-- MODAL KAGGLE DATASET -->
+    <!-- MODAL KAGGLE DATASET PROJECT 12 -->
     <div id="kaggleModal" class="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300" onclick="closeKaggleModal()">
         <div class="bg-white w-full max-w-3xl max-h-[85vh] m-4 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col" onclick="event.stopPropagation()">
             <div class="p-6 border-b border-black/5 flex justify-between items-center bg-gray-50">
                 <h3 class="text-xl font-serif font-bold text-darkBlack">Kaggle Dataset Detail</h3>
-                <button onclick="closeKaggleModal()" class="text-gray-400 hover:text-red-500 transition-colors" aria-label="Tutup detail modal Kaggle"><i class="fas fa-times text-xl"></i></button>
+                <button onclick="closeKaggleModal()" class="text-gray-400 hover:text-red-500 transition-colors"><i class="fas fa-times text-xl"></i></button>
             </div>
             <div class="p-6 overflow-y-auto custom-scroll text-[14px] text-textGray leading-relaxed space-y-4">
                 <h4 class="text-lg font-bold text-darkBlack">Restaurant Sales-Dirty Data for Cleaning Training</h4>
@@ -1115,7 +1147,8 @@
                 Terdapat nilai kosong pada kolom Item, Price, Quantity, Order Total, Payment Method. Dataset memuat 5 kategori menu utama: Starters, Main Dishes, Desserts, Drinks, Side Dishes, yang melingkupi transaksi dari Januari 2022 hingga Desember 2023.</p>
                 <p><strong>Metode Resolusi (Decision Tree):</strong><br>
                 Dalam proyek RapidMiner, deduksi nilai kosong dilakukan melalui logika kalkulasi silang (Order Total = Price x Quantity) serta algoritma Pohon Keputusan (Decision Tree) untuk mengklasifikasikan kategori atau memprediksi metode pembayaran yang tidak lengkap dengan akurasi pengujian hingga 98.96%.</p>
-                <a href="https://www.kaggle.com/datasets/ahmedmohamed2003/restaurant-sales-dirty-data-for-cleaning-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 px-4 py-2 border border-gold bg-gold text-white font-bold rounded-xl hover:bg-white hover:text-gold transition-colors text-xs uppercase tracking-wider" aria-label="Kunjungi Sumber Dataset Restoran di Kaggle">
+                <!-- Tombol Gold -> Hover Putih -->
+                <a href="https://www.kaggle.com/datasets/ahmedmohamed2003/restaurant-sales-dirty-data-for-cleaning-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 px-4 py-2 border border-gold bg-gold text-white font-bold rounded-xl hover:bg-white hover:text-gold transition-colors text-xs uppercase tracking-wider">
                     Sumber Dataset (Kaggle) <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
@@ -1171,32 +1204,27 @@
             }, 300);
         }
 
-        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC (FIX FORCED REFLOW) --- */
+        /* --- DRAGGABLE CHATBOT + TOGGLE INTEGRAL LOGIC (COMPLETELY FREE VIEWPORT-WIDE) --- */
         function makeWidgetDraggable() {
             const container = document.getElementById('chat-widget-container');
             const toggleBtn = document.getElementById('chat-toggle-btn');
             const chatbotHeader = document.getElementById('chatbot-header');
 
-            let activeElement = null;
             let isDragging = false;
-            let startX, startY, initialX, initialY;
+            let startX = 0, startY = 0;
+            let initialX = 0, initialY = 0;
             let dragDistance = 0;
             
-            // Meng-cache dimensi kontainer chatbot untuk mencegah layout thrashing saat diseret
             let cachedWidth = 0;
             let cachedHeight = 0;
 
             const onStart = (e) => {
                 if (e.target.closest('button') && e.target.id !== 'chat-toggle-btn') return;
-                activeElement = e.currentTarget;
-                isDragging = false;
-                dragDistance = 0;
-
+                
                 const rect = container.getBoundingClientRect();
                 initialX = rect.left;
                 initialY = rect.top;
 
-                // Meng-cache sekali dimensi kontainer saat menyentuh/klik
                 cachedWidth = container.offsetWidth;
                 cachedHeight = container.offsetHeight;
 
@@ -1205,6 +1233,8 @@
 
                 startX = clientX - initialX;
                 startY = clientY - initialY;
+                isDragging = false;
+                dragDistance = 0;
 
                 document.addEventListener('mousemove', onMove, { passive: false });
                 document.addEventListener('mouseup', onEnd);
@@ -1229,11 +1259,11 @@
                     let newX = clientX - startX;
                     let newY = clientY - startY;
 
-                    // Menggunakan variabel cache tanpa memicu reflow geometri paksa
-                    const minX = 0;
-                    const minY = 0;
-                    const maxX = window.innerWidth - cachedWidth;
-                    const maxY = window.innerHeight - cachedHeight;
+                    const padding = 12;
+                    const minX = padding;
+                    const minY = padding;
+                    const maxX = window.innerWidth - cachedWidth - padding;
+                    const maxY = window.innerHeight - cachedHeight - padding;
 
                     newX = Math.max(minX, Math.min(newX, maxX));
                     newY = Math.max(minY, Math.min(newY, maxY));
@@ -1257,8 +1287,13 @@
             chatbotHeader.addEventListener('mousedown', onStart);
             chatbotHeader.addEventListener('touchstart', onStart, { passive: true });
 
+            let clickStartTime = 0;
+            toggleBtn.addEventListener('mousedown', () => { clickStartTime = Date.now(); });
+            toggleBtn.addEventListener('touchstart', () => { clickStartTime = Date.now(); }, { passive: true });
+
             toggleBtn.addEventListener('click', (e) => {
-                if (isDragging) {
+                const clickDuration = Date.now() - clickStartTime;
+                if (isDragging || clickDuration > 200) {
                     e.preventDefault();
                     e.stopPropagation();
                 } else {
@@ -1289,7 +1324,7 @@
                 element.innerHTML += text.charAt(i);
                 const container = document.getElementById('chat-messages');
                 container.scrollTop = container.scrollHeight;
-                await new Promise(resolve => setTimeout(resolve, 15)); 
+                await new Promise(resolve => setTimeout(resolve, 15)); // kecepatan ngetik
             }
             element.classList.remove('typing-cursor');
         }
@@ -1310,6 +1345,29 @@
             if (isTyping) {
                 return bubbleId; // kembalikan ID untuk diketik
             }
+        }
+
+        /* --- HYBRID CHATBOT AI & OFFLINE INTELLIGENCE --- */
+        function getLocalResponse(userMessage) {
+            const query = userMessage.toLowerCase();
+            
+            if (query.includes('harga') || query.includes('tarif') || query.includes('biaya') || query.includes('paket') || query.includes('layanan')) {
+                return "Faqih menyediakan 3 kategori layanan utama untuk pertumbuhan bisnis Anda:\n\n1. **Optimasi Website (SEO Organik)**: Audit Technical SEO, Optimasi Core Web Vitals, Silo Pillar Content, hingga Backlink Otoritas.\n2. **Jasa Pembuatan Website**: Landing Page konversi tinggi, WordPress B2B Blog, E-Learning LMS, SIAKAD, dan Sistem CBT.\n3. **Infrastruktur Server**: Cloud VPS dan lisensi domain.\n\nDetail harga lengkapnya bisa Anda cek langsung pada tab 'Layanan' di atas!";
+            }
+            if (query.includes('seo') || query.includes('organik') || query.includes('search engine') || query.includes('ranking')) {
+                return "Sebagai SEO Specialist, seluruh optimasi yang saya lakukan murni berpegang pada metode **White-Hat SEO** yang mematuhi panduan Google Search Essentials. Saya juga merancang arsitektur website agar relevan dengan algoritma **Generative Engine Optimization (GEO) 2026** agar brand Anda direkomendasikan langsung oleh kecerdasan buatan (AI) di internet.";
+            }
+            if (query.includes('kontak') || query.includes('hubungi') || query.includes('whatsapp') || query.includes('email')) {
+                return "Tentu! Anda bisa berdiskusi langsung dengan Muhammad Faqih melalui:\n\n- **WhatsApp**: +62 859-1482-19009\n- **Email**: faqihalrf@gmail.com\n- **LinkedIn**: Muhammad Faqih Al Rifai\n\nSilakan klik tombol 'Pesan Layanan' di atas untuk diarahkan secara otomatis ke WhatsApp.";
+            }
+            if (query.includes('proyek') || query.includes('portfolio') || query.includes('kerjaan') || query.includes('hasil')) {
+                return "Beberapa proyek pengerjaan visual saya melingkupi:\n\n- Pembuatan & hosting pelayanan SIMKLINIK dan PBB Cikeduk.\n- Desain UI/UX 'Workmate' & 'Food Couriers' di Figma.\n- Klasifikasi Data Decision Tree dengan RapidMiner.\n\nSemua visualisasinya bisa Anda geser langsung di seksi 'Proyek'!";
+            }
+            if (query.includes('siapa') || query.includes('faqih') || query.includes('profil') || query.includes('tentang')) {
+                return "Saya Muhammad Faqih Al Rifai, seorang Digital Marketer & SEO Specialist lulusan S1 Teknik Informatika dari STMIK IKMI Cirebon. Fokus keahlian saya adalah mempertemukan optimasi pencarian organik dengan performa ROI bisnis secara transparan.";
+            }
+            
+            return "Terima kasih atas pesan Anda! Sebagai asisten virtual pribadi, saya merekomendasikan Anda untuk berkonsultasi langsung melalui WhatsApp di **+62 859-1482-19009** atau email **faqihalrf@gmail.com** agar Muhammad Faqih dapat menganalisis dan mengaudit situs arrays secara gratis.";
         }
 
         async function sendBotMessage(e) {
@@ -1335,19 +1393,79 @@
                 
                 document.getElementById(loadingId).remove();
                 
-                if(response.ok) {
+                if (response.ok) {
                     const data = await response.json();
                     const bubbleId = addMessageToUI('bot', '', true);
                     await typeTextEffect(bubbleId, data.reply);
                 } else {
+                    const fallbackReply = getLocalResponse(text);
                     const bubbleId = addMessageToUI('bot', '', true);
-                    await typeTextEffect(bubbleId, "Maaf, sistem saya sedang sibuk. Silakan coba beberapa saat lagi.");
+                    await typeTextEffect(bubbleId, fallbackReply);
                 }
             } catch(err) {
                 document.getElementById(loadingId).remove();
+                const fallbackReply = getLocalResponse(text);
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, "Gagal terhubung ke jaringan server.");
+                await typeTextEffect(bubbleId, fallbackReply);
             }
+        }
+
+        /* --- DUAL HIGH-PERFORMANCE SEO-FRIENDLY TYPING EFFECT ON LOAD --- */
+        function startHeroTypingEffect() {
+            const titleEl = document.getElementById('hero-title-typed');
+            const descEl = document.getElementById('hero-desc-typed');
+            if (!titleEl || !descEl) return;
+
+            const originalTitleHTML = titleEl.innerHTML;
+            const originalDescText = descEl.textContent.trim();
+
+            titleEl.innerHTML = '';
+            descEl.textContent = '';
+
+            let titlePart1 = "Digital ";
+            let titlePart2 = "Marketer.";
+            let currentHTML = "";
+            let i = 0;
+
+            function typePart1() {
+                if (i < titlePart1.length) {
+                    currentHTML += titlePart1.charAt(i);
+                    titleEl.innerHTML = currentHTML + '<span class="typing-cursor"></span>';
+                    i++;
+                    setTimeout(typePart1, 70);
+                } else {
+                    let j = 0;
+                    currentHTML += '<span class="text-darkGold italic">';
+                    function typePart2() {
+                        if (j < titlePart2.length) {
+                            titleEl.innerHTML = currentHTML + titlePart2.substring(0, j + 1) + '</span><span class="typing-cursor"></span>';
+                            j++;
+                            setTimeout(typePart2, 90);
+                        } else {
+                            titleEl.innerHTML = originalTitleHTML; // Restore full markup for perfect CSS sizing
+                            typeDesc();
+                        }
+                    }
+                    typePart2();
+                }
+            }
+
+            let d = 0;
+            function typeDesc() {
+                descEl.classList.add('typing-cursor');
+                function type() {
+                    if (d < originalDescText.length) {
+                        descEl.textContent += originalDescText.charAt(d);
+                        d++;
+                        setTimeout(type, 8); // Ultra fast typing layout for lengthy descriptions
+                    } else {
+                        descEl.classList.remove('typing-cursor');
+                    }
+                }
+                type();
+            }
+
+            typePart1();
         }
 
         window.handleBloggerData = function(data) {
@@ -1394,7 +1512,7 @@
                 excerpt = excerpt.substring(0, 150).trim() + '...';
 
                 return `
-                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(197,160,40,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full cursor-default">
+                    <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full cursor-default">
                         <div class="w-full h-48 md:h-56 overflow-hidden relative shrink-0 bg-gray-100">
                             <img src="${thumbnail}" alt="${title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
@@ -1520,7 +1638,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { fetchBloggerPosts(); }, 500);
-            makeWidgetDraggable(); // Aktifkan sistem drag widget chatbot integral
+            makeWidgetDraggable(); // Aktifkan sistem drag bebas viewport-wide untuk chatbot integral
+            startHeroTypingEffect(); // Panggil fungsi efek mengetik ganda paruh atas
             
             const navContainer = document.getElementById('navbar-container');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -1584,7 +1703,7 @@
             Booking:{price:"Rp 4.400.000",strike:"Rp 5.500.000",suffix:"",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Mesin Lead Generation</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Fokus pada akuisisi Leads 24 jam dengan integrasi kalender cerdas, mempermudah pelanggan menjadwalkan jasa/konsultasi kapan pun.</p></div>",bullets:["Algoritma kalender sinkronisasi jadwal otomatis", "Notifikasi Reminder Booking via Email / WA", "Otorisasi pengaturan waktu jam staf paralel", "Rekam jejak riwayat pemesanan Customer"]},
             Property:{price:"Rp 5.200.000",strike:"Rp 6.500.000",suffix:"",desc:"<div class='mb-6'><h4 class='text-lg font-bold font-serif text-darkBlack mb-2'>Etalase Real Estat</h4><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Etalase premium penyokong konversi makelar properti dengan filter pencarian wilayah canggih (Geo-SEO) untuk high-intent property searchers.</p></div>",bullets:["Galeri visual resolusi tinggi (Lossless UX)", "Filter radius lokasi cerdas multi-parameter", "Injeksi simulasi hitung kredit KPR Mandiri", "Pemetaan interaktif wilayah API Maps resmi"]},
             
-            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Arsitektur Technical SEO</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Strategi fundamental mengamankan indeks bot perayap Google (GSC). Audit ketat mencakup perbaikan Indexing, LCP web, dan resolusi duplikasi Meta-tag.</p></div>",bullets:["Audit perayapan (Crawlability) menyeluruh", "Riset Kata Kunci (Volume Tinggi + Persaingan Rendah)", "Penambahan mark-up Skema E-E-A-T Web", "Resolusi halaman Error 404 & Sitemap XML"]},
+            StructureSEO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Arsitektur Technical SEO</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Strategi fundamental mengamankan indeks bot perayap Google (GSC). Audit ketat mencakup perbaikan Indexing, LCP web, dan resolusi duplikasi Meta-tag.</p></div>",bullets:["Audit perayapan (Crawlability) menyeluruh", "Riset Kata Kunci (Volume Tinggi + Persaingan Rendah)", "Penanaman mark-up Skema E-E-A-T Web", "Resolusi halaman Error 404 & Sitemap XML"]},
             SpeedOpt:{price:"Rp 2.000.000",strike:"Rp 2.500.000",suffix:"/perbaikan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Optimasi Core Web Vitals</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Menyelamatkan User Experience dengan menekan Largest Contentful Paint (LCP) di bawah 2.5 detik. Faktor absolut untuk lolos penilaian ranking (GEO) 2026.</p></div>",bullets:["Pemangkasan skrip pemblokir (CSS/JS deferral)", "Generasi format aset visual mutakhir (WebP/AVIF)", "Eksekusi sistem Server Caching tingkat lanjut", "Optimalisasi TTFB (Time to First Byte) respon server"]},
             CRO:{price:"Rp 3.000.000",strike:"Rp 3.750.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Monitoring & Reporting ROI</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Merubah kueri pencarian menjadi angka pemasukan (Revenue). Audit Conversion Rate (CRO) yang menambal kebocoran Funnel, agar metrik Sales/Leads melonjak.</p></div>",bullets:["Integrasi Tag Manager & Evaluasi GA4", "Pelacakan Sesi pengunjung (UX Heatmap)", "Sinergi SEO-SEM untuk Remarketing prospek", "Optimalisasi CTA (Call-to-Action) agresif"]},
             GMB:{price:"Rp 1.500.000",strike:"Rp 1.875.000",suffix:"/bulan",desc:"<div class='mb-6'><h3 class='text-lg font-bold font-serif text-darkBlack mb-2'>Dominasi Local (Geo-SEO)</h3><p class='text-[14px] md:text-[15px] text-textGray leading-relaxed font-sans'>Raih Top 3 Local Pack di wilayah Anda. Sangat krusial untuk bisnis brick-and-mortar agar memenangkan visibilitas Near Me secara instan dari Maps.</p></div>",bullets:["Sinkronisasi Google Bisnisku secara utuh", "Penanaman kueri lokal (Buyer Intent) relevan", "Esktraksi nilai ulasan berkonsep 5 Bintang E-E-A-T", "Suntikan Otoritas sinyal Sitasi Lokal Terpercaya"]},

@@ -1,5 +1,6 @@
-# Redirect WWW ke Non-WWW secara absolut (Status 301)
-https://www.faqihalrf.online/* https://faqihalrf.online/:splat  301!
+http://faqihalrf.online/* https://faqihalrf.online/:splat 301!
+http://www.faqihalrf.online/* https://faqihalrf.online/:splat 301!
+https://www.faqihalrf.online/* https://faqihalrf.online/:splat 301!
 
-# Pastikan tidak ada halaman yang bisa diakses via HTTP biasa
-http://faqihalrf.online/* https://faqihalrf.online/:splat  301!
+/cv /berkas/CV_Faqih_Al_Rifai.pdf 200
+/proposal /Proposal.pdf 200

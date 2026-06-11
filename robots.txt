@@ -1,13 +1,8 @@
 User-agent: *
 Allow: /
 
-Mengamankan Crawl Budget dengan memblokir folder backend dan file spesifik
-
+Disallow: /netlify/
+Disallow: /netlify/functions/
 Disallow: /.netlify/
-Disallow: /api/
-Disallow: /berkas/
-Disallow: /Proposal.pdf
-
-Memberitahu bot lokasi peta situs
 
 Sitemap: https://faqihalrf.online/sitemap.xml

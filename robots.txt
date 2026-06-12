@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
-
 Disallow: /netlify/
 Disallow: /netlify/functions/
 Disallow: /.netlify/
-
 Sitemap: https://faqihalrf.online/sitemap.xml

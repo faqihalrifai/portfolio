@@ -1,160 +1,186 @@
-exports.handler = async function(event) {
-  const corsHeaders = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS"
-  };
+const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
+const DEFAULT_MODEL = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
 
-  const json = (statusCode, body) => ({
+function json(statusCode, body) {
+  return {
     statusCode,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Cache-Control': 'no-store'
+    },
     body: JSON.stringify(body)
-  });
+  };
+}
 
-  if (event.httpMethod === "OPTIONS") return { statusCode: 204, headers: corsHeaders, body: "" };
-  if (event.httpMethod !== "POST") return json(405, { reply: "Method tidak didukung. Gunakan POST." });
-
-  let body = {};
-  try {
-    body = JSON.parse(event.body || "{}");
-  } catch (_) {
-    return json(400, { reply: "Format request tidak valid." });
-  }
-
-  const clean = (value) => String(value || "")
-    .replace(/\*\*/g, "")
-    .replace(/\*/g, "")
-    .replace(/`{1,3}/g, "")
-    .replace(/#{1,6}\s*/g, "")
+function cleanText(text) {
+  return String(text || '')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/__(.*?)__/g, '$1')
+    .replace(/`{1,3}/g, '')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/\*/g, '')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+function extractUrl(text) {
+  const raw = String(text || '').trim();
+  const match = raw.match(/https?:\/\/[^\s<>()]+|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s<>()]*)?/);
+  if (!match) return '';
+  let url = match[0].replace(/[.,;!?)]$/, '');
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  try {
+    const parsed = new URL(url);
+    if (!['http:', 'https:'].includes(parsed.protocol)) return '';
+    return parsed.href;
+  } catch (_) {
+    return '';
+  }
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = 25000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    return res;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function runPageSpeed(targetUrl, strategy) {
+  const apiUrl = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
+  apiUrl.searchParams.set('url', targetUrl);
+  apiUrl.searchParams.set('strategy', strategy);
+  ['performance', 'accessibility', 'best-practices', 'seo'].forEach(category => apiUrl.searchParams.append('category', category));
+  if (process.env.PGSPEED_API_KEY) apiUrl.searchParams.set('key', process.env.PGSPEED_API_KEY);
+
+  const res = await fetchWithTimeout(apiUrl.toString(), {}, 28000);
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`PageSpeed ${strategy} gagal (${res.status}). ${detail.slice(0, 160)}`);
+  }
+  const data = await res.json();
+  const lh = data.lighthouseResult || {};
+  const categories = lh.categories || {};
+  const audits = lh.audits || {};
+
+  const score = key => categories[key] && typeof categories[key].score === 'number' ? Math.round(categories[key].score * 100) : null;
+  const display = key => audits[key] ? audits[key].displayValue || audits[key].numericValue || null : null;
+  const title = key => audits[key] ? audits[key].title || key : key;
+  const auditScore = key => audits[key] && typeof audits[key].score === 'number' ? Math.round(audits[key].score * 100) : null;
+
+  const importantAudits = [
+    'largest-contentful-paint',
+    'first-contentful-paint',
+    'speed-index',
+    'total-blocking-time',
+    'cumulative-layout-shift',
+    'render-blocking-resources',
+    'unused-javascript',
+    'uses-optimized-images',
+    'modern-image-formats',
+    'uses-long-cache-ttl',
+    'server-response-time'
+  ].map(id => ({ id, title: title(id), score: auditScore(id), value: display(id) }))
+   .filter(item => item.value !== null || item.score !== null);
+
+  return {
+    strategy,
+    finalUrl: lh.finalUrl || targetUrl,
+    fetchTime: lh.fetchTime,
+    scores: {
+      performance: score('performance'),
+      accessibility: score('accessibility'),
+      bestPractices: score('best-practices'),
+      seo: score('seo')
+    },
+    metrics: importantAudits
+  };
+}
+
+async function askGroq(messages, temperature = 0.35) {
+  if (!process.env.GROQ_API_KEY) {
+    return 'AI belum aktif karena GROQ_API_KEY belum dipasang di Netlify Environment Variables.';
+  }
+  const res = await fetchWithTimeout(GROQ_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: DEFAULT_MODEL,
+      messages,
+      temperature,
+      max_tokens: 1200
+    })
+  }, 28000);
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`Groq API gagal (${res.status}). ${detail.slice(0, 180)}`);
+  }
+  const data = await res.json();
+  return cleanText(data.choices?.[0]?.message?.content || '');
+}
+
+function buildAuditPrompt(targetUrl, results, userMessage) {
+  return [
+    {
+      role: 'system',
+      content: 'Kamu adalah AI assistant portfolio Muhammad Faqih Al Rifai. Jawab dalam bahasa Indonesia yang rapi, singkat, profesional, mudah dipahami pemilik website. Jangan gunakan markdown bintang tebal. Jangan pakai simbol **. Fokus pada tindakan praktis.'
+    },
+    {
+      role: 'user',
+      content: `Buat laporan analisis website dari data PageSpeed berikut. URL: ${targetUrl}\nPesan user: ${userMessage}\nData JSON: ${JSON.stringify(results)}\n\nFormat jawaban:\n1. Ringkasan singkat\n2. Skor Mobile dan Desktop\n3. Masalah prioritas tinggi\n4. Saran perbaikan teknis yang mudah dilakukan\n5. Kesimpulan apakah website sudah aman atau butuh optimasi\nGunakan bahasa natural, tanpa klaim berlebihan, dan jangan menyuruh user cek manual kecuali memang perlu.`
+    }
+  ];
+}
+
+exports.handler = async function(event) {
+  if (event.httpMethod === 'OPTIONS') return json(200, { ok: true });
+  if (event.httpMethod !== 'POST') return json(405, { reply: 'Method tidak didukung.' });
 
   try {
-    // MODE 1: Google Indexing API. Kirim { "url": "https://..." } tanpa message.
-    if (body.url && !body.message) {
-      const targetUrl = String(body.url || "").trim();
-      if (!/^https?:\/\//i.test(targetUrl)) {
-        return json(400, { reply: "URL harus diawali http:// atau https://." });
-      }
+    const body = JSON.parse(event.body || '{}');
+    const message = String(body.message || '').trim();
+    const explicitUrl = body.url ? extractUrl(body.url) : '';
+    const targetUrl = explicitUrl || extractUrl(message);
 
-      let google;
-      try {
-        google = require("googleapis").google;
-      } catch (_) {
-        return json(500, { reply: "Dependency googleapis belum tersedia. Pastikan package.json ikut ter-deploy." });
-      }
-
-      let clientEmail = process.env.GSC_CLIENT_EMAIL || "";
-      let privateKey = process.env.GSC_PRIVATE_KEY || "";
-
-      // Tetap support GOOGLE_CREDENTIALS JSON kalau env itu sudah kamu isi.
-      if ((!clientEmail || !privateKey) && process.env.GOOGLE_CREDENTIALS) {
-        const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
-        clientEmail = credentials.client_email || "";
-        privateKey = credentials.private_key || "";
-      }
-
-      if (!clientEmail || !privateKey) {
-        return json(500, { reply: "Credential Google belum lengkap. Isi GOOGLE_CREDENTIALS atau GSC_CLIENT_EMAIL + GSC_PRIVATE_KEY di Netlify." });
-      }
-
-      privateKey = privateKey.replace(/\\n/g, "\n");
-
-      const jwtClient = new google.auth.JWT(
-        clientEmail,
-        null,
-        privateKey,
-        ["https://www.googleapis.com/auth/indexing"],
-        null
-      );
-
-      await jwtClient.authorize();
-      const response = await google.indexing({ version: "v3", auth: jwtClient }).urlNotifications.publish({
-        requestBody: { url: targetUrl, type: "URL_UPDATED" }
-      });
-
-      return json(200, {
-        message: "Instruksi indexing diterima Google.",
-        url: targetUrl,
-        details: response.data
-      });
+    if (!message && !targetUrl) {
+      return json(400, { reply: 'Silakan tulis pertanyaan atau kirim URL website yang ingin dianalisis.' });
     }
 
-    // MODE 2: Chatbot AI. Kirim { "message": "..." }.
-    const userMessage = clean(body.message);
-    if (!userMessage) return json(400, { reply: "Pesan masih kosong." });
-
-    const GROQ_API_KEY = process.env.GROQ_API_KEY;
-    const PGSPEED_API_KEY = process.env.PGSPEED_API_KEY;
-    const GROQ_MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
-
-    if (!GROQ_API_KEY) {
-      return json(500, { reply: "GROQ_API_KEY belum dipasang di Netlify Environment Variables." });
-    }
-
-    const isUrl = /^https?:\/\//i.test(userMessage) || /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/.test(userMessage);
-    let finalPrompt = userMessage;
-
-    if (isUrl) {
-      let targetUrl = userMessage;
-      if (!/^https?:\/\//i.test(targetUrl)) targetUrl = "https://" + targetUrl;
-
-      let mobileScore = "belum tersedia";
-      let desktopScore = "belum tersedia";
-
-      if (PGSPEED_API_KEY) {
-        const getScore = async (strategy) => {
-          try {
-            const psUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&strategy=${strategy}&category=performance&key=${PGSPEED_API_KEY}`;
-            const res = await fetch(psUrl);
-            const data = await res.json();
-            const score = data?.lighthouseResult?.categories?.performance?.score;
-            return typeof score === "number" ? `${Math.round(score * 100)}/100` : "belum tersedia";
-          } catch (_) {
-            return "gagal diukur";
-          }
-        };
-
-        [mobileScore, desktopScore] = await Promise.all([getScore("mobile"), getScore("desktop")]);
+    if (targetUrl) {
+      const settled = await Promise.allSettled([
+        runPageSpeed(targetUrl, 'mobile'),
+        runPageSpeed(targetUrl, 'desktop')
+      ]);
+      const results = settled.map(item => item.status === 'fulfilled' ? item.value : { error: item.reason.message });
+      const hasValid = results.some(item => item && !item.error);
+      if (!hasValid) {
+        return json(502, { reply: `Maaf, PageSpeed belum berhasil membaca URL tersebut. Pastikan URL publik bisa diakses tanpa login. Detail: ${results.map(r => r.error).filter(Boolean).join(' | ')}` });
       }
-
-      finalPrompt = `User meminta analisis singkat untuk URL ${targetUrl}. Skor PageSpeed mobile: ${mobileScore}. Skor PageSpeed desktop: ${desktopScore}. Jawab dalam bahasa Indonesia, maksimal 4 kalimat pendek, beri arti skor secara netral dan 2 saran prioritas. Jangan gunakan markdown, bullet simbol bintang, atau format tebal.`;
+      const reply = await askGroq(buildAuditPrompt(targetUrl, results, message), 0.25);
+      return json(200, { ok: true, mode: 'url-audit', url: targetUrl, pagespeed: results, reply });
     }
 
-    const systemPrompt = [
-      "Anda adalah asisten AI resmi milik Muhammad Faqih Al Rifai, Digital Marketer dan SEO Specialist.",
-      "Jawab selalu dalam bahasa Indonesia yang natural, ramah, profesional, rapi, dan solutif.",
-      "Jawaban maksimal 3 sampai 4 kalimat pendek kecuali user meminta detail.",
-      "Jangan gunakan simbol bintang, markdown tebal, heading markdown, atau format yang berantakan.",
-      "Bila pengunjung bertanya layanan, arahkan ke SEO, digital marketing, website, audit teknis, dan konsultasi.",
-      clean(body.instruction)
-    ].filter(Boolean).join("\n");
-
-    const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${GROQ_API_KEY}`,
-        "Content-Type": "application/json"
+    const reply = await askGroq([
+      {
+        role: 'system',
+        content: 'Kamu adalah AI assistant portfolio Muhammad Faqih Al Rifai. Jawab dalam bahasa Indonesia yang natural, ramah, profesional, ringkas, tanpa markdown bintang, tanpa simbol **. Bantu user memahami layanan SEO, website, digital marketing, portofolio, dan cara menghubungi Faqih.'
       },
-      body: JSON.stringify({
-        model: GROQ_MODEL,
-        temperature: 0.45,
-        max_tokens: 320,
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: finalPrompt }
-        ]
-      })
-    });
+      { role: 'user', content: message }
+    ], 0.45);
 
-    const groqData = await groqRes.json();
-    if (!groqRes.ok) {
-      return json(groqRes.status, { reply: "AI sedang belum bisa menjawab dari server. Cek GROQ_API_KEY dan GROQ_MODEL di Netlify." });
-    }
-
-    const reply = clean(groqData?.choices?.[0]?.message?.content || "Maaf, AI belum mengirim jawaban. Coba ulangi pertanyaannya.");
-    return json(200, { reply });
+    return json(200, { ok: true, mode: 'chat', reply });
   } catch (error) {
-    console.error("[Netlify Function Error]", error);
-    return json(500, { reply: "Sistem AI sedang sibuk. Mohon coba lagi beberapa saat." });
+    console.error('index-bot error:', error);
+    return json(500, { reply: `Maaf, AI sedang mengalami kendala teknis: ${cleanText(error.message)}` });
   }
 };

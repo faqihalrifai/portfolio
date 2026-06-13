@@ -1,9 +1,9 @@
 {
-  "name": "faqih-portfolio-netlify-functions",
+  "name": "faqihalrf-portfolio",
   "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
-  "dependencies": {
-    "googleapis": "^144.0.0"
+  "description": "Optimized portfolio with lightweight AI chat Netlify Function",
+  "engines": {
+    "node": ">=18"
   }
 }

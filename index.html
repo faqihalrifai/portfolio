@@ -3,7 +3,7 @@
 <html class="scroll-smooth" lang="id">
 <head>
 <!-- GTM dipindahkan ke lazy loader bawah agar tidak menghambat LCP/TBT -->
-<!-- AdSense dipindahkan ke lazy loader bawah agar PageSpeed lebih ringan -->
+<!-- AdSense dihapus agar pemuatan awal lebih ringan -->
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
 <meta content="#ffffff" name="theme-color"/>
@@ -166,7 +166,7 @@
 <!-- Preloads for Performance -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="image" fetchpriority="high" href="myphot.webp" rel="preload"/>
+<link as="image" fetchpriority="high" href="myphot-640.webp" imagesrcset="myphot-320.webp 320w, myphot-480.webp 480w, myphot-640.webp 640w" imagesizes="(max-width: 767px) 85vw, (max-width: 1279px) 42vw, 420px" rel="preload"/>
 <!-- Favicon -->
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
@@ -545,7 +545,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 #about .hero-gradient-layer{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.34),transparent 48%,rgba(255,255,255,.25));pointer-events:none}
 .services-seo-intro{max-width:720px;margin:.85rem auto 0;color:#4b5563;font-size:.92rem;line-height:1.7}
 
-/* Laporan PageSpeed modern, tetap ringan dan responsif. */
+/* Laporan performa modern, tetap ringan dan responsif. */
 .audit-report-card{border-radius:1.25rem!important;border:1px solid rgba(38,128,190,.18)!important;box-shadow:0 18px 44px rgba(0,34,72,.12)!important;background:#fff!important}
 .audit-report-head{padding:1.05rem 1.1rem!important;background:linear-gradient(135deg,#eaf5fb 0%,#f8fcff 58%,#fff 100%)!important;position:relative;overflow:hidden}
 .audit-report-head::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;right:-50px;top:-58px;background:rgba(38,128,190,.10);pointer-events:none}
@@ -688,6 +688,72 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 }
 </style>
 
+
+<style id="performance-ai-stability-patch">
+/* Stabilkan hero metrics untuk menekan CLS tanpa mengubah desain visual. */
+.hero-metrics-row{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:min(100%,320px)!important;
+  gap:.75rem!important;
+  align-items:stretch!important;
+}
+.hero-metrics-row .metric-card-modern{
+  width:100%!important;
+  min-width:0!important;
+  min-height:112px!important;
+  padding:.75rem .65rem!important;
+  contain:layout paint;
+}
+.hero-metrics-row .counter{
+  display:inline-block;
+  width:4ch;
+  min-width:4ch;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  line-height:1.1;
+}
+@media(min-width:768px){
+  .hero-metrics-row{
+    grid-template-columns:repeat(4,124px)!important;
+    width:auto!important;
+  }
+  .hero-metrics-row .metric-card-modern{min-height:118px!important}
+}
+@media(max-width:360px){
+  .hero-metrics-row{width:100%!important}
+}
+
+/* Efek mengetik tetap terlihat, tetapi teks asli selalu memesan ruang sehingga tidak menggeser layout. */
+.hero-type-shell{position:relative!important}
+.hero-type-ghost{visibility:hidden!important}
+.hero-type-overlay{position:absolute;inset:0;display:block;pointer-events:none}
+#hero-title-typed .hero-type-overlay{white-space:normal}
+#hero-desc-typed .hero-type-overlay{white-space:normal}
+
+/* Kartu laporan analisis yang lebih modern, tetap tanpa library tambahan. */
+.audit-report-card{width:min(100%,560px)!important}
+.audit-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;padding:.9rem 1rem;border-bottom:1px solid rgba(0,0,0,.06);background:#fbfdff}
+.audit-overview-card{padding:.7rem;border:1px solid rgba(38,128,190,.11);border-radius:.85rem;background:#fff}
+.audit-overview-card span{display:block;color:#64748b;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.055em}
+.audit-overview-card strong{display:block;margin-top:.22rem;color:#002248;font-size:.8rem;line-height:1.35}
+.audit-vitals-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:.65rem}
+.audit-vital{padding:.58rem;border:1px solid rgba(38,128,190,.09);border-radius:.72rem;background:#f8fbfd}
+.audit-vital-head{display:flex;align-items:center;justify-content:space-between;gap:.45rem}
+.audit-vital strong{color:#002248;font-size:.7rem}
+.audit-vital span{color:#64748b;font-size:.56rem}
+.audit-vital-status{display:inline-flex!important;width:auto!important;padding:.18rem .38rem;border-radius:999px;font-size:.5rem!important;font-weight:900!important;text-transform:uppercase}
+.vital-good{background:#dcfce7;color:#166534!important}.vital-medium{background:#fef3c7;color:#92400e!important}.vital-low{background:#fee2e2;color:#991b1b!important}.vital-unknown{background:#e2e8f0;color:#475569!important}
+.audit-diagnostics{padding:.9rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+.audit-diagnostic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:.55rem}
+.audit-diagnostic{padding:.58rem;border:1px solid rgba(38,128,190,.08);border-radius:.72rem;background:#f8fafc}
+.audit-diagnostic span{display:block;color:#64748b;font-size:.55rem;text-transform:uppercase;letter-spacing:.05em}
+.audit-diagnostic strong{display:block;margin-top:.18rem;color:#002248;font-size:.68rem}
+.audit-report-kicker{background:#2680BE!important}
+@media(min-width:520px){.audit-overview{grid-template-columns:repeat(4,minmax(0,1fr))}.audit-vitals-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.audit-diagnostic-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.audit-score-fill{transition:none!important}}
+</style>
+
 </head>
 <body class="bg-mainWhite text-darkBlack transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative text-[15px] md:text-base">
 <!-- Navbar -->
@@ -758,22 +824,22 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <div class="hero-metrics-row mt-2 flex flex-wrap justify-start gap-4 md:gap-6 text-left">
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="2">0</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="2">2+</div>
 <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Years Exp</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="60">0</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="60">60+</div>
 <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Artikel SEO</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="" data-target="45">0</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="" data-target="45">45</div>
 <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Sertifikasi</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="90">0</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="90">90+</div>
 <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Klien B2B</div>
 </div>
 </div>
@@ -782,7 +848,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <div class="hero-image-column order-1 md:order-2 flex flex-col justify-center animate-slide-up delay-200">
 <div class="relative w-[85%] sm:w-full max-w-sm lg:max-w-[420px] mx-auto flex justify-center mt-5 md:mt-8 lg:mt-10 mb-6 md:mb-8 hero-profile-wrap">
 <div class="w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 bg-white p-2">
-<img alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" height="693" loading="eager" src="myphot.webp" width="640"/>
+<img alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" height="693" loading="eager" src="myphot-640.webp" srcset="myphot-320.webp 320w, myphot-480.webp 480w, myphot-640.webp 640w" sizes="(max-width: 767px) 85vw, (max-width: 1279px) 42vw, 420px" width="640"/>
 </div>
 </div>
 </div>
@@ -897,7 +963,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <!-- ITEM 2 -->
 <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
 <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-<img alt="PT Madani Abadi Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="madani.webp" width="48"/>
+<img alt="PT Madani Abadi Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="madani-96.webp" width="48"/>
 <div>
 <div class="text-sm font-bold text-darkBlack mb-0.5">Jan 2026 – Now</div>
 <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
@@ -916,7 +982,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <!-- ITEM 3 -->
 <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
 <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-<img alt="PT Garap Digital Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="garap.webp" width="48"/>
+<img alt="PT Garap Digital Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="garap-96.webp" width="48"/>
 <div>
 <div class="text-sm font-bold text-darkBlack mb-0.5">Sep 2025 – Des 2025</div>
 <div class="text-xs text-textGray mb-1.5">Depok (Remote)</div>
@@ -1423,7 +1489,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 </div>
 <div class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll" id="chat-messages" aria-live="polite" aria-relevant="additions">
 <div class="flex gap-2">
-<div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Selamat datang. Saya Faqih's Assistant. Tanyakan layanan SEO atau website, atau kirim URL website Anda untuk analisis PageSpeed yang mudah dipahami.</div>
+<div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Selamat datang. Saya Faqih's Assistant. Tanyakan layanan SEO atau website, atau kirim URL website Anda untuk mendapatkan laporan performa dan kesehatan teknis yang mudah dipahami.</div>
 </div>
 </div>
 <div class="p-3 border-t border-black/5 bg-gray-50">
@@ -1780,6 +1846,17 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             return 'Prioritas';
         }
 
+        function metricTone(name, rawValue) {
+            const value = parseFloat(String(rawValue || '').replace(',', '.'));
+            if (!Number.isFinite(value)) return 'unknown';
+            if (name === 'CLS') return value <= 0.1 ? 'good' : value <= 0.25 ? 'medium' : 'low';
+            if (name === 'TBT') return value <= 200 ? 'good' : value <= 600 ? 'medium' : 'low';
+            if (name === 'LCP') return value <= 2.5 ? 'good' : value <= 4 ? 'medium' : 'low';
+            if (name === 'FCP') return value <= 1.8 ? 'good' : value <= 3 ? 'medium' : 'low';
+            if (name === 'SI') return value <= 3.4 ? 'good' : value <= 5.8 ? 'medium' : 'low';
+            return 'unknown';
+        }
+
         function renderAuditReport(audit, summaryText) {
             const container = document.getElementById('chat-messages');
             if (!container || !audit || !Array.isArray(audit.results)) return false;
@@ -1791,10 +1868,28 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
             const head = document.createElement('header');
             head.className = 'audit-report-head';
-            head.appendChild(createTextElement('span', 'audit-report-kicker', 'PageSpeed + AI'));
-            head.appendChild(createTextElement('h3', 'audit-report-title', 'Laporan Performa Website'));
+            head.appendChild(createTextElement('span', 'audit-report-kicker', 'Website Intelligence'));
+            head.appendChild(createTextElement('h3', 'audit-report-title', 'Laporan Kesehatan Website'));
             head.appendChild(createTextElement('p', 'audit-report-url', audit.url || 'Website yang dianalisis'));
             report.appendChild(head);
+
+            if (audit.overview) {
+                const overview = document.createElement('section');
+                overview.className = 'audit-overview';
+                [
+                    ['Kondisi', audit.overview.status || 'Selesai dianalisis'],
+                    ['Prioritas', audit.overview.priority || 'Terukur'],
+                    ['Perangkat', audit.results.length === 2 ? 'Mobile & Desktop' : 'Perangkat tersedia'],
+                    ['Dibuat', audit.generatedLabel || 'Baru saja']
+                ].forEach(([label, value]) => {
+                    const card = document.createElement('div');
+                    card.className = 'audit-overview-card';
+                    card.appendChild(createTextElement('span', '', label));
+                    card.appendChild(createTextElement('strong', '', value));
+                    overview.appendChild(card);
+                });
+                report.appendChild(overview);
+            }
 
             const scoreLabels = [
                 ['performance', 'Performance'],
@@ -1804,6 +1899,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             ];
 
             audit.results.forEach((result) => {
+                if (!result || result.error) return;
                 const section = document.createElement('section');
                 section.className = 'audit-device';
 
@@ -1814,10 +1910,10 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 deviceName.appendChild(createTextElement('span', 'audit-device-dot', ''));
                 const deviceCopy = document.createElement('div');
                 deviceCopy.appendChild(createTextElement('span', '', result.strategy === 'mobile' ? 'Mobile' : 'Desktop'));
-                deviceCopy.appendChild(createTextElement('small', 'audit-device-subtitle', result.strategy === 'mobile' ? 'Perangkat seluler' : 'Komputer'));
+                deviceCopy.appendChild(createTextElement('small', 'audit-device-subtitle', result.strategy === 'mobile' ? 'Simulasi perangkat seluler' : 'Simulasi komputer'));
                 deviceName.appendChild(deviceCopy);
                 deviceTitle.appendChild(deviceName);
-                deviceTitle.appendChild(createTextElement('span', 'audit-status-chip', 'Audit selesai'));
+                deviceTitle.appendChild(createTextElement('span', 'audit-status-chip', result.coreWebVitals?.status || 'Audit selesai'));
                 section.appendChild(deviceTitle);
 
                 const grid = document.createElement('div');
@@ -1844,30 +1940,63 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 });
                 section.appendChild(grid);
 
-                const metrics = document.createElement('div');
-                metrics.className = 'audit-metrics';
-                [['lcp','LCP'],['tbt','TBT'],['cls','CLS']].forEach(([key,label]) => {
-                    const metric = document.createElement('div');
-                    metric.className = 'audit-metric';
-                    metric.appendChild(createTextElement('strong', '', result.metrics?.[key] || '—'));
-                    metric.appendChild(createTextElement('span', '', label));
-                    metrics.appendChild(metric);
+                const vitals = document.createElement('div');
+                vitals.className = 'audit-vitals-grid';
+                [['lcp','LCP'],['cls','CLS'],['tbt','TBT'],['fcp','FCP'],['speedIndex','SI'],['ttfb','TTFB']].forEach(([key,label]) => {
+                    const raw = result.metrics?.[key] || '—';
+                    const tone = metricTone(label, raw);
+                    const card = document.createElement('div');
+                    card.className = 'audit-vital';
+                    const row = document.createElement('div');
+                    row.className = 'audit-vital-head';
+                    row.appendChild(createTextElement('strong', '', label));
+                    row.appendChild(createTextElement('span', `audit-vital-status vital-${tone}`, tone === 'good' ? 'Baik' : tone === 'medium' ? 'Perlu perhatian' : tone === 'low' ? 'Prioritas' : 'Data'));
+                    card.appendChild(row);
+                    card.appendChild(createTextElement('span', '', raw));
+                    vitals.appendChild(card);
                 });
-                section.appendChild(metrics);
+                section.appendChild(vitals);
                 report.appendChild(section);
             });
 
-            const allOpportunities = audit.results.flatMap((result) => result.opportunities || []);
+            const diagnosticSource = audit.results.find((result) => result && !result.error)?.diagnostics || {};
+            if (Object.keys(diagnosticSource).length) {
+                const diagnostics = document.createElement('section');
+                diagnostics.className = 'audit-diagnostics';
+                diagnostics.appendChild(createTextElement('h4', 'audit-section-label', 'Diagnostik Teknis'));
+                const grid = document.createElement('div');
+                grid.className = 'audit-diagnostic-grid';
+                [
+                    ['Berat Halaman', diagnosticSource.totalByteWeight],
+                    ['Request', diagnosticSource.requestCount],
+                    ['Ukuran DOM', diagnosticSource.domSize],
+                    ['Tugas Panjang', diagnosticSource.longTasks]
+                ].forEach(([label,value]) => {
+                    if (!value && value !== 0) return;
+                    const card = document.createElement('div');
+                    card.className = 'audit-diagnostic';
+                    card.appendChild(createTextElement('span', '', label));
+                    card.appendChild(createTextElement('strong', '', String(value)));
+                    grid.appendChild(card);
+                });
+                diagnostics.appendChild(grid);
+                report.appendChild(diagnostics);
+            }
+
+            const allOpportunities = audit.results.flatMap((result) => result?.opportunities || []);
             const unique = [];
             const seen = new Set();
             allOpportunities.forEach((item) => {
                 const key = String(item.title || '').toLowerCase();
-                if (key && !seen.has(key) && unique.length < 6) { seen.add(key); unique.push(item); }
+                if (key && !seen.has(key) && unique.length < 8) {
+                    seen.add(key);
+                    unique.push(item);
+                }
             });
             if (unique.length) {
                 const priorities = document.createElement('section');
                 priorities.className = 'audit-priorities';
-                priorities.appendChild(createTextElement('h4', 'audit-section-label', 'Prioritas Perbaikan'));
+                priorities.appendChild(createTextElement('h4', 'audit-section-label', 'Urutan Perbaikan'));
                 const list = document.createElement('div');
                 list.className = 'audit-priority-list';
                 unique.forEach((item) => {
@@ -1889,13 +2018,15 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
             const summary = document.createElement('section');
             summary.className = 'audit-ai-summary';
-            summary.appendChild(createTextElement('span', 'audit-section-label', 'Rekomendasi Faqih\'s Assistant'));
-            summary.appendChild(createTextElement('div', '', prepareAssistantText(summaryText) || 'Analisis berhasil diproses. Gunakan prioritas di atas sebagai urutan perbaikan utama.'));
+            summary.appendChild(createTextElement('span', 'audit-section-label', 'Analisis dan Rencana Tindakan'));
+            summary.appendChild(createTextElement('div', '', prepareAssistantText(summaryText) || audit.executiveSummary || 'Analisis berhasil diproses. Ikuti urutan perbaikan di atas mulai dari prioritas tertinggi.'));
             report.appendChild(summary);
 
             wrapper.appendChild(report);
             container.appendChild(wrapper);
-            container.scrollTop = Math.max(0, wrapper.offsetTop - container.offsetTop - 8);
+            requestAnimationFrame(() => {
+                wrapper.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            });
             return true;
         }
 
@@ -1903,8 +2034,8 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             e.preventDefault();
             const input = document.getElementById('chat-input');
             const submitBtn = document.querySelector('#chat-form button[type="submit"]');
-            let text = input.value.trim();
-            if(!text) return;
+            const text = input.value.trim();
+            if (!text) return;
 
             const historyPayload = chatHistory.slice(-8);
             addMessageToUI('user', text);
@@ -1912,16 +2043,23 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             input.value = '';
             input.disabled = true;
             if (submitBtn) submitBtn.disabled = true;
-            
+
             const detectedUrl = extractUrlFromText(text);
             const loadingId = 'loading-' + Date.now();
             const container = document.getElementById('chat-messages');
-            const loadingText = detectedUrl ? 'AI sedang menganalisis performa website...' : 'AI sedang menjawab...';
-            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold"></i> ${loadingText}</div></div>`);
+            const loadingText = detectedUrl
+                ? 'Sedang memeriksa performa, pengalaman pengguna, SEO, dan kesehatan teknis website.'
+                : 'Sedang menyiapkan jawaban.';
+            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold" aria-hidden="true"></i> ${loadingText}</div></div>`);
             container.scrollTop = container.scrollHeight;
 
             const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 45000);
+            const timeout = setTimeout(() => {
+                const reason = typeof DOMException === 'function'
+                    ? new DOMException('Waktu analisis melewati batas aman.', 'TimeoutError')
+                    : new Error('Waktu analisis melewati batas aman.');
+                controller.abort(reason);
+            }, detectedUrl ? 110000 : 60000);
 
             try {
                 const response = await fetch(CHATBOT_AI_ENDPOINT, {
@@ -1931,30 +2069,26 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                         message: text,
                         url: detectedUrl,
                         history: historyPayload,
-                        page: 'portfolio-faqihalrf',
-                        instruction: 'Jawab langsung sebagai Faqih\'s Assistant dalam bahasa Indonesia yang profesional, natural, dan tidak mengulang jawaban. Jangan membuka setiap balasan dengan sapaan. Jika user mengirim URL, berikan laporan performa website yang jelas, ringkas, modern, dan actionable.'
+                        page: 'portfolio-faqihalrf'
                     }),
                     signal: controller.signal
                 });
-                clearTimeout(timeout);
-                
-                const loadingEl = document.getElementById(loadingId);
-                if (loadingEl) loadingEl.remove();
-                
-                let data = null;
-                try { data = await response.json(); } catch (_) { data = await response.text(); }
+
+                let data;
+                const responseText = await response.text();
+                try { data = responseText ? JSON.parse(responseText) : {}; }
+                catch (_) { data = { reply: responseText }; }
 
                 if (!response.ok) {
-                    const errorMessage = getAIReplyFromPayload(data) || `Netlify Function error ${response.status}`;
-                    throw new Error(errorMessage);
+                    throw new Error(getAIReplyFromPayload(data) || 'Layanan analisis belum dapat menyelesaikan permintaan.');
                 }
 
                 const aiReply = prepareAssistantText(getAIReplyFromPayload(data));
-                if (!aiReply && !data?.audit) throw new Error('Backend AI belum mengirim hasil analisis.');
+                if (!aiReply && !data?.audit) throw new Error('Hasil analisis belum tersedia.');
 
                 if (data?.audit) {
                     renderAuditReport(data.audit, aiReply);
-                    const auditMemory = aiReply || `Analisis PageSpeed selesai untuk ${data.audit.url || detectedUrl}.`;
+                    const auditMemory = aiReply || `Analisis website selesai untuk ${data.audit.url || detectedUrl}.`;
                     chatHistory.push({ role: 'assistant', content: auditMemory });
                     lastAssistantReply = auditMemory;
                 } else {
@@ -1963,76 +2097,81 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                     chatHistory.push({ role: 'assistant', content: aiReply });
                     lastAssistantReply = aiReply;
                 }
-            } catch(err) {
-                clearTimeout(timeout);
-                const loadingEl = document.getElementById(loadingId);
-                if (loadingEl) loadingEl.remove();
+            } catch (err) {
+                const isTimeout = err?.name === 'AbortError' || err?.name === 'TimeoutError' || controller.signal.aborted;
+                const friendlyMessage = isTimeout
+                    ? 'Analisis membutuhkan waktu lebih lama dari biasanya. Silakan kirim URL yang sama sekali lagi; percobaan berikutnya sering lebih cepat setelah data website tersedia.'
+                    : 'Permintaan belum dapat diproses saat ini. Pastikan alamat website dapat dibuka secara publik, lalu coba kembali beberapa saat lagi.';
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, 'Maaf, koneksi AI/PageSpeed sedang belum tersambung. Pastikan Netlify Function index-bot berhasil deploy serta env GROQ_API_KEY dan PGSPEED_API_KEY sudah terpasang.');
-                console.warn('Chatbot AI error:', err);
+                await typeTextEffect(bubbleId, friendlyMessage);
+                if (!isTimeout) console.warn('Assistant request failed:', err?.message || err);
             } finally {
+                clearTimeout(timeout);
+                document.getElementById(loadingId)?.remove();
                 input.disabled = false;
                 if (submitBtn) submitBtn.disabled = false;
                 input.focus();
             }
         }
 
-        /* --- DUAL HIGH-PERFORMANCE SEO-FRIENDLY TYPING EFFECT ON LOAD --- */
+        /* --- STABLE TYPING EFFECT: ruang teks tidak berubah, sehingga CLS tetap rendah --- */
         function startHeroTypingEffect() {
             const titleEl = document.getElementById('hero-title-typed');
             const descEl = document.getElementById('hero-desc-typed');
-            if (!titleEl || !descEl) return;
+            if (!titleEl || !descEl || titleEl.dataset.typingReady === 'true') return;
+            titleEl.dataset.typingReady = 'true';
 
-            const originalTitleHTML = titleEl.innerHTML;
-            const originalDescText = descEl.textContent.trim();
+            const titleHTML = titleEl.innerHTML.trim();
+            const descText = descEl.textContent.trim();
 
-            titleEl.innerHTML = '';
+            const titleGhost = document.createElement('span');
+            titleGhost.className = 'hero-type-ghost';
+            titleGhost.innerHTML = titleHTML;
+            const titleOverlay = document.createElement('span');
+            titleOverlay.className = 'hero-type-overlay';
+            titleOverlay.setAttribute('aria-hidden', 'true');
+            titleEl.textContent = '';
+            titleEl.classList.add('hero-type-shell');
+            titleEl.append(titleGhost, titleOverlay);
+
+            const descGhost = document.createElement('span');
+            descGhost.className = 'hero-type-ghost';
+            descGhost.textContent = descText;
+            const descOverlay = document.createElement('span');
+            descOverlay.className = 'hero-type-overlay';
+            descOverlay.setAttribute('aria-hidden', 'true');
             descEl.textContent = '';
+            descEl.classList.add('hero-type-shell');
+            descEl.append(descGhost, descOverlay);
 
-            let titlePart1 = "Digital ";
-            let titlePart2 = "Marketer.";
-            let currentHTML = "";
-            let i = 0;
-
-            function typePart1() {
-                if (i < titlePart1.length) {
-                    currentHTML += titlePart1.charAt(i);
-                    titleEl.innerHTML = currentHTML + '<span class="typing-cursor"></span>';
-                    i++;
-                    setTimeout(typePart1, 70);
+            const titlePlain = 'Digital Marketer.';
+            let titleIndex = 0;
+            const typeTitle = () => {
+                titleIndex += 1;
+                const visible = titlePlain.slice(0, titleIndex);
+                const first = visible.slice(0, Math.min(8, visible.length));
+                const second = visible.length > 8 ? visible.slice(8) : '';
+                titleOverlay.textContent = '';
+                titleOverlay.append(document.createTextNode(first));
+                if (second) {
+                    const accent = document.createElement('span');
+                    accent.className = 'text-darkGold italic';
+                    accent.textContent = second;
+                    titleOverlay.appendChild(accent);
+                }
+                if (titleIndex < titlePlain.length) {
+                    setTimeout(typeTitle, titleIndex <= 8 ? 58 : 70);
                 } else {
-                    let j = 0;
-                    currentHTML += '<span class="text-darkGold italic">';
-                    function typePart2() {
-                        if (j < titlePart2.length) {
-                            titleEl.innerHTML = currentHTML + titlePart2.substring(0, j + 1) + '</span><span class="typing-cursor"></span>';
-                            j++;
-                            setTimeout(typePart2, 90);
-                        } else {
-                            titleEl.innerHTML = originalTitleHTML; // Restore full markup for perfect CSS sizing
-                            typeDesc();
-                        }
-                    }
-                    typePart2();
+                    let descIndex = 0;
+                    const typeDesc = () => {
+                        descIndex = Math.min(descText.length, descIndex + 3);
+                        descOverlay.textContent = descText.slice(0, descIndex);
+                        if (descIndex < descText.length) setTimeout(typeDesc, 16);
+                    };
+                    typeDesc();
                 }
-            }
-
-            let d = 0;
-            function typeDesc() {
-                descEl.classList.add('typing-cursor');
-                function type() {
-                    if (d < originalDescText.length) {
-                        descEl.textContent += originalDescText.charAt(d);
-                        d++;
-                        setTimeout(type, 8); // Ultra fast typing layout for lengthy descriptions
-                    } else {
-                        descEl.classList.remove('typing-cursor');
-                    }
-                }
-                type();
-            }
-
-            typePart1();
+            };
+            typeTitle();
         }
 
         window.handleBloggerData = function(data) {
@@ -2097,51 +2236,57 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             triggerReveal();
         }
 
+        let revealObserver = null;
         function triggerReveal() {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+            const elements = document.querySelectorAll('.reveal:not([data-reveal-observed])');
+            if (!elements.length) return;
+            if (!('IntersectionObserver' in window)) {
+                elements.forEach((element) => {
+                    element.dataset.revealObserved = 'true';
+                    element.classList.add('active');
+                });
+                return;
+            }
+            if (!revealObserver) {
+                revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -48px 0px', threshold: 0.04 });
+            }
+            elements.forEach((element) => {
+                element.dataset.revealObserved = 'true';
+                revealObserver.observe(element);
             });
         }
 
         let scrollTimeout;
+        let scrollUiFrame = 0;
         window.addEventListener('scroll', () => {
-            const widget = document.querySelector('.scroll-widget');
-            if(widget) {
-                if (window.scrollY > 300) {
-                    widget.classList.add('visible');
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
+            if (scrollUiFrame) return;
+            scrollUiFrame = requestAnimationFrame(() => {
+                const widget = document.querySelector('.scroll-widget');
+                if (widget) {
+                    if (window.scrollY > 300) {
+                        widget.classList.add('visible');
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => widget.classList.remove('visible'), 2000);
+                    } else {
                         widget.classList.remove('visible');
-                    }, 2000); 
-                } else {
-                    widget.classList.remove('visible');
+                    }
                 }
-            }
-            triggerReveal();
+                scrollUiFrame = 0;
+            });
         }, { passive: true });
 
         function animateCounters() {
-            document.querySelectorAll('.counter').forEach(counter => {
-                const target = +counter.getAttribute('data-target');
+            document.querySelectorAll('.counter').forEach((counter) => {
+                const target = counter.getAttribute('data-target') || '0';
                 const suffix = counter.getAttribute('data-suffix') || '';
-                const duration = 2000; 
-                const step = target / (duration / 16);
-                let current = 0;
-                
-                const update = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.innerText = Math.ceil(current) + suffix;
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.innerText = target + suffix;
-                    }
-                };
-                
-                const observer = new IntersectionObserver(entries => {
-                    if(entries[0].isIntersecting) { update(); observer.disconnect(); }
-                });
-                observer.observe(counter);
+                counter.textContent = target + suffix;
             });
         }
 

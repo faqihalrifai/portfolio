@@ -19,18 +19,30 @@ function cleanText(value) {
 }
 
 function dedupeText(value) {
-  const paragraphs = cleanText(value).split(/\n{2,}/);
+  const source = cleanText(value)
+    .replace(/^(halo|hai|hi|selamat\s+(pagi|siang|sore|malam))\b[^.!?\n]*[.!?]?\s*/i, '')
+    .trim();
+  if (!source) return '';
+
   const seen = new Set();
-  return paragraphs.filter((paragraph) => {
-    const key = paragraph
-      .toLowerCase()
-      .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  }).join('\n\n').replace(/^(halo|hai|hi)\b[^.!?\n]*[.!?]\s*/i, '').trim();
+  const paragraphs = [];
+  source.split(/\n{2,}/).forEach((paragraph) => {
+    const sentences = paragraph
+      .split(/(?<=[.!?])\s+/)
+      .map((sentence) => sentence.trim())
+      .filter(Boolean);
+    const unique = sentences.filter((sentence) => {
+      const key = sentence.toLowerCase()
+        .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    if (unique.length) paragraphs.push(unique.join(' '));
+  });
+  return paragraphs.join('\n\n').trim();
 }
 
 function sanitizeHistory(input) {
@@ -291,7 +303,7 @@ function buildOverview(results) {
 function deterministicSummary(summary) {
   const valid = summary.results.filter((item) => item && !item.error);
   if (!valid.length) {
-    return 'Website belum berhasil dianalisis. Pastikan alamat dapat diakses publik dan tidak memblokir pemeriksaan otomatis.';
+    return 'Website belum berhasil diperiksa. Pastikan alamat dapat dibuka tanpa login, lalu coba kembali beberapa saat lagi.';
   }
   const mobile = valid.find((item) => item.strategy === 'mobile');
   const desktop = valid.find((item) => item.strategy === 'desktop');
@@ -307,7 +319,7 @@ function deterministicSummary(summary) {
   });
 
   const lines = [
-    `Kondisi website: ${summary.overview.status}.`,
+    `Secara umum, kondisi website berada pada kategori ${summary.overview.status.toLowerCase()}.`,
     mobile ? `Pengalaman seluler menjadi acuan utama dengan skor performa ${mobile.scores.performance ?? 'belum tersedia'}.` : '',
     desktop ? `Pada desktop, skor performa tercatat ${desktop.scores.performance ?? 'belum tersedia'}.` : ''
   ].filter(Boolean);
@@ -320,7 +332,7 @@ function deterministicSummary(summary) {
   } else {
     lines.push('Tidak ditemukan hambatan besar pada audit yang tersedia. Fokus berikutnya adalah pemantauan rutin, kualitas konten, dan kestabilan konversi.');
   }
-  lines.push('Dampak bisnis: perbaikan pada prioritas tertinggi biasanya membantu halaman terasa lebih cepat, mengurangi pengunjung yang keluar, dan memperkuat pengalaman pengguna di perangkat seluler.');
+  lines.push('Mulailah dari prioritas pertama, lalu ukur ulang setelah setiap perubahan. Pendekatan bertahap membuat hasilnya lebih mudah diverifikasi dan membantu menjaga pengalaman pengguna tetap stabil.');
   return lines.join('\n');
 }
 
@@ -398,18 +410,18 @@ exports.handler = async (event) => {
           role: 'system',
           content: [
             "Kamu adalah Faqih's Assistant, analis website senior yang membantu pemilik bisnis dan tim teknis.",
-            'Jawab dalam bahasa Indonesia yang profesional, jelas, dan sangat berguna tanpa sapaan pembuka.',
+            'Gunakan bahasa Indonesia yang ramah, sopan, manusiawi, profesional, dan mudah dipahami tanpa sapaan pembuka yang berulang.',
             'Jangan menyebut nama penyedia model, nama API, kunci, environment variable, atau teknologi internal yang digunakan.',
-            'Jangan mengulang seluruh skor karena skor sudah tampil dalam kartu visual.',
-            'Susun jawaban dengan bagian: Ringkasan Kondisi, Masalah Paling Berdampak, Rencana Perbaikan 7 Hari, Dampak Bisnis, dan Cara Memverifikasi.',
-            'Berikan langkah konkret yang dapat dilakukan pemilik website maupun developer. Jelaskan istilah teknis secara singkat.',
+            'Jangan mengulang seluruh skor karena skor sudah tampil dalam kartu visual, dan jangan mengulang rekomendasi dengan susunan kata berbeda.',
+            'Susun jawaban dengan bagian yang jelas: Ringkasan Kondisi, Prioritas Utama, Rencana Perbaikan Bertahap, Dampak bagi Pengguna dan Bisnis, serta Cara Memverifikasi.',
+            'Berikan langkah konkret, realistis, dan berurutan untuk pemilik website maupun developer. Jelaskan istilah teknis secara singkat dan jangan membuat klaim yang tidak ada di data.',
             'Jangan menjanjikan peringkat Google atau skor 100. Jangan mengarang data di luar JSON.',
             'Gunakan paragraf pendek dan daftar bernomor biasa. Jangan memakai markdown tabel atau tanda pagar.'
           ].join(' ')
         },
         {
           role: 'user',
-          content: `Analisis data audit website berikut secara menyeluruh. Prioritaskan mobile, Core Web Vitals, stabilitas layout, ukuran aset, JavaScript, aksesibilitas, praktik terbaik, dan SEO. Panjang 450-750 kata. Data: ${JSON.stringify(summary)}`
+          content: `Analisis data audit website berikut secara menyeluruh. Prioritaskan mobile, Core Web Vitals, stabilitas layout, ukuran aset, JavaScript, aksesibilitas, praktik terbaik, dan SEO. Panjang 350-600 kata, padat, tidak berulang, dan prioritaskan tindakan yang paling berdampak. Data: ${JSON.stringify(summary)}`
         }
       ], 1800).catch(() => '');
 
@@ -428,12 +440,12 @@ exports.handler = async (event) => {
         role: 'system',
         content: [
           "Kamu adalah Faqih's Assistant di website Muhammad Faqih Al Rifai.",
-          'Jawab langsung dalam bahasa Indonesia yang profesional, natural, nyaman dibaca, dan relevan.',
+          'Jawab langsung dalam bahasa Indonesia yang ramah, sopan, profesional, natural, dan nyaman dibaca.',
           'Sapaan sudah ditampilkan sekali oleh antarmuka, jadi jangan memulai dengan Halo, Hai, atau sapaan lain.',
-          'Gunakan konteks percakapan dan jangan mengulang jawaban sebelumnya.',
+          'Gunakan konteks percakapan, jangan mengulang jawaban sebelumnya, dan hindari paragraf atau kalimat duplikat.',
           'Jangan menyebut penyedia model, nama API, kunci, environment variable, atau konfigurasi internal.',
           'Bantu pengguna memahami SEO, performa website, UX, hosting, konten, analitik, dan strategi pengembangan website.',
-          'Jika data tidak cukup, nyatakan batasannya dan ajukan satu pertanyaan yang paling penting.'
+          'Jika data tidak cukup, jelaskan batasannya dengan jujur lalu ajukan satu pertanyaan yang paling membantu, tanpa terdengar kaku.'
         ].join(' ')
       },
       ...history,
@@ -448,7 +460,6 @@ exports.handler = async (event) => {
       })
     };
   } catch (error) {
-    console.error('assistant-function-error:', error?.message || error);
     return {
       statusCode: 500,
       headers: JSON_HEADERS,

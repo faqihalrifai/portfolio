@@ -17,6 +17,27 @@ function cleanText(value) {
     .trim();
 }
 
+
+function dedupeText(value) {
+  const paragraphs = cleanText(value).split(/\n{2,}/);
+  const seen = new Set();
+  return paragraphs.filter((paragraph) => {
+    const key = paragraph.toLowerCase().replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).join('\n\n').replace(/^(halo|hai|hi)\b[^.!?\n]*[.!?]\s*/i, '').trim();
+}
+
+function sanitizeHistory(input) {
+  if (!Array.isArray(input)) return [];
+  return input.slice(-8).map((item) => {
+    const role = item?.role === 'assistant' ? 'assistant' : 'user';
+    const content = cleanText(item?.content || '').slice(0, 1600);
+    return content ? { role, content } : null;
+  }).filter(Boolean);
+}
+
 function normalizeUrl(raw) {
   const text = String(raw || '').trim();
   const match = text.match(/https?:\/\/[^\s]+|www\.[^\s]+/i);
@@ -118,7 +139,7 @@ async function callGroq(messages) {
     },
     body: JSON.stringify({
       model,
-      temperature: 0.35,
+      temperature: 0.22,
       max_tokens: 950,
       messages
     })
@@ -128,7 +149,7 @@ async function callGroq(messages) {
     const message = data?.error?.message || `Groq API error ${response.status}`;
     throw new Error(message);
   }
-  return cleanText(data?.choices?.[0]?.message?.content || '');
+  return dedupeText(data?.choices?.[0]?.message?.content || '');
 }
 
 function fallbackAudit(summary) {
@@ -159,6 +180,7 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body || '{}');
     const message = cleanText(body.message || '');
+    const history = sanitizeHistory(body.history);
     const requestedUrl = normalizeUrl(body.url || message);
 
     if (!message && !requestedUrl) {
@@ -174,11 +196,11 @@ exports.handler = async (event) => {
       const groqReply = await callGroq([
         {
           role: 'system',
-          content: 'Kamu adalah analis performa website profesional milik Muhammad Faqih Al Rifai. Tulis bahasa Indonesia yang jelas untuk pengguna non-teknis. Gunakan paragraf pendek. Jangan memakai markdown bintang, tabel markdown, heading bertanda pagar, atau jargon tanpa penjelasan.'
+          content: 'Kamu adalah Faqih\'s Assistant, analis performa website profesional milik Muhammad Faqih Al Rifai. Tulis bahasa Indonesia yang jelas untuk pengguna non-teknis. Jawab langsung tanpa sapaan pembuka. Gunakan paragraf pendek, jangan mengulang skor yang sudah tampil pada kartu, jangan mengulang paragraf, dan jangan memakai markdown bintang, tabel markdown, heading bertanda pagar, atau jargon tanpa penjelasan.'
         },
         {
           role: 'user',
-          content: `Buat ringkasan pendamping untuk kartu laporan PageSpeed berikut. Fokus pada: gambaran kondisi, 3 tindakan pertama yang paling berdampak, dan dampak bisnis/user experience. Jangan mengulang semua skor karena skor sudah ditampilkan visual. Panjang 180-320 kata. Data JSON: ${JSON.stringify(summary)}`
+          content: `Buat ringkasan pendamping untuk kartu laporan PageSpeed berikut. Fokus pada gambaran kondisi, tiga tindakan pertama yang paling berdampak, urutan prioritas, dan dampaknya bagi pengalaman pengguna serta bisnis. Jangan membuka dengan sapaan, jangan mengulang semua skor, dan jangan mengulang rekomendasi yang sama. Panjang 160-280 kata. Data JSON: ${JSON.stringify(summary)}`
         }
       ]);
       return {
@@ -191,8 +213,9 @@ exports.handler = async (event) => {
     const reply = await callGroq([
       {
         role: 'system',
-        content: 'Kamu adalah AI assistant website portfolio Muhammad Faqih Al Rifai. Jawab dalam bahasa Indonesia, ramah, profesional, no markdown bintang, dan arahkan user ke layanan SEO, website, atau konsultasi bila relevan.'
+        content: 'Kamu adalah Faqih\'s Assistant di website Muhammad Faqih Al Rifai. Jawab langsung dalam bahasa Indonesia yang profesional, natural, nyaman dibaca, dan relevan. Sapaan sudah ditampilkan sekali oleh antarmuka, jadi jangan memulai jawaban dengan Halo, Hai, atau sapaan lain. Gunakan konteks percakapan, jangan mengulang jawaban sebelumnya, jangan memakai markdown bintang, dan arahkan ke layanan SEO, pembuatan website, hosting, atau konsultasi hanya jika memang relevan.'
       },
+      ...history,
       { role: 'user', content: message }
     ]);
 

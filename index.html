@@ -754,6 +754,74 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 @media(prefers-reduced-motion:reduce){.audit-score-fill{transition:none!important}}
 </style>
 
+
+<style id="final-chat-performance-polish">
+/* Final chat polish: stable resize, responsive audit, zero horizontal clipping. */
+#chatbot-ui{
+  box-sizing:border-box!important;
+  contain:layout paint;
+  min-width:min(300px,calc(100vw - 20px))!important;
+  min-height:min(390px,calc(100vh - 20px))!important;
+  max-width:calc(100vw - 20px)!important;
+  max-height:calc(100dvh - 20px)!important;
+  overflow:hidden!important;
+}
+#chat-messages{overflow-x:hidden!important;overscroll-behavior:contain;scrollbar-gutter:stable;min-width:0}
+body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;-webkit-user-select:none!important}
+body.chat-is-resizing #chatbot-ui{transition:none!important;will-change:left,top,width,height}
+.chat-resize-control{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  opacity:.82;
+  transition:opacity .16s ease,background-color .16s ease!important;
+  -webkit-tap-highlight-color:transparent;
+}
+.chat-resize-control:hover,.chat-resize-control:focus-visible{opacity:1;background:rgba(238,247,252,.92)!important;outline:none!important}
+.chat-resize-control span{background:rgba(0,85,142,.52)!important;transform:none!important;transition:background-color .16s ease!important}
+.chat-resize-control:hover span,.chat-resize-control:focus-visible span{background:#2680BE!important}
+#chat-resize-left,#chat-resize-right{top:50%!important;width:18px!important;height:76px!important;transform:translateY(-50%)!important;cursor:ew-resize!important}
+#chat-resize-left{left:0!important}#chat-resize-right{right:0!important}
+#chat-resize-left span,#chat-resize-right span{width:3px!important;height:36px!important}
+#chat-resize-top,#chat-resize-bottom{left:50%!important;width:76px!important;height:18px!important;transform:translateX(-50%)!important;cursor:ns-resize!important}
+#chat-resize-top{top:0!important}#chat-resize-bottom{bottom:0!important}
+#chat-resize-top span,#chat-resize-bottom span{width:36px!important;height:3px!important}
+.audit-message-row{display:flex;width:100%;min-width:0}
+.audit-report-card{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;overflow:hidden!important;box-sizing:border-box}
+.audit-report-head,.audit-device,.audit-priorities,.audit-diagnostics,.audit-ai-summary{min-width:0}
+.audit-report-url,.audit-priority-copy,.audit-ai-summary,.audit-device-copy,.audit-overview-card{overflow-wrap:anywhere;word-break:normal}
+.audit-overview{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.5rem!important;padding:.85rem 1rem!important}
+.audit-overview-card{min-width:0!important;padding:.62rem!important;border-radius:.75rem!important}
+.audit-overview-card span{display:block;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:#64748b;font-weight:800}
+.audit-overview-card strong{display:block;margin-top:.2rem;font-size:.7rem;line-height:1.35;color:#002248}
+.audit-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.audit-vitals-grid,.audit-diagnostic-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.45rem!important}
+.audit-score,.audit-vital,.audit-diagnostic,.audit-priority-item{min-width:0}
+.audit-priority-item{grid-template-columns:auto minmax(0,1fr)!important}
+.audit-ai-summary{font-size:.72rem!important;line-height:1.72!important}
+@media(min-width:560px){
+  .audit-overview{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .audit-score-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .audit-vitals-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .audit-diagnostic-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:479px){
+  #chatbot-ui{min-width:calc(100vw - 20px)!important;width:calc(100vw - 20px)!important;max-width:calc(100vw - 20px)!important}
+  .audit-report-head,.audit-device,.audit-priorities,.audit-diagnostics,.audit-ai-summary{padding:.78rem!important}
+  .audit-device-title{align-items:flex-start!important;flex-direction:column!important;gap:.45rem!important}
+  .audit-status-chip{align-self:flex-start}
+  .audit-score-grid,.audit-vitals-grid,.audit-diagnostic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audit-priority-item{padding:.5rem!important;gap:.42rem!important}
+  .audit-priority-badge{min-width:2.8rem!important}
+}
+@media(max-width:340px){
+  .audit-overview,.audit-score-grid,.audit-vitals-grid,.audit-diagnostic-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #chatbot-ui,.chat-resize-control,.chat-resize-control span{transition:none!important}
+}
+</style>
+
 </head>
 <body class="bg-mainWhite text-darkBlack transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative text-[15px] md:text-base">
 <!-- Navbar -->
@@ -1655,70 +1723,111 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 top: document.getElementById('chat-resize-top'),
                 bottom: document.getElementById('chat-resize-bottom')
             };
-            if (!ui || Object.values(handles).some(handle => !handle) || ui.dataset.resizeBound === 'true') return;
+            if (!ui || Object.values(handles).some((handle) => !handle) || ui.dataset.resizeBound === 'true') return;
             ui.dataset.resizeBound = 'true';
 
             const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-            const bindHandle = (handle, side) => {
+            const viewportSize = () => ({
+                width: window.visualViewport?.width || window.innerWidth,
+                height: window.visualViewport?.height || window.innerHeight
+            });
+
+            Object.entries(handles).forEach(([side, handle]) => {
                 handle.addEventListener('pointerdown', (event) => {
+                    if (event.button !== undefined && event.button !== 0) return;
                     event.preventDefault();
                     event.stopPropagation();
-                    handle.setPointerCapture?.(event.pointerId);
+
                     const rect = ui.getBoundingClientRect();
-                    const startX = event.clientX;
-                    const startY = event.clientY;
-                    const startLeft = rect.left;
-                    const startTop = rect.top;
-                    const startWidth = rect.width;
-                    const startHeight = rect.height;
-                    const rightEdge = rect.right;
-                    const bottomEdge = rect.bottom;
-                    const margin = window.innerWidth < 640 ? 10 : 18;
-                    const minWidth = Math.min(300, window.innerWidth - margin * 2);
-                    const minHeight = Math.min(390, window.innerHeight - margin * 2);
+                    const viewport = viewportSize();
+                    const margin = viewport.width < 640 ? 10 : 18;
+                    const minWidth = Math.min(300, viewport.width - margin * 2);
+                    const minHeight = Math.min(390, viewport.height - margin * 2);
+                    const start = {
+                        x: event.clientX,
+                        y: event.clientY,
+                        left: rect.left,
+                        top: rect.top,
+                        width: rect.width,
+                        height: rect.height,
+                        right: rect.right,
+                        bottom: rect.bottom
+                    };
+                    let latestX = event.clientX;
+                    let latestY = event.clientY;
+                    let frame = 0;
+                    let active = true;
+
+                    handle.setPointerCapture?.(event.pointerId);
                     document.body.classList.add('chat-is-resizing');
                     document.body.style.cursor = (side === 'left' || side === 'right') ? 'ew-resize' : 'ns-resize';
+                    ui.style.transition = 'none';
 
-                    const onMove = (moveEvent) => {
-                        moveEvent.preventDefault();
-                        const dx = moveEvent.clientX - startX;
-                        const dy = moveEvent.clientY - startY;
+                    const applyResize = () => {
+                        frame = 0;
+                        if (!active) return;
+                        const dx = latestX - start.x;
+                        const dy = latestY - start.y;
+                        let nextLeft = start.left;
+                        let nextTop = start.top;
+                        let nextWidth = start.width;
+                        let nextHeight = start.height;
 
                         if (side === 'right') {
-                            const maxWidth = window.innerWidth - margin - startLeft;
-                            ui.style.width = clamp(startWidth + dx, minWidth, maxWidth) + 'px';
+                            nextWidth = clamp(start.width + dx, minWidth, viewport.width - margin - start.left);
+                        } else if (side === 'left') {
+                            nextLeft = clamp(start.left + dx, margin, start.right - minWidth);
+                            nextWidth = start.right - nextLeft;
+                        } else if (side === 'bottom') {
+                            nextHeight = clamp(start.height + dy, minHeight, viewport.height - margin - start.top);
+                        } else if (side === 'top') {
+                            nextTop = clamp(start.top + dy, margin, start.bottom - minHeight);
+                            nextHeight = start.bottom - nextTop;
                         }
-                        if (side === 'left') {
-                            const newLeft = clamp(startLeft + dx, margin, rightEdge - minWidth);
-                            ui.style.left = newLeft + 'px';
-                            ui.style.width = (rightEdge - newLeft) + 'px';
-                        }
-                        if (side === 'bottom') {
-                            const maxHeight = window.innerHeight - margin - startTop;
-                            ui.style.height = clamp(startHeight + dy, minHeight, maxHeight) + 'px';
-                        }
-                        if (side === 'top') {
-                            const newTop = clamp(startTop + dy, margin, bottomEdge - minHeight);
-                            ui.style.top = newTop + 'px';
-                            ui.style.height = (bottomEdge - newTop) + 'px';
-                        }
+
+                        ui.style.left = Math.round(nextLeft) + 'px';
+                        ui.style.top = Math.round(nextTop) + 'px';
+                        ui.style.width = Math.round(nextWidth) + 'px';
+                        ui.style.height = Math.round(nextHeight) + 'px';
                     };
-                    const onUp = () => {
-                        window.removeEventListener('pointermove', onMove);
-                        window.removeEventListener('pointerup', onUp);
-                        window.removeEventListener('pointercancel', onUp);
+
+                    const onMove = (moveEvent) => {
+                        if (!active) return;
+                        latestX = moveEvent.clientX;
+                        latestY = moveEvent.clientY;
+                        if (!frame) frame = requestAnimationFrame(applyResize);
+                    };
+
+                    const finish = () => {
+                        if (!active) return;
+                        active = false;
+                        if (frame) cancelAnimationFrame(frame);
+                        handle.removeEventListener('pointermove', onMove);
+                        handle.removeEventListener('pointerup', finish);
+                        handle.removeEventListener('pointercancel', finish);
+                        handle.removeEventListener('lostpointercapture', finish);
+                        try { handle.releasePointerCapture?.(event.pointerId); } catch (_) {}
                         document.body.classList.remove('chat-is-resizing');
                         document.body.style.cursor = '';
+                        ui.style.transition = '';
+                        keepChatPanelInViewport();
                     };
-                    window.addEventListener('pointermove', onMove, { passive:false });
-                    window.addEventListener('pointerup', onUp, { once:true });
-                    window.addEventListener('pointercancel', onUp, { once:true });
+
+                    handle.addEventListener('pointermove', onMove, { passive: true });
+                    handle.addEventListener('pointerup', finish, { once: true });
+                    handle.addEventListener('pointercancel', finish, { once: true });
+                    handle.addEventListener('lostpointercapture', finish, { once: true });
                 });
-            };
-            Object.entries(handles).forEach(([side, handle]) => bindHandle(handle, side));
+            });
+
+            let resizeFrame = 0;
             window.addEventListener('resize', () => {
-                if (ui.classList.contains('chat-open')) keepChatPanelInViewport();
-            }, { passive:true });
+                if (!ui.classList.contains('chat-open') || resizeFrame) return;
+                resizeFrame = requestAnimationFrame(() => {
+                    keepChatPanelInViewport();
+                    resizeFrame = 0;
+                });
+            }, { passive: true });
         }
 
         function toggleChatbot() {
@@ -1749,19 +1858,36 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
         function prepareAssistantText(rawText) {
             let text = cleanAIText(rawText)
-                .replace(/^(halo|hai|hi)\b[^.!?\n]*[.!?]\s*/i, '')
+                .replace(/^(halo|hai|hi|selamat\s+(pagi|siang|sore|malam))\b[^.!?\n]*[.!?]?\s*/i, '')
                 .trim();
+            if (!text) return '';
+
+            const previousKeys = new Set(
+                String(lastAssistantReply || '')
+                    .split(/\n{2,}|(?<=[.!?])\s+/)
+                    .map(normalizeReplyKey)
+                    .filter((key) => key.length > 18)
+            );
             const seen = new Set();
-            text = text.split(/\n{2,}/).filter((paragraph) => {
-                const key = normalizeReplyKey(paragraph);
-                if (!key || seen.has(key)) return false;
-                seen.add(key);
-                return true;
-            }).join('\n\n');
-            if (text && lastAssistantReply && normalizeReplyKey(text) === normalizeReplyKey(lastAssistantReply)) {
-                return 'Poin sebelumnya masih berlaku. Tambahkan tujuan, kendala, atau konteks baru agar saya dapat memberikan jawaban yang lebih spesifik.';
-            }
-            return text;
+            const paragraphs = [];
+
+            text.split(/\n{2,}/).forEach((paragraph) => {
+                const sentences = paragraph
+                    .split(/(?<=[.!?])\s+/)
+                    .map((sentence) => sentence.trim())
+                    .filter(Boolean);
+                const uniqueSentences = sentences.filter((sentence) => {
+                    const key = normalizeReplyKey(sentence);
+                    if (!key || seen.has(key) || previousKeys.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                });
+                if (uniqueSentences.length) paragraphs.push(uniqueSentences.join(' '));
+            });
+
+            const result = paragraphs.join('\n\n').trim();
+            if (result) return result;
+            return 'Agar jawabannya tidak mengulang pembahasan sebelumnya, tambahkan tujuan atau bagian website yang ingin diperdalam.';
         }
 
         function extractUrlFromText(text) {
@@ -1786,17 +1912,24 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
         async function typeTextEffect(elementId, text) {
             const element = document.getElementById(elementId);
-            if(!element) return;
-            const cleanText = cleanAIText(text);
+            if (!element) return;
+            const output = cleanAIText(text);
             element.textContent = '';
             element.classList.add('typing-cursor');
-            
-            for (let i = 0; i < cleanText.length; i++) {
-                element.textContent += cleanText.charAt(i);
-                const container = document.getElementById('chat-messages');
-                container.scrollTop = container.scrollHeight;
-                await new Promise(resolve => setTimeout(resolve, 10));
-            }
+            let index = 0;
+            const chunkSize = output.length > 700 ? 7 : output.length > 280 ? 4 : 2;
+
+            await new Promise((resolve) => {
+                const step = () => {
+                    index = Math.min(output.length, index + chunkSize);
+                    element.textContent = output.slice(0, index);
+                    const container = document.getElementById('chat-messages');
+                    if (container) container.scrollTop = container.scrollHeight;
+                    if (index < output.length) requestAnimationFrame(step);
+                    else resolve();
+                };
+                requestAnimationFrame(step);
+            });
             element.classList.remove('typing-cursor');
         }
 
@@ -1862,7 +1995,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             if (!container || !audit || !Array.isArray(audit.results)) return false;
 
             const wrapper = document.createElement('div');
-            wrapper.className = 'flex gap-2';
+            wrapper.className = 'audit-message-row';
             const report = document.createElement('article');
             report.className = 'audit-report-card bot-bubble';
 
@@ -2048,17 +2181,14 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             const loadingId = 'loading-' + Date.now();
             const container = document.getElementById('chat-messages');
             const loadingText = detectedUrl
-                ? 'Sedang memeriksa performa, pengalaman pengguna, SEO, dan kesehatan teknis website.'
-                : 'Sedang menyiapkan jawaban.';
+                ? 'Saya sedang meninjau kecepatan, pengalaman pengguna, SEO, dan kesehatan teknis website Anda. Proses ini dapat memerlukan sedikit waktu.'
+                : 'Saya sedang menyusun jawaban yang paling relevan untuk pertanyaan Anda.';
             container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold" aria-hidden="true"></i> ${loadingText}</div></div>`);
             container.scrollTop = container.scrollHeight;
 
             const controller = new AbortController();
             const timeout = setTimeout(() => {
-                const reason = typeof DOMException === 'function'
-                    ? new DOMException('Waktu analisis melewati batas aman.', 'TimeoutError')
-                    : new Error('Waktu analisis melewati batas aman.');
-                controller.abort(reason);
+                controller.abort();
             }, detectedUrl ? 110000 : 60000);
 
             try {
@@ -2100,11 +2230,11 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             } catch (err) {
                 const isTimeout = err?.name === 'AbortError' || err?.name === 'TimeoutError' || controller.signal.aborted;
                 const friendlyMessage = isTimeout
-                    ? 'Analisis membutuhkan waktu lebih lama dari biasanya. Silakan kirim URL yang sama sekali lagi; percobaan berikutnya sering lebih cepat setelah data website tersedia.'
+                    ? 'Pemeriksaan website membutuhkan waktu lebih lama dari biasanya. Silakan coba sekali lagi dalam beberapa saat; saya akan melanjutkan dengan data yang tersedia tanpa mengulang penjelasan sebelumnya.'
                     : 'Permintaan belum dapat diproses saat ini. Pastikan alamat website dapat dibuka secara publik, lalu coba kembali beberapa saat lagi.';
                 const bubbleId = addMessageToUI('bot', '', true);
                 await typeTextEffect(bubbleId, friendlyMessage);
-                if (!isTimeout) console.warn('Assistant request failed:', err?.message || err);
+                
             } finally {
                 clearTimeout(timeout);
                 document.getElementById(loadingId)?.remove();
@@ -2189,7 +2319,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 };
                 document.body.appendChild(script);
             } catch (error) {
-                console.error('Error memuat script blog:', error);
+                
             }
         }
 
@@ -2304,7 +2434,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 const playPromise = vid.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.warn("Autoplay ditolak.");
+                        
                     });
                 }
             } else {

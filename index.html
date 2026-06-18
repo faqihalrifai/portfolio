@@ -3,15 +3,14 @@
 <html class="scroll-smooth" lang="id">
 <head>
 <!-- GTM dipindahkan ke lazy loader bawah agar tidak menghambat LCP/TBT -->
-<!-- AdSense dipindahkan ke lazy loader bawah agar PageSpeed lebih ringan -->
+<!-- AdSense dihapus agar pemuatan awal lebih ringan -->
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
 <meta content="#ffffff" name="theme-color"/>
 <meta name="impact-site-verification" value="f31cae2e-6cef-43c6-ab08-e6afc91c5ce7"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <!-- Security Maksimal (Standar Internasional dengan pembersihan Meta Directive yang tidak didukung) -->
-<meta content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; object-src 'none'; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:;" http-equiv="Content-Security-Policy"/>
-<meta content="max-age=31536000; includeSubDomains; preload" http-equiv="Strict-Transport-Security"/>
+<!-- Security headers dikelola melalui file Netlify _headers agar tidak terjadi CSP ganda. -->
 <meta content="f42a172c36b7108489a0fe7d6aa66d1e" name="seobility"/>
 <script>
         try {
@@ -23,10 +22,10 @@
         }, { passive: false });
     </script>
 <!-- SEO & GEO 2026 Optimization -->
-<title>Digital Marketer &amp; SEO Specialist | Muhammad Faqih</title>
-<meta content="Portofolio Muhammad Faqih, Digital Marketer &amp; SEO Specialist untuk technical SEO, optimasi website, konten, dan growth marketing B2B." name="description"/>
+<title>Jasa Pembuatan Website &amp; Optimasi SEO Cirebon | Muhammad Faqih</title>
+<meta content="Jasa pembuatan website di Cirebon, hosting aman, optimasi SEO dan speed website untuk bisnis Indonesia. Cepat, responsif, dan terukur." name="description"/>
 <!-- 75 Keyword Tertarget Akurat (Tanpa Spam) -->
-<meta content="SEO specialist, digital marketer, technical SEO, website optimization, content marketing, Google Search Console, Google Analytics" name="keywords"/>
+<meta content="jasa pembuatan website terbaik di Indonesia, jasa pembuatan website di Cirebon, jasa optimasi website di Cirebon, jasa optimasi speed website, technical SEO, hosting website" name="keywords"/>
 <meta content="Muhammad Faqih Al Rifai" name="author"/>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
 <link href="https://faqihalrf.online/" rel="canonical"/>
@@ -35,81 +34,139 @@
 <meta content="website" property="og:type"/>
 <meta content="https://faqihalrf.online/" property="og:url"/>
 <meta content="Muhammad Faqih Al Rifai" property="og:site_name"/>
-<meta content="Digital Marketer &amp; SEO Specialist | Muhammad Faqih" property="og:title"/>
-<meta content="Digital Marketing Strategist: Ahli SEO White-Hat, Generative Engine Optimization (GEO), dan pengembangan website penunjang ROI." property="og:description"/>
+<meta content="Jasa Pembuatan Website &amp; Optimasi SEO Cirebon | Muhammad Faqih" property="og:title"/>
+<meta content="Pembuatan website cepat, hosting aman, optimasi SEO, dan peningkatan speed website untuk bisnis di Cirebon dan Indonesia." property="og:description"/>
 <meta content="https://faqihalrf.online/myphot.webp" property="og:image"/>
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://faqihalrf.online/" property="twitter:url"/>
-<meta content="Pakar Optimasi Mesin Pencari &amp; Web Developer B2B" property="twitter:title"/>
-<meta content="Konsultan SEO lokal spesialis pengembangan situs web bisnis dan strategi backlink white-hat. Siap meningkatkan Leads &amp; Sales Anda." property="twitter:description"/>
+<meta content="Jasa Website &amp; Optimasi SEO Cirebon | Muhammad Faqih" property="twitter:title"/>
+<meta content="Website cepat, hosting stabil, technical SEO, dan optimasi speed untuk membantu bisnis lebih mudah ditemukan di Google." property="twitter:description"/>
 <meta content="https://faqihalrf.online/myphot.webp" property="twitter:image"/>
 <meta content="Jkno9NlGud5XD9yM1BmWH2oEXnJXhJC0QYoTuM2n8ws" name="google-site-verification">
 <!-- Schema -->
 <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@graph": [
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://faqihalrf.online/#website",
+      "url": "https://faqihalrf.online/",
+      "name": "Jasa Pembuatan Website & Optimasi SEO Cirebon | Muhammad Faqih",
+      "description": "Layanan pembuatan website, hosting, optimasi SEO, dan optimasi speed website untuk bisnis di Cirebon dan Indonesia.",
+      "publisher": {
+        "@id": "https://faqihalrf.online/#person"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://faqihalrf.online/?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://faqihalrf.online/#business",
+      "name": "Jasa Pembuatan Website dan Optimasi SEO di Cirebon",
+      "image": "https://faqihalrf.online/myphot.webp",
+      "description": "Layanan pembuatan website profesional untuk bisnis Indonesia, hosting aman, optimasi speed website, technical SEO, dan laporan performa terukur.",
+      "url": "https://faqihalrf.online/",
+      "telephone": "+62859148219009",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cirebon",
+        "addressRegion": "Jawa Barat",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-6.7320",
+        "longitude": "108.5523"
+      },
+      "areaServed": [
+        "Cirebon",
+        "Mundu",
+        "Jawa Barat",
+        "Indonesia",
+        "Jakarta"
+      ],
+      "serviceType": [
+        "Jasa pembuatan website di Cirebon",
+        "Pembuatan website profesional untuk bisnis Indonesia",
+        "Jasa optimasi website di Cirebon",
+        "Jasa optimasi speed website"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://faqihalrf.online/#person",
+      "name": "Muhammad Faqih Al Rifai",
+      "url": "https://faqihalrf.online/",
+      "image": "https://faqihalrf.online/myphot.webp",
+      "jobTitle": "Digital Marketer & SEO Specialist",
+      "sameAs": [
+        "https://www.linkedin.com/in/muhammad-faqih-al-rifai",
+        "https://www.instagram.com/faqihalrf",
+        "https://www.facebook.com/faqihalrf",
+        "https://www.youtube.com/@faqihalrf"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://faqihalrf.online/#faq",
+      "mainEntity": [
         {
-          "@type": "WebSite",
-          "@id": "https://faqihalrf.online/#website",
-          "url": "https://faqihalrf.online/",
-          "name": "Konsultan SEO & Digital Marketer | Muhammad Faqih",
-          "description": "Portofolio Digital Marketer 2026, Growth Marketer, dan layanan optimasi GEO (Generative Engine Optimization).",
-          "publisher": {
-            "@id": "https://faqihalrf.online/#person"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://faqihalrf.online/?s={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
+          "@type": "Question",
+          "name": "Berapa lama hasil optimasi SEO & GEO bisa terlihat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Secara umum, pertumbuhan trafik organik mulai terlihat nyata dalam 3 hingga 6 bulan. Sebagai strategi jangka panjang, kecepatan hasilnya sangat bergantung pada tingkat persaingan industri serta optimalnya performa teknis website Anda di mata mesin pencari modern (GEO 2026)."
           }
         },
         {
-          "@type": "ProfessionalService",
-          "@id": "https://faqihalrf.online/#business",
-          "name": "Jasa SEO White-Hat & Pembuatan Website Profesional",
-          "image": "https://faqihalrf.online/myphot.webp",
-          "description": "Layanan Digital Marketing berfokus pada Revenue Tunnel, SEO B2B, Topical Authority, dan performa ROI.",
-          "url": "https://faqihalrf.online/",
-          "telephone": "+62859148219009",
-          "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Cirebon",
-            "addressRegion": "Jawa Barat",
-            "addressCountry": "ID"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "-6.7320",
-            "longitude": "108.5523"
-          },
-          "areaServed": ["Cirebon", "Mundu", "Jawa Barat", "Indonesia", "Jakarta"]
+          "@type": "Question",
+          "name": "Apakah ada jaminan pasti berada di halaman pertama Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sesuai panduan resmi Google, tidak ada jaminan absolut untuk posisi pertama. Namun, dengan penerapan struktur website yang rapi dan konten berkualitas berbasis E-E-A-T, peluang website Anda untuk mendominasi halaman pencarian akan jauh lebih besar dan aman dari risiko penalti algoritma."
+          }
         },
         {
-          "@type": "Person",
-          "@id": "https://faqihalrf.online/#person",
-          "name": "Muhammad Faqih Al Rifai",
-          "url": "https://faqihalrf.online/",
-          "image": "https://faqihalrf.online/myphot.webp",
-          "jobTitle": "Digital Marketer & SEO Specialist",
-          "sameAs": [
-            "https://www.linkedin.com/in/muhammad-faqih-al-rifai",
-            "https://www.instagram.com/faqihalrf",
-            "https://www.facebook.com/faqihalrf",
-            "https://www.youtube.com/@faqihalrf"
-          ]
+          "@type": "Question",
+          "name": "Apa perbandingan antara strategi SEO dan Iklan Berbayar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Iklan digital mendatangkan pengunjung secara instan, namun trafik akan terhenti saat anggaran habis. Sementara itu, White-Hat SEO membangun fondasi jangka panjang agar website Anda terus menerima pengunjung organik secara gratis dan stabil. Kombinasi keduanya sangat ideal untuk hasil cepat sekaligus berkelanjutan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara melihat hasil dari optimasi SEO website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kita bisa melihatnya dari tiga indikator utama: jumlah trafik organik yang terus bertambah, skor kesehatan halaman web yang membaik, serta performa kecepatan akses website yang jauh lebih optimal dan responsif saat dibuka pengguna."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah Anda menerima proyek pengerjaan secara jarak jauh (remote)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tentu. Seluruh proses komunikasi dan pengerjaan didukung oleh infrastruktur digital yang efisien. Saya melayani klien dari berbagai wilayah dengan jaminan transparansi data serta laporan perkembangan proyek secara berkala."
+          }
         }
       ]
     }
+  ]
+}
     </script>
 <!-- Preloads for Performance -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="image" fetchpriority="high" href="myphot.webp" rel="preload"/>
+<link as="image" fetchpriority="high" href="myphot-640.webp" imagesrcset="myphot-320.webp 320w, myphot-480.webp 480w, myphot-640.webp 640w" imagesizes="(max-width: 767px) 85vw, (max-width: 1279px) 42vw, 420px" rel="preload"/>
 <!-- Favicon -->
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
@@ -476,18 +533,307 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 @media(max-width:640px){#chat-toggle-btn{left:.75rem;bottom:1rem}#chatbot-ui{min-width:0!important;min-height:360px!important;max-width:calc(100vw - 20px)!important;max-height:calc(100vh - 20px)!important;border-radius:1.15rem!important}}
 </style>
 
+
+<style id="targeted-update-styles">
+/* Hero gradient ringan: CSS statis tanpa gambar, canvas, atau library tambahan. */
+#about.hero-service-gradient{
+  background:
+    radial-gradient(circle at 10% 18%,rgba(116,174,212,.20) 0,rgba(116,174,212,.08) 23%,transparent 42%),
+    radial-gradient(circle at 88% 76%,rgba(38,128,190,.15) 0,rgba(38,128,190,.06) 24%,transparent 44%),
+    linear-gradient(135deg,#f4f9fc 0%,#ffffff 46%,#f1f7fb 100%);
+}
+#about .hero-gradient-layer{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.34),transparent 48%,rgba(255,255,255,.25));pointer-events:none}
+.services-seo-intro{max-width:720px;margin:.85rem auto 0;color:#4b5563;font-size:.92rem;line-height:1.7}
+
+/* Laporan performa modern, tetap ringan dan responsif. */
+.audit-report-card{border-radius:1.25rem!important;border:1px solid rgba(38,128,190,.18)!important;box-shadow:0 18px 44px rgba(0,34,72,.12)!important;background:#fff!important}
+.audit-report-head{padding:1.05rem 1.1rem!important;background:linear-gradient(135deg,#eaf5fb 0%,#f8fcff 58%,#fff 100%)!important;position:relative;overflow:hidden}
+.audit-report-head::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;right:-50px;top:-58px;background:rgba(38,128,190,.10);pointer-events:none}
+.audit-report-kicker{box-shadow:0 5px 14px rgba(38,128,190,.18)}
+.audit-report-title{font-size:1rem!important;letter-spacing:-.01em}
+.audit-device{padding:1rem 1.05rem!important;background:#fff}
+.audit-device-title{margin-bottom:.75rem!important}
+.audit-device-name{display:flex;align-items:center;gap:.45rem}
+.audit-device-dot{width:.48rem;height:.48rem;border-radius:50%;background:#2680BE;box-shadow:0 0 0 4px rgba(38,128,190,.10)}
+.audit-device-subtitle{font-size:.58rem;color:#64748b;font-weight:800;letter-spacing:.055em;text-transform:uppercase}
+.audit-status-chip{padding:.28rem .5rem;border-radius:999px;background:#eef7fc;color:#00558E;font-size:.56rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+.audit-score{padding:.62rem!important;border-radius:.82rem!important;background:linear-gradient(180deg,#fbfdff,#f5f9fc)!important;border-color:rgba(38,128,190,.10)!important}
+.audit-score-head{display:flex;align-items:flex-end;justify-content:space-between;gap:.4rem}
+.audit-score-label{line-height:1.25}
+.audit-score-value{font-size:1.08rem!important;line-height:1}
+.audit-score-track{height:4px;margin-top:.48rem;border-radius:999px;background:#e5edf3;overflow:hidden}
+.audit-score-fill{display:block;height:100%;border-radius:inherit;background:#2680BE;transition:width .35s ease}
+.audit-score-fill.score-medium{background:#d97706}.audit-score-fill.score-low{background:#dc2626}.audit-score-fill.score-unknown{background:#94a3b8}
+.audit-metrics{gap:.48rem!important}.audit-metric{border:1px solid rgba(38,128,190,.08);background:#f8fbfd!important}
+.audit-priority-item{border:1px solid rgba(38,128,190,.07);background:linear-gradient(180deg,#fbfdff,#f8fafc)!important}
+.audit-ai-summary{background:linear-gradient(180deg,#fff,#fbfdff)!important}
+@media(max-width:480px){.services-seo-intro{font-size:.84rem}.audit-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.audit-report-card{max-width:100%!important}}
+</style>
+
+
+<style id="header-section-color-fixes">
+/* Perapihan navbar: menu selalu benar-benar berada di tengah, sementara brand dan tombol tetap seimbang. */
+#navbar{
+  background:rgba(255,255,255,.96)!important;
+  border-bottom:1px solid rgba(0,34,72,.07)!important;
+  box-shadow:0 8px 28px rgba(0,34,72,.055)!important;
+}
+#navbar-container{
+  display:grid!important;
+  grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr);
+  align-items:center;
+  column-gap:1rem;
+}
+#navbar-brand{justify-self:start;max-width:100%;white-space:nowrap}
+#navbar-desktop-menu{justify-self:center}
+#navbar-actions{justify-self:end}
+#navbar-desktop-menu a{white-space:nowrap}
+#navbar-brand,#navbar-actions,#navbar-desktop-menu{min-width:0}
+
+/* Breakpoint tambahan agar header tidak terdesak pada laptop/tablet landscape. */
+@media (max-width:1180px){
+  #navbar-container{display:flex!important;justify-content:space-between!important;gap:.75rem}
+  #navbar-desktop-menu{display:none!important}
+  #menuBtn{display:inline-flex!important;align-items:center;justify-content:center}
+}
+@media (max-width:520px){
+  #navbar-container{padding-left:.85rem!important;padding-right:.85rem!important}
+  #navbar-brand span{font-size:12px!important;max-width:48vw}
+  #navbar-actions{gap:.35rem!important}
+}
+
+/* Ritme warna section: hero tetap memakai gradasi yang sudah ada. */
+#alat{background:#ffffff!important}
+#services{background:#eef7fc!important}
+#pengalaman{background:#ffffff!important}
+#proyek{background:#eef7fc!important}
+#dokumentasi{background:#ffffff!important}
+#sertifikasi{background:#eef7fc!important}
+#artikel{background:#ffffff!important}
+#faq{background:#eef7fc!important}
+#contact{background:#ffffff!important}
+#alat,#services,#pengalaman,#proyek,#dokumentasi,#sertifikasi,#artikel,#faq,#contact{
+  border-color:rgba(0,34,72,.065)!important;
+}
+
+/* Ikon Gmail resmi multicolor, inline SVG tanpa request tambahan. */
+.footer-social-link{
+  display:inline-flex;
+  width:38px;
+  height:38px;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.footer-social-link:hover,.footer-social-link:focus-visible{
+  background:#fff;
+  box-shadow:0 8px 20px rgba(0,34,72,.12);
+  transform:translateY(-1px);
+  outline:2px solid transparent;
+}
+.gmail-logo{width:1.15em;height:1.15em;display:block}
+
+/* Jaga grid hero tetap rapi pada desktop tanpa mengubah gradasi atau kontennya. */
+@media (min-width:768px){
+  #about > .max-w-7xl{align-items:center!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .footer-social-link{transition:none!important}
+}
+</style>
+
+
+<style id="final-three-requested-fixes">
+/* 1) Layanan dan Sertifikasi kembali putih; Proyek dan FAQ memakai gradasi hero yang sama. */
+#services,#sertifikasi{background:#fff!important}
+#proyek,#faq{
+  background:
+    radial-gradient(circle at 10% 18%,rgba(116,174,212,.20) 0,rgba(116,174,212,.08) 23%,transparent 42%),
+    radial-gradient(circle at 88% 76%,rgba(38,128,190,.15) 0,rgba(38,128,190,.06) 24%,transparent 44%),
+    linear-gradient(135deg,#f4f9fc 0%,#fff 46%,#f1f7fb 100%)!important;
+}
+
+/* 2) Hero lebih rapat dan sejajar tanpa mengubah isi, ukuran gambar, atau animasi. */
+.hero-copy-column{height:auto!important}
+.hero-label-modern{margin-bottom:.85rem!important}
+#hero-title-typed{margin-bottom:.65rem!important;min-height:0!important}
+#hero-desc-typed{margin-bottom:1.25rem!important;min-height:0!important;line-height:1.65!important}
+.hero-metrics-row{margin-top:0!important;gap:.75rem!important}
+@media (min-width:768px){
+  .hero-layout-grid{align-items:start!important;gap:clamp(2rem,4vw,3.5rem)!important}
+  .hero-copy-column,.hero-image-column{padding-top:0!important}
+  .hero-image-column{justify-content:flex-start!important}
+  .hero-profile-wrap{margin-top:0!important;margin-bottom:0!important}
+}
+@media (max-width:767px){
+  .hero-label-modern{margin-bottom:.75rem!important}
+  #hero-desc-typed{margin-bottom:1rem!important}
+}
+
+/* 3) Gmail monokrom abu-abu seperti ikon lain, lalu merah Gmail saat hover/fokus. */
+.footer-gmail-link{
+  width:auto!important;height:auto!important;border-radius:0!important;
+  color:inherit!important;background:transparent!important;box-shadow:none!important;
+  transition:color .2s ease,transform .2s ease!important;
+}
+.footer-gmail-link:hover,.footer-gmail-link:focus-visible{
+  color:#EA4335!important;background:transparent!important;box-shadow:none!important;
+  transform:scale(1.1)!important;outline:none!important;
+}
+.gmail-logo{width:1em!important;height:1em!important;display:block}
+@media (prefers-reduced-motion:reduce){
+  .footer-gmail-link{transition:none!important}
+}
+</style>
+
+
+<style id="performance-ai-stability-patch">
+/* Stabilkan hero metrics untuk menekan CLS tanpa mengubah desain visual. */
+.hero-metrics-row{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:min(100%,320px)!important;
+  gap:.75rem!important;
+  align-items:stretch!important;
+}
+.hero-metrics-row .metric-card-modern{
+  width:100%!important;
+  min-width:0!important;
+  min-height:112px!important;
+  padding:.75rem .65rem!important;
+  contain:layout paint;
+}
+.hero-metrics-row .counter{
+  display:inline-block;
+  width:4ch;
+  min-width:4ch;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  line-height:1.1;
+}
+@media(min-width:768px){
+  .hero-metrics-row{
+    grid-template-columns:repeat(4,124px)!important;
+    width:auto!important;
+  }
+  .hero-metrics-row .metric-card-modern{min-height:118px!important}
+}
+@media(max-width:360px){
+  .hero-metrics-row{width:100%!important}
+}
+
+/* Efek mengetik tetap terlihat, tetapi teks asli selalu memesan ruang sehingga tidak menggeser layout. */
+.hero-type-shell{position:relative!important}
+.hero-type-ghost{visibility:hidden!important}
+.hero-type-overlay{position:absolute;inset:0;display:block;pointer-events:none}
+#hero-title-typed .hero-type-overlay{white-space:normal}
+#hero-desc-typed .hero-type-overlay{white-space:normal}
+
+/* Kartu laporan analisis yang lebih modern, tetap tanpa library tambahan. */
+.audit-report-card{width:min(100%,560px)!important}
+.audit-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;padding:.9rem 1rem;border-bottom:1px solid rgba(0,0,0,.06);background:#fbfdff}
+.audit-overview-card{padding:.7rem;border:1px solid rgba(38,128,190,.11);border-radius:.85rem;background:#fff}
+.audit-overview-card span{display:block;color:#64748b;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.055em}
+.audit-overview-card strong{display:block;margin-top:.22rem;color:#002248;font-size:.8rem;line-height:1.35}
+.audit-vitals-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:.65rem}
+.audit-vital{padding:.58rem;border:1px solid rgba(38,128,190,.09);border-radius:.72rem;background:#f8fbfd}
+.audit-vital-head{display:flex;align-items:center;justify-content:space-between;gap:.45rem}
+.audit-vital strong{color:#002248;font-size:.7rem}
+.audit-vital span{color:#64748b;font-size:.56rem}
+.audit-vital-status{display:inline-flex!important;width:auto!important;padding:.18rem .38rem;border-radius:999px;font-size:.5rem!important;font-weight:900!important;text-transform:uppercase}
+.vital-good{background:#dcfce7;color:#166534!important}.vital-medium{background:#fef3c7;color:#92400e!important}.vital-low{background:#fee2e2;color:#991b1b!important}.vital-unknown{background:#e2e8f0;color:#475569!important}
+.audit-diagnostics{padding:.9rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+.audit-diagnostic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:.55rem}
+.audit-diagnostic{padding:.58rem;border:1px solid rgba(38,128,190,.08);border-radius:.72rem;background:#f8fafc}
+.audit-diagnostic span{display:block;color:#64748b;font-size:.55rem;text-transform:uppercase;letter-spacing:.05em}
+.audit-diagnostic strong{display:block;margin-top:.18rem;color:#002248;font-size:.68rem}
+.audit-report-kicker{background:#2680BE!important}
+@media(min-width:520px){.audit-overview{grid-template-columns:repeat(4,minmax(0,1fr))}.audit-vitals-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.audit-diagnostic-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.audit-score-fill{transition:none!important}}
+</style>
+
+
+<style id="final-chat-performance-polish">
+/* Final chat polish: stable resize, responsive audit, zero horizontal clipping. */
+#chatbot-ui{
+  box-sizing:border-box!important;
+  contain:layout paint;
+  min-width:min(300px,calc(100vw - 20px))!important;
+  min-height:min(390px,calc(100vh - 20px))!important;
+  max-width:calc(100vw - 20px)!important;
+  max-height:calc(100dvh - 20px)!important;
+  overflow:hidden!important;
+}
+#chat-messages{overflow-x:hidden!important;overscroll-behavior:contain;scrollbar-gutter:stable;min-width:0}
+body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;-webkit-user-select:none!important}
+body.chat-is-resizing #chatbot-ui{transition:none!important;will-change:left,top,width,height}
+.chat-resize-control{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  opacity:.82;
+  transition:opacity .16s ease,background-color .16s ease!important;
+  -webkit-tap-highlight-color:transparent;
+}
+.chat-resize-control:hover,.chat-resize-control:focus-visible{opacity:1;background:rgba(238,247,252,.92)!important;outline:none!important}
+.chat-resize-control span{background:rgba(0,85,142,.52)!important;transform:none!important;transition:background-color .16s ease!important}
+.chat-resize-control:hover span,.chat-resize-control:focus-visible span{background:#2680BE!important}
+#chat-resize-left,#chat-resize-right{top:50%!important;width:18px!important;height:76px!important;transform:translateY(-50%)!important;cursor:ew-resize!important}
+#chat-resize-left{left:0!important}#chat-resize-right{right:0!important}
+#chat-resize-left span,#chat-resize-right span{width:3px!important;height:36px!important}
+#chat-resize-top,#chat-resize-bottom{left:50%!important;width:76px!important;height:18px!important;transform:translateX(-50%)!important;cursor:ns-resize!important}
+#chat-resize-top{top:0!important}#chat-resize-bottom{bottom:0!important}
+#chat-resize-top span,#chat-resize-bottom span{width:36px!important;height:3px!important}
+.audit-message-row{display:flex;width:100%;min-width:0}
+.audit-report-card{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;overflow:hidden!important;box-sizing:border-box}
+.audit-report-head,.audit-device,.audit-priorities,.audit-diagnostics,.audit-ai-summary{min-width:0}
+.audit-report-url,.audit-priority-copy,.audit-ai-summary,.audit-device-copy,.audit-overview-card{overflow-wrap:anywhere;word-break:normal}
+.audit-overview{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.5rem!important;padding:.85rem 1rem!important}
+.audit-overview-card{min-width:0!important;padding:.62rem!important;border-radius:.75rem!important}
+.audit-overview-card span{display:block;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:#64748b;font-weight:800}
+.audit-overview-card strong{display:block;margin-top:.2rem;font-size:.7rem;line-height:1.35;color:#002248}
+.audit-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.audit-vitals-grid,.audit-diagnostic-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.45rem!important}
+.audit-score,.audit-vital,.audit-diagnostic,.audit-priority-item{min-width:0}
+.audit-priority-item{grid-template-columns:auto minmax(0,1fr)!important}
+.audit-ai-summary{font-size:.72rem!important;line-height:1.72!important}
+@media(min-width:560px){
+  .audit-overview{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .audit-score-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .audit-vitals-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .audit-diagnostic-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:479px){
+  #chatbot-ui{min-width:calc(100vw - 20px)!important;width:calc(100vw - 20px)!important;max-width:calc(100vw - 20px)!important}
+  .audit-report-head,.audit-device,.audit-priorities,.audit-diagnostics,.audit-ai-summary{padding:.78rem!important}
+  .audit-device-title{align-items:flex-start!important;flex-direction:column!important;gap:.45rem!important}
+  .audit-status-chip{align-self:flex-start}
+  .audit-score-grid,.audit-vitals-grid,.audit-diagnostic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audit-priority-item{padding:.5rem!important;gap:.42rem!important}
+  .audit-priority-badge{min-width:2.8rem!important}
+}
+@media(max-width:340px){
+  .audit-overview,.audit-score-grid,.audit-vitals-grid,.audit-diagnostic-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #chatbot-ui,.chat-resize-control,.chat-resize-control span{transition:none!important}
+}
+</style>
+
 </head>
 <body class="bg-mainWhite text-darkBlack transition-colors duration-300 font-sans selection:bg-gold selection:text-white relative text-[15px] md:text-base">
 <!-- Navbar -->
 <nav aria-label="Navigasi Utama" class="fixed w-full z-50 glass transition-all duration-300 shadow-sm" id="navbar">
 <div class="max-w-7xl mx-auto px-4 md:px-8 h-16 md:h-20 flex justify-between items-center transition-all duration-300" id="navbar-container">
-<a aria-label="Beranda" class="font-bold tracking-tight hover:text-darkGold transition-colors flex items-center gap-2 group min-w-0" href="/">
+<a aria-label="Beranda" class="font-bold tracking-tight hover:text-darkGold transition-colors flex items-center gap-2 group min-w-0" href="/" id="navbar-brand">
 <span class="text-[13px] md:text-lg font-serif font-bold tracking-wide truncate text-darkBlack">Muhammad Faqih Al Rifai</span>
 <div class="relative flex items-center justify-center shrink-0">
 <i class="fas fa-check-circle text-gold text-sm md:text-lg"></i>
 </div>
 </a>
-<div class="hidden lg:flex items-center gap-1 bg-lightGray/50 p-1 rounded-full border border-black/5 backdrop-blur-sm">
+<div class="hidden lg:flex items-center gap-1 bg-lightGray/50 p-1 rounded-full border border-black/5 backdrop-blur-sm" id="navbar-desktop-menu">
 <a class="nav-link-modern px-4 py-1.5 text-xs font-bold rounded-full text-textGray" href="#about">Tentang</a>
 <a class="nav-link-modern px-4 py-1.5 text-xs font-bold rounded-full text-textGray" href="#services">Layanan</a>
 <a class="nav-link-modern px-4 py-1.5 text-xs font-bold rounded-full text-textGray" href="#pengalaman">Pengalaman</a>
@@ -495,7 +841,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <a class="nav-link-modern px-4 py-1.5 text-xs font-bold rounded-full text-textGray" href="https://blog.faqihalrf.online/" rel="nofollow noopener noreferrer" target="_blank">Artikel</a>
 <a class="nav-link-modern px-4 py-1.5 text-xs font-bold rounded-full text-textGray" href="#contact">Kontak</a>
 </div>
-<div class="flex items-center gap-2 md:gap-3">
+<div class="flex items-center gap-2 md:gap-3" id="navbar-actions">
 <a aria-label="Unduh CV" class="nav-action-modern group flex items-center justify-center gap-2 w-9 h-9 md:w-auto md:px-4 md:h-10 bg-white border border-black/10 rounded-full text-textGray transition-all duration-300 shadow-sm" download="CV_Faqih_Al_Rifai.pdf" href="berkas/CV_Faqih_Al_Rifai.pdf">
 <i class="fas fa-user-tie text-[14px]"></i>
 <span class="hidden md:inline-block text-[10px] md:text-xs font-bold uppercase tracking-widest font-mono">CV</span>
@@ -521,11 +867,11 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 </nav>
 <main>
 <!-- Hero Section -->
-<section class="pt-20 md:pt-24 pb-14 md:pb-20 px-4 md:px-8 flex items-start relative overflow-hidden bg-mainWhite" id="about">
-<div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-lightGray/50 to-transparent pointer-events-none"></div>
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-start z-10 w-full">
+<section class="hero-service-gradient pt-20 md:pt-24 pb-14 md:pb-20 px-4 md:px-8 flex items-start relative overflow-hidden bg-mainWhite" id="about">
+<div aria-hidden="true" class="hero-gradient-layer"></div>
+<div class="hero-layout-grid max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-start z-10 w-full">
 <!-- Hero Text -->
-<div class="order-2 md:order-1 animate-slide-up flex flex-col justify-start h-full items-start md:pt-2">
+<div class="hero-copy-column order-2 md:order-1 animate-slide-up flex flex-col justify-start h-full items-start md:pt-2">
 <!-- Modern Label Berkilau -->
 <div class="hero-label-modern relative overflow-hidden group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lightGray border border-black/5 shadow-[0_0_15px_rgba(197,160,40,0.1)] hover:shadow-[0_0_25px_rgba(197,160,40,0.3)] transition-all duration-500 cursor-default mb-4 md:mb-5" tabindex="0">
 <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-[shimmer_1.5s_infinite]"></div>
@@ -540,37 +886,37 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 </h1>
 <h2 class="sr-only">Jasa Pembuatan Website &amp; Optimasi SEO Muhammad Faqih</h2>
 <p class="text-[15px] md:text-base text-textGray font-normal leading-relaxed mb-6 md:mb-8 max-w-xl text-left break-words font-sans min-h-[100px]" id="hero-desc-typed">
-                        Halo, saya Muhammad Faqih. Seorang Digital Marketer &amp; SEO Specialist yang berfokus pada strategi organik White-Hat dan Generative Engine Optimization (GEO) 2026. Berbekal konsep E-E-A-T dan arsitektur technical SEO yang presisi, saya siap melipatgandakan visibilitas website Anda dan mengonversi trafik organik menjadi High-Intent Leads maupun Sales yang nyata untuk mendorong skala bisnis (ROI).
+                        Terima beres tanpa ribet. Layanan lengkap mulai dari pembuatan website yang cepat, hosting aman yang stabil, hingga optimasi SEO agar website Anda langsung mudah ditemukan di Google.
                     </p>
 <!-- 4 Animate Counters -->
-<div class="mt-2 flex flex-wrap justify-start gap-4 md:gap-6 text-left">
+<div class="hero-metrics-row mt-2 flex flex-wrap justify-start gap-4 md:gap-6 text-left">
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="2">0</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="2">2+</div>
 <div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Years Exp</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="80">0</div>
-<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Articles</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="60">60+</div>
+<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Artikel SEO</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="" data-target="45">0</div>
-<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Certifications</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="" data-target="45">45</div>
+<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Sertifikasi</div>
 </div>
 <div class="metric-card-modern flex flex-col items-center justify-center bg-lightGray px-5 py-3 rounded-2xl border border-black/5 shadow-sm min-w-[100px] group hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(38,128,190,0.15)] hover:border-gold/40 transition-all duration-300 cursor-default relative overflow-hidden" tabindex="0">
 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="90">0</div>
-<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Clients</div>
+<div class="text-2xl md:text-3xl font-serif font-semibold counter text-darkBlack group-hover:text-gold transition-colors duration-300 relative z-10" data-suffix="+" data-target="90">90+</div>
+<div class="text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-textGray group-hover:text-darkBlack mt-1 font-mono transition-colors duration-300 relative z-10">Klien B2B</div>
 </div>
 </div>
 </div>
 <!-- Hero Image Card -->
-<div class="order-1 md:order-2 flex flex-col justify-center animate-slide-up delay-200">
+<div class="hero-image-column order-1 md:order-2 flex flex-col justify-center animate-slide-up delay-200">
 <div class="relative w-[85%] sm:w-full max-w-sm lg:max-w-[420px] mx-auto flex justify-center mt-5 md:mt-8 lg:mt-10 mb-6 md:mb-8 hero-profile-wrap">
 <div class="w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 bg-white p-2">
-<img alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" height="693" loading="eager" src="myphot.webp" width="640"/>
+<img alt="Foto Profil Konsultan Digital Marketing Muhammad Faqih Al Rifai" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2rem] img-high-res transition-transform duration-700 hover:scale-105" decoding="async" fetchpriority="high" height="693" loading="eager" src="myphot-640.webp" srcset="myphot-320.webp 320w, myphot-480.webp 480w, myphot-640.webp 640w" sizes="(max-width: 767px) 85vw, (max-width: 1279px) 42vw, 420px" width="640"/>
 </div>
 </div>
 </div>
@@ -608,7 +954,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <section class="defer-render py-16 md:py-24 bg-lightGray/50 relative overflow-hidden border-t border-black/5" id="services">
 <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
 <div class="text-center mb-12 reveal">
-<h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight">Layanan</h2>
+<h2 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight">Layanan Website &amp; SEO</h2>
 <div class="w-12 h-1 bg-gold mx-auto rounded-full mt-4"></div>
 </div>
 <!-- KARTU LAYANAN MENINGGI (max-w-5xl horizontal) -->
@@ -685,7 +1031,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <!-- ITEM 2 -->
 <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
 <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-<img alt="PT Madani Abadi Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="madani.webp" width="48"/>
+<img alt="PT Madani Abadi Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="madani-96.webp" width="48"/>
 <div>
 <div class="text-sm font-bold text-darkBlack mb-0.5">Jan 2026 – Now</div>
 <div class="text-xs text-textGray mb-1.5">Jakarta (Remote)</div>
@@ -704,7 +1050,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <!-- ITEM 3 -->
 <div class="flex flex-col md:flex-row gap-4 md:gap-8 border-b border-black/5 pb-8 last:border-0 last:pb-0 items-start">
 <div class="md:w-1/4 shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0">
-<img alt="PT Garap Digital Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="garap.webp" width="48"/>
+<img alt="PT Garap Digital Nusantara Logo" class="w-12 h-12 rounded-xl object-contain bg-gray-50 p-1 border border-black/5 mb-2 shadow-sm shrink-0" decoding="async" height="48" loading="lazy" onerror="handleImageError(this)" src="garap-96.webp" width="48"/>
 <div>
 <div class="text-sm font-bold text-darkBlack mb-0.5">Sep 2025 – Des 2025</div>
 <div class="text-xs text-textGray mb-1.5">Depok (Remote)</div>
@@ -810,7 +1156,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Topical Authority</span>
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Content</span>
 </div>
-<a aria-label="Lihat dokumen riset tentang pemupukan tanaman hias Jade Plant" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1vGnqRS8cnebW337dUDAASgeeAJbtz4pEq7t0zNE5cf0/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Dokumen</a>
+<a aria-label="Lihat dokumen riset tentang pemupukan tanaman hias Jade Plant" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1vGnqRS8cnebW337dUDAASgeeAJbtz4pEq7t0zNE5cf0/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Detail</a>
 </div>
 </div>
 <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
@@ -825,7 +1171,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">SEO On-Page</span>
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">E-E-A-T</span>
 </div>
-<a aria-label="Lihat dokumen riset masakan China rendah natrium" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1_4lTNIqpYu8a502vX-KhmUuVh27sVK-kZNRjvH85QAE/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Dokumen</a>
+<a aria-label="Lihat dokumen riset masakan China rendah natrium" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1_4lTNIqpYu8a502vX-KhmUuVh27sVK-kZNRjvH85QAE/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Detail</a>
 </div>
 </div>
 <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
@@ -840,7 +1186,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Keyword Gap</span>
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Pillar Content</span>
 </div>
-<a aria-label="Lihat dokumen riset hidroponik sistem Deep Water Culture" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1MGJEv85mOUbJdIVAfoyBYGhWACbQF0XrdTxog2oqzgM/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Dokumen</a>
+<a aria-label="Lihat dokumen riset hidroponik sistem Deep Water Culture" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1MGJEv85mOUbJdIVAfoyBYGhWACbQF0XrdTxog2oqzgM/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Detail</a>
 </div>
 </div>
 <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
@@ -855,7 +1201,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Featured Snippet</span>
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Technical Content</span>
 </div>
-<a aria-label="Lihat dokumen riset cara membersihkan mesin kopi" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1hdbZW_3WbPVsZPAEL9cu6Pi4xlbPD9b776xrgtYhcBY/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Dokumen</a>
+<a aria-label="Lihat dokumen riset cara membersihkan mesin kopi" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1hdbZW_3WbPVsZPAEL9cu6Pi4xlbPD9b776xrgtYhcBY/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Detail</a>
 </div>
 </div>
 <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
@@ -870,7 +1216,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">LSI Keywords</span>
 <span class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded font-mono">Quick Wins</span>
 </div>
-<a aria-label="Lihat dokumen riset perawatan tanaman Philodendron indoor" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1jhz-bzgJMEdqVjRBYRYZLjFMxkgbn_wMoEGZMJDkty0/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Dokumen</a>
+<a aria-label="Lihat dokumen riset perawatan tanaman Philodendron indoor" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" href="https://docs.google.com/document/d/1jhz-bzgJMEdqVjRBYRYZLjFMxkgbn_wMoEGZMJDkty0/edit?usp=sharing" rel="nofollow noopener noreferrer" target="_blank">Lihat Detail</a>
 </div>
 </div>
 <div class="snap-center shrink-0 w-[85vw] max-w-[360px] bg-white border border-black/5 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-soft hover:shadow-[0_8px_25px_rgba(38,128,190,0.15)] hover:border-gold/30 transition-all duration-300 flex flex-col group h-full">
@@ -1136,45 +1482,35 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <span class="flex-1 text-left pl-2 md:pl-4">Berapa lama hasil optimasi SEO &amp; GEO bisa terlihat?</span>
 <i aria-hidden="true" class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
 </summary>
-<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            SEO Organik adalah strategi Compound Effect jangka panjang. Hasil peningkatan visibilitas dan High Intent Traffic (kunjungan berpotensi beli) biasanya mulai terlihat signifikan pada bulan ke-3 hingga ke-6. Ini bergantung pada kompetisi industri dan kekuatan SEO Teknikal web di mata Generative Engine Optimization (GEO) 2026.
-                        </p>
+<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">Secara umum, pertumbuhan trafik organik mulai terlihat nyata dalam 3 hingga 6 bulan. Sebagai strategi jangka panjang, kecepatan hasilnya sangat bergantung pada tingkat persaingan industri serta optimalnya performa teknis website Anda di mata mesin pencari modern (GEO 2026).</p>
 </details>
 <details class="group border-b border-black/10 transition-all duration-300">
 <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&amp;::-webkit-details-marker]:hidden py-5">
 <span class="flex-1 text-left pl-2 md:pl-4">Apakah ada jaminan pasti berada di halaman pertama Google?</span>
 <i aria-hidden="true" class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
 </summary>
-<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Menurut panduan resmi Etika SEO White-Hat, tidak ada jaminan absolut untuk posisi 1. Namun, melalui perombakan strategi Silo &amp; Topical Authority serta konten berbasis E-E-A-T (Experience, Expertise, Authoritativeness, Trust), probabilitas mendominasi halaman pencarian akan jauh lebih terjamin and terhindar dari risiko pinalti algoritma (De-index).
-                        </p>
+<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">Sesuai panduan resmi Google, tidak ada jaminan absolut untuk posisi pertama. Namun, dengan penerapan struktur website yang rapi dan konten berkualitas berbasis E-E-A-T, peluang website Anda untuk mendominasi halaman pencarian akan jauh lebih besar dan aman dari risiko penalti algoritma.</p>
 </details>
 <details class="group border-b border-black/10 transition-all duration-300">
 <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&amp;::-webkit-details-marker]:hidden py-5">
-<span class="flex-1 text-left pl-2 md:pl-4">Apa perbedaan Jasa SEO dan Jasa Iklan Digital (Google Ads/SEM)?</span>
+<span class="flex-1 text-left pl-2 md:pl-4">Apa perbandingan antara strategi SEO dan Iklan Berbayar?</span>
 <i aria-hidden="true" class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
 </summary>
-<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Iklan (Ads) mendatangkan pengunjung secara instan, namun trafik akan mati saat anggaran habis. SEO White-Hat membangun pondasi agar web Anda menjadi aset digital penghasil pengunjung organik gratis (Compound Effect) hingga bertahun-tahun. Kita juga dapat mensinergikan keduanya: gunakan Ads untuk Keyword Discovery atau Remarketing, lalu perkuat SEO-nya.
-                        </p>
+<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">Iklan digital mendatangkan pengunjung secara instan, namun trafik akan terhenti saat anggaran habis. Sementara itu, White-Hat SEO membangun fondasi jangka panjang agar website Anda terus menerima pengunjung organik secara gratis dan stabil. Kombinasi keduanya sangat ideal untuk hasil cepat sekaligus berkelanjutan.</p>
 </details>
 <details class="group border-b border-black/10 transition-all duration-300">
 <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&amp;::-webkit-details-marker]:hidden py-5">
-<span class="flex-1 text-left pl-2 md:pl-4">Bagaimana cara mengukur keberhasilan SEO untuk bisnis saya?</span>
+<span class="flex-1 text-left pl-2 md:pl-4">Bagaimana cara melihat hasil dari optimasi SEO website?</span>
 <i aria-hidden="true" class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
 </summary>
-<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Sesuai standar Monitoring &amp; Reporting ROI, KPI utama bukanlah sekadar Trafik Naik, melainkan Leads/Sales Naik. Melalui setup analitik tingkat lanjut (GTM, GA4, GSC), saya akan melacak pertumbuhan klik, efisiensi penghematan biaya dibanding Ads (Ads Spend Savings), dan jumlah konversi riil pelanggan di Bottom of Funnel (BOFU).
-                        </p>
+<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">Kita bisa melihatnya dari tiga indikator utama: jumlah trafik organik yang terus bertambah, skor kesehatan halaman web yang membaik, serta performa kecepatan akses website yang jauh lebih optimal dan responsif saat dibuka pengguna.</p>
 </details>
 <details class="group border-b border-black/10 transition-all duration-300">
 <summary class="font-bold flex justify-between items-center text-darkBlack text-[15px] md:text-lg cursor-pointer outline-none list-none [&amp;::-webkit-details-marker]:hidden py-5">
-<span class="flex-1 text-left pl-2 md:pl-4">Apakah Anda melayani klien korporat (B2B) di luar wilayah?</span>
+<span class="flex-1 text-left pl-2 md:pl-4">Apakah Anda menerima proyek pengerjaan secara jarak jauh (remote)?</span>
 <i aria-hidden="true" class="fas fa-plus text-gold group-open:rotate-45 transition-transform duration-300 text-sm md:text-base shrink-0"></i>
 </summary>
-<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">
-                            Tentu. Operasional remote saya sepenuhnya didukung infrastruktur digital yang efisien, relevan dengan dinamika kerja Growth Marketer profesional tahun 2026. Saya menangani eksekusi teknis untuk perusahaan dan B2B klien dari seluruh Indonesia dengan metrik transparansi dan laporan pelacakan performa (GA4/GSC) secara berkala.
-                        </p>
+<p class="text-[14px] md:text-[15px] text-textGray leading-relaxed pb-6 mt-1 font-sans text-left px-2 md:px-4">Tentu. Seluruh proses komunikasi dan pengerjaan didukung oleh infrastruktur digital yang efisien. Saya melayani klien dari berbagai wilayah dengan jaminan transparansi data serta laporan perkembangan proyek secara berkala.</p>
 </details>
 </div>
 </div>
@@ -1188,7 +1524,11 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 Siap meningkatkan traffic organik, memantapkan E-E-A-T, dan menaikkan konversi ROI bisnis Anda melalui strategi SEO White-Hat yang tajam? Hubungi saya hari ini.
             </p>
 <div class="flex justify-center gap-6 md:gap-8 text-2xl md:text-3xl text-textGray mb-12">
-<a aria-label="Email Pertanyaan Bisnis" class="hover:text-gold hover:scale-110 transition-transform" href="mailto:faqihalrf@gmail.com"><i class="far fa-envelope"></i></a>
+<a aria-label="Email Pertanyaan Bisnis melalui Gmail" class="footer-social-link footer-gmail-link" href="mailto:faqihalrf@gmail.com">
+<svg aria-hidden="true" class="gmail-logo" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path fill="currentColor" d="M3.4 5.25A2.4 2.4 0 0 0 2 7.44V19h4V9.72l6 4.5 6-4.5V19h4V7.44a2.4 2.4 0 0 0-3.84-1.92L12 10.14 5.84 5.52a2.4 2.4 0 0 0-2.44-.27Z"/>
+</svg>
+</a>
 <a aria-label="Kontak WhatsApp" class="hover:text-green-500 hover:scale-110 transition-transform" href="https://api.whatsapp.com/send?phone=62859148219009" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <a aria-label="Profil Koneksi LinkedIn Profesional" class="hover:text-[#0077b5] hover:scale-110 transition-transform" href="https://www.linkedin.com/in/muhammad-faqih-al-rifai" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-linkedin"></i></a>
 <a aria-label="Portofolio Visual Instagram" class="hover:text-pink-600 hover:scale-110 transition-transform" href="https://www.instagram.com/faqihalrf" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1209,7 +1549,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 <div class="chat-closed bg-white shadow-2xl flex flex-col border border-black/10 transition-all duration-300 mb-3 relative" id="chatbot-ui" aria-hidden="true">
 <div class="bg-gradient-to-r from-gold to-[#00558E] text-white p-4 flex justify-between items-center shadow-sm cursor-default select-none" id="chatbot-header">
 <div class="flex items-center gap-2 pointer-events-none">
-<span class="font-bold text-sm drop-shadow-sm">AI Website Assistant</span>
+<span class="font-bold text-sm drop-shadow-sm">Faqih's Assistant</span>
 </div>
 <button aria-label="Tutup panel asisten virtual" class="text-white/90 hover:text-white hover:rotate-90 transition-transform duration-300 p-1" onclick="toggleChatbot()" type="button">
 <i aria-hidden="true" class="fas fa-times"></i>
@@ -1217,7 +1557,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 </div>
 <div class="flex-1 p-4 overflow-y-auto bg-white flex flex-col gap-3 h-72 text-sm custom-scroll" id="chat-messages" aria-live="polite" aria-relevant="additions">
 <div class="flex gap-2">
-<div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Halo! Saya asisten AI Faqih. Tanyakan layanan SEO/website, atau kirim URL website Anda untuk analisis performa PageSpeed yang mudah dipahami.</div>
+<div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed max-w-[85%]">Selamat datang. Saya Faqih's Assistant. Tanyakan layanan SEO atau website, atau kirim URL website Anda untuk mendapatkan laporan performa dan kesehatan teknis yang mudah dipahami.</div>
 </div>
 </div>
 <div class="p-3 border-t border-black/5 bg-gray-50">
@@ -1383,70 +1723,111 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 top: document.getElementById('chat-resize-top'),
                 bottom: document.getElementById('chat-resize-bottom')
             };
-            if (!ui || Object.values(handles).some(handle => !handle) || ui.dataset.resizeBound === 'true') return;
+            if (!ui || Object.values(handles).some((handle) => !handle) || ui.dataset.resizeBound === 'true') return;
             ui.dataset.resizeBound = 'true';
 
             const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-            const bindHandle = (handle, side) => {
+            const viewportSize = () => ({
+                width: window.visualViewport?.width || window.innerWidth,
+                height: window.visualViewport?.height || window.innerHeight
+            });
+
+            Object.entries(handles).forEach(([side, handle]) => {
                 handle.addEventListener('pointerdown', (event) => {
+                    if (event.button !== undefined && event.button !== 0) return;
                     event.preventDefault();
                     event.stopPropagation();
-                    handle.setPointerCapture?.(event.pointerId);
+
                     const rect = ui.getBoundingClientRect();
-                    const startX = event.clientX;
-                    const startY = event.clientY;
-                    const startLeft = rect.left;
-                    const startTop = rect.top;
-                    const startWidth = rect.width;
-                    const startHeight = rect.height;
-                    const rightEdge = rect.right;
-                    const bottomEdge = rect.bottom;
-                    const margin = window.innerWidth < 640 ? 10 : 18;
-                    const minWidth = Math.min(300, window.innerWidth - margin * 2);
-                    const minHeight = Math.min(390, window.innerHeight - margin * 2);
+                    const viewport = viewportSize();
+                    const margin = viewport.width < 640 ? 10 : 18;
+                    const minWidth = Math.min(300, viewport.width - margin * 2);
+                    const minHeight = Math.min(390, viewport.height - margin * 2);
+                    const start = {
+                        x: event.clientX,
+                        y: event.clientY,
+                        left: rect.left,
+                        top: rect.top,
+                        width: rect.width,
+                        height: rect.height,
+                        right: rect.right,
+                        bottom: rect.bottom
+                    };
+                    let latestX = event.clientX;
+                    let latestY = event.clientY;
+                    let frame = 0;
+                    let active = true;
+
+                    handle.setPointerCapture?.(event.pointerId);
                     document.body.classList.add('chat-is-resizing');
                     document.body.style.cursor = (side === 'left' || side === 'right') ? 'ew-resize' : 'ns-resize';
+                    ui.style.transition = 'none';
 
-                    const onMove = (moveEvent) => {
-                        moveEvent.preventDefault();
-                        const dx = moveEvent.clientX - startX;
-                        const dy = moveEvent.clientY - startY;
+                    const applyResize = () => {
+                        frame = 0;
+                        if (!active) return;
+                        const dx = latestX - start.x;
+                        const dy = latestY - start.y;
+                        let nextLeft = start.left;
+                        let nextTop = start.top;
+                        let nextWidth = start.width;
+                        let nextHeight = start.height;
 
                         if (side === 'right') {
-                            const maxWidth = window.innerWidth - margin - startLeft;
-                            ui.style.width = clamp(startWidth + dx, minWidth, maxWidth) + 'px';
+                            nextWidth = clamp(start.width + dx, minWidth, viewport.width - margin - start.left);
+                        } else if (side === 'left') {
+                            nextLeft = clamp(start.left + dx, margin, start.right - minWidth);
+                            nextWidth = start.right - nextLeft;
+                        } else if (side === 'bottom') {
+                            nextHeight = clamp(start.height + dy, minHeight, viewport.height - margin - start.top);
+                        } else if (side === 'top') {
+                            nextTop = clamp(start.top + dy, margin, start.bottom - minHeight);
+                            nextHeight = start.bottom - nextTop;
                         }
-                        if (side === 'left') {
-                            const newLeft = clamp(startLeft + dx, margin, rightEdge - minWidth);
-                            ui.style.left = newLeft + 'px';
-                            ui.style.width = (rightEdge - newLeft) + 'px';
-                        }
-                        if (side === 'bottom') {
-                            const maxHeight = window.innerHeight - margin - startTop;
-                            ui.style.height = clamp(startHeight + dy, minHeight, maxHeight) + 'px';
-                        }
-                        if (side === 'top') {
-                            const newTop = clamp(startTop + dy, margin, bottomEdge - minHeight);
-                            ui.style.top = newTop + 'px';
-                            ui.style.height = (bottomEdge - newTop) + 'px';
-                        }
+
+                        ui.style.left = Math.round(nextLeft) + 'px';
+                        ui.style.top = Math.round(nextTop) + 'px';
+                        ui.style.width = Math.round(nextWidth) + 'px';
+                        ui.style.height = Math.round(nextHeight) + 'px';
                     };
-                    const onUp = () => {
-                        window.removeEventListener('pointermove', onMove);
-                        window.removeEventListener('pointerup', onUp);
-                        window.removeEventListener('pointercancel', onUp);
+
+                    const onMove = (moveEvent) => {
+                        if (!active) return;
+                        latestX = moveEvent.clientX;
+                        latestY = moveEvent.clientY;
+                        if (!frame) frame = requestAnimationFrame(applyResize);
+                    };
+
+                    const finish = () => {
+                        if (!active) return;
+                        active = false;
+                        if (frame) cancelAnimationFrame(frame);
+                        handle.removeEventListener('pointermove', onMove);
+                        handle.removeEventListener('pointerup', finish);
+                        handle.removeEventListener('pointercancel', finish);
+                        handle.removeEventListener('lostpointercapture', finish);
+                        try { handle.releasePointerCapture?.(event.pointerId); } catch (_) {}
                         document.body.classList.remove('chat-is-resizing');
                         document.body.style.cursor = '';
+                        ui.style.transition = '';
+                        keepChatPanelInViewport();
                     };
-                    window.addEventListener('pointermove', onMove, { passive:false });
-                    window.addEventListener('pointerup', onUp, { once:true });
-                    window.addEventListener('pointercancel', onUp, { once:true });
+
+                    handle.addEventListener('pointermove', onMove, { passive: true });
+                    handle.addEventListener('pointerup', finish, { once: true });
+                    handle.addEventListener('pointercancel', finish, { once: true });
+                    handle.addEventListener('lostpointercapture', finish, { once: true });
                 });
-            };
-            Object.entries(handles).forEach(([side, handle]) => bindHandle(handle, side));
+            });
+
+            let resizeFrame = 0;
             window.addEventListener('resize', () => {
-                if (ui.classList.contains('chat-open')) keepChatPanelInViewport();
-            }, { passive:true });
+                if (!ui.classList.contains('chat-open') || resizeFrame) return;
+                resizeFrame = requestAnimationFrame(() => {
+                    keepChatPanelInViewport();
+                    resizeFrame = 0;
+                });
+            }, { passive: true });
         }
 
         function toggleChatbot() {
@@ -1467,6 +1848,47 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
         }
 
         const CHATBOT_AI_ENDPOINT = '/.netlify/functions/index-bot';
+
+        const chatHistory = [];
+        let lastAssistantReply = '';
+
+        function normalizeReplyKey(text) {
+            return String(text || '').toLowerCase().replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/g, ' ').replace(/\s+/g, ' ').trim();
+        }
+
+        function prepareAssistantText(rawText) {
+            let text = cleanAIText(rawText)
+                .replace(/^(halo|hai|hi|selamat\s+(pagi|siang|sore|malam))\b[^.!?\n]*[.!?]?\s*/i, '')
+                .trim();
+            if (!text) return '';
+
+            const previousKeys = new Set(
+                String(lastAssistantReply || '')
+                    .split(/\n{2,}|(?<=[.!?])\s+/)
+                    .map(normalizeReplyKey)
+                    .filter((key) => key.length > 18)
+            );
+            const seen = new Set();
+            const paragraphs = [];
+
+            text.split(/\n{2,}/).forEach((paragraph) => {
+                const sentences = paragraph
+                    .split(/(?<=[.!?])\s+/)
+                    .map((sentence) => sentence.trim())
+                    .filter(Boolean);
+                const uniqueSentences = sentences.filter((sentence) => {
+                    const key = normalizeReplyKey(sentence);
+                    if (!key || seen.has(key) || previousKeys.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                });
+                if (uniqueSentences.length) paragraphs.push(uniqueSentences.join(' '));
+            });
+
+            const result = paragraphs.join('\n\n').trim();
+            if (result) return result;
+            return 'Agar jawabannya tidak mengulang pembahasan sebelumnya, tambahkan tujuan atau bagian website yang ingin diperdalam.';
+        }
 
         function extractUrlFromText(text) {
             const match = String(text || '').match(/https?:\/\/[^\s]+|www\.[^\s]+/i);
@@ -1490,17 +1912,24 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
         async function typeTextEffect(elementId, text) {
             const element = document.getElementById(elementId);
-            if(!element) return;
-            const cleanText = cleanAIText(text);
+            if (!element) return;
+            const output = cleanAIText(text);
             element.textContent = '';
             element.classList.add('typing-cursor');
-            
-            for (let i = 0; i < cleanText.length; i++) {
-                element.textContent += cleanText.charAt(i);
-                const container = document.getElementById('chat-messages');
-                container.scrollTop = container.scrollHeight;
-                await new Promise(resolve => setTimeout(resolve, 10));
-            }
+            let index = 0;
+            const chunkSize = output.length > 700 ? 7 : output.length > 280 ? 4 : 2;
+
+            await new Promise((resolve) => {
+                const step = () => {
+                    index = Math.min(output.length, index + chunkSize);
+                    element.textContent = output.slice(0, index);
+                    const container = document.getElementById('chat-messages');
+                    if (container) container.scrollTop = container.scrollHeight;
+                    if (index < output.length) requestAnimationFrame(step);
+                    else resolve();
+                };
+                requestAnimationFrame(step);
+            });
             element.classList.remove('typing-cursor');
         }
 
@@ -1543,21 +1972,57 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             return element;
         }
 
+        function scoreStatus(score) {
+            if (typeof score !== 'number') return 'Belum tersedia';
+            if (score >= 90) return 'Sangat baik';
+            if (score >= 50) return 'Perlu ditingkatkan';
+            return 'Prioritas';
+        }
+
+        function metricTone(name, rawValue) {
+            const value = parseFloat(String(rawValue || '').replace(',', '.'));
+            if (!Number.isFinite(value)) return 'unknown';
+            if (name === 'CLS') return value <= 0.1 ? 'good' : value <= 0.25 ? 'medium' : 'low';
+            if (name === 'TBT') return value <= 200 ? 'good' : value <= 600 ? 'medium' : 'low';
+            if (name === 'LCP') return value <= 2.5 ? 'good' : value <= 4 ? 'medium' : 'low';
+            if (name === 'FCP') return value <= 1.8 ? 'good' : value <= 3 ? 'medium' : 'low';
+            if (name === 'SI') return value <= 3.4 ? 'good' : value <= 5.8 ? 'medium' : 'low';
+            return 'unknown';
+        }
+
         function renderAuditReport(audit, summaryText) {
             const container = document.getElementById('chat-messages');
             if (!container || !audit || !Array.isArray(audit.results)) return false;
 
             const wrapper = document.createElement('div');
-            wrapper.className = 'flex gap-2';
+            wrapper.className = 'audit-message-row';
             const report = document.createElement('article');
             report.className = 'audit-report-card bot-bubble';
 
             const head = document.createElement('header');
             head.className = 'audit-report-head';
-            head.appendChild(createTextElement('span', 'audit-report-kicker', 'PageSpeed + AI'));
-            head.appendChild(createTextElement('h3', 'audit-report-title', 'Laporan Performa Website'));
+            head.appendChild(createTextElement('span', 'audit-report-kicker', 'Website Intelligence'));
+            head.appendChild(createTextElement('h3', 'audit-report-title', 'Laporan Kesehatan Website'));
             head.appendChild(createTextElement('p', 'audit-report-url', audit.url || 'Website yang dianalisis'));
             report.appendChild(head);
+
+            if (audit.overview) {
+                const overview = document.createElement('section');
+                overview.className = 'audit-overview';
+                [
+                    ['Kondisi', audit.overview.status || 'Selesai dianalisis'],
+                    ['Prioritas', audit.overview.priority || 'Terukur'],
+                    ['Perangkat', audit.results.length === 2 ? 'Mobile & Desktop' : 'Perangkat tersedia'],
+                    ['Dibuat', audit.generatedLabel || 'Baru saja']
+                ].forEach(([label, value]) => {
+                    const card = document.createElement('div');
+                    card.className = 'audit-overview-card';
+                    card.appendChild(createTextElement('span', '', label));
+                    card.appendChild(createTextElement('strong', '', value));
+                    overview.appendChild(card);
+                });
+                report.appendChild(overview);
+            }
 
             const scoreLabels = [
                 ['performance', 'Performance'],
@@ -1565,51 +2030,106 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 ['bestPractices', 'Best Practices'],
                 ['seo', 'SEO']
             ];
+
             audit.results.forEach((result) => {
+                if (!result || result.error) return;
                 const section = document.createElement('section');
                 section.className = 'audit-device';
+
                 const deviceTitle = document.createElement('div');
                 deviceTitle.className = 'audit-device-title';
-                deviceTitle.appendChild(createTextElement('span', '', result.strategy === 'mobile' ? 'Mobile' : 'Desktop'));
-                deviceTitle.appendChild(createTextElement('span', '', result.strategy === 'mobile' ? 'Perangkat seluler' : 'Komputer'));
+                const deviceName = document.createElement('div');
+                deviceName.className = 'audit-device-name';
+                deviceName.appendChild(createTextElement('span', 'audit-device-dot', ''));
+                const deviceCopy = document.createElement('div');
+                deviceCopy.appendChild(createTextElement('span', '', result.strategy === 'mobile' ? 'Mobile' : 'Desktop'));
+                deviceCopy.appendChild(createTextElement('small', 'audit-device-subtitle', result.strategy === 'mobile' ? 'Simulasi perangkat seluler' : 'Simulasi komputer'));
+                deviceName.appendChild(deviceCopy);
+                deviceTitle.appendChild(deviceName);
+                deviceTitle.appendChild(createTextElement('span', 'audit-status-chip', result.coreWebVitals?.status || 'Audit selesai'));
                 section.appendChild(deviceTitle);
 
                 const grid = document.createElement('div');
                 grid.className = 'audit-score-grid';
                 scoreLabels.forEach(([key, label]) => {
                     const score = result.scores?.[key];
+                    const tone = scoreTone(score);
                     const card = document.createElement('div');
                     card.className = 'audit-score';
-                    card.appendChild(createTextElement('span', 'audit-score-label', label));
-                    card.appendChild(createTextElement('strong', `audit-score-value ${scoreTone(score)}`, typeof score === 'number' ? String(score) : '—'));
+                    const scoreHead = document.createElement('div');
+                    scoreHead.className = 'audit-score-head';
+                    scoreHead.appendChild(createTextElement('span', 'audit-score-label', label));
+                    scoreHead.appendChild(createTextElement('strong', `audit-score-value ${tone}`, typeof score === 'number' ? String(score) : '—'));
+                    card.appendChild(scoreHead);
+                    const track = document.createElement('div');
+                    track.className = 'audit-score-track';
+                    const fill = document.createElement('span');
+                    fill.className = `audit-score-fill ${tone}`;
+                    fill.style.width = `${typeof score === 'number' ? Math.max(0, Math.min(100, score)) : 0}%`;
+                    track.appendChild(fill);
+                    card.appendChild(track);
+                    card.appendChild(createTextElement('span', 'audit-score-label', scoreStatus(score)));
                     grid.appendChild(card);
                 });
                 section.appendChild(grid);
 
-                const metrics = document.createElement('div');
-                metrics.className = 'audit-metrics';
-                [['lcp','LCP'],['tbt','TBT'],['cls','CLS']].forEach(([key,label]) => {
-                    const metric = document.createElement('div');
-                    metric.className = 'audit-metric';
-                    metric.appendChild(createTextElement('strong', '', result.metrics?.[key] || '—'));
-                    metric.appendChild(createTextElement('span', '', label));
-                    metrics.appendChild(metric);
+                const vitals = document.createElement('div');
+                vitals.className = 'audit-vitals-grid';
+                [['lcp','LCP'],['cls','CLS'],['tbt','TBT'],['fcp','FCP'],['speedIndex','SI'],['ttfb','TTFB']].forEach(([key,label]) => {
+                    const raw = result.metrics?.[key] || '—';
+                    const tone = metricTone(label, raw);
+                    const card = document.createElement('div');
+                    card.className = 'audit-vital';
+                    const row = document.createElement('div');
+                    row.className = 'audit-vital-head';
+                    row.appendChild(createTextElement('strong', '', label));
+                    row.appendChild(createTextElement('span', `audit-vital-status vital-${tone}`, tone === 'good' ? 'Baik' : tone === 'medium' ? 'Perlu perhatian' : tone === 'low' ? 'Prioritas' : 'Data'));
+                    card.appendChild(row);
+                    card.appendChild(createTextElement('span', '', raw));
+                    vitals.appendChild(card);
                 });
-                section.appendChild(metrics);
+                section.appendChild(vitals);
                 report.appendChild(section);
             });
 
-            const allOpportunities = audit.results.flatMap((result) => result.opportunities || []);
+            const diagnosticSource = audit.results.find((result) => result && !result.error)?.diagnostics || {};
+            if (Object.keys(diagnosticSource).length) {
+                const diagnostics = document.createElement('section');
+                diagnostics.className = 'audit-diagnostics';
+                diagnostics.appendChild(createTextElement('h4', 'audit-section-label', 'Diagnostik Teknis'));
+                const grid = document.createElement('div');
+                grid.className = 'audit-diagnostic-grid';
+                [
+                    ['Berat Halaman', diagnosticSource.totalByteWeight],
+                    ['Request', diagnosticSource.requestCount],
+                    ['Ukuran DOM', diagnosticSource.domSize],
+                    ['Tugas Panjang', diagnosticSource.longTasks]
+                ].forEach(([label,value]) => {
+                    if (!value && value !== 0) return;
+                    const card = document.createElement('div');
+                    card.className = 'audit-diagnostic';
+                    card.appendChild(createTextElement('span', '', label));
+                    card.appendChild(createTextElement('strong', '', String(value)));
+                    grid.appendChild(card);
+                });
+                diagnostics.appendChild(grid);
+                report.appendChild(diagnostics);
+            }
+
+            const allOpportunities = audit.results.flatMap((result) => result?.opportunities || []);
             const unique = [];
             const seen = new Set();
             allOpportunities.forEach((item) => {
                 const key = String(item.title || '').toLowerCase();
-                if (key && !seen.has(key) && unique.length < 6) { seen.add(key); unique.push(item); }
+                if (key && !seen.has(key) && unique.length < 8) {
+                    seen.add(key);
+                    unique.push(item);
+                }
             });
             if (unique.length) {
                 const priorities = document.createElement('section');
                 priorities.className = 'audit-priorities';
-                priorities.appendChild(createTextElement('h4', 'audit-section-label', 'Prioritas Perbaikan'));
+                priorities.appendChild(createTextElement('h4', 'audit-section-label', 'Urutan Perbaikan'));
                 const list = document.createElement('div');
                 list.className = 'audit-priority-list';
                 unique.forEach((item) => {
@@ -1631,13 +2151,15 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
 
             const summary = document.createElement('section');
             summary.className = 'audit-ai-summary';
-            summary.appendChild(createTextElement('span', 'audit-section-label', 'Ringkasan AI'));
-            summary.appendChild(createTextElement('div', '', cleanAIText(summaryText) || 'Analisis berhasil diproses. Gunakan prioritas di atas sebagai urutan perbaikan utama.'));
+            summary.appendChild(createTextElement('span', 'audit-section-label', 'Analisis dan Rencana Tindakan'));
+            summary.appendChild(createTextElement('div', '', prepareAssistantText(summaryText) || audit.executiveSummary || 'Analisis berhasil diproses. Ikuti urutan perbaikan di atas mulai dari prioritas tertinggi.'));
             report.appendChild(summary);
 
             wrapper.appendChild(report);
             container.appendChild(wrapper);
-            container.scrollTop = Math.max(0, wrapper.offsetTop - container.offsetTop - 8);
+            requestAnimationFrame(() => {
+                wrapper.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            });
             return true;
         }
 
@@ -1645,23 +2167,29 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             e.preventDefault();
             const input = document.getElementById('chat-input');
             const submitBtn = document.querySelector('#chat-form button[type="submit"]');
-            let text = input.value.trim();
-            if(!text) return;
+            const text = input.value.trim();
+            if (!text) return;
 
+            const historyPayload = chatHistory.slice(-8);
             addMessageToUI('user', text);
+            chatHistory.push({ role: 'user', content: text });
             input.value = '';
             input.disabled = true;
             if (submitBtn) submitBtn.disabled = true;
-            
+
             const detectedUrl = extractUrlFromText(text);
             const loadingId = 'loading-' + Date.now();
             const container = document.getElementById('chat-messages');
-            const loadingText = detectedUrl ? 'AI sedang menganalisis performa website...' : 'AI sedang menjawab...';
-            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold"></i> ${loadingText}</div></div>`);
+            const loadingText = detectedUrl
+                ? 'Saya sedang meninjau kecepatan, pengalaman pengguna, SEO, dan kesehatan teknis website Anda. Proses ini dapat memerlukan sedikit waktu.'
+                : 'Saya sedang menyusun jawaban yang paling relevan untuk pertanyaan Anda.';
+            container.insertAdjacentHTML('beforeend', `<div id="${loadingId}" class="flex gap-2"><div class="bg-gray-100 p-3 rounded-xl bot-bubble text-xs leading-relaxed"><i class="fas fa-circle-notch fa-spin text-gold" aria-hidden="true"></i> ${loadingText}</div></div>`);
             container.scrollTop = container.scrollHeight;
 
             const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 45000);
+            const timeout = setTimeout(() => {
+                controller.abort();
+            }, detectedUrl ? 110000 : 60000);
 
             try {
                 const response = await fetch(CHATBOT_AI_ENDPOINT, {
@@ -1670,103 +2198,110 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                     body: JSON.stringify({
                         message: text,
                         url: detectedUrl,
-                        page: 'portfolio-faqihalrf',
-                        instruction: 'Jawab sebagai AI assistant Muhammad Faqih Al Rifai dalam bahasa Indonesia yang natural, rapi, tanpa markdown bintang, tanpa simbol **, dan tetap profesional. Jika user mengirim URL, berikan laporan performa website yang ringkas, jelas, dan actionable.'
+                        history: historyPayload,
+                        page: 'portfolio-faqihalrf'
                     }),
                     signal: controller.signal
                 });
-                clearTimeout(timeout);
-                
-                const loadingEl = document.getElementById(loadingId);
-                if (loadingEl) loadingEl.remove();
-                
-                let data = null;
-                try { data = await response.json(); } catch (_) { data = await response.text(); }
+
+                let data;
+                const responseText = await response.text();
+                try { data = responseText ? JSON.parse(responseText) : {}; }
+                catch (_) { data = { reply: responseText }; }
 
                 if (!response.ok) {
-                    const errorMessage = getAIReplyFromPayload(data) || `Netlify Function error ${response.status}`;
-                    throw new Error(errorMessage);
+                    throw new Error(getAIReplyFromPayload(data) || 'Layanan analisis belum dapat menyelesaikan permintaan.');
                 }
 
-                const aiReply = cleanAIText(getAIReplyFromPayload(data));
-                if (!aiReply && !data?.audit) throw new Error('Backend AI belum mengirim hasil analisis.');
+                const aiReply = prepareAssistantText(getAIReplyFromPayload(data));
+                if (!aiReply && !data?.audit) throw new Error('Hasil analisis belum tersedia.');
 
                 if (data?.audit) {
                     renderAuditReport(data.audit, aiReply);
+                    const auditMemory = aiReply || `Analisis website selesai untuk ${data.audit.url || detectedUrl}.`;
+                    chatHistory.push({ role: 'assistant', content: auditMemory });
+                    lastAssistantReply = auditMemory;
                 } else {
                     const bubbleId = addMessageToUI('bot', '', true);
                     await typeTextEffect(bubbleId, aiReply);
+                    chatHistory.push({ role: 'assistant', content: aiReply });
+                    lastAssistantReply = aiReply;
                 }
-            } catch(err) {
-                clearTimeout(timeout);
-                const loadingEl = document.getElementById(loadingId);
-                if (loadingEl) loadingEl.remove();
+            } catch (err) {
+                const isTimeout = err?.name === 'AbortError' || err?.name === 'TimeoutError' || controller.signal.aborted;
+                const friendlyMessage = isTimeout
+                    ? 'Pemeriksaan website membutuhkan waktu lebih lama dari biasanya. Silakan coba sekali lagi dalam beberapa saat; saya akan melanjutkan dengan data yang tersedia tanpa mengulang penjelasan sebelumnya.'
+                    : 'Permintaan belum dapat diproses saat ini. Pastikan alamat website dapat dibuka secara publik, lalu coba kembali beberapa saat lagi.';
                 const bubbleId = addMessageToUI('bot', '', true);
-                await typeTextEffect(bubbleId, 'Maaf, koneksi AI/PageSpeed sedang belum tersambung. Pastikan Netlify Function index-bot berhasil deploy serta env GROQ_API_KEY dan PGSPEED_API_KEY sudah terpasang.');
-                console.warn('Chatbot AI error:', err);
+                await typeTextEffect(bubbleId, friendlyMessage);
+                
             } finally {
+                clearTimeout(timeout);
+                document.getElementById(loadingId)?.remove();
                 input.disabled = false;
                 if (submitBtn) submitBtn.disabled = false;
                 input.focus();
             }
         }
 
-        /* --- DUAL HIGH-PERFORMANCE SEO-FRIENDLY TYPING EFFECT ON LOAD --- */
+        /* --- STABLE TYPING EFFECT: ruang teks tidak berubah, sehingga CLS tetap rendah --- */
         function startHeroTypingEffect() {
             const titleEl = document.getElementById('hero-title-typed');
             const descEl = document.getElementById('hero-desc-typed');
-            if (!titleEl || !descEl) return;
+            if (!titleEl || !descEl || titleEl.dataset.typingReady === 'true') return;
+            titleEl.dataset.typingReady = 'true';
 
-            const originalTitleHTML = titleEl.innerHTML;
-            const originalDescText = descEl.textContent.trim();
+            const titleHTML = titleEl.innerHTML.trim();
+            const descText = descEl.textContent.trim();
 
-            titleEl.innerHTML = '';
+            const titleGhost = document.createElement('span');
+            titleGhost.className = 'hero-type-ghost';
+            titleGhost.innerHTML = titleHTML;
+            const titleOverlay = document.createElement('span');
+            titleOverlay.className = 'hero-type-overlay';
+            titleOverlay.setAttribute('aria-hidden', 'true');
+            titleEl.textContent = '';
+            titleEl.classList.add('hero-type-shell');
+            titleEl.append(titleGhost, titleOverlay);
+
+            const descGhost = document.createElement('span');
+            descGhost.className = 'hero-type-ghost';
+            descGhost.textContent = descText;
+            const descOverlay = document.createElement('span');
+            descOverlay.className = 'hero-type-overlay';
+            descOverlay.setAttribute('aria-hidden', 'true');
             descEl.textContent = '';
+            descEl.classList.add('hero-type-shell');
+            descEl.append(descGhost, descOverlay);
 
-            let titlePart1 = "Digital ";
-            let titlePart2 = "Marketer.";
-            let currentHTML = "";
-            let i = 0;
-
-            function typePart1() {
-                if (i < titlePart1.length) {
-                    currentHTML += titlePart1.charAt(i);
-                    titleEl.innerHTML = currentHTML + '<span class="typing-cursor"></span>';
-                    i++;
-                    setTimeout(typePart1, 70);
+            const titlePlain = 'Digital Marketer.';
+            let titleIndex = 0;
+            const typeTitle = () => {
+                titleIndex += 1;
+                const visible = titlePlain.slice(0, titleIndex);
+                const first = visible.slice(0, Math.min(8, visible.length));
+                const second = visible.length > 8 ? visible.slice(8) : '';
+                titleOverlay.textContent = '';
+                titleOverlay.append(document.createTextNode(first));
+                if (second) {
+                    const accent = document.createElement('span');
+                    accent.className = 'text-darkGold italic';
+                    accent.textContent = second;
+                    titleOverlay.appendChild(accent);
+                }
+                if (titleIndex < titlePlain.length) {
+                    setTimeout(typeTitle, titleIndex <= 8 ? 58 : 70);
                 } else {
-                    let j = 0;
-                    currentHTML += '<span class="text-darkGold italic">';
-                    function typePart2() {
-                        if (j < titlePart2.length) {
-                            titleEl.innerHTML = currentHTML + titlePart2.substring(0, j + 1) + '</span><span class="typing-cursor"></span>';
-                            j++;
-                            setTimeout(typePart2, 90);
-                        } else {
-                            titleEl.innerHTML = originalTitleHTML; // Restore full markup for perfect CSS sizing
-                            typeDesc();
-                        }
-                    }
-                    typePart2();
+                    let descIndex = 0;
+                    const typeDesc = () => {
+                        descIndex = Math.min(descText.length, descIndex + 3);
+                        descOverlay.textContent = descText.slice(0, descIndex);
+                        if (descIndex < descText.length) setTimeout(typeDesc, 16);
+                    };
+                    typeDesc();
                 }
-            }
-
-            let d = 0;
-            function typeDesc() {
-                descEl.classList.add('typing-cursor');
-                function type() {
-                    if (d < originalDescText.length) {
-                        descEl.textContent += originalDescText.charAt(d);
-                        d++;
-                        setTimeout(type, 8); // Ultra fast typing layout for lengthy descriptions
-                    } else {
-                        descEl.classList.remove('typing-cursor');
-                    }
-                }
-                type();
-            }
-
-            typePart1();
+            };
+            typeTitle();
         }
 
         window.handleBloggerData = function(data) {
@@ -1784,7 +2319,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 };
                 document.body.appendChild(script);
             } catch (error) {
-                console.error('Error memuat script blog:', error);
+                
             }
         }
 
@@ -1822,7 +2357,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                             <h3 class="text-xl font-bold font-serif text-darkBlack mb-2 line-clamp-2 group-hover:text-gold transition-colors leading-snug">${title}</h3>
                             <p class="text-[14px] text-textGray mb-5 line-clamp-3 font-sans leading-relaxed flex-grow">${excerpt}</p>
                             <a href="${link}" target="_blank" rel="noopener noreferrer nofollow" class="mt-auto w-full flex items-center justify-center py-3 bg-gold text-white border border-gold font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-gold transition-colors font-sans shadow-sm" aria-label="Baca selengkapnya tentang ${title}">
-                                Baca Artikel Ini <span class="sr-only"> ${title}</span> <i class="fas fa-arrow-right"></i>
+                                Baca Artikel <span class="sr-only"> ${title}</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1831,51 +2366,57 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
             triggerReveal();
         }
 
+        let revealObserver = null;
         function triggerReveal() {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+            const elements = document.querySelectorAll('.reveal:not([data-reveal-observed])');
+            if (!elements.length) return;
+            if (!('IntersectionObserver' in window)) {
+                elements.forEach((element) => {
+                    element.dataset.revealObserved = 'true';
+                    element.classList.add('active');
+                });
+                return;
+            }
+            if (!revealObserver) {
+                revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -48px 0px', threshold: 0.04 });
+            }
+            elements.forEach((element) => {
+                element.dataset.revealObserved = 'true';
+                revealObserver.observe(element);
             });
         }
 
         let scrollTimeout;
+        let scrollUiFrame = 0;
         window.addEventListener('scroll', () => {
-            const widget = document.querySelector('.scroll-widget');
-            if(widget) {
-                if (window.scrollY > 300) {
-                    widget.classList.add('visible');
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
+            if (scrollUiFrame) return;
+            scrollUiFrame = requestAnimationFrame(() => {
+                const widget = document.querySelector('.scroll-widget');
+                if (widget) {
+                    if (window.scrollY > 300) {
+                        widget.classList.add('visible');
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => widget.classList.remove('visible'), 2000);
+                    } else {
                         widget.classList.remove('visible');
-                    }, 2000); 
-                } else {
-                    widget.classList.remove('visible');
+                    }
                 }
-            }
-            triggerReveal();
+                scrollUiFrame = 0;
+            });
         }, { passive: true });
 
         function animateCounters() {
-            document.querySelectorAll('.counter').forEach(counter => {
-                const target = +counter.getAttribute('data-target');
+            document.querySelectorAll('.counter').forEach((counter) => {
+                const target = counter.getAttribute('data-target') || '0';
                 const suffix = counter.getAttribute('data-suffix') || '';
-                const duration = 2000; 
-                const step = target / (duration / 16);
-                let current = 0;
-                
-                const update = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.innerText = Math.ceil(current) + suffix;
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.innerText = target + suffix;
-                    }
-                };
-                
-                const observer = new IntersectionObserver(entries => {
-                    if(entries[0].isIntersecting) { update(); observer.disconnect(); }
-                });
-                observer.observe(counter);
+                counter.textContent = target + suffix;
             });
         }
 
@@ -1893,7 +2434,7 @@ body.chat-is-resizing,body.chat-is-resizing *{user-select:none!important;cursor:
                 const playPromise = vid.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.warn("Autoplay ditolak.");
+                        
                     });
                 }
             } else {
